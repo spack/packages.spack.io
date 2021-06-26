@@ -1,0 +1,154 @@
+{
+    "name": "cgal",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "5.0.3",
+            "sha256": "e5a3672e35e5e92e3c1b4452cd3c1d554f3177dc512bd98b29edf21866a4288c"
+        },
+        {
+            "name": "5.0",
+            "sha256": "e1e7e932988c5d149aa471c1afd69915b7603b5b31b9b317a0debb20ecd42dcc"
+        },
+        {
+            "name": "4.13",
+            "sha256": "3e3dd7a64febda58be54c3cbeba329ab6a73b72d4d7647ba4931ecd1fad0e3bc"
+        },
+        {
+            "name": "4.12",
+            "sha256": "442ef4fffb2ad6e4141e5a7902993ae6a4e73f7cb641fae1010bb586f6ca5e3f"
+        },
+        {
+            "name": "4.11",
+            "sha256": "27a7762e5430f5392a1fe12a3a4abdfe667605c40224de1c6599f49d66cfbdd2"
+        },
+        {
+            "name": "4.9.1",
+            "sha256": "56557da971b5310c2678ffc5def4109266666ff3adc7babbe446797ee2b90cca"
+        },
+        {
+            "name": "4.9",
+            "sha256": "63ac5df71f912f34f2f0f2e54a303578df51f4ec2627db593a65407d791f9039"
+        },
+        {
+            "name": "4.7",
+            "sha256": "50bd0a1cad7a8957b09012f831eebaf7d670e2a3467e8f365ec0c71fa5436369"
+        },
+        {
+            "name": "4.6.3",
+            "sha256": "e338027b8767c0a7a6e4fd8679182d1b83b5b1a0da0a1fe4546e7c0ca094fc21"
+        }
+    ],
+    "build_system": "CMakePackage",
+    "conflicts": [
+        {
+            "name": "+ipo",
+            "spec": "^cmake@:3.8",
+            "description": "+ipo is not supported by CMake < 3.9"
+        },
+        {
+            "name": "~header_only",
+            "spec": "@:4.9",
+            "description": "Header only builds became optional in 4.9, default thereafter"
+        }
+    ],
+    "variants": [
+        {
+            "name": "build_type",
+            "default": "Release",
+            "description": "The build type to build"
+        },
+        {
+            "name": "ipo",
+            "default": false,
+            "description": "CMake interprocedural optimization"
+        },
+        {
+            "name": "shared",
+            "default": true,
+            "description": "Enables the build of shared libraries"
+        },
+        {
+            "name": "header_only",
+            "default": false,
+            "description": "Install in header only mode"
+        },
+        {
+            "name": "core",
+            "default": false,
+            "description": "Build the CORE library for algebraic numbers"
+        },
+        {
+            "name": "imageio",
+            "default": false,
+            "description": "Build utilities to read/write image files"
+        },
+        {
+            "name": "demos",
+            "default": false,
+            "description": "Build CGAL demos"
+        },
+        {
+            "name": "eigen",
+            "default": true,
+            "description": "Build with Eigen support"
+        }
+    ],
+    "homepage": "http://www.cgal.org/",
+    "maintainers": [],
+    "patches": [],
+    "resources": [],
+    "description": "The Computational Geometry Algorithms Library (CGAL) is a C++ library\nthat aims to provide easy access to efficient and reliable algorithms in\ncomputational geometry. CGAL is used in various areas needing geometric\ncomputation, such as geographic information systems, computer aided\ndesign, molecular biology, medical imaging, computer graphics, and\nrobotics.\n",
+    "dependencies": [
+        {
+            "name": "cmake",
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
+        },
+        {
+            "name": "boost",
+            "description": "Boost provides free peer-reviewed portable C++ source libraries,\nemphasizing libraries that work well with the C++ Standard Library.\nBoost libraries are intended to be widely useful, and usable across a\nbroad spectrum of applications. The Boost license encourages both\ncommercial and non-commercial use."
+        },
+        {
+            "name": "gmp",
+            "description": "GMP is a free library for arbitrary precision arithmetic, operating on\nsigned integers, rational numbers, and floating-point numbers."
+        },
+        {
+            "name": "mpfr",
+            "description": "The MPFR library is a C library for multiple-precision floating-point\ncomputations with correct rounding."
+        },
+        {
+            "name": "zlib",
+            "description": "A free, general-purpose, legally unencumbered lossless data-compression\nlibrary."
+        },
+        {
+            "name": "qt",
+            "description": "Qt is a comprehensive cross-platform C++ application framework."
+        },
+        {
+            "name": "eigen",
+            "description": "Eigen is a C++ template library for linear algebra matrices, vectors,\nnumerical solvers, and related algorithms."
+        }
+    ],
+    "dependent_to": [
+        {
+            "name": "memsurfer",
+            "description": "MemSurfer is a tool to compute and analyze membrane surfaces found in a\nwide variety of large-scale molecular simulations."
+        },
+        {
+            "name": "3dtk",
+            "description": "The 3D Toolkit provides algorithms and methods to process 3D point\nclouds. It includes automatic high-accurate registration (6D\nsimultaneous localization and mapping, 6D SLAM) and other tools, e.g., a\nfast 3D viewer, plane extraction software, etc. Several file formats for\nthe point clouds are natively supported, new formats can be implemented\neasily."
+        },
+        {
+            "name": "openfoam",
+            "description": "OpenFOAM is a GPL-opensource C++ CFD-toolbox. This offering is supported\nby OpenCFD Ltd, producer and distributor of the OpenFOAM software via\nwww.openfoam.com, and owner of the OPENFOAM trademark. OpenCFD Ltd has\nbeen developing and releasing OpenFOAM since its debut in 2004."
+        },
+        {
+            "name": "sfcgal",
+            "description": "SFCGAL is a C++ wrapper library around CGAL with the aim of supporting\nISO 19107:2013 and OGC Simple Features Access 1.2 for 3D operations.\nSFCGAL provides standard compliant geometry types and operations, that\ncan be accessed from its C or C++ APIs."
+        },
+        {
+            "name": "gplates",
+            "description": "GPlates is desktop software for the interactive visualisation of plate-\ntectonics. GPlates offers a novel combination of interactive plate-\ntectonic reconstructions, geographic information system (GIS)\nfunctionality and raster data visualisation. GPlates enables both the\nvisualisation and the manipulation of plate-tectonic reconstructions and\nassociated data through geological time."
+        }
+    ]
+}

@@ -1,0 +1,106 @@
+{
+    "name": "rccl",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "4.2.0",
+            "sha256": "2829fae40ebc1d8be201856d2193a941c87e9cf38dca0a2f4414e675c1742f20"
+        },
+        {
+            "name": "4.1.0",
+            "sha256": "88ec9b43c31cb054fe6aa28bcc0f4b510213635268f951939d6980eee5bb3680"
+        },
+        {
+            "name": "4.0.0",
+            "sha256": "0632a15b3d6b5981c05377cf4aeb51546f4c4901fd7c37fb0c98071851ad531a"
+        },
+        {
+            "name": "3.10.0",
+            "sha256": "d9dd0b0d8b9d056fc5e6c7b814520800190952acd30dac3a7c462c4cb6f42bb3"
+        },
+        {
+            "name": "3.9.0",
+            "sha256": "ff9d03154d668093309ff814a33788f2cc093b3c627e78e42ae246e6017408b0"
+        },
+        {
+            "name": "3.8.0",
+            "sha256": "0b6676d06bdb1f65d511a95db9f842a3443def83d75759dfdf812b5e62d8c910"
+        },
+        {
+            "name": "3.7.0",
+            "sha256": "8273878ff71aac2e7adf5cc8562d2933034c6c6b3652f88fbe3cd4f2691036e3"
+        },
+        {
+            "name": "3.5.0",
+            "sha256": "290b57a66758dce47d0bfff3f5f8317df24764e858af67f60ddcdcadb9337253"
+        }
+    ],
+    "build_system": "CMakePackage",
+    "conflicts": [
+        {
+            "name": "+ipo",
+            "spec": "^cmake@:3.8",
+            "description": "+ipo is not supported by CMake < 3.9"
+        }
+    ],
+    "variants": [
+        {
+            "name": "build_type",
+            "default": "RelWithDebInfo",
+            "description": "CMake build type"
+        },
+        {
+            "name": "ipo",
+            "default": false,
+            "description": "CMake interprocedural optimization"
+        }
+    ],
+    "homepage": "https://github.com/RadeonOpenCompute/rccl",
+    "maintainers": [
+        "srekolam",
+        "arjun-raj-kuppala"
+    ],
+    "patches": [
+        {
+            "owner": "builtin.rccl",
+            "sha256": "05d41acad39e913f73a9739d1f4ce522fa8fd54a994e2f372a5de029b8300f10",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "0001-Fix-numactl-path-issue.patch",
+            "version": "@3.7.0:"
+        }
+    ],
+    "resources": [],
+    "description": "RCCL (pronounced \"Rickle\") is a stand-alone library of standard\ncollective communication routines for GPUs, implementing all-reduce,\nall-gather, reduce, broadcast, and reduce-scatter.\n",
+    "dependencies": [
+        {
+            "name": "cmake",
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
+        },
+        {
+            "name": "rocm-cmake",
+            "description": "ROCM cmake modules provides cmake modules for common build tasks needed\nfor the ROCM software stack"
+        },
+        {
+            "name": "hip",
+            "description": "HIP is a C++ Runtime API and Kernel Language that allows developers to\ncreate portable applications for AMD and NVIDIA GPUs from single source\ncode."
+        },
+        {
+            "name": "comgr",
+            "description": "This provides various Lightning Compiler related services. It currently\ncontains one library, the Code Object Manager (Comgr)"
+        },
+        {
+            "name": "hsa-rocr-dev",
+            "description": "This repository includes the user mode API nterfaces and libraries\nnecessary for host applications to launch computer kernels to available\nHSA ROCm kernel agents.AMD Heterogeneous System Architecture HSA - Linux\nHSA Runtime for Boltzmann (ROCm) platforms."
+        },
+        {
+            "name": "numactl",
+            "description": "NUMA support for Linux"
+        },
+        {
+            "name": "hip-rocclr",
+            "description": "Hip-ROCclr is a virtual device interface that compute runtimes interact\nwith to different backends such as ROCr or PAL This abstraction allows\nruntimes to work on Windows as well as on Linux without much effort."
+        }
+    ],
+    "dependent_to": []
+}

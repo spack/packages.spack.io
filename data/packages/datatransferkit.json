@@ -1,0 +1,83 @@
+{
+    "name": "datatransferkit",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "master",
+            "branch": "master",
+            "submodules": true
+        },
+        {
+            "name": "3.1-rc2",
+            "commit": "1abc1a43b33dffc7a16d7497b4185d09d865e36a",
+            "submodules": true
+        }
+    ],
+    "build_system": "CMakePackage",
+    "conflicts": [
+        {
+            "name": "+ipo",
+            "spec": "^cmake@:3.8",
+            "description": "+ipo is not supported by CMake < 3.9"
+        }
+    ],
+    "variants": [
+        {
+            "name": "build_type",
+            "default": "RelWithDebInfo",
+            "description": "CMake build type"
+        },
+        {
+            "name": "ipo",
+            "default": false,
+            "description": "CMake interprocedural optimization"
+        },
+        {
+            "name": "external-arborx",
+            "default": false,
+            "description": "use an external ArborX library instead of the submodule"
+        },
+        {
+            "name": "openmp",
+            "default": false,
+            "description": "enable OpenMP backend"
+        },
+        {
+            "name": "serial",
+            "default": true,
+            "description": "enable Serial backend (default)"
+        },
+        {
+            "name": "shared",
+            "default": true,
+            "description": "enable the build of shared lib"
+        }
+    ],
+    "homepage": "https://datatransferkit.readthedoc.io",
+    "maintainers": [
+        "Rombur"
+    ],
+    "patches": [],
+    "resources": [],
+    "description": "DataTransferKit is an open-source software library of parallel solution\ntransfer services for multiphysics simulations\n",
+    "dependencies": [
+        {
+            "name": "cmake",
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
+        },
+        {
+            "name": "arborx",
+            "description": "ArborX is a performance-portable library for geometric search"
+        },
+        {
+            "name": "trilinos",
+            "description": "The Trilinos Project is an effort to develop algorithms and enabling\ntechnologies within an object-oriented software framework for the\nsolution of large-scale, complex multi-physics engineering and\nscientific problems. A unique design feature of Trilinos is its focus on\npackages."
+        }
+    ],
+    "dependent_to": [
+        {
+            "name": "xsdk",
+            "description": "Xsdk is a suite of Department of Energy (DOE) packages for numerical\nsimulation. This is a Spack bundle package that installs the xSDK\npackages"
+        }
+    ]
+}

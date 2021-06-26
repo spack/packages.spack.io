@@ -1,0 +1,102 @@
+{
+    "name": "bml",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "develop",
+            "branch": "master"
+        },
+        {
+            "name": "1.3.1",
+            "sha256": "17145eda96aa5e550dcbff1ee7ce62b45723af8210b1ab70c5975ec792fa3d13"
+        },
+        {
+            "name": "1.3.0",
+            "sha256": "d9465079fe77210eb2af2dcf8ed96802edf5bb76bfbfdbcc97e206c8cd460b07"
+        },
+        {
+            "name": "1.2.3",
+            "sha256": "9a2ee6c47d2445bfdb34495497ea338a047e9e4767802af47614d9ff94b0c523"
+        },
+        {
+            "name": "1.2.2",
+            "sha256": "89ab78f9fe8395fe019cc0495a1d7b69875b5708069faeb831ddb9a6a9280a8a"
+        },
+        {
+            "name": "1.1.0",
+            "sha256": "29162f1f7355ad28b44d3358206ccd3c7ac7794ee13788483abcbd2f8063e7fc"
+        }
+    ],
+    "build_system": "CMakePackage",
+    "conflicts": [
+        {
+            "name": "+ipo",
+            "spec": "^cmake@:3.8",
+            "description": "+ipo is not supported by CMake < 3.9"
+        },
+        {
+            "name": "+mpi",
+            "spec": "@:1.2.2",
+            "description": "None"
+        }
+    ],
+    "variants": [
+        {
+            "name": "build_type",
+            "default": "RelWithDebInfo",
+            "description": "CMake build type"
+        },
+        {
+            "name": "ipo",
+            "default": false,
+            "description": "CMake interprocedural optimization"
+        },
+        {
+            "name": "shared",
+            "default": true,
+            "description": "Build shared libs"
+        },
+        {
+            "name": "mpi",
+            "default": true,
+            "description": "Build with MPI Support"
+        }
+    ],
+    "homepage": "http://lanl.github.io/bml/",
+    "maintainers": [],
+    "patches": [],
+    "resources": [],
+    "description": "The basic matrix library (bml) is a collection of various matrix data\nformats (in dense and sparse) and their associated algorithms for basic\nmatrix operations.\n",
+    "dependencies": [
+        {
+            "name": "cmake",
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
+        },
+        {
+            "name": "blas",
+            "description": "Intel oneAPI MKL."
+        },
+        {
+            "name": "lapack",
+            "description": "Intel oneAPI MKL."
+        },
+        {
+            "name": "mpi",
+            "description": "MVAPICH2-X is the advanced version of the MVAPICH2 MPI library with\nenhanced features (UMR, ODP, DC, Core-Direct, SHARP, XPMEM), OSU INAM\n(InifniBand Network Monitoring and Analysis),PGAS (OpenSHMEM, UPC,\nUPC++, and CAF), and MPI+PGAS programming models with unified\ncommunication runtime. MVAPICH2-X is not installable from source and is\nonly available through a binary mirror. If you do not find the binary\nyou're looking for, send us an email at mvapich@cse.ohio-state.edu. The\nbinary mirror url is: http://mvapich.cse.ohio-\nstate.edu/download/mvapich/spack-mirror/mvapich2x/"
+        },
+        {
+            "name": "python",
+            "description": "The Python programming language."
+        }
+    ],
+    "dependent_to": [
+        {
+            "name": "exasp2",
+            "description": "ExaSP2 is a reference implementation of typical linear algebra\nalgorithms and workloads for a quantum molecular dynamics (QMD)\nelectronic structure code. The algorithm is based on a recursive second-\norder Fermi-Operator expansion method (SP2) and is tailored for density\nfunctional based tight-binding calculations of material systems. The SP2\nalgorithm variants are part of the Los Alamos Transferable Tight-binding\nfor Energetics (LATTE) code, based on a matrix expansion of the Fermi\noperator in a recursive series of generalized matrix-matrix\nmultiplications. It is created and maintained by Co-Design Center for\nParticle Applications (CoPA). The code is intended to serve as a vehicle\nfor co-design by allowing others to extend and/or reimplement as needed\nto test performance of new architectures, programming models, etc."
+        },
+        {
+            "name": "qmd-progress",
+            "description": "PROGRESS: Parallel, Rapid O(N) and Graph-based Recursive Electronic\nStructure Solver. This library is focused on the development of general\nsolvers that are commonly used in quantum chemistry packages."
+        }
+    ]
+}

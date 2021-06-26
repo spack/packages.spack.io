@@ -1,0 +1,148 @@
+{
+    "name": "rocksdb",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "master",
+            "git": "https://github.com/facebook/rocksdb.git",
+            "branch": "master",
+            "submodules": true
+        },
+        {
+            "name": "6.20.3",
+            "sha256": "c6502c7aae641b7e20fafa6c2b92273d935d2b7b2707135ebd9a67b092169dca"
+        },
+        {
+            "name": "6.19.3",
+            "sha256": "5c19ffefea2bbe4c275d0c60194220865f508f371c64f42e802b4a85f065af5b"
+        },
+        {
+            "name": "6.11.4",
+            "sha256": "6793ef000a933af4a834b59b0cd45d3a03a3aac452a68ae669fb916ddd270532"
+        },
+        {
+            "name": "6.7.3",
+            "sha256": "c4d1397b58e4801b5fd7c3dd9175e6ae84541119cbebb739fe17d998f1829e81"
+        },
+        {
+            "name": "6.5.3",
+            "sha256": "6dc023a11d61d00c8391bd44f26ba7db06c44be228c10b552edc84e02d7fbde2"
+        },
+        {
+            "name": "5.18.3",
+            "sha256": "7fb6738263d3f2b360d7468cf2ebe333f3109f3ba1ff80115abd145d75287254"
+        },
+        {
+            "name": "5.17.2",
+            "sha256": "101f05858650a810c90e4872338222a1a3bf3b24de7b7d74466814e6a95c2d28"
+        },
+        {
+            "name": "5.16.6",
+            "sha256": "f0739edce1707568bdfb36a77638fd5bae287ca21763ce3e56cf0bfae8fff033"
+        },
+        {
+            "name": "5.15.10",
+            "sha256": "26d5d4259fa352ae1604b5b4d275f947cacc006f4f7d2ef0b815056601b807c0"
+        }
+    ],
+    "build_system": "MakefilePackage",
+    "conflicts": [
+        {
+            "name": "~shared~static",
+            "spec": "",
+            "description": "have to build one type of library"
+        }
+    ],
+    "variants": [
+        {
+            "name": "bz2",
+            "default": false,
+            "description": "Enable bz2 compression support"
+        },
+        {
+            "name": "lz4",
+            "default": true,
+            "description": "Enable lz4 compression support"
+        },
+        {
+            "name": "shared",
+            "default": true,
+            "description": "Build shared library"
+        },
+        {
+            "name": "snappy",
+            "default": false,
+            "description": "Enable snappy compression support"
+        },
+        {
+            "name": "static",
+            "default": true,
+            "description": "Build static library"
+        },
+        {
+            "name": "zlib",
+            "default": true,
+            "description": "Enable zlib compression support"
+        },
+        {
+            "name": "zstd",
+            "default": false,
+            "description": "Enable zstandard compression support"
+        },
+        {
+            "name": "tbb",
+            "default": false,
+            "description": "Enable Intel TBB support"
+        }
+    ],
+    "homepage": "https://github.com/facebook/rocksdb",
+    "maintainers": [],
+    "patches": [
+        {
+            "owner": "builtin.rocksdb",
+            "sha256": "9a8833a09a0d6fb7b3fcf77e445b78ca86fb0a3638c1b9ef3716ff476eb6a82c",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "pkg-config.patch",
+            "version": "@6.13.2:"
+        }
+    ],
+    "resources": [],
+    "description": "RocksDB: A Persistent Key-Value Store for Flash and RAM Storage\n",
+    "dependencies": [
+        {
+            "name": "bzip2",
+            "description": "bzip2 is a freely available, patent free high-quality data compressor.\nIt typically compresses files to within 10% to 15% of the best available\ntechniques (the PPM family of statistical compressors), whilst being\naround twice as fast at compression and six times faster at\ndecompression."
+        },
+        {
+            "name": "gflags",
+            "description": "The gflags package contains a C++ library that implements commandline\nflags processing. It includes built-in support for standard types such\nas string and the ability to define flags in the source file in which\nthey are used. Online documentation available at:\nhttps://gflags.github.io/gflags/"
+        },
+        {
+            "name": "lz4",
+            "description": "LZ4 is lossless compression algorithm, providing compression speed at\n400 MB/s per core, scalable with multi-cores CPU. It also features an\nextremely fast decoder, with speed in multiple GB/s per core, typically\nreaching RAM speed limits on multi-core systems."
+        },
+        {
+            "name": "snappy",
+            "description": "A fast compressor/decompressor: https://code.google.com/p/snappy"
+        },
+        {
+            "name": "zlib",
+            "description": "A free, general-purpose, legally unencumbered lossless data-compression\nlibrary."
+        },
+        {
+            "name": "zstd",
+            "description": "Zstandard, or zstd as short version, is a fast lossless compression\nalgorithm, targeting real-time compression scenarios at zlib-level and\nbetter compression ratios."
+        },
+        {
+            "name": "tbb",
+            "description": "Intel Parallel Studio."
+        }
+    ],
+    "dependent_to": [
+        {
+            "name": "julea",
+            "description": "JULEA is a flexible storage framework that allows offering arbitrary I/O\ninterfaces to applications. To be able to rapidly prototype new\napproaches, it offers object, key-value and database backends. Support\nfor popular storage technologies such as POSIX, LevelDB and MongoDB is\nalready included."
+        }
+    ]
+}

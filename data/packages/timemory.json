@@ -1,0 +1,414 @@
+{
+    "name": "timemory",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "master",
+            "branch": "master",
+            "submodules": true
+        },
+        {
+            "name": "develop",
+            "branch": "develop",
+            "submodules": true
+        },
+        {
+            "name": "3.0.1",
+            "commit": "ef638e1cde90275ce7c0e12fc4902c27bcbdeefd",
+            "submodules": true
+        },
+        {
+            "name": "3.0.0",
+            "commit": "b36b1673b2c6b7ff3126d8261bef0f8f176c7beb",
+            "submodules": true
+        }
+    ],
+    "build_system": "CMakePackage",
+    "conflicts": [
+        {
+            "name": "+ipo",
+            "spec": "^cmake@:3.8",
+            "description": "+ipo is not supported by CMake < 3.9"
+        },
+        {
+            "name": "+python",
+            "spec": "~shared",
+            "description": "+python requires building shared libraries"
+        },
+        {
+            "name": "+python_deps",
+            "spec": "~python",
+            "description": "None"
+        },
+        {
+            "name": "+cupti",
+            "spec": "~cuda",
+            "description": "CUPTI requires CUDA"
+        },
+        {
+            "name": "+kokkos_tools",
+            "spec": "~tools",
+            "description": "+kokkos_tools requires +tools"
+        },
+        {
+            "name": "+kokkos_build_config",
+            "spec": "~tools",
+            "description": "+kokkos_build_config requires +tools"
+        },
+        {
+            "name": "+kokkos_build_config",
+            "spec": "~kokkos_tools",
+            "description": "+kokkos_build_config requires +kokkos_tools"
+        },
+        {
+            "name": "tls_model=local-dynamic",
+            "spec": "+python",
+            "description": "+python require tls_model=global-dynamic"
+        },
+        {
+            "name": "tls_model=initial-exec",
+            "spec": "+python",
+            "description": "+python require tls_model=global-dynamic"
+        },
+        {
+            "name": "tls_model=local-exec",
+            "spec": "+python",
+            "description": "+python require tls_model=global-dynamic"
+        },
+        {
+            "name": "+nccl",
+            "spec": "~gotcha",
+            "description": "+nccl requires +gotcha"
+        },
+        {
+            "name": "+mpip_library",
+            "spec": "~mpi",
+            "description": "+mpip_library requires +mpi"
+        },
+        {
+            "name": "+mpip_library",
+            "spec": "~gotcha",
+            "description": "+mpip_library requires +gotcha"
+        },
+        {
+            "name": "+mpip_library",
+            "spec": "~shared",
+            "description": "+mpip_library requires building shared libraries"
+        },
+        {
+            "name": "+ompt_standalone",
+            "spec": "~ompt",
+            "description": "+ompt_standalone requires +ompt"
+        },
+        {
+            "name": "+ompt_llvm",
+            "spec": "~ompt",
+            "description": "+ompt_llvm requires +ompt"
+        },
+        {
+            "name": "+ompt_library",
+            "spec": "~ompt",
+            "description": "+ompt_library requires +ompt"
+        },
+        {
+            "name": "+ompt_library",
+            "spec": "~shared~static",
+            "description": "+ompt_library requires building shared or static libraries"
+        },
+        {
+            "name": "+ompt_standalone+ompt_llvm",
+            "spec": "",
+            "description": "+ompt_standalone and +ompt_llvm are not compatible. Use +ompt_llvm~ompt_standalone if building LLVM, use ~ompt_llvm+ompt_standalone if ompt.h is not provided by the compiler"
+        }
+    ],
+    "variants": [
+        {
+            "name": "build_type",
+            "default": "RelWithDebInfo",
+            "description": "CMake build type"
+        },
+        {
+            "name": "ipo",
+            "default": false,
+            "description": "CMake interprocedural optimization"
+        },
+        {
+            "name": "shared",
+            "default": true,
+            "description": "Build shared libraries"
+        },
+        {
+            "name": "static",
+            "default": false,
+            "description": "Build static libraries"
+        },
+        {
+            "name": "python",
+            "default": false,
+            "description": "Enable Python support"
+        },
+        {
+            "name": "python_deps",
+            "default": false,
+            "description": "Install non-critical python dependencies (may significantly increase spack install time)"
+        },
+        {
+            "name": "mpi",
+            "default": false,
+            "description": "Enable support for MPI aggregation"
+        },
+        {
+            "name": "nccl",
+            "default": false,
+            "description": "Enable support for wrapping NCCL functions"
+        },
+        {
+            "name": "tau",
+            "default": false,
+            "description": "Enable TAU support"
+        },
+        {
+            "name": "papi",
+            "default": false,
+            "description": "Enable PAPI support"
+        },
+        {
+            "name": "cuda",
+            "default": false,
+            "description": "Enable CUDA support"
+        },
+        {
+            "name": "cupti",
+            "default": false,
+            "description": "Enable CUPTI support"
+        },
+        {
+            "name": "tools",
+            "default": true,
+            "description": "Build/install extra tools"
+        },
+        {
+            "name": "vtune",
+            "default": false,
+            "description": "Enable VTune support"
+        },
+        {
+            "name": "upcxx",
+            "default": false,
+            "description": "Enable UPC++ support"
+        },
+        {
+            "name": "gotcha",
+            "default": false,
+            "description": "Enable GOTCHA support"
+        },
+        {
+            "name": "likwid",
+            "default": false,
+            "description": "Enable LIKWID support"
+        },
+        {
+            "name": "caliper",
+            "default": false,
+            "description": "Enable Caliper support"
+        },
+        {
+            "name": "dyninst",
+            "default": false,
+            "description": "Build dynamic instrumentation tools"
+        },
+        {
+            "name": "examples",
+            "default": false,
+            "description": "Build/install examples"
+        },
+        {
+            "name": "gperftools",
+            "default": false,
+            "description": "Enable gperftools support"
+        },
+        {
+            "name": "kokkos_tools",
+            "default": false,
+            "description": "Build generic kokkos-tools libraries, e.g. kp_timemory, kp_timemory_filter"
+        },
+        {
+            "name": "kokkos_build_config",
+            "default": false,
+            "description": "Build pre-configured (i.e. dedicated) kokkos-tools libraries, e.g. kp_timemory_cpu_flops"
+        },
+        {
+            "name": "cuda_arch",
+            "default": "auto",
+            "description": "CUDA architecture name"
+        },
+        {
+            "name": "cpu_target",
+            "default": "auto",
+            "description": "Build for specific cpu architecture (specify cpu-model)"
+        },
+        {
+            "name": "use_arch",
+            "default": false,
+            "description": "Build all of timemory w/ cpu_target architecture flags (default: roofline toolkit only)"
+        },
+        {
+            "name": "tls_model",
+            "default": "global-dynamic",
+            "description": "Thread-local static model"
+        },
+        {
+            "name": "lto",
+            "default": false,
+            "description": "Build w/ link-time optimization"
+        },
+        {
+            "name": "statistics",
+            "default": true,
+            "description": "Build components w/ support for statistics (min/max/stddev)"
+        },
+        {
+            "name": "extra_optimizations",
+            "default": true,
+            "description": "Build timemory with extra optimization flags"
+        },
+        {
+            "name": "cxxstd",
+            "default": "14",
+            "description": "C++ language standard"
+        },
+        {
+            "name": "mpip_library",
+            "default": false,
+            "description": "Build stand-alone timemory-mpip GOTCHA library"
+        },
+        {
+            "name": "ompt",
+            "default": false,
+            "description": "Enable OpenMP tools support"
+        },
+        {
+            "name": "ompt_standalone",
+            "default": false,
+            "description": "Enable OpenMP tools support via drop-in replacement of libomp/libgomp/libiomp5"
+        },
+        {
+            "name": "ompt_llvm",
+            "default": false,
+            "description": "Enable OpenMP tools support as part of llvm build"
+        },
+        {
+            "name": "ompt_library",
+            "default": false,
+            "description": "Build stand-alone timemory-ompt library"
+        },
+        {
+            "name": "allinea_map",
+            "default": false,
+            "description": "Enable Allinea ARM-MAP support"
+        },
+        {
+            "name": "require_packages",
+            "default": true,
+            "description": "find_package(...) resulting in NOTFOUND generates error"
+        }
+    ],
+    "homepage": "https://timemory.readthedocs.io/en/latest/",
+    "maintainers": [
+        "jrmadsen"
+    ],
+    "patches": [],
+    "resources": [],
+    "description": "Timing + Memory + Hardware Counter Utilities for C/C++/CUDA/Python\n",
+    "dependencies": [
+        {
+            "name": "cmake",
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
+        },
+        {
+            "name": "python",
+            "description": "The Python programming language."
+        },
+        {
+            "name": "py-cython",
+            "description": "The Cython compiler for writing C extensions for the Python language."
+        },
+        {
+            "name": "pil",
+            "description": "The Python Imaging Library (PIL) adds image processing capabilities to\nyour Python interpreter. This library supports many file formats, and\nprovides powerful image processing and graphics capabilities."
+        },
+        {
+            "name": "py-numpy",
+            "description": "NumPy is the fundamental package for scientific computing with Python.\nIt contains among other things: a powerful N-dimensional array object,\nsophisticated (broadcasting) functions, tools for integrating C/C++ and\nFortran code, and useful linear algebra, Fourier transform, and random\nnumber capabilities"
+        },
+        {
+            "name": "py-matplotlib",
+            "description": "Matplotlib is a comprehensive library for creating static, animated, and\ninteractive visualizations in Python."
+        },
+        {
+            "name": "py-ipython",
+            "description": "IPython provides a rich toolkit to help you make the most out of using\nPython interactively."
+        },
+        {
+            "name": "py-mpi4py",
+            "description": "This package provides Python bindings for the Message Passing Interface\n(MPI) standard. It is implemented on top of the MPI-1/MPI-2\nspecification and exposes an API which grounds on the standard MPI-2 C++\nbindings."
+        },
+        {
+            "name": "mpi",
+            "description": "MVAPICH2-X is the advanced version of the MVAPICH2 MPI library with\nenhanced features (UMR, ODP, DC, Core-Direct, SHARP, XPMEM), OSU INAM\n(InifniBand Network Monitoring and Analysis),PGAS (OpenSHMEM, UPC,\nUPC++, and CAF), and MPI+PGAS programming models with unified\ncommunication runtime. MVAPICH2-X is not installable from source and is\nonly available through a binary mirror. If you do not find the binary\nyou're looking for, send us an email at mvapich@cse.ohio-state.edu. The\nbinary mirror url is: http://mvapich.cse.ohio-\nstate.edu/download/mvapich/spack-mirror/mvapich2x/"
+        },
+        {
+            "name": "nccl",
+            "description": "Optimized primitives for collective multi-GPU communication."
+        },
+        {
+            "name": "tau",
+            "description": "A portable profiling and tracing toolkit for performance analysis of\nparallel programs written in Fortran, C, C++, UPC, Java, Python."
+        },
+        {
+            "name": "papi",
+            "description": "PAPI provides the tool designer and application engineer with a\nconsistent interface and methodology for use of the performance counter\nhardware found in most major microprocessors. PAPI enables software\nengineers to see, in near real time, the relation between software\nperformance and processor events. In addition Component PAPI provides\naccess to a collection of components that expose performance measurement\nopportunities across the hardware and software stack."
+        },
+        {
+            "name": "cuda",
+            "description": "CUDA is a parallel computing platform and programming model invented by\nNVIDIA. It enables dramatic increases in computing performance by\nharnessing the power of the graphics processing unit (GPU). Note: This\npackage does not currently install the drivers necessary to run CUDA.\nThese will need to be installed manually. See:\nhttps://docs.nvidia.com/cuda/ for details."
+        },
+        {
+            "name": "upcxx",
+            "description": "UPC++ is a C++ library that supports Partitioned Global Address Space\n(PGAS) programming, and is designed to interoperate smoothly and\nefficiently with MPI, OpenMP, CUDA and AMTs. It leverages GASNet-EX to\ndeliver low-overhead, fine-grained communication, including Remote\nMemory Access (RMA) and Remote Procedure Call (RPC)."
+        },
+        {
+            "name": "likwid",
+            "description": "Likwid is a simple to install and use toolsuite of command line\napplications for performance oriented programmers. It works for Intel\nand AMD processors on the Linux operating system. This version uses the\nperf_event backend which reduces the feature set but allows user\ninstalls. See https://github.com/RRZE-\nHPC/likwid/wiki/TutorialLikwidPerf#feature-limitations for information."
+        },
+        {
+            "name": "gotcha",
+            "description": "C software library for shared library function wrapping, enables tools\nto intercept calls into shared libraries"
+        },
+        {
+            "name": "caliper",
+            "description": "Caliper is a program instrumentation and performance measurement\nframework. It is designed as a performance analysis toolbox in a\nlibrary, allowing one to bake performance analysis capabilities directly\ninto applications and activate them at runtime."
+        },
+        {
+            "name": "dyninst",
+            "description": "API for dynamic binary instrumentation. Modify programs while they are\nexecuting without recompiling, re-linking, or re-executing."
+        },
+        {
+            "name": "gperftools",
+            "description": "Google's fast malloc/free implementation, especially for multi-threaded\napplications. Contains tcmalloc, heap-checker, heap-profiler, and cpu-\nprofiler."
+        },
+        {
+            "name": "intel-parallel-studio",
+            "description": "Intel Parallel Studio."
+        },
+        {
+            "name": "llvm-openmp-ompt",
+            "description": "The OpenMP subproject provides an OpenMP runtime for use with the OpenMP\nimplementation in Clang. This branch includes experimental changes for\nOMPT, the OpenMP Tools interface"
+        },
+        {
+            "name": "arm-forge",
+            "description": "Arm Forge is the complete toolsuite for software development - with\neverything needed to debug, profile, optimize, edit and build C, C++ and\nFortran applications on Linux for high performance - from single threads\nthrough to complex parallel HPC codes with MPI, OpenMP, threads or CUDA."
+        }
+    ],
+    "dependent_to": []
+}

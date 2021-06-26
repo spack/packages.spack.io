@@ -1,0 +1,85 @@
+{
+    "name": "metkit",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "1.7.0",
+            "sha256": "8c34f6d8ea5381bd1bcfb22462349d03e1592e67d8137e76b3cecf134a9d338c"
+        }
+    ],
+    "build_system": "CMakePackage",
+    "conflicts": [
+        {
+            "name": "+ipo",
+            "spec": "^cmake@:3.8",
+            "description": "+ipo is not supported by CMake < 3.9"
+        },
+        {
+            "name": "+tools",
+            "spec": "~grib~odb",
+            "description": "None of the command line tools is built when both GRIB format and ODB data support are disabled"
+        }
+    ],
+    "variants": [
+        {
+            "name": "build_type",
+            "default": "RelWithDebInfo",
+            "description": "CMake build type"
+        },
+        {
+            "name": "ipo",
+            "default": false,
+            "description": "CMake interprocedural optimization"
+        },
+        {
+            "name": "tools",
+            "default": true,
+            "description": "Build the command line tools"
+        },
+        {
+            "name": "grib",
+            "default": true,
+            "description": "Enable support for GRIB format"
+        },
+        {
+            "name": "odb",
+            "default": false,
+            "description": "Enable support for ODB data"
+        }
+    ],
+    "homepage": "https://github.com/ecmwf/metkit",
+    "maintainers": [
+        "skosukhin"
+    ],
+    "patches": [],
+    "resources": [],
+    "description": "Toolkit for manipulating and describing meteorological objects,\nimplementing the MARS language and associated processing and semantics.\n",
+    "dependencies": [
+        {
+            "name": "cmake",
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
+        },
+        {
+            "name": "ecbuild",
+            "description": "ecBuild is the ECMWF build system. It is built on top of CMake and\nconsists of a set of macros as well as a wrapper around CMake,"
+        },
+        {
+            "name": "eckit",
+            "description": "ecKit is a cross-platform c++ toolkit that supports development of tools\nand applications at ECMWF."
+        },
+        {
+            "name": "eccodes",
+            "description": "ecCodes is a package developed by ECMWF for processing meteorological\ndata in GRIB (1/2), BUFR (3/4) and GTS header formats."
+        },
+        {
+            "name": "odc",
+            "description": "ECMWF encoding and decoding of observational data in ODB2 format."
+        }
+    ],
+    "dependent_to": [
+        {
+            "name": "fdb",
+            "description": "FDB (Fields DataBase) is a domain-specific object store developed at\nECMWF for storing, indexing and retrieving GRIB data."
+        }
+    ]
+}

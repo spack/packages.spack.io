@@ -1,0 +1,141 @@
+{
+    "name": "c-blosc",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "1.21.0",
+            "sha256": "b0ef4fda82a1d9cbd11e0f4b9685abf14372db51703c595ecd4d76001a8b342d"
+        },
+        {
+            "name": "1.17.0",
+            "sha256": "75d98c752b8cf0d4a6380a3089d56523f175b0afa2d0cf724a1bd0a1a8f975a4"
+        },
+        {
+            "name": "1.16.3",
+            "sha256": "bec56cb0956725beb93d50478e918aca09f489f1bfe543dbd3087827a7344396"
+        },
+        {
+            "name": "1.15.0",
+            "sha256": "dbbb01f9fedcdf2c2ff73296353a9253f44ce9de89c081cbd8146170dce2ba8f"
+        },
+        {
+            "name": "1.12.1",
+            "sha256": "e04535e816bb942bedc9a0ba209944d1eb34e26e2d9cca37f114e8ee292cb3c8"
+        },
+        {
+            "name": "1.11.1",
+            "sha256": "d15937961d37b0780b8fb0641483eb9f6d4c379f88ac7ee84ff5dd06c2b72360"
+        },
+        {
+            "name": "1.9.2",
+            "sha256": "6349ab927705a451439b2e23ec5c3473f6b7e444e6d4aafaff76b789713e9fee"
+        },
+        {
+            "name": "1.9.1",
+            "sha256": "e4433fb0708517607cf4377837c4589807b9a8c112b94f7978cc8aaffb719bf0"
+        },
+        {
+            "name": "1.9.0",
+            "sha256": "0cb5b5f7a25f71227e3dced7a6035e8ffd94736f7ae9fae546efa3b7c6e7a852"
+        },
+        {
+            "name": "1.8.1",
+            "sha256": "1abf048634c37aeca53eeb6a9248ea235074077028d12b3560eccf1dff7143b8"
+        },
+        {
+            "name": "1.8.0",
+            "sha256": "e0f8b9e12e86776a1b037385826c55006da6e2ae4973dac5b5ad3cfcf01e9043"
+        }
+    ],
+    "build_system": "CMakePackage",
+    "conflicts": [
+        {
+            "name": "+ipo",
+            "spec": "^cmake@:3.8",
+            "description": "+ipo is not supported by CMake < 3.9"
+        }
+    ],
+    "variants": [
+        {
+            "name": "build_type",
+            "default": "RelWithDebInfo",
+            "description": "CMake build type"
+        },
+        {
+            "name": "ipo",
+            "default": false,
+            "description": "CMake interprocedural optimization"
+        },
+        {
+            "name": "avx2",
+            "default": true,
+            "description": "Enable AVX2 support"
+        }
+    ],
+    "homepage": "http://www.blosc.org",
+    "maintainers": [],
+    "patches": [
+        {
+            "owner": "builtin.c-blosc",
+            "sha256": "cd40604a26157a0e018ea496cf3267e116e6ec5ff80a7d1cef11b841c154c388",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "gcc.patch",
+            "version": "@1.12.1:1.17.0"
+        },
+        {
+            "owner": "builtin.c-blosc",
+            "sha256": "1c89086966f670ab1345a6e14b0f8550076f2e384ea9d09c454718e4557752fa",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "test_forksafe.patch",
+            "version": "@1.15.0:1.17.0%intel"
+        }
+    ],
+    "resources": [],
+    "description": "Blosc, an extremely fast, multi-threaded, meta-compressor library\n",
+    "dependencies": [
+        {
+            "name": "cmake",
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
+        },
+        {
+            "name": "snappy",
+            "description": "A fast compressor/decompressor: https://code.google.com/p/snappy"
+        },
+        {
+            "name": "zlib",
+            "description": "A free, general-purpose, legally unencumbered lossless data-compression\nlibrary."
+        },
+        {
+            "name": "zstd",
+            "description": "Zstandard, or zstd as short version, is a fast lossless compression\nalgorithm, targeting real-time compression scenarios at zlib-level and\nbetter compression ratios."
+        },
+        {
+            "name": "lz4",
+            "description": "LZ4 is lossless compression algorithm, providing compression speed at\n400 MB/s per core, scalable with multi-cores CPU. It also features an\nextremely fast decoder, with speed in multiple GB/s per core, typically\nreaching RAM speed limits on multi-core systems."
+        }
+    ],
+    "dependent_to": [
+        {
+            "name": "py-tables",
+            "description": "PyTables is a package for managing hierarchical datasets and designed to\nefficiently and easily cope with extremely large amounts of data."
+        },
+        {
+            "name": "adios2",
+            "description": "The Adaptable Input Output System version 2, developed in the Exascale\nComputing Program"
+        },
+        {
+            "name": "hdf5-blosc",
+            "description": "Blosc filter for HDF5"
+        },
+        {
+            "name": "openvdb",
+            "description": "OpenVDB - a sparse volume data format."
+        },
+        {
+            "name": "adios",
+            "description": "The Adaptable IO System (ADIOS) provides a simple, flexible way for\nscientists to describe the data in their code that may need to be\nwritten, read, or processed outside of the running simulation."
+        }
+    ]
+}

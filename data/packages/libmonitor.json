@@ -1,0 +1,96 @@
+{
+    "name": "libmonitor",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "master",
+            "branch": "master"
+        },
+        {
+            "name": "2021.04.27",
+            "commit": "a2d1b6be23410ef1ad2c9d0006672453803243c2"
+        },
+        {
+            "name": "2020.10.15",
+            "commit": "36e5cb7ebeadfff01476b79ff04f6ec772ba831d"
+        },
+        {
+            "name": "2019.05.31",
+            "commit": "c9767087d52e58a719aa7f149136b101e499db44"
+        },
+        {
+            "name": "2018.07.18",
+            "commit": "d28cc1d3c08c02013a68a022a57a6ac73db88166"
+        },
+        {
+            "name": "2013.02.18",
+            "commit": "4f2311e413fd90583263d6f20453bbe552ccfef3"
+        }
+    ],
+    "build_system": "AutotoolsPackage",
+    "conflicts": [],
+    "variants": [
+        {
+            "name": "hpctoolkit",
+            "default": false,
+            "description": "Configure for HPCToolkit"
+        },
+        {
+            "name": "commrank",
+            "default": false,
+            "description": "Build with MPI Post Comm Rank support patch."
+        },
+        {
+            "name": "dlopen",
+            "default": true,
+            "description": "Override dlopen and dlclose"
+        }
+    ],
+    "homepage": "https://github.com/HPCToolkit/libmonitor",
+    "maintainers": [
+        "mwkrentel"
+    ],
+    "patches": [
+        {
+            "owner": "builtin.libmonitor",
+            "sha256": "b77e6ff206643f69443d9c4fa7b5f9941bc257d4dce213ae5fd6e9cbb4747972",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "libmonitorkrell-0001.patch",
+            "version": "@2013.02.18+commrank"
+        },
+        {
+            "owner": "builtin.libmonitor",
+            "sha256": "0af79807c85ab89d2682302041dc52eade3034fdd2005f729e360979842b97ec",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "libmonitorkrell-0002.patch",
+            "version": "@2013.02.18+commrank"
+        },
+        {
+            "owner": "builtin.libmonitor",
+            "sha256": "b5decc4c72f6ceedc81c112a618eacf6044b0c7ab07b6cff7a18ecc1f97b3777",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "add-monitor-comm-rank-notification.patch",
+            "version": "@2020.10.15+commrank"
+        }
+    ],
+    "resources": [],
+    "description": "Libmonitor is a library providing callback functions for the begin and\nend of processes and threads. It provides a layer on which to build\nprocess monitoring tools and profilers.\n",
+    "dependencies": [],
+    "dependent_to": [
+        {
+            "name": "hpctoolkit",
+            "description": "HPCToolkit is an integrated suite of tools for measurement and analysis\nof program performance on computers ranging from multicore desktop\nsystems to the nation's largest supercomputers. By using statistical\nsampling of timers and hardware performance counters, HPCToolkit\ncollects accurate measurements of a program's work, resource\nconsumption, and inefficiency and attributes them to the full calling\ncontext in which they occur."
+        },
+        {
+            "name": "cbtf-argonavis",
+            "description": "CBTF Argo Navis project contains the CUDA collector and supporting\nlibraries that was done as a result of a DOE SBIR grant."
+        },
+        {
+            "name": "cbtf-krell",
+            "description": "CBTF Krell project contains collector and runtime contributions to the\nCBTF project. These contributions include many performance data\ncollectors and support libraries as well as some example tools that\ndrive the data collection at HPC levels of scale."
+        }
+    ]
+}

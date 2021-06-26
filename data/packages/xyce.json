@@ -1,0 +1,92 @@
+{
+    "name": "xyce",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "master",
+            "branch": "master"
+        },
+        {
+            "name": "7.2.0",
+            "preferred": true,
+            "checksum": "cf49705278ecda46373784bb24925cb97f9017b6adff49e4416de146bdd6a4b5"
+        }
+    ],
+    "build_system": "CMakePackage",
+    "conflicts": [
+        {
+            "name": "+ipo",
+            "spec": "^cmake@:3.8",
+            "description": "+ipo is not supported by CMake < 3.9"
+        }
+    ],
+    "variants": [
+        {
+            "name": "build_type",
+            "default": "Release",
+            "description": "CMake build type"
+        },
+        {
+            "name": "ipo",
+            "default": false,
+            "description": "CMake interprocedural optimization"
+        },
+        {
+            "name": "mpi",
+            "default": true,
+            "description": "Enable MPI support"
+        },
+        {
+            "name": "pymi",
+            "default": false,
+            "description": "Enable Python Model Interpreter for Xyce"
+        }
+    ],
+    "homepage": "https://xyce.sandia.gov",
+    "maintainers": [
+        "kuberry"
+    ],
+    "patches": [],
+    "resources": [],
+    "description": "Xyce (rhymes with 'spice') is an open source, SPICE-compatible, high-\nperformance analog circuit simulator, capable of solving extremely large\ncircuit problems by supporting large-scale parallel computing platforms.\nXyce also supports serial execution on all common desktop platforms, and\nsmall-scale parallel runs on Unix-like systems. In addition to analog\nelectronic simulation, Xyce has also been used to investigate more\ngeneral network systems, such as neural networks and power grids.\n",
+    "dependencies": [
+        {
+            "name": "cmake",
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
+        },
+        {
+            "name": "flex",
+            "description": "Flex is a tool for generating scanners."
+        },
+        {
+            "name": "bison",
+            "description": "Bison is a general-purpose parser generator that converts an annotated\ncontext-free grammar into a deterministic LR or generalized LR (GLR)\nparser employing LALR(1) parser tables."
+        },
+        {
+            "name": "mpi",
+            "description": "MVAPICH2-X is the advanced version of the MVAPICH2 MPI library with\nenhanced features (UMR, ODP, DC, Core-Direct, SHARP, XPMEM), OSU INAM\n(InifniBand Network Monitoring and Analysis),PGAS (OpenSHMEM, UPC,\nUPC++, and CAF), and MPI+PGAS programming models with unified\ncommunication runtime. MVAPICH2-X is not installable from source and is\nonly available through a binary mirror. If you do not find the binary\nyou're looking for, send us an email at mvapich@cse.ohio-state.edu. The\nbinary mirror url is: http://mvapich.cse.ohio-\nstate.edu/download/mvapich/spack-mirror/mvapich2x/"
+        },
+        {
+            "name": "python",
+            "description": "The Python programming language."
+        },
+        {
+            "name": "py-pip",
+            "description": "The PyPA recommended tool for installing Python packages."
+        },
+        {
+            "name": "py-pybind11",
+            "description": "pybind11 -- Seamless operability between C++11 and Python. pybind11 is a\nlightweight header-only library that exposes C++ types in Python and\nvice versa, mainly to create Python bindings of existing C++ code. Its\ngoals and syntax are similar to the excellent Boost.Python library by\nDavid Abrahams: to minimize boilerplate code in traditional extension\nmodules by inferring type information using compile-time introspection."
+        },
+        {
+            "name": "trilinos",
+            "description": "The Trilinos Project is an effort to develop algorithms and enabling\ntechnologies within an object-oriented software framework for the\nsolution of large-scale, complex multi-physics engineering and\nscientific problems. A unique design feature of Trilinos is its focus on\npackages."
+        }
+    ],
+    "dependent_to": [
+        {
+            "name": "qucs",
+            "description": "QUCS - Quite Universal Circuit Simulator Qucs is an integrated circuit\nsimulator which means you are able to setup a circuit with a graphical\nuser interface (GUI) and simulate the large-signal, small-signal and\nnoise behaviour of the circuit. After that simulation has finished you\ncan view the simulation results on a presentation page or window."
+        }
+    ]
+}

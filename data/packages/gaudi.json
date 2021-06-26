@@ -1,0 +1,233 @@
+{
+    "name": "gaudi",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "master",
+            "branch": "master"
+        },
+        {
+            "name": "35.0",
+            "sha256": "c01b822f9592a7bf875b9997cbeb3c94dea97cb13d523c12649dbbf5d69b5fa6"
+        },
+        {
+            "name": "34.0",
+            "sha256": "28fc4abb5a6b08da5a6b1300451c7e8487f918b055939877219d454abf7668ae"
+        },
+        {
+            "name": "33.2",
+            "sha256": "26aaf9c4ff237a60ec79af9bd18ad249fc91c16e297ba77e28e4a256123db6e5"
+        },
+        {
+            "name": "33.1",
+            "sha256": "7eb6b2af64aeb965228d4b6ea66c7f9f57f832f93d5b8ad55c9105235af5b042"
+        },
+        {
+            "name": "33.0",
+            "sha256": "76a967c41f579acc432593d498875dd4dc1f8afd5061e692741a355a9cf233c8"
+        },
+        {
+            "name": "32.2",
+            "sha256": "e9ef3eb57fd9ac7b9d5647e278a84b2e6263f29f0b14dbe1321667d44d969d2e"
+        },
+        {
+            "name": "31.0",
+            "commit": "aeb156f0c40571b5753a9e1dab31e331491b2f3e"
+        },
+        {
+            "name": "30.5",
+            "commit": "2c70e73ee5b543b26197b90dd59ea4e4d359d230"
+        }
+    ],
+    "build_system": "CMakePackage",
+    "conflicts": [
+        {
+            "name": "+ipo",
+            "spec": "^cmake@:3.8",
+            "description": "+ipo is not supported by CMake < 3.9"
+        }
+    ],
+    "variants": [
+        {
+            "name": "build_type",
+            "default": "RelWithDebInfo",
+            "description": "CMake build type"
+        },
+        {
+            "name": "ipo",
+            "default": false,
+            "description": "CMake interprocedural optimization"
+        },
+        {
+            "name": "optional",
+            "default": false,
+            "description": "Build most optional components and tests"
+        },
+        {
+            "name": "docs",
+            "default": false,
+            "description": "Build documentation with Doxygen"
+        },
+        {
+            "name": "vtune",
+            "default": false,
+            "description": "Build with Intel VTune profiler support"
+        }
+    ],
+    "homepage": "http://gaudi.web.cern.ch/gaudi/",
+    "maintainers": [
+        "drbenmorgan",
+        "vvolkl"
+    ],
+    "patches": [
+        {
+            "owner": "builtin.gaudi",
+            "sha256": "eda5e0c3df5a9d3ddfdb989f39b2b8d50d49f5d8f79b67ae8f182813b6c85f7a",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "build_testing.patch",
+            "version": "@:34.99"
+        },
+        {
+            "owner": "builtin.gaudi",
+            "sha256": "8b14ffafa18b6175a90d3e7a99f3a8296025d2a9ad06c5dd8b3d47f2f880e700",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "link_target_fixes.patch",
+            "version": "@33.0:34.99"
+        },
+        {
+            "owner": "builtin.gaudi",
+            "sha256": "861e6a681cc68b8e8479fb416d81a7af37a2adcd043a687f8134d521a19d6730",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "link_target_fixes32.patch",
+            "version": "@:32.2"
+        }
+    ],
+    "resources": [],
+    "description": "An experiment-independent HEP event data processing framework\n",
+    "dependencies": [
+        {
+            "name": "cmake",
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
+        },
+        {
+            "name": "aida",
+            "description": "Abstract Interfaces for Data Analysis"
+        },
+        {
+            "name": "boost",
+            "description": "Boost provides free peer-reviewed portable C++ source libraries,\nemphasizing libraries that work well with the C++ Standard Library.\nBoost libraries are intended to be widely useful, and usable across a\nbroad spectrum of applications. The Boost license encourages both\ncommercial and non-commercial use."
+        },
+        {
+            "name": "clhep",
+            "description": "CLHEP is a C++ Class Library for High Energy Physics."
+        },
+        {
+            "name": "cppgsl",
+            "description": "C++ Guideline Support Library"
+        },
+        {
+            "name": "fmt",
+            "description": "fmt (formerly cppformat) is an open-source formatting library. It can be\nused as a safe alternative to printf or as a fast alternative to C++\nIOStreams."
+        },
+        {
+            "name": "intel-tbb",
+            "description": "Widely used C++ template library for task parallelism. Intel Threading\nBuilding Blocks (Intel TBB) lets you easily write parallel C++ programs\nthat take full advantage of multicore performance, that are portable and\ncomposable, and that have future-proof scalability."
+        },
+        {
+            "name": "uuid",
+            "description": "OSSP uuid is a ISO-C:1999 application programming interface (API) and\ncorresponding command line interface (CLI) for the generation of DCE\n1.1, ISO/IEC 11578:1996 and RFC 4122 compliant Universally Unique\nIdentifier (UUID)."
+        },
+        {
+            "name": "nlohmann-json",
+            "description": "JSON for Modern C++"
+        },
+        {
+            "name": "python",
+            "description": "The Python programming language."
+        },
+        {
+            "name": "py-setuptools",
+            "description": "A Python utility that aids in the process of downloading, building,\nupgrading, installing, and uninstalling Python packages."
+        },
+        {
+            "name": "py-six",
+            "description": "Python 2 and 3 compatibility utilities."
+        },
+        {
+            "name": "py-xenv",
+            "description": "Helpers to work with the environment in a platform independent way."
+        },
+        {
+            "name": "range-v3",
+            "description": "Range v3 forms the basis of a proposal to add range support to the\nstandard library (N4128: Ranges for the Standard Library). It also will\nbe the reference implementation for an upcoming Technical Specification.\nThese are the first steps toward turning ranges into an international\nstandard."
+        },
+        {
+            "name": "root",
+            "description": "ROOT is a data analysis framework."
+        },
+        {
+            "name": "zlib",
+            "description": "A free, general-purpose, legally unencumbered lossless data-compression\nlibrary."
+        },
+        {
+            "name": "py-nose",
+            "description": "nose extends the test loading and running features of unittest, making\nit easier to write, find and run tests."
+        },
+        {
+            "name": "cppunit",
+            "description": "Obsolete Unit testing framework for C++"
+        },
+        {
+            "name": "doxygen",
+            "description": "Doxygen is the de facto standard tool for generating documentation from\nannotated C++ sources, but it also supports other popular programming\nlanguages such as C, Objective-C, C#, PHP, Java, Python, IDL (Corba,\nMicrosoft, and UNO/OpenOffice flavors), Fortran, VHDL, Tcl, and to some\nextent D.."
+        },
+        {
+            "name": "gperftools",
+            "description": "Google's fast malloc/free implementation, especially for multi-threaded\napplications. Contains tcmalloc, heap-checker, heap-profiler, and cpu-\nprofiler."
+        },
+        {
+            "name": "gdb",
+            "description": "GDB, the GNU Project debugger, allows you to see what is going on\n'inside' another program while it executes -- or what another program\nwas doing at the moment it crashed."
+        },
+        {
+            "name": "gsl",
+            "description": "The GNU Scientific Library (GSL) is a numerical library for C and C++\nprogrammers. It is free software under the GNU General Public License.\nThe library provides a wide range of mathematical routines such as\nrandom number generators, special functions and least-squares fitting.\nThere are over 1000 functions in total with an extensive test suite."
+        },
+        {
+            "name": "heppdt",
+            "description": "The HepPID library contains translation methods for particle ID's to and\nfrom various Monte Carlo generators and the PDG standard numbering\nscheme. We realize that the generators adhere closely to the standard,\nbut there are occasional differences."
+        },
+        {
+            "name": "jemalloc",
+            "description": "jemalloc is a general purpose malloc(3) implementation that emphasizes\nfragmentation avoidance and scalable concurrency support."
+        },
+        {
+            "name": "libpng",
+            "description": "libpng is the official PNG reference library."
+        },
+        {
+            "name": "libunwind",
+            "description": "A portable and efficient C programming interface (API) to determine the\ncall-chain of a program."
+        },
+        {
+            "name": "py-networkx",
+            "description": "NetworkX is a Python package for the creation, manipulation, and study\nof the structure, dynamics, and functions of complex networks."
+        },
+        {
+            "name": "relax",
+            "description": "A set of Reflex libraries for the most common used general data types in\nthe LHC Computing Grid"
+        },
+        {
+            "name": "xerces-c",
+            "description": "Xerces-C++ is a validating XML parser written in a portable subset of\nC++. Xerces-C++ makes it easy to give your application the ability to\nread and write XML data. A shared library is provided for parsing,\ngenerating, manipulating, and validating XML documents using the DOM,\nSAX, and SAX2 APIs."
+        },
+        {
+            "name": "intel-parallel-studio",
+            "description": "Intel Parallel Studio."
+        }
+    ],
+    "dependent_to": []
+}

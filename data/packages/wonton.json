@@ -1,0 +1,139 @@
+{
+    "name": "wonton",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "1.2.11",
+            "sha256": "613436c799b392a99355db1cbf1062f1da39f3287eed665a5cd43bb65364d926"
+        },
+        {
+            "name": "1.2.10",
+            "sha256": "c5c2c99f040f1fa5a8da21ac5ccbbc5b226d1fd43ce3eb14c76d211601b65a72"
+        },
+        {
+            "name": "1.2.1",
+            "sha256": "4f00513d1abe86f256214d2b5171b1575b2cd464df8609307c24cbc4c595c305"
+        }
+    ],
+    "build_system": "CMakePackage",
+    "conflicts": [
+        {
+            "name": "+ipo",
+            "spec": "^cmake@:3.8",
+            "description": "+ipo is not supported by CMake < 3.9"
+        },
+        {
+            "name": "+jali ~mpi",
+            "spec": "",
+            "description": "None"
+        },
+        {
+            "name": "+thrust +cuda",
+            "spec": "",
+            "description": "None"
+        },
+        {
+            "name": "+thrust +kokkos",
+            "spec": "",
+            "description": "None"
+        }
+    ],
+    "variants": [
+        {
+            "name": "build_type",
+            "default": "RelWithDebInfo",
+            "description": "CMake build type"
+        },
+        {
+            "name": "ipo",
+            "default": false,
+            "description": "CMake interprocedural optimization"
+        },
+        {
+            "name": "lapacke",
+            "default": true,
+            "description": "Use LAPACKE solvers"
+        },
+        {
+            "name": "mpi",
+            "default": false,
+            "description": "Enable distributed meshes with MPI"
+        },
+        {
+            "name": "thrust",
+            "default": false,
+            "description": "Enable on-node parallelism using NVidia Thrust library"
+        },
+        {
+            "name": "kokkos",
+            "default": false,
+            "description": "Enable on-node or device parallelism with Kokkos"
+        },
+        {
+            "name": "openmp",
+            "default": false,
+            "description": "Enable on-node parallelism using OpenMP"
+        },
+        {
+            "name": "cuda",
+            "default": false,
+            "description": "Enable GPU parallelism using CUDA"
+        },
+        {
+            "name": "jali",
+            "default": false,
+            "description": "Enable Jali mesh wrappers"
+        }
+    ],
+    "homepage": "https://portage.lanl.gov",
+    "maintainers": [
+        "raovgarimella"
+    ],
+    "patches": [],
+    "resources": [],
+    "description": "Wonton is a support package for the Portage\n(https://github.com/laristra/portage) and Tangram\n(https://github.com/laristra/tangram) libraries. It contains some\nmesh/state classes, wrappers for other mesh/state libraries and some\nutilities required by Portage and Tangram.\n",
+    "dependencies": [
+        {
+            "name": "cmake",
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
+        },
+        {
+            "name": "netlib-lapack",
+            "description": "LAPACK version 3.X is a comprehensive FORTRAN library that does linear\nalgebra operations including matrix inversions, least squared solutions\nto linear sets of equations, eigenvector analysis, singular value\ndecomposition, etc. It is a very comprehensive and reputable package\nthat has found extensive use in the scientific community."
+        },
+        {
+            "name": "mpi",
+            "description": "MVAPICH2-X is the advanced version of the MVAPICH2 MPI library with\nenhanced features (UMR, ODP, DC, Core-Direct, SHARP, XPMEM), OSU INAM\n(InifniBand Network Monitoring and Analysis),PGAS (OpenSHMEM, UPC,\nUPC++, and CAF), and MPI+PGAS programming models with unified\ncommunication runtime. MVAPICH2-X is not installable from source and is\nonly available through a binary mirror. If you do not find the binary\nyou're looking for, send us an email at mvapich@cse.ohio-state.edu. The\nbinary mirror url is: http://mvapich.cse.ohio-\nstate.edu/download/mvapich/spack-mirror/mvapich2x/"
+        },
+        {
+            "name": "jali",
+            "description": "Jali is a parallel, unstructured mesh infrastructure library designed\nfor use by multi-physics simulations."
+        },
+        {
+            "name": "boost",
+            "description": "Boost provides free peer-reviewed portable C++ source libraries,\nemphasizing libraries that work well with the C++ Standard Library.\nBoost libraries are intended to be widely useful, and usable across a\nbroad spectrum of applications. The Boost license encourages both\ncommercial and non-commercial use."
+        },
+        {
+            "name": "thrust",
+            "description": "Thrust is a parallel algorithms library which resembles the C++ Standard\nTemplate Library (STL)."
+        },
+        {
+            "name": "cuda",
+            "description": "CUDA is a parallel computing platform and programming model invented by\nNVIDIA. It enables dramatic increases in computing performance by\nharnessing the power of the graphics processing unit (GPU). Note: This\npackage does not currently install the drivers necessary to run CUDA.\nThese will need to be installed manually. See:\nhttps://docs.nvidia.com/cuda/ for details."
+        },
+        {
+            "name": "kokkos",
+            "description": "Kokkos implements a programming model in C++ for writing performance\nportable applications targeting all major HPC platforms."
+        }
+    ],
+    "dependent_to": [
+        {
+            "name": "tangram",
+            "description": "Tangram is an material interface reconstruction package used in\nmultimaterial ALE codes and multi-material remapping\n(https://github.com/laristra/portage)"
+        },
+        {
+            "name": "portage",
+            "description": "Portage is a framework that computational physics applications can use\nto build a highly customized, hybrid parallel (MPI+X) conservative\nremapping library for transfer of field data between meshes."
+        }
+    ]
+}

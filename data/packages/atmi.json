@@ -1,0 +1,94 @@
+{
+    "name": "atmi",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "4.2.0",
+            "sha256": "c1c89c00d2dc3e764c63b2e51ff7fd5c06d5881ed56aed0adf639582d3389585"
+        },
+        {
+            "name": "4.1.0",
+            "sha256": "b31849f86c79f90466a9d67f0a28a93c1675181e38e2a5f571ffc963e4b06f5f"
+        },
+        {
+            "name": "4.0.0",
+            "sha256": "8a2e5789ee7165aff0f0669eecd23ac0a5c8a5bfbc1acd9380fe9a8ed5bffe3a"
+        },
+        {
+            "name": "3.10.0",
+            "sha256": "387e87c622ec334d3ba7a2f4f015ea9a219712722f4c56c1ef572203d0d072ea"
+        },
+        {
+            "name": "3.9.0",
+            "sha256": "0a305e85bab210dd9a0410aa01d46227e00b59141e4675c50d731ad1232ab828"
+        },
+        {
+            "name": "3.8.0",
+            "sha256": "039f0c2b369d0dbc01000754893d9210828f4cb9b36c3e70da8c3819b131c933"
+        },
+        {
+            "name": "3.7.0",
+            "sha256": "8df08489a10ee04cea911811393e0e7d91bd437fc1fd81a23a4e7ab924a974f3"
+        },
+        {
+            "name": "3.5.0",
+            "sha256": "3fb57d2e583fab82bd0582d0c2bccff059ca91122c18ac49a7770a8bb041a37b"
+        }
+    ],
+    "build_system": "CMakePackage",
+    "conflicts": [
+        {
+            "name": "+ipo",
+            "spec": "^cmake@:3.8",
+            "description": "+ipo is not supported by CMake < 3.9"
+        }
+    ],
+    "variants": [
+        {
+            "name": "build_type",
+            "default": "Release",
+            "description": "CMake build type"
+        },
+        {
+            "name": "ipo",
+            "default": false,
+            "description": "CMake interprocedural optimization"
+        }
+    ],
+    "homepage": "https://github.com/RadeonOpenCompute/atmi",
+    "maintainers": [
+        "srekolam",
+        "arjun-raj-kuppala"
+    ],
+    "patches": [
+        {
+            "owner": "builtin.atmi",
+            "sha256": "205b3e786bca08582c3de4880ae46e1277fd00ad2f0a01b6ef7d5ac3fc0ece76",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "0001-Remove-relative-link-paths-to-external-libraries.patch",
+            "version": "@3.5.0"
+        }
+    ],
+    "resources": [],
+    "description": "Asynchronous Task and Memory Interface, or ATMI, is a runtime framework\nand programming model for heterogeneous CPU-GPU systems. It provides a\nconsistent, declarative API to create task graphs on CPUs and GPUs\n(integrated and discrete).\n",
+    "dependencies": [
+        {
+            "name": "cmake",
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
+        },
+        {
+            "name": "comgr",
+            "description": "This provides various Lightning Compiler related services. It currently\ncontains one library, the Code Object Manager (Comgr)"
+        },
+        {
+            "name": "hsa-rocr-dev",
+            "description": "This repository includes the user mode API nterfaces and libraries\nnecessary for host applications to launch computer kernels to available\nHSA ROCm kernel agents.AMD Heterogeneous System Architecture HSA - Linux\nHSA Runtime for Boltzmann (ROCm) platforms."
+        },
+        {
+            "name": "libelf",
+            "description": "libelf lets you read, modify or create ELF object files in an\narchitecture-independent way. The library takes care of size and endian\nissues, e.g. you can process a file for SPARC processors on an Intel-\nbased system. Note: libelf is no longer maintained and packages that\ndepend on libelf should migrate to elfutils."
+        }
+    ],
+    "dependent_to": []
+}

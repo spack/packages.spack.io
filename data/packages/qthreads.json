@@ -1,0 +1,101 @@
+{
+    "name": "qthreads",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "1.16",
+            "sha256": "0a95e20b08cb486de6c33bff16590f41e444ca64ab738aee697ef982fbb021d8"
+        },
+        {
+            "name": "1.15",
+            "sha256": "3ac2dc24debff004a2998933de5724b1e14e1ae262fa9942acbb01f77819a23b"
+        },
+        {
+            "name": "1.14",
+            "sha256": "16f15e5b2e35b6329a857d24c283a1e43cd49921ee49a1446d4f31bf9c6f5cf9"
+        },
+        {
+            "name": "1.12",
+            "sha256": "2c13a5f6f45bc2f22038d272be2e748e027649d3343a9f824da9e86a88b594c9"
+        },
+        {
+            "name": "1.11",
+            "sha256": "dbde6c7cb7de7e89921e47363d09cecaebf775c9d090496c2be8350355055571"
+        },
+        {
+            "name": "1.10",
+            "sha256": "29fbc2e54bcbc814c1be13049790ee98c505f22f22ccee34b7c29a4295475656"
+        }
+    ],
+    "build_system": "AutotoolsPackage",
+    "conflicts": [],
+    "variants": [
+        {
+            "name": "hwloc",
+            "default": true,
+            "description": "hwloc support"
+        },
+        {
+            "name": "spawn_cache",
+            "default": false,
+            "description": "enables worker specific cache of spawns"
+        },
+        {
+            "name": "scheduler",
+            "default": "nemesis",
+            "description": "Specify which scheduler policy to use"
+        },
+        {
+            "name": "static",
+            "default": true,
+            "description": "Build static library"
+        },
+        {
+            "name": "stack_size",
+            "default": 4096,
+            "description": "Specify number of bytes to use in a stack"
+        }
+    ],
+    "homepage": "http://www.cs.sandia.gov/qthreads/",
+    "maintainers": [],
+    "patches": [
+        {
+            "owner": "builtin.qthreads",
+            "sha256": "d9c7ac0aab9acf5894913832089144cb760387ddc5c359eea3812abf9329cf88",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "restrict.patch",
+            "version": "@:1.10"
+        },
+        {
+            "owner": "builtin.qthreads",
+            "sha256": "f708d93f69dfd64d6dccc9ad8fd075a16a8c06159c79ef1d453360b4704510ea",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "trap.patch",
+            "version": "@:1.10"
+        }
+    ],
+    "resources": [],
+    "description": "The qthreads API is designed to make using large numbers of threads\nconvenient and easy, and to allow portable access to threading\nconstructs used in massively parallel shared memory environments. The\nAPI maps well to both MTA-style threading and PIM-style threading, and\nwe provide an implementation of this interface in both a standard SMP\ncontext as well as the SST context. The qthreads API provides access to\nfull/empty-bit (FEB) semantics, where every word of memory can be marked\neither full or empty, and a thread can wait for any word to attain\neither state.\n",
+    "dependencies": [
+        {
+            "name": "hwloc",
+            "description": "The Hardware Locality (hwloc) software project. The Portable Hardware\nLocality (hwloc) software package provides a portable abstraction\n(across OS, versions, architectures, ...) of the hierarchical topology\nof modern architectures, including NUMA memory nodes, sockets, shared\ncaches, cores and simultaneous multithreading. It also gathers various\nsystem attributes such as cache and memory information as well as the\nlocality of I/O devices such as network interfaces, InfiniBand HCAs or\nGPUs. It primarily aims at helping applications with gathering\ninformation about modern computing hardware so as to exploit it\naccordingly and efficiently."
+        }
+    ],
+    "dependent_to": [
+        {
+            "name": "kokkos-legacy",
+            "description": "Kokkos implements a programming model in C++ for writing performance\nportable applications targeting all major HPC platforms."
+        },
+        {
+            "name": "minife",
+            "description": "Proxy Application. MiniFE is an proxy application for unstructured\nimplicit finite element codes."
+        },
+        {
+            "name": "funhpc",
+            "description": "FunHPC: Functional HPC Programming"
+        }
+    ]
+}

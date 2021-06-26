@@ -1,0 +1,610 @@
+{
+    "name": "kokkos-kernels",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "develop",
+            "branch": "develop"
+        },
+        {
+            "name": "master",
+            "branch": "master"
+        },
+        {
+            "name": "3.2.00",
+            "sha256": "8ac20ee28ae7813ce1bda461918800ad57fdbac2af86ef5d1ba74e83e10956de"
+        },
+        {
+            "name": "3.1.00",
+            "sha256": "27fea241ae92f41bd5b070b1a590ba3a56a06aca750207a98bea2f64a4a40c89"
+        },
+        {
+            "name": "3.0.00",
+            "sha256": "e4b832aed3f8e785de24298f312af71217a26067aea2de51531e8c1e597ef0e6"
+        }
+    ],
+    "build_system": "CMakePackage",
+    "conflicts": [
+        {
+            "name": "%gcc@5:",
+            "spec": "+cuda ^cuda@:7.5 arch=linux-None-x86_64:",
+            "description": "None"
+        },
+        {
+            "name": "%gcc@6:",
+            "spec": "+cuda ^cuda@:8 arch=linux-None-x86_64:",
+            "description": "None"
+        },
+        {
+            "name": "%gcc@6:",
+            "spec": "+cuda ^cuda@:9 arch=linux-None-ppc64le:",
+            "description": "None"
+        },
+        {
+            "name": "%gcc@7:",
+            "spec": "+cuda ^cuda@:9.1 arch=linux-None-x86_64:",
+            "description": "None"
+        },
+        {
+            "name": "%gcc@8:",
+            "spec": "+cuda ^cuda@:10.0.130 arch=linux-None-x86_64:",
+            "description": "None"
+        },
+        {
+            "name": "%gcc@8:",
+            "spec": "+cuda ^cuda@:10.0.130 arch=linux-None-ppc64le:",
+            "description": "None"
+        },
+        {
+            "name": "%gcc@9:",
+            "spec": "+cuda ^cuda@:10.2.89 arch=linux-None-x86_64:",
+            "description": "None"
+        },
+        {
+            "name": "%gcc@9:",
+            "spec": "+cuda ^cuda@:10.1.243 arch=linux-None-ppc64le:",
+            "description": "None"
+        },
+        {
+            "name": "%gcc@:4",
+            "spec": "+cuda ^cuda@11.0.2: arch=linux-None-x86_64:",
+            "description": "None"
+        },
+        {
+            "name": "%gcc@:4",
+            "spec": "+cuda ^cuda@11.0.2: arch=linux-None-ppc64le:",
+            "description": "None"
+        },
+        {
+            "name": "%gcc@10:",
+            "spec": "+cuda ^cuda@:11.0.2 arch=linux-None-x86_64:",
+            "description": "None"
+        },
+        {
+            "name": "%gcc@10:",
+            "spec": "+cuda ^cuda@:11.0.2 arch=linux-None-ppc64le:",
+            "description": "None"
+        },
+        {
+            "name": "%gcc@11:",
+            "spec": "+cuda ^cuda@:11.1.0 arch=linux-None-x86_64:",
+            "description": "None"
+        },
+        {
+            "name": "%gcc@11:",
+            "spec": "+cuda ^cuda@:11.1.0 arch=linux-None-ppc64le:",
+            "description": "None"
+        },
+        {
+            "name": "%pgi@:14.8",
+            "spec": "+cuda ^cuda@:7.0.27 arch=linux-None-x86_64:",
+            "description": "None"
+        },
+        {
+            "name": "%pgi@:15.3,15.5:",
+            "spec": "+cuda ^cuda@7.5 arch=linux-None-x86_64:",
+            "description": "None"
+        },
+        {
+            "name": "%pgi@:16.2,16.0:16.3",
+            "spec": "+cuda ^cuda@8 arch=linux-None-x86_64:",
+            "description": "None"
+        },
+        {
+            "name": "%pgi@:15,18:",
+            "spec": "+cuda ^cuda@9.0:9.1 arch=linux-None-x86_64:",
+            "description": "None"
+        },
+        {
+            "name": "%pgi@:16,19:",
+            "spec": "+cuda ^cuda@9.2.88:10 arch=linux-None-x86_64:",
+            "description": "None"
+        },
+        {
+            "name": "%pgi@:17,20:",
+            "spec": "+cuda ^cuda@10.1.105:10.2.89 arch=linux-None-x86_64:",
+            "description": "None"
+        },
+        {
+            "name": "%pgi@:17,21:",
+            "spec": "+cuda ^cuda@11.0.2:11.1.0 arch=linux-None-x86_64:",
+            "description": "None"
+        },
+        {
+            "name": "%clang@:3.4",
+            "spec": "+cuda ^cuda@:7.5 arch=linux-None-x86_64:",
+            "description": "None"
+        },
+        {
+            "name": "%clang@:3.7,4:",
+            "spec": "+cuda ^cuda@8.0:9.0 arch=linux-None-x86_64:",
+            "description": "None"
+        },
+        {
+            "name": "%clang@:3.7,4.1:",
+            "spec": "+cuda ^cuda@9.1 arch=linux-None-x86_64:",
+            "description": "None"
+        },
+        {
+            "name": "%clang@:3.7,5.1:",
+            "spec": "+cuda ^cuda@9.2 arch=linux-None-x86_64:",
+            "description": "None"
+        },
+        {
+            "name": "%clang@:3.7,6.1:",
+            "spec": "+cuda ^cuda@10.0.130 arch=linux-None-x86_64:",
+            "description": "None"
+        },
+        {
+            "name": "%clang@:3.7,7.1:",
+            "spec": "+cuda ^cuda@10.1.105 arch=linux-None-x86_64:",
+            "description": "None"
+        },
+        {
+            "name": "%clang@:3.7,8.1:",
+            "spec": "+cuda ^cuda@10.1.105:10.1.243 arch=linux-None-x86_64:",
+            "description": "None"
+        },
+        {
+            "name": "%clang@:3.2,9:",
+            "spec": "+cuda ^cuda@10.2.89 arch=linux-None-x86_64:",
+            "description": "None"
+        },
+        {
+            "name": "%clang@:5",
+            "spec": "+cuda ^cuda@11.0.2: arch=linux-None-x86_64:",
+            "description": "None"
+        },
+        {
+            "name": "%clang@:5",
+            "spec": "+cuda ^cuda@11.0.2: arch=linux-None-ppc64le:",
+            "description": "None"
+        },
+        {
+            "name": "%clang@10:",
+            "spec": "+cuda ^cuda@:11.0.2 arch=linux-None-x86_64:",
+            "description": "None"
+        },
+        {
+            "name": "%clang@10:",
+            "spec": "+cuda ^cuda@:11.0.2 arch=linux-None-ppc64le:",
+            "description": "None"
+        },
+        {
+            "name": "%clang@11:",
+            "spec": "+cuda ^cuda@:11.1.0 arch=linux-None-x86_64:",
+            "description": "None"
+        },
+        {
+            "name": "%clang@11:",
+            "spec": "+cuda ^cuda@:11.1.0 arch=linux-None-ppc64le:",
+            "description": "None"
+        },
+        {
+            "name": "%pgi",
+            "spec": "+cuda ^cuda@:8 arch=linux-None-ppc64le:",
+            "description": "None"
+        },
+        {
+            "name": "%pgi@:16",
+            "spec": "+cuda ^cuda@:9.1.185 arch=linux-None-ppc64le:",
+            "description": "None"
+        },
+        {
+            "name": "%pgi@:17",
+            "spec": "+cuda ^cuda@:10 arch=linux-None-ppc64le:",
+            "description": "None"
+        },
+        {
+            "name": "%clang@4:",
+            "spec": "+cuda ^cuda@:9.0.176 arch=linux-None-ppc64le:",
+            "description": "None"
+        },
+        {
+            "name": "%clang@5:",
+            "spec": "+cuda ^cuda@:9.1 arch=linux-None-ppc64le:",
+            "description": "None"
+        },
+        {
+            "name": "%clang@6:",
+            "spec": "+cuda ^cuda@:9.2 arch=linux-None-ppc64le:",
+            "description": "None"
+        },
+        {
+            "name": "%clang@7:",
+            "spec": "+cuda ^cuda@10.0.130 arch=linux-None-ppc64le:",
+            "description": "None"
+        },
+        {
+            "name": "%clang@7.1:",
+            "spec": "+cuda ^cuda@:10.1.105 arch=linux-None-ppc64le:",
+            "description": "None"
+        },
+        {
+            "name": "%clang@8.1:",
+            "spec": "+cuda ^cuda@:10.2.89 arch=linux-None-ppc64le:",
+            "description": "None"
+        },
+        {
+            "name": "%intel@:11.0",
+            "spec": "+cuda ^cuda@:3.1",
+            "description": "None"
+        },
+        {
+            "name": "%intel@:12.0",
+            "spec": "+cuda ^cuda@5.5:",
+            "description": "None"
+        },
+        {
+            "name": "%intel@:13.0",
+            "spec": "+cuda ^cuda@6.0:",
+            "description": "None"
+        },
+        {
+            "name": "%intel@:13.2",
+            "spec": "+cuda ^cuda@6.5:",
+            "description": "None"
+        },
+        {
+            "name": "%intel@:14.9",
+            "spec": "+cuda ^cuda@7:",
+            "description": "None"
+        },
+        {
+            "name": "%intel@16.0:",
+            "spec": "+cuda ^cuda@:8.0.43",
+            "description": "None"
+        },
+        {
+            "name": "%intel@17.0:",
+            "spec": "+cuda ^cuda@:8.0.60",
+            "description": "None"
+        },
+        {
+            "name": "%intel@18.0:",
+            "spec": "+cuda ^cuda@:9.9",
+            "description": "None"
+        },
+        {
+            "name": "%intel@19.0:",
+            "spec": "+cuda ^cuda@:10.0",
+            "description": "None"
+        },
+        {
+            "name": "%intel@19.1:",
+            "spec": "+cuda ^cuda@:10.1",
+            "description": "None"
+        },
+        {
+            "name": "%intel@19.2:",
+            "spec": "+cuda ^cuda@:11.1.0",
+            "description": "None"
+        },
+        {
+            "name": "%xl@:12,14:",
+            "spec": "+cuda ^cuda@:9.1",
+            "description": "None"
+        },
+        {
+            "name": "%xl@:12,14:15,17:",
+            "spec": "+cuda ^cuda@9.2",
+            "description": "None"
+        },
+        {
+            "name": "%xl@:12,17:",
+            "spec": "+cuda ^cuda@:11.1.0",
+            "description": "None"
+        },
+        {
+            "name": "platform=darwin",
+            "spec": "+cuda ^cuda@11.0.2:",
+            "description": "None"
+        },
+        {
+            "name": "~cuda",
+            "spec": "cuda_arch=10",
+            "description": "None"
+        },
+        {
+            "name": "~cuda",
+            "spec": "cuda_arch=11",
+            "description": "None"
+        },
+        {
+            "name": "~cuda",
+            "spec": "cuda_arch=12",
+            "description": "None"
+        },
+        {
+            "name": "~cuda",
+            "spec": "cuda_arch=13",
+            "description": "None"
+        },
+        {
+            "name": "~cuda",
+            "spec": "cuda_arch=20",
+            "description": "None"
+        },
+        {
+            "name": "~cuda",
+            "spec": "cuda_arch=21",
+            "description": "None"
+        },
+        {
+            "name": "~cuda",
+            "spec": "cuda_arch=30",
+            "description": "None"
+        },
+        {
+            "name": "~cuda",
+            "spec": "cuda_arch=32",
+            "description": "None"
+        },
+        {
+            "name": "~cuda",
+            "spec": "cuda_arch=35",
+            "description": "None"
+        },
+        {
+            "name": "~cuda",
+            "spec": "cuda_arch=37",
+            "description": "None"
+        },
+        {
+            "name": "~cuda",
+            "spec": "cuda_arch=50",
+            "description": "None"
+        },
+        {
+            "name": "~cuda",
+            "spec": "cuda_arch=52",
+            "description": "None"
+        },
+        {
+            "name": "~cuda",
+            "spec": "cuda_arch=53",
+            "description": "None"
+        },
+        {
+            "name": "~cuda",
+            "spec": "cuda_arch=60",
+            "description": "None"
+        },
+        {
+            "name": "~cuda",
+            "spec": "cuda_arch=61",
+            "description": "None"
+        },
+        {
+            "name": "~cuda",
+            "spec": "cuda_arch=62",
+            "description": "None"
+        },
+        {
+            "name": "~cuda",
+            "spec": "cuda_arch=70",
+            "description": "None"
+        },
+        {
+            "name": "~cuda",
+            "spec": "cuda_arch=72",
+            "description": "None"
+        },
+        {
+            "name": "~cuda",
+            "spec": "cuda_arch=75",
+            "description": "None"
+        },
+        {
+            "name": "~cuda",
+            "spec": "cuda_arch=80",
+            "description": "None"
+        },
+        {
+            "name": "~cuda",
+            "spec": "cuda_arch=86",
+            "description": "None"
+        },
+        {
+            "name": "+ipo",
+            "spec": "^cmake@:3.8",
+            "description": "+ipo is not supported by CMake < 3.9"
+        }
+    ],
+    "variants": [
+        {
+            "name": "cuda",
+            "default": false,
+            "description": "enable Cuda backend"
+        },
+        {
+            "name": "cuda_arch",
+            "default": "none",
+            "description": "CUDA architecture"
+        },
+        {
+            "name": "build_type",
+            "default": "RelWithDebInfo",
+            "description": "CMake build type"
+        },
+        {
+            "name": "ipo",
+            "default": false,
+            "description": "CMake interprocedural optimization"
+        },
+        {
+            "name": "serial",
+            "default": false,
+            "description": "enable Serial backend (default)"
+        },
+        {
+            "name": "openmp",
+            "default": false,
+            "description": "enable OpenMP backend"
+        },
+        {
+            "name": "pthread",
+            "default": false,
+            "description": "enable Pthread backend"
+        },
+        {
+            "name": "execspace_cuda",
+            "default": "auto",
+            "description": ""
+        },
+        {
+            "name": "execspace_openmp",
+            "default": "auto",
+            "description": ""
+        },
+        {
+            "name": "execspace_threads",
+            "default": "auto",
+            "description": ""
+        },
+        {
+            "name": "execspace_serial",
+            "default": "auto",
+            "description": ""
+        },
+        {
+            "name": "memspace_cudauvmspace",
+            "default": "auto",
+            "description": ""
+        },
+        {
+            "name": "memspace_cudaspace",
+            "default": "auto",
+            "description": ""
+        },
+        {
+            "name": "ordinals",
+            "default": "int",
+            "description": ""
+        },
+        {
+            "name": "offsets",
+            "default": "int,size_t",
+            "description": ""
+        },
+        {
+            "name": "layouts",
+            "default": "left",
+            "description": ""
+        },
+        {
+            "name": "scalars",
+            "default": "double",
+            "description": ""
+        },
+        {
+            "name": "blas",
+            "default": false,
+            "description": "Link to system BLAS"
+        },
+        {
+            "name": "lapack",
+            "default": false,
+            "description": "Link to system LAPACK"
+        },
+        {
+            "name": "mkl",
+            "default": false,
+            "description": "Link to system MKL"
+        },
+        {
+            "name": "cublas",
+            "default": false,
+            "description": "Link to CUDA BLAS library"
+        },
+        {
+            "name": "cusparse",
+            "default": false,
+            "description": "Link to CUDA sparse library"
+        },
+        {
+            "name": "superlu",
+            "default": false,
+            "description": "Link to SuperLU library"
+        },
+        {
+            "name": "cblas",
+            "default": false,
+            "description": "Link to CBLAS library"
+        },
+        {
+            "name": "lapacke",
+            "default": false,
+            "description": "Link to LAPACKE library"
+        }
+    ],
+    "homepage": "https://github.com/kokkos/kokkos-kernels",
+    "maintainers": [],
+    "patches": [],
+    "resources": [],
+    "description": "Kokkos Kernels provides math kernels, often BLAS or LAPACK for small\nmatrices, that can be used in larger Kokkos parallel routines\n",
+    "dependencies": [
+        {
+            "name": "cuda",
+            "description": "CUDA is a parallel computing platform and programming model invented by\nNVIDIA. It enables dramatic increases in computing performance by\nharnessing the power of the graphics processing unit (GPU). Note: This\npackage does not currently install the drivers necessary to run CUDA.\nThese will need to be installed manually. See:\nhttps://docs.nvidia.com/cuda/ for details."
+        },
+        {
+            "name": "cmake",
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
+        },
+        {
+            "name": "kokkos",
+            "description": "Kokkos implements a programming model in C++ for writing performance\nportable applications targeting all major HPC platforms."
+        },
+        {
+            "name": "blas",
+            "description": "Intel oneAPI MKL."
+        },
+        {
+            "name": "lapack",
+            "description": "Intel oneAPI MKL."
+        },
+        {
+            "name": "mkl",
+            "description": "Intel oneAPI MKL."
+        },
+        {
+            "name": "superlu",
+            "description": "SuperLU is a general purpose library for the direct solution of large,\nsparse, nonsymmetric systems of linear equations on high performance\nmachines. SuperLU is designed for sequential machines."
+        },
+        {
+            "name": "cblas",
+            "description": "The BLAS (Basic Linear Algebra Subprograms) are routines that provide\nstandard building blocks for performing basic vector and matrix\noperations."
+        },
+        {
+            "name": "clapack",
+            "description": "CLAPACK is a f2c'ed version of LAPACK. The CLAPACK library was built\nusing a Fortran to C conversion utility called f2c. The entire Fortran\n77 LAPACK library is run through f2c to obtain C code, and then modified\nto improve readability. CLAPACK's goal is to provide LAPACK for someone\nwho does not have access to a Fortran compiler."
+        }
+    ],
+    "dependent_to": [
+        {
+            "name": "compadre",
+            "description": "The Compadre Toolkit provides a performance portable solution for the\nparallel evaluation of computationally dense kernels. The toolkit\nspecifically targets the Generalized Moving Least Squares (GMLS)\napproach, which requires the inversion of small dense matrices. The\nresult is a set of weights that provide the information needed for remap\nor entries that constitute the rows of some globally sparse matrix."
+        }
+    ]
+}

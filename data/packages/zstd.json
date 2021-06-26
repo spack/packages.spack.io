@@ -1,0 +1,260 @@
+{
+    "name": "zstd",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "develop",
+            "branch": "dev"
+        },
+        {
+            "name": "1.5.0",
+            "sha256": "0d9ade222c64e912d6957b11c923e214e2e010a18f39bec102f572e693ba2867"
+        },
+        {
+            "name": "1.4.9",
+            "sha256": "acf714d98e3db7b876e5b540cbf6dee298f60eb3c0723104f6d3f065cd60d6a8"
+        },
+        {
+            "name": "1.4.8",
+            "sha256": "f176f0626cb797022fbf257c3c644d71c1c747bb74c32201f9203654da35e9fa"
+        },
+        {
+            "name": "1.4.7",
+            "sha256": "085500c8d0b9c83afbc1dc0d8b4889336ad019eba930c5d6a9c6c86c20c769c8"
+        },
+        {
+            "name": "1.4.5",
+            "sha256": "734d1f565c42f691f8420c8d06783ad818060fc390dee43ae0a89f86d0a4f8c2"
+        },
+        {
+            "name": "1.4.4",
+            "sha256": "a364f5162c7d1a455cc915e8e3cf5f4bd8b75d09bc0f53965b0c9ca1383c52c8"
+        },
+        {
+            "name": "1.4.3",
+            "sha256": "5eda3502ecc285c3c92ee0cc8cd002234dee39d539b3f692997a0e80de1d33de"
+        },
+        {
+            "name": "1.4.2",
+            "sha256": "7a6e1dad34054b35e2e847eb3289be8820a5d378228802239852f913c6dcf6a7"
+        },
+        {
+            "name": "1.4.0",
+            "sha256": "63be339137d2b683c6d19a9e34f4fb684790e864fee13c7dd40e197a64c705c1"
+        },
+        {
+            "name": "1.3.8",
+            "sha256": "90d902a1282cc4e197a8023b6d6e8d331c1fd1dfe60f7f8e4ee9da40da886dc3"
+        },
+        {
+            "name": "1.3.0",
+            "sha256": "0fdba643b438b7cbce700dcc0e7b3e3da6d829088c63757a5984930e2f70b348"
+        },
+        {
+            "name": "1.1.2",
+            "sha256": "980b8febb0118e22f6ed70d23b5b3e600995dbf7489c1f6d6122c1411cdda8d8"
+        }
+    ],
+    "build_system": "CMakePackage",
+    "conflicts": [
+        {
+            "name": "+ipo",
+            "spec": "^cmake@:3.8",
+            "description": "+ipo is not supported by CMake < 3.9"
+        },
+        {
+            "name": "+zlib",
+            "spec": "~programs",
+            "description": "zlib requires programs to be built"
+        },
+        {
+            "name": "+lzma",
+            "spec": "~programs",
+            "description": "lzma requires programs to be built"
+        },
+        {
+            "name": "+lz4",
+            "spec": "~programs",
+            "description": "lz4 requires programs to be built"
+        }
+    ],
+    "variants": [
+        {
+            "name": "build_type",
+            "default": "RelWithDebInfo",
+            "description": "CMake build type"
+        },
+        {
+            "name": "ipo",
+            "default": false,
+            "description": "CMake interprocedural optimization"
+        },
+        {
+            "name": "shared",
+            "default": true,
+            "description": "Build shared libraries"
+        },
+        {
+            "name": "static",
+            "default": true,
+            "description": "Build static libraries"
+        },
+        {
+            "name": "programs",
+            "default": true,
+            "description": "Build executables"
+        },
+        {
+            "name": "legacy",
+            "default": false,
+            "description": "Enable legacy support"
+        },
+        {
+            "name": "zlib",
+            "default": false,
+            "description": "Build programs with zlib support"
+        },
+        {
+            "name": "lzma",
+            "default": false,
+            "description": "Build programs with lzma support"
+        },
+        {
+            "name": "lz4",
+            "default": false,
+            "description": "Build programs with zlib support"
+        },
+        {
+            "name": "multithread",
+            "default": true,
+            "description": "Build with pthread support"
+        }
+    ],
+    "homepage": "http://facebook.github.io/zstd/",
+    "maintainers": [
+        "haampie"
+    ],
+    "patches": [],
+    "resources": [],
+    "description": "Zstandard, or zstd as short version, is a fast lossless compression\nalgorithm, targeting real-time compression scenarios at zlib-level and\nbetter compression ratios.\n",
+    "dependencies": [
+        {
+            "name": "cmake",
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
+        },
+        {
+            "name": "zlib",
+            "description": "A free, general-purpose, legally unencumbered lossless data-compression\nlibrary."
+        },
+        {
+            "name": "lzma",
+            "description": "LZMA Utils are legacy data compression software with high compression\nratio. LZMA Utils are no longer developed, although critical bugs may be\nfixed as long as fixing them doesn't require huge changes to the code.\nUsers of LZMA Utils should move to XZ Utils. XZ Utils support the legacy\n.lzma format used by LZMA Utils, and can also emulate the command line\ntools of LZMA Utils. This should make transition from LZMA Utils to XZ\nUtils relatively easy."
+        },
+        {
+            "name": "lz4",
+            "description": "LZ4 is lossless compression algorithm, providing compression speed at\n400 MB/s per core, scalable with multi-cores CPU. It also features an\nextremely fast decoder, with speed in multiple GB/s per core, typically\nreaching RAM speed limits on multi-core systems."
+        }
+    ],
+    "dependent_to": [
+        {
+            "name": "plink-ng",
+            "description": "A comprehensive update to the PLINK association analysis toolset."
+        },
+        {
+            "name": "squashfuse",
+            "description": "squashfuse - Mount SquashFS archives using FUSE"
+        },
+        {
+            "name": "root",
+            "description": "ROOT is a data analysis framework."
+        },
+        {
+            "name": "rocksdb",
+            "description": "RocksDB: A Persistent Key-Value Store for Flash and RAM Storage"
+        },
+        {
+            "name": "gpdb",
+            "description": "Greenplum Database (GPDB) is an advanced, fully featured, open source\ndata warehouse, based on PostgreSQL. It provides powerful and rapid\nanalytics on petabyte scale data volumes. Uniquely geared toward big\ndata analytics, Greenplum Database is powered by the world's most\nadvanced cost-based query optimizer delivering high analytical query\nperformance on large data volumes."
+        },
+        {
+            "name": "gcc",
+            "description": "The GNU Compiler Collection includes front ends for C, C++, Objective-C,\nFortran, Ada, and Go, as well as libraries for these languages."
+        },
+        {
+            "name": "libpulsar",
+            "description": "libpulsar is a C/C++ client library implementation of the Apache Pulsar\nprotocol."
+        },
+        {
+            "name": "rpm",
+            "description": "The RPM package manager https://github.com/rpm-software-\nmanagement/rpm/blob/master/INSTALL Note that debugedit is an additional\ntool that *should* compile with adding libdw and elfutils, but the\nlibrary (as of 4.16.1.2) is being removed from rpm and will be put\nsomewhere else."
+        },
+        {
+            "name": "rsync",
+            "description": "An open source utility that provides fast incremental file transfer."
+        },
+        {
+            "name": "librdkafka",
+            "description": "librdkafka is a C library implementation of the Apache Kafka protocol."
+        },
+        {
+            "name": "ccache",
+            "description": "ccache is a compiler cache. It speeds up recompilation by caching\nprevious compilations and detecting when the same compilation is being\ndone again."
+        },
+        {
+            "name": "gdal",
+            "description": "GDAL (Geospatial Data Abstraction Library) is a translator library for\nraster and vector geospatial data formats that is released under an\nX/MIT style Open Source license by the Open Source Geospatial\nFoundation. As a library, it presents a single raster abstract data\nmodel and vector abstract data model to the calling application for all\nsupported formats. It also comes with a variety of useful command line\nutilities for data translation and processing."
+        },
+        {
+            "name": "heaptrack",
+            "description": "Heaptrack is a heap memory profiler that traces all memory allocations\nand annotates these events with stack traces."
+        },
+        {
+            "name": "arrow",
+            "description": "A cross-language development platform for in-memory data. This package\ncontains the C++ bindings."
+        },
+        {
+            "name": "mongo-c-driver",
+            "description": "libmongoc is a client library written in C for MongoDB."
+        },
+        {
+            "name": "sz",
+            "description": "Error-bounded Lossy Compressor for HPC Data"
+        },
+        {
+            "name": "c-blosc2",
+            "description": "Next generation c-blosc with a new API, a new container and other bells\nand whistles"
+        },
+        {
+            "name": "squashfs",
+            "description": "Squashfs - read only compressed filesystem"
+        },
+        {
+            "name": "grass",
+            "description": "GRASS GIS (Geographic Resources Analysis Support System), is a free and\nopen source Geographic Information System (GIS) software suite used for\ngeospatial data management and analysis, image processing, graphics and\nmaps production, spatial modeling, and visualization."
+        },
+        {
+            "name": "c-blosc",
+            "description": "Blosc, an extremely fast, multi-threaded, meta-compressor library"
+        },
+        {
+            "name": "orc",
+            "description": "the smallest, fastest columnar storage for Hadoop workloads."
+        },
+        {
+            "name": "py-torch",
+            "description": "Tensors and Dynamic neural networks in Python with strong GPU\nacceleration."
+        },
+        {
+            "name": "py-uproot",
+            "description": "ROOT I/O in pure Python and NumPy. Uproot is a reader and a writer of\nthe ROOT file format using only Python and Numpy. Unlike the standard\nC++ ROOT implementation, Uproot is only an I/O library, primarily\nintended to stream data into machine learning libraries in Python.\nUnlike PyROOT and root_numpy, Uproot does not depend on C++ ROOT.\nInstead, it uses Numpy to cast blocks of data from the ROOT file as\nNumpy arrays."
+        },
+        {
+            "name": "py-uproot4",
+            "description": "DEPRECATED! This package was renamed to py-uproot. ROOT I/O in pure\nPython and NumPy."
+        },
+        {
+            "name": "orca",
+            "description": "An ab initio, DFT and semiempirical SCF-MO package Note: Orca is\nlicensed software. You will need to create an account on the Orca\nhomepage and download Orca yourself. Spack will search your current\ndirectory for the download file. Alternatively, add this file to a\nmirror so that Spack can find it. For instructions on how to set up a\nmirror, see http://spack.readthedocs.io/en/latest/mirrors.html"
+        }
+    ]
+}

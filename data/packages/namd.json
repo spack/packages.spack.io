@@ -1,0 +1,506 @@
+{
+    "name": "namd",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "master",
+            "branch": "master"
+        },
+        {
+            "name": "2.15a1",
+            "branch": "master",
+            "tag": "release-2-15-alpha-1"
+        },
+        {
+            "name": "2.14",
+            "sha256": "34044d85d9b4ae61650ccdba5cda4794088c3a9075932392dd0752ef8c049235",
+            "preferred": true
+        },
+        {
+            "name": "2.13",
+            "checksum": "9e3323ed856e36e34d5c17a7b0341e38"
+        },
+        {
+            "name": "2.12",
+            "checksum": "2a1191909b1ab03bf0205971ad4d8ee9"
+        }
+    ],
+    "build_system": "MakefilePackage",
+    "conflicts": [
+        {
+            "name": "%gcc@5:",
+            "spec": "+cuda ^cuda@:7.5 arch=linux-None-x86_64:",
+            "description": "None"
+        },
+        {
+            "name": "%gcc@6:",
+            "spec": "+cuda ^cuda@:8 arch=linux-None-x86_64:",
+            "description": "None"
+        },
+        {
+            "name": "%gcc@6:",
+            "spec": "+cuda ^cuda@:9 arch=linux-None-ppc64le:",
+            "description": "None"
+        },
+        {
+            "name": "%gcc@7:",
+            "spec": "+cuda ^cuda@:9.1 arch=linux-None-x86_64:",
+            "description": "None"
+        },
+        {
+            "name": "%gcc@8:",
+            "spec": "+cuda ^cuda@:10.0.130 arch=linux-None-x86_64:",
+            "description": "None"
+        },
+        {
+            "name": "%gcc@8:",
+            "spec": "+cuda ^cuda@:10.0.130 arch=linux-None-ppc64le:",
+            "description": "None"
+        },
+        {
+            "name": "%gcc@9:",
+            "spec": "+cuda ^cuda@:10.2.89 arch=linux-None-x86_64:",
+            "description": "None"
+        },
+        {
+            "name": "%gcc@9:",
+            "spec": "+cuda ^cuda@:10.1.243 arch=linux-None-ppc64le:",
+            "description": "None"
+        },
+        {
+            "name": "%gcc@:4",
+            "spec": "+cuda ^cuda@11.0.2: arch=linux-None-x86_64:",
+            "description": "None"
+        },
+        {
+            "name": "%gcc@:4",
+            "spec": "+cuda ^cuda@11.0.2: arch=linux-None-ppc64le:",
+            "description": "None"
+        },
+        {
+            "name": "%gcc@10:",
+            "spec": "+cuda ^cuda@:11.0.2 arch=linux-None-x86_64:",
+            "description": "None"
+        },
+        {
+            "name": "%gcc@10:",
+            "spec": "+cuda ^cuda@:11.0.2 arch=linux-None-ppc64le:",
+            "description": "None"
+        },
+        {
+            "name": "%gcc@11:",
+            "spec": "+cuda ^cuda@:11.1.0 arch=linux-None-x86_64:",
+            "description": "None"
+        },
+        {
+            "name": "%gcc@11:",
+            "spec": "+cuda ^cuda@:11.1.0 arch=linux-None-ppc64le:",
+            "description": "None"
+        },
+        {
+            "name": "%pgi@:14.8",
+            "spec": "+cuda ^cuda@:7.0.27 arch=linux-None-x86_64:",
+            "description": "None"
+        },
+        {
+            "name": "%pgi@:15.3,15.5:",
+            "spec": "+cuda ^cuda@7.5 arch=linux-None-x86_64:",
+            "description": "None"
+        },
+        {
+            "name": "%pgi@:16.2,16.0:16.3",
+            "spec": "+cuda ^cuda@8 arch=linux-None-x86_64:",
+            "description": "None"
+        },
+        {
+            "name": "%pgi@:15,18:",
+            "spec": "+cuda ^cuda@9.0:9.1 arch=linux-None-x86_64:",
+            "description": "None"
+        },
+        {
+            "name": "%pgi@:16,19:",
+            "spec": "+cuda ^cuda@9.2.88:10 arch=linux-None-x86_64:",
+            "description": "None"
+        },
+        {
+            "name": "%pgi@:17,20:",
+            "spec": "+cuda ^cuda@10.1.105:10.2.89 arch=linux-None-x86_64:",
+            "description": "None"
+        },
+        {
+            "name": "%pgi@:17,21:",
+            "spec": "+cuda ^cuda@11.0.2:11.1.0 arch=linux-None-x86_64:",
+            "description": "None"
+        },
+        {
+            "name": "%clang@:3.4",
+            "spec": "+cuda ^cuda@:7.5 arch=linux-None-x86_64:",
+            "description": "None"
+        },
+        {
+            "name": "%clang@:3.7,4:",
+            "spec": "+cuda ^cuda@8.0:9.0 arch=linux-None-x86_64:",
+            "description": "None"
+        },
+        {
+            "name": "%clang@:3.7,4.1:",
+            "spec": "+cuda ^cuda@9.1 arch=linux-None-x86_64:",
+            "description": "None"
+        },
+        {
+            "name": "%clang@:3.7,5.1:",
+            "spec": "+cuda ^cuda@9.2 arch=linux-None-x86_64:",
+            "description": "None"
+        },
+        {
+            "name": "%clang@:3.7,6.1:",
+            "spec": "+cuda ^cuda@10.0.130 arch=linux-None-x86_64:",
+            "description": "None"
+        },
+        {
+            "name": "%clang@:3.7,7.1:",
+            "spec": "+cuda ^cuda@10.1.105 arch=linux-None-x86_64:",
+            "description": "None"
+        },
+        {
+            "name": "%clang@:3.7,8.1:",
+            "spec": "+cuda ^cuda@10.1.105:10.1.243 arch=linux-None-x86_64:",
+            "description": "None"
+        },
+        {
+            "name": "%clang@:3.2,9:",
+            "spec": "+cuda ^cuda@10.2.89 arch=linux-None-x86_64:",
+            "description": "None"
+        },
+        {
+            "name": "%clang@:5",
+            "spec": "+cuda ^cuda@11.0.2: arch=linux-None-x86_64:",
+            "description": "None"
+        },
+        {
+            "name": "%clang@:5",
+            "spec": "+cuda ^cuda@11.0.2: arch=linux-None-ppc64le:",
+            "description": "None"
+        },
+        {
+            "name": "%clang@10:",
+            "spec": "+cuda ^cuda@:11.0.2 arch=linux-None-x86_64:",
+            "description": "None"
+        },
+        {
+            "name": "%clang@10:",
+            "spec": "+cuda ^cuda@:11.0.2 arch=linux-None-ppc64le:",
+            "description": "None"
+        },
+        {
+            "name": "%clang@11:",
+            "spec": "+cuda ^cuda@:11.1.0 arch=linux-None-x86_64:",
+            "description": "None"
+        },
+        {
+            "name": "%clang@11:",
+            "spec": "+cuda ^cuda@:11.1.0 arch=linux-None-ppc64le:",
+            "description": "None"
+        },
+        {
+            "name": "%pgi",
+            "spec": "+cuda ^cuda@:8 arch=linux-None-ppc64le:",
+            "description": "None"
+        },
+        {
+            "name": "%pgi@:16",
+            "spec": "+cuda ^cuda@:9.1.185 arch=linux-None-ppc64le:",
+            "description": "None"
+        },
+        {
+            "name": "%pgi@:17",
+            "spec": "+cuda ^cuda@:10 arch=linux-None-ppc64le:",
+            "description": "None"
+        },
+        {
+            "name": "%clang@4:",
+            "spec": "+cuda ^cuda@:9.0.176 arch=linux-None-ppc64le:",
+            "description": "None"
+        },
+        {
+            "name": "%clang@5:",
+            "spec": "+cuda ^cuda@:9.1 arch=linux-None-ppc64le:",
+            "description": "None"
+        },
+        {
+            "name": "%clang@6:",
+            "spec": "+cuda ^cuda@:9.2 arch=linux-None-ppc64le:",
+            "description": "None"
+        },
+        {
+            "name": "%clang@7:",
+            "spec": "+cuda ^cuda@10.0.130 arch=linux-None-ppc64le:",
+            "description": "None"
+        },
+        {
+            "name": "%clang@7.1:",
+            "spec": "+cuda ^cuda@:10.1.105 arch=linux-None-ppc64le:",
+            "description": "None"
+        },
+        {
+            "name": "%clang@8.1:",
+            "spec": "+cuda ^cuda@:10.2.89 arch=linux-None-ppc64le:",
+            "description": "None"
+        },
+        {
+            "name": "%intel@:11.0",
+            "spec": "+cuda ^cuda@:3.1",
+            "description": "None"
+        },
+        {
+            "name": "%intel@:12.0",
+            "spec": "+cuda ^cuda@5.5:",
+            "description": "None"
+        },
+        {
+            "name": "%intel@:13.0",
+            "spec": "+cuda ^cuda@6.0:",
+            "description": "None"
+        },
+        {
+            "name": "%intel@:13.2",
+            "spec": "+cuda ^cuda@6.5:",
+            "description": "None"
+        },
+        {
+            "name": "%intel@:14.9",
+            "spec": "+cuda ^cuda@7:",
+            "description": "None"
+        },
+        {
+            "name": "%intel@16.0:",
+            "spec": "+cuda ^cuda@:8.0.43",
+            "description": "None"
+        },
+        {
+            "name": "%intel@17.0:",
+            "spec": "+cuda ^cuda@:8.0.60",
+            "description": "None"
+        },
+        {
+            "name": "%intel@18.0:",
+            "spec": "+cuda ^cuda@:9.9",
+            "description": "None"
+        },
+        {
+            "name": "%intel@19.0:",
+            "spec": "+cuda ^cuda@:10.0",
+            "description": "None"
+        },
+        {
+            "name": "%intel@19.1:",
+            "spec": "+cuda ^cuda@:10.1",
+            "description": "None"
+        },
+        {
+            "name": "%intel@19.2:",
+            "spec": "+cuda ^cuda@:11.1.0",
+            "description": "None"
+        },
+        {
+            "name": "%xl@:12,14:",
+            "spec": "+cuda ^cuda@:9.1",
+            "description": "None"
+        },
+        {
+            "name": "%xl@:12,14:15,17:",
+            "spec": "+cuda ^cuda@9.2",
+            "description": "None"
+        },
+        {
+            "name": "%xl@:12,17:",
+            "spec": "+cuda ^cuda@:11.1.0",
+            "description": "None"
+        },
+        {
+            "name": "platform=darwin",
+            "spec": "+cuda ^cuda@11.0.2:",
+            "description": "None"
+        },
+        {
+            "name": "~cuda",
+            "spec": "cuda_arch=10",
+            "description": "None"
+        },
+        {
+            "name": "~cuda",
+            "spec": "cuda_arch=11",
+            "description": "None"
+        },
+        {
+            "name": "~cuda",
+            "spec": "cuda_arch=12",
+            "description": "None"
+        },
+        {
+            "name": "~cuda",
+            "spec": "cuda_arch=13",
+            "description": "None"
+        },
+        {
+            "name": "~cuda",
+            "spec": "cuda_arch=20",
+            "description": "None"
+        },
+        {
+            "name": "~cuda",
+            "spec": "cuda_arch=21",
+            "description": "None"
+        },
+        {
+            "name": "~cuda",
+            "spec": "cuda_arch=30",
+            "description": "None"
+        },
+        {
+            "name": "~cuda",
+            "spec": "cuda_arch=32",
+            "description": "None"
+        },
+        {
+            "name": "~cuda",
+            "spec": "cuda_arch=35",
+            "description": "None"
+        },
+        {
+            "name": "~cuda",
+            "spec": "cuda_arch=37",
+            "description": "None"
+        },
+        {
+            "name": "~cuda",
+            "spec": "cuda_arch=50",
+            "description": "None"
+        },
+        {
+            "name": "~cuda",
+            "spec": "cuda_arch=52",
+            "description": "None"
+        },
+        {
+            "name": "~cuda",
+            "spec": "cuda_arch=53",
+            "description": "None"
+        },
+        {
+            "name": "~cuda",
+            "spec": "cuda_arch=60",
+            "description": "None"
+        },
+        {
+            "name": "~cuda",
+            "spec": "cuda_arch=61",
+            "description": "None"
+        },
+        {
+            "name": "~cuda",
+            "spec": "cuda_arch=62",
+            "description": "None"
+        },
+        {
+            "name": "~cuda",
+            "spec": "cuda_arch=70",
+            "description": "None"
+        },
+        {
+            "name": "~cuda",
+            "spec": "cuda_arch=72",
+            "description": "None"
+        },
+        {
+            "name": "~cuda",
+            "spec": "cuda_arch=75",
+            "description": "None"
+        },
+        {
+            "name": "~cuda",
+            "spec": "cuda_arch=80",
+            "description": "None"
+        },
+        {
+            "name": "~cuda",
+            "spec": "cuda_arch=86",
+            "description": "None"
+        }
+    ],
+    "variants": [
+        {
+            "name": "cuda",
+            "default": false,
+            "description": "Build with CUDA"
+        },
+        {
+            "name": "cuda_arch",
+            "default": "none",
+            "description": "CUDA architecture"
+        },
+        {
+            "name": "fftw",
+            "default": "3",
+            "description": "Enable the use of FFTW/FFTW3/MKL FFT/AMDFFTW"
+        },
+        {
+            "name": "interface",
+            "default": "none",
+            "description": "Enables TCL and/or python interface"
+        }
+    ],
+    "homepage": "http://www.ks.uiuc.edu/Research/namd/",
+    "maintainers": [],
+    "patches": [
+        {
+            "owner": "builtin.namd",
+            "sha256": "3583d9751c810f7a7bdede5b0d1cb241877ebac9e6d7bc45ace9798be836918c",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "inherited-member-2.13.patch",
+            "version": "@2.13"
+        },
+        {
+            "owner": "builtin.namd",
+            "sha256": "cdcbc3846be1dfd6dbf958177c703e15ef5343e1461ed68d02be8fd0512429d5",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "inherited-member-2.14.patch",
+            "version": "@2.14"
+        }
+    ],
+    "resources": [],
+    "description": "NAMDis a parallel molecular dynamics code designed for high-performance\nsimulation of large biomolecular systems.\n",
+    "dependencies": [
+        {
+            "name": "cuda",
+            "description": "CUDA is a parallel computing platform and programming model invented by\nNVIDIA. It enables dramatic increases in computing performance by\nharnessing the power of the graphics processing unit (GPU). Note: This\npackage does not currently install the drivers necessary to run CUDA.\nThese will need to be installed manually. See:\nhttps://docs.nvidia.com/cuda/ for details."
+        },
+        {
+            "name": "charmpp",
+            "description": "Charm++ is a parallel programming framework in C++ supported by an\nadaptive runtime system, which enhances user productivity and allows\nprograms to run portably from small multicore computers (your laptop) to\nthe largest supercomputers."
+        },
+        {
+            "name": "fftw",
+            "description": "FFTW is a C subroutine library for computing the discrete Fourier\ntransform (DFT) in one or more dimensions, of arbitrary input size, and\nof both real and complex data (as well as of even/odd data, i.e. the\ndiscrete cosine/sine transforms or DCT/DST). We believe that FFTW, which\nis free software, should become the FFT library of choice for most\napplications."
+        },
+        {
+            "name": "amdfftw",
+            "description": "FFTW (AMD Optimized version) is a comprehensive collection of fast C\nroutines for computing the Discrete Fourier Transform (DFT) and various\nspecial cases thereof. It is an open-source implementation of the Fast\nFourier transform algorithm. It can compute transforms of real and\ncomplex-values arrays of arbitrary size and dimension. AMD Optimized\nFFTW is the optimized FFTW implementation targeted for AMD CPUs. For\nsingle precision build, please use precision value as float. Example :\nspack install amdfftw precision=float"
+        },
+        {
+            "name": "intel-mkl",
+            "description": "Intel Math Kernel Library."
+        },
+        {
+            "name": "tcl",
+            "description": "Tcl (Tool Command Language) is a very powerful but easy to learn dynamic\nprogramming language, suitable for a very wide range of uses, including\nweb and desktop applications, networking, administration, testing and\nmany more. Open source and business-friendly, Tcl is a mature yet\nevolving language that is truly cross platform, easily deployed and\nhighly extensible."
+        },
+        {
+            "name": "python",
+            "description": "The Python programming language."
+        }
+    ],
+    "dependent_to": []
+}

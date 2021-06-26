@@ -1,0 +1,82 @@
+{
+    "name": "qmd-progress",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "develop",
+            "branch": "master"
+        },
+        {
+            "name": "1.1.0",
+            "sha256": "2c5eac252067bfb55d715c9ce5de2e4306b20b4273979dda15b4a2f71f69bb0b"
+        },
+        {
+            "name": "1.0.0",
+            "sha256": "28c99eb80d9a6b09e1d01d61538b3b924850d89c6a8bfb5d3e8b6490be822296"
+        }
+    ],
+    "build_system": "CMakePackage",
+    "conflicts": [
+        {
+            "name": "+ipo",
+            "spec": "^cmake@:3.8",
+            "description": "+ipo is not supported by CMake < 3.9"
+        }
+    ],
+    "variants": [
+        {
+            "name": "build_type",
+            "default": "RelWithDebInfo",
+            "description": "CMake build type"
+        },
+        {
+            "name": "ipo",
+            "default": false,
+            "description": "CMake interprocedural optimization"
+        },
+        {
+            "name": "graphlib",
+            "default": false,
+            "description": "Build with Metis Suppport"
+        },
+        {
+            "name": "mpi",
+            "default": true,
+            "description": "Build with MPI Support"
+        },
+        {
+            "name": "shared",
+            "default": true,
+            "description": "Build shared libs"
+        }
+    ],
+    "homepage": "https://github.com/lanl/qmd-progress",
+    "maintainers": [],
+    "patches": [],
+    "resources": [],
+    "description": "PROGRESS: Parallel, Rapid O(N) and Graph-based Recursive Electronic\nStructure Solver. This library is focused on the development of general\nsolvers that are commonly used in quantum chemistry packages.\n",
+    "dependencies": [
+        {
+            "name": "cmake",
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
+        },
+        {
+            "name": "bml",
+            "description": "The basic matrix library (bml) is a collection of various matrix data\nformats (in dense and sparse) and their associated algorithms for basic\nmatrix operations."
+        },
+        {
+            "name": "mpi",
+            "description": "MVAPICH2-X is the advanced version of the MVAPICH2 MPI library with\nenhanced features (UMR, ODP, DC, Core-Direct, SHARP, XPMEM), OSU INAM\n(InifniBand Network Monitoring and Analysis),PGAS (OpenSHMEM, UPC,\nUPC++, and CAF), and MPI+PGAS programming models with unified\ncommunication runtime. MVAPICH2-X is not installable from source and is\nonly available through a binary mirror. If you do not find the binary\nyou're looking for, send us an email at mvapich@cse.ohio-state.edu. The\nbinary mirror url is: http://mvapich.cse.ohio-\nstate.edu/download/mvapich/spack-mirror/mvapich2x/"
+        },
+        {
+            "name": "metis",
+            "description": "METIS is a set of serial programs for partitioning graphs, partitioning\nfinite element meshes, and producing fill reducing orderings for sparse\nmatrices. The algorithms implemented in METIS are based on the\nmultilevel recursive-bisection, multilevel k-way, and multi-constraint\npartitioning schemes."
+        }
+    ],
+    "dependent_to": [
+        {
+            "name": "latte",
+            "description": "Open source density functional tight binding molecular dynamics."
+        }
+    ]
+}

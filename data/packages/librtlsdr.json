@@ -1,0 +1,55 @@
+{
+    "name": "librtlsdr",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "0.6.0",
+            "sha256": "80a5155f3505bca8f1b808f8414d7dcd7c459b662a1cde84d3a2629a6e72ae55"
+        },
+        {
+            "name": "0.5.4",
+            "sha256": "6fd0d298c1a18fc8005b0c2f6199b08bc15e3fb4f4312f551eea2ae269c940c5"
+        }
+    ],
+    "build_system": "CMakePackage",
+    "conflicts": [
+        {
+            "name": "+ipo",
+            "spec": "^cmake@:3.8",
+            "description": "+ipo is not supported by CMake < 3.9"
+        }
+    ],
+    "variants": [
+        {
+            "name": "build_type",
+            "default": "RelWithDebInfo",
+            "description": "CMake build type"
+        },
+        {
+            "name": "ipo",
+            "default": false,
+            "description": "CMake interprocedural optimization"
+        }
+    ],
+    "homepage": "https://osmocom.org/projects/rtl-sdr/wiki",
+    "maintainers": [],
+    "patches": [],
+    "resources": [],
+    "description": "turns your Realtek RTL2832 based DVB dongle into a SDR receiver.\n",
+    "dependencies": [
+        {
+            "name": "cmake",
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
+        },
+        {
+            "name": "libusb",
+            "description": "Library for USB device access."
+        }
+    ],
+    "dependent_to": [
+        {
+            "name": "rng-tools",
+            "description": "This is a random number generator daemon. It monitors a set of entropy\nsources, and supplies entropy from them to the system kernel's\n/dev/random machinery."
+        }
+    ]
+}

@@ -1,0 +1,113 @@
+{
+    "name": "evtgen",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "02.00.00",
+            "sha256": "02372308e1261b8369d10538a3aa65fe60728ab343fcb64b224dac7313deb719"
+        },
+        {
+            "name": "01.07.00",
+            "sha256": "2648f1e2be5f11568d589d2079f22f589c283a2960390bbdb8d9d7f71bc9c014",
+            "deprecated": true
+        }
+    ],
+    "build_system": "CMakePackage",
+    "conflicts": [
+        {
+            "name": "+ipo",
+            "spec": "^cmake@:3.8",
+            "description": "+ipo is not supported by CMake < 3.9"
+        },
+        {
+            "name": "^pythia8+evtgen",
+            "spec": "+pythia8",
+            "description": "Building pythia with evtgen bindings and evtgen with pythia bindings results in a circular dependency that cannot be resolved at the moment! Use evtgen+pythia8^pythia8~evtgen."
+        },
+        {
+            "name": "+hepmc3",
+            "spec": "@:01.99.99",
+            "description": "hepmc3 support was added in 02.00.00"
+        }
+    ],
+    "variants": [
+        {
+            "name": "build_type",
+            "default": "RelWithDebInfo",
+            "description": "CMake build type"
+        },
+        {
+            "name": "ipo",
+            "default": false,
+            "description": "CMake interprocedural optimization"
+        },
+        {
+            "name": "pythia8",
+            "default": true,
+            "description": "Build with pythia8"
+        },
+        {
+            "name": "tauola",
+            "default": false,
+            "description": "Build with tauola"
+        },
+        {
+            "name": "photos",
+            "default": false,
+            "description": "Build with photos"
+        },
+        {
+            "name": "hepmc3",
+            "default": false,
+            "description": "Link with hepmc3 (instead of hepmc)"
+        }
+    ],
+    "homepage": "https://evtgen.hepforge.org/",
+    "maintainers": [
+        "vvolkl"
+    ],
+    "patches": [
+        {
+            "owner": "builtin.evtgen",
+            "sha256": "5bdd0d98e8260297dc099c542f4639891edd4911f6f530a1ee5d479d913da40a",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "g2c.patch",
+            "version": "@01.07.00"
+        }
+    ],
+    "resources": [],
+    "description": " EvtGen is a Monte Carlo event generator that simulates the decays of\nheavy flavour particles, primarily B and D mesons.\n",
+    "dependencies": [
+        {
+            "name": "cmake",
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
+        },
+        {
+            "name": "hepmc",
+            "description": "The HepMC package is an object oriented, C++ event record for High\nEnergy Physics Monte Carlo generators and simulation."
+        },
+        {
+            "name": "hepmc3",
+            "description": "The HepMC package is an object oriented, C++ event record for High\nEnergy Physics Monte Carlo generators and simulation."
+        },
+        {
+            "name": "pythia8",
+            "description": "The Pythia program is a standard tool for the generation of events in\nhigh-energy collisions, comprising a coherent set of physics models for\nthe evolution from a few-body hard process to a complex multiparticle\nfinal state."
+        },
+        {
+            "name": "tauola",
+            "description": "Tauola is a event generator for tau decays."
+        },
+        {
+            "name": "photos",
+            "description": "Photos is a Monte Carlo program for bremsstrahlung in the decay of\nparticles and resonances."
+        }
+    ],
+    "dependent_to": [
+        {
+            "name": "pythia8",
+            "description": "The Pythia program is a standard tool for the generation of events in\nhigh-energy collisions, comprising a coherent set of physics models for\nthe evolution from a few-body hard process to a complex multiparticle\nfinal state."
+        }
+    ]
+}

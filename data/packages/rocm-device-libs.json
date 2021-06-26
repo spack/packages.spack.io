@@ -1,0 +1,115 @@
+{
+    "name": "rocm-device-libs",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "master",
+            "branch": "amd-stg-open"
+        },
+        {
+            "name": "4.2.0",
+            "sha256": "34a2ac39b9bb7cfa8175cbab05d30e7f3c06aaffce99eed5f79c616d0f910f5f"
+        },
+        {
+            "name": "4.1.0",
+            "sha256": "f5f5aa6bfbd83ff80a968fa332f80220256447c4ccb71c36f1fbd2b4a8e9fc1b"
+        },
+        {
+            "name": "4.0.0",
+            "sha256": "d0aa495f9b63f6d8cf8ac668f4dc61831d996e9ae3f15280052a37b9d7670d2a"
+        },
+        {
+            "name": "3.10.0",
+            "sha256": "bca9291385d6bdc91a8b39a46f0fd816157d38abb1725ff5222e6a0daa0834cc"
+        },
+        {
+            "name": "3.9.0",
+            "sha256": "c99f45dacf5967aef9a31e3731011b9c142446d4a12bac69774998976f2576d7"
+        },
+        {
+            "name": "3.8.0",
+            "sha256": "e82cc9a8eb7d92de02cabb856583e28f17a05c8cf9c97aec5275608ef1a38574"
+        },
+        {
+            "name": "3.7.0",
+            "sha256": "b3a114180bf184b3b829c356067bc6a98021d52c1c6f9db6bc57272ebafc5f1d"
+        },
+        {
+            "name": "3.5.0",
+            "sha256": "dce3a4ba672c4a2da4c2260ee4dc96ff6dd51877f5e7e1993cb107372a35a378"
+        }
+    ],
+    "build_system": "CMakePackage",
+    "conflicts": [
+        {
+            "name": "+ipo",
+            "spec": "^cmake@:3.8",
+            "description": "+ipo is not supported by CMake < 3.9"
+        }
+    ],
+    "variants": [
+        {
+            "name": "build_type",
+            "default": "Release",
+            "description": "CMake build type"
+        },
+        {
+            "name": "ipo",
+            "default": false,
+            "description": "CMake interprocedural optimization"
+        }
+    ],
+    "homepage": "https://github.com/RadeonOpenCompute/ROCm-Device-Libs",
+    "maintainers": [
+        "srekolam",
+        "arjun-raj-kuppala",
+        "haampie"
+    ],
+    "patches": [],
+    "resources": [],
+    "description": "set of AMD specific device-side language runtime libraries\n",
+    "dependencies": [
+        {
+            "name": "cmake",
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
+        },
+        {
+            "name": "zlib",
+            "description": "A free, general-purpose, legally unencumbered lossless data-compression\nlibrary."
+        },
+        {
+            "name": "texinfo",
+            "description": "Texinfo is the official documentation format of the GNU project. It was\ninvented by Richard Stallman and Bob Chassell many years ago, loosely\nbased on Brian Reid's Scribe and other formatting languages of the time.\nIt is used by many non-GNU projects as well."
+        },
+        {
+            "name": "llvm-amdgpu",
+            "description": "Toolkit for the construction of highly optimized compilers, optimizers,\nand run-time environments."
+        },
+        {
+            "name": "rocm-cmake",
+            "description": "ROCM cmake modules provides cmake modules for common build tasks needed\nfor the ROCM software stack"
+        }
+    ],
+    "dependent_to": [
+        {
+            "name": "aomp",
+            "description": "llvm openmp compiler from AMD."
+        },
+        {
+            "name": "rocm-openmp-extras",
+            "description": "OpenMP support for ROCm LLVM."
+        },
+        {
+            "name": "hsa-rocr-dev",
+            "description": "This repository includes the user mode API nterfaces and libraries\nnecessary for host applications to launch computer kernels to available\nHSA ROCm kernel agents.AMD Heterogeneous System Architecture HSA - Linux\nHSA Runtime for Boltzmann (ROCm) platforms."
+        },
+        {
+            "name": "rocm-clang-ocl",
+            "description": "OpenCL compilation with clang compiler"
+        },
+        {
+            "name": "comgr",
+            "description": "This provides various Lightning Compiler related services. It currently\ncontains one library, the Code Object Manager (Comgr)"
+        }
+    ]
+}

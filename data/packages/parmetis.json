@@ -1,0 +1,175 @@
+{
+    "name": "parmetis",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "4.0.3",
+            "sha256": "f2d9a231b7cf97f1fee6e8c9663113ebf6c240d407d3c118c55b3633d6be6e5f"
+        },
+        {
+            "name": "4.0.2",
+            "sha256": "5acbb700f457d3bda7d4bb944b559d7f21f075bb6fa4c33f42c261019ef2f0b2"
+        }
+    ],
+    "build_system": "CMakePackage",
+    "conflicts": [
+        {
+            "name": "+ipo",
+            "spec": "^cmake@:3.8",
+            "description": "+ipo is not supported by CMake < 3.9"
+        }
+    ],
+    "variants": [
+        {
+            "name": "build_type",
+            "default": "RelWithDebInfo",
+            "description": "CMake build type"
+        },
+        {
+            "name": "ipo",
+            "default": false,
+            "description": "CMake interprocedural optimization"
+        },
+        {
+            "name": "shared",
+            "default": true,
+            "description": "Enables the build of shared libraries."
+        },
+        {
+            "name": "gdb",
+            "default": false,
+            "description": "Enables gdb support."
+        },
+        {
+            "name": "int64",
+            "default": false,
+            "description": "Sets the bit width of METIS's index type to 64."
+        }
+    ],
+    "homepage": "http://glaros.dtc.umn.edu/gkhome/metis/parmetis/overview",
+    "maintainers": [],
+    "patches": [
+        {
+            "owner": "builtin.parmetis",
+            "sha256": "50ed2081bc939269689789942067c58b3e522c269269a430d5d34c00edbc5870",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "enable_external_metis.patch",
+            "version": ""
+        },
+        {
+            "owner": "builtin.parmetis",
+            "sha256": "4f892531eb0a807eb1b82e683a416d3e35154a455274cf9b162fb02054d11a5b",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "pkg-parmetis-1c1a9fd0f408dc4d42c57f5c3ee6ace411eb222b.patch",
+            "version": ""
+        },
+        {
+            "owner": "builtin.parmetis",
+            "sha256": "704b84f7c7444d4372cb59cca6e1209df4ef3b033bc4ee3cf50f369bce972a9d",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "pkg-parmetis-82409d68aa1d6cbc70740d0f35024aae17f7d5cb.patch",
+            "version": ""
+        }
+    ],
+    "resources": [],
+    "description": "ParMETIS is an MPI-based parallel library that implements a variety of\nalgorithms for partitioning unstructured graphs, meshes, and for\ncomputing fill-reducing orderings of sparse matrices.\n",
+    "dependencies": [
+        {
+            "name": "cmake",
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
+        },
+        {
+            "name": "mpi",
+            "description": "MVAPICH2-X is the advanced version of the MVAPICH2 MPI library with\nenhanced features (UMR, ODP, DC, Core-Direct, SHARP, XPMEM), OSU INAM\n(InifniBand Network Monitoring and Analysis),PGAS (OpenSHMEM, UPC,\nUPC++, and CAF), and MPI+PGAS programming models with unified\ncommunication runtime. MVAPICH2-X is not installable from source and is\nonly available through a binary mirror. If you do not find the binary\nyou're looking for, send us an email at mvapich@cse.ohio-state.edu. The\nbinary mirror url is: http://mvapich.cse.ohio-\nstate.edu/download/mvapich/spack-mirror/mvapich2x/"
+        },
+        {
+            "name": "metis",
+            "description": "METIS is a set of serial programs for partitioning graphs, partitioning\nfinite element meshes, and producing fill reducing orderings for sparse\nmatrices. The algorithms implemented in METIS are based on the\nmultilevel recursive-bisection, multilevel k-way, and multi-constraint\npartitioning schemes."
+        }
+    ],
+    "dependent_to": [
+        {
+            "name": "mofem-cephas",
+            "description": "MoFEM is finite element core library"
+        },
+        {
+            "name": "draco",
+            "description": "Draco is an object-oriented component library geared towards numerically\nintensive, radiation (particle) transport applications built for\nparallel computing hardware. It consists of semi-independent packages\nand a robust build system."
+        },
+        {
+            "name": "strumpack",
+            "description": "STRUMPACK -- STRUctured Matrix PACKage - provides linear solvers for\nsparse matrices and for dense rank-structured matrices, i.e., matrices\nthat exhibit some kind of low-rank property. It provides a distributed\nmemory fully algebraic sparse solver and preconditioner. The\npreconditioner is mostly aimed at large sparse linear systems which\nresult from the discretization of a partial differential equation, but\nis not limited to any particular type of problem. STRUMPACK also\nprovides preconditioned GMRES and BiCGStab iterative solvers."
+        },
+        {
+            "name": "moab",
+            "description": "MOAB is a component for representing and evaluating mesh data. MOAB can\nstore structured and unstructured mesh, consisting of elements in the\nfinite element 'zoo.' The functional interface to MOAB is simple yet\npowerful, allowing the representation of many types of metadata commonly\nfound on the mesh. MOAB is optimized for efficiency in space and time,\nbased on access to mesh in chunks rather than through individual\nentities, while also versatile enough to support individual entity\naccess."
+        },
+        {
+            "name": "bookleaf-cpp",
+            "description": "BookLeaf is a 2D unstructured hydrodynamics mini-app."
+        },
+        {
+            "name": "flecsi",
+            "description": "FleCSI is a compile-time configurable framework designed to support\nmulti-physics application development. As such, FleCSI attempts to\nprovide a very general set of infrastructure design patterns that can be\nspecialized and extended to suit the needs of a broad variety of solver\nand data requirements. Current support includes multi-dimensional mesh\ntopology, mesh geometry, and mesh adjacency information, n-dimensional\nhashed-tree data structures, graph partitioning interfaces,and\ndependency closures."
+        },
+        {
+            "name": "superlu-dist",
+            "description": "A general purpose library for the direct solution of large, sparse,\nnonsymmetric systems of linear equations on high performance machines."
+        },
+        {
+            "name": "seacas",
+            "description": "The SEACAS Project contains the Exodus and IOSS libraries and a\ncollection of applications which create, query, modify, or translate\nexodus databases. Default is to build the exodus and IOSS libraries and\nthe io_shell, io_info, struc_to_unstruc apps."
+        },
+        {
+            "name": "mumps",
+            "description": "MUMPS: a MUltifrontal Massively Parallel sparse direct Solver"
+        },
+        {
+            "name": "pexsi",
+            "description": "The PEXSI library is written in C++, and uses message passing interface\n(MPI) to parallelize the computation on distributed memory computing\nsystems and achieve scalability on more than 10,000 processors. The Pole\nEXpansion and Selected Inversion (PEXSI) method is a fast method for\nelectronic structure calculation based on Kohn-Sham density functional\ntheory. It efficiently evaluates certain selected elements of matrix\nfunctions, e.g., the Fermi-Dirac function of the KS Hamiltonian, which\nyields a density matrix. It can be used as an alternative to\ndiagonalization methods for obtaining the density, energy and forces in\nelectronic structure calculations."
+        },
+        {
+            "name": "petsc",
+            "description": "PETSc is a suite of data structures and routines for the scalable\n(parallel) solution of scientific applications modeled by partial\ndifferential equations."
+        },
+        {
+            "name": "fenics",
+            "description": "FEniCS is organized as a collection of interoperable components that\ntogether form the FEniCS Project. These components include the problem-\nsolving environment DOLFIN, the form compiler FFC, the finite element\ntabulator FIAT, the just-in-time compiler Instant / Dijitso, the code\ngeneration interface UFC, the form language UFL and a range of\nadditional components."
+        },
+        {
+            "name": "branson",
+            "description": "Branson's purpose is to study different algorithms for parallel Monte\nCarlo transport. Currently it contains particle passing and mesh passing\nmethods for domain decomposition."
+        },
+        {
+            "name": "zoltan",
+            "description": "The Zoltan library is a toolkit of parallel combinatorial algorithms for\nparallel, unstructured, and/or adaptive scientific applications.\nZoltan's largest component is a suite of dynamic load-balancing and\npartitioning algorithms that increase applications' parallel performance\nby reducing idle time. Zoltan also has graph coloring and graph ordering\nalgorithms, which are useful in task schedulers and parallel\npreconditioners."
+        },
+        {
+            "name": "formetis",
+            "description": "Automated Fortran bindings to METIS and ParMETIS."
+        },
+        {
+            "name": "fenics-dolfinx",
+            "description": "Next generation FEniCS problem solving environment"
+        },
+        {
+            "name": "phist",
+            "description": "The Pipelined, Hybrid-parallel Iterative Solver Toolkit provides\nimplementations of and interfaces to block iterative solvers for sparse\nlinear and eigenvalue problems. In contrast to other libraries we\nsupport multiple backends (e.g. Trilinos, PETSc and our own optimized\nkernels), and interfaces in multiple languages such as C, C++, Fortran\n2003 and Python. PHIST has a clear focus on portability and hardware\nperformance: in particular support row-major storage of block vectors\nand using GPUs (via the ghost library or Trilinos/Tpetra)."
+        },
+        {
+            "name": "foam-extend",
+            "description": "The Extend Project is a fork of the OpenFOAM opensource library for\nComputational Fluid Dynamics (CFD). This offering is not approved or\nendorsed by OpenCFD Ltd, producer and distributor of the OpenFOAM\nsoftware via www.openfoam.com, and owner of the OPENFOAM trademark."
+        },
+        {
+            "name": "trilinos",
+            "description": "The Trilinos Project is an effort to develop algorithms and enabling\ntechnologies within an object-oriented software framework for the\nsolution of large-scale, complex multi-physics engineering and\nscientific problems. A unique design feature of Trilinos is its focus on\npackages."
+        },
+        {
+            "name": "octopus",
+            "description": "A real-space finite-difference (time-dependent) density-functional\ntheory code."
+        }
+    ]
+}

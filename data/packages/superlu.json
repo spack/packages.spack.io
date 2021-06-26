@@ -1,0 +1,85 @@
+{
+    "name": "superlu",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "5.2.2",
+            "sha256": "470334a72ba637578e34057f46948495e601a5988a602604f5576367e606a28c"
+        },
+        {
+            "name": "5.2.1",
+            "sha256": "28fb66d6107ee66248d5cf508c79de03d0621852a0ddeba7301801d3d859f463"
+        },
+        {
+            "name": "4.3",
+            "sha256": "169920322eb9b9c6a334674231479d04df72440257c17870aaa0139d74416781",
+            "deprecated": true,
+            "url": "https://crd-legacy.lbl.gov/~xiaoye/SuperLU/superlu_4.3.tar.gz"
+        },
+        {
+            "name": "4.2",
+            "sha256": "5a06e19bf5a597405dfeea39fe92aa8c5dd41da73c72c7187755a75f581efb28",
+            "deprecated": true,
+            "url": "https://crd-legacy.lbl.gov/~xiaoye/SuperLU/superlu_4.2.tar.gz"
+        }
+    ],
+    "build_system": "CMakePackage",
+    "conflicts": [
+        {
+            "name": "+ipo",
+            "spec": "^cmake@:3.8",
+            "description": "+ipo is not supported by CMake < 3.9"
+        },
+        {
+            "name": "@:5.2.1",
+            "spec": "%apple-clang@12:",
+            "description": "Older SuperLU is incompatible with newer compilers"
+        }
+    ],
+    "variants": [
+        {
+            "name": "build_type",
+            "default": "RelWithDebInfo",
+            "description": "CMake build type"
+        },
+        {
+            "name": "ipo",
+            "default": false,
+            "description": "CMake interprocedural optimization"
+        },
+        {
+            "name": "pic",
+            "default": true,
+            "description": "Build with position independent code"
+        }
+    ],
+    "homepage": "http://crd-legacy.lbl.gov/~xiaoye/SuperLU/#superlu",
+    "maintainers": [],
+    "patches": [],
+    "resources": [],
+    "description": "SuperLU is a general purpose library for the direct solution of large,\nsparse, nonsymmetric systems of linear equations on high performance\nmachines. SuperLU is designed for sequential machines.\n",
+    "dependencies": [
+        {
+            "name": "cmake",
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
+        },
+        {
+            "name": "blas",
+            "description": "Intel oneAPI MKL."
+        }
+    ],
+    "dependent_to": [
+        {
+            "name": "kokkos-kernels",
+            "description": "Kokkos Kernels provides math kernels, often BLAS or LAPACK for small\nmatrices, that can be used in larger Kokkos parallel routines"
+        },
+        {
+            "name": "trilinos",
+            "description": "The Trilinos Project is an effort to develop algorithms and enabling\ntechnologies within an object-oriented software framework for the\nsolution of large-scale, complex multi-physics engineering and\nscientific problems. A unique design feature of Trilinos is its focus on\npackages."
+        },
+        {
+            "name": "armadillo",
+            "description": "Armadillo is a high quality linear algebra library (matrix maths) for\nthe C++ language, aiming towards a good balance between speed and ease\nof use."
+        }
+    ]
+}

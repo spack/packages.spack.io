@@ -1,0 +1,190 @@
+{
+    "name": "abinit",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "9.4.2",
+            "sha256": "d40886f5c8b138bb4aa1ca05da23388eb70a682790cfe5020ecce4db1b1a76bc"
+        },
+        {
+            "name": "8.10.3",
+            "sha256": "ed626424b4472b93256622fbb9c7645fa3ffb693d4b444b07d488771ea7eaa75"
+        },
+        {
+            "name": "8.10.2",
+            "sha256": "4ee2e0329497bf16a9b2719fe0536cc50c5d5a07c65e18edaf15ba02251cbb73"
+        },
+        {
+            "name": "8.8.2",
+            "sha256": "15216703bd56a799a249a112b336d07d733627d3756487a4b1cb48ebb625c3e7"
+        },
+        {
+            "name": "8.6.3",
+            "sha256": "82e8d071088ab8dc1b3a24380e30b68c544685678314df1213180b449c84ca65"
+        },
+        {
+            "name": "8.2.2",
+            "sha256": "e43544a178d758b0deff3011c51ef7c957d7f2df2ce8543366d68016af9f3ea1"
+        },
+        {
+            "name": "8.0.8b",
+            "sha256": "37ad5f0f215d2a36e596383cb6e54de3313842a0390ce8d6b48a423d3ee25af2"
+        }
+    ],
+    "build_system": "AutotoolsPackage",
+    "conflicts": [
+        {
+            "name": "+scalapack",
+            "spec": "~mpi",
+            "description": "None"
+        },
+        {
+            "name": "+wannier90",
+            "spec": "~mpi",
+            "description": "None"
+        },
+        {
+            "name": "+libxml2",
+            "spec": "@:8",
+            "description": "None"
+        },
+        {
+            "name": "%gcc@7:",
+            "spec": "@:8.8",
+            "description": "None"
+        },
+        {
+            "name": "%gcc@9:",
+            "spec": "@:8.10",
+            "description": "None"
+        },
+        {
+            "name": "+openmp",
+            "spec": "^fftw~openmp",
+            "description": "Need to request fftw +openmp"
+        },
+        {
+            "name": "+openmp",
+            "spec": "^intel-mkl threads=none",
+            "description": "Need to set dependent variant to threads=openmp"
+        },
+        {
+            "name": "+openmp",
+            "spec": "^intel-mkl threads=tbb",
+            "description": "Need to set dependent variant to threads=openmp"
+        },
+        {
+            "name": "+openmp",
+            "spec": "^intel-parallel-studio+mkl threads=none",
+            "description": "Need to set dependent variant to threads=openmp"
+        }
+    ],
+    "variants": [
+        {
+            "name": "mpi",
+            "default": true,
+            "description": "Builds with MPI support. Requires MPI2+"
+        },
+        {
+            "name": "openmp",
+            "default": false,
+            "description": "Enables OpenMP threads. Use threaded FFTW3"
+        },
+        {
+            "name": "scalapack",
+            "default": false,
+            "description": "Enables scalapack support. Requires MPI"
+        },
+        {
+            "name": "wannier90",
+            "default": false,
+            "description": "Enables the Wannier90 library"
+        },
+        {
+            "name": "libxml2",
+            "default": false,
+            "description": "Enable libxml2 support, used by multibinit"
+        }
+    ],
+    "homepage": "http://www.abinit.org",
+    "maintainers": [],
+    "patches": [
+        {
+            "owner": "builtin.abinit",
+            "sha256": "2d6f332185962e19099aa9c8b8acd8272c2867107855423785d3834df297ad05",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "rm_march_settings.patch",
+            "version": "@:8"
+        },
+        {
+            "owner": "builtin.abinit",
+            "sha256": "6c7e501a4d957c8506c6bf9d6db2f201bc3ac156ba3e998ef5fcc3cf1b581ad1",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "rm_march_settings_v9.patch",
+            "version": "@9:"
+        },
+        {
+            "owner": "builtin.abinit",
+            "sha256": "4b321cc96974255faf1b9cc852001933719a4bd44189d4d536edad2c10746136",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "fix_for_fujitsu.patch",
+            "version": "%fj"
+        }
+    ],
+    "resources": [],
+    "description": "ABINIT is a package whose main program allows one to find the total\nenergy, charge density and electronic structure of systems made of\nelectrons and nuclei (molecules and periodic solids) within Density\nFunctional Theory (DFT), using pseudopotentials and a planewave or\nwavelet basis. ABINIT also includes options to optimize the geometry\naccording to the DFT forces and stresses, or to perform molecular\ndynamics simulations using these forces, or to generate dynamical\nmatrices, Born effective charges, and dielectric tensors, based on\nDensity-Functional Perturbation Theory, and many more properties.\nExcited states can be computed within the Many-Body Perturbation Theory\n(the GW approximation and the Bethe-Salpeter equation), and Time-\nDependent Density Functional Theory (for molecules). In addition to the\nmain ABINIT code, different utility programs are provided.\n",
+    "dependencies": [
+        {
+            "name": "atompaw",
+            "description": "A Projector Augmented Wave (PAW) code for generating atom-centered\nfunctions. Official website: http://pwpaw.wfu.edu User's guide:\n~/doc/atompaw-usersguide.pdf"
+        },
+        {
+            "name": "blas",
+            "description": "Intel oneAPI MKL."
+        },
+        {
+            "name": "lapack",
+            "description": "Intel oneAPI MKL."
+        },
+        {
+            "name": "mpi",
+            "description": "MVAPICH2-X is the advanced version of the MVAPICH2 MPI library with\nenhanced features (UMR, ODP, DC, Core-Direct, SHARP, XPMEM), OSU INAM\n(InifniBand Network Monitoring and Analysis),PGAS (OpenSHMEM, UPC,\nUPC++, and CAF), and MPI+PGAS programming models with unified\ncommunication runtime. MVAPICH2-X is not installable from source and is\nonly available through a binary mirror. If you do not find the binary\nyou're looking for, send us an email at mvapich@cse.ohio-state.edu. The\nbinary mirror url is: http://mvapich.cse.ohio-\nstate.edu/download/mvapich/spack-mirror/mvapich2x/"
+        },
+        {
+            "name": "scalapack",
+            "description": "Intel oneAPI MKL."
+        },
+        {
+            "name": "fftw-api",
+            "description": "FFTW (Fujitsu Optimized version) is a comprehensive collection of fast C\nroutines for computing the Discrete Fourier Transform (DFT) and various\nspecial cases thereof. It is an open-source implementation of the Fast\nFourier transform algorithm. It can compute transforms of real and\ncomplex-values arrays of arbitrary size and dimension. Fujitsu Optimized\nFFTW is the optimized FFTW implementation targeted for A64FX CPUs. For\nsingle precision build, please use precision value as float. Example :\nspack install fujitsufftw precision=float"
+        },
+        {
+            "name": "netcdf-fortran",
+            "description": "NetCDF (network Common Data Form) is a set of software libraries and\nmachine-independent data formats that support the creation, access, and\nsharing of array-oriented scientific data. This is the Fortran\ndistribution."
+        },
+        {
+            "name": "netcdf-c",
+            "description": "NetCDF (network Common Data Form) is a set of software libraries and\nmachine-independent data formats that support the creation, access, and\nsharing of array-oriented scientific data. This is the C distribution."
+        },
+        {
+            "name": "hdf5",
+            "description": "HDF5 is a data model, library, and file format for storing and managing\ndata. It supports an unlimited variety of datatypes, and is designed for\nflexible and efficient I/O and for high volume and complex data."
+        },
+        {
+            "name": "wannier90",
+            "description": "Wannier90 calculates maximally-localised Wannier functions (MLWFs).\nWannier90 is released under the GNU General Public License."
+        },
+        {
+            "name": "libxc",
+            "description": "Libxc is a library of exchange-correlation functionals for density-\nfunctional theory."
+        },
+        {
+            "name": "libxml2",
+            "description": "Libxml2 is the XML C parser and toolkit developed for the Gnome project\n(but usable outside of the Gnome platform), it is free software\navailable under the MIT License."
+        }
+    ],
+    "dependent_to": []
+}

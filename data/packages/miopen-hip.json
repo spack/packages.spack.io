@@ -1,0 +1,127 @@
+{
+    "name": "miopen-hip",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "4.2.0",
+            "sha256": "8ab02e784c8b3471159794766ed6303c333b33c69dc5186c0930e56504373b7c"
+        },
+        {
+            "name": "4.1.0",
+            "sha256": "068b1bc33f90fe21d3aab5697d2b3b7b930e613c54d6c5ee820768579b2b41ee"
+        },
+        {
+            "name": "4.0.0",
+            "sha256": "84c6c17be9c1a9cd0d3a2af283433f64b07a4b9941349f498e40fed82fb205a6"
+        },
+        {
+            "name": "3.10.0",
+            "sha256": "926e43c5583cf70d6b247f9fe45971b8b1cc9668f9c8490c142c7e8b6e268f1a"
+        },
+        {
+            "name": "3.9.0",
+            "sha256": "f57d75a220c1094395cc1dccab2185c759d779751ddbb5369a6f041ec77b2156"
+        },
+        {
+            "name": "3.8.0",
+            "sha256": "612b30d4a967bf18c7fa7aa3ef12ed558314ed04cee2775b842bf6a96cd7276f"
+        },
+        {
+            "name": "3.7.0",
+            "sha256": "f6a6ddd8d39bb76b7f7d91e68ade3b45e0201181145658c43b967065a354b103"
+        },
+        {
+            "name": "3.5.0",
+            "sha256": "aa362e69c4dce7f5751f0ee04c745735ea5454c8101050e9b92cc60fa3c0fb82"
+        }
+    ],
+    "build_system": "CMakePackage",
+    "conflicts": [
+        {
+            "name": "+ipo",
+            "spec": "^cmake@:3.8",
+            "description": "+ipo is not supported by CMake < 3.9"
+        }
+    ],
+    "variants": [
+        {
+            "name": "build_type",
+            "default": "Release",
+            "description": "CMake build type"
+        },
+        {
+            "name": "ipo",
+            "default": false,
+            "description": "CMake interprocedural optimization"
+        }
+    ],
+    "homepage": "https://github.com/ROCmSoftwarePlatform/MIOpen",
+    "maintainers": [
+        "srekolam",
+        "arjun-raj-kuppala"
+    ],
+    "patches": [
+        {
+            "owner": "builtin.miopen-hip",
+            "sha256": "d27dbcc3271b6160ae78535a2d163432a83d8e1e21be3de51e5d76fc514dcc26",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "0001-Add-rocm-path-and-rocm-device-lib-path-flags.patch",
+            "version": "@3.9.0:"
+        }
+    ],
+    "resources": [],
+    "description": "AMD's library for high performance machine learning primitives.\n",
+    "dependencies": [
+        {
+            "name": "cmake",
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
+        },
+        {
+            "name": "pkgconfig",
+            "description": "pkgconf is a program which helps to configure compiler and linker flags\nfor development frameworks. It is similar to pkg-config from\nfreedesktop.org, providing additional functionality while also\nmaintaining compatibility."
+        },
+        {
+            "name": "boost",
+            "description": "Boost provides free peer-reviewed portable C++ source libraries,\nemphasizing libraries that work well with the C++ Standard Library.\nBoost libraries are intended to be widely useful, and usable across a\nbroad spectrum of applications. The Boost license encourages both\ncommercial and non-commercial use."
+        },
+        {
+            "name": "bzip2",
+            "description": "bzip2 is a freely available, patent free high-quality data compressor.\nIt typically compresses files to within 10% to 15% of the best available\ntechniques (the PPM family of statistical compressors), whilst being\naround twice as fast at compression and six times faster at\ndecompression."
+        },
+        {
+            "name": "sqlite",
+            "description": "SQLite3 is an SQL database engine in a C library. Programs that link the\nSQLite3 library can have SQL database access without running a separate\nRDBMS process."
+        },
+        {
+            "name": "half",
+            "description": "This is a C++ header-only library to provide an IEEE-754 conformant\nhalf-precision floating point type along with corresponding arithmetic\noperators, type conversions and common mathematical functions. It aims\nfor both efficiency and ease of use, trying to accurately mimic the\nbehaviour of the builtin floating point types at the best performance\npossible. It automatically uses and provides C++11 features when\npossible, but stays completely C++98-compatible when neccessary."
+        },
+        {
+            "name": "zlib",
+            "description": "A free, general-purpose, legally unencumbered lossless data-compression\nlibrary."
+        },
+        {
+            "name": "rocm-cmake",
+            "description": "ROCM cmake modules provides cmake modules for common build tasks needed\nfor the ROCM software stack"
+        },
+        {
+            "name": "hip",
+            "description": "HIP is a C++ Runtime API and Kernel Language that allows developers to\ncreate portable applications for AMD and NVIDIA GPUs from single source\ncode."
+        },
+        {
+            "name": "rocm-clang-ocl",
+            "description": "OpenCL compilation with clang compiler"
+        },
+        {
+            "name": "rocblas",
+            "description": "Radeon Open Compute BLAS library"
+        }
+    ],
+    "dependent_to": [
+        {
+            "name": "migraphx",
+            "description": "AMD's graph optimization engine."
+        }
+    ]
+}

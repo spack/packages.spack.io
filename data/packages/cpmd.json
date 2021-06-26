@@ -1,0 +1,92 @@
+{
+    "name": "cpmd",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "4.3",
+            "sha256": "4f31ddf045f1ae5d6f25559d85ddbdab4d7a6200362849df833632976d095df4"
+        }
+    ],
+    "build_system": "MakefilePackage",
+    "conflicts": [
+        {
+            "name": "^openblas threads=none",
+            "spec": "+omp",
+            "description": "None"
+        },
+        {
+            "name": "^openblas threads=pthreads",
+            "spec": "+omp",
+            "description": "None"
+        }
+    ],
+    "variants": [
+        {
+            "name": "omp",
+            "default": false,
+            "description": "Enables the use of OMP instructions"
+        },
+        {
+            "name": "mpi",
+            "default": false,
+            "description": "Build with MPI support"
+        }
+    ],
+    "homepage": "https://www.cpmd.org/wordpress/",
+    "maintainers": [],
+    "patches": [
+        {
+            "owner": "builtin.cpmd",
+            "sha256": "3b7d91e04c40418ad958069234ec7253fbf6c4be361a1d5cfd804774eeb44915",
+            "level": 0,
+            "working_dir": ".",
+            "url": "file:///home/vanessa/Desktop/Code/packages/patch.to.4612",
+            "version": "@4.3"
+        },
+        {
+            "owner": "builtin.cpmd",
+            "sha256": "5ec5790fb6ca64632bcc1b0f5b8f3423c54455766a0979ff4136624bbe8d49eb",
+            "level": 0,
+            "working_dir": ".",
+            "url": "file:///home/vanessa/Desktop/Code/packages/patch.to.4615",
+            "version": "@4.3"
+        },
+        {
+            "owner": "builtin.cpmd",
+            "sha256": "ac0bc215c4259f55da4dc59803fe636f797e241f8a01974e05730c9778ad44c4",
+            "level": 0,
+            "working_dir": ".",
+            "url": "file:///home/vanessa/Desktop/Code/packages/patch.to.4616",
+            "version": "@4.3"
+        },
+        {
+            "owner": "builtin.cpmd",
+            "sha256": "2d2bc7e37246032fc354f51da7dbdb5a219dd228867399931b0e94da1265d5ca",
+            "level": 0,
+            "working_dir": ".",
+            "url": "file:///home/vanessa/Desktop/Code/packages/patch.to.4621",
+            "version": "@4.3"
+        },
+        {
+            "owner": "builtin.cpmd",
+            "sha256": "0a19687528264bf91c9f50ffdc0b920a8511eecf5259b667c8c29350f9dabc53",
+            "level": 0,
+            "working_dir": ".",
+            "url": "file:///home/vanessa/Desktop/Code/packages/patch.to.4624",
+            "version": "@4.3"
+        }
+    ],
+    "resources": [],
+    "description": "The CPMD code is a parallelized plane wave / pseudopotential\nimplementation of Density Functional Theory, particularly designed for\nab-initio molecular dynamics. Move to new directory, download CPMD main\narchive and patch.to.XXXXs manually, and run Spack\n",
+    "dependencies": [
+        {
+            "name": "lapack",
+            "description": "Intel oneAPI MKL."
+        },
+        {
+            "name": "mpi",
+            "description": "MVAPICH2-X is the advanced version of the MVAPICH2 MPI library with\nenhanced features (UMR, ODP, DC, Core-Direct, SHARP, XPMEM), OSU INAM\n(InifniBand Network Monitoring and Analysis),PGAS (OpenSHMEM, UPC,\nUPC++, and CAF), and MPI+PGAS programming models with unified\ncommunication runtime. MVAPICH2-X is not installable from source and is\nonly available through a binary mirror. If you do not find the binary\nyou're looking for, send us an email at mvapich@cse.ohio-state.edu. The\nbinary mirror url is: http://mvapich.cse.ohio-\nstate.edu/download/mvapich/spack-mirror/mvapich2x/"
+        }
+    ],
+    "dependent_to": []
+}

@@ -1,0 +1,68 @@
+{
+    "name": "libaec",
+    "aliases": [
+        {
+            "name": "szip",
+            "alias_for": "{libaec}"
+        }
+    ],
+    "versions": [
+        {
+            "name": "1.0.2",
+            "sha256": "b9e5bbbc8bf9cbfd3b9b4ce38b3311f2c88d3d99f476edb35590eb0006aa1fc5"
+        },
+        {
+            "name": "1.0.1",
+            "sha256": "3668eb4ed36724441e488a7aadc197426afef4b1e8bd139af6d3e36023906459"
+        },
+        {
+            "name": "1.0.0",
+            "sha256": "849f08b08ddaaffe543d06d0ced5e4ee3e526b13a67c5f422d126b1c9cf1b546"
+        }
+    ],
+    "build_system": "CMakePackage",
+    "conflicts": [
+        {
+            "name": "+ipo",
+            "spec": "^cmake@:3.8",
+            "description": "+ipo is not supported by CMake < 3.9"
+        }
+    ],
+    "variants": [
+        {
+            "name": "build_type",
+            "default": "RelWithDebInfo",
+            "description": "CMake build type"
+        },
+        {
+            "name": "ipo",
+            "default": false,
+            "description": "CMake interprocedural optimization"
+        }
+    ],
+    "homepage": "https://gitlab.dkrz.de/k202009/libaec",
+    "maintainers": [],
+    "patches": [],
+    "resources": [],
+    "description": "Libaec provides fast lossless compression of 1 up to 32 bit wide signed\nor unsigned integers (samples). It implements Golomb-Rice compression\nmethod under the BSD license and includes a free drop-in replacement for\nthe SZIP library.\n",
+    "dependencies": [
+        {
+            "name": "cmake",
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
+        }
+    ],
+    "dependent_to": [
+        {
+            "name": "eckit",
+            "description": "ecKit is a cross-platform c++ toolkit that supports development of tools\nand applications at ECMWF."
+        },
+        {
+            "name": "eccodes",
+            "description": "ecCodes is a package developed by ECMWF for processing meteorological\ndata in GRIB (1/2), BUFR (3/4) and GTS header formats."
+        },
+        {
+            "name": "grib-api",
+            "description": "The ECMWF GRIB API is an application program interface accessible from\nC, FORTRAN and Python programs developed for encoding and decoding WMO\nFM-92 GRIB edition 1 and edition 2 messages."
+        }
+    ]
+}

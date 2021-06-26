@@ -1,0 +1,238 @@
+{
+    "name": "hip-rocclr",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "master",
+            "branch": "main"
+        },
+        {
+            "name": "4.2.0",
+            "sha256": "c57525af32c59becf56fd83cdd61f5320a95024d9baa7fb729a01e7a9fcdfd78"
+        },
+        {
+            "name": "4.1.0",
+            "sha256": "9eb1d88cfc9474979aaf29b99bcf9d3769a0f7f1f8f10660941aabf83d9eeb0c"
+        },
+        {
+            "name": "4.0.0",
+            "sha256": "8db502d0f607834e3b882f939d33e8abe2f9b55ddafaf1b0c2cd29a0425ed76a"
+        },
+        {
+            "name": "3.10.0",
+            "sha256": "d1ac02840c2dcb3d5fa3008fe9e313767ebe6d1dcf978a924341834ec96ebfe2"
+        },
+        {
+            "name": "3.9.0",
+            "sha256": "d248958672ae35ab7f9fbd83827ccf352e2756dfa7819f6b614ace2e1a9a064e"
+        },
+        {
+            "name": "3.8.0",
+            "sha256": "10d8aa6f5af7b51813015da603c4e75edc863c3530793f6ed9769ca345c08ed6"
+        },
+        {
+            "name": "3.7.0",
+            "sha256": "a49f464bb2eab6317e87e3cc249aba3b2517a34fbdfe50175f0437f69a219adc"
+        },
+        {
+            "name": "3.5.0",
+            "sha256": "87c1ee9f02b8aa487b628c543f058198767c474cec3d21700596a73c028959e1"
+        }
+    ],
+    "build_system": "CMakePackage",
+    "conflicts": [
+        {
+            "name": "+ipo",
+            "spec": "^cmake@:3.8",
+            "description": "+ipo is not supported by CMake < 3.9"
+        }
+    ],
+    "variants": [
+        {
+            "name": "build_type",
+            "default": "RelWithDebInfo",
+            "description": "CMake build type"
+        },
+        {
+            "name": "ipo",
+            "default": false,
+            "description": "CMake interprocedural optimization"
+        }
+    ],
+    "homepage": "https://github.com/ROCm-Developer-Tools/ROCclr",
+    "maintainers": [
+        "srekolam",
+        "arjun-raj-kuppala"
+    ],
+    "patches": [
+        {
+            "owner": "builtin.hip-rocclr",
+            "sha256": "3edeb8aeaf335297ec0f61a15b99c259d607d8f534173fbc3d17832ad03cd63f",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "opengl.patch",
+            "version": "@3.5.0"
+        }
+    ],
+    "resources": [
+        {
+            "version": "@3.5.0",
+            "name": "opencl-on-vdi",
+            "destination": "",
+            "placement": "opencl-on-vdi"
+        },
+        {
+            "version": "@3.7.0",
+            "name": "opencl-on-vdi",
+            "destination": "",
+            "placement": "opencl-on-vdi"
+        },
+        {
+            "version": "@3.8.0",
+            "name": "opencl-on-vdi",
+            "destination": "",
+            "placement": "opencl-on-vdi"
+        },
+        {
+            "version": "@3.9.0",
+            "name": "opencl-on-vdi",
+            "destination": "",
+            "placement": "opencl-on-vdi"
+        },
+        {
+            "version": "@3.10.0",
+            "name": "opencl-on-vdi",
+            "destination": "",
+            "placement": "opencl-on-vdi"
+        },
+        {
+            "version": "@4.0.0",
+            "name": "opencl-on-vdi",
+            "destination": "",
+            "placement": "opencl-on-vdi"
+        },
+        {
+            "version": "@4.1.0",
+            "name": "opencl-on-vdi",
+            "destination": "",
+            "placement": "opencl-on-vdi"
+        },
+        {
+            "version": "@4.2.0",
+            "name": "opencl-on-vdi",
+            "destination": "",
+            "placement": "opencl-on-vdi"
+        },
+        {
+            "version": "@master",
+            "name": "opencl-on-vdi",
+            "destination": "",
+            "placement": "opencl-on-vdi"
+        }
+    ],
+    "description": "Hip-ROCclr is a virtual device interface that compute runtimes interact\nwith to different backends such as ROCr or PAL This abstraction allows\nruntimes to work on Windows as well as on Linux without much effort.\n",
+    "dependencies": [
+        {
+            "name": "cmake",
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
+        },
+        {
+            "name": "mesa18",
+            "description": "Mesa is an open-source implementation of the OpenGL specification - a\nsystem for rendering interactive 3D graphics."
+        },
+        {
+            "name": "libelf",
+            "description": "libelf lets you read, modify or create ELF object files in an\narchitecture-independent way. The library takes care of size and endian\nissues, e.g. you can process a file for SPARC processors on an Intel-\nbased system. Note: libelf is no longer maintained and packages that\ndepend on libelf should migrate to elfutils."
+        },
+        {
+            "name": "numactl",
+            "description": "NUMA support for Linux"
+        },
+        {
+            "name": "hsakmt-roct",
+            "description": "This is a thunk python recipe to build and install Thunk Interface.\nThunk Interface is a user-mode API interfaces used to interact with the\nROCk driver."
+        },
+        {
+            "name": "hsa-rocr-dev",
+            "description": "This repository includes the user mode API nterfaces and libraries\nnecessary for host applications to launch computer kernels to available\nHSA ROCm kernel agents.AMD Heterogeneous System Architecture HSA - Linux\nHSA Runtime for Boltzmann (ROCm) platforms."
+        },
+        {
+            "name": "comgr",
+            "description": "This provides various Lightning Compiler related services. It currently\ncontains one library, the Code Object Manager (Comgr)"
+        }
+    ],
+    "dependent_to": [
+        {
+            "name": "hipcub",
+            "description": "Radeon Open Compute Parallel Primitives Library"
+        },
+        {
+            "name": "rocm-tensile",
+            "description": "Radeon Open Compute Tensile library"
+        },
+        {
+            "name": "rocm-validation-suite",
+            "description": "The ROCm Validation Suite (RVS) is a system administrators and cluster\nmanager's tool for detecting and troubleshooting common problems\naffecting AMD GPU(s) running in a high-performance computing\nenvironment, enabled using the ROCm software stack on a compatible\nplatform."
+        },
+        {
+            "name": "miopen-opencl",
+            "description": "AMD's library for high performance machine learning primitives."
+        },
+        {
+            "name": "rocm-opencl",
+            "description": "OpenCL: Open Computing Language on ROCclr"
+        },
+        {
+            "name": "aomp",
+            "description": "llvm openmp compiler from AMD."
+        },
+        {
+            "name": "rocprim",
+            "description": "Radeon Open Compute Parallel Primitives Library"
+        },
+        {
+            "name": "hipfft",
+            "description": "hipFFT is an FFT marshalling library. Currently, hipFFT supports either\nrocFFT or cuFFT as backends.hipFFT exports an interface that does not\nrequire the client to change, regardless of the chosen backend. It sits\nbetween the application and the backend FFT library, marshalling inputs\ninto the backend and results back to the application."
+        },
+        {
+            "name": "hipsparse",
+            "description": "hipSPARSE is a SPARSE marshalling library, with multiple supported\nbackends"
+        },
+        {
+            "name": "rocblas",
+            "description": "Radeon Open Compute BLAS library"
+        },
+        {
+            "name": "rocalution",
+            "description": "rocALUTION is a sparse linear algebra library with focus on exploring\nfine-grained parallelism on top of AMD's Radeon Open eCosystem Platform\nROCm runtime and toolchains, targeting modern CPU and GPU platforms.\nBased on C++ and HIP, it provides a portable, generic and flexible\ndesign that allows seamless integration with other scientific software\npackages."
+        },
+        {
+            "name": "rocfft",
+            "description": "Radeon Open Compute FFT library"
+        },
+        {
+            "name": "rccl",
+            "description": "RCCL (pronounced \"Rickle\") is a stand-alone library of standard\ncollective communication routines for GPUs, implementing all-reduce,\nall-gather, reduce, broadcast, and reduce-scatter."
+        },
+        {
+            "name": "hip",
+            "description": "HIP is a C++ Runtime API and Kernel Language that allows developers to\ncreate portable applications for AMD and NVIDIA GPUs from single source\ncode."
+        },
+        {
+            "name": "rocrand",
+            "description": "The rocRAND project provides functions that generate pseudo-random and\nquasi-random numbers."
+        },
+        {
+            "name": "rocthrust",
+            "description": "Thrust is a parallel algorithm library. This library has been ported to\nHIP/ROCm platform, which uses the rocPRIM library. The HIP ported\nlibrary works on HIP/ROCm platforms"
+        },
+        {
+            "name": "rocm-opencl-runtime",
+            "description": "ROCm OpenCL 2.0 compatible language runtime. It Supports offline and in-\nprocess/in-memory compilation"
+        },
+        {
+            "name": "rocsparse",
+            "description": "rocSPARSE exposes a common interface that provides Basic Linear Algebra\nSubroutines for sparse computation implemented on top of AMD's Radeon\nOpen eCosystem Platform ROCm runtime and toolchains. rocSPARSE is\ncreated using the HIP programming language and optimized for AMD's\nlatest discrete GPUs."
+        }
+    ]
+}

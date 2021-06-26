@@ -1,0 +1,60 @@
+{
+    "name": "vampirtrace",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "5.14.4",
+            "sha256": "1719a1666dd274c221b781631958cae56aa8bcb3f22861fb4ba6526c1b465a30"
+        }
+    ],
+    "build_system": "AutotoolsPackage",
+    "conflicts": [],
+    "variants": [
+        {
+            "name": "mpi",
+            "default": true,
+            "description": "Enable MPI support"
+        }
+    ],
+    "homepage": "https://tu-dresden.de/zih/forschung/projekte/vampirtrace",
+    "maintainers": [],
+    "patches": [
+        {
+            "owner": "builtin.vampirtrace",
+            "sha256": "6b96a819ca4d940ae761948000609afa73b517315bfe50314152f928988a095c",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "mpi3-const.patch",
+            "version": "^mpich@3.3:"
+        },
+        {
+            "owner": "builtin.vampirtrace",
+            "sha256": "6b96a819ca4d940ae761948000609afa73b517315bfe50314152f928988a095c",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "mpi3-const.patch",
+            "version": "^openmpi"
+        }
+    ],
+    "resources": [],
+    "description": "VampirTrace is an open source library that allows detailed logging of\nprogram execution for parallel applications using message passing (MPI)\nand threads (OpenMP, Pthreads).\n",
+    "dependencies": [
+        {
+            "name": "mpi",
+            "description": "MVAPICH2-X is the advanced version of the MVAPICH2 MPI library with\nenhanced features (UMR, ODP, DC, Core-Direct, SHARP, XPMEM), OSU INAM\n(InifniBand Network Monitoring and Analysis),PGAS (OpenSHMEM, UPC,\nUPC++, and CAF), and MPI+PGAS programming models with unified\ncommunication runtime. MVAPICH2-X is not installable from source and is\nonly available through a binary mirror. If you do not find the binary\nyou're looking for, send us an email at mvapich@cse.ohio-state.edu. The\nbinary mirror url is: http://mvapich.cse.ohio-\nstate.edu/download/mvapich/spack-mirror/mvapich2x/"
+        },
+        {
+            "name": "otf",
+            "description": "To improve scalability for very large and massively parallel traces the\nOpen Trace Format (OTF) is developed at ZIH as a successor format to the\nVampir Trace Format (VTF3)."
+        },
+        {
+            "name": "papi",
+            "description": "PAPI provides the tool designer and application engineer with a\nconsistent interface and methodology for use of the performance counter\nhardware found in most major microprocessors. PAPI enables software\nengineers to see, in near real time, the relation between software\nperformance and processor events. In addition Component PAPI provides\naccess to a collection of components that expose performance measurement\nopportunities across the hardware and software stack."
+        },
+        {
+            "name": "zlib",
+            "description": "A free, general-purpose, legally unencumbered lossless data-compression\nlibrary."
+        }
+    ],
+    "dependent_to": []
+}

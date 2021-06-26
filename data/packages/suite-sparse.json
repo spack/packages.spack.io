@@ -1,0 +1,246 @@
+{
+    "name": "suite-sparse",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "5.10.1",
+            "sha256": "acb4d1045f48a237e70294b950153e48dce5b5f9ca8190e86c2b8c54ce00a7ee"
+        },
+        {
+            "name": "5.10.0",
+            "sha256": "4bcc974901c0173acf80c41ee0fd779eb7dce2871d4afa24a5d15b1a468f93e5"
+        },
+        {
+            "name": "5.9.0",
+            "sha256": "7bdd4811f1cf0767c5fdb5e435817fdadee50b0acdb598f4882ae7b8291a7f24"
+        },
+        {
+            "name": "5.8.1",
+            "sha256": "06726e471fbaa55f792578f9b4ab282ea9d008cf39ddcc3b42b73400acddef40"
+        },
+        {
+            "name": "5.8.0",
+            "sha256": "94a9b7134eb4dd82b97f1a22a6b464feb81e73af2dcdf683c6f252285191df1d"
+        },
+        {
+            "name": "5.7.2",
+            "sha256": "fe3bc7c3bd1efdfa5cffffb5cebf021ff024c83b5daf0ab445429d3d741bd3ad"
+        },
+        {
+            "name": "5.7.1",
+            "sha256": "5ba5add1663d51a1b6fb128b50fe869b497f3096765ff7f8212f0ede044b9557"
+        },
+        {
+            "name": "5.6.0",
+            "sha256": "76d34d9f6dafc592b69af14f58c1dc59e24853dcd7c2e8f4c98ffa223f6a1adb"
+        },
+        {
+            "name": "5.5.0",
+            "sha256": "63c73451734e2bab19d1915796c6776565ea6aea5da4063a9797ecec60da2e3d"
+        },
+        {
+            "name": "5.4.0",
+            "sha256": "d9d62d539410d66550d0b795503a556830831f50087723cb191a030525eda770"
+        },
+        {
+            "name": "5.3.0",
+            "sha256": "d8ef4bee4394d2f07299d4688b83bbd98e9d3a2ebbe1c1632144b6f7095ce165"
+        },
+        {
+            "name": "5.2.0",
+            "sha256": "68c431aef3d9a0b02e97803eb61671c5ecb9d36fd292a807db87067dadb36e53"
+        },
+        {
+            "name": "5.1.2",
+            "sha256": "97dc5fdc7f78ff5018e6a1fcc841e17a9af4e5a35cebd62df6922349bf12959e"
+        },
+        {
+            "name": "5.1.0",
+            "sha256": "0b0e03c63e67b04529bb6248808d2a8c82259d40b30fc5a7599f4b6f7bdd4dc6"
+        },
+        {
+            "name": "5.0.0",
+            "sha256": "2f8694d9978033659f10ceb8bdb19147d3c519a0251b8de84be6ba8824d30517"
+        },
+        {
+            "name": "4.5.6",
+            "sha256": "1c7b7a265a1d6c606095eb8aa3cb8e27821f1b7f5bc04f28df6d62906e02f4e4"
+        },
+        {
+            "name": "4.5.5",
+            "sha256": "80d1d9960a6ec70031fecfe9adfe5b1ccd8001a7420efb50d6fa7326ef14af91"
+        },
+        {
+            "name": "4.5.3",
+            "sha256": "b6965f9198446a502cde48fb0e02236e75fa5700b94c7306fc36599d57b563f4"
+        }
+    ],
+    "build_system": "Package",
+    "conflicts": [
+        {
+            "name": "%gcc@:4.8",
+            "spec": "@5.2.0:",
+            "description": "gcc version must be at least 4.9 for suite-sparse@5.2.0:"
+        }
+    ],
+    "variants": [
+        {
+            "name": "tbb",
+            "default": false,
+            "description": "Build with Intel TBB"
+        },
+        {
+            "name": "pic",
+            "default": true,
+            "description": "Build position independent code (required to link with shared libraries)"
+        },
+        {
+            "name": "cuda",
+            "default": false,
+            "description": "Build with CUDA"
+        },
+        {
+            "name": "openmp",
+            "default": false,
+            "description": "Build with OpenMP"
+        }
+    ],
+    "homepage": "https://people.engr.tamu.edu/davis/suitesparse.html",
+    "maintainers": [],
+    "patches": [
+        {
+            "owner": "builtin.suite-sparse",
+            "sha256": "574abfcdae78bd79d69c4f2403a67f0ed08d5c49afa3eb9bdb2671044039a48f",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "tbb_453.patch",
+            "version": "@4.5.3:4.5.5+tbb"
+        },
+        {
+            "owner": "builtin.suite-sparse",
+            "sha256": "ff7707dab9d540edeffc5fad16baa1564ded271ed1bbbf04718165d7daa56d1d",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "pgi.patch",
+            "version": "%pgi"
+        },
+        {
+            "owner": "builtin.suite-sparse",
+            "sha256": "ff7707dab9d540edeffc5fad16baa1564ded271ed1bbbf04718165d7daa56d1d",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "pgi.patch",
+            "version": "%nvhpc"
+        },
+        {
+            "owner": "builtin.suite-sparse",
+            "sha256": "d2df9294f7667f75172e71d50af738fc283bf6b4891298ca7a253eaa8bcdd7e6",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "graphblas_libm_dep.patch",
+            "version": "@5.2.0:5.2.99%clang"
+        },
+        {
+            "owner": "builtin.suite-sparse",
+            "sha256": "65ee5505fc764dc78713c69d1b137423f359b91f23bc20f87bf34ed7ce8c087a",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "fix_cuda11.patch",
+            "version": "@5.9.0:+cuda ^cuda@11:"
+        }
+    ],
+    "resources": [],
+    "description": " SuiteSparse is a suite of sparse matrix algorithms\n",
+    "dependencies": [
+        {
+            "name": "mpfr",
+            "description": "The MPFR library is a C library for multiple-precision floating-point\ncomputations with correct rounding."
+        },
+        {
+            "name": "gmp",
+            "description": "GMP is a free library for arbitrary precision arithmetic, operating on\nsigned integers, rational numbers, and floating-point numbers."
+        },
+        {
+            "name": "blas",
+            "description": "Intel oneAPI MKL."
+        },
+        {
+            "name": "lapack",
+            "description": "Intel oneAPI MKL."
+        },
+        {
+            "name": "m4",
+            "description": "GNU M4 is an implementation of the traditional Unix macro processor."
+        },
+        {
+            "name": "cmake",
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
+        },
+        {
+            "name": "metis",
+            "description": "METIS is a set of serial programs for partitioning graphs, partitioning\nfinite element meshes, and producing fill reducing orderings for sparse\nmatrices. The algorithms implemented in METIS are based on the\nmultilevel recursive-bisection, multilevel k-way, and multi-constraint\npartitioning schemes."
+        },
+        {
+            "name": "tbb",
+            "description": "Intel Parallel Studio."
+        },
+        {
+            "name": "cuda",
+            "description": "CUDA is a parallel computing platform and programming model invented by\nNVIDIA. It enables dramatic increases in computing performance by\nharnessing the power of the graphics processing unit (GPU). Note: This\npackage does not currently install the drivers necessary to run CUDA.\nThese will need to be installed manually. See:\nhttps://docs.nvidia.com/cuda/ for details."
+        }
+    ],
+    "dependent_to": [
+        {
+            "name": "sundials",
+            "description": "SUNDIALS (SUite of Nonlinear and DIfferential/ALgebraic equation\nSolvers)"
+        },
+        {
+            "name": "trilinos",
+            "description": "The Trilinos Project is an effort to develop algorithms and enabling\ntechnologies within an object-oriented software framework for the\nsolution of large-scale, complex multi-physics engineering and\nscientific problems. A unique design feature of Trilinos is its focus on\npackages."
+        },
+        {
+            "name": "petsc",
+            "description": "PETSc is a suite of data structures and routines for the scalable\n(parallel) solution of scientific applications modeled by partial\ndifferential equations."
+        },
+        {
+            "name": "mfem",
+            "description": "Free, lightweight, scalable C++ library for finite element methods."
+        },
+        {
+            "name": "augustus",
+            "description": "AUGUSTUS is a program that predicts genes in eukaryotic genomic\nsequences"
+        },
+        {
+            "name": "3dtk",
+            "description": "The 3D Toolkit provides algorithms and methods to process 3D point\nclouds. It includes automatic high-accurate registration (6D\nsimultaneous localization and mapping, 6D SLAM) and other tools, e.g., a\nfast 3D viewer, plane extraction software, etc. Several file formats for\nthe point clouds are natively supported, new formats can be implemented\neasily."
+        },
+        {
+            "name": "g2o",
+            "description": "g2o is an open-source C++ framework for optimizing graph-based nonlinear\nerror functions. g2o has been designed to be easily extensible to a wide\nrange of problems and a new problem typically can be specified in a few\nlines of code. The current implementation provides solutions to several\nvariants of SLAM and BA."
+        },
+        {
+            "name": "ceed",
+            "description": "Ceed is a collection of benchmarks, miniapps, software libraries and\nAPIs for efficient high-order finite element and spectral element\ndiscretizations for exascale applications developed in the Department of\nEnergy (DOE) and partially supported by the Exascale Computing Project\n(ECP). This is a Spack bundle package that installs the CEED software\ncomponents."
+        },
+        {
+            "name": "fenics",
+            "description": "FEniCS is organized as a collection of interoperable components that\ntogether form the FEniCS Project. These components include the problem-\nsolving environment DOLFIN, the form compiler FFC, the finite element\ntabulator FIAT, the just-in-time compiler Instant / Dijitso, the code\ngeneration interface UFC, the form language UFL and a range of\nadditional components."
+        },
+        {
+            "name": "py-cvxopt",
+            "description": "CVXOPT is a free software package for convex optimization based on the\nPython programming language."
+        },
+        {
+            "name": "hiop",
+            "description": "HiOp is an optimization solver for solving certain mathematical\noptimization problems expressed as nonlinear programming problems. HiOp\nis a lightweight HPC solver that leverages application's existing data\nparallelism to parallelize the optimization iterations by using\nspecialized linear algebra kernels."
+        },
+        {
+            "name": "dealii",
+            "description": "C++ software library providing well-documented tools to build finite\nelement codes for a broad variety of PDEs."
+        },
+        {
+            "name": "octave",
+            "description": "GNU Octave is a high-level language, primarily intended for numerical\ncomputations. It provides a convenient command line interface for\nsolving linear and nonlinear problems numerically, and for performing\nother numerical experiments using a language that is mostly compatible\nwith Matlab. It may also be used as a batch-oriented language."
+        }
+    ]
+}

@@ -1,0 +1,83 @@
+{
+    "name": "uqtk",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "master",
+            "branch": "master"
+        },
+        {
+            "name": "3.1.0",
+            "sha256": "56ecd3d13bdd908d568e9560dc52cc0f66d7bdcdbe64ab2dd0147a7cf1734f97"
+        },
+        {
+            "name": "3.0.4",
+            "sha256": "0a72856438134bb571fd328d1d30ce3d0d7aead32eda9b7fb6e436a27d546d2e"
+        }
+    ],
+    "build_system": "CMakePackage",
+    "conflicts": [
+        {
+            "name": "+ipo",
+            "spec": "^cmake@:3.8",
+            "description": "+ipo is not supported by CMake < 3.9"
+        }
+    ],
+    "variants": [
+        {
+            "name": "build_type",
+            "default": "RelWithDebInfo",
+            "description": "CMake build type"
+        },
+        {
+            "name": "ipo",
+            "default": false,
+            "description": "CMake interprocedural optimization"
+        }
+    ],
+    "homepage": "https://www.sandia.gov/UQToolkit/",
+    "maintainers": [],
+    "patches": [
+        {
+            "owner": "builtin.uqtk",
+            "sha256": "12eca848658e909cace0aaae66c2e68a02a9da533ee51c3e04ad0c36a25d6afd",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "remove_unique_libname.patch",
+            "version": "@3.1.0:"
+        },
+        {
+            "owner": "builtin.uqtk",
+            "sha256": "cd59e0dc6fc80596df983a137f7d3d2bece5f5ad4e549d0370935300b5cdf2fa",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "not_link_gfortran.patch",
+            "version": "@3.1.0:%fj"
+        }
+    ],
+    "resources": [],
+    "description": "Sandia Uncertainty Quantification Toolkit. The UQ Toolkit (UQTk) is a\ncollection of libraries and tools for the quantification of uncertainty\nin numerical model predictions\n",
+    "dependencies": [
+        {
+            "name": "cmake",
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
+        },
+        {
+            "name": "expat",
+            "description": "Expat is an XML parser library written in C."
+        },
+        {
+            "name": "sundials",
+            "description": "SUNDIALS (SUite of Nonlinear and DIfferential/ALgebraic equation\nSolvers)"
+        },
+        {
+            "name": "blas",
+            "description": "Intel oneAPI MKL."
+        },
+        {
+            "name": "lapack",
+            "description": "Intel oneAPI MKL."
+        }
+    ],
+    "dependent_to": []
+}

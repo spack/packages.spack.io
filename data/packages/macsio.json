@@ -1,0 +1,143 @@
+{
+    "name": "macsio",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "develop",
+            "branch": "master"
+        },
+        {
+            "name": "1.1",
+            "sha256": "a86249b0f10647c0b631773db69568388094605ec1a0af149d9e61e95e6961ec"
+        }
+    ],
+    "build_system": "CMakePackage",
+    "conflicts": [
+        {
+            "name": "+ipo",
+            "spec": "^cmake@:3.8",
+            "description": "+ipo is not supported by CMake < 3.9"
+        },
+        {
+            "name": "~mpi",
+            "spec": "@1.1",
+            "description": "None"
+        }
+    ],
+    "variants": [
+        {
+            "name": "build_type",
+            "default": "RelWithDebInfo",
+            "description": "CMake build type"
+        },
+        {
+            "name": "ipo",
+            "default": false,
+            "description": "CMake interprocedural optimization"
+        },
+        {
+            "name": "mpi",
+            "default": true,
+            "description": "Build MPI plugin"
+        },
+        {
+            "name": "silo",
+            "default": true,
+            "description": "Build with SILO plugin"
+        },
+        {
+            "name": "hdf5",
+            "default": false,
+            "description": "Build HDF5 plugin"
+        },
+        {
+            "name": "zfp",
+            "default": false,
+            "description": "Build HDF5 with ZFP compression"
+        },
+        {
+            "name": "szip",
+            "default": false,
+            "description": "Build HDF5 with SZIP compression"
+        },
+        {
+            "name": "zlib",
+            "default": false,
+            "description": "Build HDF5 with ZLIB compression"
+        },
+        {
+            "name": "pdb",
+            "default": false,
+            "description": "Build PDB plugin"
+        },
+        {
+            "name": "exodus",
+            "default": false,
+            "description": "Build EXODUS plugin"
+        },
+        {
+            "name": "scr",
+            "default": false,
+            "description": "Build with SCR support"
+        },
+        {
+            "name": "typhonio",
+            "default": false,
+            "description": "Build TYPHONIO plugin"
+        }
+    ],
+    "homepage": "https://computing.llnl.gov/projects/co-design/macsio",
+    "maintainers": [],
+    "patches": [
+        {
+            "owner": "builtin.macsio",
+            "sha256": "59479b946e5bbf677e814dc1cde12b38dd3b083fec8c543fc6d3abf9f73dbbfa",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "cast.patch",
+            "version": "@1.1"
+        }
+    ],
+    "resources": [],
+    "description": "A Multi-purpose, Application-Centric, Scalable I/O Proxy Application.\n",
+    "dependencies": [
+        {
+            "name": "cmake",
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
+        },
+        {
+            "name": "json-cwx",
+            "description": "JSON-C with Extensions"
+        },
+        {
+            "name": "mpi",
+            "description": "MVAPICH2-X is the advanced version of the MVAPICH2 MPI library with\nenhanced features (UMR, ODP, DC, Core-Direct, SHARP, XPMEM), OSU INAM\n(InifniBand Network Monitoring and Analysis),PGAS (OpenSHMEM, UPC,\nUPC++, and CAF), and MPI+PGAS programming models with unified\ncommunication runtime. MVAPICH2-X is not installable from source and is\nonly available through a binary mirror. If you do not find the binary\nyou're looking for, send us an email at mvapich@cse.ohio-state.edu. The\nbinary mirror url is: http://mvapich.cse.ohio-\nstate.edu/download/mvapich/spack-mirror/mvapich2x/"
+        },
+        {
+            "name": "silo",
+            "description": "Silo is a library for reading and writing a wide variety of scientific\ndata to binary, disk files."
+        },
+        {
+            "name": "hdf5",
+            "description": "HDF5 is a data model, library, and file format for storing and managing\ndata. It supports an unlimited variety of datatypes, and is designed for\nflexible and efficient I/O and for high volume and complex data."
+        },
+        {
+            "name": "exodusii",
+            "description": "Exodus II is a C++/Fortran library developed to store and retrieve data\nfor finite element analyses. It's used for preprocessing (problem\ndefinition), postprocessing (results visualization), and data transfer\nbetween codes. An Exodus II data file is a random access, machine\nindependent, binary file that is written and read via C, C++, or Fortran\nAPI routines."
+        },
+        {
+            "name": "typhonio",
+            "description": "TyphonIO is a library of routines that perform input/output (I/O) of\nscientific data within application codes"
+        },
+        {
+            "name": "scr",
+            "description": "SCR caches checkpoint data in storage on the compute nodes of a Linux\ncluster to provide a fast, scalable checkpoint/restart capability for\nMPI codes"
+        }
+    ],
+    "dependent_to": [
+        {
+            "name": "ecp-proxy-apps",
+            "description": "This is a collection of packages that represents the official suite of\nDOE/ECP proxy applications. This is a Spack bundle package that installs\nthe ECP proxy application suite."
+        }
+    ]
+}

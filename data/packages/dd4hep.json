@@ -1,0 +1,216 @@
+{
+    "name": "dd4hep",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "master",
+            "branch": "master"
+        },
+        {
+            "name": "1.17",
+            "sha256": "e56071ce5497517fe56af813828b1a5fab90f0b602b86961a277ca22be215232"
+        },
+        {
+            "name": "1.16.1",
+            "sha256": "c8b1312aa88283986f89cc008d317b3476027fd146fdb586f9f1fbbb47763f1a"
+        },
+        {
+            "name": "1.16",
+            "sha256": "ea9755cd255cf1b058e0e3cd743101ca9ca5ff79f4c60be89f9ba72b1ae5ec69"
+        },
+        {
+            "name": "1.15",
+            "sha256": "992a24bd4b3dfaffecec9d1c09e8cde2c7f89d38756879a47b23208242f4e352"
+        },
+        {
+            "name": "1.14.1",
+            "sha256": "5b5742f1e23c2b36d3174cca95f810ce909c0eb66f3d6d7acb0ba657819e6717"
+        },
+        {
+            "name": "1.14",
+            "sha256": "b603aa3c0db8dda392253aa71fa4a0f0c3c9715d47df0b895d45c1e8849f4895"
+        },
+        {
+            "name": "1.13.1",
+            "sha256": "83fa70cd74ce93b2f52f098388dff58d179f05ace5b50aea3f408bb8abf7cb73"
+        },
+        {
+            "name": "1.13",
+            "sha256": "0b1f9d902ebe21a9178c1e41204c066b29f68c8836fd1d03a9ce979811ddb295"
+        },
+        {
+            "name": "1.12.1",
+            "sha256": "85e8c775ec03c499ce10911e228342e757c81ce9ef2a9195cb253b85175a2e93"
+        },
+        {
+            "name": "1.12",
+            "sha256": "133a1fb8ce0466d2482f3ebb03e60b3bebb9b2d3e33d14ba15c8fbb91706b398"
+        },
+        {
+            "name": "1.11.2",
+            "sha256": "96a53dd26cb8df11c6dae54669fbc9cc3c90dd47c67e07b24be9a1341c95abc4"
+        },
+        {
+            "name": "1.11.1",
+            "sha256": "d7902dd7f6744bbda92f6e303ad5a3410eec4a0d2195cdc86f6c1167e72893f0"
+        },
+        {
+            "name": "1.11",
+            "sha256": "25643296f15f9d11ad4ad550b7c3b92e8974fc56f1ee8e4455501010789ae7b6"
+        },
+        {
+            "name": "1.10",
+            "sha256": "1d6b5d1c368dc8bcedd9c61b7c7e1a44bad427f8bd34932516aff47c88a31d95"
+        }
+    ],
+    "build_system": "CMakePackage",
+    "conflicts": [
+        {
+            "name": "+ipo",
+            "spec": "^cmake@:3.8",
+            "description": "+ipo is not supported by CMake < 3.9"
+        },
+        {
+            "name": "^cmake@3.16:3.17.0",
+            "spec": "@1.15",
+            "description": "cmake version with buggy FindPython breaks dd4hep cmake config"
+        }
+    ],
+    "variants": [
+        {
+            "name": "build_type",
+            "default": "RelWithDebInfo",
+            "description": "CMake build type"
+        },
+        {
+            "name": "ipo",
+            "default": false,
+            "description": "CMake interprocedural optimization"
+        },
+        {
+            "name": "xercesc",
+            "default": false,
+            "description": "Enable 'Detector Builders' based on XercesC"
+        },
+        {
+            "name": "geant4",
+            "default": false,
+            "description": "Enable the simulation part based on Geant4"
+        },
+        {
+            "name": "assimp",
+            "default": false,
+            "description": "Enable CAD interface based on Assimp"
+        },
+        {
+            "name": "hepmc3",
+            "default": false,
+            "description": "Enable build with hepmc3"
+        },
+        {
+            "name": "lcio",
+            "default": false,
+            "description": "Enable build with lcio"
+        },
+        {
+            "name": "edm4hep",
+            "default": true,
+            "description": "Enable build with edm4hep"
+        },
+        {
+            "name": "geant4units",
+            "default": false,
+            "description": "Use geant4 units throughout"
+        },
+        {
+            "name": "debug",
+            "default": false,
+            "description": "Enable debug build flag - adds extra info in some places in addtion to the debug build type"
+        }
+    ],
+    "homepage": "https://dd4hep.web.cern.ch/dd4hep/",
+    "maintainers": [
+        "vvolkl",
+        "drbenmorgan"
+    ],
+    "patches": [
+        {
+            "owner": "builtin.dd4hep",
+            "sha256": "d7eece642b1022db4c697373f12fc2601ee4d63de5d0fd5a9f952a1ef5b5c249",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "tbb-workarounds.patch",
+            "version": "@1.11"
+        },
+        {
+            "owner": "builtin.dd4hep",
+            "sha256": "eacad7d7ebdb5194ca5680b660f5e9a74e4ac767988d68a06b643b9bb66acad5",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "tbb2.patch",
+            "version": "@1.12.1"
+        },
+        {
+            "owner": "builtin.dd4hep",
+            "sha256": "8de0cc8aba79074ec3178252b5cd3f407f426eba1d5c7d1bd589bf0242e4a380",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "cmake_language.patch",
+            "version": "@:1.17"
+        }
+    ],
+    "resources": [],
+    "description": "DD4hep is a software framework for providing a complete solution for\nfull detector description (geometry, materials, visualization, readout,\nalignment, calibration, etc.) for the full experiment life cycle\n(detector concept development, detector optimization, construction,\noperation). It offers a consistent description through a single source\nof detector information for simulation, reconstruction, analysis, etc.\nIt distributed under the LGPLv3 License.\n",
+    "dependencies": [
+        {
+            "name": "cmake",
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
+        },
+        {
+            "name": "ninja",
+            "description": "Ninja is a small build system with a focus on speed. It differs from\nother build systems in two major respects: it is designed to have its\ninput files generated by a higher-level build system, and it is designed\nto run builds as fast as possible."
+        },
+        {
+            "name": "boost",
+            "description": "Boost provides free peer-reviewed portable C++ source libraries,\nemphasizing libraries that work well with the C++ Standard Library.\nBoost libraries are intended to be widely useful, and usable across a\nbroad spectrum of applications. The Boost license encourages both\ncommercial and non-commercial use."
+        },
+        {
+            "name": "root",
+            "description": "ROOT is a data analysis framework."
+        },
+        {
+            "name": "python",
+            "description": "The Python programming language."
+        },
+        {
+            "name": "xerces-c",
+            "description": "Xerces-C++ is a validating XML parser written in a portable subset of\nC++. Xerces-C++ makes it easy to give your application the ability to\nread and write XML data. A shared library is provided for parsing,\ngenerating, manipulating, and validating XML documents using the DOM,\nSAX, and SAX2 APIs."
+        },
+        {
+            "name": "geant4",
+            "description": "Geant4 is a toolkit for the simulation of the passage of particles\nthrough matter. Its areas of application include high energy, nuclear\nand accelerator physics, as well as studies in medical and space\nscience."
+        },
+        {
+            "name": "assimp",
+            "description": "Open Asset Import Library (Assimp) is a portable Open Source library to\nimport various well-known 3D model formats in a uniform manner."
+        },
+        {
+            "name": "hepmc3",
+            "description": "The HepMC package is an object oriented, C++ event record for High\nEnergy Physics Monte Carlo generators and simulation."
+        },
+        {
+            "name": "lcio",
+            "description": "HEP Library for Linear Collider Input/Output"
+        },
+        {
+            "name": "edm4hep",
+            "description": "Event data model of Key4hep."
+        }
+    ],
+    "dependent_to": [
+        {
+            "name": "acts",
+            "description": "A Common Tracking Software (Acts) This project contains an experiment-\nindependent set of track reconstruction tools. The main philosophy is to\nprovide high-level track reconstruction modules that can be used for any\ntracking detector. The description of the tracking detector's geometry\nis optimized for efficient navigation and quick extrapolation of tracks.\nConverters for several common geometry description languages exist.\nHaving a highly performant, yet largely customizable implementation of\ntrack reconstruction algorithms was a primary objective for the design\nof this toolset. Additionally, the applicability to real-life HEP\nexperiments plays major role in the development process. Apart from\nalgorithmic code, this project also provides an event data model for the\ndescription of track parameters and measurements. Key features of this\nproject include: tracking geometry description which can be constructed\nfrom TGeo, DD4Hep, or GDML input, simple and efficient event data model,\nperformant and highly flexible algorithms for track propagation and\nfitting, basic seed finding algorithms."
+        }
+    ]
+}

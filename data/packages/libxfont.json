@@ -1,0 +1,58 @@
+{
+    "name": "libxfont",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "1.5.2",
+            "sha256": "a7350c75171d03d06ae0d623e42240356d6d3e1ac7dfe606639bf20f0d653c93"
+        }
+    ],
+    "build_system": "AutotoolsPackage",
+    "conflicts": [],
+    "variants": [],
+    "homepage": "http://cgit.freedesktop.org/xorg/lib/libXfont",
+    "maintainers": [],
+    "patches": [],
+    "resources": [],
+    "description": "libXfont provides the core of the legacy X11 font system, handling the\nindex files (fonts.dir, fonts.alias, fonts.scale), the various font file\nformats, and rasterizing them. It is used by the X servers, the X Font\nServer (xfs), and some font utilities (bdftopcf for instance), but\nshould not be used by normal X11 clients. X11 clients access fonts via\neither the new API's in libXft, or the legacy API's in libX11.\n",
+    "dependencies": [
+        {
+            "name": "libfontenc",
+            "description": "libfontenc - font encoding library."
+        },
+        {
+            "name": "freetype",
+            "description": "FreeType is a freely available software library to render fonts. It is\nwritten in C, designed to be small, efficient, highly customizable, and\nportable while capable of producing high-quality output (glyph images)\nof most vector and bitmap font formats."
+        },
+        {
+            "name": "xtrans",
+            "description": "xtrans is a library of code that is shared among various X packages to\nhandle network protocol transport in a modular fashion, allowing a\nsingle place to add new transport types. It is used by the X server,\nlibX11, libICE, the X font server, and related components."
+        },
+        {
+            "name": "xproto",
+            "description": "X Window System Core Protocol. This package provides the headers and\nspecification documents defining the X Window System Core Protocol,\nVersion 11. It also includes a number of headers that aren't purely\nprotocol related, but are depended upon by many other X Window System\npackages to provide common definitions and porting layer."
+        },
+        {
+            "name": "fontsproto",
+            "description": "X Fonts Extension."
+        },
+        {
+            "name": "pkgconfig",
+            "description": "pkgconf is a program which helps to configure compiler and linker flags\nfor development frameworks. It is similar to pkg-config from\nfreedesktop.org, providing additional functionality while also\nmaintaining compatibility."
+        },
+        {
+            "name": "util-macros",
+            "description": "This is a set of autoconf macros used by the configure.ac scripts in\nother Xorg modular packages, and is needed to generate new versions of\ntheir configure scripts with autoconf."
+        }
+    ],
+    "dependent_to": [
+        {
+            "name": "bdftopcf",
+            "description": "bdftopcf is a font compiler for the X server and font server. Fonts in\nPortable Compiled Format can be read by any architecture, although the\nfile is structured to allow one particular architecture to read them\ndirectly without reformatting. This allows fast reading on the\nappropriate machine, but the files are still portable (but read more\nslowly) on other machines."
+        },
+        {
+            "name": "xfs",
+            "description": "X Font Server."
+        }
+    ]
+}

@@ -1,0 +1,313 @@
+{
+    "name": "legion",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "21.03.0",
+            "tag": "legion-21.03.0"
+        },
+        {
+            "name": "stable",
+            "branch": "stable"
+        },
+        {
+            "name": "master",
+            "branch": "master"
+        },
+        {
+            "name": "cr",
+            "branch": "control_replication"
+        }
+    ],
+    "build_system": "CMakePackage",
+    "conflicts": [
+        {
+            "name": "+ipo",
+            "spec": "^cmake@:3.8",
+            "description": "+ipo is not supported by CMake < 3.9"
+        },
+        {
+            "name": "gasnet_root",
+            "spec": "network=mpi",
+            "description": "None"
+        },
+        {
+            "name": "conduit=none",
+            "spec": "network=gasnet",
+            "description": "a conduit must be selected when 'network=gasnet'"
+        },
+        {
+            "name": "conduit=aries",
+            "spec": "network=mpi",
+            "description": "conduit attribute requires 'network=gasnet'."
+        },
+        {
+            "name": "conduit=aries",
+            "spec": "network=none",
+            "description": "conduit attribute requires 'network=gasnet'."
+        },
+        {
+            "name": "conduit=ibv",
+            "spec": "network=mpi",
+            "description": "conduit attribute requires 'network=gasnet'."
+        },
+        {
+            "name": "conduit=ibv",
+            "spec": "network=none",
+            "description": "conduit attribute requires 'network=gasnet'."
+        },
+        {
+            "name": "conduit=udp",
+            "spec": "network=mpi",
+            "description": "conduit attribute requires 'network=gasnet'."
+        },
+        {
+            "name": "conduit=udp",
+            "spec": "network=none",
+            "description": "conduit attribute requires 'network=gasnet'."
+        },
+        {
+            "name": "conduit=mpi",
+            "spec": "network=mpi",
+            "description": "conduit attribute requires 'network=gasnet'."
+        },
+        {
+            "name": "conduit=mpi",
+            "spec": "network=none",
+            "description": "conduit attribute requires 'network=gasnet'."
+        },
+        {
+            "name": "conduit=ucx",
+            "spec": "network=mpi",
+            "description": "conduit attribute requires 'network=gasnet'."
+        },
+        {
+            "name": "conduit=ucx",
+            "spec": "network=none",
+            "description": "conduit attribute requires 'network=gasnet'."
+        },
+        {
+            "name": "+gasnet_debug",
+            "spec": "network=mpi",
+            "description": "None"
+        },
+        {
+            "name": "+gasnet_debug",
+            "spec": "network=none",
+            "description": "None"
+        },
+        {
+            "name": "+cuda_hijack",
+            "spec": "~cuda",
+            "description": "None"
+        }
+    ],
+    "variants": [
+        {
+            "name": "build_type",
+            "default": "RelWithDebInfo",
+            "description": "CMake build type"
+        },
+        {
+            "name": "ipo",
+            "default": false,
+            "description": "CMake interprocedural optimization"
+        },
+        {
+            "name": "network",
+            "default": "none",
+            "description": "The network communications/transport layer to use."
+        },
+        {
+            "name": "gasnet_root",
+            "default": "none",
+            "description": "Path to a pre-installed version of GASNet (prefix directory)."
+        },
+        {
+            "name": "conduit",
+            "default": "none",
+            "description": "The gasnet conduit(s) to enable."
+        },
+        {
+            "name": "gasnet_debug",
+            "default": false,
+            "description": "Build gasnet with debugging enabled."
+        },
+        {
+            "name": "shared",
+            "default": false,
+            "description": "Build shared libraries."
+        },
+        {
+            "name": "bounds_checks",
+            "default": false,
+            "description": "Enable bounds checking in Legion accessors."
+        },
+        {
+            "name": "privilege_checks",
+            "default": false,
+            "description": "Enable runtime privildge checks in Legion accessors."
+        },
+        {
+            "name": "enable_tls",
+            "default": false,
+            "description": "Enable thread-local-storage of the Legion context."
+        },
+        {
+            "name": "output_level",
+            "default": "warning",
+            "description": "Set the compile-time logging level."
+        },
+        {
+            "name": "spy",
+            "default": false,
+            "description": "Enable detailed logging for Legion Spy debugging."
+        },
+        {
+            "name": "cuda",
+            "default": false,
+            "description": "Enable CUDA support."
+        },
+        {
+            "name": "cuda_hijack",
+            "default": false,
+            "description": "Hijack application calls into the CUDA runtime (+cuda)."
+        },
+        {
+            "name": "cuda_arch",
+            "default": "70",
+            "description": "GPU/CUDA architecture to build for."
+        },
+        {
+            "name": "cuda_unsupported_compiler",
+            "default": false,
+            "description": "Disable nvcc version check (--allow-unsupported-compiler)."
+        },
+        {
+            "name": "fortran",
+            "default": false,
+            "description": "Enable Fortran bindings."
+        },
+        {
+            "name": "hdf5",
+            "default": false,
+            "description": "Enable support for HDF5."
+        },
+        {
+            "name": "hwloc",
+            "default": false,
+            "description": "Use hwloc for topology awareness."
+        },
+        {
+            "name": "kokkos",
+            "default": false,
+            "description": "Enable support for interoperability with Kokkos."
+        },
+        {
+            "name": "bindings",
+            "default": false,
+            "description": "Build runtime language bindings (excl. Fortran)."
+        },
+        {
+            "name": "libdl",
+            "default": true,
+            "description": "Enable support for dynamic object/library loading."
+        },
+        {
+            "name": "openmp",
+            "default": false,
+            "description": "Enable support for OpenMP within Legion tasks."
+        },
+        {
+            "name": "papi",
+            "default": false,
+            "description": "Enable PAPI performance measurements."
+        },
+        {
+            "name": "python",
+            "default": false,
+            "description": "Enable Python support."
+        },
+        {
+            "name": "zlib",
+            "default": true,
+            "description": "Enable zlib support."
+        },
+        {
+            "name": "redop_complex",
+            "default": false,
+            "description": "Use reduction operators for complex types."
+        },
+        {
+            "name": "max_dims",
+            "default": 3,
+            "description": "Set max number of dimensions for logical regions."
+        },
+        {
+            "name": "max_fields",
+            "default": 512,
+            "description": "Maximum number of fields allowed in a logical region."
+        },
+        {
+            "name": "native",
+            "default": false,
+            "description": "Enable native/host processor optimizaton target."
+        }
+    ],
+    "homepage": "http://legion.stanford.edu/",
+    "maintainers": [
+        "pmccormick",
+        "streichler"
+    ],
+    "patches": [],
+    "resources": [],
+    "description": "Legion is a data-centric parallel programming system for writing\nportable high performance programs targeted at distributed heterogeneous\narchitectures. Legion presents abstractions which allow programmers to\ndescribe properties of program data (e.g. independence, locality). By\nmaking the Legion programming system aware of the structure of program\ndata, it can automate many of the tedious tasks programmers currently\nface, including correctly extracting task- and data-level parallelism\nand moving data around complex memory hierarchies. A novel mapping\ninterface provides explicit programmer controlled placement of data in\nthe memory hierarchy and assignment of tasks to processors in a way that\nis orthogonal to correctness, thereby enabling easy porting and tuning\nof Legion applications to new architectures.\n",
+    "dependencies": [
+        {
+            "name": "cmake",
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
+        },
+        {
+            "name": "mpi",
+            "description": "MVAPICH2-X is the advanced version of the MVAPICH2 MPI library with\nenhanced features (UMR, ODP, DC, Core-Direct, SHARP, XPMEM), OSU INAM\n(InifniBand Network Monitoring and Analysis),PGAS (OpenSHMEM, UPC,\nUPC++, and CAF), and MPI+PGAS programming models with unified\ncommunication runtime. MVAPICH2-X is not installable from source and is\nonly available through a binary mirror. If you do not find the binary\nyou're looking for, send us an email at mvapich@cse.ohio-state.edu. The\nbinary mirror url is: http://mvapich.cse.ohio-\nstate.edu/download/mvapich/spack-mirror/mvapich2x/"
+        },
+        {
+            "name": "ucx",
+            "description": "a communication library implementing high-performance messaging for\nMPI/PGAS frameworks"
+        },
+        {
+            "name": "cuda",
+            "description": "CUDA is a parallel computing platform and programming model invented by\nNVIDIA. It enables dramatic increases in computing performance by\nharnessing the power of the graphics processing unit (GPU). Note: This\npackage does not currently install the drivers necessary to run CUDA.\nThese will need to be installed manually. See:\nhttps://docs.nvidia.com/cuda/ for details."
+        },
+        {
+            "name": "hdf5",
+            "description": "HDF5 is a data model, library, and file format for storing and managing\ndata. It supports an unlimited variety of datatypes, and is designed for\nflexible and efficient I/O and for high volume and complex data."
+        },
+        {
+            "name": "hwloc",
+            "description": "The Hardware Locality (hwloc) software project. The Portable Hardware\nLocality (hwloc) software package provides a portable abstraction\n(across OS, versions, architectures, ...) of the hierarchical topology\nof modern architectures, including NUMA memory nodes, sockets, shared\ncaches, cores and simultaneous multithreading. It also gathers various\nsystem attributes such as cache and memory information as well as the\nlocality of I/O devices such as network interfaces, InfiniBand HCAs or\nGPUs. It primarily aims at helping applications with gathering\ninformation about modern computing hardware so as to exploit it\naccordingly and efficiently."
+        },
+        {
+            "name": "kokkos",
+            "description": "Kokkos implements a programming model in C++ for writing performance\nportable applications targeting all major HPC platforms."
+        },
+        {
+            "name": "python",
+            "description": "The Python programming language."
+        },
+        {
+            "name": "papi",
+            "description": "PAPI provides the tool designer and application engineer with a\nconsistent interface and methodology for use of the performance counter\nhardware found in most major microprocessors. PAPI enables software\nengineers to see, in near real time, the relation between software\nperformance and processor events. In addition Component PAPI provides\naccess to a collection of components that expose performance measurement\nopportunities across the hardware and software stack."
+        },
+        {
+            "name": "zlib",
+            "description": "A free, general-purpose, legally unencumbered lossless data-compression\nlibrary."
+        }
+    ],
+    "dependent_to": [
+        {
+            "name": "flecsi",
+            "description": "FleCSI is a compile-time configurable framework designed to support\nmulti-physics application development. As such, FleCSI attempts to\nprovide a very general set of infrastructure design patterns that can be\nspecialized and extended to suit the needs of a broad variety of solver\nand data requirements. Current support includes multi-dimensional mesh\ntopology, mesh geometry, and mesh adjacency information, n-dimensional\nhashed-tree data structures, graph partitioning interfaces,and\ndependency closures."
+        }
+    ]
+}

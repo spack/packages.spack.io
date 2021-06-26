@@ -1,0 +1,118 @@
+{
+    "name": "sst-core",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "11.0.0",
+            "sha256": "25d17c35d1121330ad74375b6d27fe5c5592d1add3edf0bbb356aa3b5f59f401"
+        },
+        {
+            "name": "10.1.0",
+            "sha256": "e464213a81c7b3ccec994fdba2b56992b52fb9a6db089ef7c3445b54306d4b87"
+        },
+        {
+            "name": "10.0.0",
+            "sha256": "64cf93a46dfab011fba49244bf0e0efe25ef928c6fbde1d49003220d0eb7735a"
+        },
+        {
+            "name": "9.1.0",
+            "sha256": "cfeda39bb2ce9f32032480427517df62e852c0b3713797255e3b838075f3614d"
+        },
+        {
+            "name": "develop",
+            "branch": "devel"
+        },
+        {
+            "name": "master",
+            "branch": "master"
+        }
+    ],
+    "build_system": "AutotoolsPackage",
+    "conflicts": [],
+    "variants": [
+        {
+            "name": "pdes_mpi",
+            "default": true,
+            "description": "Build support for parallel discrete event simulation"
+        },
+        {
+            "name": "zoltan",
+            "default": false,
+            "description": "Use Zoltan for partitioning parallel runs"
+        },
+        {
+            "name": "hdf5",
+            "default": false,
+            "description": "Build support for HDF5 statistic output"
+        },
+        {
+            "name": "zlib",
+            "default": false,
+            "description": "Build support for ZLIB compression"
+        },
+        {
+            "name": "preview",
+            "default": false,
+            "description": "Preview build with deprecated features removed"
+        }
+    ],
+    "homepage": "https://github.com/sstsimulator",
+    "maintainers": [
+        "jjwilke"
+    ],
+    "patches": [],
+    "resources": [],
+    "description": "The Structural Simulation Toolkit (SST) core provides a parallel\ndiscrete event simulation (PDES) framework for performing architecture\nsimulations of existing and proposed HPC systems\n",
+    "dependencies": [
+        {
+            "name": "python",
+            "description": "The Python programming language."
+        },
+        {
+            "name": "mpi",
+            "description": "MVAPICH2-X is the advanced version of the MVAPICH2 MPI library with\nenhanced features (UMR, ODP, DC, Core-Direct, SHARP, XPMEM), OSU INAM\n(InifniBand Network Monitoring and Analysis),PGAS (OpenSHMEM, UPC,\nUPC++, and CAF), and MPI+PGAS programming models with unified\ncommunication runtime. MVAPICH2-X is not installable from source and is\nonly available through a binary mirror. If you do not find the binary\nyou're looking for, send us an email at mvapich@cse.ohio-state.edu. The\nbinary mirror url is: http://mvapich.cse.ohio-\nstate.edu/download/mvapich/spack-mirror/mvapich2x/"
+        },
+        {
+            "name": "zoltan",
+            "description": "The Zoltan library is a toolkit of parallel combinatorial algorithms for\nparallel, unstructured, and/or adaptive scientific applications.\nZoltan's largest component is a suite of dynamic load-balancing and\npartitioning algorithms that increase applications' parallel performance\nby reducing idle time. Zoltan also has graph coloring and graph ordering\nalgorithms, which are useful in task schedulers and parallel\npreconditioners."
+        },
+        {
+            "name": "hdf5",
+            "description": "HDF5 is a data model, library, and file format for storing and managing\ndata. It supports an unlimited variety of datatypes, and is designed for\nflexible and efficient I/O and for high volume and complex data."
+        },
+        {
+            "name": "zlib",
+            "description": "A free, general-purpose, legally unencumbered lossless data-compression\nlibrary."
+        },
+        {
+            "name": "autoconf",
+            "description": "Autoconf -- system configuration part of autotools"
+        },
+        {
+            "name": "automake",
+            "description": "Automake -- make file builder part of autotools"
+        },
+        {
+            "name": "libtool",
+            "description": "libtool -- library building part of autotools."
+        },
+        {
+            "name": "m4",
+            "description": "GNU M4 is an implementation of the traditional Unix macro processor."
+        },
+        {
+            "name": "gettext",
+            "description": "GNU internationalization (i18n) and localization (l10n) library."
+        }
+    ],
+    "dependent_to": [
+        {
+            "name": "sst-elements",
+            "description": "SST Elements implements a range of components for performing\narchitecture simulation from node-level to system-level using the SST\ndiscrete event core"
+        },
+        {
+            "name": "sst-macro",
+            "description": "The Structural Simulation Toolkit Macroscale Element Library simulates\nlarge-scale parallel computer architectures for the coarse-grained study\nof distributed-memory applications. The simulator is driven from either\na trace file or skeleton application. SST/macro's modular architecture\ncan be extended with additional network models, trace file formats,\nsoftware services, and processor models."
+        }
+    ]
+}

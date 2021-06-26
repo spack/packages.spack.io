@@ -1,0 +1,251 @@
+{
+    "name": "poppler",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "master",
+            "branch": "master"
+        },
+        {
+            "name": "0.90.1",
+            "sha256": "984d82e72e91418d280885298c8bdc855a2fd92665fd52a1345b27235e0c71c4"
+        },
+        {
+            "name": "0.87.0",
+            "sha256": "6f602b9c24c2d05780be93e7306201012e41459f289b8279a27a79431ad4150e"
+        },
+        {
+            "name": "0.79.0",
+            "sha256": "f985a4608fe592d2546d9d37d4182e502ff6b4c42f8db4be0a021a1c369528c8"
+        },
+        {
+            "name": "0.77.0",
+            "sha256": "7267eb4cbccd64a58244b8211603c1c1b6bf32c7f6a4ced2642865346102f36b"
+        },
+        {
+            "name": "0.72.0",
+            "sha256": "c1747eb8f26e9e753c4001ed951db2896edc1021b6d0f547a0bd2a27c30ada51"
+        },
+        {
+            "name": "0.65.0",
+            "sha256": "89c8cf73f83efda78c5a9bd37c28f4593ad0e8a51556dbe39ed81e1ae2dd8f07"
+        },
+        {
+            "name": "0.64.0",
+            "sha256": "b21df92ca99f78067785cf2dc8e06deb04726b62389c0ee1f5d8b103c77f64b1"
+        },
+        {
+            "name": "0.61.1",
+            "sha256": "1266096343f5163c1a585124e9a6d44474e1345de5cdfe55dc7b47357bcfcda9"
+        }
+    ],
+    "build_system": "CMakePackage",
+    "conflicts": [
+        {
+            "name": "+ipo",
+            "spec": "^cmake@:3.8",
+            "description": "+ipo is not supported by CMake < 3.9"
+        }
+    ],
+    "variants": [
+        {
+            "name": "build_type",
+            "default": "RelWithDebInfo",
+            "description": "CMake build type"
+        },
+        {
+            "name": "ipo",
+            "default": false,
+            "description": "CMake interprocedural optimization"
+        },
+        {
+            "name": "cms",
+            "default": false,
+            "description": "Use color management system"
+        },
+        {
+            "name": "cpp",
+            "default": false,
+            "description": "Compile poppler cpp wrapper"
+        },
+        {
+            "name": "glib",
+            "default": false,
+            "description": "Compile poppler glib wrapper"
+        },
+        {
+            "name": "gobject",
+            "default": false,
+            "description": "Generate GObject introspection"
+        },
+        {
+            "name": "libcurl",
+            "default": false,
+            "description": "Build libcurl based HTTP support"
+        },
+        {
+            "name": "openjpeg",
+            "default": false,
+            "description": "Use libopenjpeg for JPX streams"
+        },
+        {
+            "name": "qt",
+            "default": false,
+            "description": "Compile poppler qt wrapper"
+        },
+        {
+            "name": "zlib",
+            "default": false,
+            "description": "Build with zlib"
+        },
+        {
+            "name": "iconv",
+            "default": false,
+            "description": "Search for Iconv package"
+        },
+        {
+            "name": "jpeg",
+            "default": false,
+            "description": "Search for JPEG package"
+        },
+        {
+            "name": "png",
+            "default": false,
+            "description": "Search for PNG package"
+        },
+        {
+            "name": "tiff",
+            "default": false,
+            "description": "Search for TIFF package"
+        }
+    ],
+    "homepage": "https://poppler.freedesktop.org",
+    "maintainers": [],
+    "patches": [
+        {
+            "owner": "builtin.poppler",
+            "sha256": "561dc4026601a7131beb1c0cc5ed17f6a404f54517329e5a51e2ad37637135fa",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "poppler_page_splash.patch",
+            "version": "@0.64.0:0.90.0 ^qt@5.0:"
+        },
+        {
+            "owner": "builtin.poppler",
+            "sha256": "b4e17f7fa727aedf073a15f962a209490d6488a98b952e7a3633df7a7da1c88a",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "poppler_page_splash.0.90.1.patch",
+            "version": "@0.90.1: ^qt@5.0:"
+        }
+    ],
+    "resources": [
+        {
+            "version": "",
+            "name": "test",
+            "destination": "",
+            "placement": "testdata"
+        }
+    ],
+    "description": "Poppler is a PDF rendering library based on the xpdf-3.0 code base.\n",
+    "dependencies": [
+        {
+            "name": "cmake",
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
+        },
+        {
+            "name": "pkgconfig",
+            "description": "pkgconf is a program which helps to configure compiler and linker flags\nfor development frameworks. It is similar to pkg-config from\nfreedesktop.org, providing additional functionality while also\nmaintaining compatibility."
+        },
+        {
+            "name": "poppler-data",
+            "description": "This package consists of encoding files for use with poppler. The\nencoding files are optional and poppler will automatically read them if\nthey are present. When installed, the encoding files enables poppler to\ncorrectly render CJK and Cyrrilic properly. While poppler is licensed\nunder the GPL, these encoding files have different license, and thus\ndistributed separately."
+        },
+        {
+            "name": "fontconfig",
+            "description": "Fontconfig is a library for configuring/customizing font access"
+        },
+        {
+            "name": "freetype",
+            "description": "FreeType is a freely available software library to render fonts. It is\nwritten in C, designed to be small, efficient, highly customizable, and\nportable while capable of producing high-quality output (glyph images)\nof most vector and bitmap font formats."
+        },
+        {
+            "name": "lcms",
+            "description": "Little cms is a color management library. Implements fast transforms\nbetween ICC profiles. It is focused on speed, and is portable across\nseveral platforms (MIT license)."
+        },
+        {
+            "name": "glib",
+            "description": "GLib provides the core application building blocks for libraries and\napplications written in C. The GLib package contains a low-level\nlibraries useful for providing data structure handling for C,\nportability wrappers and interfaces for such runtime functionality as an\nevent loop, threads, dynamic loading and an object system."
+        },
+        {
+            "name": "gobject-introspection",
+            "description": "The GObject Introspection is used to describe the program APIs and\ncollect them in a uniform, machine readable format.Cairo is a 2D\ngraphics library with support for multiple output"
+        },
+        {
+            "name": "curl",
+            "description": "cURL is an open source command line tool and library for transferring\ndata with URL syntax"
+        },
+        {
+            "name": "openjpeg",
+            "description": "OpenJPEG is an open-source JPEG 2000 codec written in C language. It has\nbeen developed in order to promote the use of JPEG 2000, a still-image\ncompression standard from the Joint Photographic Experts Group (JPEG).\nSince April 2015, it is officially recognized by ISO/IEC and ITU-T as a\nJPEG 2000 Reference Software."
+        },
+        {
+            "name": "qt",
+            "description": "Qt is a comprehensive cross-platform C++ application framework."
+        },
+        {
+            "name": "zlib",
+            "description": "A free, general-purpose, legally unencumbered lossless data-compression\nlibrary."
+        },
+        {
+            "name": "cairo",
+            "description": "Cairo is a 2D graphics library with support for multiple output devices."
+        },
+        {
+            "name": "iconv",
+            "description": "Dummy package to provide interfaces available in libc."
+        },
+        {
+            "name": "jpeg",
+            "description": "libjpeg is a widely used free library with functions for handling the\nJPEG image data format. It implements a JPEG codec (encoding and\ndecoding) alongside various utilities for handling JPEG data."
+        },
+        {
+            "name": "libpng",
+            "description": "libpng is the official PNG reference library."
+        },
+        {
+            "name": "libtiff",
+            "description": "LibTIFF - Tag Image File Format (TIFF) Library and Utilities."
+        }
+    ],
+    "dependent_to": [
+        {
+            "name": "swftools",
+            "description": "SWFTools is a collection of utilities for working with Adobe Flash files\n(SWF files). The tool collection includes programs for reading SWF\nfiles, combining them, and creating them from other content (like\nimages, sound files, videos or sourcecode). SWFTools is released under\nthe GPL."
+        },
+        {
+            "name": "graphviz",
+            "description": "Graph Visualization Software"
+        },
+        {
+            "name": "texlive",
+            "description": "TeX Live is an easy (we hope) way to get up and running with the TeX\ndocument production system. It provides a comprehensive TeX system with\nbinaries for most flavors of Unix, including GNU/Linux, macOS, and also\nWindows. It includes all the major TeX-related programs, macro packages,\nand fonts that are free software, including support for many languages\naround the world."
+        },
+        {
+            "name": "pdf2svg",
+            "description": "A simple PDF to SVG converter using the Poppler and Cairo libraries."
+        },
+        {
+            "name": "texstudio",
+            "description": "TeXstudio is a fully featured LaTeX editor, whose goal is to make\nwriting LaTeX documents as easy and comfortable as possible."
+        },
+        {
+            "name": "libvips",
+            "description": "libvips is a demand-driven, horizontally threaded image processing\nlibrary. Compared to similar libraries, libvips runs quickly and uses\nlittle memory."
+        },
+        {
+            "name": "gdal",
+            "description": "GDAL (Geospatial Data Abstraction Library) is a translator library for\nraster and vector geospatial data formats that is released under an\nX/MIT style Open Source license by the Open Source Geospatial\nFoundation. As a library, it presents a single raster abstract data\nmodel and vector abstract data model to the calling application for all\nsupported formats. It also comes with a variety of useful command line\nutilities for data translation and processing."
+        }
+    ]
+}

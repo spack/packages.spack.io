@@ -1,0 +1,67 @@
+{
+    "name": "rankstr",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "master",
+            "branch": "master"
+        },
+        {
+            "name": "0.0.3",
+            "sha256": "d32052fbecd44299e13e69bf2dd7e5737c346404ccd784b8c2100ceed99d8cd3"
+        },
+        {
+            "name": "0.0.2",
+            "sha256": "c16d53aa9bb79934cbe2dcd8612e2db7d59de80be500c104e39e8623d4eacd8e"
+        }
+    ],
+    "build_system": "CMakePackage",
+    "conflicts": [
+        {
+            "name": "+ipo",
+            "spec": "^cmake@:3.8",
+            "description": "+ipo is not supported by CMake < 3.9"
+        }
+    ],
+    "variants": [
+        {
+            "name": "build_type",
+            "default": "RelWithDebInfo",
+            "description": "CMake build type"
+        },
+        {
+            "name": "ipo",
+            "default": false,
+            "description": "CMake interprocedural optimization"
+        }
+    ],
+    "homepage": "https://github.com/ecp-veloc/rankstr",
+    "maintainers": [],
+    "patches": [],
+    "resources": [],
+    "description": "Assign one-to-one mapping of MPI ranks to strings\n",
+    "dependencies": [
+        {
+            "name": "cmake",
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
+        },
+        {
+            "name": "mpi",
+            "description": "MVAPICH2-X is the advanced version of the MVAPICH2 MPI library with\nenhanced features (UMR, ODP, DC, Core-Direct, SHARP, XPMEM), OSU INAM\n(InifniBand Network Monitoring and Analysis),PGAS (OpenSHMEM, UPC,\nUPC++, and CAF), and MPI+PGAS programming models with unified\ncommunication runtime. MVAPICH2-X is not installable from source and is\nonly available through a binary mirror. If you do not find the binary\nyou're looking for, send us an email at mvapich@cse.ohio-state.edu. The\nbinary mirror url is: http://mvapich.cse.ohio-\nstate.edu/download/mvapich/spack-mirror/mvapich2x/"
+        }
+    ],
+    "dependent_to": [
+        {
+            "name": "scr",
+            "description": "SCR caches checkpoint data in storage on the compute nodes of a Linux\ncluster to provide a fast, scalable checkpoint/restart capability for\nMPI codes"
+        },
+        {
+            "name": "er",
+            "description": "Encoding and redundancy on a file set"
+        },
+        {
+            "name": "redset",
+            "description": "Create MPI communicators for disparate redundancy sets"
+        }
+    ]
+}

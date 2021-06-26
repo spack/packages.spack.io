@@ -1,0 +1,156 @@
+{
+    "name": "squashfs",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "4.4",
+            "sha256": "a981b3f3f2054b5a2e658851a3c06a2460ad04a9a8a645e0afe063a63fdbb07e"
+        },
+        {
+            "name": "4.3",
+            "sha256": "0d605512437b1eb800b4736791559295ee5f60177e102e4d4ccd0ee241a5f3f6"
+        },
+        {
+            "name": "4.2",
+            "sha256": "d9e0195aa922dbb665ed322b9aaa96e04a476ee650f39bbeadb0d00b24022e96"
+        },
+        {
+            "name": "4.1",
+            "sha256": "3a870d065a25b3f5467bc6d9ed34340befab51a3f9e4b7e3792ea0ff4e06046a"
+        },
+        {
+            "name": "4.0",
+            "sha256": "18948edbe06bac2c4307eea99bfb962643e4b82e5b7edd541b4d743748e12e21"
+        }
+    ],
+    "build_system": "MakefilePackage",
+    "conflicts": [
+        {
+            "name": "squashfs~gzip default_compression=gzip",
+            "spec": "",
+            "description": "Cannot set default compression to missing algorithm"
+        },
+        {
+            "name": "squashfs~lz4 default_compression=lz4",
+            "spec": "",
+            "description": "Cannot set default compression to missing algorithm"
+        },
+        {
+            "name": "squashfs~lzo default_compression=lzo",
+            "spec": "",
+            "description": "Cannot set default compression to missing algorithm"
+        },
+        {
+            "name": "squashfs~xz default_compression=xz",
+            "spec": "",
+            "description": "Cannot set default compression to missing algorithm"
+        },
+        {
+            "name": "squashfs~zstd default_compression=zstd",
+            "spec": "",
+            "description": "Cannot set default compression to missing algorithm"
+        }
+    ],
+    "variants": [
+        {
+            "name": "gzip",
+            "default": true,
+            "description": "Enable gzip compression support"
+        },
+        {
+            "name": "lz4",
+            "default": false,
+            "description": "Enable LZ4 compression support"
+        },
+        {
+            "name": "lzo",
+            "default": false,
+            "description": "Enable LZO compression support"
+        },
+        {
+            "name": "xz",
+            "default": false,
+            "description": "Enable xz compression support"
+        },
+        {
+            "name": "zstd",
+            "default": false,
+            "description": "Enable Zstandard/zstd support"
+        },
+        {
+            "name": "default_compression",
+            "default": "gzip",
+            "description": "Default compression algorithm"
+        }
+    ],
+    "homepage": "http://squashfs.sourceforge.net",
+    "maintainers": [],
+    "patches": [
+        {
+            "owner": "builtin.squashfs",
+            "sha256": "902c102d42318debc54426bcb482459a97a992866bc4872676ce63735d91d145",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "gcc-10.patch",
+            "version": "%gcc@10:"
+        },
+        {
+            "owner": "builtin.squashfs",
+            "sha256": "902c102d42318debc54426bcb482459a97a992866bc4872676ce63735d91d145",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "gcc-10.patch",
+            "version": "%clang@11:"
+        }
+    ],
+    "resources": [],
+    "description": "Squashfs - read only compressed filesystem\n",
+    "dependencies": [
+        {
+            "name": "m4",
+            "description": "GNU M4 is an implementation of the traditional Unix macro processor."
+        },
+        {
+            "name": "autoconf",
+            "description": "Autoconf -- system configuration part of autotools"
+        },
+        {
+            "name": "automake",
+            "description": "Automake -- make file builder part of autotools"
+        },
+        {
+            "name": "libtool",
+            "description": "libtool -- library building part of autotools."
+        },
+        {
+            "name": "zlib",
+            "description": "A free, general-purpose, legally unencumbered lossless data-compression\nlibrary."
+        },
+        {
+            "name": "lz4",
+            "description": "LZ4 is lossless compression algorithm, providing compression speed at\n400 MB/s per core, scalable with multi-cores CPU. It also features an\nextremely fast decoder, with speed in multiple GB/s per core, typically\nreaching RAM speed limits on multi-core systems."
+        },
+        {
+            "name": "lzo",
+            "description": "Real-time data compression library"
+        },
+        {
+            "name": "xz",
+            "description": "XZ Utils is free general-purpose data compression software with high\ncompression ratio. XZ Utils were written for POSIX-like systems, but\nalso work on some not-so-POSIX systems. XZ Utils are the successor to\nLZMA Utils."
+        },
+        {
+            "name": "zstd",
+            "description": "Zstandard, or zstd as short version, is a fast lossless compression\nalgorithm, targeting real-time compression scenarios at zlib-level and\nbetter compression ratios."
+        }
+    ],
+    "dependent_to": [
+        {
+            "name": "singularityce",
+            "description": "Singularity is a container technology focused on building portable\nencapsulated environments to support \"Mobility of Compute\" For older\nversions of Singularity (pre 3.0) you should use singularity-legacy,\nwhich has a different install base (Autotools). Needs post-install\nchmod/chown steps to enable full functionality. See package definition\nor `spack-build-out.txt` build log for details, e.g. tail -15 $(spack\nlocation -i singularity)/.spack/spack-build-out.txt"
+        },
+        {
+            "name": "singularity",
+            "description": "Singularity is a container technology focused on building portable\nencapsulated environments to support \"Mobility of Compute\" For older\nversions of Singularity (pre 3.0) you should use singularity-legacy,\nwhich has a different install base (Autotools). Needs post-install\nchmod/chown steps to enable full functionality. See package definition\nor `spack-build-out.txt` build log for details, e.g. tail -15 $(spack\nlocation -i singularity)/.spack/spack-build-out.txt"
+        }
+    ]
+}

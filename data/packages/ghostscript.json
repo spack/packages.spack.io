@@ -1,0 +1,152 @@
+{
+    "name": "ghostscript",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "9.54.0",
+            "sha256": "0646bb97f6f4d10a763f4919c54fa28b4fbdd3dff8e7de3410431c81762cade0"
+        },
+        {
+            "name": "9.53.3",
+            "sha256": "6eaf422f26a81854a230b80fd18aaef7e8d94d661485bd2e97e695b9dce7bf7f"
+        },
+        {
+            "name": "9.50",
+            "sha256": "0f53e89fd647815828fc5171613e860e8535b68f7afbc91bf89aee886769ce89"
+        },
+        {
+            "name": "9.27",
+            "sha256": "9760e8bdd07a08dbd445188a6557cb70e60ccb6a5601f7dbfba0d225e28ce285"
+        },
+        {
+            "name": "9.26",
+            "sha256": "831fc019bd477f7cc2d481dc5395ebfa4a593a95eb2fe1eb231a97e450d7540d"
+        },
+        {
+            "name": "9.21",
+            "sha256": "02bceadbc4dddeb6f2eec9c8b1623d945d355ca11b8b4df035332b217d58ce85"
+        },
+        {
+            "name": "9.18",
+            "sha256": "5fc93079749a250be5404c465943850e3ed5ffbc0d5c07e10c7c5ee8afbbdb1b"
+        }
+    ],
+    "build_system": "AutotoolsPackage",
+    "conflicts": [
+        {
+            "name": "+tesseract",
+            "spec": "@:9.52",
+            "description": "Tesseract OCR engine added in 9.53.0"
+        },
+        {
+            "name": "+tesseract",
+            "spec": "arch=darwin-None-None",
+            "description": "Tesseract does not build correctly on macOS"
+        }
+    ],
+    "variants": [
+        {
+            "name": "tesseract",
+            "default": false,
+            "description": "Use the Tesseract library for OCR"
+        }
+    ],
+    "homepage": "http://ghostscript.com/",
+    "maintainers": [],
+    "patches": [
+        {
+            "owner": "builtin.ghostscript",
+            "sha256": "682dae2854283e9868c52289bde9dfd8b974544df3a0c1c99d81a5ac6c566e79",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "nogoto.patch",
+            "version": "%fj@:4.1.0"
+        },
+        {
+            "owner": "builtin.ghostscript",
+            "sha256": "49c353106d97c40b3b2c78f72ce34e3eef66e6b04861c313f87bad11ab4189e6",
+            "level": 1,
+            "working_dir": ".",
+            "url": "https://github.com/ArtifexSoftware/ghostpdl/commit/41ef9a0bc36b9db7115fbe9623f989bfb47bbade.patch",
+            "version": "@:9.53.3 ^freetype@2.10.3:"
+        }
+    ],
+    "resources": [],
+    "description": "An interpreter for the PostScript language and for PDF.\n",
+    "dependencies": [
+        {
+            "name": "pkgconfig",
+            "description": "pkgconf is a program which helps to configure compiler and linker flags\nfor development frameworks. It is similar to pkg-config from\nfreedesktop.org, providing additional functionality while also\nmaintaining compatibility."
+        },
+        {
+            "name": "krb5",
+            "description": "Network authentication protocol"
+        },
+        {
+            "name": "freetype",
+            "description": "FreeType is a freely available software library to render fonts. It is\nwritten in C, designed to be small, efficient, highly customizable, and\nportable while capable of producing high-quality output (glyph images)\nof most vector and bitmap font formats."
+        },
+        {
+            "name": "jpeg",
+            "description": "libjpeg is a widely used free library with functions for handling the\nJPEG image data format. It implements a JPEG codec (encoding and\ndecoding) alongside various utilities for handling JPEG data."
+        },
+        {
+            "name": "lcms",
+            "description": "Little cms is a color management library. Implements fast transforms\nbetween ICC profiles. It is focused on speed, and is portable across\nseveral platforms (MIT license)."
+        },
+        {
+            "name": "libpng",
+            "description": "libpng is the official PNG reference library."
+        },
+        {
+            "name": "libtiff",
+            "description": "LibTIFF - Tag Image File Format (TIFF) Library and Utilities."
+        },
+        {
+            "name": "zlib",
+            "description": "A free, general-purpose, legally unencumbered lossless data-compression\nlibrary."
+        },
+        {
+            "name": "libxext",
+            "description": "libXext - library for common extensions to the X11 protocol."
+        },
+        {
+            "name": "gtkplus",
+            "description": "The GTK+ package contains libraries used for creating graphical user\ninterfaces for applications."
+        }
+    ],
+    "dependent_to": [
+        {
+            "name": "py-weblogo",
+            "description": "WebLogo is a web based application designed to make the generation of\nsequence logos as easy and painless as possible."
+        },
+        {
+            "name": "gmt",
+            "description": "GMT (Generic Mapping Tools) is an open source collection of about 80\ncommand-line tools for manipulating geographic and Cartesian data sets\n(including filtering, trend fitting, gridding, projecting, etc.) and\nproducing PostScript illustrations ranging from simple x-y plots via\ncontour maps to artificially illuminated surfaces and 3D perspective\nviews."
+        },
+        {
+            "name": "graphicsmagick",
+            "description": "GraphicsMagick is the swiss army knife of image processing. Provides a\nrobust and efficient collection of tools and libraries which support\nreading, writing, and manipulating an image in over 88 major formats\nincluding important formats like DPX, GIF, JPEG, JPEG-2000, PNG, PDF,\nPNM, and TIFF."
+        },
+        {
+            "name": "graphviz",
+            "description": "Graph Visualization Software"
+        },
+        {
+            "name": "py-matplotlib",
+            "description": "Matplotlib is a comprehensive library for creating static, animated, and\ninteractive visualizations in Python."
+        },
+        {
+            "name": "texlive",
+            "description": "TeX Live is an easy (we hope) way to get up and running with the TeX\ndocument production system. It provides a comprehensive TeX system with\nbinaries for most flavors of Unix, including GNU/Linux, macOS, and also\nWindows. It includes all the major TeX-related programs, macro packages,\nand fonts that are free software, including support for many languages\naround the world."
+        },
+        {
+            "name": "imagemagick",
+            "description": "ImageMagick is a software suite to create, edit, compose, or convert\nbitmap images."
+        },
+        {
+            "name": "groff",
+            "description": "Groff (GNU troff) is a typesetting system that reads plain text mixed\nwith formatting commands and produces formatted output. Output may be\nPostScript or PDF, html, or ASCII/UTF8 for display at the terminal."
+        }
+    ]
+}

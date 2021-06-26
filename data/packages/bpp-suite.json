@@ -1,0 +1,72 @@
+{
+    "name": "bpp-suite",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "2.2.0",
+            "sha256": "761fa5eec794af221d971ae70fd8c43171ad71a6bb5f20549263a1797b43f138"
+        }
+    ],
+    "build_system": "CMakePackage",
+    "conflicts": [
+        {
+            "name": "+ipo",
+            "spec": "^cmake@:3.8",
+            "description": "+ipo is not supported by CMake < 3.9"
+        }
+    ],
+    "variants": [
+        {
+            "name": "build_type",
+            "default": "RelWithDebInfo",
+            "description": "CMake build type"
+        },
+        {
+            "name": "ipo",
+            "default": false,
+            "description": "CMake interprocedural optimization"
+        }
+    ],
+    "homepage": "http://biopp.univ-montp2.fr/wiki/index.php/BppSuite",
+    "maintainers": [],
+    "patches": [
+        {
+            "owner": "builtin.bpp-suite",
+            "sha256": "63dbf705a2c1d45039da9a0e5205e3a9e6b2570b4ce6c196bf44f0ded5c099fc",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "clarify_isinf.patch",
+            "version": "%fj"
+        }
+    ],
+    "resources": [],
+    "description": "BppSuite is a suite of ready-to-use programs for phylogenetic and\nsequence analysis.\n",
+    "dependencies": [
+        {
+            "name": "cmake",
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
+        },
+        {
+            "name": "texinfo",
+            "description": "Texinfo is the official documentation format of the GNU project. It was\ninvented by Richard Stallman and Bob Chassell many years ago, loosely\nbased on Brian Reid's Scribe and other formatting languages of the time.\nIt is used by many non-GNU projects as well."
+        },
+        {
+            "name": "bpp-core",
+            "description": "Bio++ core library."
+        },
+        {
+            "name": "bpp-seq",
+            "description": "Bio++ seq library."
+        },
+        {
+            "name": "bpp-phyl",
+            "description": "Bio++ phylogeny library."
+        }
+    ],
+    "dependent_to": [
+        {
+            "name": "prank",
+            "description": "A powerful multiple sequence alignment browser."
+        }
+    ]
+}

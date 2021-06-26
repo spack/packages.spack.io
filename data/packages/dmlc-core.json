@@ -1,0 +1,64 @@
+{
+    "name": "dmlc-core",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "master"
+        },
+        {
+            "name": "20170508",
+            "commit": "a6c5701219e635fea808d264aefc5b03c3aec314"
+        }
+    ],
+    "build_system": "CMakePackage",
+    "conflicts": [
+        {
+            "name": "+ipo",
+            "spec": "^cmake@:3.8",
+            "description": "+ipo is not supported by CMake < 3.9"
+        }
+    ],
+    "variants": [
+        {
+            "name": "build_type",
+            "default": "RelWithDebInfo",
+            "description": "CMake build type"
+        },
+        {
+            "name": "ipo",
+            "default": false,
+            "description": "CMake interprocedural optimization"
+        },
+        {
+            "name": "openmp",
+            "default": false,
+            "description": "Enable OpenMP support"
+        }
+    ],
+    "homepage": "https://github.com/dmlc/dmlc-core",
+    "maintainers": [],
+    "patches": [
+        {
+            "owner": "builtin.dmlc-core",
+            "sha256": "b5383858c1b1dec2b2dfcb46bf0b1c7c3e25ccab26e369a06fbe3d2c0eec26b4",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "cmake.patch",
+            "version": ""
+        }
+    ],
+    "resources": [],
+    "description": "DMLC-Core is the backbone library to support all DMLC projects, offers\nthe bricks to build efficient and scalable distributed machine learning\nlibraries.\n",
+    "dependencies": [
+        {
+            "name": "cmake",
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
+        }
+    ],
+    "dependent_to": [
+        {
+            "name": "nnvm",
+            "description": "nnvm is a modular, decentralized and lightweight part to help build deep\nlearning libraries."
+        }
+    ]
+}

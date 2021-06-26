@@ -1,0 +1,108 @@
+{
+    "name": "berkeley-db",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "18.1.40",
+            "sha256": "0cecb2ef0c67b166de93732769abdeba0555086d51de1090df325e18ee8da9c8"
+        },
+        {
+            "name": "18.1.32",
+            "sha256": "fa1fe7de9ba91ad472c25d026f931802597c29f28ae951960685cde487c8d654",
+            "deprecated": true
+        },
+        {
+            "name": "6.2.32",
+            "sha256": "a9c5e2b004a5777aa03510cfe5cd766a4a3b777713406b02809c17c8e0e7a8fb"
+        },
+        {
+            "name": "6.1.29",
+            "sha256": "b3c18180e4160d97dd197ba1d37c19f6ea2ec91d31bbfaf8972d99ba097af17d"
+        },
+        {
+            "name": "6.0.35",
+            "sha256": "24421affa8ae436fe427ae4f5f2d1634da83d3d55a5ad6354a98eeedb825de55",
+            "deprecated": true
+        },
+        {
+            "name": "5.3.28",
+            "sha256": "e0a992d740709892e81f9d93f06daf305cf73fb81b545afe72478043172c3628"
+        }
+    ],
+    "build_system": "AutotoolsPackage",
+    "conflicts": [
+        {
+            "name": "%clang@7:",
+            "spec": "@5.3.28",
+            "description": "None"
+        },
+        {
+            "name": "%gcc@8:",
+            "spec": "@5.3.28",
+            "description": "None"
+        },
+        {
+            "name": "+stl",
+            "spec": "~cxx",
+            "description": "+stl implies +cxx"
+        }
+    ],
+    "variants": [
+        {
+            "name": "docs",
+            "default": false,
+            "description": ""
+        },
+        {
+            "name": "cxx",
+            "default": true,
+            "description": "Build with C++ API"
+        },
+        {
+            "name": "stl",
+            "default": true,
+            "description": "Build with C++ STL API"
+        }
+    ],
+    "homepage": "https://www.oracle.com/database/technologies/related/berkeleydb.html",
+    "maintainers": [],
+    "patches": [
+        {
+            "owner": "builtin.berkeley-db",
+            "sha256": "b231fcc4d5cff05e5c3a4814f6a5af0e9a966428dc2176540d2c05aff41de522",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "drop-docs.patch",
+            "version": "~docs"
+        }
+    ],
+    "resources": [],
+    "description": "Oracle Berkeley DB\n",
+    "dependencies": [],
+    "dependent_to": [
+        {
+            "name": "perl",
+            "description": "Perl 5 is a highly capable, feature-rich programming language with over\n27 years of development."
+        },
+        {
+            "name": "perl-db-file",
+            "description": "DB_File is a module which allows Perl programs to make use of the\nfacilities provided by Berkeley DB version 1.x (if you have a newer\nversion of DB, see \"Using DB_File with Berkeley DB version 2 or\ngreater\"). It is assumed that you have a copy of the Berkeley DB manual\npages at hand when reading this documentation. The interface defined\nhere mirrors the Berkeley DB interface closely."
+        },
+        {
+            "name": "rpm",
+            "description": "The RPM package manager https://github.com/rpm-software-\nmanagement/rpm/blob/master/INSTALL Note that debugedit is an additional\ntool that *should* compile with adding libdw and elfutils, but the\nlibrary (as of 4.16.1.2) is being removed from rpm and will be put\nsomewhere else."
+        },
+        {
+            "name": "openldap",
+            "description": "OpenLDAP Software is an open source implementation of the Lightweight\nDirectory Access Protocol. The suite includes: slapd - stand-alone LDAP\ndaemon (server) libraries implementing the LDAP protocol, and utilities,\ntools, and sample clients."
+        },
+        {
+            "name": "py-bsddb3",
+            "description": "This module provides a nearly complete wrapping of the Oracle/Sleepycat\nC API for the Database Environment, Database, Cursor, Log Cursor,\nSequence and Transaction objects, and each of these is exposed as a\nPython type in the bsddb3.db module."
+        },
+        {
+            "name": "parsplice",
+            "description": "ParSplice code implements the Parallel Trajectory Splicing algorithm"
+        }
+    ]
+}

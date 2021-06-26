@@ -1,0 +1,119 @@
+{
+    "name": "paradiseo",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "head"
+        },
+        {
+            "name": "dev-safe",
+            "commit": "dbb8fbe9a786efd4d1c26408ac1883442e7643a6"
+        }
+    ],
+    "build_system": "CMakePackage",
+    "conflicts": [
+        {
+            "name": "+ipo",
+            "spec": "^cmake@:3.8",
+            "description": "+ipo is not supported by CMake < 3.9"
+        }
+    ],
+    "variants": [
+        {
+            "name": "build_type",
+            "default": "RelWithDebInfo",
+            "description": "CMake build type"
+        },
+        {
+            "name": "ipo",
+            "default": false,
+            "description": "CMake interprocedural optimization"
+        },
+        {
+            "name": "mpi",
+            "default": true,
+            "description": "Compile with parallel and distributed metaheuristics module"
+        },
+        {
+            "name": "smp",
+            "default": true,
+            "description": "Compile with symmetric multi-processing module"
+        },
+        {
+            "name": "edo",
+            "default": true,
+            "description": "Compile with (Experimental) EDO module"
+        },
+        {
+            "name": "openmp",
+            "default": false,
+            "description": "Enable OpenMP support"
+        },
+        {
+            "name": "gnuplot",
+            "default": false,
+            "description": "Enable GnuPlot support"
+        }
+    ],
+    "homepage": "http://paradiseo.gforge.inria.fr/",
+    "maintainers": [],
+    "patches": [
+        {
+            "owner": "builtin.paradiseo",
+            "sha256": "ef5b29b36172257ec69b0269b01c25a25b6a8e44b8fecc292b4b93081361c990",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "enable_eoserial.patch",
+            "version": ""
+        },
+        {
+            "owner": "builtin.paradiseo",
+            "sha256": "73f82d7c141af514e557d344484f78227424b57e044a7d539d917006feedd601",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "fix_osx_detection.patch",
+            "version": ""
+        },
+        {
+            "owner": "builtin.paradiseo",
+            "sha256": "772a99fb5b8ad3f84ece2b8b2d22b1ccef36ccf6092c97e36d446b8241a34877",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "fix_tests.patch",
+            "version": ""
+        },
+        {
+            "owner": "builtin.paradiseo",
+            "sha256": "8d812433bf017c0f191a021bef75153c16162f98a8b91c284999fdf7e0b905f7",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "fix_tutorials.patch",
+            "version": ""
+        }
+    ],
+    "resources": [],
+    "description": "A C++ white-box object-oriented framework dedicated to the reusable\ndesign of metaheuristics.\n",
+    "dependencies": [
+        {
+            "name": "cmake",
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
+        },
+        {
+            "name": "mpi",
+            "description": "MVAPICH2-X is the advanced version of the MVAPICH2 MPI library with\nenhanced features (UMR, ODP, DC, Core-Direct, SHARP, XPMEM), OSU INAM\n(InifniBand Network Monitoring and Analysis),PGAS (OpenSHMEM, UPC,\nUPC++, and CAF), and MPI+PGAS programming models with unified\ncommunication runtime. MVAPICH2-X is not installable from source and is\nonly available through a binary mirror. If you do not find the binary\nyou're looking for, send us an email at mvapich@cse.ohio-state.edu. The\nbinary mirror url is: http://mvapich.cse.ohio-\nstate.edu/download/mvapich/spack-mirror/mvapich2x/"
+        },
+        {
+            "name": "gnuplot",
+            "description": "Gnuplot is a portable command-line driven graphing utility for Linux,\nOS/2, MS Windows, OSX, VMS, and many other platforms. The source code is\ncopyrighted but freely distributed (i.e., you don't have to pay for it).\nIt was originally created to allow scientists and students to visualize\nmathematical functions and data interactively, but has grown to support\nmany non-interactive uses such as web scripting. It is also used as a\nplotting engine by third-party applications like Octave. Gnuplot has\nbeen supported and under active development since 1986"
+        },
+        {
+            "name": "eigen",
+            "description": "Eigen is a C++ template library for linear algebra matrices, vectors,\nnumerical solvers, and related algorithms."
+        },
+        {
+            "name": "boost",
+            "description": "Boost provides free peer-reviewed portable C++ source libraries,\nemphasizing libraries that work well with the C++ Standard Library.\nBoost libraries are intended to be widely useful, and usable across a\nbroad spectrum of applications. The Boost license encourages both\ncommercial and non-commercial use."
+        }
+    ],
+    "dependent_to": []
+}

@@ -1,0 +1,89 @@
+{
+    "name": "gotcha",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "develop",
+            "branch": "develop"
+        },
+        {
+            "name": "master",
+            "branch": "master"
+        },
+        {
+            "name": "1.0.3",
+            "tag": "1.0.3"
+        },
+        {
+            "name": "1.0.2",
+            "tag": "1.0.2"
+        },
+        {
+            "name": "0.0.2",
+            "tag": "0.0.2"
+        }
+    ],
+    "build_system": "CMakePackage",
+    "conflicts": [
+        {
+            "name": "+ipo",
+            "spec": "^cmake@:3.8",
+            "description": "+ipo is not supported by CMake < 3.9"
+        }
+    ],
+    "variants": [
+        {
+            "name": "build_type",
+            "default": "RelWithDebInfo",
+            "description": "CMake build type"
+        },
+        {
+            "name": "ipo",
+            "default": false,
+            "description": "CMake interprocedural optimization"
+        },
+        {
+            "name": "test",
+            "default": false,
+            "description": "Build tests for Gotcha"
+        }
+    ],
+    "homepage": "http://github.com/LLNL/gotcha",
+    "maintainers": [],
+    "patches": [
+        {
+            "owner": "builtin.gotcha",
+            "sha256": "9f7814fd3c3362c156bc617c755e7e50c2f9125ed4540e36f60e4d93884f1ce6",
+            "level": 1,
+            "working_dir": ".",
+            "url": "https://github.com/LLNL/GOTCHA/commit/e82b4a1ecb634075d8f5334b796c888c86da0427.patch",
+            "version": "@0.0.2:1.0.2"
+        }
+    ],
+    "resources": [],
+    "description": "C software library for shared library function wrapping, enables tools\nto intercept calls into shared libraries\n",
+    "dependencies": [
+        {
+            "name": "cmake",
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
+        }
+    ],
+    "dependent_to": [
+        {
+            "name": "hpctoolkit",
+            "description": "HPCToolkit is an integrated suite of tools for measurement and analysis\nof program performance on computers ranging from multicore desktop\nsystems to the nation's largest supercomputers. By using statistical\nsampling of timers and hardware performance counters, HPCToolkit\ncollects accurate measurements of a program's work, resource\nconsumption, and inefficiency and attributes them to the full calling\ncontext in which they occur."
+        },
+        {
+            "name": "unifyfs",
+            "description": "User level file system that enables applications to use node-local\nstorage as burst buffers for shared files. Supports scalable and\nefficient aggregation of I/O bandwidth from burst buffers while having\nthe same life cycle as a batch-submitted job. UnifyFS is designed to\nsupport common I/O workloads, including checkpoint/restart. While\nprimarily designed for N-N write/read, UnifyFS compliments its\nfunctionality with the support for N-1 write/read."
+        },
+        {
+            "name": "cbtf-krell",
+            "description": "CBTF Krell project contains collector and runtime contributions to the\nCBTF project. These contributions include many performance data\ncollectors and support libraries as well as some example tools that\ndrive the data collection at HPC levels of scale."
+        },
+        {
+            "name": "timemory",
+            "description": "Timing + Memory + Hardware Counter Utilities for C/C++/CUDA/Python"
+        }
+    ]
+}

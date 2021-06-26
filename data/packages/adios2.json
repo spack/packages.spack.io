@@ -1,0 +1,301 @@
+{
+    "name": "adios2",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "master",
+            "branch": "master"
+        },
+        {
+            "name": "2.7.1",
+            "sha256": "c8e237fd51f49d8a62a0660db12b72ea5067512aa7970f3fcf80b70e3f87ca3e"
+        },
+        {
+            "name": "2.7.0",
+            "sha256": "4b5df1a1f92d7ff380416dec7511cfcfe3dc44da27e486ed63c3e6cffb173924"
+        },
+        {
+            "name": "2.6.0",
+            "sha256": "45b41889065f8b840725928db092848b8a8b8d1bfae1b92e72f8868d1c76216c"
+        },
+        {
+            "name": "2.5.0",
+            "sha256": "7c8ff3bf5441dd662806df9650c56a669359cb0185ea232ecb3578de7b065329"
+        },
+        {
+            "name": "2.4.0",
+            "sha256": "50ecea04b1e41c88835b4b3fd4e7bf0a0a2a3129855c9cc4ba6cf6a1575106e2"
+        },
+        {
+            "name": "2.3.1",
+            "sha256": "3bf81ccc20a7f2715935349336a76ba4c8402355e1dc3848fcd6f4c3c5931893"
+        }
+    ],
+    "build_system": "CMakePackage",
+    "conflicts": [
+        {
+            "name": "+ipo",
+            "spec": "^cmake@:3.8",
+            "description": "+ipo is not supported by CMake < 3.9"
+        },
+        {
+            "name": "%gcc@:4.7",
+            "spec": "",
+            "description": "None"
+        },
+        {
+            "name": "%intel@:15",
+            "spec": "",
+            "description": "None"
+        },
+        {
+            "name": "%pgi@:14",
+            "spec": "",
+            "description": "None"
+        },
+        {
+            "name": "+shared ~pic",
+            "spec": "",
+            "description": "None"
+        },
+        {
+            "name": "+dataman",
+            "spec": "~shared",
+            "description": "None"
+        }
+    ],
+    "variants": [
+        {
+            "name": "build_type",
+            "default": "Release",
+            "description": "CMake build type"
+        },
+        {
+            "name": "ipo",
+            "default": false,
+            "description": "CMake interprocedural optimization"
+        },
+        {
+            "name": "mpi",
+            "default": true,
+            "description": "Enable MPI"
+        },
+        {
+            "name": "shared",
+            "default": true,
+            "description": "Also build shared libraries"
+        },
+        {
+            "name": "pic",
+            "default": true,
+            "description": "Enable position independent code (for usage of static in shared downstream deps)"
+        },
+        {
+            "name": "endian_reverse",
+            "default": false,
+            "description": "Enable endian conversion if a different endianness is detected between write and read."
+        },
+        {
+            "name": "blosc",
+            "default": true,
+            "description": "Enable Blosc compression"
+        },
+        {
+            "name": "bzip2",
+            "default": true,
+            "description": "Enable BZip2 compression"
+        },
+        {
+            "name": "zfp",
+            "default": true,
+            "description": "Enable ZFP compression"
+        },
+        {
+            "name": "png",
+            "default": true,
+            "description": "Enable PNG compression"
+        },
+        {
+            "name": "sz",
+            "default": true,
+            "description": "Enable SZ compression"
+        },
+        {
+            "name": "sst",
+            "default": true,
+            "description": "Enable the SST staging engine"
+        },
+        {
+            "name": "dataman",
+            "default": false,
+            "description": "Enable the DataMan engine for WAN transports"
+        },
+        {
+            "name": "dataspaces",
+            "default": false,
+            "description": "Enable support for DATASPACES"
+        },
+        {
+            "name": "ssc",
+            "default": true,
+            "description": "Enable the SSC staging engine"
+        },
+        {
+            "name": "hdf5",
+            "default": false,
+            "description": "Enable the HDF5 engine"
+        },
+        {
+            "name": "python",
+            "default": false,
+            "description": "Enable the Python bindings"
+        },
+        {
+            "name": "fortran",
+            "default": true,
+            "description": "Enable the Fortran bindings"
+        }
+    ],
+    "homepage": "https://csmd.ornl.gov/software/adios2",
+    "maintainers": [
+        "ax3l",
+        "chuckatkins",
+        "williamfgc"
+    ],
+    "patches": [
+        {
+            "owner": "builtin.adios2",
+            "sha256": "c9cbff920d00c3db10aadf2d6f11d647cb56f5ff6aba2e8b4749e23e7636832f",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "cmake-update-findmpi.patch",
+            "version": "@2.4.0"
+        },
+        {
+            "owner": "builtin.adios2",
+            "sha256": "095b2c8d91ba384e1582eaceeb30a8e34727545fe1afb97cf76f1e4fc55e5106",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "2.5-fix-clear_cache.patch",
+            "version": "@2.5.0"
+        },
+        {
+            "owner": "builtin.adios2",
+            "sha256": "d9195eafee772b9fbc30db6d2fa2bd7c1cb863ac27cef39302bd54e8bb6ab7e6",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "2.7-fix-python-test-deps.patch",
+            "version": "@2.5.0:2.7.0"
+        }
+    ],
+    "resources": [],
+    "description": "The Adaptable Input Output System version 2, developed in the Exascale\nComputing Program\n",
+    "dependencies": [
+        {
+            "name": "cmake",
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
+        },
+        {
+            "name": "pkgconfig",
+            "description": "pkgconf is a program which helps to configure compiler and linker flags\nfor development frameworks. It is similar to pkg-config from\nfreedesktop.org, providing additional functionality while also\nmaintaining compatibility."
+        },
+        {
+            "name": "libffi",
+            "description": "The libffi library provides a portable, high level programming interface\nto various calling conventions. This allows a programmer to call any\nfunction specified by a call interface description at run time."
+        },
+        {
+            "name": "libfabric",
+            "description": "The Open Fabrics Interfaces (OFI) is a framework focused on exporting\nfabric communication services to applications."
+        },
+        {
+            "name": "mpi",
+            "description": "MVAPICH2-X is the advanced version of the MVAPICH2 MPI library with\nenhanced features (UMR, ODP, DC, Core-Direct, SHARP, XPMEM), OSU INAM\n(InifniBand Network Monitoring and Analysis),PGAS (OpenSHMEM, UPC,\nUPC++, and CAF), and MPI+PGAS programming models with unified\ncommunication runtime. MVAPICH2-X is not installable from source and is\nonly available through a binary mirror. If you do not find the binary\nyou're looking for, send us an email at mvapich@cse.ohio-state.edu. The\nbinary mirror url is: http://mvapich.cse.ohio-\nstate.edu/download/mvapich/spack-mirror/mvapich2x/"
+        },
+        {
+            "name": "libzmq",
+            "description": "The ZMQ networking/concurrency library and core API"
+        },
+        {
+            "name": "dataspaces",
+            "description": "an extreme scale data management framework."
+        },
+        {
+            "name": "hdf5",
+            "description": "HDF5 is a data model, library, and file format for storing and managing\ndata. It supports an unlimited variety of datatypes, and is designed for\nflexible and efficient I/O and for high volume and complex data."
+        },
+        {
+            "name": "c-blosc",
+            "description": "Blosc, an extremely fast, multi-threaded, meta-compressor library"
+        },
+        {
+            "name": "bzip2",
+            "description": "bzip2 is a freely available, patent free high-quality data compressor.\nIt typically compresses files to within 10% to 15% of the best available\ntechniques (the PPM family of statistical compressors), whilst being\naround twice as fast at compression and six times faster at\ndecompression."
+        },
+        {
+            "name": "libpng",
+            "description": "libpng is the official PNG reference library."
+        },
+        {
+            "name": "zfp",
+            "description": "zfp is a compressed number format for multidimensional floating-point\nand integer arrays. zfp provides compressed-array classes that support\nhigh throughput read and write random access to individual array\nelements. zfp also supports serial and parallel (OpenMP and CUDA)\ncompression of whole arrays."
+        },
+        {
+            "name": "sz",
+            "description": "Error-bounded Lossy Compressor for HPC Data"
+        },
+        {
+            "name": "python",
+            "description": "The Python programming language."
+        },
+        {
+            "name": "py-numpy",
+            "description": "NumPy is the fundamental package for scientific computing with Python.\nIt contains among other things: a powerful N-dimensional array object,\nsophisticated (broadcasting) functions, tools for integrating C/C++ and\nFortran code, and useful linear algebra, Fourier transform, and random\nnumber capabilities"
+        },
+        {
+            "name": "py-mpi4py",
+            "description": "This package provides Python bindings for the Message Passing Interface\n(MPI) standard. It is implemented on top of the MPI-1/MPI-2\nspecification and exposes an API which grounds on the standard MPI-2 C++\nbindings."
+        }
+    ],
+    "dependent_to": [
+        {
+            "name": "tau",
+            "description": "A portable profiling and tracing toolkit for performance analysis of\nparallel programs written in Fortran, C, C++, UPC, Java, Python."
+        },
+        {
+            "name": "ftk",
+            "description": "FTK is a library that simplifies, scales, and delivers feature tracking\nalgorithms for scientific data."
+        },
+        {
+            "name": "trilinos",
+            "description": "The Trilinos Project is an effort to develop algorithms and enabling\ntechnologies within an object-oriented software framework for the\nsolution of large-scale, complex multi-physics engineering and\nscientific problems. A unique design feature of Trilinos is its focus on\npackages."
+        },
+        {
+            "name": "openfoam",
+            "description": "OpenFOAM is a GPL-opensource C++ CFD-toolbox. This offering is supported\nby OpenCFD Ltd, producer and distributor of the OpenFOAM software via\nwww.openfoam.com, and owner of the OPENFOAM trademark. OpenCFD Ltd has\nbeen developing and releasing OpenFOAM since its debut in 2004."
+        },
+        {
+            "name": "ecp-data-vis-sdk",
+            "description": "ECP Data & Vis SDK"
+        },
+        {
+            "name": "lammps",
+            "description": "LAMMPS stands for Large-scale Atomic/Molecular Massively Parallel\nSimulator. This package uses patch releases, not stable release. See\nhttps://github.com/spack/spack/pull/5342 for a detailed discussion."
+        },
+        {
+            "name": "sensei",
+            "description": "SENSEI is a platform for scalable in-situ analysis and visualization.\nIts design motto is 'Write once, run everywhere', this means that once\nthe application is instrumented with SENSEI it can use existing and\nfuture analysis backends. Existing backends include: Paraview/Catalyst,\nVisit/Libsim, ADIOS, Python scripts, and so on."
+        },
+        {
+            "name": "seacas",
+            "description": "The SEACAS Project contains the Exodus and IOSS libraries and a\ncollection of applications which create, query, modify, or translate\nexodus databases. Default is to build the exodus and IOSS libraries and\nthe io_shell, io_info, struc_to_unstruc apps."
+        },
+        {
+            "name": "visit",
+            "description": "VisIt is an Open Source, interactive, scalable, visualization, animation\nand analysis tool. See comments in VisIt's package.py for tips about\nbuilding VisIt with spack. Building VisIt with Spack is still\nexperimental and many standard features are likely disabled\nLINUX-------------------------------------------------------------------\nspack install visit ^python+shared ^glib@2.56.3 ^py-setuptools@44.1.0\nLINUX-W/O-OPENGL--------------------------------------------------------\nspack install visit ^python+shared ^glib@2.56.3 ^py-setuptools@44.1.0 \\\n^mesa+opengl\nMACOS-------------------------------------------------------------------\nspack install visit ^python+shared ^glib@2.56.3 ^py-setuptools@44.1.0 \\\n^qt~framework"
+        },
+        {
+            "name": "openpmd-api",
+            "description": "C++ & Python API for Scientific I/O"
+        }
+    ]
+}

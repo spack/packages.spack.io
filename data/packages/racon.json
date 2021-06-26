@@ -1,0 +1,102 @@
+{
+    "name": "racon",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "1.4.3",
+            "sha256": "dfce0bae8234c414ef72b690247701b4299e39a2593bcda548a7a864f51de7f2"
+        },
+        {
+            "name": "1.4.2",
+            "sha256": "b36d8b767e0fc9acdd3e9d34c99a8bbc02a3aae7a953c57923d935ebdf332700"
+        },
+        {
+            "name": "1.4.0",
+            "sha256": "3e1e97388f428326342dead3f8500e72b1986f292bdfd4d1be4a0d2a21f4cc61"
+        },
+        {
+            "name": "1.3.3",
+            "sha256": "174afde420ed2e187e57c1a6e9fc6a414aa26723b4ae83c3904640fc84941e66"
+        },
+        {
+            "name": "1.3.2",
+            "sha256": "7c99380a0f1091f5ee138b559e318d7e9463d3145eac026bf236751c2c4b92c7"
+        },
+        {
+            "name": "1.3.1",
+            "sha256": "7ce3b1ce6abdb6c6a63d50755b1fc55d5a4d2ab8f86a1df81890d4a7842d9b75"
+        },
+        {
+            "name": "1.3.0",
+            "sha256": "f2331fb88eae5c54227dc16651607af6f045ae1ccccc1d117011762927d4606a"
+        },
+        {
+            "name": "1.2.1",
+            "sha256": "6e4b752b7cb6ab13b5e8cb9db58188cf1a3a61c4dcc565c8849bf4868b891bf8"
+        }
+    ],
+    "build_system": "CMakePackage",
+    "conflicts": [
+        {
+            "name": "+ipo",
+            "spec": "^cmake@:3.8",
+            "description": "+ipo is not supported by CMake < 3.9"
+        },
+        {
+            "name": "%gcc@:4.7",
+            "spec": "",
+            "description": "None"
+        },
+        {
+            "name": "%clang@:3.1",
+            "spec": "",
+            "description": "None"
+        }
+    ],
+    "variants": [
+        {
+            "name": "build_type",
+            "default": "RelWithDebInfo",
+            "description": "CMake build type"
+        },
+        {
+            "name": "ipo",
+            "default": false,
+            "description": "CMake interprocedural optimization"
+        }
+    ],
+    "homepage": "https://github.com/isovic/racon",
+    "maintainers": [],
+    "patches": [
+        {
+            "owner": "builtin.racon",
+            "sha256": "25ed60415e57d2642754b77d4adc7ad9cbd3ab0e445ea0a3a060fc28dfc93468",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "aarch64.patch",
+            "version": "arch=linux-None-aarch64:"
+        }
+    ],
+    "resources": [],
+    "description": "Ultrafast consensus module for raw de novo genome assembly of long\nuncorrected reads.\n",
+    "dependencies": [
+        {
+            "name": "cmake",
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
+        },
+        {
+            "name": "python",
+            "description": "The Python programming language."
+        },
+        {
+            "name": "sse2neon",
+            "description": "A C/C++ header file that converts Intel SSE intrinsics to Arm/Aarch64\nNEON intrinsics."
+        }
+    ],
+    "dependent_to": [
+        {
+            "name": "py-unicycler",
+            "description": "Unicycler is an assembly pipeline for bacterial genomes. It can assemble\nIllumina-only read sets where it functions as a SPAdes-optimiser. It can\nalso assembly long-read-only sets (PacBio or Nanopore) where it runs a\nminiasm+Racon pipeline. For the best possible assemblies, give it both\nIllumina reads and long reads, and it will conduct a hybrid assembly."
+        }
+    ]
+}

@@ -1,0 +1,74 @@
+{
+    "name": "textparser",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "master",
+            "branch": "master"
+        },
+        {
+            "name": "1.8.8",
+            "commit": "31ec1f23df21611d0765c27a6458fdbbf4cde66d"
+        }
+    ],
+    "build_system": "CMakePackage",
+    "conflicts": [
+        {
+            "name": "+ipo",
+            "spec": "^cmake@:3.8",
+            "description": "+ipo is not supported by CMake < 3.9"
+        }
+    ],
+    "variants": [
+        {
+            "name": "build_type",
+            "default": "RelWithDebInfo",
+            "description": "CMake build type"
+        },
+        {
+            "name": "ipo",
+            "default": false,
+            "description": "CMake interprocedural optimization"
+        },
+        {
+            "name": "mpi",
+            "default": true,
+            "description": "Activate MPI support"
+        },
+        {
+            "name": "fapi",
+            "default": false,
+            "description": "This option is for building Fortran API."
+        },
+        {
+            "name": "test",
+            "default": false,
+            "description": "This option turns on compiling sample codes and execute the tests."
+        }
+    ],
+    "homepage": "https://github.com/avr-aics-riken/TextParser",
+    "maintainers": [],
+    "patches": [
+        {
+            "owner": "builtin.textparser",
+            "sha256": "04aaaa9c576d8d168d03b204dc46f161a9c15530c1b69c02f7810c2ed6106cdc",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "fix_compiler_options.patch",
+            "version": ""
+        }
+    ],
+    "resources": [],
+    "description": "Text Parser library allows us to describe and to parse JSON like simple\nparameter structure.\n",
+    "dependencies": [
+        {
+            "name": "cmake",
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
+        },
+        {
+            "name": "mpi",
+            "description": "MVAPICH2-X is the advanced version of the MVAPICH2 MPI library with\nenhanced features (UMR, ODP, DC, Core-Direct, SHARP, XPMEM), OSU INAM\n(InifniBand Network Monitoring and Analysis),PGAS (OpenSHMEM, UPC,\nUPC++, and CAF), and MPI+PGAS programming models with unified\ncommunication runtime. MVAPICH2-X is not installable from source and is\nonly available through a binary mirror. If you do not find the binary\nyou're looking for, send us an email at mvapich@cse.ohio-state.edu. The\nbinary mirror url is: http://mvapich.cse.ohio-\nstate.edu/download/mvapich/spack-mirror/mvapich2x/"
+        }
+    ],
+    "dependent_to": []
+}

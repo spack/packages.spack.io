@@ -1,0 +1,64 @@
+{
+    "name": "gccxml",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "develop",
+            "branch": "master"
+        },
+        {
+            "name": "latest",
+            "commit": "3afa8ba5be6866e603dcabe80aff79856b558e24",
+            "preferred": true
+        }
+    ],
+    "build_system": "CMakePackage",
+    "conflicts": [
+        {
+            "name": "+ipo",
+            "spec": "^cmake@:3.8",
+            "description": "+ipo is not supported by CMake < 3.9"
+        }
+    ],
+    "variants": [
+        {
+            "name": "build_type",
+            "default": "RelWithDebInfo",
+            "description": "CMake build type"
+        },
+        {
+            "name": "ipo",
+            "default": false,
+            "description": "CMake interprocedural optimization"
+        }
+    ],
+    "homepage": "http://gccxml.github.io",
+    "maintainers": [],
+    "patches": [
+        {
+            "owner": "builtin.gccxml",
+            "sha256": "499d174304ddfc0e604df0b5158ceb78548896cc73774c117717583cd8ebf2f5",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "darwin-gcc.patch",
+            "version": "%gcc arch=darwin-None-None"
+        },
+        {
+            "owner": "builtin.gccxml",
+            "sha256": "4d2dd3d738bced39898e5253e3c3944a4fdb7b9e9003fb590de56fa026fdd931",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "gcc-5.patch",
+            "version": "%gcc@5:"
+        }
+    ],
+    "resources": [],
+    "description": "gccxml dumps an XML description of C++ source code using an extension of\nthe GCC C++ compiler.\n",
+    "dependencies": [
+        {
+            "name": "cmake",
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
+        }
+    ],
+    "dependent_to": []
+}

@@ -1,0 +1,570 @@
+{
+    "name": "spfft",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "develop",
+            "branch": "develop"
+        },
+        {
+            "name": "master",
+            "branch": "master"
+        },
+        {
+            "name": "1.0.3",
+            "sha256": "4f87734e3582ef96ddc0402d0db78cfc173bed9cab3e0d9c6a6bf8b660d69559"
+        },
+        {
+            "name": "1.0.2",
+            "sha256": "9b1296bda0b9ec3d37c74fd64354a01ebc6e2da7cb026c1f821882160b03c692"
+        },
+        {
+            "name": "1.0.1",
+            "sha256": "f8ab706309776cfbd2bfd8e29a6a9ffb5c8f3cd62399bf82db1e416ae5c490c8"
+        },
+        {
+            "name": "1.0.0",
+            "sha256": "bd98897aa6734563ec63cd84168e731ef2e2bbc01a574c6dc59b74475742b6ee"
+        },
+        {
+            "name": "0.9.13",
+            "sha256": "5ccc93c9362bec14cfb6e31dd0e7ae7e48db0453ab49ebc9722041b69db759ef"
+        },
+        {
+            "name": "0.9.12",
+            "sha256": "1f7bf5164dcceb0e3bbce7d6ff9faef3145ad17cf3430149d40a98c43c010acc"
+        },
+        {
+            "name": "0.9.11",
+            "sha256": "36542a60378e8672654188dee006975ef9e10f502791459ff7ebf4b38451cb9b"
+        },
+        {
+            "name": "0.9.10",
+            "sha256": "9cbbb7ba5e53e17eeb45e809841d8272e5333f739c2442a99c3e255c1ddec3e9"
+        },
+        {
+            "name": "0.9.9",
+            "sha256": "a8fd7a2d767716bb73185ca03bf4c106c6981b79130f3e456e5d2e744a2b3ba0"
+        },
+        {
+            "name": "0.9.8",
+            "sha256": "f49fa51316bbfa68309e951d2375e1f6904120c93868cbe13bc2974c0b801a3f"
+        }
+    ],
+    "build_system": "CMakePackage",
+    "conflicts": [
+        {
+            "name": "%gcc@5:",
+            "spec": "+cuda ^cuda@:7.5 arch=linux-None-x86_64:",
+            "description": "None"
+        },
+        {
+            "name": "%gcc@6:",
+            "spec": "+cuda ^cuda@:8 arch=linux-None-x86_64:",
+            "description": "None"
+        },
+        {
+            "name": "%gcc@6:",
+            "spec": "+cuda ^cuda@:9 arch=linux-None-ppc64le:",
+            "description": "None"
+        },
+        {
+            "name": "%gcc@7:",
+            "spec": "+cuda ^cuda@:9.1 arch=linux-None-x86_64:",
+            "description": "None"
+        },
+        {
+            "name": "%gcc@8:",
+            "spec": "+cuda ^cuda@:10.0.130 arch=linux-None-x86_64:",
+            "description": "None"
+        },
+        {
+            "name": "%gcc@8:",
+            "spec": "+cuda ^cuda@:10.0.130 arch=linux-None-ppc64le:",
+            "description": "None"
+        },
+        {
+            "name": "%gcc@9:",
+            "spec": "+cuda ^cuda@:10.2.89 arch=linux-None-x86_64:",
+            "description": "None"
+        },
+        {
+            "name": "%gcc@9:",
+            "spec": "+cuda ^cuda@:10.1.243 arch=linux-None-ppc64le:",
+            "description": "None"
+        },
+        {
+            "name": "%gcc@:4",
+            "spec": "+cuda ^cuda@11.0.2: arch=linux-None-x86_64:",
+            "description": "None"
+        },
+        {
+            "name": "%gcc@:4",
+            "spec": "+cuda ^cuda@11.0.2: arch=linux-None-ppc64le:",
+            "description": "None"
+        },
+        {
+            "name": "%gcc@10:",
+            "spec": "+cuda ^cuda@:11.0.2 arch=linux-None-x86_64:",
+            "description": "None"
+        },
+        {
+            "name": "%gcc@10:",
+            "spec": "+cuda ^cuda@:11.0.2 arch=linux-None-ppc64le:",
+            "description": "None"
+        },
+        {
+            "name": "%gcc@11:",
+            "spec": "+cuda ^cuda@:11.1.0 arch=linux-None-x86_64:",
+            "description": "None"
+        },
+        {
+            "name": "%gcc@11:",
+            "spec": "+cuda ^cuda@:11.1.0 arch=linux-None-ppc64le:",
+            "description": "None"
+        },
+        {
+            "name": "%pgi@:14.8",
+            "spec": "+cuda ^cuda@:7.0.27 arch=linux-None-x86_64:",
+            "description": "None"
+        },
+        {
+            "name": "%pgi@:15.3,15.5:",
+            "spec": "+cuda ^cuda@7.5 arch=linux-None-x86_64:",
+            "description": "None"
+        },
+        {
+            "name": "%pgi@:16.2,16.0:16.3",
+            "spec": "+cuda ^cuda@8 arch=linux-None-x86_64:",
+            "description": "None"
+        },
+        {
+            "name": "%pgi@:15,18:",
+            "spec": "+cuda ^cuda@9.0:9.1 arch=linux-None-x86_64:",
+            "description": "None"
+        },
+        {
+            "name": "%pgi@:16,19:",
+            "spec": "+cuda ^cuda@9.2.88:10 arch=linux-None-x86_64:",
+            "description": "None"
+        },
+        {
+            "name": "%pgi@:17,20:",
+            "spec": "+cuda ^cuda@10.1.105:10.2.89 arch=linux-None-x86_64:",
+            "description": "None"
+        },
+        {
+            "name": "%pgi@:17,21:",
+            "spec": "+cuda ^cuda@11.0.2:11.1.0 arch=linux-None-x86_64:",
+            "description": "None"
+        },
+        {
+            "name": "%clang@:3.4",
+            "spec": "+cuda ^cuda@:7.5 arch=linux-None-x86_64:",
+            "description": "None"
+        },
+        {
+            "name": "%clang@:3.7,4:",
+            "spec": "+cuda ^cuda@8.0:9.0 arch=linux-None-x86_64:",
+            "description": "None"
+        },
+        {
+            "name": "%clang@:3.7,4.1:",
+            "spec": "+cuda ^cuda@9.1 arch=linux-None-x86_64:",
+            "description": "None"
+        },
+        {
+            "name": "%clang@:3.7,5.1:",
+            "spec": "+cuda ^cuda@9.2 arch=linux-None-x86_64:",
+            "description": "None"
+        },
+        {
+            "name": "%clang@:3.7,6.1:",
+            "spec": "+cuda ^cuda@10.0.130 arch=linux-None-x86_64:",
+            "description": "None"
+        },
+        {
+            "name": "%clang@:3.7,7.1:",
+            "spec": "+cuda ^cuda@10.1.105 arch=linux-None-x86_64:",
+            "description": "None"
+        },
+        {
+            "name": "%clang@:3.7,8.1:",
+            "spec": "+cuda ^cuda@10.1.105:10.1.243 arch=linux-None-x86_64:",
+            "description": "None"
+        },
+        {
+            "name": "%clang@:3.2,9:",
+            "spec": "+cuda ^cuda@10.2.89 arch=linux-None-x86_64:",
+            "description": "None"
+        },
+        {
+            "name": "%clang@:5",
+            "spec": "+cuda ^cuda@11.0.2: arch=linux-None-x86_64:",
+            "description": "None"
+        },
+        {
+            "name": "%clang@:5",
+            "spec": "+cuda ^cuda@11.0.2: arch=linux-None-ppc64le:",
+            "description": "None"
+        },
+        {
+            "name": "%clang@10:",
+            "spec": "+cuda ^cuda@:11.0.2 arch=linux-None-x86_64:",
+            "description": "None"
+        },
+        {
+            "name": "%clang@10:",
+            "spec": "+cuda ^cuda@:11.0.2 arch=linux-None-ppc64le:",
+            "description": "None"
+        },
+        {
+            "name": "%clang@11:",
+            "spec": "+cuda ^cuda@:11.1.0 arch=linux-None-x86_64:",
+            "description": "None"
+        },
+        {
+            "name": "%clang@11:",
+            "spec": "+cuda ^cuda@:11.1.0 arch=linux-None-ppc64le:",
+            "description": "None"
+        },
+        {
+            "name": "%pgi",
+            "spec": "+cuda ^cuda@:8 arch=linux-None-ppc64le:",
+            "description": "None"
+        },
+        {
+            "name": "%pgi@:16",
+            "spec": "+cuda ^cuda@:9.1.185 arch=linux-None-ppc64le:",
+            "description": "None"
+        },
+        {
+            "name": "%pgi@:17",
+            "spec": "+cuda ^cuda@:10 arch=linux-None-ppc64le:",
+            "description": "None"
+        },
+        {
+            "name": "%clang@4:",
+            "spec": "+cuda ^cuda@:9.0.176 arch=linux-None-ppc64le:",
+            "description": "None"
+        },
+        {
+            "name": "%clang@5:",
+            "spec": "+cuda ^cuda@:9.1 arch=linux-None-ppc64le:",
+            "description": "None"
+        },
+        {
+            "name": "%clang@6:",
+            "spec": "+cuda ^cuda@:9.2 arch=linux-None-ppc64le:",
+            "description": "None"
+        },
+        {
+            "name": "%clang@7:",
+            "spec": "+cuda ^cuda@10.0.130 arch=linux-None-ppc64le:",
+            "description": "None"
+        },
+        {
+            "name": "%clang@7.1:",
+            "spec": "+cuda ^cuda@:10.1.105 arch=linux-None-ppc64le:",
+            "description": "None"
+        },
+        {
+            "name": "%clang@8.1:",
+            "spec": "+cuda ^cuda@:10.2.89 arch=linux-None-ppc64le:",
+            "description": "None"
+        },
+        {
+            "name": "%intel@:11.0",
+            "spec": "+cuda ^cuda@:3.1",
+            "description": "None"
+        },
+        {
+            "name": "%intel@:12.0",
+            "spec": "+cuda ^cuda@5.5:",
+            "description": "None"
+        },
+        {
+            "name": "%intel@:13.0",
+            "spec": "+cuda ^cuda@6.0:",
+            "description": "None"
+        },
+        {
+            "name": "%intel@:13.2",
+            "spec": "+cuda ^cuda@6.5:",
+            "description": "None"
+        },
+        {
+            "name": "%intel@:14.9",
+            "spec": "+cuda ^cuda@7:",
+            "description": "None"
+        },
+        {
+            "name": "%intel@16.0:",
+            "spec": "+cuda ^cuda@:8.0.43",
+            "description": "None"
+        },
+        {
+            "name": "%intel@17.0:",
+            "spec": "+cuda ^cuda@:8.0.60",
+            "description": "None"
+        },
+        {
+            "name": "%intel@18.0:",
+            "spec": "+cuda ^cuda@:9.9",
+            "description": "None"
+        },
+        {
+            "name": "%intel@19.0:",
+            "spec": "+cuda ^cuda@:10.0",
+            "description": "None"
+        },
+        {
+            "name": "%intel@19.1:",
+            "spec": "+cuda ^cuda@:10.1",
+            "description": "None"
+        },
+        {
+            "name": "%intel@19.2:",
+            "spec": "+cuda ^cuda@:11.1.0",
+            "description": "None"
+        },
+        {
+            "name": "%xl@:12,14:",
+            "spec": "+cuda ^cuda@:9.1",
+            "description": "None"
+        },
+        {
+            "name": "%xl@:12,14:15,17:",
+            "spec": "+cuda ^cuda@9.2",
+            "description": "None"
+        },
+        {
+            "name": "%xl@:12,17:",
+            "spec": "+cuda ^cuda@:11.1.0",
+            "description": "None"
+        },
+        {
+            "name": "platform=darwin",
+            "spec": "+cuda ^cuda@11.0.2:",
+            "description": "None"
+        },
+        {
+            "name": "~cuda",
+            "spec": "cuda_arch=10",
+            "description": "None"
+        },
+        {
+            "name": "~cuda",
+            "spec": "cuda_arch=11",
+            "description": "None"
+        },
+        {
+            "name": "~cuda",
+            "spec": "cuda_arch=12",
+            "description": "None"
+        },
+        {
+            "name": "~cuda",
+            "spec": "cuda_arch=13",
+            "description": "None"
+        },
+        {
+            "name": "~cuda",
+            "spec": "cuda_arch=20",
+            "description": "None"
+        },
+        {
+            "name": "~cuda",
+            "spec": "cuda_arch=21",
+            "description": "None"
+        },
+        {
+            "name": "~cuda",
+            "spec": "cuda_arch=30",
+            "description": "None"
+        },
+        {
+            "name": "~cuda",
+            "spec": "cuda_arch=32",
+            "description": "None"
+        },
+        {
+            "name": "~cuda",
+            "spec": "cuda_arch=35",
+            "description": "None"
+        },
+        {
+            "name": "~cuda",
+            "spec": "cuda_arch=37",
+            "description": "None"
+        },
+        {
+            "name": "~cuda",
+            "spec": "cuda_arch=50",
+            "description": "None"
+        },
+        {
+            "name": "~cuda",
+            "spec": "cuda_arch=52",
+            "description": "None"
+        },
+        {
+            "name": "~cuda",
+            "spec": "cuda_arch=53",
+            "description": "None"
+        },
+        {
+            "name": "~cuda",
+            "spec": "cuda_arch=60",
+            "description": "None"
+        },
+        {
+            "name": "~cuda",
+            "spec": "cuda_arch=61",
+            "description": "None"
+        },
+        {
+            "name": "~cuda",
+            "spec": "cuda_arch=62",
+            "description": "None"
+        },
+        {
+            "name": "~cuda",
+            "spec": "cuda_arch=70",
+            "description": "None"
+        },
+        {
+            "name": "~cuda",
+            "spec": "cuda_arch=72",
+            "description": "None"
+        },
+        {
+            "name": "~cuda",
+            "spec": "cuda_arch=75",
+            "description": "None"
+        },
+        {
+            "name": "~cuda",
+            "spec": "cuda_arch=80",
+            "description": "None"
+        },
+        {
+            "name": "~cuda",
+            "spec": "cuda_arch=86",
+            "description": "None"
+        },
+        {
+            "name": "+ipo",
+            "spec": "^cmake@:3.8",
+            "description": "+ipo is not supported by CMake < 3.9"
+        }
+    ],
+    "variants": [
+        {
+            "name": "cuda",
+            "default": false,
+            "description": "Build with CUDA"
+        },
+        {
+            "name": "cuda_arch",
+            "default": "none",
+            "description": "CUDA architecture"
+        },
+        {
+            "name": "build_type",
+            "default": "Release",
+            "description": "CMake build type"
+        },
+        {
+            "name": "ipo",
+            "default": false,
+            "description": "CMake interprocedural optimization"
+        },
+        {
+            "name": "openmp",
+            "default": true,
+            "description": "Build with OpenMP support"
+        },
+        {
+            "name": "mpi",
+            "default": true,
+            "description": "enable MPI"
+        },
+        {
+            "name": "single_precision",
+            "default": false,
+            "description": "Sinlge precision"
+        },
+        {
+            "name": "gpu_direct",
+            "default": false,
+            "description": "GPU aware MPI"
+        },
+        {
+            "name": "static",
+            "default": false,
+            "description": "build static library"
+        },
+        {
+            "name": "fortran",
+            "default": false,
+            "description": "enable fortran"
+        },
+        {
+            "name": "rocm",
+            "default": false,
+            "description": "Use ROCm backend"
+        },
+        {
+            "name": "amdgpu_target",
+            "default": "gfx803,gfx900,gfx906",
+            "description": ""
+        }
+    ],
+    "homepage": "https://github.com/eth-cscs/SpFFT",
+    "maintainers": [],
+    "patches": [
+        {
+            "owner": "builtin.spfft",
+            "sha256": "ee3b9bc1fd55055aa404d00e029d0ce8aff6f644520b63148de16f4be1157c67",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "0001-fix-missing-limits-include.patch",
+            "version": "@:1.0.2"
+        }
+    ],
+    "resources": [],
+    "description": "Sparse 3D FFT library with MPI, OpenMP, CUDA and ROCm support.\n",
+    "dependencies": [
+        {
+            "name": "cuda",
+            "description": "CUDA is a parallel computing platform and programming model invented by\nNVIDIA. It enables dramatic increases in computing performance by\nharnessing the power of the graphics processing unit (GPU). Note: This\npackage does not currently install the drivers necessary to run CUDA.\nThese will need to be installed manually. See:\nhttps://docs.nvidia.com/cuda/ for details."
+        },
+        {
+            "name": "cmake",
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
+        },
+        {
+            "name": "fftw-api",
+            "description": "FFTW (Fujitsu Optimized version) is a comprehensive collection of fast C\nroutines for computing the Discrete Fourier Transform (DFT) and various\nspecial cases thereof. It is an open-source implementation of the Fast\nFourier transform algorithm. It can compute transforms of real and\ncomplex-values arrays of arbitrary size and dimension. Fujitsu Optimized\nFFTW is the optimized FFTW implementation targeted for A64FX CPUs. For\nsingle precision build, please use precision value as float. Example :\nspack install fujitsufftw precision=float"
+        },
+        {
+            "name": "mpi",
+            "description": "MVAPICH2-X is the advanced version of the MVAPICH2 MPI library with\nenhanced features (UMR, ODP, DC, Core-Direct, SHARP, XPMEM), OSU INAM\n(InifniBand Network Monitoring and Analysis),PGAS (OpenSHMEM, UPC,\nUPC++, and CAF), and MPI+PGAS programming models with unified\ncommunication runtime. MVAPICH2-X is not installable from source and is\nonly available through a binary mirror. If you do not find the binary\nyou're looking for, send us an email at mvapich@cse.ohio-state.edu. The\nbinary mirror url is: http://mvapich.cse.ohio-\nstate.edu/download/mvapich/spack-mirror/mvapich2x/"
+        },
+        {
+            "name": "rocfft",
+            "description": "Radeon Open Compute FFT library"
+        },
+        {
+            "name": "hip",
+            "description": "HIP is a C++ Runtime API and Kernel Language that allows developers to\ncreate portable applications for AMD and NVIDIA GPUs from single source\ncode."
+        }
+    ],
+    "dependent_to": [
+        {
+            "name": "sirius",
+            "description": "Domain specific library for electronic structure calculations"
+        }
+    ]
+}

@@ -1,0 +1,77 @@
+{
+    "name": "iwyu",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "0.16",
+            "sha256": "8d6fc9b255343bc1e5ec459e39512df1d51c60e03562985e0076036119ff5a1c"
+        },
+        {
+            "name": "0.15",
+            "sha256": "2bd6f2ae0d76e4a9412f468a5fa1af93d5f20bb66b9e7bf73479c31d789ac2e2"
+        },
+        {
+            "name": "0.14",
+            "sha256": "43184397db57660c32e3298a6b1fd5ab82e808a1f5ab0591d6745f8d256200ef"
+        },
+        {
+            "name": "0.13",
+            "sha256": "49294270aa64e8c04182369212cd919f3b3e0e47601b1f935f038c761c265bc9"
+        },
+        {
+            "name": "0.12",
+            "sha256": "a5892fb0abccb820c394e4e245c00ef30fc94e4ae58a048b23f94047c0816025"
+        },
+        {
+            "name": "0.11",
+            "sha256": "2d2877726c4aed9518cbb37673ffbc2b7da9c239bf8fe29432da35c1c0ec367a"
+        }
+    ],
+    "build_system": "CMakePackage",
+    "conflicts": [
+        {
+            "name": "+ipo",
+            "spec": "^cmake@:3.8",
+            "description": "+ipo is not supported by CMake < 3.9"
+        }
+    ],
+    "variants": [
+        {
+            "name": "build_type",
+            "default": "RelWithDebInfo",
+            "description": "CMake build type"
+        },
+        {
+            "name": "ipo",
+            "default": false,
+            "description": "CMake interprocedural optimization"
+        }
+    ],
+    "homepage": "https://include-what-you-use.org",
+    "maintainers": [
+        "sethrj"
+    ],
+    "patches": [
+        {
+            "owner": "builtin.iwyu",
+            "sha256": "d6881b78c72b0ca272c0f79ed95e69cb848357ec32e8aab9239272befe5a98b7",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "iwyu-013-cmake.patch",
+            "version": "@0.13:0.14"
+        }
+    ],
+    "resources": [],
+    "description": "include-what-you-use: A tool for use with clang to analyze #includes in\nC and C++ source files\n",
+    "dependencies": [
+        {
+            "name": "cmake",
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
+        },
+        {
+            "name": "llvm",
+            "description": "The LLVM Project is a collection of modular and reusable compiler and\ntoolchain technologies. Despite its name, LLVM has little to do with\ntraditional virtual machines, though it does provide helpful libraries\nthat can be used to build them. The name \"LLVM\" itself is not an\nacronym; it is the full name of the project."
+        }
+    ],
+    "dependent_to": []
+}

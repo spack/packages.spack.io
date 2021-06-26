@@ -1,0 +1,112 @@
+{
+    "name": "rmgdft",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "master",
+            "branch": "master"
+        },
+        {
+            "name": "4.2.2",
+            "tag": "v4.2.2"
+        },
+        {
+            "name": "4.2.1",
+            "tag": "v4.2.1"
+        }
+    ],
+    "build_system": "CMakePackage",
+    "conflicts": [
+        {
+            "name": "+ipo",
+            "spec": "^cmake@:3.8",
+            "description": "+ipo is not supported by CMake < 3.9"
+        },
+        {
+            "name": "%gcc@:4",
+            "spec": "@3.6.0:",
+            "description": "RMGDFT 4.0.0 or later requires a compiler with support for C++14"
+        },
+        {
+            "name": "%intel@:17",
+            "spec": "@3.6.0:",
+            "description": "RMGDFT 4.0.0 or later requires a compiler with support for C++14"
+        },
+        {
+            "name": "%pgi@:17",
+            "spec": "@3.6.0:",
+            "description": "RMGDFT 4.0.0 or later requires a compiler with support for C++14"
+        },
+        {
+            "name": "%llvm@:3.4",
+            "spec": "@3.6.0:",
+            "description": "RMGDFT 4.0.0 or later requires a compiler with support for C++14"
+        },
+        {
+            "name": "^atlas",
+            "spec": "",
+            "description": "The atlas threading model is incompatible with RMG"
+        }
+    ],
+    "variants": [
+        {
+            "name": "build_type",
+            "default": "Release",
+            "description": "The build type to build"
+        },
+        {
+            "name": "ipo",
+            "default": false,
+            "description": "CMake interprocedural optimization"
+        },
+        {
+            "name": "qmcpack",
+            "default": true,
+            "description": "Build with qmcpack interface."
+        },
+        {
+            "name": "local_orbitals",
+            "default": true,
+            "description": "Build O(N) variant."
+        },
+        {
+            "name": "internal_pp",
+            "default": true,
+            "description": "Include built-in pseudopotentials. Normally enabled but some compilers are slow when this is on so provide a disable option."
+        }
+    ],
+    "homepage": "http://www.rmgdft.org/",
+    "maintainers": [
+        "elbriggs"
+    ],
+    "patches": [],
+    "resources": [],
+    "description": "RMGDFT is a high performance real-space density functional code designed\nfor large scale electronic structure calculations.\n",
+    "dependencies": [
+        {
+            "name": "cmake",
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
+        },
+        {
+            "name": "boost",
+            "description": "Boost provides free peer-reviewed portable C++ source libraries,\nemphasizing libraries that work well with the C++ Standard Library.\nBoost libraries are intended to be widely useful, and usable across a\nbroad spectrum of applications. The Boost license encourages both\ncommercial and non-commercial use."
+        },
+        {
+            "name": "fftw-api",
+            "description": "FFTW (Fujitsu Optimized version) is a comprehensive collection of fast C\nroutines for computing the Discrete Fourier Transform (DFT) and various\nspecial cases thereof. It is an open-source implementation of the Fast\nFourier transform algorithm. It can compute transforms of real and\ncomplex-values arrays of arbitrary size and dimension. Fujitsu Optimized\nFFTW is the optimized FFTW implementation targeted for A64FX CPUs. For\nsingle precision build, please use precision value as float. Example :\nspack install fujitsufftw precision=float"
+        },
+        {
+            "name": "mpi",
+            "description": "MVAPICH2-X is the advanced version of the MVAPICH2 MPI library with\nenhanced features (UMR, ODP, DC, Core-Direct, SHARP, XPMEM), OSU INAM\n(InifniBand Network Monitoring and Analysis),PGAS (OpenSHMEM, UPC,\nUPC++, and CAF), and MPI+PGAS programming models with unified\ncommunication runtime. MVAPICH2-X is not installable from source and is\nonly available through a binary mirror. If you do not find the binary\nyou're looking for, send us an email at mvapich@cse.ohio-state.edu. The\nbinary mirror url is: http://mvapich.cse.ohio-\nstate.edu/download/mvapich/spack-mirror/mvapich2x/"
+        },
+        {
+            "name": "hdf5",
+            "description": "HDF5 is a data model, library, and file format for storing and managing\ndata. It supports an unlimited variety of datatypes, and is designed for\nflexible and efficient I/O and for high volume and complex data."
+        },
+        {
+            "name": "blas",
+            "description": "Intel oneAPI MKL."
+        }
+    ],
+    "dependent_to": []
+}

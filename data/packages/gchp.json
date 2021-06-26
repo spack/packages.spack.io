@@ -1,0 +1,124 @@
+{
+    "name": "gchp",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "13.0.2",
+            "commit": "017ad7276a801ab7b3d6945ad24602eb9927cf01",
+            "submodules": true
+        },
+        {
+            "name": "13.0.1",
+            "commit": "f40a2476fda901eacf78c0972fdb6c20e5a06700",
+            "submodules": true
+        },
+        {
+            "name": "13.0.0",
+            "commit": "1f5a5c5630c5d066ff8306cbb8b83e267ca7c265",
+            "submodules": true
+        },
+        {
+            "name": "dev",
+            "branch": "dev",
+            "submodules": true
+        }
+    ],
+    "build_system": "CMakePackage",
+    "conflicts": [
+        {
+            "name": "+ipo",
+            "spec": "^cmake@:3.8",
+            "description": "+ipo is not supported by CMake < 3.9"
+        }
+    ],
+    "variants": [
+        {
+            "name": "build_type",
+            "default": "RelWithDebInfo",
+            "description": "CMake build type"
+        },
+        {
+            "name": "ipo",
+            "default": false,
+            "description": "CMake interprocedural optimization"
+        },
+        {
+            "name": "omp",
+            "default": false,
+            "description": "OpenMP parallelization"
+        },
+        {
+            "name": "real8",
+            "default": true,
+            "description": "REAL*8 precision"
+        },
+        {
+            "name": "apm",
+            "default": false,
+            "description": "APM Microphysics (Experimental)"
+        },
+        {
+            "name": "rrtmg",
+            "default": false,
+            "description": "RRTMG radiative transfer model"
+        },
+        {
+            "name": "luo",
+            "default": false,
+            "description": "Luo et al 2019 wet deposition scheme"
+        },
+        {
+            "name": "tomas",
+            "default": false,
+            "description": "TOMAS Microphysics (Experimental)"
+        },
+        {
+            "name": "ofi",
+            "default": false,
+            "description": "Build with Libfabric support"
+        }
+    ],
+    "homepage": "https://gchp.readthedocs.io/",
+    "maintainers": [
+        "williamdowns"
+    ],
+    "patches": [
+        {
+            "owner": "builtin.gchp",
+            "sha256": "b3f7c1080cf2a9a427331c87786b784ba2d0121aaae4e8c7c56e1b49beef29b1",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "for_aarch64.patch",
+            "version": "arch=linux-None-aarch64:"
+        }
+    ],
+    "resources": [],
+    "description": "GEOS-Chem High Performance model of atmospheric chemistry\n",
+    "dependencies": [
+        {
+            "name": "cmake",
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
+        },
+        {
+            "name": "esmf",
+            "description": "The Earth System Modeling Framework (ESMF) is high-performance, flexible\nsoftware infrastructure for building and coupling weather, climate, and\nrelated Earth science applications. The ESMF defines an architecture for\ncomposing complex, coupled modeling systems and includes data structures\nand utilities for developing individual models."
+        },
+        {
+            "name": "mpi",
+            "description": "MVAPICH2-X is the advanced version of the MVAPICH2 MPI library with\nenhanced features (UMR, ODP, DC, Core-Direct, SHARP, XPMEM), OSU INAM\n(InifniBand Network Monitoring and Analysis),PGAS (OpenSHMEM, UPC,\nUPC++, and CAF), and MPI+PGAS programming models with unified\ncommunication runtime. MVAPICH2-X is not installable from source and is\nonly available through a binary mirror. If you do not find the binary\nyou're looking for, send us an email at mvapich@cse.ohio-state.edu. The\nbinary mirror url is: http://mvapich.cse.ohio-\nstate.edu/download/mvapich/spack-mirror/mvapich2x/"
+        },
+        {
+            "name": "netcdf-fortran",
+            "description": "NetCDF (network Common Data Form) is a set of software libraries and\nmachine-independent data formats that support the creation, access, and\nsharing of array-oriented scientific data. This is the Fortran\ndistribution."
+        },
+        {
+            "name": "libfabric",
+            "description": "The Open Fabrics Interfaces (OFI) is a framework focused on exporting\nfabric communication services to applications."
+        },
+        {
+            "name": "m4",
+            "description": "GNU M4 is an implementation of the traditional Unix macro processor."
+        }
+    ],
+    "dependent_to": []
+}

@@ -1,0 +1,89 @@
+{
+    "name": "launchmon",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "master",
+            "branch": "master"
+        },
+        {
+            "name": "1.0.2",
+            "sha256": "1d301ccccfe0873efcd66da87ed5e4d7bafc560b00aee396d8a9365f53b3a33a"
+        }
+    ],
+    "build_system": "AutotoolsPackage",
+    "conflicts": [],
+    "variants": [],
+    "homepage": "https://github.com/LLNL/LaunchMON",
+    "maintainers": [
+        "lee218llnl"
+    ],
+    "patches": [
+        {
+            "owner": "builtin.launchmon",
+            "sha256": "dfd0ce1781f27855eac08c2f4588631ad3d9f22ae8edc648834ab1b0f1c2114d",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "launchmon-char-conv.patch",
+            "version": "@1.0.2"
+        },
+        {
+            "owner": "builtin.launchmon",
+            "sha256": "60ac7d1d38ad12fa54f5fb4e19916dcb2b25a828e9520fe9d2b5e005ffe83579",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "for_aarch64.patch",
+            "version": "@:1.0.2 arch=linux-None-aarch64:"
+        }
+    ],
+    "resources": [],
+    "description": "Software infrastructure that enables HPC run-time tools to co-locate\ntool daemons with a parallel job.\n",
+    "dependencies": [
+        {
+            "name": "autoconf",
+            "description": "Autoconf -- system configuration part of autotools"
+        },
+        {
+            "name": "automake",
+            "description": "Automake -- make file builder part of autotools"
+        },
+        {
+            "name": "libtool",
+            "description": "libtool -- library building part of autotools."
+        },
+        {
+            "name": "pkgconfig",
+            "description": "pkgconf is a program which helps to configure compiler and linker flags\nfor development frameworks. It is similar to pkg-config from\nfreedesktop.org, providing additional functionality while also\nmaintaining compatibility."
+        },
+        {
+            "name": "libgcrypt",
+            "description": "Cryptographic library based on the code from GnuPG."
+        },
+        {
+            "name": "libgpg-error",
+            "description": "Common error values for all GnuPG components."
+        },
+        {
+            "name": "elf",
+            "description": "libelf lets you read, modify or create ELF object files in an\narchitecture-independent way. The library takes care of size and endian\nissues, e.g. you can process a file for SPARC processors on an Intel-\nbased system. Note: libelf is no longer maintained and packages that\ndepend on libelf should migrate to elfutils."
+        },
+        {
+            "name": "boost",
+            "description": "Boost provides free peer-reviewed portable C++ source libraries,\nemphasizing libraries that work well with the C++ Standard Library.\nBoost libraries are intended to be widely useful, and usable across a\nbroad spectrum of applications. The Boost license encourages both\ncommercial and non-commercial use."
+        },
+        {
+            "name": "spectrum-mpi",
+            "description": "IBM MPI implementation from Spectrum MPI."
+        }
+    ],
+    "dependent_to": [
+        {
+            "name": "spindle",
+            "description": "Spindle improves the library-loading performance of dynamically linked\nHPC applications. Without Spindle large MPI jobs can overload on a\nshared file system when loading dynamically linked libraries, causing\nsite-wide performance problems."
+        },
+        {
+            "name": "stat",
+            "description": "Library to create, manipulate, and export graphs Graphlib."
+        }
+    ]
+}

@@ -1,0 +1,243 @@
+{
+    "name": "geant4",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "10.7.1",
+            "sha256": "2aa7cb4b231081e0a35d84c707be8f35e4edc4e97aad2b233943515476955293"
+        },
+        {
+            "name": "10.7.0",
+            "sha256": "c991a139210c7f194720c900b149405090058c00beb5a0d2fac5c40c42a262d4"
+        },
+        {
+            "name": "10.6.3",
+            "sha256": "bf96d6d38e6a0deabb6fb6232eb00e46153134da645715d636b9b7b4490193d3"
+        },
+        {
+            "name": "10.6.2",
+            "sha256": "e381e04c02aeade1ed8cdd9fdbe7dcf5d6f0f9b3837a417976b839318a005dbd"
+        },
+        {
+            "name": "10.6.1",
+            "sha256": "4fd64149ae26952672a81ce5579d3806fda4bd251d486897093ac57633a42b7e"
+        },
+        {
+            "name": "10.6.0",
+            "sha256": "eebe6a170546064ff81ab3b00f513ccd1d4122a026514982368d503ac55a4ee4"
+        },
+        {
+            "name": "10.5.1",
+            "sha256": "2397eb859dc4de095ff66059d8bda9f060fdc42e10469dd7890946293eeb0e39"
+        },
+        {
+            "name": "10.4.3",
+            "sha256": "67f3bb6405a2c77e573936c2b933f5a4a33915aa379626a2eb3012009b91e1da"
+        },
+        {
+            "name": "10.4.0",
+            "sha256": "e919b9b0a88476e00c0b18ab65d40e6a714b55ee4778f66bac32a5396c22aa74"
+        },
+        {
+            "name": "10.3.3",
+            "sha256": "bcd36a453da44de9368d1d61b0144031a58e4b43a6d2d875e19085f2700a89d8"
+        }
+    ],
+    "build_system": "CMakePackage",
+    "conflicts": [
+        {
+            "name": "+ipo",
+            "spec": "^cmake@:3.8",
+            "description": "+ipo is not supported by CMake < 3.9"
+        },
+        {
+            "name": "+python",
+            "spec": "@:10.6.1",
+            "description": "Geant4 <= 10.6.1 cannot be built with Python bindings"
+        }
+    ],
+    "variants": [
+        {
+            "name": "build_type",
+            "default": "RelWithDebInfo",
+            "description": "CMake build type"
+        },
+        {
+            "name": "ipo",
+            "default": false,
+            "description": "CMake interprocedural optimization"
+        },
+        {
+            "name": "cxxstd",
+            "default": "11",
+            "description": "Use the specified C++ standard when building."
+        },
+        {
+            "name": "threads",
+            "default": true,
+            "description": "Build with multithreading"
+        },
+        {
+            "name": "vecgeom",
+            "default": false,
+            "description": "Enable vecgeom support"
+        },
+        {
+            "name": "opengl",
+            "default": false,
+            "description": "Optional OpenGL support"
+        },
+        {
+            "name": "x11",
+            "default": false,
+            "description": "Optional X11 support"
+        },
+        {
+            "name": "motif",
+            "default": false,
+            "description": "Optional motif support"
+        },
+        {
+            "name": "qt",
+            "default": false,
+            "description": "Enable Qt support"
+        },
+        {
+            "name": "python",
+            "default": false,
+            "description": "Enable Python bindings"
+        }
+    ],
+    "homepage": "http://geant4.cern.ch/",
+    "maintainers": [
+        "drbenmorgan"
+    ],
+    "patches": [
+        {
+            "owner": "builtin.geant4",
+            "sha256": "e16ee928836a9ffb14b650a7ab0f06c9511af04abdf2f726f39e99f40de65d8c",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "CLHEP-10.03.03.patch",
+            "version": "@10.3.3"
+        },
+        {
+            "owner": "builtin.geant4",
+            "sha256": "41a5b9fb6bed45be72cdff077299b4238bb4402b6128ad2672c3542d5871da98",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "cxx17.patch",
+            "version": "@:10.3.99 cxxstd=17"
+        },
+        {
+            "owner": "builtin.geant4",
+            "sha256": "3af0d750f6b62935315cf241d8f4727b8ebec6825ec03225c9b3bd5e1dca3319",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "cxx17_geant4_10_0.patch",
+            "version": "@10.4.0 cxxstd=17"
+        },
+        {
+            "owner": "builtin.geant4",
+            "sha256": "af1b2abc1c9aeeb4690ca681e625eb91e7f7be222bab0ce5860a8f11066321e0",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "geant4-10.4.3-cxx17-removed-features.patch",
+            "version": "@10.4.3 cxxstd=17"
+        }
+    ],
+    "resources": [],
+    "description": "Geant4 is a toolkit for the simulation of the passage of particles\nthrough matter. Its areas of application include high energy, nuclear\nand accelerator physics, as well as studies in medical and space\nscience.\n",
+    "dependencies": [
+        {
+            "name": "cmake",
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
+        },
+        {
+            "name": "geant4-data",
+            "description": "A bundle package to hold Geant4 data packages"
+        },
+        {
+            "name": "expat",
+            "description": "Expat is an XML parser library written in C."
+        },
+        {
+            "name": "zlib",
+            "description": "A free, general-purpose, legally unencumbered lossless data-compression\nlibrary."
+        },
+        {
+            "name": "python",
+            "description": "The Python programming language."
+        },
+        {
+            "name": "clhep",
+            "description": "CLHEP is a C++ Class Library for High Energy Physics."
+        },
+        {
+            "name": "xerces-c",
+            "description": "Xerces-C++ is a validating XML parser written in a portable subset of\nC++. Xerces-C++ makes it easy to give your application the ability to\nread and write XML data. A shared library is provided for parsing,\ngenerating, manipulating, and validating XML documents using the DOM,\nSAX, and SAX2 APIs."
+        },
+        {
+            "name": "vecgeom",
+            "description": "The vectorized geometry library for particle-detector simulation\n(toolkits)."
+        },
+        {
+            "name": "boost",
+            "description": "Boost provides free peer-reviewed portable C++ source libraries,\nemphasizing libraries that work well with the C++ Standard Library.\nBoost libraries are intended to be widely useful, and usable across a\nbroad spectrum of applications. The Boost license encourages both\ncommercial and non-commercial use."
+        },
+        {
+            "name": "gl",
+            "description": "Mesa is an open-source implementation of the OpenGL specification - a\nsystem for rendering interactive 3D graphics."
+        },
+        {
+            "name": "glu",
+            "description": "This package provides the Mesa OpenGL Utility library."
+        },
+        {
+            "name": "glx",
+            "description": "Mesa is an open-source implementation of the OpenGL specification - a\nsystem for rendering interactive 3D graphics."
+        },
+        {
+            "name": "libx11",
+            "description": "libX11 - Core X11 protocol client library."
+        },
+        {
+            "name": "libxmu",
+            "description": "This library contains miscellaneous utilities and is not part of the\nXlib standard. It contains routines which only use public interfaces so\nthat it may be layered on top of any proprietary implementation of Xlib\nor Xt."
+        },
+        {
+            "name": "motif",
+            "description": "\" Motif - Graphical user interface (GUI) specification and the widget\ntoolkit"
+        },
+        {
+            "name": "qt",
+            "description": "Qt is a comprehensive cross-platform C++ application framework."
+        }
+    ],
+    "dependent_to": [
+        {
+            "name": "gate",
+            "description": "Simulations of Preclinical and Clinical Scans in Emission Tomography,\nTransmission Tomography and Radiation Therapy GATE is an advanced\nopensource software developed by the international OpenGATE\ncollaboration and dedicated to numerical simulations in medical imaging\nand radiotherapy. It currently supports simulations of Emission\nTomography (Positron Emission Tomography - PET and Single Photon\nEmission Computed Tomography - SPECT), Computed Tomography (CT), Optical\nImaging (Bioluminescence and Fluorescence) and Radiotherapy experiments.\nUsing an easy-to-learn macro mechanism to configurate simple or highly\nsophisticated experimental settings, GATE now plays a key role in the\ndesign of new medical imaging devices, in the optimization of\nacquisition protocols and in the development and assessment of image\nreconstruction algorithms and correction techniques. It can also be used\nfor dose calculation in radiotherapy experiments."
+        },
+        {
+            "name": "dd4hep",
+            "description": "DD4hep is a software framework for providing a complete solution for\nfull detector description (geometry, materials, visualization, readout,\nalignment, calibration, etc.) for the full experiment life cycle\n(detector concept development, detector optimization, construction,\noperation). It offers a consistent description through a single source\nof detector information for simulation, reconstruction, analysis, etc.\nIt distributed under the LGPLv3 License."
+        },
+        {
+            "name": "acts",
+            "description": "A Common Tracking Software (Acts) This project contains an experiment-\nindependent set of track reconstruction tools. The main philosophy is to\nprovide high-level track reconstruction modules that can be used for any\ntracking detector. The description of the tracking detector's geometry\nis optimized for efficient navigation and quick extrapolation of tracks.\nConverters for several common geometry description languages exist.\nHaving a highly performant, yet largely customizable implementation of\ntrack reconstruction algorithms was a primary objective for the design\nof this toolset. Additionally, the applicability to real-life HEP\nexperiments plays major role in the development process. Apart from\nalgorithmic code, this project also provides an event data model for the\ndescription of track parameters and measurements. Key features of this\nproject include: tracking geometry description which can be constructed\nfrom TGeo, DD4Hep, or GDML input, simple and efficient event data model,\nperformant and highly flexible algorithms for track propagation and\nfitting, basic seed finding algorithms."
+        },
+        {
+            "name": "vecgeom",
+            "description": "The vectorized geometry library for particle-detector simulation\n(toolkits)."
+        },
+        {
+            "name": "geant4-vmc",
+            "description": "Geant4 VMC implements the Virtual Monte Carlo (VMC) for Geant4."
+        },
+        {
+            "name": "vgm",
+            "description": "Virtual Geometry Model (VGM) is a geometry conversion tool, actually\nproviding conversion between Geant4 and ROOT TGeo geometry models."
+        }
+    ]
+}

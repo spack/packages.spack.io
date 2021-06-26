@@ -1,0 +1,123 @@
+{
+    "name": "netlib-scalapack",
+    "aliases": [
+        {
+            "name": "scalapack",
+            "alias_for": "{netlib-scalapack}"
+        }
+    ],
+    "versions": [
+        {
+            "name": "2.1.0",
+            "sha256": "61d9216cf81d246944720cfce96255878a3f85dec13b9351f1fa0fd6768220a6"
+        },
+        {
+            "name": "2.0.2",
+            "sha256": "0c74aeae690fe5ee4db7926f49c5d0bb69ce09eea75beb915e00bba07530395c"
+        },
+        {
+            "name": "2.0.1",
+            "sha256": "a9b34278d4e10b40cbe084c6d87d09af8845e874250719bfbbc497b2a88bfde1"
+        },
+        {
+            "name": "2.0.0",
+            "sha256": "e51fbd9c3ef3a0dbd81385b868e2355900148eea689bf915c5383d72daf73114"
+        }
+    ],
+    "build_system": "CMakePackage",
+    "conflicts": [
+        {
+            "name": "+ipo",
+            "spec": "^cmake@:3.8",
+            "description": "+ipo is not supported by CMake < 3.9"
+        }
+    ],
+    "variants": [
+        {
+            "name": "build_type",
+            "default": "Release",
+            "description": "CMake build type"
+        },
+        {
+            "name": "ipo",
+            "default": false,
+            "description": "CMake interprocedural optimization"
+        },
+        {
+            "name": "shared",
+            "default": true,
+            "description": "Build the shared library version"
+        },
+        {
+            "name": "pic",
+            "default": false,
+            "description": "Build position independent code"
+        }
+    ],
+    "homepage": "http://www.netlib.org/scalapack/",
+    "maintainers": [],
+    "patches": [
+        {
+            "owner": "builtin.netlib-scalapack",
+            "sha256": "e8f30dd1f26e523dfb552f8d7b8ad26ac88fc0c8d72e3d4f9a9717a3383e0b33",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "cmake_fortran_mangle.patch",
+            "version": "@2.0.2:2.0.99"
+        },
+        {
+            "owner": "builtin.netlib-scalapack",
+            "sha256": "22ebf4e3d5a6356cd6086ea65bfdf30f9d0a2038136127590cd269d15bdb03af",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "mpi2-compatibility.patch",
+            "version": "@2.0.2:2.0.99"
+        },
+        {
+            "owner": "builtin.netlib-scalapack",
+            "sha256": "f2baedde688ffe4c20943c334f580eb298e04d6f35c86b90a1f4e8cb7ae344a2",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "int_overflow.patch",
+            "version": "@2.0.0:2.1.0"
+        },
+        {
+            "owner": "builtin.netlib-scalapack",
+            "sha256": "1c9ce5fee1451a08c2de3cc87f446aeda0b818ebbce4ad0d980ddf2f2a0b2dc4",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "gcc10-compatibility.patch",
+            "version": "@2.0.0:2.1.0"
+        }
+    ],
+    "resources": [],
+    "description": "ScaLAPACK is a library of high-performance linear algebra routines for\nparallel distributed memory machines\n",
+    "dependencies": [
+        {
+            "name": "cmake",
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
+        },
+        {
+            "name": "mpi",
+            "description": "MVAPICH2-X is the advanced version of the MVAPICH2 MPI library with\nenhanced features (UMR, ODP, DC, Core-Direct, SHARP, XPMEM), OSU INAM\n(InifniBand Network Monitoring and Analysis),PGAS (OpenSHMEM, UPC,\nUPC++, and CAF), and MPI+PGAS programming models with unified\ncommunication runtime. MVAPICH2-X is not installable from source and is\nonly available through a binary mirror. If you do not find the binary\nyou're looking for, send us an email at mvapich@cse.ohio-state.edu. The\nbinary mirror url is: http://mvapich.cse.ohio-\nstate.edu/download/mvapich/spack-mirror/mvapich2x/"
+        },
+        {
+            "name": "lapack",
+            "description": "Intel oneAPI MKL."
+        },
+        {
+            "name": "blas",
+            "description": "Intel oneAPI MKL."
+        }
+    ],
+    "dependent_to": [
+        {
+            "name": "akantu",
+            "description": "Akantu means a little element in Kinyarwanda, a Bantu language. From\nnow on it is also an opensource object-oriented Finite Element library\nwhich has the ambition to be generic and efficient."
+        },
+        {
+            "name": "vasp",
+            "description": "The Vienna Ab initio Simulation Package (VASP) is a computer program\nfor atomic scale materials modelling, e.g. electronic structure\ncalculations and quantum-mechanical molecular dynamics, from first\nprinciples."
+        }
+    ]
+}

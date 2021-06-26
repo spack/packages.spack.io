@@ -1,0 +1,57 @@
+{
+    "name": "hdf-eos5",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "5.1.16",
+            "sha256": "7054de24b90b6d9533329ef8dc89912c5227c83fb447792103279364e13dd452"
+        },
+        {
+            "name": "5.1.15",
+            "sha256": "fbf4d085f9bf6ffad259aee1e9f60cf060e7e99c447894ad8955df02de83c92c"
+        }
+    ],
+    "build_system": "AutotoolsPackage",
+    "conflicts": [
+        {
+            "name": "~static",
+            "spec": "~shared",
+            "description": "At least one of +static or +shared must be set"
+        }
+    ],
+    "variants": [
+        {
+            "name": "shared",
+            "default": true,
+            "description": "Build shared libraries (can be used with +static)"
+        },
+        {
+            "name": "static",
+            "default": true,
+            "description": "Build shared libraries (can be used with +shared)"
+        }
+    ],
+    "homepage": "https://hdfeos.org",
+    "maintainers": [
+        "payerle"
+    ],
+    "patches": [
+        {
+            "owner": "builtin.hdf-eos5",
+            "sha256": "69a9d7dd317167d7cf95eaf41b573426d77ece544412f05da34eb03a5ef4cb00",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "hdf-eos5.nondarwin-no-single_module.patch",
+            "version": ""
+        }
+    ],
+    "resources": [],
+    "description": "HDF-EOS (Hierarchical Data Format - Earth Observing System) is a self-\ndescribing file format based upon HDF for standard data products that\nare derived from EOS missions. HDF-EOS5 is based upon HDF5.\n",
+    "dependencies": [
+        {
+            "name": "hdf5",
+            "description": "HDF5 is a data model, library, and file format for storing and managing\ndata. It supports an unlimited variety of datatypes, and is designed for\nflexible and efficient I/O and for high volume and complex data."
+        }
+    ],
+    "dependent_to": []
+}

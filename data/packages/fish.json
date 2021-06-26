@@ -1,0 +1,92 @@
+{
+    "name": "fish",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "master",
+            "branch": "master"
+        },
+        {
+            "name": "3.1.2",
+            "sha256": "d5b927203b5ca95da16f514969e2a91a537b2f75bec9b21a584c4cd1c7aa74ed"
+        },
+        {
+            "name": "3.1.0",
+            "sha256": "e5db1e6839685c56f172e1000c138e290add4aa521f187df4cd79d4eab294368"
+        },
+        {
+            "name": "3.0.0",
+            "sha256": "ea9dd3614bb0346829ce7319437c6a93e3e1dfde3b7f6a469b543b0d2c68f2cf"
+        }
+    ],
+    "build_system": "CMakePackage",
+    "conflicts": [
+        {
+            "name": "+ipo",
+            "spec": "^cmake@:3.8",
+            "description": "+ipo is not supported by CMake < 3.9"
+        }
+    ],
+    "variants": [
+        {
+            "name": "build_type",
+            "default": "RelWithDebInfo",
+            "description": "CMake build type"
+        },
+        {
+            "name": "ipo",
+            "default": false,
+            "description": "CMake interprocedural optimization"
+        },
+        {
+            "name": "docs",
+            "default": false,
+            "description": "Build documentation"
+        }
+    ],
+    "homepage": "https://fishshell.com/",
+    "maintainers": [],
+    "patches": [
+        {
+            "owner": "builtin.fish",
+            "sha256": "45f310eb1aece2830a86c14ee6a2bced6132253c54cc75b9f62a24f7a974511c",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "codesign.patch",
+            "version": "@3.1.2 arch=darwin-None-None"
+        }
+    ],
+    "resources": [],
+    "description": "fish is a smart and user-friendly command line shell for OS X, Linux,\nand the rest of the family.\n",
+    "dependencies": [
+        {
+            "name": "cmake",
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
+        },
+        {
+            "name": "ncurses",
+            "description": "The ncurses (new curses) library is a free software emulation of curses\nin System V Release 4.0, and more. It uses terminfo format, supports\npads and color and multiple highlights and forms characters and\nfunction-key mapping, and has all the other SYSV-curses enhancements\nover BSD curses."
+        },
+        {
+            "name": "pcre2",
+            "description": "The PCRE2 package contains Perl Compatible Regular Expression libraries.\nThese are useful for implementing regular expression pattern matching\nusing the same syntax and semantics as Perl 5."
+        },
+        {
+            "name": "gettext",
+            "description": "GNU internationalization (i18n) and localization (l10n) library."
+        },
+        {
+            "name": "py-sphinx",
+            "description": "Sphinx Documentation Generator."
+        },
+        {
+            "name": "python",
+            "description": "The Python programming language."
+        },
+        {
+            "name": "py-pexpect",
+            "description": "Pexpect allows easy control of interactive console applications."
+        }
+    ],
+    "dependent_to": []
+}

@@ -1,0 +1,96 @@
+{
+    "name": "pmdk",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "master",
+            "branch": "master"
+        },
+        {
+            "name": "1.9",
+            "sha256": "2c8a148070f4bbf9f82e2ca63d2f84cb5101fc6e72c1ba93cc673ca3b7b95467"
+        },
+        {
+            "name": "1.8",
+            "sha256": "a241ea76ef76d233cb92826b6823ed48091a2fb6963282a4fea848dbce68aa21"
+        },
+        {
+            "name": "1.7",
+            "sha256": "865ce1b422bc83109cb4a63dcff8fd1077eea3617e668faf6a043208d8be03ca"
+        },
+        {
+            "name": "1.6",
+            "sha256": "3b99e6c30709326a94d2e73a9247a8dfb58d0a394c5b7714e5c3d8a3ad2e2e9f"
+        },
+        {
+            "name": "1.5",
+            "sha256": "6b069d7207febeb62440e89245e8b18fcdf40b6170d2ec2ef33c252ed16db2d4"
+        }
+    ],
+    "build_system": "Package",
+    "conflicts": [],
+    "variants": [
+        {
+            "name": "ndctl",
+            "default": false,
+            "description": "Build components requiring ndctl"
+        },
+        {
+            "name": "doc",
+            "default": false,
+            "description": "Build documentation"
+        },
+        {
+            "name": "experimental",
+            "default": false,
+            "description": "Build experimental stuff"
+        },
+        {
+            "name": "rpmem",
+            "default": false,
+            "description": "Build remote persistent memory components"
+        }
+    ],
+    "homepage": "http://pmem.io/pmdk/",
+    "maintainers": [],
+    "patches": [
+        {
+            "owner": "builtin.pmdk",
+            "sha256": "2e8397c6451522619d88e35b7a2395a32b14e6083ef2c99bf39cafc0344196cd",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "0001-make-doc-building-explicit.patch",
+            "version": "@:1.7"
+        },
+        {
+            "owner": "builtin.pmdk",
+            "sha256": "f1325f534ab4a405f69e8ebe8ca646e479d0f5c640991378d6f7b46a0a3faf65",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "pmem-1.8-disable-docs.patch",
+            "version": "@1.8"
+        }
+    ],
+    "resources": [],
+    "description": "The Persistent Memory Development Kit (PMDK), formerly known as NVML, is\na library for using memory-mapped persistence, optimized specifically\nfor persistent memory\n",
+    "dependencies": [
+        {
+            "name": "ncurses",
+            "description": "The ncurses (new curses) library is a free software emulation of curses\nin System V Release 4.0, and more. It uses terminfo format, supports\npads and color and multiple highlights and forms characters and\nfunction-key mapping, and has all the other SYSV-curses enhancements\nover BSD curses."
+        },
+        {
+            "name": "libfabric",
+            "description": "The Open Fabrics Interfaces (OFI) is a framework focused on exporting\nfabric communication services to applications."
+        }
+    ],
+    "dependent_to": [
+        {
+            "name": "pmemkv",
+            "description": "pmemkv is a local/embedded key-value datastore, optimized for persistent\nmemory."
+        },
+        {
+            "name": "libpmemobj-cpp",
+            "description": "C++ bindings for libpmemobj (https://github.com/pmem/pmdk)"
+        }
+    ]
+}

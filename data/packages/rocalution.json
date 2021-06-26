@@ -1,0 +1,114 @@
+{
+    "name": "rocalution",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "4.2.0",
+            "sha256": "0424adf522ded41de5b77666e04464a25c73c92e34025762f30837f90a797445"
+        },
+        {
+            "name": "4.1.0",
+            "sha256": "3f61be18a02dff0c152a0ad7eb4779c43dd744b0ba172aa6a4267fc596d582e4"
+        },
+        {
+            "name": "4.0.0",
+            "sha256": "80a224a5c19dea290e6edc0e170c3dff2e726c2b3105d599ec6858cc66f076a9"
+        },
+        {
+            "name": "3.10.0",
+            "sha256": "c24cb9d1a8a1a3118040b8b16dec7c06268bcf157424d3378256cc9eb93f1b58"
+        },
+        {
+            "name": "3.9.0",
+            "sha256": "1ce36801fe1d44f743b46b43345c0cd90d76b73911b2ec97be763f93a35396fb"
+        },
+        {
+            "name": "3.8.0",
+            "sha256": "39e64a29e75c4276163a93596436064c6338770ca72ce7f43711ed8285ed2de5"
+        },
+        {
+            "name": "3.7.0",
+            "sha256": "4d6b20aaaac3bafb7ec084d684417bf578349203b0f9f54168f669e3ec5699f8"
+        },
+        {
+            "name": "3.5.0",
+            "sha256": "be2f78c10c100d7fd9df5dd2403a44700219c2cbabaacf2ea50a6e2241df7bfe"
+        }
+    ],
+    "build_system": "CMakePackage",
+    "conflicts": [
+        {
+            "name": "+ipo",
+            "spec": "^cmake@:3.8",
+            "description": "+ipo is not supported by CMake < 3.9"
+        }
+    ],
+    "variants": [
+        {
+            "name": "build_type",
+            "default": "RelWithDebInfo",
+            "description": "CMake build type"
+        },
+        {
+            "name": "ipo",
+            "default": false,
+            "description": "CMake interprocedural optimization"
+        }
+    ],
+    "homepage": "https://github.com/ROCmSoftwarePlatform/rocALUTION",
+    "maintainers": [
+        "srekolam",
+        "arjun-raj-kuppala"
+    ],
+    "patches": [
+        {
+            "owner": "builtin.rocalution",
+            "sha256": "a06d020b43ac842a6c4ab7f58e00db606d51d2fe972e9407efa6fbafd40b3dc0",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "0001-fix-hip-build-error.patch",
+            "version": ""
+        }
+    ],
+    "resources": [],
+    "description": "rocALUTION is a sparse linear algebra library with focus on exploring\nfine-grained parallelism on top of AMD's Radeon Open eCosystem Platform\nROCm runtime and toolchains, targeting modern CPU and GPU platforms.\nBased on C++ and HIP, it provides a portable, generic and flexible\ndesign that allows seamless integration with other scientific software\npackages.\n",
+    "dependencies": [
+        {
+            "name": "cmake",
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
+        },
+        {
+            "name": "hip",
+            "description": "HIP is a C++ Runtime API and Kernel Language that allows developers to\ncreate portable applications for AMD and NVIDIA GPUs from single source\ncode."
+        },
+        {
+            "name": "rocblas",
+            "description": "Radeon Open Compute BLAS library"
+        },
+        {
+            "name": "rocprim",
+            "description": "Radeon Open Compute Parallel Primitives Library"
+        },
+        {
+            "name": "rocsparse",
+            "description": "rocSPARSE exposes a common interface that provides Basic Linear Algebra\nSubroutines for sparse computation implemented on top of AMD's Radeon\nOpen eCosystem Platform ROCm runtime and toolchains. rocSPARSE is\ncreated using the HIP programming language and optimized for AMD's\nlatest discrete GPUs."
+        },
+        {
+            "name": "comgr",
+            "description": "This provides various Lightning Compiler related services. It currently\ncontains one library, the Code Object Manager (Comgr)"
+        },
+        {
+            "name": "llvm-amdgpu",
+            "description": "Toolkit for the construction of highly optimized compilers, optimizers,\nand run-time environments."
+        },
+        {
+            "name": "rocrand",
+            "description": "The rocRAND project provides functions that generate pseudo-random and\nquasi-random numbers."
+        },
+        {
+            "name": "hip-rocclr",
+            "description": "Hip-ROCclr is a virtual device interface that compute runtimes interact\nwith to different backends such as ROCr or PAL This abstraction allows\nruntimes to work on Windows as well as on Linux without much effort."
+        }
+    ],
+    "dependent_to": []
+}

@@ -1,0 +1,204 @@
+{
+    "name": "plasma",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "develop",
+            "git": "https://bitbucket.org/icl/plasma"
+        },
+        {
+            "name": "20.9.20",
+            "sha256": "2144a77b739f8dd2f0dbe5b64d94cde0e916f55c4eb170facd168c0db7fc7970"
+        },
+        {
+            "name": "19.8.1",
+            "sha256": "3a5db6eabf91aec782b7f27b17a7f6b8ce2c9d8e648c0e9c0ff5d87277ba4d17"
+        },
+        {
+            "name": "19.8.0",
+            "sha256": "19a950ade8a7c8d082f372789c9f874274a63217ecff26e33f366402f060f071"
+        },
+        {
+            "name": "18.11.1",
+            "sha256": "0581cc8b1188932fd9c29bd258ffe2dc8fb26b1530c5dc3d91f8de369e44edbc"
+        },
+        {
+            "name": "18.11.0",
+            "sha256": "36501488be5b4b2b973524824e1afd27779d37addfeeb34c1871ba753b6c06bf"
+        },
+        {
+            "name": "18.10.0",
+            "sha256": "93dceae93f57a2fbd79b85d2fbf7907d1d32e158b8d1d93892d9ff3df9963210"
+        },
+        {
+            "name": "18.9.0",
+            "sha256": "753eae28ea48986a2cc7b8204d6eef646584541e59d42c3c94fa9879116b0774"
+        },
+        {
+            "name": "17.1",
+            "sha256": "d4b89f7c3d240a69dfe986284a14471eec4830b9e352ae902ea8861f15573dee",
+            "url": "https://bitbucket.org/icl/plasma/downloads/plasma-17.1.tar.gz"
+        }
+    ],
+    "build_system": "CMakePackage",
+    "conflicts": [
+        {
+            "name": "+ipo",
+            "spec": "^cmake@:3.8",
+            "description": "+ipo is not supported by CMake < 3.9"
+        },
+        {
+            "name": "^atlas",
+            "spec": "",
+            "description": "None"
+        },
+        {
+            "name": "^netlib-lapack@:3.5.999",
+            "spec": "",
+            "description": "None"
+        },
+        {
+            "name": "^cblas",
+            "spec": "",
+            "description": "None"
+        },
+        {
+            "name": "^openblas-with-lapack",
+            "spec": "",
+            "description": "None"
+        },
+        {
+            "name": "^veclibfort",
+            "spec": "",
+            "description": "None"
+        },
+        {
+            "name": "%gcc@:4.8.99",
+            "spec": "@:17.1",
+            "description": "None"
+        },
+        {
+            "name": "%gcc@:5.99",
+            "spec": "@17.2:",
+            "description": "None"
+        },
+        {
+            "name": "%cce",
+            "spec": "",
+            "description": "None"
+        },
+        {
+            "name": "%apple-clang",
+            "spec": "",
+            "description": "None"
+        },
+        {
+            "name": "%clang",
+            "spec": "",
+            "description": "None"
+        },
+        {
+            "name": "%intel",
+            "spec": "",
+            "description": "None"
+        },
+        {
+            "name": "%nag",
+            "spec": "",
+            "description": "None"
+        },
+        {
+            "name": "%pgi",
+            "spec": "",
+            "description": "None"
+        },
+        {
+            "name": "%xl",
+            "spec": "",
+            "description": "None"
+        },
+        {
+            "name": "%xl_r",
+            "spec": "",
+            "description": "None"
+        }
+    ],
+    "variants": [
+        {
+            "name": "build_type",
+            "default": "RelWithDebInfo",
+            "description": "CMake build type"
+        },
+        {
+            "name": "ipo",
+            "default": false,
+            "description": "CMake interprocedural optimization"
+        },
+        {
+            "name": "shared",
+            "default": true,
+            "description": "Build shared library (disables static library)"
+        },
+        {
+            "name": "lua",
+            "default": false,
+            "description": "Build Lua support for tuning tile sizes"
+        }
+    ],
+    "homepage": "https://bitbucket.org/icl/plasma/",
+    "maintainers": [
+        "luszczek"
+    ],
+    "patches": [
+        {
+            "owner": "builtin.plasma",
+            "sha256": "86e93a43e8571cbf586610090032e71d9c917a7564bc198a574ac981f4cab485",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "remove_absolute_mkl_include.patch",
+            "version": "@17.1"
+        },
+        {
+            "owner": "builtin.plasma",
+            "sha256": "6ce78aaea37672a3cd63cbf3cc5f9f12da974a099b8312c6b0678b4b55020287",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "protect_cmake_version.patch",
+            "version": "@19.8.0:19.8.9"
+        },
+        {
+            "owner": "builtin.plasma",
+            "sha256": "97606686359b620b7eae22a769793f269dafd52d838bb519ef57d7cb60bea3de",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "fix_cmake_include.patch",
+            "version": "@19.8.0:19.8.9"
+        }
+    ],
+    "resources": [],
+    "description": "Parallel Linear Algebra Software for Multicore Architectures, PLASMA is\na software package for solving problems in dense linear algebra using\nmulticore processors and Xeon Phi coprocessors. PLASMA provides\nimplementations of state-of-the-art algorithms using cutting-edge task\nscheduling techniques. PLASMA currently offers a collection of routines\nfor solving linear systems of equations, least squares problems,\neigenvalue problems, and singular value problems.\n",
+    "dependencies": [
+        {
+            "name": "cmake",
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
+        },
+        {
+            "name": "lua",
+            "description": "The Lua programming language interpreter and library."
+        },
+        {
+            "name": "blas",
+            "description": "Intel oneAPI MKL."
+        },
+        {
+            "name": "lapack",
+            "description": "Intel oneAPI MKL."
+        }
+    ],
+    "dependent_to": [
+        {
+            "name": "xsdk",
+            "description": "Xsdk is a suite of Department of Energy (DOE) packages for numerical\nsimulation. This is a Spack bundle package that installs the xSDK\npackages"
+        }
+    ]
+}

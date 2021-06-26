@@ -1,0 +1,286 @@
+{
+    "name": "hsa-rocr-dev",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "master",
+            "branch": "master"
+        },
+        {
+            "name": "4.2.0",
+            "sha256": "fa0e7bcd64e97cbff7c39c9e87c84a49d2184dc977b341794770805ec3f896cc"
+        },
+        {
+            "name": "4.1.0",
+            "sha256": "c223a5f7ccac280520abb6ea49fdd36fa9468718098a9d984be6ef839ccbc6db"
+        },
+        {
+            "name": "4.0.0",
+            "sha256": "e84c48e80ea38698a5bd5da3940048ad3cab3696d10a53132acad07ca357f17c"
+        },
+        {
+            "name": "3.10.0",
+            "sha256": "58866d8acdb6cc45227f2412098e37c65908b20ed3dd54901dfb515c15ad5f71"
+        },
+        {
+            "name": "3.9.0",
+            "sha256": "d722fb61f62037894957856f2c2d17231c4622bdf75db372321ee30206dceeb6"
+        },
+        {
+            "name": "3.8.0",
+            "sha256": "1dfad4d89d6c099e15073ed38e083bcf6cc463470dcc8a1e1b9e22060c060c72"
+        },
+        {
+            "name": "3.7.0",
+            "sha256": "0071d14431f73ce74574e61d0786f2b7cf34b14ea898a1f54b6e1b06b2d468c0"
+        },
+        {
+            "name": "3.5.0",
+            "sha256": "52c12eec3e3404c0749c70f156229786ee0c3e6d3c979aed9bbaea500fa1f3b8"
+        }
+    ],
+    "build_system": "CMakePackage",
+    "conflicts": [
+        {
+            "name": "+ipo",
+            "spec": "^cmake@:3.8",
+            "description": "+ipo is not supported by CMake < 3.9"
+        }
+    ],
+    "variants": [
+        {
+            "name": "build_type",
+            "default": "Release",
+            "description": "CMake build type"
+        },
+        {
+            "name": "ipo",
+            "default": false,
+            "description": "CMake interprocedural optimization"
+        },
+        {
+            "name": "shared",
+            "default": true,
+            "description": "Build shared or static library"
+        },
+        {
+            "name": "image",
+            "default": true,
+            "description": "build with or without image support"
+        }
+    ],
+    "homepage": "https://github.com/RadeonOpenCompute/ROCR-Runtime",
+    "maintainers": [
+        "srekolam",
+        "arjun-raj-kuppala",
+        "haampie"
+    ],
+    "patches": [
+        {
+            "owner": "builtin.hsa-rocr-dev",
+            "sha256": "522ad3a53596c22d0a611efe92e91c1f6812bf63af544f949b1f347f149ca208",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "0001-Do-not-set-an-explicit-rpath-by-default-since-packag.patch",
+            "version": "@3.5.0"
+        },
+        {
+            "owner": "builtin.hsa-rocr-dev",
+            "sha256": "71e6851d9be8113bfb8d71b66a3171e0d0401bae5e6f161c9e7fe32558261a46",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "0002-Remove-explicit-RPATH-again.patch",
+            "version": "@3.7.0:"
+        }
+    ],
+    "resources": [],
+    "description": "This repository includes the user mode API nterfaces and libraries\nnecessary for host applications to launch computer kernels to available\nHSA ROCm kernel agents.AMD Heterogeneous System Architecture HSA - Linux\nHSA Runtime for Boltzmann (ROCm) platforms.\n",
+    "dependencies": [
+        {
+            "name": "cmake",
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
+        },
+        {
+            "name": "xxd",
+            "description": "xxd creates a hex dump of a given file or standard input. It is bundled\nwith vim, but as xxd is used in build scripts, it makes sense to have it\navailable as a standalone package."
+        },
+        {
+            "name": "libelf",
+            "description": "libelf lets you read, modify or create ELF object files in an\narchitecture-independent way. The library takes care of size and endian\nissues, e.g. you can process a file for SPARC processors on an Intel-\nbased system. Note: libelf is no longer maintained and packages that\ndepend on libelf should migrate to elfutils."
+        },
+        {
+            "name": "hsakmt-roct",
+            "description": "This is a thunk python recipe to build and install Thunk Interface.\nThunk Interface is a user-mode API interfaces used to interact with the\nROCk driver."
+        },
+        {
+            "name": "llvm-amdgpu",
+            "description": "Toolkit for the construction of highly optimized compilers, optimizers,\nand run-time environments."
+        },
+        {
+            "name": "rocm-device-libs",
+            "description": "set of AMD specific device-side language runtime libraries"
+        }
+    ],
+    "dependent_to": [
+        {
+            "name": "libceed",
+            "description": "The CEED API Library: Code for Efficient Extensible Discretizations."
+        },
+        {
+            "name": "hydrogen",
+            "description": "Hydrogen: Distributed-memory dense and sparse-direct linear algebra and\noptimization library. Based on the Elemental library."
+        },
+        {
+            "name": "rocm-opencl",
+            "description": "OpenCL: Open Computing Language on ROCclr"
+        },
+        {
+            "name": "raja",
+            "description": "RAJA Parallel Framework."
+        },
+        {
+            "name": "mfem",
+            "description": "Free, lightweight, scalable C++ library for finite element methods."
+        },
+        {
+            "name": "care",
+            "description": "Algorithms for chai managed arrays."
+        },
+        {
+            "name": "umpire",
+            "description": "An application-focused API for memory management on NUMA & GPU\narchitectures"
+        },
+        {
+            "name": "hip",
+            "description": "HIP is a C++ Runtime API and Kernel Language that allows developers to\ncreate portable applications for AMD and NVIDIA GPUs from single source\ncode."
+        },
+        {
+            "name": "rocm-dbgapi",
+            "description": "The AMD Debugger API is a library that provides all the support\nnecessary for a debugger and other tools to perform low level control of\nthe execution and inspection of execution state of AMD's commercially\navailable GPU architectures."
+        },
+        {
+            "name": "strumpack",
+            "description": "STRUMPACK -- STRUctured Matrix PACKage - provides linear solvers for\nsparse matrices and for dense rank-structured matrices, i.e., matrices\nthat exhibit some kind of low-rank property. It provides a distributed\nmemory fully algebraic sparse solver and preconditioner. The\npreconditioner is mostly aimed at large sparse linear systems which\nresult from the discretization of a partial differential equation, but\nis not limited to any particular type of problem. STRUMPACK also\nprovides preconditioned GMRES and BiCGStab iterative solvers."
+        },
+        {
+            "name": "atmi",
+            "description": "Asynchronous Task and Memory Interface, or ATMI, is a runtime framework\nand programming model for heterogeneous CPU-GPU systems. It provides a\nconsistent, declarative API to create task graphs on CPUs and GPUs\n(integrated and discrete)."
+        },
+        {
+            "name": "sundials",
+            "description": "SUNDIALS (SUite of Nonlinear and DIfferential/ALgebraic equation\nSolvers)"
+        },
+        {
+            "name": "amrex",
+            "description": "AMReX is a publicly available software framework designed for building\nmassively parallel block- structured adaptive mesh refinement (AMR)\napplications."
+        },
+        {
+            "name": "slate",
+            "description": "The Software for Linear Algebra Targeting Exascale (SLATE) project is to\nprovide fundamental dense linear algebra capabilities to the US\nDepartment of Energy and to the high-performance computing (HPC)\ncommunity at large. To this end, SLATE will provide basic dense matrix\noperations (e.g., matrix multiplication, rank-k update, triangular\nsolve), linear systems solvers, least square solvers, singular value and\neigenvalue solvers."
+        },
+        {
+            "name": "lbann",
+            "description": "LBANN: Livermore Big Artificial Neural Network Toolkit. A distributed\nmemory, HPC-optimized, model and data parallel training toolkit for deep\nneural networks."
+        },
+        {
+            "name": "nekrs",
+            "description": "nekRS is an open-source Navier Stokes solver based on the spectral\nelement method targeting classical processors and hardware accelerators\nlike GPUs"
+        },
+        {
+            "name": "kokkos",
+            "description": "Kokkos implements a programming model in C++ for writing performance\nportable applications targeting all major HPC platforms."
+        },
+        {
+            "name": "rocsolver",
+            "description": "rocSOLVER is a work-in-progress implementation of a subset of LAPACK\nfunctionality on the ROCm platform."
+        },
+        {
+            "name": "blaspp",
+            "description": "C++ API for the Basic Linear Algebra Subroutines. Developed by the\nInnovative Computing Laboratory at the University of Tennessee,\nKnoxville."
+        },
+        {
+            "name": "petsc",
+            "description": "PETSc is a suite of data structures and routines for the scalable\n(parallel) solution of scientific applications modeled by partial\ndifferential equations."
+        },
+        {
+            "name": "aomp",
+            "description": "llvm openmp compiler from AMD."
+        },
+        {
+            "name": "rocprim",
+            "description": "Radeon Open Compute Parallel Primitives Library"
+        },
+        {
+            "name": "dbcsr",
+            "description": "Distributed Block Compressed Sparse Row matrix library."
+        },
+        {
+            "name": "rocm-openmp-extras",
+            "description": "OpenMP support for ROCm LLVM."
+        },
+        {
+            "name": "roctracer-dev",
+            "description": "ROC-tracer library: Runtimes Generic Callback/Activity APIs. The goal of\nthe implementation is to provide a generic independent from specific\nruntime profiler to trace API and asyncronous activity."
+        },
+        {
+            "name": "dihydrogen",
+            "description": "DiHydrogen is the second version of the Hydrogen fork of the well-known\ndistributed linear algebra library, Elemental. DiHydrogen aims to be a\nbasic distributed multilinear algebra interface with a particular\nemphasis on the needs of the distributed machine learning effort, LBANN."
+        },
+        {
+            "name": "chai",
+            "description": "Copy-hiding array interface for data migration between memory spaces"
+        },
+        {
+            "name": "rocrand",
+            "description": "The rocRAND project provides functions that generate pseudo-random and\nquasi-random numbers."
+        },
+        {
+            "name": "rocm-opencl-runtime",
+            "description": "ROCm OpenCL 2.0 compatible language runtime. It Supports offline and in-\nprocess/in-memory compilation"
+        },
+        {
+            "name": "hip-rocclr",
+            "description": "Hip-ROCclr is a virtual device interface that compute runtimes interact\nwith to different backends such as ROCr or PAL This abstraction allows\nruntimes to work on Windows as well as on Linux without much effort."
+        },
+        {
+            "name": "rocprofiler-dev",
+            "description": "ROCPROFILER library for AMD HSA runtime API extension support"
+        },
+        {
+            "name": "tasmanian",
+            "description": "The Toolkit for Adaptive Stochastic Modeling and Non-Intrusive\nApproximatioN is a robust library for high dimensional integration and\ninterpolation as well as parameter calibration."
+        },
+        {
+            "name": "rocm-debug-agent",
+            "description": "Radeon Open Compute (ROCm) debug agent"
+        },
+        {
+            "name": "rocm-bandwidth-test",
+            "description": "Test to measure PciE bandwidth on ROCm platforms"
+        },
+        {
+            "name": "aluminum",
+            "description": "Aluminum provides a generic interface to high-performance communication\nlibraries, with a focus on allreduce algorithms. Blocking and non-\nblocking algorithms and GPU-aware algorithms are supported. Aluminum\nalso contains custom implementations of select algorithms to optimize\nfor certain situations."
+        },
+        {
+            "name": "ceed",
+            "description": "Ceed is a collection of benchmarks, miniapps, software libraries and\nAPIs for efficient high-order finite element and spectral element\ndiscretizations for exascale applications developed in the Department of\nEnergy (DOE) and partially supported by the Exascale Computing Project\n(ECP). This is a Spack bundle package that installs the CEED software\ncomponents."
+        },
+        {
+            "name": "rccl",
+            "description": "RCCL (pronounced \"Rickle\") is a stand-alone library of standard\ncollective communication routines for GPUs, implementing all-reduce,\nall-gather, reduce, broadcast, and reduce-scatter."
+        },
+        {
+            "name": "camp",
+            "description": "Compiler agnostic metaprogramming library providing concepts, type\noperations and tuples for C++ and cuda"
+        },
+        {
+            "name": "rocminfo",
+            "description": "Radeon Open Compute (ROCm) Runtime rocminfo tool"
+        },
+        {
+            "name": "ginkgo",
+            "description": "High-performance linear algebra library for manycore systems, with a\nfocus on sparse solution of linear systems."
+        }
+    ]
+}

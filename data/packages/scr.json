@@ -1,0 +1,188 @@
+{
+    "name": "scr",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "develop",
+            "branch": "develop"
+        },
+        {
+            "name": "legacy",
+            "branch": "legacy",
+            "deprecated": true
+        },
+        {
+            "name": "3.0rc1",
+            "sha256": "bd31548a986f050024429d8ee3644eb135f047f98a3d503a40c5bd4a85291308"
+        },
+        {
+            "name": "2.0.0",
+            "sha256": "471978ae0afb56a20847d3989b994fbd680d1dea21e77a5a46a964b6e3deed6b",
+            "deprecated": true
+        },
+        {
+            "name": "1.2.2",
+            "sha256": "764a85638a9e8762667ec1f39fa5f7da7496fca78de379a22198607b3e027847",
+            "deprecated": true
+        },
+        {
+            "name": "1.2.1",
+            "sha256": "23acab2dc7203e9514455a5168f2fd57bc590affb7a1876912b58201513628fe",
+            "deprecated": true
+        },
+        {
+            "name": "1.2.0",
+            "sha256": "e3338ab2fa6e9332d2326c59092b584949a083a876adf5a19d4d5c7a1bbae047",
+            "deprecated": true
+        }
+    ],
+    "build_system": "CMakePackage",
+    "conflicts": [
+        {
+            "name": "+ipo",
+            "spec": "^cmake@:3.8",
+            "description": "+ipo is not supported by CMake < 3.9"
+        },
+        {
+            "name": "~dtcmp",
+            "spec": "@3:",
+            "description": "<SCR> DTCMP required for versions >=3"
+        }
+    ],
+    "variants": [
+        {
+            "name": "build_type",
+            "default": "RelWithDebInfo",
+            "description": "CMake build type"
+        },
+        {
+            "name": "ipo",
+            "default": false,
+            "description": "CMake interprocedural optimization"
+        },
+        {
+            "name": "dtcmp",
+            "default": true,
+            "description": "Build with DTCMP. Necessary to enable user directory naming at runtime"
+        },
+        {
+            "name": "libyogrt",
+            "default": true,
+            "description": "Build SCR with libyogrt for get_time_remaining."
+        },
+        {
+            "name": "scr_config",
+            "default": "scr.conf",
+            "description": "Location for SCR to find its system config file. May be either absolute or relative to the install prefix"
+        },
+        {
+            "name": "copy_config",
+            "default": "none",
+            "description": "Location from which to copy SCR system config file. Must be an absolute path."
+        },
+        {
+            "name": "fortran",
+            "default": true,
+            "description": "Build SCR with fortran bindings"
+        },
+        {
+            "name": "resource_manager",
+            "default": "SLURM",
+            "description": "Resource manager for which to configure SCR."
+        },
+        {
+            "name": "async_api",
+            "default": "NONE",
+            "description": "Asynchronous data transfer API to use with SCR."
+        },
+        {
+            "name": "bbapi_fallback",
+            "default": "False",
+            "description": "Using BBAPI, if source or destination don't support             file extents then fallback to pthreads"
+        },
+        {
+            "name": "file_lock",
+            "default": "FLOCK",
+            "description": "File locking style for SCR."
+        },
+        {
+            "name": "cache_base",
+            "default": "/dev/shm",
+            "description": "Compile time default location for cache directory."
+        },
+        {
+            "name": "cntl_base",
+            "default": "/dev/shm",
+            "description": "Compile time default location for control directory."
+        }
+    ],
+    "homepage": "http://computing.llnl.gov/projects/scalable-checkpoint-restart-for-mpi",
+    "maintainers": [],
+    "patches": [],
+    "resources": [],
+    "description": "SCR caches checkpoint data in storage on the compute nodes of a Linux\ncluster to provide a fast, scalable checkpoint/restart capability for\nMPI codes\n",
+    "dependencies": [
+        {
+            "name": "cmake",
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
+        },
+        {
+            "name": "pdsh",
+            "description": "PDSH: a high performance, parallel remote shell utility"
+        },
+        {
+            "name": "zlib",
+            "description": "A free, general-purpose, legally unencumbered lossless data-compression\nlibrary."
+        },
+        {
+            "name": "mpi",
+            "description": "MVAPICH2-X is the advanced version of the MVAPICH2 MPI library with\nenhanced features (UMR, ODP, DC, Core-Direct, SHARP, XPMEM), OSU INAM\n(InifniBand Network Monitoring and Analysis),PGAS (OpenSHMEM, UPC,\nUPC++, and CAF), and MPI+PGAS programming models with unified\ncommunication runtime. MVAPICH2-X is not installable from source and is\nonly available through a binary mirror. If you do not find the binary\nyou're looking for, send us an email at mvapich@cse.ohio-state.edu. The\nbinary mirror url is: http://mvapich.cse.ohio-\nstate.edu/download/mvapich/spack-mirror/mvapich2x/"
+        },
+        {
+            "name": "axl",
+            "description": "Asynchronous transfer library"
+        },
+        {
+            "name": "er",
+            "description": "Encoding and redundancy on a file set"
+        },
+        {
+            "name": "kvtree",
+            "description": "KVTree provides a fully extensible C datastructure modeled after perl\nhashes."
+        },
+        {
+            "name": "rankstr",
+            "description": "Assign one-to-one mapping of MPI ranks to strings"
+        },
+        {
+            "name": "redset",
+            "description": "Create MPI communicators for disparate redundancy sets"
+        },
+        {
+            "name": "shuffile",
+            "description": "Shuffle files between MPI ranks"
+        },
+        {
+            "name": "spath",
+            "description": "Represent and manipulate file system paths"
+        },
+        {
+            "name": "dtcmp",
+            "description": "The Datatype Comparison Library provides comparison operations and\nparallel sort algorithms for MPI applications."
+        },
+        {
+            "name": "libyogrt",
+            "description": "Your One Get Remaining Time Library."
+        }
+    ],
+    "dependent_to": [
+        {
+            "name": "macsio",
+            "description": "A Multi-purpose, Application-Centric, Scalable I/O Proxy Application."
+        },
+        {
+            "name": "axom",
+            "description": "Axom provides a robust, flexible software infrastructure for the\ndevelopment of multi-physics applications and computational tools."
+        }
+    ]
+}

@@ -1,0 +1,167 @@
+{
+    "name": "flann",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "1.9.1",
+            "sha256": "b23b5f4e71139faa3bcb39e6bbcc76967fbaf308c4ee9d4f5bfbeceaa76cc5d3"
+        },
+        {
+            "name": "1.8.5",
+            "sha256": "59a9925dac0705b281496ae52b5dfd79d6b69316d37015e3d3b38c859bac4f2f"
+        },
+        {
+            "name": "1.8.4",
+            "sha256": "ed5843113150b3d6bc4c325fecb51337838a9fc09ad64bdb6aea79d6e610ee13"
+        },
+        {
+            "name": "1.8.1",
+            "sha256": "82ff80709ca25365bca3367e87ffb4e0395fab068487314d02271bc3034591c1"
+        },
+        {
+            "name": "1.8.0",
+            "sha256": "8a3eef79512870dec20b3a3e481e5e5e6da00d524b810a22ee186f13732f0fa1"
+        }
+    ],
+    "build_system": "CMakePackage",
+    "conflicts": [
+        {
+            "name": "+ipo",
+            "spec": "^cmake@:3.8",
+            "description": "+ipo is not supported by CMake < 3.9"
+        },
+        {
+            "name": "+python",
+            "spec": "~c",
+            "description": "None"
+        },
+        {
+            "name": "+matlab",
+            "spec": "~c",
+            "description": "None"
+        }
+    ],
+    "variants": [
+        {
+            "name": "build_type",
+            "default": "RelWithDebInfo",
+            "description": "CMake build type"
+        },
+        {
+            "name": "ipo",
+            "default": false,
+            "description": "CMake interprocedural optimization"
+        },
+        {
+            "name": "python",
+            "default": false,
+            "description": "Build the Python bindings. Module: pyflann."
+        },
+        {
+            "name": "matlab",
+            "default": false,
+            "description": "Build the Matlab bindings."
+        },
+        {
+            "name": "c",
+            "default": true,
+            "description": "Build the C bindings."
+        },
+        {
+            "name": "cuda",
+            "default": false,
+            "description": "Build the CUDA library."
+        },
+        {
+            "name": "examples",
+            "default": false,
+            "description": "Build the examples."
+        },
+        {
+            "name": "doc",
+            "default": false,
+            "description": "Build the documentation."
+        },
+        {
+            "name": "openmp",
+            "default": true,
+            "description": "Use OpenMP multi-threading."
+        },
+        {
+            "name": "mpi",
+            "default": true,
+            "description": "Use MPI."
+        },
+        {
+            "name": "hdf5",
+            "default": true,
+            "description": "Enable HDF5 support."
+        }
+    ],
+    "homepage": "http://www.cs.ubc.ca/research/flann/",
+    "maintainers": [],
+    "patches": [
+        {
+            "owner": "builtin.flann",
+            "sha256": "c50dedac4a9223c7353eb0b773da39b5b631ce7d3fd9e1f6e5f87eda6faf3fdb",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "linux-gcc-cmakev3.11-plus.patch",
+            "version": "%gcc ^cmake@3.11:"
+        }
+    ],
+    "resources": [],
+    "description": "FLANN is a library for performing fast approximate nearest neighbor\nsearches in high dimensional spaces. It contains a collection of\nalgorithms we found to work best for nearest neighbor search and a\nsystem for automatically choosing the best algorithm and optimum\nparameters depending on the dataset. FLANN is written in C++ and\ncontains bindings for the following languages: C, MATLAB and Python.\n",
+    "dependencies": [
+        {
+            "name": "cmake",
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
+        },
+        {
+            "name": "python",
+            "description": "The Python programming language."
+        },
+        {
+            "name": "py-numpy",
+            "description": "NumPy is the fundamental package for scientific computing with Python.\nIt contains among other things: a powerful N-dimensional array object,\nsophisticated (broadcasting) functions, tools for integrating C/C++ and\nFortran code, and useful linear algebra, Fourier transform, and random\nnumber capabilities"
+        },
+        {
+            "name": "matlab",
+            "description": "MATLAB (MATrix LABoratory) is a multi-paradigm numerical computing\nenvironment and fourth-generation programming language. A proprietary\nprogramming language developed by MathWorks, MATLAB allows matrix\nmanipulations, plotting of functions and data, implementation of\nalgorithms, creation of user interfaces, and interfacing with programs\nwritten in other languages, including C, C++, C#, Java, Fortran and\nPython. Note: MATLAB is licensed software. You will need to create an\naccount on the MathWorks homepage and download MATLAB yourself. Spack\nwill search your current directory for the download file. Alternatively,\nadd this file to a mirror so that Spack can find it. For instructions on\nhow to set up a mirror, see\nhttp://spack.readthedocs.io/en/latest/mirrors.html"
+        },
+        {
+            "name": "cuda",
+            "description": "CUDA is a parallel computing platform and programming model invented by\nNVIDIA. It enables dramatic increases in computing performance by\nharnessing the power of the graphics processing unit (GPU). Note: This\npackage does not currently install the drivers necessary to run CUDA.\nThese will need to be installed manually. See:\nhttps://docs.nvidia.com/cuda/ for details."
+        },
+        {
+            "name": "mpi",
+            "description": "MVAPICH2-X is the advanced version of the MVAPICH2 MPI library with\nenhanced features (UMR, ODP, DC, Core-Direct, SHARP, XPMEM), OSU INAM\n(InifniBand Network Monitoring and Analysis),PGAS (OpenSHMEM, UPC,\nUPC++, and CAF), and MPI+PGAS programming models with unified\ncommunication runtime. MVAPICH2-X is not installable from source and is\nonly available through a binary mirror. If you do not find the binary\nyou're looking for, send us an email at mvapich@cse.ohio-state.edu. The\nbinary mirror url is: http://mvapich.cse.ohio-\nstate.edu/download/mvapich/spack-mirror/mvapich2x/"
+        },
+        {
+            "name": "hdf5",
+            "description": "HDF5 is a data model, library, and file format for storing and managing\ndata. It supports an unlimited variety of datatypes, and is designed for\nflexible and efficient I/O and for high volume and complex data."
+        },
+        {
+            "name": "boost",
+            "description": "Boost provides free peer-reviewed portable C++ source libraries,\nemphasizing libraries that work well with the C++ Standard Library.\nBoost libraries are intended to be widely useful, and usable across a\nbroad spectrum of applications. The Boost license encourages both\ncommercial and non-commercial use."
+        },
+        {
+            "name": "texlive",
+            "description": "TeX Live is an easy (we hope) way to get up and running with the TeX\ndocument production system. It provides a comprehensive TeX system with\nbinaries for most flavors of Unix, including GNU/Linux, macOS, and also\nWindows. It includes all the major TeX-related programs, macro packages,\nand fonts that are free software, including support for many languages\naround the world."
+        },
+        {
+            "name": "googletest",
+            "description": "Google test framework for C++. Also called gtest."
+        }
+    ],
+    "dependent_to": [
+        {
+            "name": "coevp",
+            "description": "CoEVP is a scale-bridging proxy application for embedded viscoplasticity\napplications. It is created and maintained by The Exascale Co-Design\nCenter for Materials in Extreme Environments (ExMatEx). The code is\nintended to serve as a vehicle for co-design by allowing others to\nextend and/or reimplement it as needed to test performance of new\narchitectures, programming models, etc. Due to the size and complexity\nof the studied models, as well as restrictions on distribution, the\ncurrently available LULESH proxy application provides the coarse-scale\nmodel implementation and the ASPA proxy application provides the\nadaptive sampling support."
+        },
+        {
+            "name": "pcl",
+            "description": "The Point Cloud Library (PCL) is a standalone, large scale, open project\nfor 2D/3D image and point cloud processing."
+        }
+    ]
+}

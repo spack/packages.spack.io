@@ -1,0 +1,148 @@
+{
+    "name": "votca-tools",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "master",
+            "branch": "master"
+        },
+        {
+            "name": "stable",
+            "branch": "stable"
+        },
+        {
+            "name": "2021",
+            "sha256": "b84f68ba4a8bfae7b06b61e1e078dcbfb3b340c516da3be39ef545152da00ccd"
+        },
+        {
+            "name": "1.6.4",
+            "sha256": "aa79ef4617a80ba3ca063932d5ee0d5767c0285b4b613abd373ad3c986ab9f4c"
+        },
+        {
+            "name": "1.6.3",
+            "sha256": "b4ba63861f4342070d81309992f76c4cc798dffeab894bff64799881e75b3cc2"
+        },
+        {
+            "name": "1.6.2",
+            "sha256": "1b31e0dd7550b80b963e6714d671f3516d68ebc1e75068a5d827a6e8b4f1759a"
+        },
+        {
+            "name": "1.6.1",
+            "sha256": "3e8f51d484cb3fdfbeb851aab387807ba4c40aecef8317c90182da68ad282dcc"
+        },
+        {
+            "name": "1.6",
+            "sha256": "cfd0fedc80fecd009f743b5df47777508d76bf3ef294a508a9f11fbb42efe9a5"
+        },
+        {
+            "name": "1.5.1",
+            "sha256": "4be4fe25a2910e24e1720cd9022d214001d38196033ade8f9d6e618b4f47d5c4"
+        },
+        {
+            "name": "1.5",
+            "sha256": "a82a6596c24ff06e79eab17ca02f4405745ceeeb66369693a59023ad0b62cf22"
+        },
+        {
+            "name": "1.4.1",
+            "sha256": "b6b87f6bec8db641a1d8660422ca44919252a69494b32ba6c8c9ac986bae9a65"
+        },
+        {
+            "name": "1.4",
+            "sha256": "41638122e7e59852af61d391b4ab8c308fd2e16652f768077e13a99d206ec5d3"
+        }
+    ],
+    "build_system": "CMakePackage",
+    "conflicts": [
+        {
+            "name": "+ipo",
+            "spec": "^cmake@:3.8",
+            "description": "+ipo is not supported by CMake < 3.9"
+        },
+        {
+            "name": "+mkl",
+            "spec": "@1.4:1.5.9999",
+            "description": "None"
+        }
+    ],
+    "variants": [
+        {
+            "name": "build_type",
+            "default": "RelWithDebInfo",
+            "description": "CMake build type"
+        },
+        {
+            "name": "ipo",
+            "default": false,
+            "description": "CMake interprocedural optimization"
+        },
+        {
+            "name": "mkl",
+            "default": false,
+            "description": "Build with MKL support"
+        }
+    ],
+    "homepage": "http://www.votca.org",
+    "maintainers": [
+        "junghans"
+    ],
+    "patches": [
+        {
+            "owner": "builtin.votca-tools",
+            "sha256": "250d0b679e5d3104e3c8d6adf99751b71386c7ed4cbdae1c75408717ef3f401f",
+            "level": 1,
+            "working_dir": ".",
+            "url": "https://github.com/votca/tools/pull/229.patch",
+            "version": "@1.6:1.6.0+mkl"
+        }
+    ],
+    "resources": [],
+    "description": "Versatile Object-oriented Toolkit for Coarse-graining Applications\n(VOTCA) is a package intended to reduce the amount of routine work when\ndoing systematic coarse-graining of various systems. The core is written\nin C++. This package contains the basic tools library of VOTCA.\n",
+    "dependencies": [
+        {
+            "name": "cmake",
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
+        },
+        {
+            "name": "expat",
+            "description": "Expat is an XML parser library written in C."
+        },
+        {
+            "name": "fftw-api",
+            "description": "FFTW (Fujitsu Optimized version) is a comprehensive collection of fast C\nroutines for computing the Discrete Fourier Transform (DFT) and various\nspecial cases thereof. It is an open-source implementation of the Fast\nFourier transform algorithm. It can compute transforms of real and\ncomplex-values arrays of arbitrary size and dimension. Fujitsu Optimized\nFFTW is the optimized FFTW implementation targeted for A64FX CPUs. For\nsingle precision build, please use precision value as float. Example :\nspack install fujitsufftw precision=float"
+        },
+        {
+            "name": "gsl",
+            "description": "The GNU Scientific Library (GSL) is a numerical library for C and C++\nprogrammers. It is free software under the GNU General Public License.\nThe library provides a wide range of mathematical routines such as\nrandom number generators, special functions and least-squares fitting.\nThere are over 1000 functions in total with an extensive test suite."
+        },
+        {
+            "name": "eigen",
+            "description": "Eigen is a C++ template library for linear algebra matrices, vectors,\nnumerical solvers, and related algorithms."
+        },
+        {
+            "name": "boost",
+            "description": "Boost provides free peer-reviewed portable C++ source libraries,\nemphasizing libraries that work well with the C++ Standard Library.\nBoost libraries are intended to be widely useful, and usable across a\nbroad spectrum of applications. The Boost license encourages both\ncommercial and non-commercial use."
+        },
+        {
+            "name": "sqlite",
+            "description": "SQLite3 is an SQL database engine in a C library. Programs that link the\nSQLite3 library can have SQL database access without running a separate\nRDBMS process."
+        },
+        {
+            "name": "mkl",
+            "description": "Intel oneAPI MKL."
+        }
+    ],
+    "dependent_to": [
+        {
+            "name": "votca-xtp",
+            "description": "Versatile Object-oriented Toolkit for Coarse-graining Applications\n(VOTCA) is a package intended to reduce the amount of routine work when\ndoing systematic coarse-graining of various systems. The core is written\nin C++. This package contains the VOTCA exciton transport engine."
+        },
+        {
+            "name": "votca-csg",
+            "description": "Versatile Object-oriented Toolkit for Coarse-graining Applications\n(VOTCA) is a package intended to reduce the amount of routine work when\ndoing systematic coarse-graining of various systems. The core is written\nin C++. This package contains the VOTCA coarse-graining engine."
+        },
+        {
+            "name": "votca-ctp",
+            "description": "Versatile Object-oriented Toolkit for Coarse-graining Applications\n(VOTCA) is a package intended to reduce the amount of routine work when\ndoing systematic coarse-graining of various systems. The core is written\nin C++. This package contains the VOTCA charge transport engine."
+        }
+    ]
+}

@@ -1,0 +1,66 @@
+{
+    "name": "intel-mpi-benchmarks",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "2019.6",
+            "sha256": "1cd0bab9e947228fced4666d907f77c51336291533919896a923cff5fcad62e9"
+        },
+        {
+            "name": "2019.5",
+            "sha256": "61f8e872a3c3076af53007a68e4da3a8d66be2ba7a051dc21e626a4e2d26e651"
+        },
+        {
+            "name": "2019.4",
+            "sha256": "aeb336be10275c1a2f579b491b6631122876b461ac7148b1d0764f13b7552690"
+        },
+        {
+            "name": "2019.3",
+            "sha256": "4f256d11bfed9ca6166548486d61a062e67be61f13dd9f30690232720e185f31"
+        },
+        {
+            "name": "2019.2",
+            "sha256": "0bc2224a913073aaa5958f6ae08341e5fcd39cedc6722a09bfd4a3d7591a340b"
+        }
+    ],
+    "build_system": "MakefilePackage",
+    "conflicts": [],
+    "variants": [
+        {
+            "name": "benchmark",
+            "default": "all",
+            "description": "Specify which benchmark to build"
+        }
+    ],
+    "homepage": "https://software.intel.com/en-us/articles/intel-mpi-benchmarks",
+    "maintainers": [
+        "carsonwoods"
+    ],
+    "patches": [
+        {
+            "owner": "builtin.intel-mpi-benchmarks",
+            "sha256": "c88fdc4a4c8acb175997547082ccc96de0be73ee07752587c08f599e5c70b41d",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "add_const.patch",
+            "version": "@:2019.6"
+        },
+        {
+            "owner": "builtin.intel-mpi-benchmarks",
+            "sha256": "ba3f2e36b501b0f7b3a7e278e3efaa7b3a95f95d85c428b057836b89f353558e",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "reorder_benchmark_macros.patch",
+            "version": "@:2019.6"
+        }
+    ],
+    "resources": [],
+    "description": "Intel(R) MPI Benchmarks provides a set of elementary benchmarks that\nconform to MPI-1, MPI-2, and MPI-3 standard. You can run all of the\nsupported benchmarks, or a subset specified in the command line using\none executable file. Use command-line parameters to specify various\nsettings, such as time measurement, message lengths, and selection of\ncommunicators.\n",
+    "dependencies": [
+        {
+            "name": "mpi",
+            "description": "MVAPICH2-X is the advanced version of the MVAPICH2 MPI library with\nenhanced features (UMR, ODP, DC, Core-Direct, SHARP, XPMEM), OSU INAM\n(InifniBand Network Monitoring and Analysis),PGAS (OpenSHMEM, UPC,\nUPC++, and CAF), and MPI+PGAS programming models with unified\ncommunication runtime. MVAPICH2-X is not installable from source and is\nonly available through a binary mirror. If you do not find the binary\nyou're looking for, send us an email at mvapich@cse.ohio-state.edu. The\nbinary mirror url is: http://mvapich.cse.ohio-\nstate.edu/download/mvapich/spack-mirror/mvapich2x/"
+        }
+    ],
+    "dependent_to": []
+}

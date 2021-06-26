@@ -1,0 +1,78 @@
+{
+    "name": "fortrilinos",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "2.0.0",
+            "sha256": "9af3b3eea9934e44d74654a5fa822de08bd0efa43e06e4a4e35a777781f542d6"
+        },
+        {
+            "name": "2.0.dev3",
+            "sha256": "c20a34b374a56b050bc1db0be1d3db63fca3e59c5803af0cb851b044ac84e6b3",
+            "url": "https://github.com/trilinos/ForTrilinos/archive/v2.0.0-dev3.tar.gz"
+        },
+        {
+            "name": "2.0.dev2",
+            "sha256": "2a55c668b3fe986583658d272eab2dc076b291a5f2eb582a02602db86a32030b",
+            "url": "https://github.com/trilinos/ForTrilinos/archive/v2.0.0-dev2.tar.gz"
+        },
+        {
+            "name": "2.0.dev1",
+            "sha256": "ab664ce2d7fe75c524d7ff6b1efffa3e459ab5739a916e6ea810ae40f39ca4f4",
+            "url": "https://github.com/trilinos/ForTrilinos/archive/v2.0.0-dev1.tar.gz"
+        },
+        {
+            "name": "master",
+            "branch": "master"
+        }
+    ],
+    "build_system": "CMakePackage",
+    "conflicts": [
+        {
+            "name": "+ipo",
+            "spec": "^cmake@:3.8",
+            "description": "+ipo is not supported by CMake < 3.9"
+        }
+    ],
+    "variants": [
+        {
+            "name": "build_type",
+            "default": "RelWithDebInfo",
+            "description": "CMake build type"
+        },
+        {
+            "name": "ipo",
+            "default": false,
+            "description": "CMake interprocedural optimization"
+        },
+        {
+            "name": "hl",
+            "default": true,
+            "description": "Build high-level Trilinos wrappers"
+        },
+        {
+            "name": "shared",
+            "default": true,
+            "description": "Build shared libraries"
+        }
+    ],
+    "homepage": "https://trilinos.github.io/ForTrilinos/",
+    "maintainers": [
+        "sethrj",
+        "aprokop"
+    ],
+    "patches": [],
+    "resources": [],
+    "description": "ForTrilinos provides a set of Fortran-2003 wrappers to the Trilinos\nsolver library. Note that most properties are *transitive* from the\nunderlying Trilinos configuration. For example, MPI is enabled if and\nonly if the linked Trilinos version has it, so this package does not\nprovide an indepdent variant. Instead, use ``fortrilinos ^trilinos~mpi``\nto disable MPI support. Since Trilinos enables a bunch of upstream\ndependencies by default, it might be worthwhile to disable them:: spack\ninstall fortrilinos ^trilinos@12.18.1+nox+stratimikos\n~boost~exodus~glm~gtest~hdf5~hypre~matio~metis~mumps~netcdf~suite-sparse\n",
+    "dependencies": [
+        {
+            "name": "cmake",
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
+        },
+        {
+            "name": "trilinos",
+            "description": "The Trilinos Project is an effort to develop algorithms and enabling\ntechnologies within an object-oriented software framework for the\nsolution of large-scale, complex multi-physics engineering and\nscientific problems. A unique design feature of Trilinos is its focus on\npackages."
+        }
+    ],
+    "dependent_to": []
+}

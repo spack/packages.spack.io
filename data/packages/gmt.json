@@ -1,0 +1,182 @@
+{
+    "name": "gmt",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "master",
+            "branch": "master"
+        },
+        {
+            "name": "6.2.0",
+            "sha256": "b70786ca5ba7d1293acc4e901a0f82e1300d368b61009ef87f771f4bc99d058a"
+        },
+        {
+            "name": "6.1.1",
+            "sha256": "4cb17f42ff10b8f5fe372956c23f1fa3ca21a8e94933a6c614894f0be33427c1"
+        },
+        {
+            "name": "6.1.0",
+            "sha256": "f76ad7f444d407dfd7e5762644eec3a719c6aeb06d877bf746fe51abd79b1a9e"
+        },
+        {
+            "name": "6.0.0",
+            "sha256": "7a733e670f01d99f8fc0da51a4337320d764c06a68746621f83ccf2e3453bcb7"
+        },
+        {
+            "name": "5.4.4",
+            "sha256": "b593dfb101e6507c467619f3d2190a9f78b09d49fe2c27799750b8c4c0cd2da0"
+        },
+        {
+            "name": "4.5.9",
+            "sha256": "9b13be96ccf4bbd38c14359c05dfa7eeeb4b5f06d6f4be9c33d6c3ea276afc86",
+            "url": "ftp://ftp.soest.hawaii.edu/gmt/legacy/gmt-4.5.9.tar.bz2",
+            "deprecated": true
+        }
+    ],
+    "build_system": "Package",
+    "conflicts": [],
+    "variants": [
+        {
+            "name": "ghostscript",
+            "default": false,
+            "description": "Ability to convert PostScript plots to PDF and rasters"
+        },
+        {
+            "name": "gdal",
+            "default": false,
+            "description": "Ability to read and write numerous grid and image formats"
+        },
+        {
+            "name": "pcre",
+            "default": false,
+            "description": "Regular expression support"
+        },
+        {
+            "name": "fftw",
+            "default": false,
+            "description": "Fast FFTs"
+        },
+        {
+            "name": "glib",
+            "default": false,
+            "description": "GTHREAD support"
+        },
+        {
+            "name": "lapack",
+            "default": false,
+            "description": "Fast matrix inversion"
+        },
+        {
+            "name": "blas",
+            "default": false,
+            "description": "Fast matrix multiplications"
+        },
+        {
+            "name": "graphicsmagick",
+            "default": false,
+            "description": "Convert images to animated GIFs"
+        },
+        {
+            "name": "ffmpeg",
+            "default": false,
+            "description": "Convert images to videos"
+        },
+        {
+            "name": "docs",
+            "default": false,
+            "description": "Build manpage and HTML documentation"
+        }
+    ],
+    "homepage": "https://www.generic-mapping-tools.org/",
+    "maintainers": [
+        "adamjstewart"
+    ],
+    "patches": [
+        {
+            "owner": "builtin.gmt",
+            "sha256": "c1a2e340bb79fd62db59dc70b7df75a493cf72b3928672801732803418eb85e6",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "regexp.patch",
+            "version": "@6.1.0"
+        },
+        {
+            "owner": "builtin.gmt",
+            "sha256": "06197de07ad65f1d3b53c6889cf558cc3685e7a58b055ead6c751f83ba056001",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "type.patch",
+            "version": "@4.5.9"
+        }
+    ],
+    "resources": [],
+    "description": "GMT (Generic Mapping Tools) is an open source collection of about 80\ncommand-line tools for manipulating geographic and Cartesian data sets\n(including filtering, trend fitting, gridding, projecting, etc.) and\nproducing PostScript illustrations ranging from simple x-y plots via\ncontour maps to artificially illuminated surfaces and 3D perspective\nviews.\n",
+    "dependencies": [
+        {
+            "name": "cmake",
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
+        },
+        {
+            "name": "netcdf-c",
+            "description": "NetCDF (network Common Data Form) is a set of software libraries and\nmachine-independent data formats that support the creation, access, and\nsharing of array-oriented scientific data. This is the C distribution."
+        },
+        {
+            "name": "curl",
+            "description": "cURL is an open source command line tool and library for transferring\ndata with URL syntax"
+        },
+        {
+            "name": "ghostscript",
+            "description": "An interpreter for the PostScript language and for PDF."
+        },
+        {
+            "name": "gdal",
+            "description": "GDAL (Geospatial Data Abstraction Library) is a translator library for\nraster and vector geospatial data formats that is released under an\nX/MIT style Open Source license by the Open Source Geospatial\nFoundation. As a library, it presents a single raster abstract data\nmodel and vector abstract data model to the calling application for all\nsupported formats. It also comes with a variety of useful command line\nutilities for data translation and processing."
+        },
+        {
+            "name": "pcre",
+            "description": "The PCRE package contains Perl Compatible Regular Expression libraries.\nThese are useful for implementing regular expression pattern matching\nusing the same syntax and semantics as Perl 5."
+        },
+        {
+            "name": "fftw",
+            "description": "FFTW is a C subroutine library for computing the discrete Fourier\ntransform (DFT) in one or more dimensions, of arbitrary input size, and\nof both real and complex data (as well as of even/odd data, i.e. the\ndiscrete cosine/sine transforms or DCT/DST). We believe that FFTW, which\nis free software, should become the FFT library of choice for most\napplications."
+        },
+        {
+            "name": "glib",
+            "description": "GLib provides the core application building blocks for libraries and\napplications written in C. The GLib package contains a low-level\nlibraries useful for providing data structure handling for C,\nportability wrappers and interfaces for such runtime functionality as an\nevent loop, threads, dynamic loading and an object system."
+        },
+        {
+            "name": "lapack",
+            "description": "Intel oneAPI MKL."
+        },
+        {
+            "name": "blas",
+            "description": "Intel oneAPI MKL."
+        },
+        {
+            "name": "graphicsmagick",
+            "description": "GraphicsMagick is the swiss army knife of image processing. Provides a\nrobust and efficient collection of tools and libraries which support\nreading, writing, and manipulating an image in over 88 major formats\nincluding important formats like DPX, GIF, JPEG, JPEG-2000, PNG, PDF,\nPNM, and TIFF."
+        },
+        {
+            "name": "ffmpeg",
+            "description": "FFmpeg is a complete, cross-platform solution to record, convert and\nstream audio and video."
+        },
+        {
+            "name": "py-sphinx",
+            "description": "Sphinx Documentation Generator."
+        }
+    ],
+    "dependent_to": [
+        {
+            "name": "fstrack",
+            "description": "Package with tools to analyze symmetry components of elastic tensors,\npredict synthetic waveforms and compute automated shear wave splitting\nalong ray paths, and to track finite strain and predict LPO from mantle\nflow given on GMT/netcdf grds."
+        },
+        {
+            "name": "gmtsar",
+            "description": "GMTSAR is an open source (GNU General Public License) InSAR processing\nsystem designed for users familiar with Generic Mapping Tools (GMT)."
+        },
+        {
+            "name": "hc",
+            "description": "HC is a global mantle circulation solver following Hager & O'Connell\n(1981) which can compute velocities, tractions, and geoid for simple\ndensity distributions and plate velocities."
+        }
+    ]
+}

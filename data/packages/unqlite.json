@@ -1,0 +1,55 @@
+{
+    "name": "unqlite",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "master",
+            "branch": "master"
+        },
+        {
+            "name": "1.1.9",
+            "sha256": "33d5b5e7b2ca223942e77d31112d2e20512bc507808414451c8a98a7be5e15c0"
+        }
+    ],
+    "build_system": "CMakePackage",
+    "conflicts": [
+        {
+            "name": "+ipo",
+            "spec": "^cmake@:3.8",
+            "description": "+ipo is not supported by CMake < 3.9"
+        }
+    ],
+    "variants": [
+        {
+            "name": "build_type",
+            "default": "RelWithDebInfo",
+            "description": "CMake build type"
+        },
+        {
+            "name": "ipo",
+            "default": false,
+            "description": "CMake interprocedural optimization"
+        }
+    ],
+    "homepage": "https://unqlite.org/",
+    "maintainers": [],
+    "patches": [
+        {
+            "owner": "builtin.unqlite",
+            "sha256": "3695edf5bdf7d7ca03bcd65164c9439e64c5e72f90ea86b2c923b1640141e372",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "0001-Removed-the-STATIC-key-word-to-enable-building-a-sha.patch",
+            "version": "@1.1.9"
+        }
+    ],
+    "resources": [],
+    "description": "UnQLite is a in-process software library which implements a self-\ncontained, serverless, zero-configuration, transactional NoSQL database\nengine.\n",
+    "dependencies": [
+        {
+            "name": "cmake",
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
+        }
+    ],
+    "dependent_to": []
+}

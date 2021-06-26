@@ -1,0 +1,219 @@
+{
+    "name": "visit",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "develop",
+            "branch": "develop"
+        },
+        {
+            "name": "3.1.1",
+            "sha256": "0b60ac52fd00aff3cf212a310e36e32e13ae3ca0ddd1ea3f54f75e4d9b6c6cf0"
+        },
+        {
+            "name": "3.0.1",
+            "sha256": "a506d4d83b8973829e68787d8d721199523ce7ec73e7594e93333c214c2c12bd"
+        },
+        {
+            "name": "2.13.3",
+            "sha256": "cf0b3d2e39e1cd102dd886d3ef6da892733445e362fc28f24d9682012cccf2e5"
+        },
+        {
+            "name": "2.13.0",
+            "sha256": "716644b8e78a00ff82691619d4d1e7a914965b6535884890b667b97ba08d6a0f"
+        },
+        {
+            "name": "2.12.3",
+            "sha256": "2dd351a291ee3e79926bc00391ca89b202cfa4751331b0fdee1b960c7922161f"
+        },
+        {
+            "name": "2.12.2",
+            "sha256": "55897d656ac2ea4eb87a30118b2e3963d6c8a391dda0790268426a73e4b06943"
+        },
+        {
+            "name": "2.10.3",
+            "sha256": "05018215c4727eb42d47bb5cc4ff937b2a2ccaca90d141bc7fa426a0843a5dbc"
+        },
+        {
+            "name": "2.10.2",
+            "sha256": "89ecdfaf197ef431685e31b75628774deb6cd75d3e332ef26505774403e8beff"
+        },
+        {
+            "name": "2.10.1",
+            "sha256": "6b53dea89a241fd03300a7a3a50c0f773e2fb8458cd3ad06816e9bd2f0337cd8"
+        }
+    ],
+    "build_system": "CMakePackage",
+    "conflicts": [
+        {
+            "name": "+ipo",
+            "spec": "^cmake@:3.8",
+            "description": "+ipo is not supported by CMake < 3.9"
+        },
+        {
+            "name": "+adios2",
+            "spec": "@:2.999",
+            "description": "None"
+        },
+        {
+            "name": "+hdf5",
+            "spec": "@:2.999~gui",
+            "description": "None"
+        },
+        {
+            "name": "+silo",
+            "spec": "@:2.999~gui",
+            "description": "None"
+        }
+    ],
+    "variants": [
+        {
+            "name": "build_type",
+            "default": "RelWithDebInfo",
+            "description": "CMake build type"
+        },
+        {
+            "name": "ipo",
+            "default": false,
+            "description": "CMake interprocedural optimization"
+        },
+        {
+            "name": "gui",
+            "default": true,
+            "description": "Enable VisIt's GUI"
+        },
+        {
+            "name": "adios2",
+            "default": false,
+            "description": "Enable ADIOS2 file format"
+        },
+        {
+            "name": "hdf5",
+            "default": true,
+            "description": "Enable HDF5 file format"
+        },
+        {
+            "name": "silo",
+            "default": true,
+            "description": "Enable Silo file format"
+        },
+        {
+            "name": "python",
+            "default": true,
+            "description": "Enable Python support"
+        },
+        {
+            "name": "mpi",
+            "default": true,
+            "description": "Enable parallel engine"
+        }
+    ],
+    "homepage": "https://wci.llnl.gov/simulation/computer-codes/visit/",
+    "maintainers": [
+        "cyrush"
+    ],
+    "patches": [
+        {
+            "owner": "builtin.visit",
+            "sha256": "9ae276981f12ab2accafdcb9a8d9e18cee7d8b3c44586bd91b10478cac220faf",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "spack-changes-3.1.patch",
+            "version": "@3.1.0:"
+        },
+        {
+            "owner": "builtin.visit",
+            "sha256": "b1c10e8f99fd869cc488e7c17e135849c7f0d4ca4414d18a6760247188114031",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "spack-changes-3.0.1.patch",
+            "version": "@3.0.1"
+        },
+        {
+            "owner": "builtin.visit",
+            "sha256": "81fd707305a9ba245bc5d8108d738f5229513eedddf7d683d0c4f3fdcc55e887",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "nonframework-qwt.patch",
+            "version": "^qt~framework arch=darwin-None-None"
+        },
+        {
+            "owner": "builtin.visit",
+            "sha256": "f36275861eb55350bd54eadb5087afef6380ac02ed22afce906ec69393607968",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "parallel-hdf5.patch",
+            "version": "+hdf5+mpi"
+        }
+    ],
+    "resources": [],
+    "description": "VisIt is an Open Source, interactive, scalable, visualization, animation\nand analysis tool. See comments in VisIt's package.py for tips about\nbuilding VisIt with spack. Building VisIt with Spack is still\nexperimental and many standard features are likely disabled\nLINUX-------------------------------------------------------------------\nspack install visit ^python+shared ^glib@2.56.3 ^py-setuptools@44.1.0\nLINUX-W/O-OPENGL--------------------------------------------------------\nspack install visit ^python+shared ^glib@2.56.3 ^py-setuptools@44.1.0 \\\n^mesa+opengl\nMACOS-------------------------------------------------------------------\nspack install visit ^python+shared ^glib@2.56.3 ^py-setuptools@44.1.0 \\\n^qt~framework\n",
+    "dependencies": [
+        {
+            "name": "cmake",
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
+        },
+        {
+            "name": "vtk",
+            "description": "The Visualization Toolkit (VTK) is an open-source, freely available\nsoftware system for 3D computer graphics, image processing and\nvisualization."
+        },
+        {
+            "name": "glu",
+            "description": "This package provides the Mesa OpenGL Utility library."
+        },
+        {
+            "name": "qt",
+            "description": "Qt is a comprehensive cross-platform C++ application framework."
+        },
+        {
+            "name": "qwt",
+            "description": "The Qwt library contains GUI Components and utility classes which are\nprimarily useful for programs with a technical background. Beside a\nframework for 2D plots it provides scales, sliders, dials, compasses,\nthermometers, wheels and knobs to control or display values, arrays, or\nranges of type double."
+        },
+        {
+            "name": "python",
+            "description": "The Python programming language."
+        },
+        {
+            "name": "silo",
+            "description": "Silo is a library for reading and writing a wide variety of scientific\ndata to binary, disk files."
+        },
+        {
+            "name": "hdf5",
+            "description": "HDF5 is a data model, library, and file format for storing and managing\ndata. It supports an unlimited variety of datatypes, and is designed for\nflexible and efficient I/O and for high volume and complex data."
+        },
+        {
+            "name": "mpi",
+            "description": "MVAPICH2-X is the advanced version of the MVAPICH2 MPI library with\nenhanced features (UMR, ODP, DC, Core-Direct, SHARP, XPMEM), OSU INAM\n(InifniBand Network Monitoring and Analysis),PGAS (OpenSHMEM, UPC,\nUPC++, and CAF), and MPI+PGAS programming models with unified\ncommunication runtime. MVAPICH2-X is not installable from source and is\nonly available through a binary mirror. If you do not find the binary\nyou're looking for, send us an email at mvapich@cse.ohio-state.edu. The\nbinary mirror url is: http://mvapich.cse.ohio-\nstate.edu/download/mvapich/spack-mirror/mvapich2x/"
+        },
+        {
+            "name": "adios2",
+            "description": "The Adaptable Input Output System version 2, developed in the Exascale\nComputing Program"
+        }
+    ],
+    "dependent_to": [
+        {
+            "name": "damaris",
+            "description": "Damaris is a middleware for I/O and in situ analytics targeting large-\nscale, MPI-based HPC simulations."
+        },
+        {
+            "name": "ecp-data-vis-sdk",
+            "description": "ECP Data & Vis SDK"
+        },
+        {
+            "name": "visit-silo",
+            "description": "This is the Silo Plug-In for VisIt. It can be installed after VisIt is\ninstalled along SILO library. It is made as an extension to VisIt that\ncan be activated or as an environment with a view: ~/.visit Complete\nexplanation at:\nhttps://github.com/spack/spack/pull/22907#issuecomment-824218296"
+        },
+        {
+            "name": "visit-cgns",
+            "description": "This is the CGNS Plug-In for VisIt. It can be installed after VisIt is\ninstalled along CGNS library."
+        },
+        {
+            "name": "nektools",
+            "description": "Tools required by Nek5000"
+        },
+        {
+            "name": "sensei",
+            "description": "SENSEI is a platform for scalable in-situ analysis and visualization.\nIts design motto is 'Write once, run everywhere', this means that once\nthe application is instrumented with SENSEI it can use existing and\nfuture analysis backends. Existing backends include: Paraview/Catalyst,\nVisit/Libsim, ADIOS, Python scripts, and so on."
+        }
+    ]
+}

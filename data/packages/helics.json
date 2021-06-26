@@ -1,0 +1,219 @@
+{
+    "name": "helics",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "develop",
+            "branch": "develop",
+            "submodules": true
+        },
+        {
+            "name": "master",
+            "branch": "master",
+            "submodules": true
+        },
+        {
+            "name": "2.7.1",
+            "sha256": "872d415959e9d97069b06327410af00e7daae8dbeb9f050b26632eca924ea23c"
+        },
+        {
+            "name": "2.7.0",
+            "sha256": "ad005c0948ef4284417d429112772d0b63ebfbc62c9093c02ac10f4a333d70f4"
+        },
+        {
+            "name": "2.6.1",
+            "sha256": "4b9a733a568ae8e6492f93abcd43f1aa9c53b233edcbeb0ab188dcc0d73ac928"
+        },
+        {
+            "name": "2.6.0",
+            "sha256": "450cbfc0c37b77ea051d3edc12bbc0f7cf4c1a17091ae10df5214b6176eebb42"
+        },
+        {
+            "name": "2.5.2",
+            "sha256": "81928f7e30233a07ae2bfe6c5489fdd958364c0549b2a3e6fdc6163d4b390311"
+        },
+        {
+            "name": "2.5.1",
+            "sha256": "3fc3507f7c074ff8b6a17fe54676334158fb2ff7cc8e7f4df011938f28fdbbca"
+        },
+        {
+            "name": "2.5.0",
+            "sha256": "6f4f9308ebb59d82d71cf068e0d9d66b6edfa7792d61d54f0a61bf20dd2a7428"
+        },
+        {
+            "name": "2.4.2",
+            "sha256": "957856f06ed6d622f05dfe53df7768bba8fe2336d841252f5fac8345070fa5cb"
+        },
+        {
+            "name": "2.4.1",
+            "sha256": "ac077e9efe466881ea366721cb31fb37ea0e72a881a717323ba4f3cdda338be4"
+        }
+    ],
+    "build_system": "CMakePackage",
+    "conflicts": [
+        {
+            "name": "+ipo",
+            "spec": "^cmake@:3.8",
+            "description": "+ipo is not supported by CMake < 3.9"
+        },
+        {
+            "name": "^openmpi",
+            "spec": "@:2.4.1+mpi",
+            "description": "None"
+        },
+        {
+            "name": "+ipc",
+            "spec": "~boost",
+            "description": "None"
+        },
+        {
+            "name": "+webserver",
+            "spec": "~boost",
+            "description": "None"
+        },
+        {
+            "name": "+tcp",
+            "spec": "~asio",
+            "description": "None"
+        },
+        {
+            "name": "+udp",
+            "spec": "~asio",
+            "description": "None"
+        }
+    ],
+    "variants": [
+        {
+            "name": "build_type",
+            "default": "Release",
+            "description": "CMake build type"
+        },
+        {
+            "name": "ipo",
+            "default": false,
+            "description": "CMake interprocedural optimization"
+        },
+        {
+            "name": "apps",
+            "default": true,
+            "description": "Install the HELICS apps"
+        },
+        {
+            "name": "benchmarks",
+            "default": false,
+            "description": "Install the HELICS benchmarks"
+        },
+        {
+            "name": "c_shared",
+            "default": true,
+            "description": "Install the C shared library"
+        },
+        {
+            "name": "cxx_shared",
+            "default": true,
+            "description": "Install the CXX shared library"
+        },
+        {
+            "name": "zmq",
+            "default": true,
+            "description": "Enable ZeroMQ core types"
+        },
+        {
+            "name": "tcp",
+            "default": true,
+            "description": "Enable TCP core types"
+        },
+        {
+            "name": "udp",
+            "default": true,
+            "description": "Enable UDP core type"
+        },
+        {
+            "name": "ipc",
+            "default": true,
+            "description": "Enable IPC core type"
+        },
+        {
+            "name": "inproc",
+            "default": true,
+            "description": "Enable in-process core type"
+        },
+        {
+            "name": "mpi",
+            "default": false,
+            "description": "Enable MPI core type"
+        },
+        {
+            "name": "boost",
+            "default": true,
+            "description": "Compile with Boost libraries"
+        },
+        {
+            "name": "asio",
+            "default": true,
+            "description": "Compile with ASIO libraries"
+        },
+        {
+            "name": "swig",
+            "default": false,
+            "description": "Build language bindings with SWIG"
+        },
+        {
+            "name": "webserver",
+            "default": true,
+            "description": "Enable the integrated webserver in the HELICS broker server"
+        },
+        {
+            "name": "python",
+            "default": false,
+            "description": "Enable Python interface"
+        }
+    ],
+    "homepage": "https://github.com/GMLC-TDC/HELICS",
+    "maintainers": [
+        "nightlark"
+    ],
+    "patches": [],
+    "resources": [],
+    "description": "HELICS is a general-purpose, modular, highly-scalable co-simulation\nframework that runs cross-platform (Linux, Windows, and Mac OS X) and\nsupports both event driven and time series simulation.\n",
+    "dependencies": [
+        {
+            "name": "cmake",
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
+        },
+        {
+            "name": "git",
+            "description": "Git is a free and open source distributed version control system\ndesigned to handle everything from small to very large projects with\nspeed and efficiency."
+        },
+        {
+            "name": "boost",
+            "description": "Boost provides free peer-reviewed portable C++ source libraries,\nemphasizing libraries that work well with the C++ Standard Library.\nBoost libraries are intended to be widely useful, and usable across a\nbroad spectrum of applications. The Boost license encourages both\ncommercial and non-commercial use."
+        },
+        {
+            "name": "swig",
+            "description": "SWIG is an interface compiler that connects programs written in C and\nC++ with scripting languages such as Perl, Python, Ruby, and Tcl. It\nworks by taking the declarations found in C/C++ header files and using\nthem to generate the wrapper code that scripting languages need to\naccess the underlying C/C++ code. In addition, SWIG provides a variety\nof customization features that let you tailor the wrapping process to\nsuit your application."
+        },
+        {
+            "name": "libzmq",
+            "description": "The ZMQ networking/concurrency library and core API"
+        },
+        {
+            "name": "mpi",
+            "description": "MVAPICH2-X is the advanced version of the MVAPICH2 MPI library with\nenhanced features (UMR, ODP, DC, Core-Direct, SHARP, XPMEM), OSU INAM\n(InifniBand Network Monitoring and Analysis),PGAS (OpenSHMEM, UPC,\nUPC++, and CAF), and MPI+PGAS programming models with unified\ncommunication runtime. MVAPICH2-X is not installable from source and is\nonly available through a binary mirror. If you do not find the binary\nyou're looking for, send us an email at mvapich@cse.ohio-state.edu. The\nbinary mirror url is: http://mvapich.cse.ohio-\nstate.edu/download/mvapich/spack-mirror/mvapich2x/"
+        },
+        {
+            "name": "python",
+            "description": "The Python programming language."
+        }
+    ],
+    "dependent_to": [
+        {
+            "name": "gridlab-d",
+            "description": "Autotools package for Gridlab-D, a new power distribution system\nsimulation and analysis tool that provides valuable information to users\nwho design and operate distribution systems, and to utilities that wish\nto take advantage of the latest energy technologies. Gridlab-D is a\nflexible simulation environment that can be integrated with a variety of\nthird-party data management and analysis tools."
+        },
+        {
+            "name": "ns-3-dev",
+            "description": "ns-3 is a discrete-event network simulator, targeted primarily for\nresearch and educational use"
+        }
+    ]
+}

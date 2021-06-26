@@ -1,0 +1,138 @@
+{
+    "name": "hepmc3",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "3.2.3",
+            "sha256": "8caadacc2c969883cd1f994b622795fc885fb4b15dad8c8ae64bcbdbf0cbd47d"
+        },
+        {
+            "name": "3.2.2",
+            "sha256": "0e8cb4f78f804e38f7d29875db66f65e4c77896749d723548cc70fb7965e2d41"
+        },
+        {
+            "name": "3.2.1",
+            "sha256": "6e4e4bb5708af105d4bf74efc2745e6efe704e942d46a8042f7dcae37a4739fe"
+        },
+        {
+            "name": "3.2.0",
+            "sha256": "f132387763d170f25a7cc9f0bd586b83373c09acf0c3daa5504063ba460f89fc"
+        },
+        {
+            "name": "3.1.2",
+            "sha256": "4133074b3928252877982f3d4b4c6c750bb7a324eb6c7bb2afc6fa256da3ecc7"
+        },
+        {
+            "name": "3.1.1",
+            "sha256": "2fcbc9964d6f9f7776289d65f9c73033f85c15bf5f0df00c429a6a1d8b8248bb"
+        },
+        {
+            "name": "3.1.0",
+            "sha256": "cd37eed619d58369041018b8627274ad790020a4714b54ac05ad1ebc1a6e7f8a"
+        }
+    ],
+    "build_system": "CMakePackage",
+    "conflicts": [
+        {
+            "name": "+ipo",
+            "spec": "^cmake@:3.8",
+            "description": "+ipo is not supported by CMake < 3.9"
+        },
+        {
+            "name": "%gcc@9.3.0",
+            "spec": "@:3.1.1",
+            "description": "None"
+        }
+    ],
+    "variants": [
+        {
+            "name": "build_type",
+            "default": "RelWithDebInfo",
+            "description": "CMake build type"
+        },
+        {
+            "name": "ipo",
+            "default": false,
+            "description": "CMake interprocedural optimization"
+        },
+        {
+            "name": "python",
+            "default": false,
+            "description": "Enable Python bindings"
+        },
+        {
+            "name": "rootio",
+            "default": false,
+            "description": "Enable ROOT I/O"
+        },
+        {
+            "name": "interfaces",
+            "default": false,
+            "description": "Install interfaces for some Monte-Carlo Event Gens"
+        }
+    ],
+    "homepage": "https://cern.ch/hepmc",
+    "maintainers": [
+        "vvolkl"
+    ],
+    "patches": [
+        {
+            "owner": "builtin.hepmc3",
+            "sha256": "5926b29c4f9ce9696573aeab16cbc99fd2e556a6575802983ea793753061f7b7",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "ba38f14d8f56c16cc4105d98f6d4540c928c6150.patch",
+            "version": "@3.1.2:3.2.1%gcc@9.3.0"
+        }
+    ],
+    "resources": [],
+    "description": "The HepMC package is an object oriented, C++ event record for High\nEnergy Physics Monte Carlo generators and simulation.\n",
+    "dependencies": [
+        {
+            "name": "cmake",
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
+        },
+        {
+            "name": "root",
+            "description": "ROOT is a data analysis framework."
+        },
+        {
+            "name": "python",
+            "description": "The Python programming language."
+        }
+    ],
+    "dependent_to": [
+        {
+            "name": "rivet",
+            "description": "Rivet - the particle-physics MC analysis toolkit"
+        },
+        {
+            "name": "tauola",
+            "description": "Tauola is a event generator for tau decays."
+        },
+        {
+            "name": "whizard",
+            "description": "WHIZARD is a program system designed for the efficient calculation of\nmulti-particle scattering cross sections and simulated event samples."
+        },
+        {
+            "name": "dd4hep",
+            "description": "DD4hep is a software framework for providing a complete solution for\nfull detector description (geometry, materials, visualization, readout,\nalignment, calibration, etc.) for the full experiment life cycle\n(detector concept development, detector optimization, construction,\noperation). It offers a consistent description through a single source\nof detector information for simulation, reconstruction, analysis, etc.\nIt distributed under the LGPLv3 License."
+        },
+        {
+            "name": "acts",
+            "description": "A Common Tracking Software (Acts) This project contains an experiment-\nindependent set of track reconstruction tools. The main philosophy is to\nprovide high-level track reconstruction modules that can be used for any\ntracking detector. The description of the tracking detector's geometry\nis optimized for efficient navigation and quick extrapolation of tracks.\nConverters for several common geometry description languages exist.\nHaving a highly performant, yet largely customizable implementation of\ntrack reconstruction algorithms was a primary objective for the design\nof this toolset. Additionally, the applicability to real-life HEP\nexperiments plays major role in the development process. Apart from\nalgorithmic code, this project also provides an event data model for the\ndescription of track parameters and measurements. Key features of this\nproject include: tracking geometry description which can be constructed\nfrom TGeo, DD4Hep, or GDML input, simple and efficient event data model,\nperformant and highly flexible algorithms for track propagation and\nfitting, basic seed finding algorithms."
+        },
+        {
+            "name": "thepeg",
+            "description": "Toolkit for High Energy Physics Event Generation"
+        },
+        {
+            "name": "evtgen",
+            "description": "EvtGen is a Monte Carlo event generator that simulates the decays of\nheavy flavour particles, primarily B and D mesons."
+        },
+        {
+            "name": "photos",
+            "description": "Photos is a Monte Carlo program for bremsstrahlung in the decay of\nparticles and resonances."
+        }
+    ]
+}

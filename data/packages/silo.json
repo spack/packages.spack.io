@@ -1,0 +1,166 @@
+{
+    "name": "silo",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "4.10.2",
+            "sha256": "3af87e5f0608a69849c00eb7c73b11f8422fa36903dd14610584506e7f68e638",
+            "preferred": true
+        },
+        {
+            "name": "4.10.2-bsd",
+            "sha256": "4b901dfc1eb4656e83419a6fde15a2f6c6a31df84edfad7f1dc296e01b20140e",
+            "url": "https://wci.llnl.gov/sites/wci/files/2021-01/silo-4.10.2-bsd.tgz"
+        },
+        {
+            "name": "4.9",
+            "sha256": "90f3d069963d859c142809cfcb034bc83eb951f61ac02ccb967fc8e8d0409854"
+        },
+        {
+            "name": "4.8",
+            "sha256": "c430c1d33fcb9bc136a99ad473d535d6763bd1357b704a915ba7b1081d58fb21"
+        }
+    ],
+    "build_system": "AutotoolsPackage",
+    "conflicts": [],
+    "variants": [
+        {
+            "name": "fortran",
+            "default": true,
+            "description": "Enable Fortran support"
+        },
+        {
+            "name": "shared",
+            "default": true,
+            "description": "Build shared libraries"
+        },
+        {
+            "name": "silex",
+            "default": false,
+            "description": "Builds Silex, a GUI for viewing Silo files"
+        },
+        {
+            "name": "pic",
+            "default": true,
+            "description": "Produce position-independent code (for shared libs)"
+        },
+        {
+            "name": "mpi",
+            "default": true,
+            "description": "Compile with MPI Compatibility"
+        },
+        {
+            "name": "hdf5",
+            "default": true,
+            "description": "Use the HDF5 for database"
+        },
+        {
+            "name": "hzip",
+            "default": true,
+            "description": "Enable hzip support"
+        },
+        {
+            "name": "fpzip",
+            "default": true,
+            "description": "Enable fpzip support"
+        }
+    ],
+    "homepage": "https://wci.llnl.gov/simulation/computer-codes/silo",
+    "maintainers": [],
+    "patches": [
+        {
+            "owner": "builtin.silo",
+            "sha256": "7b5a1dc2a0e358e667088d77e7caa780967fa8ea60be89c44986605df9990abe",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "remove-mpiposix.patch",
+            "version": "@4.8:4.10.2"
+        },
+        {
+            "owner": "builtin.silo",
+            "sha256": "952d3c95fbeaf32355c1c24d831b6c315c5cf29023874127b0f461855046750c",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "H5FD_class_t-terminate.patch",
+            "version": "^hdf5@1.10.0:"
+        }
+    ],
+    "resources": [],
+    "description": "Silo is a library for reading and writing a wide variety of scientific\ndata to binary, disk files.\n",
+    "dependencies": [
+        {
+            "name": "mpi",
+            "description": "MVAPICH2-X is the advanced version of the MVAPICH2 MPI library with\nenhanced features (UMR, ODP, DC, Core-Direct, SHARP, XPMEM), OSU INAM\n(InifniBand Network Monitoring and Analysis),PGAS (OpenSHMEM, UPC,\nUPC++, and CAF), and MPI+PGAS programming models with unified\ncommunication runtime. MVAPICH2-X is not installable from source and is\nonly available through a binary mirror. If you do not find the binary\nyou're looking for, send us an email at mvapich@cse.ohio-state.edu. The\nbinary mirror url is: http://mvapich.cse.ohio-\nstate.edu/download/mvapich/spack-mirror/mvapich2x/"
+        },
+        {
+            "name": "hdf5",
+            "description": "HDF5 is a data model, library, and file format for storing and managing\ndata. It supports an unlimited variety of datatypes, and is designed for\nflexible and efficient I/O and for high volume and complex data."
+        },
+        {
+            "name": "qt",
+            "description": "Qt is a comprehensive cross-platform C++ application framework."
+        },
+        {
+            "name": "libx11",
+            "description": "libX11 - Core X11 protocol client library."
+        },
+        {
+            "name": "libxmu",
+            "description": "This library contains miscellaneous utilities and is not part of the\nXlib standard. It contains routines which only use public interfaces so\nthat it may be layered on top of any proprietary implementation of Xlib\nor Xt."
+        },
+        {
+            "name": "readline",
+            "description": "The GNU Readline library provides a set of functions for use by\napplications that allow users to edit command lines as they are typed\nin. Both Emacs and vi editing modes are available. The Readline library\nincludes additional functions to maintain a list of previously-entered\ncommand lines, to recall and perhaps reedit those lines, and perform\ncsh-like history expansion on previous commands."
+        },
+        {
+            "name": "zlib",
+            "description": "A free, general-purpose, legally unencumbered lossless data-compression\nlibrary."
+        }
+    ],
+    "dependent_to": [
+        {
+            "name": "exampm",
+            "description": "Exascale Material Point Method (MPM) Mini-App"
+        },
+        {
+            "name": "coevp",
+            "description": "CoEVP is a scale-bridging proxy application for embedded viscoplasticity\napplications. It is created and maintained by The Exascale Co-Design\nCenter for Materials in Extreme Environments (ExMatEx). The code is\nintended to serve as a vehicle for co-design by allowing others to\nextend and/or reimplement it as needed to test performance of new\narchitectures, programming models, etc. Due to the size and complexity\nof the studied models, as well as restrictions on distribution, the\ncurrently available LULESH proxy application provides the coarse-scale\nmodel implementation and the ASPA proxy application provides the\nadaptive sampling support."
+        },
+        {
+            "name": "lulesh",
+            "description": "LULESH is a highly simplified application, hard-coded to only style\ntypical in scientific C or C++ based applications. Hard code to only\nsolve a Sedov blast problem with analytic answer"
+        },
+        {
+            "name": "parflow",
+            "description": "ParFlow is an open-source parallel watershed simulator which includes\noverland flow, complex topology, heterogeneity and coupled land-surface\nprocesses."
+        },
+        {
+            "name": "bookleaf-cpp",
+            "description": "BookLeaf is a 2D unstructured hydrodynamics mini-app."
+        },
+        {
+            "name": "samrai",
+            "description": "SAMRAI (Structured Adaptive Mesh Refinement Application Infrastructure)\nis an object-oriented C++ software library enables exploration of\nnumerical, algorithmic, parallel computing, and software issues\nassociated with applying structured adaptive mesh refinement (SAMR)\ntechnology in large-scale parallel application development."
+        },
+        {
+            "name": "visit-silo",
+            "description": "This is the Silo Plug-In for VisIt. It can be installed after VisIt is\ninstalled along SILO library. It is made as an extension to VisIt that\ncan be activated or as an environment with a view: ~/.visit Complete\nexplanation at:\nhttps://github.com/spack/spack/pull/22907#issuecomment-824218296"
+        },
+        {
+            "name": "amp",
+            "description": "The Advanced Multi-Physics (AMP) package. The Advanced Multi-Physics\n(AMP) package is an open source parallel object-oriented computational\nframework that is designed with single and multi-domain multi-physics\napplications in mind."
+        },
+        {
+            "name": "macsio",
+            "description": "A Multi-purpose, Application-Centric, Scalable I/O Proxy Application."
+        },
+        {
+            "name": "visit",
+            "description": "VisIt is an Open Source, interactive, scalable, visualization, animation\nand analysis tool. See comments in VisIt's package.py for tips about\nbuilding VisIt with spack. Building VisIt with Spack is still\nexperimental and many standard features are likely disabled\nLINUX-------------------------------------------------------------------\nspack install visit ^python+shared ^glib@2.56.3 ^py-setuptools@44.1.0\nLINUX-W/O-OPENGL--------------------------------------------------------\nspack install visit ^python+shared ^glib@2.56.3 ^py-setuptools@44.1.0 \\\n^mesa+opengl\nMACOS-------------------------------------------------------------------\nspack install visit ^python+shared ^glib@2.56.3 ^py-setuptools@44.1.0 \\\n^qt~framework"
+        },
+        {
+            "name": "conduit",
+            "description": "Conduit is an open source project from Lawrence Livermore National\nLaboratory that provides an intuitive model for describing hierarchical\nscientific data in C++, C, Fortran, and Python. It is used for data\ncoupling between packages in-core, serialization, and I/O tasks."
+        }
+    ]
+}

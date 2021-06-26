@@ -1,0 +1,72 @@
+{
+    "name": "nnvm",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "master",
+            "branch": "master"
+        },
+        {
+            "name": "20170418",
+            "commit": "b279286304ac954098d94a2695bca599e832effb"
+        }
+    ],
+    "build_system": "CMakePackage",
+    "conflicts": [
+        {
+            "name": "+ipo",
+            "spec": "^cmake@:3.8",
+            "description": "+ipo is not supported by CMake < 3.9"
+        }
+    ],
+    "variants": [
+        {
+            "name": "build_type",
+            "default": "RelWithDebInfo",
+            "description": "CMake build type"
+        },
+        {
+            "name": "ipo",
+            "default": false,
+            "description": "CMake interprocedural optimization"
+        },
+        {
+            "name": "shared",
+            "default": true,
+            "description": "Build a shared NNVM lib."
+        }
+    ],
+    "homepage": "https://github.com/dmlc/nnvm",
+    "maintainers": [],
+    "patches": [
+        {
+            "owner": "builtin.nnvm",
+            "sha256": "01c2f31fa4a7b4041be666b9d6977a2910be71f8eb98793c4225eacbe49e7190",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "cmake.patch",
+            "version": ""
+        },
+        {
+            "owner": "builtin.nnvm",
+            "sha256": "6d1bd896196f8653f51a2a9c45962f97b6d7fe033acee49c1435d32de14881c1",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "cmake2.patch",
+            "version": "@20170418"
+        }
+    ],
+    "resources": [],
+    "description": "nnvm is a modular, decentralized and lightweight part to help build deep\nlearning libraries.\n",
+    "dependencies": [
+        {
+            "name": "cmake",
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
+        },
+        {
+            "name": "dmlc-core",
+            "description": "DMLC-Core is the backbone library to support all DMLC projects, offers\nthe bricks to build efficient and scalable distributed machine learning\nlibraries."
+        }
+    ],
+    "dependent_to": []
+}

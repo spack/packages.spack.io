@@ -1,0 +1,877 @@
+{
+    "name": "kokkos",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "master",
+            "branch": "master"
+        },
+        {
+            "name": "develop",
+            "branch": "develop"
+        },
+        {
+            "name": "3.4.00",
+            "sha256": "2e4438f9e4767442d8a55e65d000cc9cde92277d415ab4913a96cd3ad901d317"
+        },
+        {
+            "name": "3.3.01",
+            "sha256": "4919b00bb7b6eb80f6c335a32f98ebe262229d82e72d3bae6dd91aaf3d234c37"
+        },
+        {
+            "name": "3.2.00",
+            "sha256": "05e1b4dd1ef383ca56fe577913e1ff31614764e65de6d6f2a163b2bddb60b3e9"
+        },
+        {
+            "name": "3.1.01",
+            "sha256": "ff5024ebe8570887d00246e2793667e0d796b08c77a8227fe271127d36eec9dd"
+        },
+        {
+            "name": "3.1.00",
+            "sha256": "b935c9b780e7330bcb80809992caa2b66fd387e3a1c261c955d622dae857d878"
+        },
+        {
+            "name": "3.0.00",
+            "sha256": "c00613d0194a4fbd0726719bbed8b0404ed06275f310189b3493f5739042a92b"
+        }
+    ],
+    "build_system": "CMakePackage",
+    "conflicts": [
+        {
+            "name": "^blt@:0.3.6",
+            "spec": "+rocm",
+            "description": "None"
+        },
+        {
+            "name": "amdgpu_target=none",
+            "spec": "+rocm",
+            "description": "None"
+        },
+        {
+            "name": "~rocm",
+            "spec": "amdgpu_target=gfx701",
+            "description": "None"
+        },
+        {
+            "name": "~rocm",
+            "spec": "amdgpu_target=gfx801",
+            "description": "None"
+        },
+        {
+            "name": "~rocm",
+            "spec": "amdgpu_target=gfx802",
+            "description": "None"
+        },
+        {
+            "name": "~rocm",
+            "spec": "amdgpu_target=gfx803",
+            "description": "None"
+        },
+        {
+            "name": "~rocm",
+            "spec": "amdgpu_target=gfx900",
+            "description": "None"
+        },
+        {
+            "name": "~rocm",
+            "spec": "amdgpu_target=gfx906",
+            "description": "None"
+        },
+        {
+            "name": "~rocm",
+            "spec": "amdgpu_target=gfx908",
+            "description": "None"
+        },
+        {
+            "name": "~rocm",
+            "spec": "amdgpu_target=gfx1010",
+            "description": "None"
+        },
+        {
+            "name": "~rocm",
+            "spec": "amdgpu_target=gfx1011",
+            "description": "None"
+        },
+        {
+            "name": "~rocm",
+            "spec": "amdgpu_target=gfx1012",
+            "description": "None"
+        },
+        {
+            "name": "%gcc@5:",
+            "spec": "+cuda ^cuda@:7.5 arch=linux-None-x86_64:",
+            "description": "None"
+        },
+        {
+            "name": "%gcc@6:",
+            "spec": "+cuda ^cuda@:8 arch=linux-None-x86_64:",
+            "description": "None"
+        },
+        {
+            "name": "%gcc@6:",
+            "spec": "+cuda ^cuda@:9 arch=linux-None-ppc64le:",
+            "description": "None"
+        },
+        {
+            "name": "%gcc@7:",
+            "spec": "+cuda ^cuda@:9.1 arch=linux-None-x86_64:",
+            "description": "None"
+        },
+        {
+            "name": "%gcc@8:",
+            "spec": "+cuda ^cuda@:10.0.130 arch=linux-None-x86_64:",
+            "description": "None"
+        },
+        {
+            "name": "%gcc@8:",
+            "spec": "+cuda ^cuda@:10.0.130 arch=linux-None-ppc64le:",
+            "description": "None"
+        },
+        {
+            "name": "%gcc@9:",
+            "spec": "+cuda ^cuda@:10.2.89 arch=linux-None-x86_64:",
+            "description": "None"
+        },
+        {
+            "name": "%gcc@9:",
+            "spec": "+cuda ^cuda@:10.1.243 arch=linux-None-ppc64le:",
+            "description": "None"
+        },
+        {
+            "name": "%gcc@:4",
+            "spec": "+cuda ^cuda@11.0.2: arch=linux-None-x86_64:",
+            "description": "None"
+        },
+        {
+            "name": "%gcc@:4",
+            "spec": "+cuda ^cuda@11.0.2: arch=linux-None-ppc64le:",
+            "description": "None"
+        },
+        {
+            "name": "%gcc@10:",
+            "spec": "+cuda ^cuda@:11.0.2 arch=linux-None-x86_64:",
+            "description": "None"
+        },
+        {
+            "name": "%gcc@10:",
+            "spec": "+cuda ^cuda@:11.0.2 arch=linux-None-ppc64le:",
+            "description": "None"
+        },
+        {
+            "name": "%gcc@11:",
+            "spec": "+cuda ^cuda@:11.1.0 arch=linux-None-x86_64:",
+            "description": "None"
+        },
+        {
+            "name": "%gcc@11:",
+            "spec": "+cuda ^cuda@:11.1.0 arch=linux-None-ppc64le:",
+            "description": "None"
+        },
+        {
+            "name": "%pgi@:14.8",
+            "spec": "+cuda ^cuda@:7.0.27 arch=linux-None-x86_64:",
+            "description": "None"
+        },
+        {
+            "name": "%pgi@:15.3,15.5:",
+            "spec": "+cuda ^cuda@7.5 arch=linux-None-x86_64:",
+            "description": "None"
+        },
+        {
+            "name": "%pgi@:16.2,16.0:16.3",
+            "spec": "+cuda ^cuda@8 arch=linux-None-x86_64:",
+            "description": "None"
+        },
+        {
+            "name": "%pgi@:15,18:",
+            "spec": "+cuda ^cuda@9.0:9.1 arch=linux-None-x86_64:",
+            "description": "None"
+        },
+        {
+            "name": "%pgi@:16,19:",
+            "spec": "+cuda ^cuda@9.2.88:10 arch=linux-None-x86_64:",
+            "description": "None"
+        },
+        {
+            "name": "%pgi@:17,20:",
+            "spec": "+cuda ^cuda@10.1.105:10.2.89 arch=linux-None-x86_64:",
+            "description": "None"
+        },
+        {
+            "name": "%pgi@:17,21:",
+            "spec": "+cuda ^cuda@11.0.2:11.1.0 arch=linux-None-x86_64:",
+            "description": "None"
+        },
+        {
+            "name": "%clang@:3.4",
+            "spec": "+cuda ^cuda@:7.5 arch=linux-None-x86_64:",
+            "description": "None"
+        },
+        {
+            "name": "%clang@:3.7,4:",
+            "spec": "+cuda ^cuda@8.0:9.0 arch=linux-None-x86_64:",
+            "description": "None"
+        },
+        {
+            "name": "%clang@:3.7,4.1:",
+            "spec": "+cuda ^cuda@9.1 arch=linux-None-x86_64:",
+            "description": "None"
+        },
+        {
+            "name": "%clang@:3.7,5.1:",
+            "spec": "+cuda ^cuda@9.2 arch=linux-None-x86_64:",
+            "description": "None"
+        },
+        {
+            "name": "%clang@:3.7,6.1:",
+            "spec": "+cuda ^cuda@10.0.130 arch=linux-None-x86_64:",
+            "description": "None"
+        },
+        {
+            "name": "%clang@:3.7,7.1:",
+            "spec": "+cuda ^cuda@10.1.105 arch=linux-None-x86_64:",
+            "description": "None"
+        },
+        {
+            "name": "%clang@:3.7,8.1:",
+            "spec": "+cuda ^cuda@10.1.105:10.1.243 arch=linux-None-x86_64:",
+            "description": "None"
+        },
+        {
+            "name": "%clang@:3.2,9:",
+            "spec": "+cuda ^cuda@10.2.89 arch=linux-None-x86_64:",
+            "description": "None"
+        },
+        {
+            "name": "%clang@:5",
+            "spec": "+cuda ^cuda@11.0.2: arch=linux-None-x86_64:",
+            "description": "None"
+        },
+        {
+            "name": "%clang@:5",
+            "spec": "+cuda ^cuda@11.0.2: arch=linux-None-ppc64le:",
+            "description": "None"
+        },
+        {
+            "name": "%clang@10:",
+            "spec": "+cuda ^cuda@:11.0.2 arch=linux-None-x86_64:",
+            "description": "None"
+        },
+        {
+            "name": "%clang@10:",
+            "spec": "+cuda ^cuda@:11.0.2 arch=linux-None-ppc64le:",
+            "description": "None"
+        },
+        {
+            "name": "%clang@11:",
+            "spec": "+cuda ^cuda@:11.1.0 arch=linux-None-x86_64:",
+            "description": "None"
+        },
+        {
+            "name": "%clang@11:",
+            "spec": "+cuda ^cuda@:11.1.0 arch=linux-None-ppc64le:",
+            "description": "None"
+        },
+        {
+            "name": "%pgi",
+            "spec": "+cuda ^cuda@:8 arch=linux-None-ppc64le:",
+            "description": "None"
+        },
+        {
+            "name": "%pgi@:16",
+            "spec": "+cuda ^cuda@:9.1.185 arch=linux-None-ppc64le:",
+            "description": "None"
+        },
+        {
+            "name": "%pgi@:17",
+            "spec": "+cuda ^cuda@:10 arch=linux-None-ppc64le:",
+            "description": "None"
+        },
+        {
+            "name": "%clang@4:",
+            "spec": "+cuda ^cuda@:9.0.176 arch=linux-None-ppc64le:",
+            "description": "None"
+        },
+        {
+            "name": "%clang@5:",
+            "spec": "+cuda ^cuda@:9.1 arch=linux-None-ppc64le:",
+            "description": "None"
+        },
+        {
+            "name": "%clang@6:",
+            "spec": "+cuda ^cuda@:9.2 arch=linux-None-ppc64le:",
+            "description": "None"
+        },
+        {
+            "name": "%clang@7:",
+            "spec": "+cuda ^cuda@10.0.130 arch=linux-None-ppc64le:",
+            "description": "None"
+        },
+        {
+            "name": "%clang@7.1:",
+            "spec": "+cuda ^cuda@:10.1.105 arch=linux-None-ppc64le:",
+            "description": "None"
+        },
+        {
+            "name": "%clang@8.1:",
+            "spec": "+cuda ^cuda@:10.2.89 arch=linux-None-ppc64le:",
+            "description": "None"
+        },
+        {
+            "name": "%intel@:11.0",
+            "spec": "+cuda ^cuda@:3.1",
+            "description": "None"
+        },
+        {
+            "name": "%intel@:12.0",
+            "spec": "+cuda ^cuda@5.5:",
+            "description": "None"
+        },
+        {
+            "name": "%intel@:13.0",
+            "spec": "+cuda ^cuda@6.0:",
+            "description": "None"
+        },
+        {
+            "name": "%intel@:13.2",
+            "spec": "+cuda ^cuda@6.5:",
+            "description": "None"
+        },
+        {
+            "name": "%intel@:14.9",
+            "spec": "+cuda ^cuda@7:",
+            "description": "None"
+        },
+        {
+            "name": "%intel@16.0:",
+            "spec": "+cuda ^cuda@:8.0.43",
+            "description": "None"
+        },
+        {
+            "name": "%intel@17.0:",
+            "spec": "+cuda ^cuda@:8.0.60",
+            "description": "None"
+        },
+        {
+            "name": "%intel@18.0:",
+            "spec": "+cuda ^cuda@:9.9",
+            "description": "None"
+        },
+        {
+            "name": "%intel@19.0:",
+            "spec": "+cuda ^cuda@:10.0",
+            "description": "None"
+        },
+        {
+            "name": "%intel@19.1:",
+            "spec": "+cuda ^cuda@:10.1",
+            "description": "None"
+        },
+        {
+            "name": "%intel@19.2:",
+            "spec": "+cuda ^cuda@:11.1.0",
+            "description": "None"
+        },
+        {
+            "name": "%xl@:12,14:",
+            "spec": "+cuda ^cuda@:9.1",
+            "description": "None"
+        },
+        {
+            "name": "%xl@:12,14:15,17:",
+            "spec": "+cuda ^cuda@9.2",
+            "description": "None"
+        },
+        {
+            "name": "%xl@:12,17:",
+            "spec": "+cuda ^cuda@:11.1.0",
+            "description": "None"
+        },
+        {
+            "name": "platform=darwin",
+            "spec": "+cuda ^cuda@11.0.2:",
+            "description": "None"
+        },
+        {
+            "name": "~cuda",
+            "spec": "cuda_arch=10",
+            "description": "None"
+        },
+        {
+            "name": "~cuda",
+            "spec": "cuda_arch=11",
+            "description": "None"
+        },
+        {
+            "name": "~cuda",
+            "spec": "cuda_arch=12",
+            "description": "None"
+        },
+        {
+            "name": "~cuda",
+            "spec": "cuda_arch=13",
+            "description": "None"
+        },
+        {
+            "name": "~cuda",
+            "spec": "cuda_arch=20",
+            "description": "None"
+        },
+        {
+            "name": "~cuda",
+            "spec": "cuda_arch=21",
+            "description": "None"
+        },
+        {
+            "name": "~cuda",
+            "spec": "cuda_arch=30",
+            "description": "None"
+        },
+        {
+            "name": "~cuda",
+            "spec": "cuda_arch=32",
+            "description": "None"
+        },
+        {
+            "name": "~cuda",
+            "spec": "cuda_arch=35",
+            "description": "None"
+        },
+        {
+            "name": "~cuda",
+            "spec": "cuda_arch=37",
+            "description": "None"
+        },
+        {
+            "name": "~cuda",
+            "spec": "cuda_arch=50",
+            "description": "None"
+        },
+        {
+            "name": "~cuda",
+            "spec": "cuda_arch=52",
+            "description": "None"
+        },
+        {
+            "name": "~cuda",
+            "spec": "cuda_arch=53",
+            "description": "None"
+        },
+        {
+            "name": "~cuda",
+            "spec": "cuda_arch=60",
+            "description": "None"
+        },
+        {
+            "name": "~cuda",
+            "spec": "cuda_arch=61",
+            "description": "None"
+        },
+        {
+            "name": "~cuda",
+            "spec": "cuda_arch=62",
+            "description": "None"
+        },
+        {
+            "name": "~cuda",
+            "spec": "cuda_arch=70",
+            "description": "None"
+        },
+        {
+            "name": "~cuda",
+            "spec": "cuda_arch=72",
+            "description": "None"
+        },
+        {
+            "name": "~cuda",
+            "spec": "cuda_arch=75",
+            "description": "None"
+        },
+        {
+            "name": "~cuda",
+            "spec": "cuda_arch=80",
+            "description": "None"
+        },
+        {
+            "name": "~cuda",
+            "spec": "cuda_arch=86",
+            "description": "None"
+        },
+        {
+            "name": "+ipo",
+            "spec": "^cmake@:3.8",
+            "description": "+ipo is not supported by CMake < 3.9"
+        },
+        {
+            "name": "+rocm",
+            "spec": "@:3.0",
+            "description": "None"
+        },
+        {
+            "name": "+rocm",
+            "spec": "amdgpu_target=gfx701",
+            "description": "gfx701 is not supported; Kokkos supports the following AMD GPU targets: gfx900, gfx906, gfx908"
+        },
+        {
+            "name": "+rocm",
+            "spec": "amdgpu_target=gfx801",
+            "description": "gfx801 is not supported; Kokkos supports the following AMD GPU targets: gfx900, gfx906, gfx908"
+        },
+        {
+            "name": "+rocm",
+            "spec": "amdgpu_target=gfx802",
+            "description": "gfx802 is not supported; Kokkos supports the following AMD GPU targets: gfx900, gfx906, gfx908"
+        },
+        {
+            "name": "+rocm",
+            "spec": "amdgpu_target=gfx803",
+            "description": "gfx803 is not supported; Kokkos supports the following AMD GPU targets: gfx900, gfx906, gfx908"
+        },
+        {
+            "name": "+rocm",
+            "spec": "amdgpu_target=gfx1010",
+            "description": "gfx1010 is not supported; Kokkos supports the following AMD GPU targets: gfx900, gfx906, gfx908"
+        },
+        {
+            "name": "+rocm",
+            "spec": "amdgpu_target=gfx1011",
+            "description": "gfx1011 is not supported; Kokkos supports the following AMD GPU targets: gfx900, gfx906, gfx908"
+        },
+        {
+            "name": "+rocm",
+            "spec": "amdgpu_target=gfx1012",
+            "description": "gfx1012 is not supported; Kokkos supports the following AMD GPU targets: gfx900, gfx906, gfx908"
+        },
+        {
+            "name": "+sycl",
+            "spec": "@:3.3",
+            "description": "None"
+        },
+        {
+            "name": "+cuda",
+            "spec": "cuda_arch=none",
+            "description": "None"
+        },
+        {
+            "name": "+cuda",
+            "spec": "std=17",
+            "description": "None"
+        },
+        {
+            "name": "+cuda",
+            "spec": "std=20",
+            "description": "None"
+        },
+        {
+            "name": "+cuda_lambda",
+            "spec": "~cuda",
+            "description": "Must enable CUDA to use cuda_lambda"
+        },
+        {
+            "name": "+cuda_ldg_intrinsic",
+            "spec": "~cuda",
+            "description": "Must enable CUDA to use cuda_ldg_intrinsic"
+        },
+        {
+            "name": "+cuda_relocatable_device_code",
+            "spec": "~cuda",
+            "description": "Must enable CUDA to use cuda_relocatable_device_code"
+        },
+        {
+            "name": "+cuda_uvm",
+            "spec": "~cuda",
+            "description": "Must enable CUDA to use cuda_uvm"
+        },
+        {
+            "name": "+wrapper",
+            "spec": "~cuda",
+            "description": "None"
+        }
+    ],
+    "variants": [
+        {
+            "name": "rocm",
+            "default": false,
+            "description": "Whether to build HIP backend"
+        },
+        {
+            "name": "amdgpu_target",
+            "default": "none",
+            "description": "AMD GPU architecture"
+        },
+        {
+            "name": "cuda",
+            "default": false,
+            "description": "Whether to build CUDA backend"
+        },
+        {
+            "name": "cuda_arch",
+            "default": "none",
+            "description": "CUDA architecture"
+        },
+        {
+            "name": "build_type",
+            "default": "RelWithDebInfo",
+            "description": "CMake build type"
+        },
+        {
+            "name": "ipo",
+            "default": false,
+            "description": "CMake interprocedural optimization"
+        },
+        {
+            "name": "openmp",
+            "default": false,
+            "description": "Whether to build OpenMP backend"
+        },
+        {
+            "name": "pthread",
+            "default": false,
+            "description": "Whether to build Pthread backend"
+        },
+        {
+            "name": "serial",
+            "default": true,
+            "description": "Whether to build serial backend"
+        },
+        {
+            "name": "sycl",
+            "default": false,
+            "description": "Whether to build the SYCL backend"
+        },
+        {
+            "name": "aggressive_vectorization",
+            "default": false,
+            "description": "Aggressively vectorize loops"
+        },
+        {
+            "name": "compiler_warnings",
+            "default": false,
+            "description": "Print all compiler warnings"
+        },
+        {
+            "name": "cuda_lambda",
+            "default": false,
+            "description": "Activate experimental lambda features"
+        },
+        {
+            "name": "cuda_ldg_intrinsic",
+            "default": false,
+            "description": "Use CUDA LDG intrinsics"
+        },
+        {
+            "name": "cuda_relocatable_device_code",
+            "default": false,
+            "description": "Enable RDC for CUDA"
+        },
+        {
+            "name": "cuda_uvm",
+            "default": false,
+            "description": "Enable unified virtual memory (UVM) for CUDA"
+        },
+        {
+            "name": "debug",
+            "default": false,
+            "description": "Activate extra debug features - may increase compiletimes"
+        },
+        {
+            "name": "debug_bounds_check",
+            "default": false,
+            "description": "Use bounds checking - will increase runtime"
+        },
+        {
+            "name": "debug_dualview_modify_check",
+            "default": false,
+            "description": "Debug check on dual views"
+        },
+        {
+            "name": "deprecated_code",
+            "default": false,
+            "description": "Whether to enable deprecated code"
+        },
+        {
+            "name": "examples",
+            "default": false,
+            "description": "Whether to build OpenMP  backend"
+        },
+        {
+            "name": "explicit_instantiation",
+            "default": false,
+            "description": "Explicitly instantiate template types"
+        },
+        {
+            "name": "hpx_async_dispatch",
+            "default": false,
+            "description": "Whether HPX supports asynchronous dispath"
+        },
+        {
+            "name": "profiling",
+            "default": true,
+            "description": "Create bindings for profiling tools"
+        },
+        {
+            "name": "tuning",
+            "default": false,
+            "description": "Create bindings for tuning tools"
+        },
+        {
+            "name": "profiling_load_print",
+            "default": false,
+            "description": "Print which profiling tools got loaded"
+        },
+        {
+            "name": "qthread",
+            "default": false,
+            "description": "Eenable the QTHREAD library"
+        },
+        {
+            "name": "tests",
+            "default": false,
+            "description": "Build for tests"
+        },
+        {
+            "name": "hpx",
+            "default": false,
+            "description": "Whether to enable the HPX library"
+        },
+        {
+            "name": "hwloc",
+            "default": false,
+            "description": "Whether to enable the HWLOC library"
+        },
+        {
+            "name": "numactl",
+            "default": false,
+            "description": "Whether to enable the LIBNUMA library"
+        },
+        {
+            "name": "memkind",
+            "default": false,
+            "description": "Whether to enable the MEMKIND library"
+        },
+        {
+            "name": "wrapper",
+            "default": false,
+            "description": "Use nvcc-wrapper for CUDA build"
+        },
+        {
+            "name": "std",
+            "default": "14",
+            "description": ""
+        },
+        {
+            "name": "pic",
+            "default": false,
+            "description": "Build position independent code"
+        },
+        {
+            "name": "shared",
+            "default": true,
+            "description": "Build shared libraries"
+        }
+    ],
+    "homepage": "https://github.com/kokkos/kokkos",
+    "maintainers": [
+        "jjwilke",
+        "jciesko"
+    ],
+    "patches": [],
+    "resources": [],
+    "description": "Kokkos implements a programming model in C++ for writing performance\nportable applications targeting all major HPC platforms.\n",
+    "dependencies": [
+        {
+            "name": "llvm-amdgpu",
+            "description": "Toolkit for the construction of highly optimized compilers, optimizers,\nand run-time environments."
+        },
+        {
+            "name": "hsa-rocr-dev",
+            "description": "This repository includes the user mode API nterfaces and libraries\nnecessary for host applications to launch computer kernels to available\nHSA ROCm kernel agents.AMD Heterogeneous System Architecture HSA - Linux\nHSA Runtime for Boltzmann (ROCm) platforms."
+        },
+        {
+            "name": "hip",
+            "description": "HIP is a C++ Runtime API and Kernel Language that allows developers to\ncreate portable applications for AMD and NVIDIA GPUs from single source\ncode."
+        },
+        {
+            "name": "cuda",
+            "description": "CUDA is a parallel computing platform and programming model invented by\nNVIDIA. It enables dramatic increases in computing performance by\nharnessing the power of the graphics processing unit (GPU). Note: This\npackage does not currently install the drivers necessary to run CUDA.\nThese will need to be installed manually. See:\nhttps://docs.nvidia.com/cuda/ for details."
+        },
+        {
+            "name": "cmake",
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
+        },
+        {
+            "name": "hpx",
+            "description": "C++ runtime system for parallel and distributed applications."
+        },
+        {
+            "name": "hwloc",
+            "description": "The Hardware Locality (hwloc) software project. The Portable Hardware\nLocality (hwloc) software package provides a portable abstraction\n(across OS, versions, architectures, ...) of the hierarchical topology\nof modern architectures, including NUMA memory nodes, sockets, shared\ncaches, cores and simultaneous multithreading. It also gathers various\nsystem attributes such as cache and memory information as well as the\nlocality of I/O devices such as network interfaces, InfiniBand HCAs or\nGPUs. It primarily aims at helping applications with gathering\ninformation about modern computing hardware so as to exploit it\naccordingly and efficiently."
+        },
+        {
+            "name": "numactl",
+            "description": "NUMA support for Linux"
+        },
+        {
+            "name": "memkind",
+            "description": "The memkind library is a user extensible heap manager built on top of\njemalloc which enables control of memory characteristics and a\npartitioning of the heap between kinds of memory. The kinds of memory\nare defined by operating system memory policies that have been applied\nto virtual address ranges. Memory characteristics supported by memkind\nwithout user extension include control of NUMA and page size features.\nThe jemalloc non-standard interface has been extended to enable\nspecialized arenas to make requests for virtual memory from the\noperating system through the memkind partition interface. Through the\nother memkind interfaces the user can control and extend memory\npartition features and allocate memory while selecting enabled features."
+        },
+        {
+            "name": "kokkos-nvcc-wrapper",
+            "description": "The NVCC wrapper provides a wrapper around NVCC to make it a 'full' C++\ncompiler that accepts all flags"
+        }
+    ],
+    "dependent_to": [
+        {
+            "name": "compadre",
+            "description": "The Compadre Toolkit provides a performance portable solution for the\nparallel evaluation of computationally dense kernels. The toolkit\nspecifically targets the Generalized Moving Least Squares (GMLS)\napproach, which requires the inversion of small dense matrices. The\nresult is a set of weights that provide the information needed for remap\nor entries that constitute the rows of some globally sparse matrix."
+        },
+        {
+            "name": "wonton",
+            "description": "Wonton is a support package for the Portage\n(https://github.com/laristra/portage) and Tangram\n(https://github.com/laristra/tangram) libraries. It contains some\nmesh/state classes, wrappers for other mesh/state libraries and some\nutilities required by Portage and Tangram."
+        },
+        {
+            "name": "cabana",
+            "description": "The Exascale Co-Design Center for Particle Applications Toolkit"
+        },
+        {
+            "name": "exampm",
+            "description": "Exascale Material Point Method (MPM) Mini-App"
+        },
+        {
+            "name": "kokkos-kernels",
+            "description": "Kokkos Kernels provides math kernels, often BLAS or LAPACK for small\nmatrices, that can be used in larger Kokkos parallel routines"
+        },
+        {
+            "name": "legion",
+            "description": "Legion is a data-centric parallel programming system for writing\nportable high performance programs targeted at distributed heterogeneous\narchitectures. Legion presents abstractions which allow programmers to\ndescribe properties of program data (e.g. independence, locality). By\nmaking the Legion programming system aware of the structure of program\ndata, it can automate many of the tedious tasks programmers currently\nface, including correctly extracting task- and data-level parallelism\nand moving data around complex memory hierarchies. A novel mapping\ninterface provides explicit programmer controlled placement of data in\nthe memory hierarchy and assignment of tasks to processors in a way that\nis orthogonal to correctness, thereby enabling easy porting and tuning\nof Legion applications to new architectures."
+        },
+        {
+            "name": "lammps",
+            "description": "LAMMPS stands for Large-scale Atomic/Molecular Massively Parallel\nSimulator. This package uses patch releases, not stable release. See\nhttps://github.com/spack/spack/pull/5342 for a detailed discussion."
+        },
+        {
+            "name": "nlcglib",
+            "description": "Nonlinear CG methods for wave-function optimization in DFT."
+        },
+        {
+            "name": "flecsi",
+            "description": "FleCSI is a compile-time configurable framework designed to support\nmulti-physics application development. As such, FleCSI attempts to\nprovide a very general set of infrastructure design patterns that can be\nspecialized and extended to suit the needs of a broad variety of solver\nand data requirements. Current support includes multi-dimensional mesh\ntopology, mesh geometry, and mesh adjacency information, n-dimensional\nhashed-tree data structures, graph partitioning interfaces,and\ndependency closures."
+        },
+        {
+            "name": "py-pykokkos-base",
+            "description": "Minimal set of bindings for Kokkos interoperability with Python\n(initialize, finalize, View, DynRankView, Kokkos-tools)"
+        },
+        {
+            "name": "arborx",
+            "description": "ArborX is a performance-portable library for geometric search"
+        },
+        {
+            "name": "flcl",
+            "description": "API for Fortran to C++ and C++ to Fortran multi-dimensional array\ninteroperability using Kokkos."
+        },
+        {
+            "name": "vtk-m",
+            "description": "VTK-m is a toolkit of scientific visualization algorithms for emerging\nprocessor architectures. VTK-m supports the fine-grained concurrency for\ndata analysis and visualization algorithms required to drive extreme\nscale computing by providing abstract models for data and execution that\ncan be applied to a variety of algorithms across many different\nprocessor architectures."
+        }
+    ]
+}

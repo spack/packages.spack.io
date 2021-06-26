@@ -1,0 +1,54 @@
+{
+    "name": "automaded",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "1.0",
+            "sha256": "600740cdd594cc6968c7bcb285d0829eb0ddbd5597c32c06c6ae5d9929a2625d"
+        }
+    ],
+    "build_system": "CMakePackage",
+    "conflicts": [
+        {
+            "name": "+ipo",
+            "spec": "^cmake@:3.8",
+            "description": "+ipo is not supported by CMake < 3.9"
+        }
+    ],
+    "variants": [
+        {
+            "name": "build_type",
+            "default": "RelWithDebInfo",
+            "description": "CMake build type"
+        },
+        {
+            "name": "ipo",
+            "default": false,
+            "description": "CMake interprocedural optimization"
+        }
+    ],
+    "homepage": "https://github.com/llnl/AutomaDeD",
+    "maintainers": [],
+    "patches": [],
+    "resources": [],
+    "description": "AutomaDeD (Automata-based Debugging for Dissimilar parallel tasks) is a\ntool for automatic diagnosis of performance and correctness problems in\nMPI applications. It creates control-flow models of each MPI process\nand, when a failure occurs, these models are leveraged to find the\norigin of problems automatically. MPI calls are intercepted (using\nwrappers) to create the models. When an MPI application hangs, AutomaDeD\ncreates a progress-dependence graph that helps finding the process (or\ngroup of processes) that caused the hang.\n",
+    "dependencies": [
+        {
+            "name": "cmake",
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
+        },
+        {
+            "name": "mpi",
+            "description": "MVAPICH2-X is the advanced version of the MVAPICH2 MPI library with\nenhanced features (UMR, ODP, DC, Core-Direct, SHARP, XPMEM), OSU INAM\n(InifniBand Network Monitoring and Analysis),PGAS (OpenSHMEM, UPC,\nUPC++, and CAF), and MPI+PGAS programming models with unified\ncommunication runtime. MVAPICH2-X is not installable from source and is\nonly available through a binary mirror. If you do not find the binary\nyou're looking for, send us an email at mvapich@cse.ohio-state.edu. The\nbinary mirror url is: http://mvapich.cse.ohio-\nstate.edu/download/mvapich/spack-mirror/mvapich2x/"
+        },
+        {
+            "name": "boost",
+            "description": "Boost provides free peer-reviewed portable C++ source libraries,\nemphasizing libraries that work well with the C++ Standard Library.\nBoost libraries are intended to be widely useful, and usable across a\nbroad spectrum of applications. The Boost license encourages both\ncommercial and non-commercial use."
+        },
+        {
+            "name": "callpath",
+            "description": "Library for representing callpaths consistently in distributed-memory\nperformance tools."
+        }
+    ],
+    "dependent_to": []
+}

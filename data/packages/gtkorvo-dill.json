@@ -1,0 +1,72 @@
+{
+    "name": "gtkorvo-dill",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "develop",
+            "branch": "master"
+        },
+        {
+            "name": "2.4",
+            "sha256": "ed7745d13e8c6a556f324dcc0e48a807fc993bdd5bb1daa94c1df116cb7e81fa"
+        },
+        {
+            "name": "2.1",
+            "sha256": "7671e1f3c25ac6a4ec2320cec2c342a2f668efb170e3dba186718ed17d2cf084"
+        }
+    ],
+    "build_system": "CMakePackage",
+    "conflicts": [
+        {
+            "name": "+ipo",
+            "spec": "^cmake@:3.8",
+            "description": "+ipo is not supported by CMake < 3.9"
+        }
+    ],
+    "variants": [
+        {
+            "name": "build_type",
+            "default": "RelWithDebInfo",
+            "description": "CMake build type"
+        },
+        {
+            "name": "ipo",
+            "default": false,
+            "description": "CMake interprocedural optimization"
+        }
+    ],
+    "homepage": "https://github.com/GTkorvo/dill",
+    "maintainers": [],
+    "patches": [
+        {
+            "owner": "builtin.gtkorvo-dill",
+            "sha256": "77b5e50d8a01f757eea8d9212127481ea0b2fa35e38e2903816f39f37a2a5790",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "2.4-fix-clear_cache.patch",
+            "version": "@2.4"
+        },
+        {
+            "owner": "builtin.gtkorvo-dill",
+            "sha256": "7b6bb68a79a9088c90d568f991409a16f1318ffe62018b1b8eb9cc793fa9621d",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "2.1-fix-clear_cache.patch",
+            "version": "@2.1"
+        }
+    ],
+    "resources": [],
+    "description": "DILL provides instruction-level code generation, register allocation and\nsimple optimizations for generating executable code directly into memory\nregions for immediate use.\n",
+    "dependencies": [
+        {
+            "name": "cmake",
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
+        }
+    ],
+    "dependent_to": [
+        {
+            "name": "libffs",
+            "description": "FFS is a middleware library for data communication, including\nrepresentation, processing and marshaling that preserves the performance\nof traditional approaches while relaxing the requirement of a priori\nknowledge and providing complex run-time flexibility."
+        }
+    ]
+}

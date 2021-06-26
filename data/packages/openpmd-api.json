@@ -1,0 +1,173 @@
+{
+    "name": "openpmd-api",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "dev",
+            "branch": "dev"
+        },
+        {
+            "name": "hipace",
+            "commit": "ac083025ee662469b8cad1adf93eef48cde35f58"
+        },
+        {
+            "name": "0.13.4",
+            "sha256": "46c013be5cda670f21969675ce839315d4f5ada0406a6546a91ec3441402cf5e"
+        },
+        {
+            "name": "0.13.3",
+            "sha256": "4b8f84bd89cd540c73ffe8c21085970453cb7f0e4f125f11a4e288433f64b58c"
+        },
+        {
+            "name": "0.13.2",
+            "sha256": "2e5170d41bb7b2c0608ec833eee7f9adf8175b46734743f6e46dcce6f6685fb0"
+        },
+        {
+            "name": "0.13.1",
+            "sha256": "81ff79419982eb1b0865d1736f73f950f5d4c356d3c78200ceeab7f54dc07fd7"
+        },
+        {
+            "name": "0.13.0",
+            "sha256": "97c2e43d80ee5c5288f278bd54f0dcb40e7f48a575b278fcef9660214b779bb0"
+        },
+        {
+            "name": "0.12.0",
+            "tag": "0.12.0-alpha"
+        },
+        {
+            "name": "0.11.1",
+            "tag": "0.11.1-alpha"
+        }
+    ],
+    "build_system": "CMakePackage",
+    "conflicts": [
+        {
+            "name": "+ipo",
+            "spec": "^cmake@:3.8",
+            "description": "+ipo is not supported by CMake < 3.9"
+        },
+        {
+            "name": "^hdf5 api=v16",
+            "spec": "",
+            "description": "openPMD-api requires HDF5 APIs for 1.8+"
+        }
+    ],
+    "variants": [
+        {
+            "name": "build_type",
+            "default": "RelWithDebInfo",
+            "description": "CMake build type"
+        },
+        {
+            "name": "ipo",
+            "default": false,
+            "description": "CMake interprocedural optimization"
+        },
+        {
+            "name": "shared",
+            "default": true,
+            "description": "Build a shared version of the library"
+        },
+        {
+            "name": "mpi",
+            "default": true,
+            "description": "Enable parallel I/O"
+        },
+        {
+            "name": "hdf5",
+            "default": true,
+            "description": "Enable HDF5 support"
+        },
+        {
+            "name": "adios1",
+            "default": false,
+            "description": "Enable ADIOS1 support"
+        },
+        {
+            "name": "adios2",
+            "default": true,
+            "description": "Enable ADIOS2 support"
+        },
+        {
+            "name": "python",
+            "default": false,
+            "description": "Enable Python bindings"
+        }
+    ],
+    "homepage": "http://www.openPMD.org",
+    "maintainers": [
+        "ax3l"
+    ],
+    "patches": [
+        {
+            "owner": "builtin.openpmd-api",
+            "sha256": "fb1bd285379582ea54c7c6770a1529b5a67212025b04caffea867825d0664b29",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "hdf5-1.12.0.patch",
+            "version": "@:0.13.99+hdf5"
+        }
+    ],
+    "resources": [],
+    "description": "C++ & Python API for Scientific I/O\n",
+    "dependencies": [
+        {
+            "name": "cmake",
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
+        },
+        {
+            "name": "mpark-variant",
+            "description": "C++17 `std::variant` for C++11/14/17"
+        },
+        {
+            "name": "catch2",
+            "description": "Catch2 is a multi-paradigm test framework for C++, which also supports\nObjective-C (and maybe C)."
+        },
+        {
+            "name": "mpi",
+            "description": "MVAPICH2-X is the advanced version of the MVAPICH2 MPI library with\nenhanced features (UMR, ODP, DC, Core-Direct, SHARP, XPMEM), OSU INAM\n(InifniBand Network Monitoring and Analysis),PGAS (OpenSHMEM, UPC,\nUPC++, and CAF), and MPI+PGAS programming models with unified\ncommunication runtime. MVAPICH2-X is not installable from source and is\nonly available through a binary mirror. If you do not find the binary\nyou're looking for, send us an email at mvapich@cse.ohio-state.edu. The\nbinary mirror url is: http://mvapich.cse.ohio-\nstate.edu/download/mvapich/spack-mirror/mvapich2x/"
+        },
+        {
+            "name": "hdf5",
+            "description": "HDF5 is a data model, library, and file format for storing and managing\ndata. It supports an unlimited variety of datatypes, and is designed for\nflexible and efficient I/O and for high volume and complex data."
+        },
+        {
+            "name": "adios",
+            "description": "The Adaptable IO System (ADIOS) provides a simple, flexible way for\nscientists to describe the data in their code that may need to be\nwritten, read, or processed outside of the running simulation."
+        },
+        {
+            "name": "adios2",
+            "description": "The Adaptable Input Output System version 2, developed in the Exascale\nComputing Program"
+        },
+        {
+            "name": "nlohmann-json",
+            "description": "JSON for Modern C++"
+        },
+        {
+            "name": "py-pybind11",
+            "description": "pybind11 -- Seamless operability between C++11 and Python. pybind11 is a\nlightweight header-only library that exposes C++ types in Python and\nvice versa, mainly to create Python bindings of existing C++ code. Its\ngoals and syntax are similar to the excellent Boost.Python library by\nDavid Abrahams: to minimize boilerplate code in traditional extension\nmodules by inferring type information using compile-time introspection."
+        },
+        {
+            "name": "py-numpy",
+            "description": "NumPy is the fundamental package for scientific computing with Python.\nIt contains among other things: a powerful N-dimensional array object,\nsophisticated (broadcasting) functions, tools for integrating C/C++ and\nFortran code, and useful linear algebra, Fourier transform, and random\nnumber capabilities"
+        },
+        {
+            "name": "py-mpi4py",
+            "description": "This package provides Python bindings for the Message Passing Interface\n(MPI) standard. It is implemented on top of the MPI-1/MPI-2\nspecification and exposes an API which grounds on the standard MPI-2 C++\nbindings."
+        },
+        {
+            "name": "python",
+            "description": "The Python programming language."
+        }
+    ],
+    "dependent_to": [
+        {
+            "name": "hipace",
+            "description": "Highly efficient Plasma Accelerator Emulation, quasistatic particle-in-\ncell code"
+        },
+        {
+            "name": "warpx",
+            "description": "WarpX is an advanced electromagnetic Particle-In-Cell code. It supports\nmany features including Perfectly-Matched Layers (PML) and mesh\nrefinement. In addition, WarpX is a highly-parallel and highly-optimized\ncode and features hybrid OpenMP/MPI parallelization, advanced\nvectorization techniques and load balancing capabilities. For WarpX'\nPython bindings and PICMI input support, see the 'py-warpx' package."
+        }
+    ]
+}

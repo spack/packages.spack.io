@@ -1,0 +1,323 @@
+{
+    "name": "vtk",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "9.0.1",
+            "sha256": "1b39a5e191c282861e7af4101eaa8585969a2de05f5646c9199a161213a622c7"
+        },
+        {
+            "name": "9.0.0",
+            "sha256": "15def4e6f84d72f82386617fe595ec124dda3cbd13ea19a0dcd91583197d8715"
+        },
+        {
+            "name": "8.2.0",
+            "sha256": "34c3dc775261be5e45a8049155f7228b6bd668106c72a3c435d95730d17d57bb"
+        },
+        {
+            "name": "8.1.2",
+            "sha256": "0995fb36857dd76ccfb8bb07350c214d9f9099e80b1e66b4a8909311f24ff0db"
+        },
+        {
+            "name": "8.1.1",
+            "sha256": "71a09b4340f0a9c58559fe946dc745ab68a866cf20636a41d97b6046cb736324"
+        },
+        {
+            "name": "8.1.0",
+            "sha256": "6e269f07b64fb13774f5925161fb4e1f379f4e6a0131c8408c555f6b58ef3cb7"
+        },
+        {
+            "name": "8.0.1",
+            "sha256": "49107352923dea6de05a7b4c3906aaf98ef39c91ad81c383136e768dcf304069"
+        },
+        {
+            "name": "7.1.0",
+            "sha256": "5f3ea001204d4f714be972a810a62c0f2277fbb9d8d2f8df39562988ca37497a"
+        },
+        {
+            "name": "7.0.0",
+            "sha256": "78a990a15ead79cdc752e86b83cfab7dbf5b7ef51ba409db02570dbdd9ec32c3"
+        },
+        {
+            "name": "6.3.0",
+            "sha256": "92a493354c5fa66bea73b5fc014154af5d9f3f6cee8d20a826f4cd5d4b0e8a5e"
+        },
+        {
+            "name": "6.1.0",
+            "sha256": "bd7df10a479606d529a8b71f466c44a2bdd11fd534c62ce0aa44fad91883fa34"
+        }
+    ],
+    "build_system": "CMakePackage",
+    "conflicts": [
+        {
+            "name": "+ipo",
+            "spec": "^cmake@:3.8",
+            "description": "+ipo is not supported by CMake < 3.9"
+        },
+        {
+            "name": "+osmesa",
+            "spec": "+qt",
+            "description": "None"
+        }
+    ],
+    "variants": [
+        {
+            "name": "build_type",
+            "default": "RelWithDebInfo",
+            "description": "CMake build type"
+        },
+        {
+            "name": "ipo",
+            "default": false,
+            "description": "CMake interprocedural optimization"
+        },
+        {
+            "name": "opengl2",
+            "default": true,
+            "description": "Enable OpenGL2 backend"
+        },
+        {
+            "name": "osmesa",
+            "default": false,
+            "description": "Enable OSMesa support"
+        },
+        {
+            "name": "python",
+            "default": false,
+            "description": "Enable Python support"
+        },
+        {
+            "name": "qt",
+            "default": false,
+            "description": "Build with support for Qt"
+        },
+        {
+            "name": "xdmf",
+            "default": false,
+            "description": "Build XDMF file support"
+        },
+        {
+            "name": "ffmpeg",
+            "default": false,
+            "description": "Build with FFMPEG support"
+        },
+        {
+            "name": "mpi",
+            "default": true,
+            "description": "Enable MPI support"
+        }
+    ],
+    "homepage": "http://www.vtk.org",
+    "maintainers": [
+        "chuckatkins",
+        "danlipsa"
+    ],
+    "patches": [
+        {
+            "owner": "builtin.vtk",
+            "sha256": "c462f3cae4ff19d64a2151e60f6dc63c7cf6b4cc35fe949d799a40db52fe3642",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "gcc.patch",
+            "version": "@6.1.0"
+        },
+        {
+            "owner": "builtin.vtk",
+            "sha256": "578f141247bd4dd993d47768d8b3b207e2c37c4c77ac64db6751eb146ffa99e2",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "python3.7-const-char.patch",
+            "version": "@7.0.0:8.1.1 ^python@3.7:"
+        },
+        {
+            "owner": "builtin.vtk",
+            "sha256": "8a673a7e3deb358f7b7792d05b5fd5c44961865637075691df51ca1431d5bc18",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "vtkm-findmpi-downstream.patch",
+            "version": "@9.0.0"
+        },
+        {
+            "owner": "builtin.vtk",
+            "sha256": "35cdaf691eb63a88931a2c6c33b67eea6e23192e681acc0eee7c1f7aca464f9a",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "find_fujitsu_mpi.patch",
+            "version": "@:8.2.0%fj"
+        },
+        {
+            "owner": "builtin.vtk",
+            "sha256": "eefda851f844e8a1dfb4ebd8a9ff92d2b78efc57f205774052c5f4c049cc886a",
+            "level": 1,
+            "working_dir": ".",
+            "url": "https://gitlab.kitware.com/vtk/vtk/uploads/c6fa799a1a028b8f8a728a40d26d3fec/vtk-freetype-2.10.3-replace-FT_CALLBACK_DEF.patch",
+            "version": "^freetype@2.10.3:"
+        }
+    ],
+    "resources": [],
+    "description": "The Visualization Toolkit (VTK) is an open-source, freely available\nsoftware system for 3D computer graphics, image processing and\nvisualization.\n",
+    "dependencies": [
+        {
+            "name": "cmake",
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
+        },
+        {
+            "name": "python",
+            "description": "The Python programming language."
+        },
+        {
+            "name": "py-mpi4py",
+            "description": "This package provides Python bindings for the Message Passing Interface\n(MPI) standard. It is implemented on top of the MPI-1/MPI-2\nspecification and exposes an API which grounds on the standard MPI-2 C++\nbindings."
+        },
+        {
+            "name": "gl",
+            "description": "Mesa is an open-source implementation of the OpenGL specification - a\nsystem for rendering interactive 3D graphics."
+        },
+        {
+            "name": "glx",
+            "description": "Mesa is an open-source implementation of the OpenGL specification - a\nsystem for rendering interactive 3D graphics."
+        },
+        {
+            "name": "libxt",
+            "description": "libXt - X Toolkit Intrinsics library."
+        },
+        {
+            "name": "osmesa",
+            "description": "Mesa is an open-source implementation of the OpenGL specification - a\nsystem for rendering interactive 3D graphics."
+        },
+        {
+            "name": "qt",
+            "description": "Qt is a comprehensive cross-platform C++ application framework."
+        },
+        {
+            "name": "boost",
+            "description": "Boost provides free peer-reviewed portable C++ source libraries,\nemphasizing libraries that work well with the C++ Standard Library.\nBoost libraries are intended to be widely useful, and usable across a\nbroad spectrum of applications. The Boost license encourages both\ncommercial and non-commercial use."
+        },
+        {
+            "name": "ffmpeg",
+            "description": "FFmpeg is a complete, cross-platform solution to record, convert and\nstream audio and video."
+        },
+        {
+            "name": "mpi",
+            "description": "MVAPICH2-X is the advanced version of the MVAPICH2 MPI library with\nenhanced features (UMR, ODP, DC, Core-Direct, SHARP, XPMEM), OSU INAM\n(InifniBand Network Monitoring and Analysis),PGAS (OpenSHMEM, UPC,\nUPC++, and CAF), and MPI+PGAS programming models with unified\ncommunication runtime. MVAPICH2-X is not installable from source and is\nonly available through a binary mirror. If you do not find the binary\nyou're looking for, send us an email at mvapich@cse.ohio-state.edu. The\nbinary mirror url is: http://mvapich.cse.ohio-\nstate.edu/download/mvapich/spack-mirror/mvapich2x/"
+        },
+        {
+            "name": "expat",
+            "description": "Expat is an XML parser library written in C."
+        },
+        {
+            "name": "freetype",
+            "description": "FreeType is a freely available software library to render fonts. It is\nwritten in C, designed to be small, efficient, highly customizable, and\nportable while capable of producing high-quality output (glyph images)\nof most vector and bitmap font formats."
+        },
+        {
+            "name": "glew",
+            "description": "The OpenGL Extension Wrangler Library."
+        },
+        {
+            "name": "hdf5",
+            "description": "HDF5 is a data model, library, and file format for storing and managing\ndata. It supports an unlimited variety of datatypes, and is designed for\nflexible and efficient I/O and for high volume and complex data."
+        },
+        {
+            "name": "jpeg",
+            "description": "libjpeg is a widely used free library with functions for handling the\nJPEG image data format. It implements a JPEG codec (encoding and\ndecoding) alongside various utilities for handling JPEG data."
+        },
+        {
+            "name": "jsoncpp",
+            "description": "JsonCpp is a C++ library that allows manipulating JSON values, including\nserialization and deserialization to and from strings. It can also\npreserve existing comment in unserialization/serialization steps, making\nit a convenient format to store user input files."
+        },
+        {
+            "name": "libxml2",
+            "description": "Libxml2 is the XML C parser and toolkit developed for the Gnome project\n(but usable outside of the Gnome platform), it is free software\navailable under the MIT License."
+        },
+        {
+            "name": "lz4",
+            "description": "LZ4 is lossless compression algorithm, providing compression speed at\n400 MB/s per core, scalable with multi-cores CPU. It also features an\nextremely fast decoder, with speed in multiple GB/s per core, typically\nreaching RAM speed limits on multi-core systems."
+        },
+        {
+            "name": "netcdf-c",
+            "description": "NetCDF (network Common Data Form) is a set of software libraries and\nmachine-independent data formats that support the creation, access, and\nsharing of array-oriented scientific data. This is the C distribution."
+        },
+        {
+            "name": "netcdf-cxx",
+            "description": "Deprecated C++ compatibility bindings for NetCDF. These do NOT read or\nwrite NetCDF-4 files, and are no longer maintained by Unidata.\nDevelopers should migrate to current NetCDF C++ bindings, in Spack\npackage netcdf-cxx4."
+        },
+        {
+            "name": "libpng",
+            "description": "libpng is the official PNG reference library."
+        },
+        {
+            "name": "libtiff",
+            "description": "LibTIFF - Tag Image File Format (TIFF) Library and Utilities."
+        },
+        {
+            "name": "zlib",
+            "description": "A free, general-purpose, legally unencumbered lossless data-compression\nlibrary."
+        },
+        {
+            "name": "eigen",
+            "description": "Eigen is a C++ template library for linear algebra matrices, vectors,\nnumerical solvers, and related algorithms."
+        },
+        {
+            "name": "double-conversion",
+            "description": "This project (double-conversion) provides binary-decimal and decimal-\nbinary routines for IEEE doubles. The library consists of efficient\nconversion routines that have been extracted from the V8 JavaScript\nengine. The code has been refactored and improved so that it can be used\nmore easily in other projects. There is extensive documentation in\nsrc/double-conversion.h. Other examples can be found in\ntest/cctest/test-conversions.cc."
+        },
+        {
+            "name": "sqlite",
+            "description": "SQLite3 is an SQL database engine in a C library. Programs that link the\nSQLite3 library can have SQL database access without running a separate\nRDBMS process."
+        }
+    ],
+    "dependent_to": [
+        {
+            "name": "memsurfer",
+            "description": "MemSurfer is a tool to compute and analyze membrane surfaces found in a\nwide variety of large-scale molecular simulations."
+        },
+        {
+            "name": "opencv",
+            "description": "OpenCV (Open Source Computer Vision Library) is an open source computer\nvision and machine learning software library."
+        },
+        {
+            "name": "liggghts",
+            "description": "Discrete element method particle simulation."
+        },
+        {
+            "name": "opencascade",
+            "description": "Open CASCADE Technology is a software development kit (SDK) intended for\ndevelopment of applications dealing with 3D CAD data, freely available\nin open source. It includes a set of C++ class libraries providing\nservices for 3D surface and solid modeling, visualization, data exchange\nand rapid application development."
+        },
+        {
+            "name": "openfoam",
+            "description": "OpenFOAM is a GPL-opensource C++ CFD-toolbox. This offering is supported\nby OpenCFD Ltd, producer and distributor of the OpenFOAM software via\nwww.openfoam.com, and owner of the OPENFOAM trademark. OpenCFD Ltd has\nbeen developing and releasing OpenFOAM since its debut in 2004."
+        },
+        {
+            "name": "libmesh",
+            "description": "The libMesh library provides a framework for the numerical simulation of\npartial differential equations using arbitrary unstructured\ndiscretizations on serial and parallel platforms."
+        },
+        {
+            "name": "fenics",
+            "description": "FEniCS is organized as a collection of interoperable components that\ntogether form the FEniCS Project. These components include the problem-\nsolving environment DOLFIN, the form compiler FFC, the finite element\ntabulator FIAT, the just-in-time compiler Instant / Dijitso, the code\ngeneration interface UFC, the form language UFL and a range of\nadditional components."
+        },
+        {
+            "name": "py-mayavi",
+            "description": "Mayavi: 3D visualization of scientific data in Python."
+        },
+        {
+            "name": "kassiopeia",
+            "description": "Simulation of electric and magnetic fields and particle tracking."
+        },
+        {
+            "name": "fsl",
+            "description": "FSL is a comprehensive library of analysis tools for FMRI, MRI and DTI\nbrain imaging data."
+        },
+        {
+            "name": "sensei",
+            "description": "SENSEI is a platform for scalable in-situ analysis and visualization.\nIts design motto is 'Write once, run everywhere', this means that once\nthe application is instrumented with SENSEI it can use existing and\nfuture analysis backends. Existing backends include: Paraview/Catalyst,\nVisit/Libsim, ADIOS, Python scripts, and so on."
+        },
+        {
+            "name": "ftk",
+            "description": "FTK is a library that simplifies, scales, and delivers feature tracking\nalgorithms for scientific data."
+        },
+        {
+            "name": "visit",
+            "description": "VisIt is an Open Source, interactive, scalable, visualization, animation\nand analysis tool. See comments in VisIt's package.py for tips about\nbuilding VisIt with spack. Building VisIt with Spack is still\nexperimental and many standard features are likely disabled\nLINUX-------------------------------------------------------------------\nspack install visit ^python+shared ^glib@2.56.3 ^py-setuptools@44.1.0\nLINUX-W/O-OPENGL--------------------------------------------------------\nspack install visit ^python+shared ^glib@2.56.3 ^py-setuptools@44.1.0 \\\n^mesa+opengl\nMACOS-------------------------------------------------------------------\nspack install visit ^python+shared ^glib@2.56.3 ^py-setuptools@44.1.0 \\\n^qt~framework"
+        }
+    ]
+}

@@ -1,0 +1,75 @@
+{
+    "name": "brpc",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "0.9.7",
+            "sha256": "722cd342baf3b05189ca78ecf6c56ea6ffec22e62fc2938335e4e5bab545a49c"
+        },
+        {
+            "name": "0.9.6",
+            "sha256": "b872ca844999e0ba768acd823b409761f126590fb34cb0183da915a595161446"
+        },
+        {
+            "name": "0.9.5",
+            "sha256": "11ca8942242a4c542c11345b7463a4aea33a11ca33e91d9a2f64f126df8c70e9"
+        }
+    ],
+    "build_system": "CMakePackage",
+    "conflicts": [
+        {
+            "name": "+ipo",
+            "spec": "^cmake@:3.8",
+            "description": "+ipo is not supported by CMake < 3.9"
+        }
+    ],
+    "variants": [
+        {
+            "name": "build_type",
+            "default": "RelWithDebInfo",
+            "description": "CMake build type"
+        },
+        {
+            "name": "ipo",
+            "default": false,
+            "description": "CMake interprocedural optimization"
+        }
+    ],
+    "homepage": "https://github.com/apache/incubator-brpc",
+    "maintainers": [],
+    "patches": [
+        {
+            "owner": "builtin.brpc",
+            "sha256": "d7393029443853ddda6c09e3d2185ac2f60920a36a8b685eb83b6b80c1535539",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "narrow.patch",
+            "version": "@:0.9.7"
+        }
+    ],
+    "resources": [],
+    "description": "An industrial-grade RPC framework used throughout Baidu, with 1,000,000+\ninstances(not counting clients) and thousands kinds of services, called\n\"baidu-rpc\" inside Baidu. Only C++ implementatioo on is opensourced\nright now.\n",
+    "dependencies": [
+        {
+            "name": "cmake",
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
+        },
+        {
+            "name": "gflags",
+            "description": "The gflags package contains a C++ library that implements commandline\nflags processing. It includes built-in support for standard types such\nas string and the ability to define flags in the source file in which\nthey are used. Online documentation available at:\nhttps://gflags.github.io/gflags/"
+        },
+        {
+            "name": "protobuf",
+            "description": "Google's data interchange format."
+        },
+        {
+            "name": "leveldb",
+            "description": "LevelDB is a fast key-value storage library written at Google that\nprovides an ordered mapping from string keys to string values."
+        },
+        {
+            "name": "openssl",
+            "description": "OpenSSL is an open source project that provides a robust, commercial-\ngrade, and full-featured toolkit for the Transport Layer Security (TLS)\nand Secure Sockets Layer (SSL) protocols. It is also a general-purpose\ncryptography library."
+        }
+    ],
+    "dependent_to": []
+}

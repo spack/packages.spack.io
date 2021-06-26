@@ -1,0 +1,67 @@
+{
+    "name": "ngmlr",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "0.2.5",
+            "sha256": "719944a35cc7ff9c321eedbf3385a7375ce2301f609b3fd7be0a850cabbb028b"
+        }
+    ],
+    "build_system": "CMakePackage",
+    "conflicts": [
+        {
+            "name": "+ipo",
+            "spec": "^cmake@:3.8",
+            "description": "+ipo is not supported by CMake < 3.9"
+        }
+    ],
+    "variants": [
+        {
+            "name": "build_type",
+            "default": "RelWithDebInfo",
+            "description": "CMake build type"
+        },
+        {
+            "name": "ipo",
+            "default": false,
+            "description": "CMake interprocedural optimization"
+        }
+    ],
+    "homepage": "https://github.com/philres/ngmlr",
+    "maintainers": [],
+    "patches": [
+        {
+            "owner": "builtin.ngmlr",
+            "sha256": "c161eac80d9f4e0c9a12b4b4e2b7510cdedbbeb2a2aeb012a8055c1827035318",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "for_aarch64.patch",
+            "version": "arch=linux-None-aarch64:"
+        },
+        {
+            "owner": "builtin.ngmlr",
+            "sha256": "18a19f78a6e0f47f23fb75a8c03bf49e5867bd7ae1466a551d7b132e2b48304e",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "for_va_list.patch",
+            "version": ""
+        }
+    ],
+    "resources": [],
+    "description": "Ngmlr is a long-read mapper designed to align PacBilo or Oxford Nanopore\nto a reference genome with a focus on reads that span structural\nvariations.\n",
+    "dependencies": [
+        {
+            "name": "cmake",
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
+        },
+        {
+            "name": "zlib",
+            "description": "A free, general-purpose, legally unencumbered lossless data-compression\nlibrary."
+        },
+        {
+            "name": "sse2neon",
+            "description": "A C/C++ header file that converts Intel SSE intrinsics to Arm/Aarch64\nNEON intrinsics."
+        }
+    ],
+    "dependent_to": []
+}

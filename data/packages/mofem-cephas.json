@@ -1,0 +1,166 @@
+{
+    "name": "mofem-cephas",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "develop",
+            "branch": "develop"
+        },
+        {
+            "name": "0.8.17",
+            "tag": "v0.8.17"
+        },
+        {
+            "name": "0.8.16",
+            "tag": "v0.8.16"
+        },
+        {
+            "name": "0.8.15",
+            "tag": "v0.8.15"
+        },
+        {
+            "name": "0.8.14",
+            "tag": "v0.8.14"
+        },
+        {
+            "name": "0.8.13",
+            "tag": "v0.8.13"
+        },
+        {
+            "name": "0.8.12",
+            "tag": "v0.8.12"
+        },
+        {
+            "name": "0.8.11",
+            "tag": "v0.8.11"
+        },
+        {
+            "name": "0.8.10",
+            "tag": "v0.8.10"
+        },
+        {
+            "name": "0.8.9",
+            "tag": "v0.8.9"
+        },
+        {
+            "name": "0.8.8",
+            "tag": "v0.8.8"
+        },
+        {
+            "name": "0.8.7",
+            "tag": "v0.8.7"
+        }
+    ],
+    "build_system": "CMakePackage",
+    "conflicts": [
+        {
+            "name": "+ipo",
+            "spec": "^cmake@:3.8",
+            "description": "+ipo is not supported by CMake < 3.9"
+        }
+    ],
+    "variants": [
+        {
+            "name": "build_type",
+            "default": "RelWithDebInfo",
+            "description": "CMake build type"
+        },
+        {
+            "name": "ipo",
+            "default": false,
+            "description": "CMake interprocedural optimization"
+        },
+        {
+            "name": "copy_user_modules",
+            "default": true,
+            "description": "Copy user modules directory instead of linking to source"
+        },
+        {
+            "name": "adol-c",
+            "default": true,
+            "description": "Compile with ADOL-C"
+        },
+        {
+            "name": "tetgen",
+            "default": true,
+            "description": "Compile with Tetgen"
+        },
+        {
+            "name": "med",
+            "default": true,
+            "description": "Compile with Med"
+        },
+        {
+            "name": "slepc",
+            "default": false,
+            "description": "Compile with Slepc"
+        }
+    ],
+    "homepage": "http://mofem.eng.gla.ac.uk",
+    "maintainers": [
+        "likask"
+    ],
+    "patches": [],
+    "resources": [],
+    "description": "MoFEM is finite element core library\n",
+    "dependencies": [
+        {
+            "name": "cmake",
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
+        },
+        {
+            "name": "mpi",
+            "description": "MVAPICH2-X is the advanced version of the MVAPICH2 MPI library with\nenhanced features (UMR, ODP, DC, Core-Direct, SHARP, XPMEM), OSU INAM\n(InifniBand Network Monitoring and Analysis),PGAS (OpenSHMEM, UPC,\nUPC++, and CAF), and MPI+PGAS programming models with unified\ncommunication runtime. MVAPICH2-X is not installable from source and is\nonly available through a binary mirror. If you do not find the binary\nyou're looking for, send us an email at mvapich@cse.ohio-state.edu. The\nbinary mirror url is: http://mvapich.cse.ohio-\nstate.edu/download/mvapich/spack-mirror/mvapich2x/"
+        },
+        {
+            "name": "boost",
+            "description": "Boost provides free peer-reviewed portable C++ source libraries,\nemphasizing libraries that work well with the C++ Standard Library.\nBoost libraries are intended to be widely useful, and usable across a\nbroad spectrum of applications. The Boost license encourages both\ncommercial and non-commercial use."
+        },
+        {
+            "name": "parmetis",
+            "description": "ParMETIS is an MPI-based parallel library that implements a variety of\nalgorithms for partitioning unstructured graphs, meshes, and for\ncomputing fill-reducing orderings of sparse matrices."
+        },
+        {
+            "name": "hdf5",
+            "description": "HDF5 is a data model, library, and file format for storing and managing\ndata. It supports an unlimited variety of datatypes, and is designed for\nflexible and efficient I/O and for high volume and complex data."
+        },
+        {
+            "name": "petsc",
+            "description": "PETSc is a suite of data structures and routines for the scalable\n(parallel) solution of scientific applications modeled by partial\ndifferential equations."
+        },
+        {
+            "name": "slepc",
+            "description": "Scalable Library for Eigenvalue Problem Computations."
+        },
+        {
+            "name": "moab",
+            "description": "MOAB is a component for representing and evaluating mesh data. MOAB can\nstore structured and unstructured mesh, consisting of elements in the\nfinite element 'zoo.' The functional interface to MOAB is simple yet\npowerful, allowing the representation of many types of metadata commonly\nfound on the mesh. MOAB is optimized for efficiency in space and time,\nbased on access to mesh in chunks rather than through individual\nentities, while also versatile enough to support individual entity\naccess."
+        },
+        {
+            "name": "adol-c",
+            "description": "A package for the automatic differentiation of first and higher\nderivatives of vector functions in C and C++ programs by operator\noverloading."
+        },
+        {
+            "name": "tetgen",
+            "description": "TetGen is a program and library that can be used to generate tetrahedral\nmeshes for given 3D polyhedral domains. TetGen generates exact\nconstrained Delaunay tetrahedralizations, boundary conforming Delaunay\nmeshes, and Voronoi paritions."
+        },
+        {
+            "name": "med",
+            "description": "The MED file format is a specialization of the HDF5 standard."
+        }
+    ],
+    "dependent_to": [
+        {
+            "name": "mofem-users-modules",
+            "description": "MofemUsersModules creates installation environment for user-provided\nmodules and extends of mofem-cephas package. For more information how to\nwork with Spack and MoFEM see\nhttp://mofem.eng.gla.ac.uk/mofem/html/install_spack.html"
+        },
+        {
+            "name": "mofem-minimal-surface-equation",
+            "description": "mofem minimal surface equation"
+        },
+        {
+            "name": "mofem-fracture-module",
+            "description": "mofem fracture module"
+        }
+    ]
+}

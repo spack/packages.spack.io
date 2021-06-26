@@ -1,0 +1,80 @@
+{
+    "name": "fio",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "3.26",
+            "sha256": "8bd6987fd9b8c2a75d3923661566ade50b99f61fa4352148975e65577ffa4024"
+        },
+        {
+            "name": "3.25",
+            "sha256": "d8157676bc78a50f3ac82ffc6f80ffc3bba93cbd892fc4882533159a0cdbc1e8"
+        },
+        {
+            "name": "3.19",
+            "sha256": "809963b1d023dbc9ac7065557af8129aee17b6895e0e8c5ca671b0b14285f404"
+        },
+        {
+            "name": "3.16",
+            "sha256": "c7731a9e831581bab7104da9ea60c9f44e594438dbe95dff26726ca0285e7b93"
+        },
+        {
+            "name": "2.19",
+            "sha256": "61fb03a18703269b781aaf195cb0d7931493bbb5bfcc8eb746d5d66d04ed77f7"
+        }
+    ],
+    "build_system": "AutotoolsPackage",
+    "conflicts": [
+        {
+            "name": "+libaio",
+            "spec": "arch=darwin-None-None",
+            "description": "libaio does not support Darwin"
+        },
+        {
+            "name": "@:3.18",
+            "spec": "%gcc@10:",
+            "description": "gcc@10: sets -fno-common by default"
+        }
+    ],
+    "variants": [
+        {
+            "name": "gui",
+            "default": false,
+            "description": "Enable building of gtk gfio"
+        },
+        {
+            "name": "doc",
+            "default": false,
+            "description": "Generate documentation"
+        },
+        {
+            "name": "libaio",
+            "default": false,
+            "description": "Enable libaio engine"
+        }
+    ],
+    "homepage": "https://github.com/axboe/fio",
+    "maintainers": [],
+    "patches": [],
+    "resources": [],
+    "description": "Flexible I/O Tester. Fio spawns a number of threads or processes doing a\nparticular type of I/O action as specified by the user. fio takes a\nnumber of global parameters, each inherited by the thread unless\notherwise parameters given to them overriding that setting is given.\n",
+    "dependencies": [
+        {
+            "name": "gtkplus",
+            "description": "The GTK+ package contains libraries used for creating graphical user\ninterfaces for applications."
+        },
+        {
+            "name": "cairo",
+            "description": "Cairo is a 2D graphics library with support for multiple output devices."
+        },
+        {
+            "name": "libaio",
+            "description": "Linux native Asynchronous I/O interface library. AIO enables even a\nsingle application thread to overlap I/O operations with other\nprocessing, by providing an interface for submitting one or more I/O\nrequests in one system call (io_submit()) without waiting for\ncompletion, and a separate interface (io_getevents()) to reap completed\nI/O operations associated with a given completion group."
+        },
+        {
+            "name": "py-sphinx",
+            "description": "Sphinx Documentation Generator."
+        }
+    ],
+    "dependent_to": []
+}

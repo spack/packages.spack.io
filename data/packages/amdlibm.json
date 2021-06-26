@@ -1,0 +1,68 @@
+{
+    "name": "amdlibm",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "3.0",
+            "branch": "aocl-3.0"
+        },
+        {
+            "name": "2.2",
+            "commit": "4033e022da428125747e118ccd6fdd9cee21c470"
+        }
+    ],
+    "build_system": "SConsPackage",
+    "conflicts": [
+        {
+            "name": "%gcc@:9.1.999",
+            "spec": "",
+            "description": "Minimum required GCC version is 9.2.0"
+        }
+    ],
+    "variants": [
+        {
+            "name": "verbose",
+            "default": false,
+            "description": "Building with verbosity"
+        }
+    ],
+    "homepage": "https://developer.amd.com/amd-aocl/amd-math-library-libm/",
+    "maintainers": [
+        "amd-toolchain-support"
+    ],
+    "patches": [
+        {
+            "owner": "builtin.amdlibm",
+            "sha256": "0b0a7222f2e0a4379ccadd8d1d89365e127e6a1e8de14247bdec3c9147a6f91f",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "0001-libm-ose-Scripts-cleanup-pyc-files.patch",
+            "version": "@2.2"
+        },
+        {
+            "owner": "builtin.amdlibm",
+            "sha256": "da496991b4ed52940d471a3bd6e8d99bf25f547f1ab303a6aa3255ae704bec63",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "0002-libm-ose-prevent-log-v3.c-from-building.patch",
+            "version": "@2.2"
+        }
+    ],
+    "resources": [],
+    "description": "AMD LibM is a software library containing a collection of basic math\nfunctions optimized for x86-64 processor-based machines. It provides\nmany routines from the list of standard C99 math functions. Applications\ncan link into AMD LibM library and invoke math functions instead of\ncompiler's math functions for better accuracy and performance.\n",
+    "dependencies": [
+        {
+            "name": "scons",
+            "description": "SCons is a software construction tool"
+        },
+        {
+            "name": "python",
+            "description": "The Python programming language."
+        },
+        {
+            "name": "mpfr",
+            "description": "The MPFR library is a C library for multiple-precision floating-point\ncomputations with correct rounding."
+        }
+    ],
+    "dependent_to": []
+}

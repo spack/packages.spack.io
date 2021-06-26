@@ -1,0 +1,105 @@
+{
+    "name": "xtensor",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "develop",
+            "branch": "master"
+        },
+        {
+            "name": "0.23.4",
+            "sha256": "c8377f8ec995762c89dea2fdf4ac06b53ba491a6f0df3421c4719355e42425d2"
+        },
+        {
+            "name": "0.23.2",
+            "sha256": "fde26dcf93f5d95996b8cc7e556b84930af41ff699492b7b20b2e3335e12f862"
+        },
+        {
+            "name": "0.20.7",
+            "sha256": "b45290d1bb0d6cef44771e7482f1553b2aa54dbf99ef9406fec3eb1e4d01d52b"
+        },
+        {
+            "name": "0.15.1",
+            "sha256": "2f4ac632f7aa8c8e9da99ebbfc949d9129b4d644f715ef16c27658bf4fddcdd3"
+        },
+        {
+            "name": "0.13.1",
+            "sha256": "f9ce4cd2110386d49e3f36bbab62da731c557b6289be19bc172bd7209b92a6bc"
+        }
+    ],
+    "build_system": "CMakePackage",
+    "conflicts": [
+        {
+            "name": "+ipo",
+            "spec": "^cmake@:3.8",
+            "description": "+ipo is not supported by CMake < 3.9"
+        },
+        {
+            "name": "%gcc@:4.8",
+            "spec": "",
+            "description": "None"
+        },
+        {
+            "name": "%clang@:3.5",
+            "spec": "",
+            "description": "None"
+        }
+    ],
+    "variants": [
+        {
+            "name": "build_type",
+            "default": "RelWithDebInfo",
+            "description": "CMake build type"
+        },
+        {
+            "name": "ipo",
+            "default": false,
+            "description": "CMake interprocedural optimization"
+        },
+        {
+            "name": "xsimd",
+            "default": true,
+            "description": "Enable SIMD intrinsics"
+        },
+        {
+            "name": "tbb",
+            "default": true,
+            "description": "Enable TBB parallelization"
+        }
+    ],
+    "homepage": "http://quantstack.net/xtensor",
+    "maintainers": [
+        "ax3l"
+    ],
+    "patches": [],
+    "resources": [],
+    "description": "Multi-dimensional arrays with broadcasting and lazy computing\n",
+    "dependencies": [
+        {
+            "name": "cmake",
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
+        },
+        {
+            "name": "xtl",
+            "description": "QuantStack tools library"
+        },
+        {
+            "name": "xsimd",
+            "description": "C++ wrappers for SIMD intrinsics"
+        },
+        {
+            "name": "intel-tbb",
+            "description": "Widely used C++ template library for task parallelism. Intel Threading\nBuilding Blocks (Intel TBB) lets you easily write parallel C++ programs\nthat take full advantage of multicore performance, that are portable and\ncomposable, and that have future-proof scalability."
+        }
+    ],
+    "dependent_to": [
+        {
+            "name": "xtensor-python",
+            "description": "Python bindings for the xtensor C++ multi-dimensional array library"
+        },
+        {
+            "name": "fenics-basix",
+            "description": "FEniCS element and quadrature runtime"
+        }
+    ]
+}

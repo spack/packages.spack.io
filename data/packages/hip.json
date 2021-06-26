@@ -1,0 +1,380 @@
+{
+    "name": "hip",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "4.2.0",
+            "sha256": "ecb929e0fc2eaaf7bbd16a1446a876a15baf72419c723734f456ee62e70b4c24"
+        },
+        {
+            "name": "4.1.0",
+            "sha256": "e21c10b62868ece7aa3c8413ec0921245612d16d86d81fe61797bf9a64bc37eb"
+        },
+        {
+            "name": "4.0.0",
+            "sha256": "d7b78d96cec67c55b74ea3811ce861b16d300410bc687d0629e82392e8d7c857"
+        },
+        {
+            "name": "3.10.0",
+            "sha256": "0082c402f890391023acdfd546760f41cb276dffc0ffeddc325999fd2331d4e8"
+        },
+        {
+            "name": "3.9.0",
+            "sha256": "25ad58691456de7fd9e985629d0ed775ba36a2a0e0b21c086bd96ba2fb0f7ed1"
+        },
+        {
+            "name": "3.8.0",
+            "sha256": "6450baffe9606b358a4473d5f3e57477ca67cff5843a84ee644bcf685e75d839"
+        },
+        {
+            "name": "3.7.0",
+            "sha256": "757b392c3beb29beea27640832fbad86681dbd585284c19a4c2053891673babd"
+        },
+        {
+            "name": "3.5.0",
+            "sha256": "ae8384362986b392288181bcfbe5e3a0ec91af4320c189bd83c844ed384161b3"
+        }
+    ],
+    "build_system": "CMakePackage",
+    "conflicts": [
+        {
+            "name": "+ipo",
+            "spec": "^cmake@:3.8",
+            "description": "+ipo is not supported by CMake < 3.9"
+        }
+    ],
+    "variants": [
+        {
+            "name": "build_type",
+            "default": "RelWithDebInfo",
+            "description": "CMake build type"
+        },
+        {
+            "name": "ipo",
+            "default": false,
+            "description": "CMake interprocedural optimization"
+        }
+    ],
+    "homepage": "https://github.com/ROCm-Developer-Tools/HIP",
+    "maintainers": [
+        "srekolam",
+        "arjun-raj-kuppala",
+        "haampie"
+    ],
+    "patches": [
+        {
+            "owner": "builtin.hip",
+            "sha256": "2a4190477b7d9206b9cd8d70770ba0bc007273cbe54772efb12f9ca2e37c0392",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "0001-Make-it-possible-to-specify-the-package-folder-of-ro.patch",
+            "version": "@3.5.0:"
+        },
+        {
+            "owner": "builtin.hip",
+            "sha256": "a6dbc497d8195e702d989b481f6dc2cc3a61ee9c7952d584e9acc38d2ec4e24c",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "0002-Fix-detection-of-HIP_CLANG_ROOT.patch",
+            "version": "@:3.9.0"
+        },
+        {
+            "owner": "builtin.hip",
+            "sha256": "bce48db37216f96ad7f8dc1b6bd5d33db60cbfcf9607ff7feafc175d71488181",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "0003-Improve-compilation-without-git-repo.3.7.0.patch",
+            "version": "@3.7.0:3.9.0"
+        },
+        {
+            "owner": "builtin.hip",
+            "sha256": "e73ddc25da14fe1c167775e27d7944b8660f63a17590099d42c8e5597e9bfee1",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "0004-Drop-clang-rt-builtins-linking-on-hip-host.3.7.0.patch",
+            "version": "@3.7.0:3.9.0"
+        },
+        {
+            "owner": "builtin.hip",
+            "sha256": "b67bc6c919878ecaaf499454cc722162d53a024834943c96c15bfd6988b3049e",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "0003-Improve-compilation-without-git-repo.3.10.0.patch",
+            "version": "@3.10.0:4.0.0"
+        },
+        {
+            "owner": "builtin.hip",
+            "sha256": "5581cfa93974e82077bbc0b3b6590d312b9f8bca4162e691b0a63afa25f0de4c",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "0003-Improve-compilation-without-git-repo.4.1.0.patch",
+            "version": "@4.1.0"
+        },
+        {
+            "owner": "builtin.hip",
+            "sha256": "e276c4acf3d37712b6bea306fea34f539d3c4f743471e9da208b5eb17b16ae67",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "0003-Improve-compilation-without-git-repo-and-remove-compiler-rt-linkage-for-host.4.2.0.patch",
+            "version": "@4.2.0"
+        },
+        {
+            "owner": "builtin.hip",
+            "sha256": "9dc7efbdb3d7e375d2cc410702e2b9686cc73be40aa8d494b26be8a4538f18cd",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "0004-Drop-clang-rt-builtins-linking-on-hip-host.3.10.0.patch",
+            "version": "@3.10.0:4.1.0"
+        }
+    ],
+    "resources": [],
+    "description": "HIP is a C++ Runtime API and Kernel Language that allows developers to\ncreate portable applications for AMD and NVIDIA GPUs from single source\ncode.\n",
+    "dependencies": [
+        {
+            "name": "cmake",
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
+        },
+        {
+            "name": "perl",
+            "description": "Perl 5 is a highly capable, feature-rich programming language with over\n27 years of development."
+        },
+        {
+            "name": "mesa18",
+            "description": "Mesa is an open-source implementation of the OpenGL specification - a\nsystem for rendering interactive 3D graphics."
+        },
+        {
+            "name": "hip-rocclr",
+            "description": "Hip-ROCclr is a virtual device interface that compute runtimes interact\nwith to different backends such as ROCr or PAL This abstraction allows\nruntimes to work on Windows as well as on Linux without much effort."
+        },
+        {
+            "name": "hsakmt-roct",
+            "description": "This is a thunk python recipe to build and install Thunk Interface.\nThunk Interface is a user-mode API interfaces used to interact with the\nROCk driver."
+        },
+        {
+            "name": "hsa-rocr-dev",
+            "description": "This repository includes the user mode API nterfaces and libraries\nnecessary for host applications to launch computer kernels to available\nHSA ROCm kernel agents.AMD Heterogeneous System Architecture HSA - Linux\nHSA Runtime for Boltzmann (ROCm) platforms."
+        },
+        {
+            "name": "comgr",
+            "description": "This provides various Lightning Compiler related services. It currently\ncontains one library, the Code Object Manager (Comgr)"
+        },
+        {
+            "name": "llvm-amdgpu",
+            "description": "Toolkit for the construction of highly optimized compilers, optimizers,\nand run-time environments."
+        },
+        {
+            "name": "rocminfo",
+            "description": "Radeon Open Compute (ROCm) Runtime rocminfo tool"
+        },
+        {
+            "name": "numactl",
+            "description": "NUMA support for Linux"
+        }
+    ],
+    "dependent_to": [
+        {
+            "name": "libceed",
+            "description": "The CEED API Library: Code for Efficient Extensible Discretizations."
+        },
+        {
+            "name": "hydrogen",
+            "description": "Hydrogen: Distributed-memory dense and sparse-direct linear algebra and\noptimization library. Based on the Elemental library."
+        },
+        {
+            "name": "raja",
+            "description": "RAJA Parallel Framework."
+        },
+        {
+            "name": "mfem",
+            "description": "Free, lightweight, scalable C++ library for finite element methods."
+        },
+        {
+            "name": "hipsparse",
+            "description": "hipSPARSE is a SPARSE marshalling library, with multiple supported\nbackends"
+        },
+        {
+            "name": "hpctoolkit",
+            "description": "HPCToolkit is an integrated suite of tools for measurement and analysis\nof program performance on computers ranging from multicore desktop\nsystems to the nation's largest supercomputers. By using statistical\nsampling of timers and hardware performance counters, HPCToolkit\ncollects accurate measurements of a program's work, resource\nconsumption, and inefficiency and attributes them to the full calling\ncontext in which they occur."
+        },
+        {
+            "name": "care",
+            "description": "Algorithms for chai managed arrays."
+        },
+        {
+            "name": "umpire",
+            "description": "An application-focused API for memory management on NUMA & GPU\narchitectures"
+        },
+        {
+            "name": "migraphx",
+            "description": "AMD's graph optimization engine."
+        },
+        {
+            "name": "vtk-m",
+            "description": "VTK-m is a toolkit of scientific visualization algorithms for emerging\nprocessor architectures. VTK-m supports the fine-grained concurrency for\ndata analysis and visualization algorithms required to drive extreme\nscale computing by providing abstract models for data and execution that\ncan be applied to a variety of algorithms across many different\nprocessor architectures."
+        },
+        {
+            "name": "strumpack",
+            "description": "STRUMPACK -- STRUctured Matrix PACKage - provides linear solvers for\nsparse matrices and for dense rank-structured matrices, i.e., matrices\nthat exhibit some kind of low-rank property. It provides a distributed\nmemory fully algebraic sparse solver and preconditioner. The\npreconditioner is mostly aimed at large sparse linear systems which\nresult from the discretization of a partial differential equation, but\nis not limited to any particular type of problem. STRUMPACK also\nprovides preconditioned GMRES and BiCGStab iterative solvers."
+        },
+        {
+            "name": "rocsparse",
+            "description": "rocSPARSE exposes a common interface that provides Basic Linear Algebra\nSubroutines for sparse computation implemented on top of AMD's Radeon\nOpen eCosystem Platform ROCm runtime and toolchains. rocSPARSE is\ncreated using the HIP programming language and optimized for AMD's\nlatest discrete GPUs."
+        },
+        {
+            "name": "rocm-tensile",
+            "description": "Radeon Open Compute Tensile library"
+        },
+        {
+            "name": "sundials",
+            "description": "SUNDIALS (SUite of Nonlinear and DIfferential/ALgebraic equation\nSolvers)"
+        },
+        {
+            "name": "miopen-hip",
+            "description": "AMD's library for high performance machine learning primitives."
+        },
+        {
+            "name": "amrex",
+            "description": "AMReX is a publicly available software framework designed for building\nmassively parallel block- structured adaptive mesh refinement (AMR)\napplications."
+        },
+        {
+            "name": "slate",
+            "description": "The Software for Linear Algebra Targeting Exascale (SLATE) project is to\nprovide fundamental dense linear algebra capabilities to the US\nDepartment of Energy and to the high-performance computing (HPC)\ncommunity at large. To this end, SLATE will provide basic dense matrix\noperations (e.g., matrix multiplication, rank-k update, triangular\nsolve), linear systems solvers, least square solvers, singular value and\neigenvalue solvers."
+        },
+        {
+            "name": "lbann",
+            "description": "LBANN: Livermore Big Artificial Neural Network Toolkit. A distributed\nmemory, HPC-optimized, model and data parallel training toolkit for deep\nneural networks."
+        },
+        {
+            "name": "nekrs",
+            "description": "nekRS is an open-source Navier Stokes solver based on the spectral\nelement method targeting classical processors and hardware accelerators\nlike GPUs"
+        },
+        {
+            "name": "kokkos",
+            "description": "Kokkos implements a programming model in C++ for writing performance\nportable applications targeting all major HPC platforms."
+        },
+        {
+            "name": "rocsolver",
+            "description": "rocSOLVER is a work-in-progress implementation of a subset of LAPACK\nfunctionality on the ROCm platform."
+        },
+        {
+            "name": "hipblas",
+            "description": "hipBLAS is a BLAS marshalling library, with multiple supported backends"
+        },
+        {
+            "name": "rocthrust",
+            "description": "Thrust is a parallel algorithm library. This library has been ported to\nHIP/ROCm platform, which uses the rocPRIM library. The HIP ported\nlibrary works on HIP/ROCm platforms"
+        },
+        {
+            "name": "blaspp",
+            "description": "C++ API for the Basic Linear Algebra Subroutines. Developed by the\nInnovative Computing Laboratory at the University of Tennessee,\nKnoxville."
+        },
+        {
+            "name": "miopen-opencl",
+            "description": "AMD's library for high performance machine learning primitives."
+        },
+        {
+            "name": "spla",
+            "description": "Specialized Parallel Linear Algebra, providing distributed GEMM\nfunctionality for specific matrix distributions with optional GPU\nacceleration."
+        },
+        {
+            "name": "hipcub",
+            "description": "Radeon Open Compute Parallel Primitives Library"
+        },
+        {
+            "name": "rocm-validation-suite",
+            "description": "The ROCm Validation Suite (RVS) is a system administrators and cluster\nmanager's tool for detecting and troubleshooting common problems\naffecting AMD GPU(s) running in a high-performance computing\nenvironment, enabled using the ROCm software stack on a compatible\nplatform."
+        },
+        {
+            "name": "mvapich2-gdr",
+            "description": "MVAPICH2-GDR is an optimized version of the MVAPICH2 MPI library for\nGPU-enabled HPC and Deep Learning Applications. MVAPICH2-GDR is not\ninstallable from source and is only available through a binary mirror.\nIf you do not find the binary you're looking for, send us an email at\nmvapich@cse.ohio-state.edu. The binary mirror url is:\nhttp://mvapich.cse.ohio-state.edu/download/mvapich/spack-\nmirror/mvapich2-gdr/"
+        },
+        {
+            "name": "petsc",
+            "description": "PETSc is a suite of data structures and routines for the scalable\n(parallel) solution of scientific applications modeled by partial\ndifferential equations."
+        },
+        {
+            "name": "spfft",
+            "description": "Sparse 3D FFT library with MPI, OpenMP, CUDA and ROCm support."
+        },
+        {
+            "name": "rocprim",
+            "description": "Radeon Open Compute Parallel Primitives Library"
+        },
+        {
+            "name": "dbcsr",
+            "description": "Distributed Block Compressed Sparse Row matrix library."
+        },
+        {
+            "name": "sirius",
+            "description": "Domain specific library for electronic structure calculations"
+        },
+        {
+            "name": "aomp",
+            "description": "llvm openmp compiler from AMD."
+        },
+        {
+            "name": "rocfft",
+            "description": "Radeon Open Compute FFT library"
+        },
+        {
+            "name": "roctracer-dev",
+            "description": "ROC-tracer library: Runtimes Generic Callback/Activity APIs. The goal of\nthe implementation is to provide a generic independent from specific\nruntime profiler to trace API and asyncronous activity."
+        },
+        {
+            "name": "dihydrogen",
+            "description": "DiHydrogen is the second version of the Hydrogen fork of the well-known\ndistributed linear algebra library, Elemental. DiHydrogen aims to be a\nbasic distributed multilinear algebra interface with a particular\nemphasis on the needs of the distributed machine learning effort, LBANN."
+        },
+        {
+            "name": "chai",
+            "description": "Copy-hiding array interface for data migration between memory spaces"
+        },
+        {
+            "name": "rocrand",
+            "description": "The rocRAND project provides functions that generate pseudo-random and\nquasi-random numbers."
+        },
+        {
+            "name": "tasmanian",
+            "description": "The Toolkit for Adaptive Stochastic Modeling and Non-Intrusive\nApproximatioN is a robust library for high dimensional integration and\ninterpolation as well as parameter calibration."
+        },
+        {
+            "name": "hipfort",
+            "description": "Radeon Open Compute Parallel Primitives Library"
+        },
+        {
+            "name": "rocm-debug-agent",
+            "description": "Radeon Open Compute (ROCm) debug agent"
+        },
+        {
+            "name": "hipfft",
+            "description": "hipFFT is an FFT marshalling library. Currently, hipFFT supports either\nrocFFT or cuFFT as backends.hipFFT exports an interface that does not\nrequire the client to change, regardless of the chosen backend. It sits\nbetween the application and the backend FFT library, marshalling inputs\ninto the backend and results back to the application."
+        },
+        {
+            "name": "rocblas",
+            "description": "Radeon Open Compute BLAS library"
+        },
+        {
+            "name": "rocalution",
+            "description": "rocALUTION is a sparse linear algebra library with focus on exploring\nfine-grained parallelism on top of AMD's Radeon Open eCosystem Platform\nROCm runtime and toolchains, targeting modern CPU and GPU platforms.\nBased on C++ and HIP, it provides a portable, generic and flexible\ndesign that allows seamless integration with other scientific software\npackages."
+        },
+        {
+            "name": "aluminum",
+            "description": "Aluminum provides a generic interface to high-performance communication\nlibraries, with a focus on allreduce algorithms. Blocking and non-\nblocking algorithms and GPU-aware algorithms are supported. Aluminum\nalso contains custom implementations of select algorithms to optimize\nfor certain situations."
+        },
+        {
+            "name": "ceed",
+            "description": "Ceed is a collection of benchmarks, miniapps, software libraries and\nAPIs for efficient high-order finite element and spectral element\ndiscretizations for exascale applications developed in the Department of\nEnergy (DOE) and partially supported by the Exascale Computing Project\n(ECP). This is a Spack bundle package that installs the CEED software\ncomponents."
+        },
+        {
+            "name": "rccl",
+            "description": "RCCL (pronounced \"Rickle\") is a stand-alone library of standard\ncollective communication routines for GPUs, implementing all-reduce,\nall-gather, reduce, broadcast, and reduce-scatter."
+        },
+        {
+            "name": "camp",
+            "description": "Compiler agnostic metaprogramming library providing concepts, type\noperations and tuples for C++ and cuda"
+        },
+        {
+            "name": "ginkgo",
+            "description": "High-performance linear algebra library for manycore systems, with a\nfocus on sparse solution of linear systems."
+        }
+    ]
+}

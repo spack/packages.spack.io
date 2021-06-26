@@ -1,0 +1,89 @@
+{
+    "name": "libemos",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "4.5.1",
+            "sha256": "c982d9fd7dcd15c3a4d1e1115b90430928b660e17f73f7d4e360dd9f87f68c46"
+        },
+        {
+            "name": "4.5.0",
+            "sha256": "debe474603224c318f8ed4a1c209a4d1416807c594c3faa196059b2228824393"
+        },
+        {
+            "name": "4.4.9",
+            "sha256": "61af7dfcd37875b4f834e2e4371922ec529a8c03879c52e8fb911b35e4c0d413"
+        },
+        {
+            "name": "4.4.7",
+            "sha256": "669fb070c1ce655812882140a92b100233f065829868d9374bad2fcbb6b356e5"
+        },
+        {
+            "name": "4.4.2",
+            "sha256": "e2d20ad71e3beb398916f98a35a3c56ee0141d5bc9b3adff15095ff3b6dccea8"
+        }
+    ],
+    "build_system": "CMakePackage",
+    "conflicts": [
+        {
+            "name": "+ipo",
+            "spec": "^cmake@:3.8",
+            "description": "+ipo is not supported by CMake < 3.9"
+        },
+        {
+            "name": "grib=eccodes",
+            "spec": "@:4.4.1",
+            "description": "Eccodes is supported starting version 4.4.2"
+        }
+    ],
+    "variants": [
+        {
+            "name": "build_type",
+            "default": "RelWithDebInfo",
+            "description": "The build type to build"
+        },
+        {
+            "name": "ipo",
+            "default": false,
+            "description": "CMake interprocedural optimization"
+        },
+        {
+            "name": "grib",
+            "default": "eccodes",
+            "description": "Specify GRIB backend"
+        }
+    ],
+    "homepage": "https://software.ecmwf.int/wiki/display/EMOS/Emoslib",
+    "maintainers": [],
+    "patches": [],
+    "resources": [],
+    "description": "The Interpolation library (EMOSLIB) includes Interpolation software and\nBUFR & CREX encoding/decoding routines.\n",
+    "dependencies": [
+        {
+            "name": "cmake",
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
+        },
+        {
+            "name": "eccodes",
+            "description": "ecCodes is a package developed by ECMWF for processing meteorological\ndata in GRIB (1/2), BUFR (3/4) and GTS header formats."
+        },
+        {
+            "name": "grib-api",
+            "description": "The ECMWF GRIB API is an application program interface accessible from\nC, FORTRAN and Python programs developed for encoding and decoding WMO\nFM-92 GRIB edition 1 and edition 2 messages."
+        },
+        {
+            "name": "fftw",
+            "description": "FFTW is a C subroutine library for computing the discrete Fourier\ntransform (DFT) in one or more dimensions, of arbitrary input size, and\nof both real and complex data (as well as of even/odd data, i.e. the\ndiscrete cosine/sine transforms or DCT/DST). We believe that FFTW, which\nis free software, should become the FFT library of choice for most\napplications."
+        },
+        {
+            "name": "pkgconfig",
+            "description": "pkgconf is a program which helps to configure compiler and linker flags\nfor development frameworks. It is similar to pkg-config from\nfreedesktop.org, providing additional functionality while also\nmaintaining compatibility."
+        }
+    ],
+    "dependent_to": [
+        {
+            "name": "magics",
+            "description": "Magics is the latest generation of the ECMWF's Meteorological plotting\nsoftware MAGICS. Although completely redesigned in C++, it is intended\nto be as backwards-compatible as possible with the Fortran interface."
+        }
+    ]
+}

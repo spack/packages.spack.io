@@ -1,0 +1,56 @@
+{
+    "name": "sph2pipe",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "2.5",
+            "sha256": "5be236dc94ed0a301c5c8a369f849f76799ec7e70f25dfc0521068d9d1d4d3e3"
+        }
+    ],
+    "build_system": "CMakePackage",
+    "conflicts": [
+        {
+            "name": "+ipo",
+            "spec": "^cmake@:3.8",
+            "description": "+ipo is not supported by CMake < 3.9"
+        }
+    ],
+    "variants": [
+        {
+            "name": "build_type",
+            "default": "RelWithDebInfo",
+            "description": "CMake build type"
+        },
+        {
+            "name": "ipo",
+            "default": false,
+            "description": "CMake interprocedural optimization"
+        }
+    ],
+    "homepage": "https://www.ldc.upenn.edu/language-resources/tools/sphere-conversion-tools",
+    "maintainers": [],
+    "patches": [
+        {
+            "owner": "builtin.sph2pipe",
+            "sha256": "3c7fe6f93559263843c6c88e2da9eb351920566d66c1335db09fdb2ad056ca1b",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "cmake.patch",
+            "version": ""
+        }
+    ],
+    "resources": [],
+    "description": "Sph2pipe is a portable tool for converting SPHERE files to other\nformats.\n",
+    "dependencies": [
+        {
+            "name": "cmake",
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
+        }
+    ],
+    "dependent_to": [
+        {
+            "name": "kaldi",
+            "description": "Kaldi is a toolkit for speech recognition written in C++ and licensed\nunder the Apache License v2.0. Kaldi is intended for use by speech\nrecognition researchers."
+        }
+    ]
+}

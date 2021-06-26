@@ -1,0 +1,51 @@
+{
+    "name": "libmo-unpack",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "3.1.2",
+            "sha256": "e09ef3e6f1075144acc5d6466b4ef70b2fe32ed4ab1840dd4fb7e15a40f3d370"
+        }
+    ],
+    "build_system": "CMakePackage",
+    "conflicts": [
+        {
+            "name": "+ipo",
+            "spec": "^cmake@:3.8",
+            "description": "+ipo is not supported by CMake < 3.9"
+        }
+    ],
+    "variants": [
+        {
+            "name": "build_type",
+            "default": "RelWithDebInfo",
+            "description": "CMake build type"
+        },
+        {
+            "name": "ipo",
+            "default": false,
+            "description": "CMake interprocedural optimization"
+        }
+    ],
+    "homepage": "https://github.com/SciTools/libmo_unpack",
+    "maintainers": [],
+    "patches": [],
+    "resources": [],
+    "description": "A library for handling the WGDOS and RLE compression schemes used in UM\nfiles.\n",
+    "dependencies": [
+        {
+            "name": "cmake",
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
+        },
+        {
+            "name": "check",
+            "description": "Check is a unit testing framework for C. It features a simple interface\nfor defining unit tests, putting little in the way of the developer.\nTests are run in a separate address space, so both assertion failures\nand code errors that cause segmentation faults or other signals can be\ncaught. Test results are reportable in the following: Subunit, TAP, XML,\nand a generic logging format."
+        }
+    ],
+    "dependent_to": [
+        {
+            "name": "py-mo-pack",
+            "description": "Packing methods used to encode and decode the data payloads of Met\nOffice Unified Model 'fields'"
+        }
+    ]
+}

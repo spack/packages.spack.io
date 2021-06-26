@@ -1,0 +1,167 @@
+{
+    "name": "mercury",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "master",
+            "branch": "master",
+            "submodules": true
+        },
+        {
+            "name": "2.0.1",
+            "sha256": "335946d9620ac669643ffd9861a5fb3ee486834bab674b7779eaac9d6662e3fa"
+        },
+        {
+            "name": "2.0.0",
+            "sha256": "9e80923712e25df56014309df70660e828dbeabbe5fcc82ee024bcc86e7eb6b7"
+        },
+        {
+            "name": "1.0.1",
+            "sha256": "02febd56c401ef7afa250caf28d012b37dee842bfde7ee16fcd2f741b9cf25b3"
+        },
+        {
+            "name": "1.0.0",
+            "sha256": "fb0e44d13f4652f53e21040435f91d452bc2b629b6e98dcf5292cd0bece899d4"
+        },
+        {
+            "name": "0.9.0",
+            "sha256": "40868e141cac035213fe79400f8926823fb1f5a0651fd7027cbe162b063843ef"
+        }
+    ],
+    "build_system": "CMakePackage",
+    "conflicts": [
+        {
+            "name": "+ipo",
+            "spec": "^cmake@:3.8",
+            "description": "+ipo is not supported by CMake < 3.9"
+        },
+        {
+            "name": "+ofi",
+            "spec": "@:0.9",
+            "description": "None"
+        },
+        {
+            "name": "~ofi",
+            "spec": "+udreg",
+            "description": "None"
+        }
+    ],
+    "variants": [
+        {
+            "name": "build_type",
+            "default": "RelWithDebInfo",
+            "description": "CMake build type"
+        },
+        {
+            "name": "ipo",
+            "default": false,
+            "description": "CMake interprocedural optimization"
+        },
+        {
+            "name": "bmi",
+            "default": false,
+            "description": "Use BMI plugin"
+        },
+        {
+            "name": "cci",
+            "default": false,
+            "description": "Use CCI plugin"
+        },
+        {
+            "name": "mpi",
+            "default": false,
+            "description": "Use MPI plugin"
+        },
+        {
+            "name": "ofi",
+            "default": true,
+            "description": "Use OFI libfabric plugin"
+        },
+        {
+            "name": "sm",
+            "default": true,
+            "description": "Use shared-memory plugin"
+        },
+        {
+            "name": "boostsys",
+            "default": true,
+            "description": "Use preprocessor headers from boost dependency"
+        },
+        {
+            "name": "shared",
+            "default": true,
+            "description": "Build with shared libraries"
+        },
+        {
+            "name": "udreg",
+            "default": false,
+            "description": "Enable udreg on supported Cray platforms"
+        },
+        {
+            "name": "debug",
+            "default": false,
+            "description": "Enable Mercury to print debug output"
+        },
+        {
+            "name": "checksum",
+            "default": true,
+            "description": "Checksum verify all request/response messages"
+        }
+    ],
+    "homepage": "https://mercury-hpc.github.io/",
+    "maintainers": [
+        "soumagne"
+    ],
+    "patches": [
+        {
+            "owner": "builtin.mercury",
+            "sha256": "34fc95b3599c74a8cece6e873cfdc8bc0afe2dc0deabb6e2d11ea2a93f0cebf5",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "fix-cmake-3.15-check_symbol_exists.patch",
+            "version": "@1.0.0:1.0.1"
+        }
+    ],
+    "resources": [],
+    "description": "Mercury is a C library for implementing RPC, optimized for HPC\n",
+    "dependencies": [
+        {
+            "name": "cmake",
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
+        },
+        {
+            "name": "bmi",
+            "description": "a communications framework and network abstraction layer"
+        },
+        {
+            "name": "mpi",
+            "description": "MVAPICH2-X is the advanced version of the MVAPICH2 MPI library with\nenhanced features (UMR, ODP, DC, Core-Direct, SHARP, XPMEM), OSU INAM\n(InifniBand Network Monitoring and Analysis),PGAS (OpenSHMEM, UPC,\nUPC++, and CAF), and MPI+PGAS programming models with unified\ncommunication runtime. MVAPICH2-X is not installable from source and is\nonly available through a binary mirror. If you do not find the binary\nyou're looking for, send us an email at mvapich@cse.ohio-state.edu. The\nbinary mirror url is: http://mvapich.cse.ohio-\nstate.edu/download/mvapich/spack-mirror/mvapich2x/"
+        },
+        {
+            "name": "libfabric",
+            "description": "The Open Fabrics Interfaces (OFI) is a framework focused on exporting\nfabric communication services to applications."
+        },
+        {
+            "name": "openpa",
+            "description": "An open source, highly-portable library that provides atomic primitives\n(and related constructs) for high performance, concurrent software"
+        },
+        {
+            "name": "boost",
+            "description": "Boost provides free peer-reviewed portable C++ source libraries,\nemphasizing libraries that work well with the C++ Standard Library.\nBoost libraries are intended to be widely useful, and usable across a\nbroad spectrum of applications. The Boost license encourages both\ncommercial and non-commercial use."
+        }
+    ],
+    "dependent_to": [
+        {
+            "name": "margo",
+            "description": "A library that provides Argobots bindings to the Mercury RPC\nimplementation. This name will be deprecated soon; please use the mochi-\nmargo package instead."
+        },
+        {
+            "name": "unifyfs",
+            "description": "User level file system that enables applications to use node-local\nstorage as burst buffers for shared files. Supports scalable and\nefficient aggregation of I/O bandwidth from burst buffers while having\nthe same life cycle as a batch-submitted job. UnifyFS is designed to\nsupport common I/O workloads, including checkpoint/restart. While\nprimarily designed for N-N write/read, UnifyFS compliments its\nfunctionality with the support for N-1 write/read."
+        },
+        {
+            "name": "mochi-margo",
+            "description": "A library that provides Argobots bindings to the Mercury RPC\nimplementation."
+        }
+    ]
+}

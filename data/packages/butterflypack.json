@@ -1,0 +1,127 @@
+{
+    "name": "butterflypack",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "master",
+            "branch": "master"
+        },
+        {
+            "name": "1.2.1",
+            "sha256": "cd61b0e033f55a932f13d9902e28a7abbf029c279cec9ab1b2a063525d036fa2"
+        },
+        {
+            "name": "1.2.0",
+            "sha256": "870b8acd826eb414dc38fa25e22c9c09ddeb5ca595b1dfdaa1fd65ae964d4e94"
+        },
+        {
+            "name": "1.1.0",
+            "sha256": "0e6fd0f9e27b3ee8a273dc52f4d24b8737e7279dc26d461ef5658b317215f1dc"
+        },
+        {
+            "name": "1.0.3",
+            "sha256": "acf9bc98dd7fea31ab73756b68b3333228b53ab0e85400a8250fcc749a1a6656"
+        },
+        {
+            "name": "1.0.1",
+            "sha256": "e8ada37466a19f49e13456b150700d4c3afaad2ddbe3678f4e933f9d556a24a5"
+        },
+        {
+            "name": "1.0.0",
+            "sha256": "86c5eb09a18522367d63ce2bacf67ca1c9813ef351a1443baaab3c53f0d77232"
+        }
+    ],
+    "build_system": "CMakePackage",
+    "conflicts": [
+        {
+            "name": "+ipo",
+            "spec": "^cmake@:3.8",
+            "description": "+ipo is not supported by CMake < 3.9"
+        }
+    ],
+    "variants": [
+        {
+            "name": "build_type",
+            "default": "RelWithDebInfo",
+            "description": "CMake build type"
+        },
+        {
+            "name": "ipo",
+            "default": false,
+            "description": "CMake interprocedural optimization"
+        },
+        {
+            "name": "shared",
+            "default": true,
+            "description": "Build shared libraries"
+        }
+    ],
+    "homepage": "https://github.com/liuyangzhuan/ButterflyPACK",
+    "maintainers": [
+        "liuyangzhuan"
+    ],
+    "patches": [
+        {
+            "owner": "builtin.butterflypack",
+            "sha256": "443f80b6a13d93ee44cde658fab25765005ad75fedecf65149905fed05aefe4a",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "longline.patch",
+            "version": "%fj"
+        },
+        {
+            "owner": "builtin.butterflypack",
+            "sha256": "43ae8fe2212f473670126e78e21828fa0e7e49961d854ee1b009d7b8db2cab36",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "fjfortran.patch",
+            "version": "%fj"
+        },
+        {
+            "owner": "builtin.butterflypack",
+            "sha256": "a1c433a03bca38362e87151042fb96e99e23864171b935d67462e85b79332565",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "isnan.patch",
+            "version": "%fj"
+        }
+    ],
+    "resources": [],
+    "description": "ButterflyPACK is a mathematical software for rapidly solving large-scale\ndense linear systems that exhibit off-diagonal rank-deficiency. These\nsystems arise frequently from boundary element methods, or factorization\nphases in finite-difference/finite-element methods. ButterflyPACK relies\non low-rank or butterfly formats under Hierarchical matrix, HODLR or\nother hierarchically nested frameworks to compress, factor and solve the\nlinear system in quasi-linear time. The computationally most intensive\nphase, factorization, is accelerated via randomized linear algebras. The\nbutterfly format, originally inspired by the butterfly data flow in fast\nFourier Transform, is a linear algebra tool well-suited for compressing\nmatrices arising from high-frequency wave equations or highly\noscillatory integral operators.\n",
+    "dependencies": [
+        {
+            "name": "cmake",
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
+        },
+        {
+            "name": "mpi",
+            "description": "MVAPICH2-X is the advanced version of the MVAPICH2 MPI library with\nenhanced features (UMR, ODP, DC, Core-Direct, SHARP, XPMEM), OSU INAM\n(InifniBand Network Monitoring and Analysis),PGAS (OpenSHMEM, UPC,\nUPC++, and CAF), and MPI+PGAS programming models with unified\ncommunication runtime. MVAPICH2-X is not installable from source and is\nonly available through a binary mirror. If you do not find the binary\nyou're looking for, send us an email at mvapich@cse.ohio-state.edu. The\nbinary mirror url is: http://mvapich.cse.ohio-\nstate.edu/download/mvapich/spack-mirror/mvapich2x/"
+        },
+        {
+            "name": "blas",
+            "description": "Intel oneAPI MKL."
+        },
+        {
+            "name": "lapack",
+            "description": "Intel oneAPI MKL."
+        },
+        {
+            "name": "scalapack",
+            "description": "Intel oneAPI MKL."
+        },
+        {
+            "name": "arpack-ng",
+            "description": "ARPACK-NG is a collection of Fortran77 subroutines designed to solve\nlarge scale eigenvalue problems. Important Features: * Reverse\nCommunication Interface. * Single and Double Precision Real Arithmetic\nVersions for Symmetric, Non-symmetric, Standard or Generalized Problems.\n* Single and Double Precision Complex Arithmetic Versions for Standard\nor Generalized Problems. * Routines for Banded Matrices - Standard or\nGeneralized Problems. * Routines for The Singular Value Decomposition. *\nExample driver routines that may be used as templates to implement\nnumerous Shift-Invert strategies for all problem types, data types and\nprecision. This project is a joint project between Debian, Octave and\nScilab in order to provide a common and maintained version of arpack.\nIndeed, no single release has been published by Rice university for the\nlast few years and since many software (Octave, Scilab, R, Matlab...)\nforked it and implemented their own modifications, arpack-ng aims to\ntackle this by providing a common repository and maintained versions.\narpack-ng is replacing arpack almost everywhere."
+        }
+    ],
+    "dependent_to": [
+        {
+            "name": "xsdk",
+            "description": "Xsdk is a suite of Department of Energy (DOE) packages for numerical\nsimulation. This is a Spack bundle package that installs the xSDK\npackages"
+        },
+        {
+            "name": "strumpack",
+            "description": "STRUMPACK -- STRUctured Matrix PACKage - provides linear solvers for\nsparse matrices and for dense rank-structured matrices, i.e., matrices\nthat exhibit some kind of low-rank property. It provides a distributed\nmemory fully algebraic sparse solver and preconditioner. The\npreconditioner is mostly aimed at large sparse linear systems which\nresult from the discretization of a partial differential equation, but\nis not limited to any particular type of problem. STRUMPACK also\nprovides preconditioned GMRES and BiCGStab iterative solvers."
+        }
+    ]
+}

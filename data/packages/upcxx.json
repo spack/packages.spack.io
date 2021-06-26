@@ -1,0 +1,100 @@
+{
+    "name": "upcxx",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "develop",
+            "branch": "develop"
+        },
+        {
+            "name": "master",
+            "branch": "master"
+        },
+        {
+            "name": "2021.3.0",
+            "sha256": "3433714cd4162ffd8aad9a727c12dbf1c207b7d6664879fc41259a4b351595b7"
+        },
+        {
+            "name": "2020.11.0",
+            "sha256": "f6f212760a485a9f346ca11bb4751e7095bbe748b8e5b2389ff9238e9e321317",
+            "url": "https://bitbucket.org/berkeleylab/upcxx/downloads/upcxx-2020.11.0-memory_kinds_prototype.tar.gz"
+        },
+        {
+            "name": "2020.10.0",
+            "sha256": "623e074b512bf8cad770a04040272e1cc660d2749760398b311f9bcc9d381a37"
+        },
+        {
+            "name": "2020.3.0",
+            "sha256": "01be35bef4c0cfd24e9b3d50c88866521b9cac3ad4cbb5b1fc97aea55078810f"
+        },
+        {
+            "name": "2019.9.0",
+            "sha256": "7d67ccbeeefb59de9f403acc719f52127a30801a2c2b9774a1df03f850f8f1d4"
+        },
+        {
+            "name": "2019.3.2",
+            "sha256": "dcb0b337c05a0feb2ed5386f5da6c60342412b49cab10f282f461e74411018ad"
+        }
+    ],
+    "build_system": "Package",
+    "conflicts": [
+        {
+            "name": "cross=none",
+            "spec": "arch=cray-None-None",
+            "description": "cross=none is unacceptable on Cray.Please specify an appropriate \"cross\" value"
+        }
+    ],
+    "variants": [
+        {
+            "name": "mpi",
+            "default": false,
+            "description": "Enables MPI-based spawners and mpi-conduit"
+        },
+        {
+            "name": "cuda",
+            "default": false,
+            "description": "Builds a CUDA-enabled version of UPC++"
+        },
+        {
+            "name": "cross",
+            "default": "none",
+            "description": "UPC++ cross-compile target (autodetect by default)"
+        },
+        {
+            "name": "gasnet",
+            "default": false,
+            "description": "Override embedded GASNet-EX version"
+        }
+    ],
+    "homepage": "https://upcxx.lbl.gov",
+    "maintainers": [
+        "bonachea"
+    ],
+    "patches": [],
+    "resources": [],
+    "description": "UPC++ is a C++ library that supports Partitioned Global Address Space\n(PGAS) programming, and is designed to interoperate smoothly and\nefficiently with MPI, OpenMP, CUDA and AMTs. It leverages GASNet-EX to\ndeliver low-overhead, fine-grained communication, including Remote\nMemory Access (RMA) and Remote Procedure Call (RPC).\n",
+    "dependencies": [
+        {
+            "name": "gasnet",
+            "description": "GASNet is a language-independent, networking middleware layer that\nprovides network-independent, high-performance communication primitives\nincluding Remote Memory Access (RMA) and Active Messages (AM). It has\nbeen used to implement parallel programming models and libraries such as\nUPC, UPC++, Co-Array Fortran, Legion, Chapel, and many others. The\ninterface is primarily intended as a compilation target and for use by\nruntime library writers (as opposed to end users), and the primary goals\nare high performance, interface portability, and expressiveness.\n***NOTICE***: The GASNet library built by this Spack package is ONLY\nintended for unit-testing purposes, and is generally UNSUITABLE FOR\nPRODUCTION USE. The RECOMMENDED way to build GASNet is as an embedded\nlibrary as configured by the higher-level client runtime package (UPC++,\nLegion, etc), including system-specific configuration."
+        },
+        {
+            "name": "mpi",
+            "description": "MVAPICH2-X is the advanced version of the MVAPICH2 MPI library with\nenhanced features (UMR, ODP, DC, Core-Direct, SHARP, XPMEM), OSU INAM\n(InifniBand Network Monitoring and Analysis),PGAS (OpenSHMEM, UPC,\nUPC++, and CAF), and MPI+PGAS programming models with unified\ncommunication runtime. MVAPICH2-X is not installable from source and is\nonly available through a binary mirror. If you do not find the binary\nyou're looking for, send us an email at mvapich@cse.ohio-state.edu. The\nbinary mirror url is: http://mvapich.cse.ohio-\nstate.edu/download/mvapich/spack-mirror/mvapich2x/"
+        },
+        {
+            "name": "cuda",
+            "description": "CUDA is a parallel computing platform and programming model invented by\nNVIDIA. It enables dramatic increases in computing performance by\nharnessing the power of the graphics processing unit (GPU). Note: This\npackage does not currently install the drivers necessary to run CUDA.\nThese will need to be installed manually. See:\nhttps://docs.nvidia.com/cuda/ for details."
+        },
+        {
+            "name": "python",
+            "description": "The Python programming language."
+        }
+    ],
+    "dependent_to": [
+        {
+            "name": "timemory",
+            "description": "Timing + Memory + Hardware Counter Utilities for C/C++/CUDA/Python"
+        }
+    ]
+}

@@ -1,0 +1,113 @@
+{
+    "name": "diamond",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "2.0.9",
+            "sha256": "3019f1adb6411c6669a3a17351d0338ae02f6b3cab3c8a3bac91cf334dcda620"
+        },
+        {
+            "name": "2.0.8",
+            "sha256": "04eed7c83828f50c7d9a1d48fe7c50a4c753e008501dc639c6521cf8a756c43b"
+        },
+        {
+            "name": "2.0.4",
+            "sha256": "94e8fe72bdc28b83fd0f2d90c439b58b63b38263aa1a3905582ef68f614ae95d"
+        },
+        {
+            "name": "0.9.25",
+            "sha256": "65298f60cf9421dcc7669ce61642611cd9eeffc32f66fd39ebfa25dd64416808"
+        },
+        {
+            "name": "0.9.23",
+            "sha256": "0da5cdd5e5b77550ec0eaba2c6c431801cdd10d31606ca12f952b57d3d31db92"
+        },
+        {
+            "name": "0.9.22",
+            "sha256": "35e518cfa0ac2fbc57e422d380bdb5123c6335742dd7965b76c34c95f241b729"
+        },
+        {
+            "name": "0.9.21",
+            "sha256": "3f10e089c24d24f3066f3a58fa01bf356c4044e0a0bcab081b9bf1a8d946c9b1"
+        },
+        {
+            "name": "0.9.20",
+            "sha256": "5cf629baf135f54dc93728e3618ae08c64c1ecb81b3f2d2d48fcfd1c010ed8f0"
+        },
+        {
+            "name": "0.9.19",
+            "sha256": "fab783f51af9010666f2b569f438fb38843d0201fe0c0e167db5b70d12459e30"
+        },
+        {
+            "name": "0.9.14",
+            "sha256": "de870a7806ac0aa47b97c9b784dd7201e2c8e11a122003bde440d926211b911e"
+        },
+        {
+            "name": "0.8.38",
+            "sha256": "582a7932f3aa73b0eac2275dd773818665f0b067b32a79ff5a13b0e3ca375f60"
+        },
+        {
+            "name": "0.8.26",
+            "sha256": "00d2be32dad76511a767ab8e917962c0ecc572bc808080be60dec028df45439f"
+        }
+    ],
+    "build_system": "CMakePackage",
+    "conflicts": [
+        {
+            "name": "+ipo",
+            "spec": "^cmake@:3.8",
+            "description": "+ipo is not supported by CMake < 3.9"
+        },
+        {
+            "name": "target=aarch64:",
+            "spec": "@:0.9.25",
+            "description": "None"
+        }
+    ],
+    "variants": [
+        {
+            "name": "build_type",
+            "default": "RelWithDebInfo",
+            "description": "CMake build type"
+        },
+        {
+            "name": "ipo",
+            "default": false,
+            "description": "CMake interprocedural optimization"
+        }
+    ],
+    "homepage": "https://ab.inf.uni-tuebingen.de/software/diamond",
+    "maintainers": [],
+    "patches": [
+        {
+            "owner": "builtin.diamond",
+            "sha256": "fd4fe3cc3d73ebfb4e8fc6d80cea624e229fa44ed468123af287c74952c639a2",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "fix_narrowing_error.patch",
+            "version": "@:0.9.25"
+        }
+    ],
+    "resources": [],
+    "description": "DIAMOND is a sequence aligner for protein and translated DNA searches,\ndesigned for high performance analysis of big sequence data.\n",
+    "dependencies": [
+        {
+            "name": "cmake",
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
+        },
+        {
+            "name": "zlib",
+            "description": "A free, general-purpose, legally unencumbered lossless data-compression\nlibrary."
+        }
+    ],
+    "dependent_to": [
+        {
+            "name": "braker",
+            "description": "BRAKER is a pipeline for unsupervised RNA-Seq-based genome annotation\nthat combines the advantages of GeneMark-ET and AUGUSTUS"
+        },
+        {
+            "name": "orthofinder",
+            "description": "OrthoFinder is a fast, accurate and comprehensive analysis tool for\ncomparative genomics. It finds orthologues and orthogroups infers rooted\ngene trees for all orthogroups and infers a rooted species tree for the\nspecies being analysed. OrthoFinder also provides comprehensive\nstatistics for comparative genomic analyses. OrthoFinder is simple to\nuse and all you need to run it is a set of protein sequence files (one\nper species) in FASTA format."
+        }
+    ]
+}

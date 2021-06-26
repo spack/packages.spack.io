@@ -1,0 +1,69 @@
+{
+    "name": "hipfft",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "master",
+            "branch": "master"
+        },
+        {
+            "name": "4.2.0",
+            "sha256": "74253b0d92feff55ebb39b3fe4a22a6454160a60bdad37384aa5340fd8843f8a"
+        },
+        {
+            "name": "4.1.0",
+            "sha256": "885ffd4813f2c271150f1b8b386f0af775b38fc82b96ce6fd94eb4ba0c0180be"
+        }
+    ],
+    "build_system": "CMakePackage",
+    "conflicts": [
+        {
+            "name": "+ipo",
+            "spec": "^cmake@:3.8",
+            "description": "+ipo is not supported by CMake < 3.9"
+        }
+    ],
+    "variants": [
+        {
+            "name": "build_type",
+            "default": "RelWithDebInfo",
+            "description": "CMake build type"
+        },
+        {
+            "name": "ipo",
+            "default": false,
+            "description": "CMake interprocedural optimization"
+        }
+    ],
+    "homepage": "https://github.com/ROCmSoftwarePlatform/hipFFT",
+    "maintainers": [
+        "arjun-raj-kuppala",
+        "srekolam"
+    ],
+    "patches": [],
+    "resources": [],
+    "description": "hipFFT is an FFT marshalling library. Currently, hipFFT supports either\nrocFFT or cuFFT as backends.hipFFT exports an interface that does not\nrequire the client to change, regardless of the chosen backend. It sits\nbetween the application and the backend FFT library, marshalling inputs\ninto the backend and results back to the application.\n",
+    "dependencies": [
+        {
+            "name": "cmake",
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
+        },
+        {
+            "name": "rocm-cmake",
+            "description": "ROCM cmake modules provides cmake modules for common build tasks needed\nfor the ROCM software stack"
+        },
+        {
+            "name": "hip",
+            "description": "HIP is a C++ Runtime API and Kernel Language that allows developers to\ncreate portable applications for AMD and NVIDIA GPUs from single source\ncode."
+        },
+        {
+            "name": "hip-rocclr",
+            "description": "Hip-ROCclr is a virtual device interface that compute runtimes interact\nwith to different backends such as ROCr or PAL This abstraction allows\nruntimes to work on Windows as well as on Linux without much effort."
+        },
+        {
+            "name": "rocfft",
+            "description": "Radeon Open Compute FFT library"
+        }
+    ],
+    "dependent_to": []
+}

@@ -1,0 +1,79 @@
+{
+    "name": "denovogear",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "1.1.1",
+            "sha256": "799fe99193e9cf12320893cf020a3251022f60a49de8677a1c5a18c578fe4be2"
+        },
+        {
+            "name": "1.1.0",
+            "sha256": "f818f80cd67183294c8aae312cad8311e6a9abede1f687567bb079d29f79c005"
+        }
+    ],
+    "build_system": "CMakePackage",
+    "conflicts": [
+        {
+            "name": "+ipo",
+            "spec": "^cmake@:3.8",
+            "description": "+ipo is not supported by CMake < 3.9"
+        }
+    ],
+    "variants": [
+        {
+            "name": "build_type",
+            "default": "RelWithDebInfo",
+            "description": "CMake build type"
+        },
+        {
+            "name": "ipo",
+            "default": false,
+            "description": "CMake interprocedural optimization"
+        }
+    ],
+    "homepage": "https://github.com/denovogear/denovogear",
+    "maintainers": [],
+    "patches": [
+        {
+            "owner": "builtin.denovogear",
+            "sha256": "91a20e14de65498ae3b390a95abb369a88a4156321c7ea1d41ce5a63b1724c32",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "stream-open.patch",
+            "version": "@:1.1.1"
+        },
+        {
+            "owner": "builtin.denovogear",
+            "sha256": "f6cde472f5925fb5c08d91d663af1f70e8d6f2bbd91eec1c5c160cb9b829f56d",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "newmat6.cpp.patch",
+            "version": ""
+        }
+    ],
+    "resources": [],
+    "description": "DeNovoGear is a software package to detect de novo mutations using next-\ngeneration sequencing data. It supports the analysis of many\ndifferential experimental designs and uses advanced statistical models\nto reduce the false positve rate.\n",
+    "dependencies": [
+        {
+            "name": "cmake",
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
+        },
+        {
+            "name": "boost",
+            "description": "Boost provides free peer-reviewed portable C++ source libraries,\nemphasizing libraries that work well with the C++ Standard Library.\nBoost libraries are intended to be widely useful, and usable across a\nbroad spectrum of applications. The Boost license encourages both\ncommercial and non-commercial use."
+        },
+        {
+            "name": "htslib",
+            "description": "C library for high-throughput sequencing data formats."
+        },
+        {
+            "name": "eigen",
+            "description": "Eigen is a C++ template library for linear algebra matrices, vectors,\nnumerical solvers, and related algorithms."
+        },
+        {
+            "name": "zlib",
+            "description": "A free, general-purpose, legally unencumbered lossless data-compression\nlibrary."
+        }
+    ],
+    "dependent_to": []
+}

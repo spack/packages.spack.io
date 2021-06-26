@@ -1,0 +1,247 @@
+{
+    "name": "dyninst",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "master",
+            "branch": "master"
+        },
+        {
+            "name": "11.0.1",
+            "tag": "v11.0.1"
+        },
+        {
+            "name": "11.0.0",
+            "tag": "v11.0.0"
+        },
+        {
+            "name": "10.2.1",
+            "tag": "v10.2.1"
+        },
+        {
+            "name": "10.2.0",
+            "tag": "v10.2.0"
+        },
+        {
+            "name": "10.1.0",
+            "tag": "v10.1.0"
+        },
+        {
+            "name": "10.0.0",
+            "tag": "v10.0.0"
+        },
+        {
+            "name": "9.3.2",
+            "tag": "v9.3.2"
+        },
+        {
+            "name": "9.3.0",
+            "tag": "v9.3.0"
+        },
+        {
+            "name": "9.2.0",
+            "tag": "v9.2.0"
+        },
+        {
+            "name": "9.1.0",
+            "tag": "v9.1.0"
+        },
+        {
+            "name": "8.2.1",
+            "tag": "v8.2.1"
+        }
+    ],
+    "build_system": "CMakePackage",
+    "conflicts": [
+        {
+            "name": "+ipo",
+            "spec": "^cmake@:3.8",
+            "description": "+ipo is not supported by CMake < 3.9"
+        },
+        {
+            "name": "platform=darwin",
+            "spec": "",
+            "description": "macOS is not supported"
+        },
+        {
+            "name": "%clang",
+            "spec": "",
+            "description": "None"
+        },
+        {
+            "name": "%arm",
+            "spec": "",
+            "description": "None"
+        },
+        {
+            "name": "%cce",
+            "spec": "",
+            "description": "None"
+        },
+        {
+            "name": "%fj",
+            "spec": "",
+            "description": "None"
+        },
+        {
+            "name": "%intel",
+            "spec": "",
+            "description": "None"
+        },
+        {
+            "name": "%pgi",
+            "spec": "",
+            "description": "None"
+        },
+        {
+            "name": "%xl",
+            "spec": "",
+            "description": "None"
+        },
+        {
+            "name": "%xl_r",
+            "spec": "",
+            "description": "None"
+        },
+        {
+            "name": "%gcc@:5.99.99",
+            "spec": "@11.0.0:",
+            "description": "None"
+        }
+    ],
+    "variants": [
+        {
+            "name": "build_type",
+            "default": "RelWithDebInfo",
+            "description": "CMake build type"
+        },
+        {
+            "name": "ipo",
+            "default": false,
+            "description": "CMake interprocedural optimization"
+        },
+        {
+            "name": "openmp",
+            "default": true,
+            "description": "Enable OpenMP support for ParseAPI (version 10.0.0 or later)"
+        },
+        {
+            "name": "static",
+            "default": false,
+            "description": "Build static libraries"
+        },
+        {
+            "name": "stat_dysect",
+            "default": false,
+            "description": "Patch for STAT's DySectAPI"
+        }
+    ],
+    "homepage": "https://dyninst.org",
+    "maintainers": [
+        "hainest"
+    ],
+    "patches": [
+        {
+            "owner": "builtin.dyninst",
+            "sha256": "c8877bc9325012de77cd1612d59b6dd4b296c88d2ef5548463e7db6a39fc4070",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "stat_dysect.patch",
+            "version": "+stat_dysect"
+        },
+        {
+            "owner": "builtin.dyninst",
+            "sha256": "ce22229b99331105cd194cd73f469d5a0cc0ecc16afd91855f05a8f2eb037277",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "stackanalysis_h.patch",
+            "version": "@9.2.0"
+        },
+        {
+            "owner": "builtin.dyninst",
+            "sha256": "397f1596753f6da95ec3fc37f915bc9739f73b07cc677ee6bbda40669903bc00",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "v9.3.2-auto.patch",
+            "version": "@9.3.2%gcc@:4.7.99"
+        },
+        {
+            "owner": "builtin.dyninst",
+            "sha256": "9c2c333787895bd49dbf53a8e5cfcb6d5d070b79f31814110062a273f9110d2e",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "tribool.patch",
+            "version": "@9.3.0:10.0.0 ^boost@1.69:"
+        }
+    ],
+    "resources": [],
+    "description": "API for dynamic binary instrumentation. Modify programs while they are\nexecuting without recompiling, re-linking, or re-executing.\n",
+    "dependencies": [
+        {
+            "name": "cmake",
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
+        },
+        {
+            "name": "boost",
+            "description": "Boost provides free peer-reviewed portable C++ source libraries,\nemphasizing libraries that work well with the C++ Standard Library.\nBoost libraries are intended to be widely useful, and usable across a\nbroad spectrum of applications. The Boost license encourages both\ncommercial and non-commercial use."
+        },
+        {
+            "name": "libiberty",
+            "description": "The libiberty.a library from GNU binutils. Libiberty provides demangling\nand support functions for the GNU toolchain."
+        },
+        {
+            "name": "elfutils",
+            "description": "elfutils is a collection of various binary tools such as eu-objdump, eu-\nreadelf, and other utilities that allow you to inspect and manipulate\nELF files. Refer to Table 5.Tools Included in elfutils for Red Hat\nDeveloper for a complete list of binary tools that are distributed with\nthe Red Hat Developer Toolset version of elfutils."
+        },
+        {
+            "name": "libelf",
+            "description": "libelf lets you read, modify or create ELF object files in an\narchitecture-independent way. The library takes care of size and endian\nissues, e.g. you can process a file for SPARC processors on an Intel-\nbased system. Note: libelf is no longer maintained and packages that\ndepend on libelf should migrate to elfutils."
+        },
+        {
+            "name": "libdwarf",
+            "description": "The DWARF Debugging Information Format is of interest to programmers\nworking on compilers and debuggers (and any one interested in reading or\nwriting DWARF information). It was developed by a committee (known as\nthe PLSIG at the time) starting around 1991. Starting around 1991 SGI\ndeveloped the libdwarf and dwarfdump tools for internal use and as part\nof SGI IRIX developer tools. Since that time dwarfdump and libdwarf have\nbeen shipped (as an executable and archive respectively, not source)\nwith every release of the SGI MIPS/IRIX C compiler."
+        },
+        {
+            "name": "tbb",
+            "description": "Intel Parallel Studio."
+        }
+    ],
+    "dependent_to": [
+        {
+            "name": "timemory",
+            "description": "Timing + Memory + Hardware Counter Utilities for C/C++/CUDA/Python"
+        },
+        {
+            "name": "cbtf-krell",
+            "description": "CBTF Krell project contains collector and runtime contributions to the\nCBTF project. These contributions include many performance data\ncollectors and support libraries as well as some example tools that\ndrive the data collection at HPC levels of scale."
+        },
+        {
+            "name": "callpath",
+            "description": "Library for representing callpaths consistently in distributed-memory\nperformance tools."
+        },
+        {
+            "name": "hpctoolkit",
+            "description": "HPCToolkit is an integrated suite of tools for measurement and analysis\nof program performance on computers ranging from multicore desktop\nsystems to the nation's largest supercomputers. By using statistical\nsampling of timers and hardware performance counters, HPCToolkit\ncollects accurate measurements of a program's work, resource\nconsumption, and inefficiency and attributes them to the full calling\ncontext in which they occur."
+        },
+        {
+            "name": "stat",
+            "description": "Library to create, manipulate, and export graphs Graphlib."
+        },
+        {
+            "name": "openspeedshop-utils",
+            "description": "OpenSpeedShop is a community effort led by Trenza, Inc. It builds on top\nof a broad list of community infrastructures, most notably Dyninst and\nMRNet from UW, libmonitor from Rice, and PAPI from UTK. OpenSpeedShop is\nan open source multi platform Linux performance tool which is targeted\nto support performance analysis of applications running on both single\nnode and large scale IA64, IA32, EM64T, AMD64, PPC, ARM, Power8, Intel\nPhi, Blue Gene and Cray platforms. OpenSpeedShop development is hosted\nby Trenza Inc.. The infrastructure and base components of OpenSpeedShop\nare released as open source code primarily under LGPL. openspeedshop-\nutils is a package that does not have the qt3 gui. It was created to\navoid a conflict between openspeedshop and cbtf-argonavis-gui based on\nthe fact that spack will not allow a qt3 and qt4/qt5 dependency in a\npackages dependency tree."
+        },
+        {
+            "name": "extrae",
+            "description": "Extrae is the package devoted to generate tracefiles which can be\nanalyzed later by Paraver. Extrae is a tool that uses different\ninterposition mechanisms to inject probes into the target application so\nas to gather information regarding the application performance. The\nExtrae instrumentation package can instrument the MPI programin model,\nand the following parallel programming models either alone or in\nconjunction with MPI : OpenMP, CUDA, OpenCL, pthread, OmpSs"
+        },
+        {
+            "name": "openspeedshop",
+            "description": "OpenSpeedShop is a community effort led by Trenza, Inc. It builds on top\nof a broad list of community infrastructures, most notably Dyninst and\nMRNet from UW, libmonitor from Rice, and PAPI from UTK. OpenSpeedShop is\nan open source multi platform Linux performance tool which is targeted\nto support performance analysis of applications running on both single\nnode and large scale IA64, IA32, EM64T, AMD64, PPC, ARM, Power8, Intel\nPhi, Blue Gene and Cray platforms. OpenSpeedShop development is hosted\nby Trenza Inc.. The infrastructure and base components of OpenSpeedShop\nare released as open source code primarily under LGPL."
+        },
+        {
+            "name": "mitos",
+            "description": "Mitos is a library and a tool for collecting sampled memory performance\ndata to view with MemAxes"
+        }
+    ]
+}

@@ -1,0 +1,87 @@
+{
+    "name": "axl",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "master",
+            "branch": "master"
+        },
+        {
+            "name": "0.4.0",
+            "sha256": "0530142629d77406a00643be32492760c2cf12d1b56c6b6416791c8ff5298db2"
+        },
+        {
+            "name": "0.3.0",
+            "sha256": "737d616b669109805f7aed1858baac36c97bf0016e1115b5c56ded05d792613e"
+        },
+        {
+            "name": "0.2.0",
+            "sha256": "d04a445f102b438fe96a1ff3429790b0c035f0d23c2797bb5601a00b582a71fc",
+            "deprecated": true
+        },
+        {
+            "name": "0.1.1",
+            "sha256": "36edac007938fe47d979679414c5c27938944d32536e2e149f642916c5c08eaa",
+            "deprecated": true
+        }
+    ],
+    "build_system": "CMakePackage",
+    "conflicts": [
+        {
+            "name": "+ipo",
+            "spec": "^cmake@:3.8",
+            "description": "+ipo is not supported by CMake < 3.9"
+        }
+    ],
+    "variants": [
+        {
+            "name": "build_type",
+            "default": "RelWithDebInfo",
+            "description": "CMake build type"
+        },
+        {
+            "name": "ipo",
+            "default": false,
+            "description": "CMake interprocedural optimization"
+        },
+        {
+            "name": "async_api",
+            "default": "daemon",
+            "description": "Set of async transfer APIs to enable"
+        },
+        {
+            "name": "bbapi_fallback",
+            "default": "False",
+            "description": "Using BBAPI, if source or destination don't support             file extents then fallback to pthreads"
+        }
+    ],
+    "homepage": "https://github.com/ecp-veloc/AXL",
+    "maintainers": [],
+    "patches": [],
+    "resources": [],
+    "description": "Asynchronous transfer library\n",
+    "dependencies": [
+        {
+            "name": "cmake",
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
+        },
+        {
+            "name": "kvtree",
+            "description": "KVTree provides a fully extensible C datastructure modeled after perl\nhashes."
+        }
+    ],
+    "dependent_to": [
+        {
+            "name": "scr",
+            "description": "SCR caches checkpoint data in storage on the compute nodes of a Linux\ncluster to provide a fast, scalable checkpoint/restart capability for\nMPI codes"
+        },
+        {
+            "name": "filo",
+            "description": "File flush and fetch, with MPI"
+        },
+        {
+            "name": "veloc",
+            "description": "Very-Low Overhead Checkpointing System. VELOC is a multi-level\ncheckpoint-restart runtime for HPC supercomputing infrastructures"
+        }
+    ]
+}

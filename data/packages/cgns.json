@@ -1,0 +1,166 @@
+{
+    "name": "cgns",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "develop",
+            "branch": "develop"
+        },
+        {
+            "name": "master",
+            "branch": "master"
+        },
+        {
+            "name": "4.2.0",
+            "sha256": "090ec6cb0916d90c16790183fc7c2bd2bd7e9a5e3764b36c8196ba37bf1dc817"
+        },
+        {
+            "name": "4.1.2",
+            "sha256": "951653956f509b8a64040f1440c77f5ee0e6e2bf0a9eef1248d370f60a400050"
+        },
+        {
+            "name": "4.1.1",
+            "sha256": "055d345c3569df3ae832fb2611cd7e0bc61d56da41b2be1533407e949581e226"
+        },
+        {
+            "name": "4.1.0",
+            "sha256": "4674de1fac3c47998248725fd670377be497f568312c5903d1bb8090a3cf4da0"
+        },
+        {
+            "name": "4.0.0",
+            "sha256": "748585a8e52dff4d250d6b603e6b847d05498e4566aba2dc3d7a7d85c4d55849"
+        },
+        {
+            "name": "3.4.1",
+            "sha256": "d32595e7737b9332243bd3de1eb8c018a272f620f09b289dea8292eba1365994"
+        },
+        {
+            "name": "3.4.0",
+            "sha256": "6372196caf25b27d38cf6f056258cb0bdd45757f49d9c59372b6dbbddb1e05da"
+        },
+        {
+            "name": "3.3.1",
+            "sha256": "81093693b2e21a99c5640b82b267a495625b663d7b8125d5f1e9e7aaa1f8d469"
+        },
+        {
+            "name": "3.3.0",
+            "sha256": "8422c67994f8dc6a2f201523a14f6c7d7e16313bdd404c460c16079dbeafc662"
+        }
+    ],
+    "build_system": "CMakePackage",
+    "conflicts": [
+        {
+            "name": "+ipo",
+            "spec": "^cmake@:3.8",
+            "description": "+ipo is not supported by CMake < 3.9"
+        }
+    ],
+    "variants": [
+        {
+            "name": "build_type",
+            "default": "RelWithDebInfo",
+            "description": "CMake build type"
+        },
+        {
+            "name": "ipo",
+            "default": false,
+            "description": "CMake interprocedural optimization"
+        },
+        {
+            "name": "hdf5",
+            "default": true,
+            "description": "Enable HDF5 interface"
+        },
+        {
+            "name": "fortran",
+            "default": false,
+            "description": "Enable Fortran interface"
+        },
+        {
+            "name": "base_scope",
+            "default": false,
+            "description": "Enable base scope"
+        },
+        {
+            "name": "scoping",
+            "default": true,
+            "description": "Enable scoping"
+        },
+        {
+            "name": "mpi",
+            "default": true,
+            "description": "Enable parallel cgns"
+        },
+        {
+            "name": "int64",
+            "default": false,
+            "description": "Build with 64-bit integers"
+        },
+        {
+            "name": "shared",
+            "default": true,
+            "description": "Enable shared library"
+        },
+        {
+            "name": "static",
+            "default": false,
+            "description": "Build static libraries"
+        },
+        {
+            "name": "testing",
+            "default": false,
+            "description": "Build CGNS testing"
+        },
+        {
+            "name": "legacy",
+            "default": false,
+            "description": "Enable legacy options"
+        },
+        {
+            "name": "mem_debug",
+            "default": false,
+            "description": "Enable memory debugging option"
+        }
+    ],
+    "homepage": "http://cgns.github.io/",
+    "maintainers": [],
+    "patches": [],
+    "resources": [],
+    "description": "The CFD General Notation System (CGNS) provides a general, portable, and\nextensible standard for the storage and retrieval of computational fluid\ndynamics (CFD) analysis data.\n",
+    "dependencies": [
+        {
+            "name": "cmake",
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
+        },
+        {
+            "name": "hdf5",
+            "description": "HDF5 is a data model, library, and file format for storing and managing\ndata. It supports an unlimited variety of datatypes, and is designed for\nflexible and efficient I/O and for high volume and complex data."
+        },
+        {
+            "name": "mpi",
+            "description": "MVAPICH2-X is the advanced version of the MVAPICH2 MPI library with\nenhanced features (UMR, ODP, DC, Core-Direct, SHARP, XPMEM), OSU INAM\n(InifniBand Network Monitoring and Analysis),PGAS (OpenSHMEM, UPC,\nUPC++, and CAF), and MPI+PGAS programming models with unified\ncommunication runtime. MVAPICH2-X is not installable from source and is\nonly available through a binary mirror. If you do not find the binary\nyou're looking for, send us an email at mvapich@cse.ohio-state.edu. The\nbinary mirror url is: http://mvapich.cse.ohio-\nstate.edu/download/mvapich/spack-mirror/mvapich2x/"
+        }
+    ],
+    "dependent_to": [
+        {
+            "name": "trilinos",
+            "description": "The Trilinos Project is an effort to develop algorithms and enabling\ntechnologies within an object-oriented software framework for the\nsolution of large-scale, complex multi-physics engineering and\nscientific problems. A unique design feature of Trilinos is its focus on\npackages."
+        },
+        {
+            "name": "petsc",
+            "description": "PETSc is a suite of data structures and routines for the scalable\n(parallel) solution of scientific applications modeled by partial\ndifferential equations."
+        },
+        {
+            "name": "visit-cgns",
+            "description": "This is the CGNS Plug-In for VisIt. It can be installed after VisIt is\ninstalled along CGNS library."
+        },
+        {
+            "name": "gmsh",
+            "description": "Gmsh is a free 3D finite element grid generator with a built-in CAD\nengine and post-processor. Its design goal is to provide a fast, light\nand user-friendly meshing tool with parametric input and advanced\nvisualization capabilities. Gmsh is built around four modules: geometry,\nmesh, solver and post-processing. The specification of any input to\nthese modules is done either interactively using the graphical user\ninterface or in ASCII text files using Gmsh's own scripting language."
+        },
+        {
+            "name": "seacas",
+            "description": "The SEACAS Project contains the Exodus and IOSS libraries and a\ncollection of applications which create, query, modify, or translate\nexodus databases. Default is to build the exodus and IOSS libraries and\nthe io_shell, io_info, struc_to_unstruc apps."
+        }
+    ]
+}

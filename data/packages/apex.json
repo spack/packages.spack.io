@@ -1,0 +1,184 @@
+{
+    "name": "apex",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "develop",
+            "branch": "develop"
+        },
+        {
+            "name": "master",
+            "branch": "master"
+        },
+        {
+            "name": "2.4.0",
+            "sha256": "15d8957da7b37d2c684a6f0f32aef65b0b26be6558da17963cf71f3fd3cfdf2f"
+        },
+        {
+            "name": "2.3.2",
+            "sha256": "acf37c024a2283cafbf206f508929208b62c8f800af22ad7c74c570863a31bb4"
+        },
+        {
+            "name": "2.3.1",
+            "sha256": "86bf6933f2c53531fcb24cda9fc7dc9919909bed54740d1e0bc3e7ce6ed78091"
+        },
+        {
+            "name": "2.3.0",
+            "sha256": "7e1d16c9651b913c5e28abdbad75f25c55ba25e9fa35f5d979c1d3f9b9852c58"
+        },
+        {
+            "name": "2.2.0",
+            "sha256": "cd5eddb1f6d26b7dbb4a8afeca2aa28036c7d0987e0af0400f4f96733889c75c"
+        }
+    ],
+    "build_system": "CMakePackage",
+    "conflicts": [
+        {
+            "name": "+ipo",
+            "spec": "^cmake@:3.8",
+            "description": "+ipo is not supported by CMake < 3.9"
+        },
+        {
+            "name": "+jemalloc",
+            "spec": "+gperftools",
+            "description": "None"
+        },
+        {
+            "name": "+plugins",
+            "spec": "~activeharmony",
+            "description": "None"
+        }
+    ],
+    "variants": [
+        {
+            "name": "build_type",
+            "default": "RelWithDebInfo",
+            "description": "CMake build type"
+        },
+        {
+            "name": "ipo",
+            "default": false,
+            "description": "CMake interprocedural optimization"
+        },
+        {
+            "name": "activeharmony",
+            "default": true,
+            "description": "Enables Active Harmony support"
+        },
+        {
+            "name": "plugins",
+            "default": true,
+            "description": "Enables Policy Plugin support"
+        },
+        {
+            "name": "binutils",
+            "default": true,
+            "description": "Enables Binutils support"
+        },
+        {
+            "name": "otf2",
+            "default": true,
+            "description": "Enables OTF2 support"
+        },
+        {
+            "name": "gperftools",
+            "default": true,
+            "description": "Enables Google PerfTools TCMalloc support"
+        },
+        {
+            "name": "openmp",
+            "default": true,
+            "description": "Enables OpenMP support"
+        },
+        {
+            "name": "papi",
+            "default": true,
+            "description": "Enables PAPI support"
+        },
+        {
+            "name": "cuda",
+            "default": false,
+            "description": "Enables CUDA support"
+        },
+        {
+            "name": "boost",
+            "default": false,
+            "description": "Enables Boost support"
+        },
+        {
+            "name": "jemalloc",
+            "default": false,
+            "description": "Enables JEMalloc support"
+        },
+        {
+            "name": "lmsensors",
+            "default": false,
+            "description": "Enables LM-Sensors support"
+        },
+        {
+            "name": "mpi",
+            "default": false,
+            "description": "Enables MPI support"
+        },
+        {
+            "name": "tests",
+            "default": false,
+            "description": "Build Unit Tests"
+        },
+        {
+            "name": "examples",
+            "default": false,
+            "description": "Build Examples"
+        }
+    ],
+    "homepage": "https://github.com/khuck/xpress-apex",
+    "maintainers": [
+        "khuck"
+    ],
+    "patches": [],
+    "resources": [],
+    "description": "Autonomic Performance Environment for eXascale (APEX).\n",
+    "dependencies": [
+        {
+            "name": "cmake",
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
+        },
+        {
+            "name": "binutils",
+            "description": "GNU binutils, which contain the linker, assembler, objdump and others"
+        },
+        {
+            "name": "activeharmony",
+            "description": "Active Harmony: a framework for auto-tuning (the automated search for\nvalues to improve the performance of a target application)."
+        },
+        {
+            "name": "otf2",
+            "description": "The Open Trace Format 2 is a highly scalable, memory efficient event\ntrace data format plus support library."
+        },
+        {
+            "name": "mpi",
+            "description": "MVAPICH2-X is the advanced version of the MVAPICH2 MPI library with\nenhanced features (UMR, ODP, DC, Core-Direct, SHARP, XPMEM), OSU INAM\n(InifniBand Network Monitoring and Analysis),PGAS (OpenSHMEM, UPC,\nUPC++, and CAF), and MPI+PGAS programming models with unified\ncommunication runtime. MVAPICH2-X is not installable from source and is\nonly available through a binary mirror. If you do not find the binary\nyou're looking for, send us an email at mvapich@cse.ohio-state.edu. The\nbinary mirror url is: http://mvapich.cse.ohio-\nstate.edu/download/mvapich/spack-mirror/mvapich2x/"
+        },
+        {
+            "name": "gperftools",
+            "description": "Google's fast malloc/free implementation, especially for multi-threaded\napplications. Contains tcmalloc, heap-checker, heap-profiler, and cpu-\nprofiler."
+        },
+        {
+            "name": "jemalloc",
+            "description": "jemalloc is a general purpose malloc(3) implementation that emphasizes\nfragmentation avoidance and scalable concurrency support."
+        },
+        {
+            "name": "papi",
+            "description": "PAPI provides the tool designer and application engineer with a\nconsistent interface and methodology for use of the performance counter\nhardware found in most major microprocessors. PAPI enables software\nengineers to see, in near real time, the relation between software\nperformance and processor events. In addition Component PAPI provides\naccess to a collection of components that expose performance measurement\nopportunities across the hardware and software stack."
+        },
+        {
+            "name": "cuda",
+            "description": "CUDA is a parallel computing platform and programming model invented by\nNVIDIA. It enables dramatic increases in computing performance by\nharnessing the power of the graphics processing unit (GPU). Note: This\npackage does not currently install the drivers necessary to run CUDA.\nThese will need to be installed manually. See:\nhttps://docs.nvidia.com/cuda/ for details."
+        },
+        {
+            "name": "boost",
+            "description": "Boost provides free peer-reviewed portable C++ source libraries,\nemphasizing libraries that work well with the C++ Standard Library.\nBoost libraries are intended to be widely useful, and usable across a\nbroad spectrum of applications. The Boost license encourages both\ncommercial and non-commercial use."
+        }
+    ],
+    "dependent_to": []
+}

@@ -1,0 +1,276 @@
+{
+    "name": "draco",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "develop",
+            "branch": "develop"
+        },
+        {
+            "name": "7.10.0",
+            "sha256": "3530263a23a648fc7ae65748568f0a725a8b2c9bac9a41cc3cb1250c4af579de"
+        },
+        {
+            "name": "7.9.1",
+            "sha256": "c8fd029d5b74afc68670f7d449d60c24f2d284c9d6a944a2d3dce6efeb6ad097"
+        },
+        {
+            "name": "7.9.0",
+            "sha256": "17b54301897da0d4f9b91fef15cc2ec5e6c65a8e8c1c09e6e7b516c0fb82b50f"
+        },
+        {
+            "name": "7.8.0",
+            "sha256": "f6de794457441f69025619be58810bca432f3e0dd773ea9b9a7977b1dc09530d"
+        },
+        {
+            "name": "7.7.0",
+            "sha256": "eb7fffbcba48e16524f619d261192ead129f968c59f3581f3217b89590812ddf"
+        },
+        {
+            "name": "7.6.0",
+            "sha256": "c2c6b329620d7bcb0f2fc14371f105dfb80a84e7c5adbb34620777034b15c7c9"
+        },
+        {
+            "name": "7.5.0",
+            "sha256": "0bb12b5f5ff60ba3087310c07da42e8d4f481ec4259daaa24ec240815a2e9dec"
+        },
+        {
+            "name": "7.4.0",
+            "sha256": "61da2c3feace0e92c5410c9e9e613708fdf8954b1367cdc62c415329b0ddab6e"
+        },
+        {
+            "name": "7.3.0",
+            "sha256": "dc47ef6c1e04769ea177a10fc6ddf506f3e1e8d36eb5d49f4bc38cc509e24f10"
+        },
+        {
+            "name": "7.2.0",
+            "sha256": "ac4eac03703d4b7344fa2390a54140533c5e1f6ea0d59ef1f1d525c434ebe639"
+        },
+        {
+            "name": "7.1.0",
+            "sha256": "eca6bb86eb930837fb5e09b76c85c200b2c1522267cc66f81f2ec11a8262b5c9"
+        },
+        {
+            "name": "6.25.0",
+            "sha256": "e27eba44f397e7d111ff9a45b518b186940f75facfc6f318d76bd0e72f987440"
+        },
+        {
+            "name": "6.23.0",
+            "sha256": "edf20308746c06647087cb4e6ae7656fd057a89091a22bcba8f17a52e28b7849"
+        },
+        {
+            "name": "6.22.0",
+            "sha256": "4d1ed54944450c4ec7d00d7ba371469506c6985922f48f780bae2580c9335b86"
+        },
+        {
+            "name": "6.21.0",
+            "sha256": "f1ac88041606cdb1dfddd3bc74db0f1e15d8fc9d0a1eed939c8aa0fa63a85b55"
+        },
+        {
+            "name": "6.20.1",
+            "sha256": "b1c51000c9557e0818014713fce70d681869c50ed9c4548dcfb2e9219c354ebe"
+        },
+        {
+            "name": "6.20.0",
+            "sha256": "a6e3142c1c90b09c4ff8057bfee974369b815122b01d1f7b57888dcb9b1128f6"
+        }
+    ],
+    "build_system": "CMakePackage",
+    "conflicts": [
+        {
+            "name": "+ipo",
+            "spec": "^cmake@:3.8",
+            "description": "+ipo is not supported by CMake < 3.9"
+        },
+        {
+            "name": "+cuda",
+            "spec": "@:7.6.99",
+            "description": "None"
+        },
+        {
+            "name": "+caliper",
+            "spec": "@:7.7.99",
+            "description": "None"
+        }
+    ],
+    "variants": [
+        {
+            "name": "build_type",
+            "default": "Release",
+            "description": "CMake build type"
+        },
+        {
+            "name": "ipo",
+            "default": false,
+            "description": "CMake interprocedural optimization"
+        },
+        {
+            "name": "caliper",
+            "default": false,
+            "description": "Enable caliper timers support"
+        },
+        {
+            "name": "cuda",
+            "default": false,
+            "description": "Enable Cuda/GPU support"
+        },
+        {
+            "name": "eospac",
+            "default": true,
+            "description": "Enable EOSPAC support"
+        },
+        {
+            "name": "lapack",
+            "default": true,
+            "description": "Enable LAPACK wrapper"
+        },
+        {
+            "name": "libquo",
+            "default": true,
+            "description": "Enable Quo wrapper"
+        },
+        {
+            "name": "parmetis",
+            "default": true,
+            "description": "Enable Parmetis support"
+        },
+        {
+            "name": "pythontools",
+            "default": false,
+            "description": "Enable support for extra python tools"
+        },
+        {
+            "name": "qt",
+            "default": false,
+            "description": "Enable Qt support"
+        },
+        {
+            "name": "superlu_dist",
+            "default": true,
+            "description": "Enable SuperLU-DIST support"
+        }
+    ],
+    "homepage": "https://github.com/lanl/draco",
+    "maintainers": [
+        "KineticTheory"
+    ],
+    "patches": [
+        {
+            "owner": "builtin.draco",
+            "sha256": "8087ace4e670b573890e515298f35218d6e38f5c6b3f6b50b033c745418ea815",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "d710.patch",
+            "version": "@7.1.0 ^python@3:"
+        },
+        {
+            "owner": "builtin.draco",
+            "sha256": "9784dbe638620f34f4db95382d8262d812ce80188e10d393cd68486d81ea55e2",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "d710-python2.patch",
+            "version": "@7.1.0 ^python@2.7:2.99"
+        },
+        {
+            "owner": "builtin.draco",
+            "sha256": "04d2080c734590251b983b21c2b767c9bcd3305cad70e1b8847785cd8c1aa69a",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "d730.patch",
+            "version": "@7.3.0:7.3.99"
+        },
+        {
+            "owner": "builtin.draco",
+            "sha256": "3a3c719b41d26407097b56bdc6bd1f0c31bf745b7f1e72654e2c9d82386f2c4b",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "d740.patch",
+            "version": "@7.4.0:7.4.99"
+        },
+        {
+            "owner": "builtin.draco",
+            "sha256": "b5f531d889ef754580f873bc478f31281a4c6e80221a0020477db274ddacd15a",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "d760-cray.patch",
+            "version": "@7.6.0"
+        },
+        {
+            "owner": "builtin.draco",
+            "sha256": "d37023b0034266ca3fd46262c5ae78cb8b012523548edaa377c522e6963c794d",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "d770-nocuda.patch",
+            "version": "@7.7.0"
+        }
+    ],
+    "resources": [],
+    "description": "Draco is an object-oriented component library geared towards numerically\nintensive, radiation (particle) transport applications built for\nparallel computing hardware. It consists of semi-independent packages\nand a robust build system.\n",
+    "dependencies": [
+        {
+            "name": "cmake",
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
+        },
+        {
+            "name": "gsl",
+            "description": "The GNU Scientific Library (GSL) is a numerical library for C and C++\nprogrammers. It is free software under the GNU General Public License.\nThe library provides a wide range of mathematical routines such as\nrandom number generators, special functions and least-squares fitting.\nThere are over 1000 functions in total with an extensive test suite."
+        },
+        {
+            "name": "mpi",
+            "description": "MVAPICH2-X is the advanced version of the MVAPICH2 MPI library with\nenhanced features (UMR, ODP, DC, Core-Direct, SHARP, XPMEM), OSU INAM\n(InifniBand Network Monitoring and Analysis),PGAS (OpenSHMEM, UPC,\nUPC++, and CAF), and MPI+PGAS programming models with unified\ncommunication runtime. MVAPICH2-X is not installable from source and is\nonly available through a binary mirror. If you do not find the binary\nyou're looking for, send us an email at mvapich@cse.ohio-state.edu. The\nbinary mirror url is: http://mvapich.cse.ohio-\nstate.edu/download/mvapich/spack-mirror/mvapich2x/"
+        },
+        {
+            "name": "numdiff",
+            "description": "Numdiff is a little program that can be used to compare putatively\nsimilar files line by line and field by field, ignoring small numeric\ndifferences or/and different numeric formats."
+        },
+        {
+            "name": "random123",
+            "description": "Random123 is a library of 'counter-based' random number generators\n(CBRNGs), in which the Nth random number can be obtained by applying a\nstateless mixing function to N instead of the conventional approach of\nusing N iterations of a stateful transformation."
+        },
+        {
+            "name": "python",
+            "description": "The Python programming language."
+        },
+        {
+            "name": "caliper",
+            "description": "Caliper is a program instrumentation and performance measurement\nframework. It is designed as a performance analysis toolbox in a\nlibrary, allowing one to bake performance analysis capabilities directly\ninto applications and activate them at runtime."
+        },
+        {
+            "name": "cuda",
+            "description": "CUDA is a parallel computing platform and programming model invented by\nNVIDIA. It enables dramatic increases in computing performance by\nharnessing the power of the graphics processing unit (GPU). Note: This\npackage does not currently install the drivers necessary to run CUDA.\nThese will need to be installed manually. See:\nhttps://docs.nvidia.com/cuda/ for details."
+        },
+        {
+            "name": "eospac",
+            "description": "A collection of C routines that can be used to access the Sesame data\nlibrary."
+        },
+        {
+            "name": "lapack",
+            "description": "Intel oneAPI MKL."
+        },
+        {
+            "name": "libquo",
+            "description": "QUO (as in \"status quo\") is a runtime library that aids in accommodating\nthread-level heterogeneity in dynamic, phased MPI+X applications\ncomprising single- and multi-threaded libraries."
+        },
+        {
+            "name": "metis",
+            "description": "METIS is a set of serial programs for partitioning graphs, partitioning\nfinite element meshes, and producing fill reducing orderings for sparse\nmatrices. The algorithms implemented in METIS are based on the\nmultilevel recursive-bisection, multilevel k-way, and multi-constraint\npartitioning schemes."
+        },
+        {
+            "name": "parmetis",
+            "description": "ParMETIS is an MPI-based parallel library that implements a variety of\nalgorithms for partitioning unstructured graphs, meshes, and for\ncomputing fill-reducing orderings of sparse matrices."
+        },
+        {
+            "name": "qt",
+            "description": "Qt is a comprehensive cross-platform C++ application framework."
+        },
+        {
+            "name": "superlu-dist",
+            "description": "A general purpose library for the direct solution of large, sparse,\nnonsymmetric systems of linear equations on high performance machines."
+        },
+        {
+            "name": "py-matplotlib",
+            "description": "Matplotlib is a comprehensive library for creating static, animated, and\ninteractive visualizations in Python."
+        }
+    ],
+    "dependent_to": []
+}

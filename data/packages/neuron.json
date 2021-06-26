@@ -1,0 +1,161 @@
+{
+    "name": "neuron",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "develop",
+            "branch": "master",
+            "submodules": "True"
+        },
+        {
+            "name": "7.8.2",
+            "tag": "7.8.2",
+            "submodules": "True"
+        },
+        {
+            "name": "7.8.1",
+            "tag": "7.8.1",
+            "submodules": "True"
+        }
+    ],
+    "build_system": "CMakePackage",
+    "conflicts": [
+        {
+            "name": "+ipo",
+            "spec": "^cmake@:3.8",
+            "description": "+ipo is not supported by CMake < 3.9"
+        },
+        {
+            "name": "+rx3d",
+            "spec": "~python",
+            "description": "None"
+        }
+    ],
+    "variants": [
+        {
+            "name": "build_type",
+            "default": "RelWithDebInfo",
+            "description": "CMake build type"
+        },
+        {
+            "name": "ipo",
+            "default": false,
+            "description": "CMake interprocedural optimization"
+        },
+        {
+            "name": "coreneuron",
+            "default": false,
+            "description": "Enable CoreNEURON as submodule"
+        },
+        {
+            "name": "cross-compile",
+            "default": false,
+            "description": "Build for cross-compile environment"
+        },
+        {
+            "name": "interviews",
+            "default": false,
+            "description": "Enable GUI with INTERVIEWS"
+        },
+        {
+            "name": "legacy-unit",
+            "default": false,
+            "description": "Enable legacy units"
+        },
+        {
+            "name": "mpi",
+            "default": true,
+            "description": "Enable MPI parallelism"
+        },
+        {
+            "name": "python",
+            "default": true,
+            "description": "Enable python"
+        },
+        {
+            "name": "rx3d",
+            "default": false,
+            "description": "Enable cython translated 3-d rxd"
+        },
+        {
+            "name": "tests",
+            "default": false,
+            "description": "Enable unit tests"
+        },
+        {
+            "name": "caliper",
+            "default": false,
+            "description": "Add LLNL/Caliper support"
+        }
+    ],
+    "homepage": "https://www.neuron.yale.edu/",
+    "maintainers": [
+        "pramodk",
+        "nrnhines",
+        "iomaganaris",
+        "alexsavulescu"
+    ],
+    "patches": [
+        {
+            "owner": "builtin.neuron",
+            "sha256": "abe94ea2845bc006b0fe2112e5bfe588f9b5b6fef95ec1f29528f42a73d5144d",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "patch-v782-git-cmake-avx512.patch",
+            "version": "@7.8.2"
+        }
+    ],
+    "resources": [],
+    "description": "NEURON is a simulation environment for single and networks of neurons.\nNEURON is a simulation environment for modeling individual and networks\nof neurons. NEURON models individual neurons via the use of sections\nthat are automatically subdivided into individual compartments, instead\nof requiring the user to manually create compartments.\n",
+    "dependencies": [
+        {
+            "name": "cmake",
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
+        },
+        {
+            "name": "bison",
+            "description": "Bison is a general-purpose parser generator that converts an annotated\ncontext-free grammar into a deterministic LR or generalized LR (GLR)\nparser employing LALR(1) parser tables."
+        },
+        {
+            "name": "flex",
+            "description": "Flex is a tool for generating scanners."
+        },
+        {
+            "name": "py-cython",
+            "description": "The Cython compiler for writing C extensions for the Python language."
+        },
+        {
+            "name": "gettext",
+            "description": "GNU internationalization (i18n) and localization (l10n) library."
+        },
+        {
+            "name": "mpi",
+            "description": "MVAPICH2-X is the advanced version of the MVAPICH2 MPI library with\nenhanced features (UMR, ODP, DC, Core-Direct, SHARP, XPMEM), OSU INAM\n(InifniBand Network Monitoring and Analysis),PGAS (OpenSHMEM, UPC,\nUPC++, and CAF), and MPI+PGAS programming models with unified\ncommunication runtime. MVAPICH2-X is not installable from source and is\nonly available through a binary mirror. If you do not find the binary\nyou're looking for, send us an email at mvapich@cse.ohio-state.edu. The\nbinary mirror url is: http://mvapich.cse.ohio-\nstate.edu/download/mvapich/spack-mirror/mvapich2x/"
+        },
+        {
+            "name": "ncurses",
+            "description": "The ncurses (new curses) library is a free software emulation of curses\nin System V Release 4.0, and more. It uses terminfo format, supports\npads and color and multiple highlights and forms characters and\nfunction-key mapping, and has all the other SYSV-curses enhancements\nover BSD curses."
+        },
+        {
+            "name": "python",
+            "description": "The Python programming language."
+        },
+        {
+            "name": "py-pytest",
+            "description": "pytest: simple powerful testing with Python."
+        },
+        {
+            "name": "readline",
+            "description": "The GNU Readline library provides a set of functions for use by\napplications that allow users to edit command lines as they are typed\nin. Both Emacs and vi editing modes are available. The Readline library\nincludes additional functions to maintain a list of previously-entered\ncommand lines, to recall and perhaps reedit those lines, and perform\ncsh-like history expansion on previous commands."
+        },
+        {
+            "name": "caliper",
+            "description": "Caliper is a program instrumentation and performance measurement\nframework. It is designed as a performance analysis toolbox in a\nlibrary, allowing one to bake performance analysis capabilities directly\ninto applications and activate them at runtime."
+        },
+        {
+            "name": "py-numpy",
+            "description": "NumPy is the fundamental package for scientific computing with Python.\nIt contains among other things: a powerful N-dimensional array object,\nsophisticated (broadcasting) functions, tools for integrating C/C++ and\nFortran code, and useful linear algebra, Fourier transform, and random\nnumber capabilities"
+        }
+    ],
+    "dependent_to": []
+}

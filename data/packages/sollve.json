@@ -1,0 +1,287 @@
+{
+    "name": "sollve",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "develop",
+            "deprecated": true
+        },
+        {
+            "name": "1.0a2",
+            "commit": "cb4343bda9e57076a74dee23236ac9737e07594f",
+            "deprecated": true
+        }
+    ],
+    "build_system": "CMakePackage",
+    "conflicts": [
+        {
+            "name": "+ipo",
+            "spec": "^cmake@:3.8",
+            "description": "+ipo is not supported by CMake < 3.9"
+        },
+        {
+            "name": "+clang_extra",
+            "spec": "~clang",
+            "description": "None"
+        },
+        {
+            "name": "+lldb",
+            "spec": "~clang",
+            "description": "None"
+        },
+        {
+            "name": "%gcc@:5.0.999",
+            "spec": "",
+            "description": "None"
+        },
+        {
+            "name": "+omp_tsan",
+            "spec": "",
+            "description": "None"
+        }
+    ],
+    "variants": [
+        {
+            "name": "build_type",
+            "default": "Release",
+            "description": "CMake build type"
+        },
+        {
+            "name": "ipo",
+            "default": false,
+            "description": "CMake interprocedural optimization"
+        },
+        {
+            "name": "clang",
+            "default": true,
+            "description": "Build the LLVM C/C++/Objective-C compiler frontend"
+        },
+        {
+            "name": "lldb",
+            "default": true,
+            "description": "Build the LLVM debugger"
+        },
+        {
+            "name": "lld",
+            "default": true,
+            "description": "Build the LLVM linker"
+        },
+        {
+            "name": "internal_unwind",
+            "default": true,
+            "description": "Build the libcxxabi libunwind"
+        },
+        {
+            "name": "polly",
+            "default": true,
+            "description": "Build the LLVM polyhedral optimization plugin"
+        },
+        {
+            "name": "libcxx",
+            "default": true,
+            "description": "Build the LLVM C++ standard library"
+        },
+        {
+            "name": "compiler-rt",
+            "default": true,
+            "description": "Build LLVM compiler runtime, including sanitizers"
+        },
+        {
+            "name": "gold",
+            "default": true,
+            "description": "Add support for LTO with the gold linker plugin"
+        },
+        {
+            "name": "shared_libs",
+            "default": false,
+            "description": "Build all components as shared libraries, faster, less memory to build, less stable"
+        },
+        {
+            "name": "link_dylib",
+            "default": false,
+            "description": "Build and link the libLLVM shared library rather than static"
+        },
+        {
+            "name": "all_targets",
+            "default": false,
+            "description": "Build all supported targets, default targets <current arch>,NVPTX,AMDGPU,CppBackend"
+        },
+        {
+            "name": "omp_tsan",
+            "default": false,
+            "description": "Build with OpenMP capable thread sanitizer"
+        },
+        {
+            "name": "python",
+            "default": false,
+            "description": "Install python bindings"
+        },
+        {
+            "name": "argobots",
+            "default": true,
+            "description": "Use Argobots in BOLT"
+        }
+    ],
+    "homepage": "https://www.bnl.gov/compsci/projects/SOLLVE/",
+    "maintainers": [],
+    "patches": [
+        {
+            "owner": "builtin.sollve",
+            "sha256": "ef1f371a81574fd1e6170599240f8433e19c110b653883553465ac43533b2eb6",
+            "level": 1,
+            "working_dir": "projects/openmp",
+            "relative_path": "disable_unused_lock.patch",
+            "version": "@1.0a2"
+        }
+    ],
+    "resources": [
+        {
+            "version": "@develop+compiler-rt",
+            "name": "compiler-rt",
+            "destination": "projects",
+            "placement": "compiler-rt"
+        },
+        {
+            "version": "@develop+clang",
+            "name": "openmp",
+            "destination": "projects",
+            "placement": "openmp"
+        },
+        {
+            "version": "@develop+clang",
+            "name": "cfe",
+            "destination": "tools",
+            "placement": "clang"
+        },
+        {
+            "version": "@develop+polly",
+            "name": "polly",
+            "destination": "tools",
+            "placement": "polly"
+        },
+        {
+            "version": "@develop+libcxx",
+            "name": "libcxx",
+            "destination": "projects",
+            "placement": "libcxx"
+        },
+        {
+            "version": "@develop+libcxx",
+            "name": "libcxxabi",
+            "destination": "projects",
+            "placement": "libcxxabi"
+        },
+        {
+            "version": "@develop+lldb",
+            "name": "lldb",
+            "destination": "tools",
+            "placement": "lldb"
+        },
+        {
+            "version": "@develop+lld",
+            "name": "lld",
+            "destination": "tools",
+            "placement": "lld"
+        },
+        {
+            "version": "@develop+internal_unwind",
+            "name": "libunwind",
+            "destination": "projects",
+            "placement": "libunwind"
+        },
+        {
+            "version": "@1.0a2+compiler-rt",
+            "name": "compiler-rt",
+            "destination": "projects",
+            "placement": "compiler-rt"
+        },
+        {
+            "version": "@1.0a2+clang",
+            "name": "openmp",
+            "destination": "projects",
+            "placement": "openmp"
+        },
+        {
+            "version": "@1.0a2+clang",
+            "name": "cfe",
+            "destination": "tools",
+            "placement": "clang"
+        },
+        {
+            "version": "@1.0a2+polly",
+            "name": "polly",
+            "destination": "tools",
+            "placement": "polly"
+        },
+        {
+            "version": "@1.0a2+libcxx",
+            "name": "libcxx",
+            "destination": "projects",
+            "placement": "libcxx"
+        },
+        {
+            "version": "@1.0a2+libcxx",
+            "name": "libcxxabi",
+            "destination": "projects",
+            "placement": "libcxxabi"
+        },
+        {
+            "version": "@1.0a2+lldb",
+            "name": "lldb",
+            "destination": "tools",
+            "placement": "lldb"
+        },
+        {
+            "version": "@1.0a2+lld",
+            "name": "lld",
+            "destination": "tools",
+            "placement": "lld"
+        },
+        {
+            "version": "@1.0a2+internal_unwind",
+            "name": "libunwind",
+            "destination": "projects",
+            "placement": "libunwind"
+        }
+    ],
+    "description": "The SOLLVE Project aims at scaling OpenMP by leveraging LLVM for\nexascale performance and portability of applications. This package\nprovides a collection of Clang/LLVM compilers and an OpenMP runtime\nlibrary.\n",
+    "dependencies": [
+        {
+            "name": "cmake",
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
+        },
+        {
+            "name": "python",
+            "description": "The Python programming language."
+        },
+        {
+            "name": "perl-data-dumper",
+            "description": "Stringified perl data structures, suitable for both printing and eval"
+        },
+        {
+            "name": "argobots",
+            "description": "Argobots, which was developed as a part of the Argo project, is a\nlightweight runtime system that supports integrated computation and data\nmovement with massive concurrency. It will directly leverage the lowest-\nlevel constructs in the hardware and OS: lightweight notification\nmechanisms, data movement engines, memory mapping, and data placement\nstrategies. It consists of an execution model and a memory model."
+        },
+        {
+            "name": "ncurses",
+            "description": "The ncurses (new curses) library is a free software emulation of curses\nin System V Release 4.0, and more. It uses terminfo format, supports\npads and color and multiple highlights and forms characters and\nfunction-key mapping, and has all the other SYSV-curses enhancements\nover BSD curses."
+        },
+        {
+            "name": "swig",
+            "description": "SWIG is an interface compiler that connects programs written in C and\nC++ with scripting languages such as Perl, Python, Ruby, and Tcl. It\nworks by taking the declarations found in C/C++ header files and using\nthem to generate the wrapper code that scripting languages need to\naccess the underlying C/C++ code. In addition, SWIG provides a variety\nof customization features that let you tailor the wrapping process to\nsuit your application."
+        },
+        {
+            "name": "libedit",
+            "description": "An autotools compatible port of the NetBSD editline library"
+        },
+        {
+            "name": "py-six",
+            "description": "Python 2 and 3 compatibility utilities."
+        },
+        {
+            "name": "binutils",
+            "description": "GNU binutils, which contain the linker, assembler, objdump and others"
+        }
+    ],
+    "dependent_to": []
+}

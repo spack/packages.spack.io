@@ -1,0 +1,30 @@
+{
+    "name": "perl-sys-sigaction",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "0.23",
+            "sha256": "c4ef6c9345534031fcbbe2adc347fc7194d47afc945e7a44fac7e9563095d353"
+        }
+    ],
+    "build_system": "PerlPackage",
+    "conflicts": [],
+    "variants": [],
+    "homepage": "https://metacpan.org/pod/Sys::SigAction",
+    "maintainers": [],
+    "patches": [],
+    "resources": [],
+    "description": "Prior to version 5.8.0 perl implemented 'unsafe' signal handling. The\nreason it is consider unsafe, is that there is a risk that a signal will\narrive, and be handled while perl is changing internal data structures.\nThis can result in all kinds of subtle and not so subtle problems. For\nthis reason it has always been recommended that one do as little as\npossible in a signal handler, and only variables that already exist be\nmanipulated. Perl 5.8.0 and later versions implements 'safe' signal\nhandling on platforms which support the POSIX sigaction() function. This\nis accomplished by having perl note that a signal has arrived, but\ndeferring the execution of the signal handler until such time as it is\nsafe to do so. Unfortunately these changes can break some existing\nscripts, if they depended on a system routine being interrupted by the\nsignal's arrival. The perl 5.8.0 implementation was modified further in\nversion 5.8.2\n",
+    "dependencies": [
+        {
+            "name": "perl",
+            "description": "Perl 5 is a highly capable, feature-rich programming language with over\n27 years of development."
+        }
+    ],
+    "dependent_to": [
+        {
+            "name": "perl-forks",
+            "description": "The \"forks\" pragma allows a developer to use threads without having to\nhave a threaded perl, or to even run 5.8.0 or higher."
+        }
+    ]
+}

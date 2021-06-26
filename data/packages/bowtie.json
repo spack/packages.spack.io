@@ -1,0 +1,150 @@
+{
+    "name": "bowtie",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "1.3.0",
+            "sha256": "d7c2d982a67884909f284a0ff150b56b20127cd7a1ced461c3c4c03e6a6374c5"
+        },
+        {
+            "name": "1.2.3",
+            "sha256": "86402114caeacbb3a3030509cb59f0b7e96361c7b3ee2dd50e2cd68200898823"
+        },
+        {
+            "name": "1.2.2_p1",
+            "sha256": "e1b02b2e77a0d44a3dd411209fa1f44f0c4ee304ef5cc83f098275085740d5a1"
+        },
+        {
+            "name": "1.2.2",
+            "sha256": "e1b02b2e77a0d44a3dd411209fa1f44f0c4ee304ef5cc83f098275085740d5a1",
+            "url": "https://github.com/BenLangmead/bowtie/archive/v1.2.2_p1.tar.gz"
+        },
+        {
+            "name": "1.2.1.1",
+            "sha256": "1b38408b88f61d18d7ff28b2470a8cfeefccb3fc59fd46e4cc62e23874e52c20"
+        },
+        {
+            "name": "1.2.1",
+            "sha256": "b2a7c8c879cb08f00a82665bee43e1d4861de44a87912c54d168e44c90869728"
+        },
+        {
+            "name": "1.2.0",
+            "sha256": "dc4e7951b8eca56ce7714c47fd4e84f72badd5312ee9546c912af1963570f894"
+        },
+        {
+            "name": "1.2",
+            "sha256": "b1052de4253007890f6436e6361d40148bc2a5a9dd01827bb9f34097747e65f8",
+            "url": "https://downloads.sourceforge.net/project/bowtie-bio/bowtie/1.2.0/bowtie-1.2-source.zip"
+        }
+    ],
+    "build_system": "MakefilePackage",
+    "conflicts": [
+        {
+            "name": "%gcc@8:",
+            "spec": "@1.2.2",
+            "description": "None"
+        },
+        {
+            "name": "%gcc@8:",
+            "spec": "@1.2.2_p1",
+            "description": "None"
+        }
+    ],
+    "variants": [
+        {
+            "name": "tbb",
+            "default": false,
+            "description": "Use Intel thread building block"
+        }
+    ],
+    "homepage": "https://sourceforge.net/projects/bowtie-bio/",
+    "maintainers": [],
+    "patches": [
+        {
+            "owner": "builtin.bowtie",
+            "sha256": "d69a57f8b3e7598f387eebf1287512607b0ff43cbd29ce2292a2b9632414c13c",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "issue-87.patch",
+            "version": "@:1.2.2%gcc@8.0.0:"
+        },
+        {
+            "owner": "builtin.bowtie",
+            "sha256": "2225641292404b300495c27e20351e7c36cad76038e815b2f16cabdd8990f706",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "for_aarch64.patch",
+            "version": "@1.2:1.2.999 arch=linux-None-aarch64:"
+        },
+        {
+            "owner": "builtin.bowtie",
+            "sha256": "47b4519f53cff07c4361f1f73909474ec55ddd7c778b2c293a24ad1a0775bbcd",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "fix_narrowing_err.patch",
+            "version": "@1.2.1:1.2.3"
+        },
+        {
+            "owner": "builtin.bowtie",
+            "sha256": "55bcf0058a9c83c2daced39ca417be893a88c37eeaa97114a67415f149d8a8cb",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "fix_narrowing_err_1.3.0.patch",
+            "version": "@1.3.0:"
+        }
+    ],
+    "resources": [],
+    "description": "Bowtie is an ultrafast, memory-efficient short read aligner for short\nDNA sequences (reads) from next-gen sequencers.\n",
+    "dependencies": [
+        {
+            "name": "tbb",
+            "description": "Intel Parallel Studio."
+        },
+        {
+            "name": "zlib",
+            "description": "A free, general-purpose, legally unencumbered lossless data-compression\nlibrary."
+        }
+    ],
+    "dependent_to": [
+        {
+            "name": "biopieces",
+            "description": "The Biopieces are a collection of bioinformatics tools that can be\npieced together in a very easy and flexible manner to perform both\nsimple and complex tasks."
+        },
+        {
+            "name": "mapsplice2",
+            "description": "MapSplice is a software for mapping RNA-seq data to reference genome for\nsplice junction discovery that depends only on reference genome, and not\non any further annotations."
+        },
+        {
+            "name": "butter",
+            "description": "butter: Bowtie UTilizing iTerative placEment of Repetitive small rnas. A\nwrapper for bowtie to produce small RNA-seq alignments where multimapped\nsmall RNAs tend to be placed near regions of confidently high density."
+        },
+        {
+            "name": "shortstack",
+            "description": "ShortStack is a tool developed to process and analyze smallRNA-seq data\nwith respect to a reference genome, and output a comprehensive and\ninformative annotation of all discovered small RNA genes."
+        },
+        {
+            "name": "py-methylcode",
+            "description": "MethylCoder is a single program that takes of bisulfite-treated reads\nand outputs per-base methylation data."
+        },
+        {
+            "name": "mirdeep2",
+            "description": "miRDeep2 is a completely overhauled tool which discovers microRNA genes\nby analyzing sequenced RNAs."
+        },
+        {
+            "name": "fastq-screen",
+            "description": "FastQ Screen allows you to screen a library of sequences in FastQ format\nagainst a set of sequence databases so you can see if the composition of\nthe library matches with what you expect."
+        },
+        {
+            "name": "trinity",
+            "description": "Trinity, developed at the Broad Institute and the Hebrew University of\nJerusalem, represents a novel method for the efficient and robust de\nnovo reconstruction of transcriptomes from RNA-seq data. Trinity\ncombines three independent software modules: Inchworm, Chrysalis, and\nButterfly, applied sequentially to process large volumes of RNA-seq\nreads. Trinity partitions the sequence data into many individual de\nBruijn graphs, each representing the transcriptional complexity at a\ngiven gene or locus, and then processes each graph independently to\nextract full-length splicing isoforms and to tease apart transcripts\nderived from paralogous genes."
+        },
+        {
+            "name": "cleaveland4",
+            "description": "CleaveLand4: Analysis of degradome data to find sliced miRNA and siRNA\ntargets"
+        },
+        {
+            "name": "rsem",
+            "description": "RSEM is a software package for estimating gene and isoform expression\nlevels from RNA-Seq data."
+        }
+    ]
+}

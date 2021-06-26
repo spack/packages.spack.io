@@ -1,0 +1,65 @@
+{
+    "name": "ecbuild",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "3.6.1",
+            "sha256": "796ccceeb7af01938c2f74eab0724b228e9bf1978e32484aa3e227510f69ac59"
+        }
+    ],
+    "build_system": "CMakePackage",
+    "conflicts": [
+        {
+            "name": "+ipo",
+            "spec": "^cmake@:3.8",
+            "description": "+ipo is not supported by CMake < 3.9"
+        }
+    ],
+    "variants": [
+        {
+            "name": "build_type",
+            "default": "RelWithDebInfo",
+            "description": "CMake build type"
+        },
+        {
+            "name": "ipo",
+            "default": false,
+            "description": "CMake interprocedural optimization"
+        }
+    ],
+    "homepage": "https://github.com/ecmwf/ecbuild",
+    "maintainers": [
+        "skosukhin"
+    ],
+    "patches": [],
+    "resources": [],
+    "description": "ecBuild is the ECMWF build system. It is built on top of CMake and\nconsists of a set of macros as well as a wrapper around CMake,\n",
+    "dependencies": [
+        {
+            "name": "cmake",
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
+        },
+        {
+            "name": "perl",
+            "description": "Perl 5 is a highly capable, feature-rich programming language with over\n27 years of development."
+        }
+    ],
+    "dependent_to": [
+        {
+            "name": "eckit",
+            "description": "ecKit is a cross-platform c++ toolkit that supports development of tools\nand applications at ECMWF."
+        },
+        {
+            "name": "odc",
+            "description": "ECMWF encoding and decoding of observational data in ODB2 format."
+        },
+        {
+            "name": "fdb",
+            "description": "FDB (Fields DataBase) is a domain-specific object store developed at\nECMWF for storing, indexing and retrieving GRIB data."
+        },
+        {
+            "name": "metkit",
+            "description": "Toolkit for manipulating and describing meteorological objects,\nimplementing the MARS language and associated processing and semantics."
+        }
+    ]
+}

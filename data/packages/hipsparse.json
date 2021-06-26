@@ -1,0 +1,124 @@
+{
+    "name": "hipsparse",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "4.2.0",
+            "sha256": "cdedf3766c10200d3ebabe86cbb9c0fe6504e4b3317dccca289327d7c189bb3f"
+        },
+        {
+            "name": "4.1.0",
+            "sha256": "66710c390489922f0bd1ac38fd8c32fcfb5b7760b92c2d282f7d1abf214742ee"
+        },
+        {
+            "name": "4.0.0",
+            "sha256": "fc3736b2ea203209021616b2ffbcdd664781d692b07b8e8bb7f78b42dabbd5e5"
+        },
+        {
+            "name": "3.10.0",
+            "sha256": "7fd863ebf6eed09325c23ba06d9008b2f2c1345283d1a331e329e1a512b602f7"
+        },
+        {
+            "name": "3.9.0",
+            "sha256": "ab0ea3dd9b68a126291ed5a35e50fc85d0aeb35fe862f5d9e544435e4262c435"
+        },
+        {
+            "name": "3.8.0",
+            "sha256": "8874c100e9ba54587a6057c2a0e555a0903254a16e9e01c2385bae1b027f83b5"
+        },
+        {
+            "name": "3.7.0",
+            "sha256": "a2f02d8fc6ad9a561f06dacde54ecafd30563c5c95f93819a5694e5b650dad7f"
+        },
+        {
+            "name": "3.5.0",
+            "sha256": "fa16b2a307a5d9716066c2876febcbc1cef855bf0c96d235d2d8f2206a0fb69d"
+        }
+    ],
+    "build_system": "CMakePackage",
+    "conflicts": [
+        {
+            "name": "+ipo",
+            "spec": "^cmake@:3.8",
+            "description": "+ipo is not supported by CMake < 3.9"
+        }
+    ],
+    "variants": [
+        {
+            "name": "build_type",
+            "default": "RelWithDebInfo",
+            "description": "CMake build type"
+        },
+        {
+            "name": "ipo",
+            "default": false,
+            "description": "CMake interprocedural optimization"
+        }
+    ],
+    "homepage": "https://github.com/ROCmSoftwarePlatform/hipSPARSE",
+    "maintainers": [
+        "srekolam",
+        "arjun-raj-kuppala",
+        "haampie"
+    ],
+    "patches": [
+        {
+            "owner": "builtin.hipsparse",
+            "sha256": "6b7493f0caa1b8042ef43c1a4cee6584abeeb9319c53a79e8b2e558cd1076992",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "e79985dccde22d826aceb3badfc643a3227979d2.patch",
+            "version": "@3.5.0"
+        },
+        {
+            "owner": "builtin.hipsparse",
+            "sha256": "db755df3ae712d33d4954b7d302d656b1bdc8f226c063ee701d3b4d835297686",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "530047af4a0f437dafc02f76b3a17e3b1536c7ec.patch",
+            "version": "@3.5.0"
+        }
+    ],
+    "resources": [],
+    "description": "hipSPARSE is a SPARSE marshalling library, with multiple supported\nbackends\n",
+    "dependencies": [
+        {
+            "name": "cmake",
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
+        },
+        {
+            "name": "git",
+            "description": "Git is a free and open source distributed version control system\ndesigned to handle everything from small to very large projects with\nspeed and efficiency."
+        },
+        {
+            "name": "rocm-cmake",
+            "description": "ROCM cmake modules provides cmake modules for common build tasks needed\nfor the ROCM software stack"
+        },
+        {
+            "name": "hip",
+            "description": "HIP is a C++ Runtime API and Kernel Language that allows developers to\ncreate portable applications for AMD and NVIDIA GPUs from single source\ncode."
+        },
+        {
+            "name": "rocsparse",
+            "description": "rocSPARSE exposes a common interface that provides Basic Linear Algebra\nSubroutines for sparse computation implemented on top of AMD's Radeon\nOpen eCosystem Platform ROCm runtime and toolchains. rocSPARSE is\ncreated using the HIP programming language and optimized for AMD's\nlatest discrete GPUs."
+        },
+        {
+            "name": "rocprim",
+            "description": "Radeon Open Compute Parallel Primitives Library"
+        },
+        {
+            "name": "hip-rocclr",
+            "description": "Hip-ROCclr is a virtual device interface that compute runtimes interact\nwith to different backends such as ROCr or PAL This abstraction allows\nruntimes to work on Windows as well as on Linux without much effort."
+        }
+    ],
+    "dependent_to": [
+        {
+            "name": "ginkgo",
+            "description": "High-performance linear algebra library for manycore systems, with a\nfocus on sparse solution of linear systems."
+        },
+        {
+            "name": "petsc",
+            "description": "PETSc is a suite of data structures and routines for the scalable\n(parallel) solution of scientific applications modeled by partial\ndifferential equations."
+        }
+    ]
+}

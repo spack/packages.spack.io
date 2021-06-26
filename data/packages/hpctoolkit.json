@@ -1,0 +1,252 @@
+{
+    "name": "hpctoolkit",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "develop",
+            "branch": "develop"
+        },
+        {
+            "name": "master",
+            "branch": "master"
+        },
+        {
+            "name": "2021.05.15",
+            "commit": "004ea0c2aea6a261e7d5d216c24f8a703fc6c408"
+        },
+        {
+            "name": "2021.03.01",
+            "commit": "68a051044c952f0f4dac459d9941875c700039e7"
+        },
+        {
+            "name": "2020.08.03",
+            "commit": "d9d13c705d81e5de38e624254cf0875cce6add9a"
+        },
+        {
+            "name": "2020.07.21",
+            "commit": "4e56c780cffc53875aca67d6472a2fb3678970eb"
+        },
+        {
+            "name": "2020.06.12",
+            "commit": "ac6ae1156e77d35596fea743ed8ae768f7222f19"
+        },
+        {
+            "name": "2020.03.01",
+            "commit": "94ede4e6fa1e05e6f080be8dc388240ea027f769"
+        },
+        {
+            "name": "2019.12.28",
+            "commit": "b4e1877ff96069fd8ed0fdf0e36283a5b4b62240"
+        },
+        {
+            "name": "2019.08.14",
+            "commit": "6ea44ed3f93ede2d0a48937f288a2d41188a277c"
+        },
+        {
+            "name": "2018.12.28",
+            "commit": "8dbf0d543171ffa9885344f32f23cc6f7f6e39bc"
+        },
+        {
+            "name": "2018.11.05",
+            "commit": "d0c43e39020e67095b1f1d8bb89b75f22b12aee9"
+        }
+    ],
+    "build_system": "AutotoolsPackage",
+    "conflicts": [
+        {
+            "name": "%gcc@:4.7.99",
+            "spec": "^dyninst@10.0.0:",
+            "description": "hpctoolkit requires gnu gcc 4.8.x or later"
+        },
+        {
+            "name": "%gcc@:4.99.99",
+            "spec": "@2020.03:2020.99",
+            "description": "hpctoolkit requires gnu gcc 5.x or later"
+        },
+        {
+            "name": "%gcc@:6.99.99",
+            "spec": "@2021.00:",
+            "description": "hpctoolkit requires gnu gcc 7.x or later"
+        },
+        {
+            "name": "+cuda",
+            "spec": "@:2019.99.99",
+            "description": "cuda requires 2020.03.01 or later"
+        },
+        {
+            "name": "+rocm",
+            "spec": "@:2020.99.99",
+            "description": "rocm requires 2021.03.01 or later"
+        },
+        {
+            "name": "^binutils@2.35:2.35.1",
+            "spec": "",
+            "description": "avoid binutils 2.35 and 2.35.1 (spews errors)"
+        }
+    ],
+    "variants": [
+        {
+            "name": "cray",
+            "default": false,
+            "description": "Build for Cray compute nodes, including hpcprof-mpi."
+        },
+        {
+            "name": "mpi",
+            "default": false,
+            "description": "Build hpcprof-mpi, the MPI version of hpcprof."
+        },
+        {
+            "name": "papi",
+            "default": true,
+            "description": "Use PAPI instead of perfmon for access to the hardware performance counters."
+        },
+        {
+            "name": "all-static",
+            "default": false,
+            "description": "Needed when MPICXX builds static binaries for the compute nodes."
+        },
+        {
+            "name": "cuda",
+            "default": false,
+            "description": "Support CUDA on NVIDIA GPUs (2020.03.01 or later)."
+        },
+        {
+            "name": "rocm",
+            "default": false,
+            "description": "Support ROCM on AMD GPUs, requires ROCM as external packages (2021.03.01 or later)."
+        },
+        {
+            "name": "debug",
+            "default": false,
+            "description": "Build in debug (develop) mode."
+        },
+        {
+            "name": "viewer",
+            "default": true,
+            "description": "Include hpcviewer."
+        }
+    ],
+    "homepage": "http://hpctoolkit.org",
+    "maintainers": [
+        "mwkrentel"
+    ],
+    "patches": [
+        {
+            "owner": "builtin.hpctoolkit",
+            "sha256": "0ef29bcf8372658b07bb01742b35eaa40a5db2127b716cffc311e2d00a9db5d9",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "gcc10-enum.patch",
+            "version": "@2020.01.01:2020.08.99%gcc@10.0:"
+        },
+        {
+            "owner": "builtin.hpctoolkit",
+            "sha256": "fd0fd7419f66a1feba8046cff9df7f27abce8629ee2708b8a9daa12c1b51243c",
+            "level": 1,
+            "working_dir": ".",
+            "url": "https://github.com/HPCToolkit/hpctoolkit/commit/511afd95b01d743edc5940c84e0079f462b2c23e.patch",
+            "version": "@2019.08.01:2021.03.99%gcc@11.0:"
+        }
+    ],
+    "resources": [],
+    "description": "HPCToolkit is an integrated suite of tools for measurement and analysis\nof program performance on computers ranging from multicore desktop\nsystems to the nation's largest supercomputers. By using statistical\nsampling of timers and hardware performance counters, HPCToolkit\ncollects accurate measurements of a program's work, resource\nconsumption, and inefficiency and attributes them to the full calling\ncontext in which they occur.\n",
+    "dependencies": [
+        {
+            "name": "binutils",
+            "description": "GNU binutils, which contain the linker, assembler, objdump and others"
+        },
+        {
+            "name": "boost",
+            "description": "Boost provides free peer-reviewed portable C++ source libraries,\nemphasizing libraries that work well with the C++ Standard Library.\nBoost libraries are intended to be widely useful, and usable across a\nbroad spectrum of applications. The Boost license encourages both\ncommercial and non-commercial use."
+        },
+        {
+            "name": "bzip2",
+            "description": "bzip2 is a freely available, patent free high-quality data compressor.\nIt typically compresses files to within 10% to 15% of the best available\ntechniques (the PPM family of statistical compressors), whilst being\naround twice as fast at compression and six times faster at\ndecompression."
+        },
+        {
+            "name": "dyninst",
+            "description": "API for dynamic binary instrumentation. Modify programs while they are\nexecuting without recompiling, re-linking, or re-executing."
+        },
+        {
+            "name": "elfutils",
+            "description": "elfutils is a collection of various binary tools such as eu-objdump, eu-\nreadelf, and other utilities that allow you to inspect and manipulate\nELF files. Refer to Table 5.Tools Included in elfutils for Red Hat\nDeveloper for a complete list of binary tools that are distributed with\nthe Red Hat Developer Toolset version of elfutils."
+        },
+        {
+            "name": "gotcha",
+            "description": "C software library for shared library function wrapping, enables tools\nto intercept calls into shared libraries"
+        },
+        {
+            "name": "intel-tbb",
+            "description": "Widely used C++ template library for task parallelism. Intel Threading\nBuilding Blocks (Intel TBB) lets you easily write parallel C++ programs\nthat take full advantage of multicore performance, that are portable and\ncomposable, and that have future-proof scalability."
+        },
+        {
+            "name": "libdwarf",
+            "description": "The DWARF Debugging Information Format is of interest to programmers\nworking on compilers and debuggers (and any one interested in reading or\nwriting DWARF information). It was developed by a committee (known as\nthe PLSIG at the time) starting around 1991. Starting around 1991 SGI\ndeveloped the libdwarf and dwarfdump tools for internal use and as part\nof SGI IRIX developer tools. Since that time dwarfdump and libdwarf have\nbeen shipped (as an executable and archive respectively, not source)\nwith every release of the SGI MIPS/IRIX C compiler."
+        },
+        {
+            "name": "libmonitor",
+            "description": "Libmonitor is a library providing callback functions for the begin and\nend of processes and threads. It provides a layer on which to build\nprocess monitoring tools and profilers."
+        },
+        {
+            "name": "libunwind",
+            "description": "A portable and efficient C programming interface (API) to determine the\ncall-chain of a program."
+        },
+        {
+            "name": "mbedtls",
+            "description": "mbed TLS (formerly known as PolarSSL) makes it trivially easy for\ndevelopers to include cryptographic and SSL/TLS capabilities in their\n(embedded) products, facilitating this functionality with a minimal\ncoding footprint."
+        },
+        {
+            "name": "xerces-c",
+            "description": "Xerces-C++ is a validating XML parser written in a portable subset of\nC++. Xerces-C++ makes it easy to give your application the ability to\nread and write XML data. A shared library is provided for parsing,\ngenerating, manipulating, and validating XML documents using the DOM,\nSAX, and SAX2 APIs."
+        },
+        {
+            "name": "xz",
+            "description": "XZ Utils is free general-purpose data compression software with high\ncompression ratio. XZ Utils were written for POSIX-like systems, but\nalso work on some not-so-POSIX systems. XZ Utils are the successor to\nLZMA Utils."
+        },
+        {
+            "name": "zlib",
+            "description": "A free, general-purpose, legally unencumbered lossless data-compression\nlibrary."
+        },
+        {
+            "name": "cuda",
+            "description": "CUDA is a parallel computing platform and programming model invented by\nNVIDIA. It enables dramatic increases in computing performance by\nharnessing the power of the graphics processing unit (GPU). Note: This\npackage does not currently install the drivers necessary to run CUDA.\nThese will need to be installed manually. See:\nhttps://docs.nvidia.com/cuda/ for details."
+        },
+        {
+            "name": "intel-xed",
+            "description": "The Intel X86 Encoder Decoder library for encoding and decoding x86\nmachine instructions (64- and 32-bit). Also includes libxed-ild, a\nlightweight library for decoding the length of an instruction."
+        },
+        {
+            "name": "memkind",
+            "description": "The memkind library is a user extensible heap manager built on top of\njemalloc which enables control of memory characteristics and a\npartitioning of the heap between kinds of memory. The kinds of memory\nare defined by operating system memory policies that have been applied\nto virtual address ranges. Memory characteristics supported by memkind\nwithout user extension include control of NUMA and page size features.\nThe jemalloc non-standard interface has been extended to enable\nspecialized arenas to make requests for virtual memory from the\noperating system through the memkind partition interface. Through the\nother memkind interfaces the user can control and extend memory\npartition features and allocate memory while selecting enabled features."
+        },
+        {
+            "name": "papi",
+            "description": "PAPI provides the tool designer and application engineer with a\nconsistent interface and methodology for use of the performance counter\nhardware found in most major microprocessors. PAPI enables software\nengineers to see, in near real time, the relation between software\nperformance and processor events. In addition Component PAPI provides\naccess to a collection of components that expose performance measurement\nopportunities across the hardware and software stack."
+        },
+        {
+            "name": "libpfm4",
+            "description": "libpfm4 is a userspace library to help setup performance events for use\nwith the perf_events Linux kernel interface."
+        },
+        {
+            "name": "mpi",
+            "description": "MVAPICH2-X is the advanced version of the MVAPICH2 MPI library with\nenhanced features (UMR, ODP, DC, Core-Direct, SHARP, XPMEM), OSU INAM\n(InifniBand Network Monitoring and Analysis),PGAS (OpenSHMEM, UPC,\nUPC++, and CAF), and MPI+PGAS programming models with unified\ncommunication runtime. MVAPICH2-X is not installable from source and is\nonly available through a binary mirror. If you do not find the binary\nyou're looking for, send us an email at mvapich@cse.ohio-state.edu. The\nbinary mirror url is: http://mvapich.cse.ohio-\nstate.edu/download/mvapich/spack-mirror/mvapich2x/"
+        },
+        {
+            "name": "hpcviewer",
+            "description": "Binary distribution of hpcviewer and hpctraceviewer for the Rice\nHPCToolkit (Linux x86_64, ppc64le and aarch64). Note: hpctoolkit\ndatabases are platform independent, so you don't need to install\nhpctoolkit to run the viewers and it's common to run hpcrun and\nhpcviewer on different machines."
+        },
+        {
+            "name": "hip",
+            "description": "HIP is a C++ Runtime API and Kernel Language that allows developers to\ncreate portable applications for AMD and NVIDIA GPUs from single source\ncode."
+        },
+        {
+            "name": "rocm-dbgapi",
+            "description": "The AMD Debugger API is a library that provides all the support\nnecessary for a debugger and other tools to perform low level control of\nthe execution and inspection of execution state of AMD's commercially\navailable GPU architectures."
+        },
+        {
+            "name": "roctracer-dev",
+            "description": "ROC-tracer library: Runtimes Generic Callback/Activity APIs. The goal of\nthe implementation is to provide a generic independent from specific\nruntime profiler to trace API and asyncronous activity."
+        }
+    ],
+    "dependent_to": []
+}

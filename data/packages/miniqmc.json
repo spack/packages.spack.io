@@ -1,0 +1,72 @@
+{
+    "name": "miniqmc",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "0.4.0",
+            "sha256": "41ddb5de6dcc85404344c80dc7538aedf5e1f1eb0f2a67ebac069209f7dd11e4"
+        },
+        {
+            "name": "0.3.0",
+            "sha256": "3ba494ba1055df91e157cb426d1fbe4192aa3f04b019277d9e571d057664d5a9"
+        },
+        {
+            "name": "0.2.0",
+            "sha256": "cdf6fc6df6ccc1e034c62f937c040bfd6a4e65a0974b95f6884edd004ae36ee4"
+        }
+    ],
+    "build_system": "CMakePackage",
+    "conflicts": [
+        {
+            "name": "+ipo",
+            "spec": "^cmake@:3.8",
+            "description": "+ipo is not supported by CMake < 3.9"
+        }
+    ],
+    "variants": [
+        {
+            "name": "build_type",
+            "default": "RelWithDebInfo",
+            "description": "CMake build type"
+        },
+        {
+            "name": "ipo",
+            "default": false,
+            "description": "CMake interprocedural optimization"
+        }
+    ],
+    "homepage": "https://github.com/QMCPACK/miniqmc",
+    "maintainers": [],
+    "patches": [
+        {
+            "owner": "builtin.miniqmc",
+            "sha256": "35c6f245fd840ad69d7d4a534d05843ab520cc5a8e93ec86950840137d7d0171",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "pgi-cmake.patch",
+            "version": "@:0.4%nvhpc"
+        }
+    ],
+    "resources": [],
+    "description": "A simplified real space QMC code for algorithm development, performance\nportability testing, and computer science experiments\n",
+    "dependencies": [
+        {
+            "name": "cmake",
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
+        },
+        {
+            "name": "mpi",
+            "description": "MVAPICH2-X is the advanced version of the MVAPICH2 MPI library with\nenhanced features (UMR, ODP, DC, Core-Direct, SHARP, XPMEM), OSU INAM\n(InifniBand Network Monitoring and Analysis),PGAS (OpenSHMEM, UPC,\nUPC++, and CAF), and MPI+PGAS programming models with unified\ncommunication runtime. MVAPICH2-X is not installable from source and is\nonly available through a binary mirror. If you do not find the binary\nyou're looking for, send us an email at mvapich@cse.ohio-state.edu. The\nbinary mirror url is: http://mvapich.cse.ohio-\nstate.edu/download/mvapich/spack-mirror/mvapich2x/"
+        },
+        {
+            "name": "lapack",
+            "description": "Intel oneAPI MKL."
+        }
+    ],
+    "dependent_to": [
+        {
+            "name": "ecp-proxy-apps",
+            "description": "This is a collection of packages that represents the official suite of\nDOE/ECP proxy applications. This is a Spack bundle package that installs\nthe ECP proxy application suite."
+        }
+    ]
+}

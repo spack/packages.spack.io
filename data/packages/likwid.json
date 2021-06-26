@@ -1,0 +1,136 @@
+{
+    "name": "likwid",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "5.2.0",
+            "sha256": "aa6dccacfca59e52d8f3be187ffcf292b2a2fa1f51a81bf8912b9d48e5a257e0"
+        },
+        {
+            "name": "5.1.1",
+            "sha256": "faec7c62987967232f476a6ff0ee85af686fd24b5a360126896b7f435d1f943f"
+        },
+        {
+            "name": "5.1.0",
+            "sha256": "5a180702a1656c6315b861a85031ab4cb090424aec42cbbb326b849e29f55571"
+        },
+        {
+            "name": "5.0.2",
+            "sha256": "0a1c8984e4b43ea8b99d09456ef05035eb934594af1669432117585c638a2da4"
+        },
+        {
+            "name": "5.0.1",
+            "sha256": "3757b0cb66e8af0116f9288c7f90543acbd8e2af8f72f77aef447ca2b3e76453"
+        },
+        {
+            "name": "5.0.0",
+            "sha256": "26623f5a1a5fec19d798f0114774a5293d1c93a148538b9591a13e50930fa41e"
+        },
+        {
+            "name": "4.3.4",
+            "sha256": "5c0d1c66b25dac8292a02232f06454067f031a238f010c62f40ef913c6609a83"
+        },
+        {
+            "name": "4.3.3",
+            "sha256": "a681378cd66c1679ca840fb5fac3136bfec93c01b3d78cc1d00a641db325a9a3"
+        },
+        {
+            "name": "4.3.2",
+            "sha256": "fd39529854b8952e7530da1684835aa43ac6ce2169f5ebd1fb2a481f6fb288ac"
+        },
+        {
+            "name": "4.3.1",
+            "sha256": "4b40a96717da54514274d166f9b71928545468091c939c1d74109733279eaeb1"
+        },
+        {
+            "name": "4.3.0",
+            "sha256": "86fc5f82c80fcff1a643394627839ec79f1ca2bcfad30000eb7018da592588b4"
+        }
+    ],
+    "build_system": "Package",
+    "conflicts": [],
+    "variants": [
+        {
+            "name": "fortran",
+            "default": true,
+            "description": "with fortran interface"
+        },
+        {
+            "name": "cuda",
+            "default": false,
+            "description": "with Nvidia GPU profiling support"
+        }
+    ],
+    "homepage": "https://hpc.fau.de/research/tools/likwid/",
+    "maintainers": [
+        "TomTheBear"
+    ],
+    "patches": [
+        {
+            "owner": "builtin.likwid",
+            "sha256": "c3b8f939a46b425665577ce764d4fba080a23cab5999c53db71655fd54d7e0b1",
+            "level": 1,
+            "working_dir": ".",
+            "url": "https://github.com/RRZE-HPC/likwid/commit/e0332ace8fe8ca7dcd4b4477a25e37944f173a5c.patch",
+            "version": "@5.0.1"
+        },
+        {
+            "owner": "builtin.likwid",
+            "sha256": "636cbf40669261fdb36379d67253be2b731cfa7b6d610d232767d72fbdf08bc0",
+            "level": 1,
+            "working_dir": ".",
+            "url": "https://github.com/RRZE-HPC/likwid/commit/d2d0ef333b5e0997d7c80fc6ac1a473b5e47d084.patch",
+            "version": "@4.3.4"
+        },
+        {
+            "owner": "builtin.likwid",
+            "sha256": "bc56253c1e3436b5ba7bf4c5533d0391206900c8663c008f771a16376975e416",
+            "level": 1,
+            "working_dir": ".",
+            "url": "https://github.com/RRZE-HPC/likwid/files/5341379/likwid-lua5.1.patch.txt",
+            "version": "@5.0.2 ^lua@5.1"
+        },
+        {
+            "owner": "builtin.likwid",
+            "sha256": "62da145da0a09de21020f9726290e1daf7437691bab8a92d7254bc192d5f3061",
+            "level": 1,
+            "working_dir": ".",
+            "url": "https://github.com/RRZE-HPC/likwid/releases/download/v5.1.0/likwid-mpirun-5.1.0.patch",
+            "version": "@5.1.0"
+        }
+    ],
+    "resources": [],
+    "description": "Likwid is a simple to install and use toolsuite of command line\napplications for performance oriented programmers. It works for Intel\nand AMD processors on the Linux operating system. This version uses the\nperf_event backend which reduces the feature set but allows user\ninstalls. See https://github.com/RRZE-\nHPC/likwid/wiki/TutorialLikwidPerf#feature-limitations for information.\n",
+    "dependencies": [
+        {
+            "name": "lua",
+            "description": "The Lua programming language interpreter and library."
+        },
+        {
+            "name": "cuda",
+            "description": "CUDA is a parallel computing platform and programming model invented by\nNVIDIA. It enables dramatic increases in computing performance by\nharnessing the power of the graphics processing unit (GPU). Note: This\npackage does not currently install the drivers necessary to run CUDA.\nThese will need to be installed manually. See:\nhttps://docs.nvidia.com/cuda/ for details."
+        },
+        {
+            "name": "hwloc",
+            "description": "The Hardware Locality (hwloc) software project. The Portable Hardware\nLocality (hwloc) software package provides a portable abstraction\n(across OS, versions, architectures, ...) of the hierarchical topology\nof modern architectures, including NUMA memory nodes, sockets, shared\ncaches, cores and simultaneous multithreading. It also gathers various\nsystem attributes such as cache and memory information as well as the\nlocality of I/O devices such as network interfaces, InfiniBand HCAs or\nGPUs. It primarily aims at helping applications with gathering\ninformation about modern computing hardware so as to exploit it\naccordingly and efficiently."
+        },
+        {
+            "name": "perl",
+            "description": "Perl 5 is a highly capable, feature-rich programming language with over\n27 years of development."
+        }
+    ],
+    "dependent_to": [
+        {
+            "name": "tau",
+            "description": "A portable profiling and tracing toolkit for performance analysis of\nparallel programs written in Fortran, C, C++, UPC, Java, Python."
+        },
+        {
+            "name": "timemory",
+            "description": "Timing + Memory + Hardware Counter Utilities for C/C++/CUDA/Python"
+        },
+        {
+            "name": "py-pylikwid",
+            "description": "Python interface to the LIKWID tools library with calls for system\ntopology, process/thread affinity, hardware performance monitoring and\nthe manipulation of system features like frequencies and prefetchers."
+        }
+    ]
+}

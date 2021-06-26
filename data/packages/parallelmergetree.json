@@ -1,0 +1,66 @@
+{
+    "name": "parallelmergetree",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "1.0.2",
+            "git": "https://bitbucket.org/cedmav/parallelmergetree.git",
+            "tag": "v1.0.2",
+            "submodules": true
+        },
+        {
+            "name": "1.0.0",
+            "git": "https://bitbucket.org/cedmav/parallelmergetree.git",
+            "tag": "v1.0.0",
+            "submodules": true
+        }
+    ],
+    "build_system": "CMakePackage",
+    "conflicts": [
+        {
+            "name": "+ipo",
+            "spec": "^cmake@:3.8",
+            "description": "+ipo is not supported by CMake < 3.9"
+        }
+    ],
+    "variants": [
+        {
+            "name": "build_type",
+            "default": "RelWithDebInfo",
+            "description": "CMake build type"
+        },
+        {
+            "name": "ipo",
+            "default": false,
+            "description": "CMake interprocedural optimization"
+        },
+        {
+            "name": "shared",
+            "default": true,
+            "description": "Build ParallelMergeTree as shared libs"
+        }
+    ],
+    "homepage": "https://bitbucket.org/cedmav/parallelmergetree",
+    "maintainers": [
+        "spetruzza"
+    ],
+    "patches": [],
+    "resources": [],
+    "description": "A multi-runtime implementation of a distributed merge tree segmentation\nalgorithm. The implementation relies on the framework BabelFlow, which\nallows to execute the algorithm on different runtime systems.\n",
+    "dependencies": [
+        {
+            "name": "cmake",
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
+        },
+        {
+            "name": "babelflow",
+            "description": "BabelFlow is an Embedded Domain Specific Language to describe algorithms\nusing a task graph abstraction which allows them to be executed on top\nof one of several available runtime systems."
+        }
+    ],
+    "dependent_to": [
+        {
+            "name": "ascent",
+            "description": "Ascent is an open source many-core capable lightweight in situ\nvisualization and analysis infrastructure for multi-physics HPC\nsimulations."
+        }
+    ]
+}

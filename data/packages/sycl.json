@@ -1,0 +1,101 @@
+{
+    "name": "hipsycl",
+    "aliases": [
+        {
+            "name": "sycl",
+            "alias_for": "{hipsycl}"
+        }
+    ],
+    "versions": [
+        {
+            "name": "stable",
+            "branch": "stable",
+            "submodules": true
+        },
+        {
+            "name": "0.9.1",
+            "commit": "fe8465cd5399a932f7221343c07c9942b0fe644c",
+            "submodules": true
+        },
+        {
+            "name": "0.8.0",
+            "commit": "2daf8407e49dd32ebd1c266e8e944e390d28b22a",
+            "submodules": true
+        }
+    ],
+    "build_system": "CMakePackage",
+    "conflicts": [
+        {
+            "name": "+ipo",
+            "spec": "^cmake@:3.8",
+            "description": "+ipo is not supported by CMake < 3.9"
+        },
+        {
+            "name": "%gcc@:4.9999",
+            "spec": "@:0.9.0",
+            "description": "hipSYCL needs proper C++14 support to be built, %gcc is too old"
+        },
+        {
+            "name": "%gcc@:8.9999",
+            "spec": "@0.9.1:",
+            "description": "hipSYCL needs proper C++17 support to be built, %gcc is too old"
+        },
+        {
+            "name": "^llvm build_type=Debug",
+            "spec": "+cuda",
+            "description": "LLVM debug builds don't work with hipSYCL CUDA backend; for further info please refer to: https://github.com/illuhad/hipSYCL/blob/master/doc/install-cuda.md"
+        }
+    ],
+    "variants": [
+        {
+            "name": "build_type",
+            "default": "RelWithDebInfo",
+            "description": "CMake build type"
+        },
+        {
+            "name": "ipo",
+            "default": false,
+            "description": "CMake interprocedural optimization"
+        },
+        {
+            "name": "cuda",
+            "default": false,
+            "description": "Enable CUDA backend for SYCL kernels"
+        }
+    ],
+    "homepage": "https://github.com/illuhad/hipSYCL",
+    "maintainers": [
+        "nazavode"
+    ],
+    "patches": [],
+    "resources": [],
+    "description": "hipSYCL is an implementation of the SYCL standard programming model over\nNVIDIA CUDA/AMD HIP\n",
+    "dependencies": [
+        {
+            "name": "cmake",
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
+        },
+        {
+            "name": "boost",
+            "description": "Boost provides free peer-reviewed portable C++ source libraries,\nemphasizing libraries that work well with the C++ Standard Library.\nBoost libraries are intended to be widely useful, and usable across a\nbroad spectrum of applications. The Boost license encourages both\ncommercial and non-commercial use."
+        },
+        {
+            "name": "python",
+            "description": "The Python programming language."
+        },
+        {
+            "name": "llvm",
+            "description": "The LLVM Project is a collection of modular and reusable compiler and\ntoolchain technologies. Despite its name, LLVM has little to do with\ntraditional virtual machines, though it does provide helpful libraries\nthat can be used to build them. The name \"LLVM\" itself is not an\nacronym; it is the full name of the project."
+        },
+        {
+            "name": "cuda",
+            "description": "CUDA is a parallel computing platform and programming model invented by\nNVIDIA. It enables dramatic increases in computing performance by\nharnessing the power of the graphics processing unit (GPU). Note: This\npackage does not currently install the drivers necessary to run CUDA.\nThese will need to be installed manually. See:\nhttps://docs.nvidia.com/cuda/ for details."
+        }
+    ],
+    "dependent_to": [
+        {
+            "name": "gromacs",
+            "description": "GROMACS (GROningen MAchine for Chemical Simulations) is a molecular\ndynamics package primarily designed for simulations of proteins, lipids\nand nucleic acids. It was originally developed in the Biophysical\nChemistry department of University of Groningen, and is now maintained\nby contributors in universities and research centers across the world.\nGROMACS is one of the fastest and most popular software packages\navailable and can run on CPUs as well as GPUs. It is free, open source\nreleased under the GNU General Public License. Starting from version\n4.6, GROMACS is released under the GNU Lesser General Public License."
+        }
+    ]
+}

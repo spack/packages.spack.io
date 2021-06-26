@@ -1,0 +1,104 @@
+{
+    "name": "steps",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "3.3.0",
+            "submodules": true
+        },
+        {
+            "name": "3.2.0",
+            "submodules": true
+        },
+        {
+            "name": "develop",
+            "branch": "master",
+            "submodules": true
+        }
+    ],
+    "build_system": "CMakePackage",
+    "conflicts": [
+        {
+            "name": "+ipo",
+            "spec": "^cmake@:3.8",
+            "description": "+ipo is not supported by CMake < 3.9"
+        }
+    ],
+    "variants": [
+        {
+            "name": "build_type",
+            "default": "RelWithDebInfo",
+            "description": "CMake build type"
+        },
+        {
+            "name": "ipo",
+            "default": false,
+            "description": "CMake interprocedural optimization"
+        },
+        {
+            "name": "native",
+            "default": true,
+            "description": "Generate non-portable arch-specific code"
+        },
+        {
+            "name": "lapack",
+            "default": false,
+            "description": "Use new BDSystem/Lapack code for E-Field solver"
+        },
+        {
+            "name": "petsc",
+            "default": false,
+            "description": "Use PETSc library for parallel E-Field solver"
+        },
+        {
+            "name": "mpi",
+            "default": true,
+            "description": "Use MPI for parallel solvers"
+        }
+    ],
+    "homepage": "https://groups.oist.jp/cnu/software",
+    "maintainers": [],
+    "patches": [
+        {
+            "owner": "builtin.steps",
+            "sha256": "e3dcb95d6f57c25b19a96715dfcf2dafd3a30c35a4f122e37ef077d002a8425f",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "for_aarch64.patch",
+            "version": "arch=linux-None-aarch64:"
+        }
+    ],
+    "resources": [],
+    "description": "STochastic Engine for Pathway Simulation\n",
+    "dependencies": [
+        {
+            "name": "cmake",
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
+        },
+        {
+            "name": "blas",
+            "description": "Intel oneAPI MKL."
+        },
+        {
+            "name": "lapack",
+            "description": "Intel oneAPI MKL."
+        },
+        {
+            "name": "mpi",
+            "description": "MVAPICH2-X is the advanced version of the MVAPICH2 MPI library with\nenhanced features (UMR, ODP, DC, Core-Direct, SHARP, XPMEM), OSU INAM\n(InifniBand Network Monitoring and Analysis),PGAS (OpenSHMEM, UPC,\nUPC++, and CAF), and MPI+PGAS programming models with unified\ncommunication runtime. MVAPICH2-X is not installable from source and is\nonly available through a binary mirror. If you do not find the binary\nyou're looking for, send us an email at mvapich@cse.ohio-state.edu. The\nbinary mirror url is: http://mvapich.cse.ohio-\nstate.edu/download/mvapich/spack-mirror/mvapich2x/"
+        },
+        {
+            "name": "petsc",
+            "description": "PETSc is a suite of data structures and routines for the scalable\n(parallel) solution of scientific applications modeled by partial\ndifferential equations."
+        },
+        {
+            "name": "python",
+            "description": "The Python programming language."
+        },
+        {
+            "name": "py-cython",
+            "description": "The Cython compiler for writing C extensions for the Python language."
+        }
+    ],
+    "dependent_to": []
+}

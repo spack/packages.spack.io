@@ -1,0 +1,116 @@
+{
+    "name": "planck-likelihood",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "2.00",
+            "sha256": "c1efa208175b2751e75b2ad1c026dae744a7dd279eb74baa5db3098bc9c971bb",
+            "url": "http://irsa.ipac.caltech.edu/data/Planck/release_2/software/COM_Likelihood_Code-v2.0.R2.00.tar.bz2"
+        }
+    ],
+    "build_system": "Package",
+    "conflicts": [],
+    "variants": [
+        {
+            "name": "lensing-ext",
+            "default": false,
+            "description": "Provide lensing-ext data"
+        },
+        {
+            "name": "plik-DS",
+            "default": false,
+            "description": "Provide plik-DS data"
+        },
+        {
+            "name": "plik-HM-ext",
+            "default": false,
+            "description": "Provide plik-HM-ext data"
+        },
+        {
+            "name": "plik-unbinned",
+            "default": false,
+            "description": "Provide plik-unbinned data"
+        }
+    ],
+    "homepage": "https://wiki.cosmos.esa.int/planckpla2015/index.php/CMB_spectrum_%26_Likelihood_Code",
+    "maintainers": [],
+    "patches": [
+        {
+            "owner": "builtin.planck-likelihood",
+            "sha256": "933b877a806ed7d0f2643d5864836731f129659de1af95a3bf156fa1163d5e8d",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "fortran.patch",
+            "version": ""
+        },
+        {
+            "owner": "builtin.planck-likelihood",
+            "sha256": "c4719d3cc8f913e143406fa255c16755e032eeb772e25e523c88d98f7334268c",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "make.patch",
+            "version": ""
+        },
+        {
+            "owner": "builtin.planck-likelihood",
+            "sha256": "8e0291f0893f4222408606ec92d244107886bd8f627b689c438c0e86ce9fb26d",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "arm.patch",
+            "version": "arch=linux-None-aarch64:"
+        }
+    ],
+    "resources": [
+        {
+            "version": "",
+            "name": "baseline",
+            "destination": ".",
+            "placement": null
+        },
+        {
+            "version": "+lensing-ext",
+            "name": "lensing-ext",
+            "destination": ".",
+            "placement": null
+        },
+        {
+            "version": "+plik-DS",
+            "name": "plik-DS",
+            "destination": ".",
+            "placement": null
+        },
+        {
+            "version": "+plik-HM-ext",
+            "name": "plik-HM-ext",
+            "destination": ".",
+            "placement": null
+        },
+        {
+            "version": "+plik-unbinned",
+            "name": "plik-unbinned",
+            "destination": ".",
+            "placement": null
+        }
+    ],
+    "description": "2015 Cosmic Microwave Background (CMB) spectra and likelihood code\n",
+    "dependencies": [
+        {
+            "name": "blas",
+            "description": "Intel oneAPI MKL."
+        },
+        {
+            "name": "cfitsio",
+            "description": "CFITSIO is a library of C and Fortran subroutines for reading and\nwriting data files in FITS (Flexible Image Transport System) data\nformat."
+        },
+        {
+            "name": "lapack",
+            "description": "Intel oneAPI MKL."
+        }
+    ],
+    "dependent_to": [
+        {
+            "name": "cosmomc",
+            "description": "CosmoMC is a Fortran 2008 Markov-Chain Monte-Carlo (MCMC) engine for\nexploring cosmological parameter space, together with Fortran and python\ncode for analysing Monte-Carlo samples and importance sampling (plus a\nsuite of scripts for building grids of runs, plotting and presenting\nresults)."
+        }
+    ]
+}

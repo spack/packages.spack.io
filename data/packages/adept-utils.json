@@ -1,0 +1,63 @@
+{
+    "name": "adept-utils",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "1.0.1",
+            "sha256": "259f777aeb368ede3583d3617bb779f0fde778319bf2122fdd216bdf223c015e"
+        },
+        {
+            "name": "1.0",
+            "sha256": "fed29366c9bcf5f3799220ae3b351d2cb338e2aa42133d61584ea650aa8d6ff7"
+        }
+    ],
+    "build_system": "CMakePackage",
+    "conflicts": [
+        {
+            "name": "+ipo",
+            "spec": "^cmake@:3.8",
+            "description": "+ipo is not supported by CMake < 3.9"
+        }
+    ],
+    "variants": [
+        {
+            "name": "build_type",
+            "default": "RelWithDebInfo",
+            "description": "CMake build type"
+        },
+        {
+            "name": "ipo",
+            "default": false,
+            "description": "CMake interprocedural optimization"
+        }
+    ],
+    "homepage": "https://github.com/llnl/adept-utils",
+    "maintainers": [],
+    "patches": [],
+    "resources": [],
+    "description": "Utility libraries for LLNL performance tools.\n",
+    "dependencies": [
+        {
+            "name": "cmake",
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
+        },
+        {
+            "name": "boost",
+            "description": "Boost provides free peer-reviewed portable C++ source libraries,\nemphasizing libraries that work well with the C++ Standard Library.\nBoost libraries are intended to be widely useful, and usable across a\nbroad spectrum of applications. The Boost license encourages both\ncommercial and non-commercial use."
+        },
+        {
+            "name": "mpi",
+            "description": "MVAPICH2-X is the advanced version of the MVAPICH2 MPI library with\nenhanced features (UMR, ODP, DC, Core-Direct, SHARP, XPMEM), OSU INAM\n(InifniBand Network Monitoring and Analysis),PGAS (OpenSHMEM, UPC,\nUPC++, and CAF), and MPI+PGAS programming models with unified\ncommunication runtime. MVAPICH2-X is not installable from source and is\nonly available through a binary mirror. If you do not find the binary\nyou're looking for, send us an email at mvapich@cse.ohio-state.edu. The\nbinary mirror url is: http://mvapich.cse.ohio-\nstate.edu/download/mvapich/spack-mirror/mvapich2x/"
+        }
+    ],
+    "dependent_to": [
+        {
+            "name": "callpath",
+            "description": "Library for representing callpaths consistently in distributed-memory\nperformance tools."
+        },
+        {
+            "name": "mpileaks",
+            "description": "Tool to detect and report MPI objects like MPI_Requests and\nMPI_Datatypes."
+        }
+    ]
+}

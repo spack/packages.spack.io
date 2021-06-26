@@ -1,0 +1,82 @@
+{
+    "name": "atlas",
+    "aliases": [
+        {
+            "name": "blas",
+            "alias_for": "{atlas}"
+        },
+        {
+            "name": "lapack",
+            "alias_for": "{atlas}"
+        }
+    ],
+    "versions": [
+        {
+            "name": "3.11.41",
+            "sha256": "477d567a8d683e891d786e9e8bb6ad6659daa9ba18e8dd0e2f70b7a54095f8de"
+        },
+        {
+            "name": "3.11.39",
+            "sha256": "584bd44572746142bf19348139530c18f4538ce41d94330ff86ede38c36eddc9"
+        },
+        {
+            "name": "3.11.34",
+            "sha256": "b6d42af3afd4fe54ef3a04a070fc7e75f6d8ac9f7d4886b636fe27ebfcbdf91f"
+        },
+        {
+            "name": "3.10.3",
+            "sha256": "2688eb733a6c5f78a18ef32144039adcd62fabce66f2eb51dd59dde806a6d2b7",
+            "preferred": true
+        },
+        {
+            "name": "3.10.2",
+            "sha256": "3aab139b118bf3fcdb4956fbd71676158d713ab0d3bccb2ae1dc3769db22102f"
+        }
+    ],
+    "build_system": "Package",
+    "conflicts": [],
+    "variants": [
+        {
+            "name": "shared",
+            "default": true,
+            "description": "Builds shared library"
+        },
+        {
+            "name": "threads",
+            "default": "none",
+            "description": "Multithreading support"
+        },
+        {
+            "name": "tune_cpu",
+            "default": -1,
+            "description": "Number of threads to tune to, -1 for autodetect, 0 for no threading"
+        }
+    ],
+    "homepage": "http://math-atlas.sourceforge.net/",
+    "maintainers": [],
+    "patches": [],
+    "resources": [
+        {
+            "version": "@3:",
+            "name": "lapack",
+            "destination": "spack-resource-lapack",
+            "placement": null
+        }
+    ],
+    "description": "Automatically Tuned Linear Algebra Software, generic shared ATLAS is an\napproach for the automatic generation and optimization of numerical\nsoftware. Currently ATLAS supplies optimized versions for the complete\nset of linear algebra kernels known as the Basic Linear Algebra\nSubroutines (BLAS), and a subset of the linear algebra routines in the\nLAPACK library.\n",
+    "dependencies": [],
+    "dependent_to": [
+        {
+            "name": "plink",
+            "description": "PLINK is a free, open-source whole genome association analysis toolset,\ndesigned to perform a range of basic, large-scale analyses in a\ncomputationally efficient manner."
+        },
+        {
+            "name": "csdp",
+            "description": "CSDP is a library of routines that implements a predictor corrector\nvariant of the semidefinite programming algorithm of Helmberg, Rendl,\nVanderbei, and Wolkowicz"
+        },
+        {
+            "name": "clapack",
+            "description": "CLAPACK is a f2c'ed version of LAPACK. The CLAPACK library was built\nusing a Fortran to C conversion utility called f2c. The entire Fortran\n77 LAPACK library is run through f2c to obtain C code, and then modified\nto improve readability. CLAPACK's goal is to provide LAPACK for someone\nwho does not have access to a Fortran compiler."
+        }
+    ]
+}

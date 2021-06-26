@@ -1,0 +1,115 @@
+{
+    "name": "clingo",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "master",
+            "branch": "master",
+            "submodules": true
+        },
+        {
+            "name": "spack",
+            "commit": "2a025667090d71b2c9dce60fe924feb6bde8f667",
+            "submodules": true
+        },
+        {
+            "name": "5.5.0",
+            "sha256": "c9d7004a0caec61b636ad1c1960fbf339ef8fdee9719321fc1b6b210613a8499"
+        },
+        {
+            "name": "5.4.1",
+            "sha256": "ac6606388abfe2482167ce8fd4eb0737ef6abeeb35a9d3ac3016c6f715bfee02"
+        },
+        {
+            "name": "5.4.0",
+            "sha256": "e2de331ee0a6d254193aab5995338a621372517adcf91568092be8ac511c18f3"
+        },
+        {
+            "name": "5.3.0",
+            "sha256": "b0d406d2809352caef7fccf69e8864d55e81ee84f4888b0744894977f703f976"
+        },
+        {
+            "name": "5.2.2",
+            "sha256": "da1ef8142e75c5a6f23c9403b90d4f40b9f862969ba71e2aaee9a257d058bfcf"
+        }
+    ],
+    "build_system": "CMakePackage",
+    "conflicts": [
+        {
+            "name": "+ipo",
+            "spec": "^cmake@:3.8",
+            "description": "+ipo is not supported by CMake < 3.9"
+        }
+    ],
+    "variants": [
+        {
+            "name": "build_type",
+            "default": "RelWithDebInfo",
+            "description": "CMake build type"
+        },
+        {
+            "name": "ipo",
+            "default": false,
+            "description": "CMake interprocedural optimization"
+        },
+        {
+            "name": "docs",
+            "default": false,
+            "description": "build documentation with Doxygen"
+        },
+        {
+            "name": "python",
+            "default": true,
+            "description": "build with python bindings"
+        }
+    ],
+    "homepage": "https://potassco.org/clingo/",
+    "maintainers": [
+        "tgamblin",
+        "alalazo"
+    ],
+    "patches": [
+        {
+            "owner": "builtin.clingo",
+            "sha256": "782d9fa710e59cba36bc3bfb922d52de0469cd3d0c5c591308f8e459139bd72f",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "python38.patch",
+            "version": "@5.3:5.4"
+        }
+    ],
+    "resources": [],
+    "description": "Clingo: A grounder and solver for logic programs Clingo is part of the\nPotassco project for Answer Set Programming (ASP). ASP offers a simple\nand powerful modeling language to describe combinatorial problems as\nlogic programs. The clingo system then takes such a logic program and\ncomputes answer sets representing solutions to the given problem.\n",
+    "dependencies": [
+        {
+            "name": "cmake",
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
+        },
+        {
+            "name": "doxygen",
+            "description": "Doxygen is the de facto standard tool for generating documentation from\nannotated C++ sources, but it also supports other popular programming\nlanguages such as C, Objective-C, C#, PHP, Java, Python, IDL (Corba,\nMicrosoft, and UNO/OpenOffice flavors), Fortran, VHDL, Tcl, and to some\nextent D.."
+        },
+        {
+            "name": "re2c",
+            "description": "re2c: a free and open-source lexer generator for C and C++"
+        },
+        {
+            "name": "bison",
+            "description": "Bison is a general-purpose parser generator that converts an annotated\ncontext-free grammar into a deterministic LR or generalized LR (GLR)\nparser employing LALR(1) parser tables."
+        },
+        {
+            "name": "python",
+            "description": "The Python programming language."
+        },
+        {
+            "name": "py-cffi",
+            "description": "Foreign Function Interface for Python calling C code"
+        }
+    ],
+    "dependent_to": [
+        {
+            "name": "aspcud",
+            "description": "Aspcud: Package dependency solver Aspcud is a solver for package\ndependencies. A package universe and a request to install, remove, or\nupgrade packages have to be encoded in the CUDF format. Such a CUDF\ndocument can then be passed to aspcud along with an optimization\ncriteria to obtain a solution to the given package problem."
+        }
+    ]
+}

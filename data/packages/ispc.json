@@ -1,0 +1,106 @@
+{
+    "name": "ispc",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "master",
+            "branch": "master"
+        },
+        {
+            "name": "1.15.0",
+            "sha256": "3b634aaa10c9bf0e82505d1af69cb307a3a00182d57eae019680ccfa62338af9"
+        },
+        {
+            "name": "1.14.1",
+            "sha256": "ca12f26dafbc4ef9605487d03a2156331c1351a4ffefc9bab4d896a466880794"
+        },
+        {
+            "name": "1.14.0",
+            "sha256": "1ed72542f56738c632bb02fb0dd56ad8aec3e2487839ebbc0def8334f305a4c7"
+        },
+        {
+            "name": "1.13.0",
+            "sha256": "aca595508b51dd1ff065c406a3fd7c93822320c510077dd4d97a2b98a23f097a"
+        }
+    ],
+    "build_system": "CMakePackage",
+    "conflicts": [
+        {
+            "name": "+ipo",
+            "spec": "^cmake@:3.8",
+            "description": "+ipo is not supported by CMake < 3.9"
+        }
+    ],
+    "variants": [
+        {
+            "name": "build_type",
+            "default": "RelWithDebInfo",
+            "description": "CMake build type"
+        },
+        {
+            "name": "ipo",
+            "default": false,
+            "description": "CMake interprocedural optimization"
+        }
+    ],
+    "homepage": "https://ispc.github.io",
+    "maintainers": [
+        "aumuell"
+    ],
+    "patches": [
+        {
+            "owner": "builtin.ispc",
+            "sha256": "08cad761b6938fbb38a90b9dc2da1d85bf3cc77b0487cc31642a7a8549d52cab",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "don-t-assume-that-ncurses-zlib-are-system-libraries.patch",
+            "version": "@1.14:1.14.999"
+        },
+        {
+            "owner": "builtin.ispc",
+            "sha256": "5ac4c25c871f08c62fe84ac6804f606d4080491c5676f9385b30f148c68b6c8a",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "fix-linking-against-llvm-10.patch",
+            "version": "@1.13:1.13.999"
+        }
+    ],
+    "resources": [],
+    "description": "Intel Implicit SPMD Program Compiler An open-source compiler for high-\nperformance SIMD programming on the CPU\n",
+    "dependencies": [
+        {
+            "name": "cmake",
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
+        },
+        {
+            "name": "python",
+            "description": "The Python programming language."
+        },
+        {
+            "name": "bison",
+            "description": "Bison is a general-purpose parser generator that converts an annotated\ncontext-free grammar into a deterministic LR or generalized LR (GLR)\nparser employing LALR(1) parser tables."
+        },
+        {
+            "name": "flex",
+            "description": "Flex is a tool for generating scanners."
+        },
+        {
+            "name": "ncurses",
+            "description": "The ncurses (new curses) library is a free software emulation of curses\nin System V Release 4.0, and more. It uses terminfo format, supports\npads and color and multiple highlights and forms characters and\nfunction-key mapping, and has all the other SYSV-curses enhancements\nover BSD curses."
+        },
+        {
+            "name": "zlib",
+            "description": "A free, general-purpose, legally unencumbered lossless data-compression\nlibrary."
+        },
+        {
+            "name": "llvm",
+            "description": "The LLVM Project is a collection of modular and reusable compiler and\ntoolchain technologies. Despite its name, LLVM has little to do with\ntraditional virtual machines, though it does provide helpful libraries\nthat can be used to build them. The name \"LLVM\" itself is not an\nacronym; it is the full name of the project."
+        }
+    ],
+    "dependent_to": [
+        {
+            "name": "embree",
+            "description": "Intel Embree High Performance Ray Tracing Kernels"
+        }
+    ]
+}

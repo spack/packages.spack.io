@@ -1,0 +1,75 @@
+{
+    "name": "adiak",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "0.3.0-alpha",
+            "commit": "054d2693a977ed0e1f16c665b4966bb90924779e",
+            "submodules": true
+        },
+        {
+            "name": "0.2.1",
+            "commit": "950e3bfb91519ecb7b7ee7fa3063bfab23c0e2c9",
+            "submodules": true,
+            "preferred": true
+        },
+        {
+            "name": "0.1.1",
+            "sha256": "438e4652e15e206cd0019423d829fd4f2329323ff0c8861d9586bae051d9624b"
+        }
+    ],
+    "build_system": "CMakePackage",
+    "conflicts": [
+        {
+            "name": "+ipo",
+            "spec": "^cmake@:3.8",
+            "description": "+ipo is not supported by CMake < 3.9"
+        }
+    ],
+    "variants": [
+        {
+            "name": "build_type",
+            "default": "RelWithDebInfo",
+            "description": "CMake build type"
+        },
+        {
+            "name": "ipo",
+            "default": false,
+            "description": "CMake interprocedural optimization"
+        },
+        {
+            "name": "mpi",
+            "default": true,
+            "description": "Build with MPI support"
+        },
+        {
+            "name": "shared",
+            "default": true,
+            "description": "Build dynamic libraries"
+        }
+    ],
+    "homepage": "https://github.com/LLNL/Adiak",
+    "maintainers": [
+        "daboehme",
+        "mplegendre"
+    ],
+    "patches": [],
+    "resources": [],
+    "description": "Adiak collects metadata about HPC application runs and provides it to\ntools.\n",
+    "dependencies": [
+        {
+            "name": "cmake",
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
+        },
+        {
+            "name": "mpi",
+            "description": "MVAPICH2-X is the advanced version of the MVAPICH2 MPI library with\nenhanced features (UMR, ODP, DC, Core-Direct, SHARP, XPMEM), OSU INAM\n(InifniBand Network Monitoring and Analysis),PGAS (OpenSHMEM, UPC,\nUPC++, and CAF), and MPI+PGAS programming models with unified\ncommunication runtime. MVAPICH2-X is not installable from source and is\nonly available through a binary mirror. If you do not find the binary\nyou're looking for, send us an email at mvapich@cse.ohio-state.edu. The\nbinary mirror url is: http://mvapich.cse.ohio-\nstate.edu/download/mvapich/spack-mirror/mvapich2x/"
+        }
+    ],
+    "dependent_to": [
+        {
+            "name": "caliper",
+            "description": "Caliper is a program instrumentation and performance measurement\nframework. It is designed as a performance analysis toolbox in a\nlibrary, allowing one to bake performance analysis capabilities directly\ninto applications and activate them at runtime."
+        }
+    ]
+}

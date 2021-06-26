@@ -1,0 +1,188 @@
+{
+    "name": "eccodes",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "2.21.0",
+            "sha256": "da0a0bf184bb436052e3eae582defafecdb7c08cdaab7216780476e49b509755"
+        },
+        {
+            "name": "2.20.0",
+            "sha256": "207a3d7966e75d85920569b55a19824673e8cd0b50db4c4dac2d3d52eacd7985"
+        },
+        {
+            "name": "2.19.1",
+            "sha256": "9964bed5058e873d514bd4920951122a95963128b12f55aa199d9afbafdd5d4b"
+        },
+        {
+            "name": "2.18.0",
+            "sha256": "d88943df0f246843a1a062796edbf709ef911de7269648eef864be259e9704e3"
+        },
+        {
+            "name": "2.13.0",
+            "sha256": "c5ce1183b5257929fc1f1c8496239e52650707cfab24f4e0e1f1a471135b8272"
+        },
+        {
+            "name": "2.5.0",
+            "sha256": "18ab44bc444168fd324d07f7dea94f89e056f5c5cd973e818c8783f952702e4e"
+        },
+        {
+            "name": "2.2.0",
+            "sha256": "1a4112196497b8421480e2a0a1164071221e467853486577c4f07627a702f4c3"
+        }
+    ],
+    "build_system": "CMakePackage",
+    "conflicts": [
+        {
+            "name": "+ipo",
+            "spec": "^cmake@:3.8",
+            "description": "+ipo is not supported by CMake < 3.9"
+        },
+        {
+            "name": "+openmp",
+            "spec": "+pthreads",
+            "description": "Cannot enable both POSIX threads and OMP"
+        }
+    ],
+    "variants": [
+        {
+            "name": "build_type",
+            "default": "RelWithDebInfo",
+            "description": "CMake build type"
+        },
+        {
+            "name": "ipo",
+            "default": false,
+            "description": "CMake interprocedural optimization"
+        },
+        {
+            "name": "netcdf",
+            "default": false,
+            "description": "Enable GRIB to NetCDF conversion tool"
+        },
+        {
+            "name": "jp2k",
+            "default": "openjpeg",
+            "description": "Specify JPEG2000 decoding/encoding backend"
+        },
+        {
+            "name": "png",
+            "default": false,
+            "description": "Enable PNG support for decoding/encoding"
+        },
+        {
+            "name": "aec",
+            "default": false,
+            "description": "Enable Adaptive Entropy Coding for decoding/encoding"
+        },
+        {
+            "name": "pthreads",
+            "default": false,
+            "description": "Enable POSIX threads"
+        },
+        {
+            "name": "openmp",
+            "default": false,
+            "description": "Enable OpenMP threads"
+        },
+        {
+            "name": "memfs",
+            "default": false,
+            "description": "Enable memory based access to definitions/samples"
+        },
+        {
+            "name": "python",
+            "default": false,
+            "description": "Enable the Python 2 interface"
+        },
+        {
+            "name": "fortran",
+            "default": false,
+            "description": "Enable the Fortran support"
+        }
+    ],
+    "homepage": "https://software.ecmwf.int/wiki/display/ECC/ecCodes+Home",
+    "maintainers": [
+        "skosukhin"
+    ],
+    "patches": [
+        {
+            "owner": "builtin.eccodes",
+            "sha256": "d49f040439ee859968b60f449253baff2bb4296d09256f442e60df7800b13905",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "openjpeg_jasper.patch",
+            "version": "@:2.16"
+        },
+        {
+            "owner": "builtin.eccodes",
+            "sha256": "caa4c2f2ac4a13a61c3372cd64f2f6f6570c78ed2ab91497a76b02c584abe1bc",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "cmake_install_rpath.patch",
+            "version": "@:2.10"
+        }
+    ],
+    "resources": [],
+    "description": "ecCodes is a package developed by ECMWF for processing meteorological\ndata in GRIB (1/2), BUFR (3/4) and GTS header formats.\n",
+    "dependencies": [
+        {
+            "name": "cmake",
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
+        },
+        {
+            "name": "netcdf-c",
+            "description": "NetCDF (network Common Data Form) is a set of software libraries and\nmachine-independent data formats that support the creation, access, and\nsharing of array-oriented scientific data. This is the C distribution."
+        },
+        {
+            "name": "openjpeg",
+            "description": "OpenJPEG is an open-source JPEG 2000 codec written in C language. It has\nbeen developed in order to promote the use of JPEG 2000, a still-image\ncompression standard from the Joint Photographic Experts Group (JPEG).\nSince April 2015, it is officially recognized by ISO/IEC and ITU-T as a\nJPEG 2000 Reference Software."
+        },
+        {
+            "name": "jasper",
+            "description": "Library for manipulating JPEG-2000 images"
+        },
+        {
+            "name": "libpng",
+            "description": "libpng is the official PNG reference library."
+        },
+        {
+            "name": "libaec",
+            "description": "Libaec provides fast lossless compression of 1 up to 32 bit wide signed\nor unsigned integers (samples). It implements Golomb-Rice compression\nmethod under the BSD license and includes a free drop-in replacement for\nthe SZIP library."
+        },
+        {
+            "name": "python",
+            "description": "The Python programming language."
+        },
+        {
+            "name": "py-numpy",
+            "description": "NumPy is the fundamental package for scientific computing with Python.\nIt contains among other things: a powerful N-dimensional array object,\nsophisticated (broadcasting) functions, tools for integrating C/C++ and\nFortran code, and useful linear algebra, Fourier transform, and random\nnumber capabilities"
+        }
+    ],
+    "dependent_to": [
+        {
+            "name": "cdo",
+            "description": "CDO is a collection of command line Operators to manipulate and analyse\nClimate and NWP model Data."
+        },
+        {
+            "name": "libemos",
+            "description": "The Interpolation library (EMOSLIB) includes Interpolation software and\nBUFR & CREX encoding/decoding routines."
+        },
+        {
+            "name": "py-eccodes",
+            "description": "Python interface to the ecCodes GRIB and BUFR decoder/encoder."
+        },
+        {
+            "name": "fdb",
+            "description": "FDB (Fields DataBase) is a domain-specific object store developed at\nECMWF for storing, indexing and retrieving GRIB data."
+        },
+        {
+            "name": "magics",
+            "description": "Magics is the latest generation of the ECMWF's Meteorological plotting\nsoftware MAGICS. Although completely redesigned in C++, it is intended\nto be as backwards-compatible as possible with the Fortran interface."
+        },
+        {
+            "name": "metkit",
+            "description": "Toolkit for manipulating and describing meteorological objects,\nimplementing the MARS language and associated processing and semantics."
+        }
+    ]
+}

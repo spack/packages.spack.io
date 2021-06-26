@@ -1,0 +1,60 @@
+{
+    "name": "igprof",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "5.9.16",
+            "sha256": "cc977466b310f47bbc2967a0bb6ecd49d7437089598346e3f1d8aaf9a7555d96"
+        }
+    ],
+    "build_system": "CMakePackage",
+    "conflicts": [
+        {
+            "name": "+ipo",
+            "spec": "^cmake@:3.8",
+            "description": "+ipo is not supported by CMake < 3.9"
+        }
+    ],
+    "variants": [
+        {
+            "name": "build_type",
+            "default": "RelWithDebInfo",
+            "description": "CMake build type"
+        },
+        {
+            "name": "ipo",
+            "default": false,
+            "description": "CMake interprocedural optimization"
+        }
+    ],
+    "homepage": "https://igprof.org/",
+    "maintainers": [],
+    "patches": [
+        {
+            "owner": "builtin.igprof",
+            "sha256": "bdfdf43b57dc1875912ffb99f086279c7276ee0ed47770cdcf62f6ed3e5b21d0",
+            "level": 0,
+            "working_dir": ".",
+            "relative_path": "igprof-5.9.16.patch",
+            "version": "@5.9.16"
+        }
+    ],
+    "resources": [],
+    "description": "IgProf (the Ignominous Profiler) is a simple nice tool for measuring and\nanalysing application memory and performance characteristics. IgProf\nrequires no changes to the application or the build process. It\ncurrently works on Linux (ia32, x86_64).\n",
+    "dependencies": [
+        {
+            "name": "cmake",
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
+        },
+        {
+            "name": "libunwind",
+            "description": "A portable and efficient C programming interface (API) to determine the\ncall-chain of a program."
+        }
+    ],
+    "dependent_to": [
+        {
+            "name": "coral",
+            "description": "CORAL is an abstraction layer with an SQL-free API to access data stored\nusing relational database technologies. It is used directly by\nexperiment-specific applications and internally by COOL."
+        }
+    ]
+}

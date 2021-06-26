@@ -1,0 +1,191 @@
+{
+    "name": "geos",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "3.8.1",
+            "sha256": "4258af4308deb9dbb5047379026b4cd9838513627cb943a44e16c40e42ae17f7"
+        },
+        {
+            "name": "3.7.2",
+            "sha256": "2166e65be6d612317115bfec07827c11b403c3f303e0a7420a2106bc999d7707"
+        },
+        {
+            "name": "3.6.2",
+            "sha256": "045a13df84d605a866602f6020fc6cbf8bf4c42fb50de237a08926e1d7d7652a"
+        },
+        {
+            "name": "3.6.1",
+            "sha256": "4a2e4e3a7a09a7cfda3211d0f4a235d9fd3176ddf64bd8db14b4ead266189fc5"
+        },
+        {
+            "name": "3.6.0",
+            "sha256": "1fe7644f3240c8422b0143830ff142e44e8b01333c12f67681ccaab92142f2ea"
+        },
+        {
+            "name": "3.5.1",
+            "sha256": "e6bb0a7ba0e142b1e952fae9d946b2b532fa05a5c384e458f7cb8990e1fcac32"
+        },
+        {
+            "name": "3.5.0",
+            "sha256": "49982b23bcfa64a53333dab136b82e25354edeb806e5a2e2f5b8aa98b1d0ae02"
+        },
+        {
+            "name": "3.4.3",
+            "sha256": "cfbf68079117c1c2b76411636444ff41d73c31093c4cab9dcc9a8c1bbe7e3897"
+        },
+        {
+            "name": "3.4.2",
+            "sha256": "15e8bfdf7e29087a957b56ac543ea9a80321481cef4d4f63a7b268953ad26c53"
+        },
+        {
+            "name": "3.4.1",
+            "sha256": "d07ac375f3edd12425d6ce5a96db9739d5ff358cbdf60c6804f7a9e565af8ff2"
+        },
+        {
+            "name": "3.4.0",
+            "sha256": "3b2106d9baeede39d70e22672598d40cb63ee901f54436c774b250726d7bbdd5"
+        },
+        {
+            "name": "3.3.9",
+            "sha256": "3e2156165d593f3e85df9ac223170b2c11de3cb4697e4c7a761c3ffbf04fe0ee"
+        },
+        {
+            "name": "3.3.8",
+            "sha256": "ebecd4d1a71bcc28e5e883296cd8c52a80d5596335e74728f320989734fa503b"
+        },
+        {
+            "name": "3.3.7",
+            "sha256": "fd01c21b54a3c48cac3e7885f26d4ca10ea9944238776b8ce03489e5e45c592b"
+        },
+        {
+            "name": "3.3.6",
+            "sha256": "7ee6c1da9a1b87a3e29209e7cddbf19d36f9689d8e44fec2c9bcf6a1b1be3898"
+        },
+        {
+            "name": "3.3.5",
+            "sha256": "3b513fbe2d155364d61e76d9c250d6d8e75b5166783a233596c744373cb5874f"
+        },
+        {
+            "name": "3.3.4",
+            "sha256": "cd5400aa5f3fe32246dfed5d238c5017e1808162c865c016480b3e6c07271904"
+        },
+        {
+            "name": "3.3.3",
+            "sha256": "dfcf4bd70ab212a5b7bad21d01b84748f101a545092b56dafdc3882ef3bddec9"
+        }
+    ],
+    "build_system": "AutotoolsPackage",
+    "conflicts": [
+        {
+            "name": "+python",
+            "spec": "@3.9:",
+            "description": "SWIG bindings dropped in 3.9"
+        },
+        {
+            "name": "+ruby",
+            "spec": "@3.9:",
+            "description": "SWIG bindings dropped in 3.9"
+        }
+    ],
+    "variants": [
+        {
+            "name": "ruby",
+            "default": false,
+            "description": "Enable Ruby support"
+        },
+        {
+            "name": "python",
+            "default": false,
+            "description": "Enable Python support"
+        }
+    ],
+    "homepage": "http://trac.osgeo.org/geos/",
+    "maintainers": [
+        "adamjstewart"
+    ],
+    "patches": [
+        {
+            "owner": "builtin.geos",
+            "sha256": "150bc609f5b43ecd336b2180ba432753a57064c9e0a165a708a76650b6d8615c",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "geos_python3_config.patch",
+            "version": "@3.5:3.8.99+python"
+        }
+    ],
+    "resources": [],
+    "description": "GEOS (Geometry Engine - Open Source) is a C++ port of the Java Topology\nSuite (JTS). As such, it aims to contain the complete functionality of\nJTS in C++. This includes all the OpenGIS Simple Features for SQL\nspatial predicate functions and spatial operators, as well as specific\nJTS enhanced topology functions.\n",
+    "dependencies": [
+        {
+            "name": "ruby",
+            "description": "A dynamic, open source programming language with a focus on simplicity\nand productivity."
+        },
+        {
+            "name": "python",
+            "description": "The Python programming language."
+        },
+        {
+            "name": "swig",
+            "description": "SWIG is an interface compiler that connects programs written in C and\nC++ with scripting languages such as Perl, Python, Ruby, and Tcl. It\nworks by taking the declarations found in C/C++ header files and using\nthem to generate the wrapper code that scripting languages need to\naccess the underlying C/C++ code. In addition, SWIG provides a variety\nof customization features that let you tailor the wrapping process to\nsuit your application."
+        }
+    ],
+    "dependent_to": [
+        {
+            "name": "mapserver",
+            "description": "MapServer is an Open Source geographic data rendering engine written in\nC. Beyond browsing GIS data, MapServer allows you create \"geographic\nimage maps\", that is, maps that can direct users to content"
+        },
+        {
+            "name": "grass",
+            "description": "GRASS GIS (Geographic Resources Analysis Support System), is a free and\nopen source Geographic Information System (GIS) software suite used for\ngeospatial data management and analysis, image processing, graphics and\nmaps production, spatial modeling, and visualization."
+        },
+        {
+            "name": "postgis",
+            "description": "PostGIS is a spatial database extender for PostgreSQL object-relational\ndatabase. It adds support for geographic objects allowing location\nqueries to be run in SQL"
+        },
+        {
+            "name": "py-pygeos",
+            "description": "PyGEOS is a C/Python library with vectorized geometry functions. The\ngeometry operations are done in the open-source geometry library GEOS.\nPyGEOS wraps these operations in NumPy ufuncs providing a performance\nimprovement when operating on arrays of geometries."
+        },
+        {
+            "name": "libspatialite",
+            "description": "SpatiaLite is an open source library intended to extend the SQLite core\nto support fully fledged Spatial SQL capabilities."
+        },
+        {
+            "name": "py-shapely",
+            "description": "Manipulation and analysis of geometric objects in the Cartesian plane."
+        },
+        {
+            "name": "py-cartopy",
+            "description": "Cartopy - a cartographic python library with matplotlib support."
+        },
+        {
+            "name": "r-rgeos",
+            "description": "Interface to Geometry Engine - Open Source ('GEOS') Interface to\nGeometry Engine - Open Source ('GEOS') using the C 'API' for topology\noperations on geometries. The 'GEOS' library is external to the package,\nand, when installing the package from source, must be correctly\ninstalled first. Windows and Mac Intel OS X binaries are provided on\n'CRAN'. ('rgeos' >= 0.5-1): Up to and including 'GEOS' 3.7.1,\ntopological operations succeeded with some invalid geometries for which\nthe same operations fail from and including 'GEOS' 3.7.2. The\n'checkValidity=' argument defaults and structure have been changed, from\ndefault FALSE to integer default '0L' for 'GEOS' < 3.7.2 (no check),\n'1L' 'GEOS' >= 3.7.2 (check and warn). A value of '2L' is also provided\nthat may be used, assigned globally using 'set_RGEOS_CheckValidity(2L)',\nor locally using the 'checkValidity=2L' argument, to attempt zero-width\nbuffer repair if invalid geometries are found. The previous default\n(FALSE, now '0L') is fastest and used for 'GEOS' < 3.7.2, but will not\nwarn users of possible problems before the failure of topological\noperations that previously succeeded. From 'GEOS' 3.8.0, repair of\ngeometries may also be attempted using 'gMakeValid()', which may,\nhowever, return a collection of geometries of different types."
+        },
+        {
+            "name": "r-lwgeom",
+            "description": "Bindings to Selected 'liblwgeom' Functions for Simple Features Access to\nselected functions found in 'liblwgeom'\n<https://github.com/postgis/postgis/tree/master/liblwgeom>, the light-\nweight geometry library used by 'PostGIS' <http://postgis.net/>."
+        },
+        {
+            "name": "r-sf",
+            "description": "Simple Features for R Support for simple features, a standardized way to\nencode spatial vector data. Binds to 'GDAL' for reading and writing\ndata, to 'GEOS' for geometrical operations, and to 'PROJ' for projection\nconversions and datum transformations. Optionally uses the 's2' package\nfor spherical geometry operations on geographic coordinates."
+        },
+        {
+            "name": "gdal",
+            "description": "GDAL (Geospatial Data Abstraction Library) is a translator library for\nraster and vector geospatial data formats that is released under an\nX/MIT style Open Source license by the Open Source Geospatial\nFoundation. As a library, it presents a single raster abstract data\nmodel and vector abstract data model to the calling application for all\nsupported formats. It also comes with a variety of useful command line\nutilities for data translation and processing."
+        },
+        {
+            "name": "r-exactextractr",
+            "description": "Fast Extraction from Raster Datasets using Polygons Provides a\nreplacement for the 'extract' function from the 'raster' package that is\nsuitable for extracting raster values using 'sf' polygons."
+        },
+        {
+            "name": "py-basemap",
+            "description": "The matplotlib basemap toolkit is a library for plotting 2D data on maps\nin Python."
+        },
+        {
+            "name": "qgis",
+            "description": "QGIS is a free and open-source cross-platform desktop geographic\ninformation system application that supports viewing, editing, and\nanalysis of geospatial data."
+        }
+    ]
+}

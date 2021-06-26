@@ -1,0 +1,98 @@
+{
+    "name": "rocm-dbgapi",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "master",
+            "branch": "amd-master"
+        },
+        {
+            "name": "4.2.0",
+            "sha256": "fcdee5aaf5ed40c0377ce007a2947da9e718eeee86ca3e13192ff9e96a1b7373"
+        },
+        {
+            "name": "4.1.0",
+            "sha256": "d04fd9b2005691313547c4134b027b56b0ec6089f67d3bccbdb8fb1c92cde9bd"
+        },
+        {
+            "name": "4.0.0",
+            "sha256": "e87f31b3a22861397eb62d8363dd1e153596097ccfe68c6eefc1a83a2432ae18"
+        },
+        {
+            "name": "3.10.0",
+            "sha256": "89a8d352d59e4c0dc13160b1bf1f4bc3bfec5af544050030aa619b1ff88f1850"
+        },
+        {
+            "name": "3.9.0",
+            "sha256": "d1553f89d2b0419304ea82ed2b97abdc323c2fed183f0e119da1a72416a48136"
+        },
+        {
+            "name": "3.8.0",
+            "sha256": "760ff77c6578f3548f367a8bd3dda8680b7519f6b20216755105b87785d1e3f8"
+        },
+        {
+            "name": "3.7.0",
+            "sha256": "bdeaf81ea8a0ac861a697e435c72cbe767c291638be43f0d09116ad605dfee4f"
+        },
+        {
+            "name": "3.5.0",
+            "sha256": "eeba0592bc79b90e5b874bba18fd003eab347e8a3cc80343708f8d19e047e87b"
+        }
+    ],
+    "build_system": "CMakePackage",
+    "conflicts": [
+        {
+            "name": "+ipo",
+            "spec": "^cmake@:3.8",
+            "description": "+ipo is not supported by CMake < 3.9"
+        }
+    ],
+    "variants": [
+        {
+            "name": "build_type",
+            "default": "RelWithDebInfo",
+            "description": "CMake build type"
+        },
+        {
+            "name": "ipo",
+            "default": false,
+            "description": "CMake interprocedural optimization"
+        }
+    ],
+    "homepage": "https://github.com/ROCm-Developer-Tools/ROCdbgapi",
+    "maintainers": [
+        "srekolam",
+        "arjun-raj-kuppala"
+    ],
+    "patches": [],
+    "resources": [],
+    "description": "The AMD Debugger API is a library that provides all the support\nnecessary for a debugger and other tools to perform low level control of\nthe execution and inspection of execution state of AMD's commercially\navailable GPU architectures.\n",
+    "dependencies": [
+        {
+            "name": "cmake",
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
+        },
+        {
+            "name": "hsa-rocr-dev",
+            "description": "This repository includes the user mode API nterfaces and libraries\nnecessary for host applications to launch computer kernels to available\nHSA ROCm kernel agents.AMD Heterogeneous System Architecture HSA - Linux\nHSA Runtime for Boltzmann (ROCm) platforms."
+        },
+        {
+            "name": "comgr",
+            "description": "This provides various Lightning Compiler related services. It currently\ncontains one library, the Code Object Manager (Comgr)"
+        }
+    ],
+    "dependent_to": [
+        {
+            "name": "rocm-debug-agent",
+            "description": "Radeon Open Compute (ROCm) debug agent"
+        },
+        {
+            "name": "hpctoolkit",
+            "description": "HPCToolkit is an integrated suite of tools for measurement and analysis\nof program performance on computers ranging from multicore desktop\nsystems to the nation's largest supercomputers. By using statistical\nsampling of timers and hardware performance counters, HPCToolkit\ncollects accurate measurements of a program's work, resource\nconsumption, and inefficiency and attributes them to the full calling\ncontext in which they occur."
+        },
+        {
+            "name": "rocm-gdb",
+            "description": "This is ROCmgdb, the ROCm source-level debugger for Linux, based on GDB,\nthe GNU source-level debugger."
+        }
+    ]
+}

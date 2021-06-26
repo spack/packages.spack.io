@@ -1,0 +1,157 @@
+{
+    "name": "unifyfs",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "develop",
+            "branch": "dev"
+        },
+        {
+            "name": "0.9.2",
+            "sha256": "7046625dc0677535f5d960187cb2e2d58a6f8cfb4dc6a3604f825257eb0891aa"
+        },
+        {
+            "name": "0.9.1",
+            "sha256": "2498a859cfa4961356fdf5c4c17e3afc3de7e034ad013b8c7145a622ef6199a0"
+        }
+    ],
+    "build_system": "AutotoolsPackage",
+    "conflicts": [
+        {
+            "name": "^mercury~bmi~ofi",
+            "spec": "",
+            "description": "None"
+        },
+        {
+            "name": "^mercury~sm",
+            "spec": "",
+            "description": "None"
+        },
+        {
+            "name": "%intel",
+            "spec": "+fortran",
+            "description": "None"
+        },
+        {
+            "name": "%xl",
+            "spec": "+fortran",
+            "description": "None"
+        }
+    ],
+    "variants": [
+        {
+            "name": "auto-mount",
+            "default": "True",
+            "description": "Enable automatic mount/unmount in MPI_Init/Finalize"
+        },
+        {
+            "name": "hdf5",
+            "default": "False",
+            "description": "Build with parallel HDF5 (install with `^hdf5~mpi` for serial)"
+        },
+        {
+            "name": "fortran",
+            "default": "False",
+            "description": "Build with gfortran support"
+        },
+        {
+            "name": "pmi",
+            "default": "False",
+            "description": "Enable PMI2 build options"
+        },
+        {
+            "name": "pmix",
+            "default": "False",
+            "description": "Enable PMIx build options"
+        },
+        {
+            "name": "spath",
+            "default": "True",
+            "description": "Use spath library to normalize relative paths"
+        }
+    ],
+    "homepage": "https://github.com/LLNL/UnifyFS",
+    "maintainers": [
+        "CamStan"
+    ],
+    "patches": [
+        {
+            "owner": "builtin.unifyfs",
+            "sha256": "f6d61ac7cee0d690f50a9a99ff9d2242f494c3baf7374baaf6779340728566b1",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "unifyfs-sysio.c.patch",
+            "version": "@0.9.1"
+        },
+        {
+            "owner": "builtin.unifyfs",
+            "sha256": "8a9c20c857c728637d994c097505cdce780f4b8e61535d221117864f75795313",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "include-sys-sysmacros.h.patch",
+            "version": "@0.9.1:0.9.2"
+        }
+    ],
+    "resources": [],
+    "description": "User level file system that enables applications to use node-local\nstorage as burst buffers for shared files. Supports scalable and\nefficient aggregation of I/O bandwidth from burst buffers while having\nthe same life cycle as a batch-submitted job. UnifyFS is designed to\nsupport common I/O workloads, including checkpoint/restart. While\nprimarily designed for N-N write/read, UnifyFS compliments its\nfunctionality with the support for N-1 write/read.\n",
+    "dependencies": [
+        {
+            "name": "autoconf",
+            "description": "Autoconf -- system configuration part of autotools"
+        },
+        {
+            "name": "automake",
+            "description": "Automake -- make file builder part of autotools"
+        },
+        {
+            "name": "libtool",
+            "description": "libtool -- library building part of autotools."
+        },
+        {
+            "name": "m4",
+            "description": "GNU M4 is an implementation of the traditional Unix macro processor."
+        },
+        {
+            "name": "pkgconfig",
+            "description": "pkgconf is a program which helps to configure compiler and linker flags\nfor development frameworks. It is similar to pkg-config from\nfreedesktop.org, providing additional functionality while also\nmaintaining compatibility."
+        },
+        {
+            "name": "gotcha",
+            "description": "C software library for shared library function wrapping, enables tools\nto intercept calls into shared libraries"
+        },
+        {
+            "name": "mercury",
+            "description": "Mercury is a C library for implementing RPC, optimized for HPC"
+        },
+        {
+            "name": "mochi-margo",
+            "description": "A library that provides Argobots bindings to the Mercury RPC\nimplementation."
+        },
+        {
+            "name": "mpi",
+            "description": "MVAPICH2-X is the advanced version of the MVAPICH2 MPI library with\nenhanced features (UMR, ODP, DC, Core-Direct, SHARP, XPMEM), OSU INAM\n(InifniBand Network Monitoring and Analysis),PGAS (OpenSHMEM, UPC,\nUPC++, and CAF), and MPI+PGAS programming models with unified\ncommunication runtime. MVAPICH2-X is not installable from source and is\nonly available through a binary mirror. If you do not find the binary\nyou're looking for, send us an email at mvapich@cse.ohio-state.edu. The\nbinary mirror url is: http://mvapich.cse.ohio-\nstate.edu/download/mvapich/spack-mirror/mvapich2x/"
+        },
+        {
+            "name": "openssl",
+            "description": "OpenSSL is an open source project that provides a robust, commercial-\ngrade, and full-featured toolkit for the Transport Layer Security (TLS)\nand Secure Sockets Layer (SSL) protocols. It is also a general-purpose\ncryptography library."
+        },
+        {
+            "name": "hdf5",
+            "description": "HDF5 is a data model, library, and file format for storing and managing\ndata. It supports an unlimited variety of datatypes, and is designed for\nflexible and efficient I/O and for high volume and complex data."
+        },
+        {
+            "name": "libfabric",
+            "description": "The Open Fabrics Interfaces (OFI) is a framework focused on exporting\nfabric communication services to applications."
+        },
+        {
+            "name": "spath",
+            "description": "Represent and manipulate file system paths"
+        }
+    ],
+    "dependent_to": [
+        {
+            "name": "ecp-data-vis-sdk",
+            "description": "ECP Data & Vis SDK"
+        }
+    ]
+}

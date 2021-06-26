@@ -1,0 +1,56 @@
+{
+    "name": "cquery",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "2018-08-23",
+            "commit": "70c755b2e390d3edfb594a84a7531beb26b2bc07",
+            "submodules": true
+        }
+    ],
+    "build_system": "CMakePackage",
+    "conflicts": [
+        {
+            "name": "+ipo",
+            "spec": "^cmake@:3.8",
+            "description": "+ipo is not supported by CMake < 3.9"
+        }
+    ],
+    "variants": [
+        {
+            "name": "build_type",
+            "default": "RelWithDebInfo",
+            "description": "CMake build type"
+        },
+        {
+            "name": "ipo",
+            "default": false,
+            "description": "CMake interprocedural optimization"
+        }
+    ],
+    "homepage": "https://github.com/cquery-project/cquery",
+    "maintainers": [],
+    "patches": [
+        {
+            "owner": "builtin.cquery",
+            "sha256": "26cec4af2b3d5493c6aa60abbeb22a68cae5116a75c1786c476cc63794c50895",
+            "level": 0,
+            "working_dir": ".",
+            "relative_path": "fix-gcc10.patch",
+            "version": "%gcc@10.0:"
+        }
+    ],
+    "resources": [],
+    "description": "a C++ header-only library for Nearest Neighbor (NN) search wih KD-trees.\n",
+    "dependencies": [
+        {
+            "name": "cmake",
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
+        },
+        {
+            "name": "llvm",
+            "description": "The LLVM Project is a collection of modular and reusable compiler and\ntoolchain technologies. Despite its name, LLVM has little to do with\ntraditional virtual machines, though it does provide helpful libraries\nthat can be used to build them. The name \"LLVM\" itself is not an\nacronym; it is the full name of the project."
+        }
+    ],
+    "dependent_to": []
+}

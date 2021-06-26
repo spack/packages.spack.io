@@ -1,0 +1,104 @@
+{
+    "name": "med",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "4.1.0",
+            "sha256": "847db5d6fbc9ce6924cb4aea86362812c9a5ef6b9684377e4dd6879627651fce"
+        },
+        {
+            "name": "4.0.0",
+            "sha256": "a474e90b5882ce69c5e9f66f6359c53b8b73eb448c5f631fa96e8cd2c14df004",
+            "preferred": true
+        },
+        {
+            "name": "3.2.0",
+            "sha256": "d52e9a1bdd10f31aa154c34a5799b48d4266dc6b4a5ee05a9ceda525f2c6c138"
+        }
+    ],
+    "build_system": "CMakePackage",
+    "conflicts": [
+        {
+            "name": "+ipo",
+            "spec": "^cmake@:3.8",
+            "description": "+ipo is not supported by CMake < 3.9"
+        },
+        {
+            "name": "@4.1.0",
+            "spec": "~shared",
+            "description": "Link error when static"
+        }
+    ],
+    "variants": [
+        {
+            "name": "build_type",
+            "default": "RelWithDebInfo",
+            "description": "CMake build type"
+        },
+        {
+            "name": "ipo",
+            "default": false,
+            "description": "CMake interprocedural optimization"
+        },
+        {
+            "name": "api23",
+            "default": true,
+            "description": "Enable API2.3"
+        },
+        {
+            "name": "mpi",
+            "default": true,
+            "description": "Enable MPI"
+        },
+        {
+            "name": "shared",
+            "default": false,
+            "description": "Builds a shared version of the library"
+        },
+        {
+            "name": "fortran",
+            "default": false,
+            "description": "Enable Fortran support"
+        }
+    ],
+    "homepage": "http://docs.salome-platform.org/latest/dev/MEDCoupling/med-file.html",
+    "maintainers": [
+        "likask"
+    ],
+    "patches": [
+        {
+            "owner": "builtin.med",
+            "sha256": "c931478570a452294d3ebad08501b5758f36f4a5be401f63340f97498b6266fa",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "add_space.patch",
+            "version": "@3.2.0"
+        }
+    ],
+    "resources": [],
+    "description": "The MED file format is a specialization of the HDF5 standard.\n",
+    "dependencies": [
+        {
+            "name": "cmake",
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
+        },
+        {
+            "name": "mpi",
+            "description": "MVAPICH2-X is the advanced version of the MVAPICH2 MPI library with\nenhanced features (UMR, ODP, DC, Core-Direct, SHARP, XPMEM), OSU INAM\n(InifniBand Network Monitoring and Analysis),PGAS (OpenSHMEM, UPC,\nUPC++, and CAF), and MPI+PGAS programming models with unified\ncommunication runtime. MVAPICH2-X is not installable from source and is\nonly available through a binary mirror. If you do not find the binary\nyou're looking for, send us an email at mvapich@cse.ohio-state.edu. The\nbinary mirror url is: http://mvapich.cse.ohio-\nstate.edu/download/mvapich/spack-mirror/mvapich2x/"
+        },
+        {
+            "name": "hdf5",
+            "description": "HDF5 is a data model, library, and file format for storing and managing\ndata. It supports an unlimited variety of datatypes, and is designed for\nflexible and efficient I/O and for high volume and complex data."
+        }
+    ],
+    "dependent_to": [
+        {
+            "name": "mofem-cephas",
+            "description": "MoFEM is finite element core library"
+        },
+        {
+            "name": "gmsh",
+            "description": "Gmsh is a free 3D finite element grid generator with a built-in CAD\nengine and post-processor. Its design goal is to provide a fast, light\nand user-friendly meshing tool with parametric input and advanced\nvisualization capabilities. Gmsh is built around four modules: geometry,\nmesh, solver and post-processing. The specification of any input to\nthese modules is done either interactively using the graphical user\ninterface or in ASCII text files using Gmsh's own scripting language."
+        }
+    ]
+}

@@ -1,0 +1,93 @@
+{
+    "name": "intel-xed",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "master",
+            "branch": "master"
+        },
+        {
+            "name": "12.0.1",
+            "tag": "12.0.1"
+        },
+        {
+            "name": "11.2.0",
+            "tag": "11.2.0"
+        },
+        {
+            "name": "10.2019.03",
+            "commit": "b7231de4c808db821d64f4018d15412640c34113"
+        }
+    ],
+    "build_system": "Package",
+    "conflicts": [
+        {
+            "name": "target=ppc64:",
+            "spec": "",
+            "description": "intel-xed only runs on x86"
+        },
+        {
+            "name": "target=ppc64le:",
+            "spec": "",
+            "description": "intel-xed only runs on x86"
+        },
+        {
+            "name": "target=aarch64:",
+            "spec": "",
+            "description": "intel-xed only runs on x86"
+        }
+    ],
+    "variants": [
+        {
+            "name": "debug",
+            "default": false,
+            "description": "Enable debug symbols"
+        },
+        {
+            "name": "pic",
+            "default": false,
+            "description": "Compile with position independent code."
+        }
+    ],
+    "homepage": "https://intelxed.github.io/",
+    "maintainers": [
+        "mwkrentel"
+    ],
+    "patches": [
+        {
+            "owner": "builtin.intel-xed",
+            "sha256": "acffa07ee4b8e898df18f1439547e45ec9c609328dfb6e1ad2dce416587334d4",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "1201-segv.patch",
+            "version": "@12.0.1"
+        }
+    ],
+    "resources": [
+        {
+            "version": "@master",
+            "name": "mbuild",
+            "destination": "",
+            "placement": "mbuild"
+        },
+        {
+            "version": "@:999",
+            "name": "mbuild",
+            "destination": "",
+            "placement": "mbuild"
+        }
+    ],
+    "description": "The Intel X86 Encoder Decoder library for encoding and decoding x86\nmachine instructions (64- and 32-bit). Also includes libxed-ild, a\nlightweight library for decoding the length of an instruction.\n",
+    "dependencies": [
+        {
+            "name": "python",
+            "description": "The Python programming language."
+        }
+    ],
+    "dependent_to": [
+        {
+            "name": "hpctoolkit",
+            "description": "HPCToolkit is an integrated suite of tools for measurement and analysis\nof program performance on computers ranging from multicore desktop\nsystems to the nation's largest supercomputers. By using statistical\nsampling of timers and hardware performance counters, HPCToolkit\ncollects accurate measurements of a program's work, resource\nconsumption, and inefficiency and attributes them to the full calling\ncontext in which they occur."
+        }
+    ]
+}

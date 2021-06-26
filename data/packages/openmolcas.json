@@ -1,0 +1,92 @@
+{
+    "name": "openmolcas",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "21.02",
+            "sha256": "d0b9731a011562ff4740c0e67e48d9af74bf2a266601a38b37640f72190519ca"
+        },
+        {
+            "name": "19.11",
+            "sha256": "8ebd1dcce98fc3f554f96e54e34f1e8ad566c601196ee68153763b6c0a04c7b9"
+        }
+    ],
+    "build_system": "CMakePackage",
+    "conflicts": [
+        {
+            "name": "+ipo",
+            "spec": "^cmake@:3.8",
+            "description": "+ipo is not supported by CMake < 3.9"
+        }
+    ],
+    "variants": [
+        {
+            "name": "build_type",
+            "default": "RelWithDebInfo",
+            "description": "CMake build type"
+        },
+        {
+            "name": "ipo",
+            "default": false,
+            "description": "CMake interprocedural optimization"
+        },
+        {
+            "name": "mpi",
+            "default": false,
+            "description": "Build with mpi support."
+        }
+    ],
+    "homepage": "https://gitlab.com/Molcas/OpenMolcas",
+    "maintainers": [],
+    "patches": [
+        {
+            "owner": "builtin.openmolcas",
+            "sha256": "a710bcadd83e44af91871e2e49495449cb9a20098651bccbac105a5cb3dd9c1c",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "CMakeLists.txt.patch",
+            "version": "arch=linux-None-aarch64:"
+        }
+    ],
+    "resources": [],
+    "description": "OpenMolcas is a quantum chemistry software package. The key feature of\nOpenMolcas is the multiconfigurational approach to the electronic\nstructure.\n",
+    "dependencies": [
+        {
+            "name": "cmake",
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
+        },
+        {
+            "name": "hdf5",
+            "description": "HDF5 is a data model, library, and file format for storing and managing\ndata. It supports an unlimited variety of datatypes, and is designed for\nflexible and efficient I/O and for high volume and complex data."
+        },
+        {
+            "name": "lapack",
+            "description": "Intel oneAPI MKL."
+        },
+        {
+            "name": "openblas",
+            "description": "OpenBLAS: An optimized BLAS library"
+        },
+        {
+            "name": "python",
+            "description": "The Python programming language."
+        },
+        {
+            "name": "py-pyparsing",
+            "description": "A Python Parsing Module."
+        },
+        {
+            "name": "py-six",
+            "description": "Python 2 and 3 compatibility utilities."
+        },
+        {
+            "name": "mpi",
+            "description": "MVAPICH2-X is the advanced version of the MVAPICH2 MPI library with\nenhanced features (UMR, ODP, DC, Core-Direct, SHARP, XPMEM), OSU INAM\n(InifniBand Network Monitoring and Analysis),PGAS (OpenSHMEM, UPC,\nUPC++, and CAF), and MPI+PGAS programming models with unified\ncommunication runtime. MVAPICH2-X is not installable from source and is\nonly available through a binary mirror. If you do not find the binary\nyou're looking for, send us an email at mvapich@cse.ohio-state.edu. The\nbinary mirror url is: http://mvapich.cse.ohio-\nstate.edu/download/mvapich/spack-mirror/mvapich2x/"
+        },
+        {
+            "name": "globalarrays",
+            "description": "Global Arrays (GA) is a Partitioned Global Address Space (PGAS)\nprogramming model. It provides primitives for one-sided communication\n(Get, Put, Accumulate) and Atomic Operations (read increment). It\nsupports blocking and non-blocking primtives, and supports location\nconsistency."
+        }
+    ],
+    "dependent_to": []
+}

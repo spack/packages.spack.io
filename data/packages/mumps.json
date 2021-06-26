@@ -1,0 +1,221 @@
+{
+    "name": "mumps",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "5.4.0",
+            "sha256": "c613414683e462da7c152c131cebf34f937e79b30571424060dd673368bbf627"
+        },
+        {
+            "name": "5.3.5",
+            "sha256": "e5d665fdb7043043f0799ae3dbe3b37e5b200d1ab7a6f7b2a4e463fd89507fa4"
+        },
+        {
+            "name": "5.3.3",
+            "sha256": "27e7749ac05006bf8e81a457c865402bb72a42bf3bc673da49de1020f0f32011"
+        },
+        {
+            "name": "5.2.0",
+            "sha256": "41f2c7cb20d69599fb47e2ad6f628f3798c429f49e72e757e70722680f70853f"
+        },
+        {
+            "name": "5.1.2",
+            "sha256": "eb345cda145da9aea01b851d17e54e7eef08e16bfa148100ac1f7f046cd42ae9"
+        },
+        {
+            "name": "5.1.1",
+            "sha256": "a2a1f89c470f2b66e9982953cbd047d429a002fab9975400cef7190d01084a06"
+        },
+        {
+            "name": "5.0.2",
+            "sha256": "77292b204942640256097a3da482c2abcd1e0d5a74ecd1d4bab0f5ef6e60fe45"
+        },
+        {
+            "name": "5.0.1",
+            "sha256": "50355b2e67873e2239b4998a46f2bbf83f70cdad6517730ab287ae3aae9340a0"
+        }
+    ],
+    "build_system": "Package",
+    "conflicts": [
+        {
+            "name": "+parmetis",
+            "spec": "~mpi",
+            "description": "You cannot use the parmetis variant without mpi"
+        },
+        {
+            "name": "+parmetis",
+            "spec": "~metis",
+            "description": "You cannot use the parmetis variant without metis"
+        },
+        {
+            "name": "+ptscotch",
+            "spec": "~mpi",
+            "description": "You cannot use the ptscotch variant without mpi"
+        },
+        {
+            "name": "+blr_mt",
+            "spec": "~openmp",
+            "description": "You cannot use the blr_mt variant without openmp"
+        }
+    ],
+    "variants": [
+        {
+            "name": "mpi",
+            "default": true,
+            "description": "Compile MUMPS with MPI support"
+        },
+        {
+            "name": "scotch",
+            "default": false,
+            "description": "Activate Scotch as a possible ordering library"
+        },
+        {
+            "name": "ptscotch",
+            "default": false,
+            "description": "Activate PT-Scotch as a possible ordering library"
+        },
+        {
+            "name": "metis",
+            "default": false,
+            "description": "Activate Metis as a possible ordering library"
+        },
+        {
+            "name": "parmetis",
+            "default": false,
+            "description": "Activate Parmetis as a possible ordering library"
+        },
+        {
+            "name": "double",
+            "default": true,
+            "description": "Activate the compilation of dmumps"
+        },
+        {
+            "name": "float",
+            "default": true,
+            "description": "Activate the compilation of smumps"
+        },
+        {
+            "name": "complex",
+            "default": true,
+            "description": "Activate the compilation of cmumps and/or zmumps"
+        },
+        {
+            "name": "int64",
+            "default": false,
+            "description": "Use int64_t/integer*8 as default index type"
+        },
+        {
+            "name": "shared",
+            "default": true,
+            "description": "Build shared libraries"
+        },
+        {
+            "name": "openmp",
+            "default": true,
+            "description": "Compile MUMPS with OpenMP support"
+        },
+        {
+            "name": "blr_mt",
+            "default": false,
+            "description": "Allow BLAS calls in OpenMP regions (warning: might not be supported by all multithread BLAS)"
+        }
+    ],
+    "homepage": "http://mumps.enseeiht.fr",
+    "maintainers": [],
+    "patches": [
+        {
+            "owner": "builtin.mumps",
+            "sha256": "e991e7985745d446e87d8eb7bc07484450a1e4f8a3897d9b37abc94747e6d025",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "examples.patch",
+            "version": "@5.1.1%clang ^spectrum-mpi"
+        },
+        {
+            "owner": "builtin.mumps",
+            "sha256": "759c3e3790ac87085782928d1f5a94142bf05bc624110c4f1ed421800f2ff85c",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "gfortran8.patch",
+            "version": "@5.1.2"
+        },
+        {
+            "owner": "builtin.mumps",
+            "sha256": "395476478f9dbe576a793e29ba13098e4bb72afedbc2fe50739bda8a4f6967a2",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "mumps.src-makefile.5.2.patch",
+            "version": "@5.2.0+shared"
+        },
+        {
+            "owner": "builtin.mumps",
+            "sha256": "1946864d2106f7414aaa4dbd4dbc068b7804af7c1588381e814b268a56140a52",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "mumps.src-makefile.5.3.patch",
+            "version": "@5.3.0:+shared"
+        }
+    ],
+    "resources": [],
+    "description": "MUMPS: a MUltifrontal Massively Parallel sparse direct Solver\n",
+    "dependencies": [
+        {
+            "name": "scotch",
+            "description": "Scotch is a software package for graph and mesh/hypergraph partitioning,\ngraph clustering, and sparse matrix ordering."
+        },
+        {
+            "name": "metis",
+            "description": "METIS is a set of serial programs for partitioning graphs, partitioning\nfinite element meshes, and producing fill reducing orderings for sparse\nmatrices. The algorithms implemented in METIS are based on the\nmultilevel recursive-bisection, multilevel k-way, and multi-constraint\npartitioning schemes."
+        },
+        {
+            "name": "parmetis",
+            "description": "ParMETIS is an MPI-based parallel library that implements a variety of\nalgorithms for partitioning unstructured graphs, meshes, and for\ncomputing fill-reducing orderings of sparse matrices."
+        },
+        {
+            "name": "blas",
+            "description": "Intel oneAPI MKL."
+        },
+        {
+            "name": "lapack",
+            "description": "Intel oneAPI MKL."
+        },
+        {
+            "name": "scalapack",
+            "description": "Intel oneAPI MKL."
+        },
+        {
+            "name": "mpi",
+            "description": "MVAPICH2-X is the advanced version of the MVAPICH2 MPI library with\nenhanced features (UMR, ODP, DC, Core-Direct, SHARP, XPMEM), OSU INAM\n(InifniBand Network Monitoring and Analysis),PGAS (OpenSHMEM, UPC,\nUPC++, and CAF), and MPI+PGAS programming models with unified\ncommunication runtime. MVAPICH2-X is not installable from source and is\nonly available through a binary mirror. If you do not find the binary\nyou're looking for, send us an email at mvapich@cse.ohio-state.edu. The\nbinary mirror url is: http://mvapich.cse.ohio-\nstate.edu/download/mvapich/spack-mirror/mvapich2x/"
+        }
+    ],
+    "dependent_to": [
+        {
+            "name": "py-pymumps",
+            "description": "Python bindings for MUMPS, a parallel sparse direct solver"
+        },
+        {
+            "name": "trilinos",
+            "description": "The Trilinos Project is an effort to develop algorithms and enabling\ntechnologies within an object-oriented software framework for the\nsolution of large-scale, complex multi-physics engineering and\nscientific problems. A unique design feature of Trilinos is its focus on\npackages."
+        },
+        {
+            "name": "petsc",
+            "description": "PETSc is a suite of data structures and routines for the scalable\n(parallel) solution of scientific applications modeled by partial\ndifferential equations."
+        },
+        {
+            "name": "elmerfem",
+            "description": "Elmer is an open source multiphysical simulation software. It includes\nphysical models of fluid dynamics, structural mechanics,\nelectromagnetics, heat transfer and acoustics."
+        },
+        {
+            "name": "ipopt",
+            "description": "Ipopt (Interior Point OPTimizer, pronounced eye-pea-Opt) is a software\npackage for large-scale nonlinear optimization."
+        },
+        {
+            "name": "frontistr",
+            "description": "Open-Source Large-Scale Parallel FEM Program for Nonlinear Structural\nAnalysis"
+        },
+        {
+            "name": "akantu",
+            "description": "Akantu means a little element in Kinyarwanda, a Bantu language. From\nnow on it is also an opensource object-oriented Finite Element library\nwhich has the ambition to be generic and efficient."
+        }
+    ]
+}

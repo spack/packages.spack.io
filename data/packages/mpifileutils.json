@@ -1,0 +1,119 @@
+{
+    "name": "mpifileutils",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "develop",
+            "branch": "master"
+        },
+        {
+            "name": "0.11",
+            "sha256": "f5dc1b39077b3c04f79b2c335c4fd80306f8c57ecfbcacbb82cf532caf02b5fd"
+        },
+        {
+            "name": "0.10.1",
+            "sha256": "4c8409ef4140f6f557d0e93f0c1267baf5d893c203b29fb7a33d9bc3c5a5d25c"
+        },
+        {
+            "name": "0.10",
+            "sha256": "5a71a9acd9841c3c258fc0eaea942f18abcb40098714cc90462b57696c07e3c5"
+        },
+        {
+            "name": "0.9.1",
+            "sha256": "15a22450f86b15e7dc4730950b880fda3ef6f59ac82af0b268674d272aa61c69"
+        },
+        {
+            "name": "0.9",
+            "sha256": "1b8250af01aae91c985ca5d61521bfaa4564e46efa15cee65cd0f82cf5a2bcfb"
+        }
+    ],
+    "build_system": "Package",
+    "conflicts": [
+        {
+            "name": "platform=darwin",
+            "spec": "",
+            "description": "None"
+        },
+        {
+            "name": "+gpfs",
+            "spec": "@:0.8.1",
+            "description": "None"
+        },
+        {
+            "name": "+experimental",
+            "spec": "@:0.6",
+            "description": "None"
+        }
+    ],
+    "variants": [
+        {
+            "name": "xattr",
+            "default": true,
+            "description": "Enable code for extended attributes"
+        },
+        {
+            "name": "lustre",
+            "default": false,
+            "description": "Enable optimizations and features for Lustre"
+        },
+        {
+            "name": "gpfs",
+            "default": false,
+            "description": "Enable optimizations and features for GPFS"
+        },
+        {
+            "name": "experimental",
+            "default": false,
+            "description": "Install experimental tools"
+        }
+    ],
+    "homepage": "https://github.com/hpc/mpifileutils",
+    "maintainers": [],
+    "patches": [
+        {
+            "owner": "builtin.mpifileutils",
+            "sha256": "dee7e4d1d564eea305d10ad065ebf747cb7475b5896b1bf9aff2606daab82fde",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "nosys_getdents.patch",
+            "version": "@:0.10.1 arch=linux-None-aarch64:"
+        }
+    ],
+    "resources": [],
+    "description": "mpiFileUtils is a suite of MPI-based tools to manage large datasets,\nwhich may vary from large directory trees to large files. High-\nperformance computing users often generate large datasets with parallel\napplications that run with many processes (millions in some cases).\nHowever those users are then stuck with single-process tools like cp and\nrm to manage their datasets. This suite provides MPI-based tools to\nhandle typical jobs like copy, remove, and compare for such datasets,\nproviding speedups of up to 20-30x.\n",
+    "dependencies": [
+        {
+            "name": "mpi",
+            "description": "MVAPICH2-X is the advanced version of the MVAPICH2 MPI library with\nenhanced features (UMR, ODP, DC, Core-Direct, SHARP, XPMEM), OSU INAM\n(InifniBand Network Monitoring and Analysis),PGAS (OpenSHMEM, UPC,\nUPC++, and CAF), and MPI+PGAS programming models with unified\ncommunication runtime. MVAPICH2-X is not installable from source and is\nonly available through a binary mirror. If you do not find the binary\nyou're looking for, send us an email at mvapich@cse.ohio-state.edu. The\nbinary mirror url is: http://mvapich.cse.ohio-\nstate.edu/download/mvapich/spack-mirror/mvapich2x/"
+        },
+        {
+            "name": "libcircle",
+            "description": "libcircle provides an efficient distributed queue on a cluster, using\nself-stabilizing work stealing."
+        },
+        {
+            "name": "dtcmp",
+            "description": "The Datatype Comparison Library provides comparison operations and\nparallel sort algorithms for MPI applications."
+        },
+        {
+            "name": "libarchive",
+            "description": "libarchive: C library and command-line tools for reading and writing\ntar, cpio, zip, ISO, and other archive formats."
+        },
+        {
+            "name": "bzip2",
+            "description": "bzip2 is a freely available, patent free high-quality data compressor.\nIt typically compresses files to within 10% to 15% of the best available\ntechniques (the PPM family of statistical compressors), whilst being\naround twice as fast at compression and six times faster at\ndecompression."
+        },
+        {
+            "name": "libcap",
+            "description": "Libcap implements the user-space interfaces to the POSIX 1003.1e\ncapabilities available in Linux kernels. These capabilities are a\npartitioning of the all powerful root privilege into a set of distinct\nprivileges."
+        },
+        {
+            "name": "openssl",
+            "description": "OpenSSL is an open source project that provides a robust, commercial-\ngrade, and full-featured toolkit for the Transport Layer Security (TLS)\nand Secure Sockets Layer (SSL) protocols. It is also a general-purpose\ncryptography library."
+        },
+        {
+            "name": "cmake",
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
+        }
+    ],
+    "dependent_to": []
+}

@@ -1,0 +1,96 @@
+{
+    "name": "dftbplus",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "19.1",
+            "sha256": "4d07f5c6102f06999d8cfdb1d17f5b59f9f2b804697f14b3bc562e3ea094b8a8"
+        }
+    ],
+    "build_system": "MakefilePackage",
+    "conflicts": [],
+    "variants": [
+        {
+            "name": "mpi",
+            "default": true,
+            "description": "Build an MPI-paralelised version of the code."
+        },
+        {
+            "name": "gpu",
+            "default": false,
+            "description": "Use the MAGMA library for GPU accelerated computation"
+        },
+        {
+            "name": "elsi",
+            "default": false,
+            "description": "Use the ELSI library for large scale systems. Only has any effect if you build with '+mpi'"
+        },
+        {
+            "name": "sockets",
+            "default": false,
+            "description": "Whether the socket library (external control) should be linked"
+        },
+        {
+            "name": "arpack",
+            "default": false,
+            "description": "Use ARPACK for excited state DFTB functionality"
+        },
+        {
+            "name": "transport",
+            "default": false,
+            "description": "Whether transport via libNEGF should be included. Only affects parallel build. (serial version is built without libNEGF/transport)"
+        },
+        {
+            "name": "dftd3",
+            "default": false,
+            "description": "Use DftD3 dispersion library (if you need this dispersion model)"
+        }
+    ],
+    "homepage": "https://www.dftbplus.org",
+    "maintainers": [],
+    "patches": [],
+    "resources": [
+        {
+            "version": "@18.2:",
+            "name": "slakos",
+            "destination": "external/slakos",
+            "placement": null
+        }
+    ],
+    "description": "DFTB+ is an implementation of the Density Functional based Tight Binding\n(DFTB) method, containing many extensions to the original method.\n",
+    "dependencies": [
+        {
+            "name": "lapack",
+            "description": "Intel oneAPI MKL."
+        },
+        {
+            "name": "blas",
+            "description": "Intel oneAPI MKL."
+        },
+        {
+            "name": "scalapack",
+            "description": "Intel oneAPI MKL."
+        },
+        {
+            "name": "mpi",
+            "description": "MVAPICH2-X is the advanced version of the MVAPICH2 MPI library with\nenhanced features (UMR, ODP, DC, Core-Direct, SHARP, XPMEM), OSU INAM\n(InifniBand Network Monitoring and Analysis),PGAS (OpenSHMEM, UPC,\nUPC++, and CAF), and MPI+PGAS programming models with unified\ncommunication runtime. MVAPICH2-X is not installable from source and is\nonly available through a binary mirror. If you do not find the binary\nyou're looking for, send us an email at mvapich@cse.ohio-state.edu. The\nbinary mirror url is: http://mvapich.cse.ohio-\nstate.edu/download/mvapich/spack-mirror/mvapich2x/"
+        },
+        {
+            "name": "elsi",
+            "description": "ELSI provides a unified interface for electronic structure codes to a\nvariety of eigenvalue solvers."
+        },
+        {
+            "name": "magma",
+            "description": "The MAGMA project aims to develop a dense linear algebra library similar\nto LAPACK but for heterogeneous/hybrid architectures, starting with\ncurrent \"Multicore+GPU\" systems."
+        },
+        {
+            "name": "arpack-ng",
+            "description": "ARPACK-NG is a collection of Fortran77 subroutines designed to solve\nlarge scale eigenvalue problems. Important Features: * Reverse\nCommunication Interface. * Single and Double Precision Real Arithmetic\nVersions for Symmetric, Non-symmetric, Standard or Generalized Problems.\n* Single and Double Precision Complex Arithmetic Versions for Standard\nor Generalized Problems. * Routines for Banded Matrices - Standard or\nGeneralized Problems. * Routines for The Singular Value Decomposition. *\nExample driver routines that may be used as templates to implement\nnumerous Shift-Invert strategies for all problem types, data types and\nprecision. This project is a joint project between Debian, Octave and\nScilab in order to provide a common and maintained version of arpack.\nIndeed, no single release has been published by Rice university for the\nlast few years and since many software (Octave, Scilab, R, Matlab...)\nforked it and implemented their own modifications, arpack-ng aims to\ntackle this by providing a common repository and maintained versions.\narpack-ng is replacing arpack almost everywhere."
+        },
+        {
+            "name": "dftd3-lib",
+            "description": "A dispersion correction for density functionals, Hartree-Fock and semi-\nempirical quantum chemical methods"
+        }
+    ],
+    "dependent_to": []
+}

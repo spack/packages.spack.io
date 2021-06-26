@@ -1,0 +1,74 @@
+{
+    "name": "lvm2",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "2.03.05",
+            "sha256": "ca52815c999b20c6d25e3192f142f081b93d01f07b9d787e99664b169dba2700"
+        },
+        {
+            "name": "2.03.04",
+            "sha256": "f151f36fc0039997d2d9369b607b9262568b1a268afe19fd1535807355402142"
+        },
+        {
+            "name": "2.03.03",
+            "sha256": "cedefa63ec5ae1b62fedbfddfc30706c095be0fc7c6aaed6fd1c50bc8c840dde"
+        },
+        {
+            "name": "2.03.02",
+            "sha256": "550ba750239fd75b7e52c9877565cabffef506bbf6d7f6f17b9700dee56c720f"
+        },
+        {
+            "name": "2.03.01",
+            "sha256": "424e58b074195ec08e0315fa1aff2550590998c33aea5c43bdceb8c1d135530b"
+        },
+        {
+            "name": "2.03.00",
+            "sha256": "405992bf76960e60c7219d84d5f1e22edc34422a1ea812e21b2ac3c813d0da4e"
+        }
+    ],
+    "build_system": "AutotoolsPackage",
+    "conflicts": [
+        {
+            "name": "platform=darwin",
+            "spec": "",
+            "description": "lvm2 depends on libaio which does not support Darwin"
+        }
+    ],
+    "variants": [
+        {
+            "name": "pkgconfig",
+            "default": true,
+            "description": "install pkgconfig support"
+        }
+    ],
+    "homepage": "https://www.sourceware.org/lvm2",
+    "maintainers": [],
+    "patches": [],
+    "resources": [],
+    "description": "LVM2 is the userspace toolset that provides logical volume management\nfacilities on linux. To use it you need 3 things: device-mapper in your\nkernel, the userspace device-mapper support library (libdevmapper) and\nthe userspace LVM2 tools (dmsetup). These userspace components, and\nassociated header files, are provided by this package. See\nhttp://sources.redhat.com/dm/ for additional information about the\ndevice-mapper kernel and userspace components.\n",
+    "dependencies": [
+        {
+            "name": "libaio",
+            "description": "Linux native Asynchronous I/O interface library. AIO enables even a\nsingle application thread to overlap I/O operations with other\nprocessing, by providing an interface for submitting one or more I/O\nrequests in one system call (io_submit()) without waiting for\ncompletion, and a separate interface (io_getevents()) to reap completed\nI/O operations associated with a given completion group."
+        },
+        {
+            "name": "pkgconfig",
+            "description": "pkgconf is a program which helps to configure compiler and linker flags\nfor development frameworks. It is similar to pkg-config from\nfreedesktop.org, providing additional functionality while also\nmaintaining compatibility."
+        }
+    ],
+    "dependent_to": [
+        {
+            "name": "cryptsetup",
+            "description": "Cryptsetup and LUKS - open-source disk encryption."
+        },
+        {
+            "name": "nfs-utils",
+            "description": "The NFS Utilities package contains the userspace server and client tools\nnecessary to use the kernel's NFS abilities. NFS is a protocol that\nallows sharing file systems over the network."
+        },
+        {
+            "name": "skopeo",
+            "description": "skopeo is a command line utility that performs various operations on\ncontainer images and image repositories."
+        }
+    ]
+}

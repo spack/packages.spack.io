@@ -1,0 +1,321 @@
+{
+    "name": "gmsh",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "master",
+            "branch": "master"
+        },
+        {
+            "name": "4.8.4",
+            "sha256": "760dbdc072eaa3c82d066c5ba3b06eacdd3304eb2a97373fe4ada9509f0b6ace"
+        },
+        {
+            "name": "4.7.1",
+            "sha256": "c984c295116c757ed165d77149bd5fdd1068cbd7835e9bcd077358b503891c6a"
+        },
+        {
+            "name": "4.7.0",
+            "sha256": "e27f32f92b374ba2a746a9d9c496401c13f66ac6e3e70753e16fa4012d14320e"
+        },
+        {
+            "name": "4.6.0",
+            "sha256": "0f2c55e50fb6c478ebc8977f6341c223754cbf3493b7b0d683b4395ae9f2ad1c"
+        },
+        {
+            "name": "4.5.6",
+            "sha256": "46eaeb0cdee5822fdaa4b15f92d8d160a8cc90c4565593cfa705de90df2a463f"
+        },
+        {
+            "name": "4.5.5",
+            "sha256": "899d3cded664124fa387da57b6f170f47a7e712c7744aa3562779897e2b9e251"
+        },
+        {
+            "name": "4.5.4",
+            "sha256": "ccf8c74f43cbe3c371abe79862025d41642b3538a0148f018949494e3b3e2ecd"
+        },
+        {
+            "name": "4.4.1",
+            "sha256": "853c6438fc4e4b765206e66a514b09182c56377bb4b73f1d0d26eda7eb8af0dc"
+        },
+        {
+            "name": "4.2.2",
+            "sha256": "e9ee9f5c606bbec5f2adbb8c3d6023c4e2577f487fa4e4ecfcfc94a241cc8dcc"
+        },
+        {
+            "name": "4.0.0",
+            "sha256": "fb0c8afa37425c6f4315ab3b3124e9e102fcf270a35198423a4002796f04155f"
+        },
+        {
+            "name": "3.0.6",
+            "sha256": "9700bcc440d7a6b16a49cbfcdcdc31db33efe60e1f5113774316b6fa4186987b"
+        },
+        {
+            "name": "3.0.1",
+            "sha256": "830b5400d9f1aeca79c3745c5c9fdaa2900cdb2fa319b664a5d26f7e615c749f"
+        },
+        {
+            "name": "2.16.0",
+            "sha256": "e829eaf32ea02350a385202cc749341f2a3217c464719384b18f653edd028eea"
+        },
+        {
+            "name": "2.15.0",
+            "sha256": "992a4b580454105f719f5bc05441d3d392ab0b4b80d4ea07b61ca3bdc974070a"
+        }
+    ],
+    "build_system": "CMakePackage",
+    "conflicts": [
+        {
+            "name": "+ipo",
+            "spec": "^cmake@:3.8",
+            "description": "+ipo is not supported by CMake < 3.9"
+        },
+        {
+            "name": "+slepc",
+            "spec": "~petsc",
+            "description": "None"
+        },
+        {
+            "name": "+oce",
+            "spec": "+opencascade",
+            "description": "None"
+        },
+        {
+            "name": "+metis",
+            "spec": "+external",
+            "description": "External Metis cannot build with GMSH"
+        }
+    ],
+    "variants": [
+        {
+            "name": "build_type",
+            "default": "RelWithDebInfo",
+            "description": "CMake build type"
+        },
+        {
+            "name": "ipo",
+            "default": false,
+            "description": "CMake interprocedural optimization"
+        },
+        {
+            "name": "external",
+            "default": false,
+            "description": "Use system versions of contrib libraries, when possible"
+        },
+        {
+            "name": "shared",
+            "default": true,
+            "description": "Enables the build of shared libraries"
+        },
+        {
+            "name": "mpi",
+            "default": false,
+            "description": "Builds MPI support for parser and solver"
+        },
+        {
+            "name": "openmp",
+            "default": false,
+            "description": "Enable OpenMP support"
+        },
+        {
+            "name": "fltk",
+            "default": true,
+            "description": "Enables the build of the FLTK GUI"
+        },
+        {
+            "name": "hdf5",
+            "default": false,
+            "description": "Enables HDF5 support"
+        },
+        {
+            "name": "gmp",
+            "default": true,
+            "description": "Enable GMP for Kbipack (advanced)"
+        },
+        {
+            "name": "cairo",
+            "default": false,
+            "description": "Enable Cairo to render fonts (experimental)"
+        },
+        {
+            "name": "compression",
+            "default": true,
+            "description": "Enables IO compression through zlib"
+        },
+        {
+            "name": "med",
+            "default": true,
+            "description": "Build with MED(HDF5)"
+        },
+        {
+            "name": "mmg",
+            "default": true,
+            "description": "Build with Mmg3d"
+        },
+        {
+            "name": "netgen",
+            "default": true,
+            "description": "Build with Netgen (built-in)"
+        },
+        {
+            "name": "opencascade",
+            "default": false,
+            "description": "Build with OpenCASCADE"
+        },
+        {
+            "name": "oce",
+            "default": false,
+            "description": "Build with OCE"
+        },
+        {
+            "name": "petsc",
+            "default": false,
+            "description": "Build with PETSc"
+        },
+        {
+            "name": "slepc",
+            "default": false,
+            "description": "Build with SLEPc (only when PETSc is enabled)"
+        },
+        {
+            "name": "tetgen",
+            "default": false,
+            "description": "Build with Tetgen (built-in)"
+        },
+        {
+            "name": "metis",
+            "default": true,
+            "description": "Build with Metis (built-in)"
+        },
+        {
+            "name": "privateapi",
+            "default": false,
+            "description": "Enable the private API"
+        },
+        {
+            "name": "alglib",
+            "default": true,
+            "description": "Build with Alglib (built-in or 3rd party)"
+        },
+        {
+            "name": "eigen",
+            "default": false,
+            "description": "Build with Eigen (built-in or 3rd party)"
+        },
+        {
+            "name": "voropp",
+            "default": true,
+            "description": "Build with voro++ (built-in or 3rd party"
+        },
+        {
+            "name": "cgns",
+            "default": true,
+            "description": "Build with CGNS"
+        }
+    ],
+    "homepage": "https://gmsh.info",
+    "maintainers": [],
+    "patches": [],
+    "resources": [],
+    "description": "Gmsh is a free 3D finite element grid generator with a built-in CAD\nengine and post-processor. Its design goal is to provide a fast, light\nand user-friendly meshing tool with parametric input and advanced\nvisualization capabilities. Gmsh is built around four modules: geometry,\nmesh, solver and post-processing. The specification of any input to\nthese modules is done either interactively using the graphical user\ninterface or in ASCII text files using Gmsh's own scripting language.\n",
+    "dependencies": [
+        {
+            "name": "cmake",
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
+        },
+        {
+            "name": "blas",
+            "description": "Intel oneAPI MKL."
+        },
+        {
+            "name": "lapack",
+            "description": "Intel oneAPI MKL."
+        },
+        {
+            "name": "eigen",
+            "description": "Eigen is a C++ template library for linear algebra matrices, vectors,\nnumerical solvers, and related algorithms."
+        },
+        {
+            "name": "alglib",
+            "description": "ALGLIB is a cross-platform numerical analysis and data processing\nlibrary."
+        },
+        {
+            "name": "voropp",
+            "description": "Voro++ is a open source software library for the computation of the\nVoronoi diagram, a widely-used tessellation that has applications in\nmany scientific fields."
+        },
+        {
+            "name": "gmp",
+            "description": "GMP is a free library for arbitrary precision arithmetic, operating on\nsigned integers, rational numbers, and floating-point numbers."
+        },
+        {
+            "name": "mpi",
+            "description": "MVAPICH2-X is the advanced version of the MVAPICH2 MPI library with\nenhanced features (UMR, ODP, DC, Core-Direct, SHARP, XPMEM), OSU INAM\n(InifniBand Network Monitoring and Analysis),PGAS (OpenSHMEM, UPC,\nUPC++, and CAF), and MPI+PGAS programming models with unified\ncommunication runtime. MVAPICH2-X is not installable from source and is\nonly available through a binary mirror. If you do not find the binary\nyou're looking for, send us an email at mvapich@cse.ohio-state.edu. The\nbinary mirror url is: http://mvapich.cse.ohio-\nstate.edu/download/mvapich/spack-mirror/mvapich2x/"
+        },
+        {
+            "name": "fltk",
+            "description": "FLTK (pronounced \"fulltick\") is a cross-platform C++ GUI toolkit for\nUNIX/Linux (X11), Microsoft Windows, and MacOS X. FLTK provides modern\nGUI functionality without the bloat and supports 3D graphics via OpenGL\nand its built-in GLUT emulation. FLTK is designed to be small and\nmodular enough to be statically linked, but works fine as a shared\nlibrary. FLTK also includes an excellent UI builder called FLUID that\ncan be used to create applications in minutes."
+        },
+        {
+            "name": "cairo",
+            "description": "Cairo is a 2D graphics library with support for multiple output devices."
+        },
+        {
+            "name": "hdf5",
+            "description": "HDF5 is a data model, library, and file format for storing and managing\ndata. It supports an unlimited variety of datatypes, and is designed for\nflexible and efficient I/O and for high volume and complex data."
+        },
+        {
+            "name": "med",
+            "description": "The MED file format is a specialization of the HDF5 standard."
+        },
+        {
+            "name": "mmg",
+            "description": "Mmg is an open source software for simplicial remeshing. It provides 3\napplications and 4 libraries: - the mmg2d application and the libmmg2d\nlibrary: adaptation and optimization of a two-dimensional triangulation\nand generation of a triangulation from a set of points or from given\nboundary edges - the mmgs application and the libmmgs library:\nadaptation and optimization of a surface triangulation and isovalue\ndiscretization - the mmg3d application and the libmmg3d library:\nadaptation and optimization of a tetrahedral mesh and implicit domain\nmeshing - the libmmg library gathering the libmmg2d, libmmgs and\nlibmmg3d libraries."
+        },
+        {
+            "name": "opencascade",
+            "description": "Open CASCADE Technology is a software development kit (SDK) intended for\ndevelopment of applications dealing with 3D CAD data, freely available\nin open source. It includes a set of C++ class libraries providing\nservices for 3D surface and solid modeling, visualization, data exchange\nand rapid application development."
+        },
+        {
+            "name": "oce",
+            "description": "Open CASCADE Community Edition: patches/improvements/experiments\ncontributed by users over the official Open CASCADE library."
+        },
+        {
+            "name": "freetype",
+            "description": "FreeType is a freely available software library to render fonts. It is\nwritten in C, designed to be small, efficient, highly customizable, and\nportable while capable of producing high-quality output (glyph images)\nof most vector and bitmap font formats."
+        },
+        {
+            "name": "petsc",
+            "description": "PETSc is a suite of data structures and routines for the scalable\n(parallel) solution of scientific applications modeled by partial\ndifferential equations."
+        },
+        {
+            "name": "slepc",
+            "description": "Scalable Library for Eigenvalue Problem Computations."
+        },
+        {
+            "name": "zlib",
+            "description": "A free, general-purpose, legally unencumbered lossless data-compression\nlibrary."
+        },
+        {
+            "name": "metis",
+            "description": "METIS is a set of serial programs for partitioning graphs, partitioning\nfinite element meshes, and producing fill reducing orderings for sparse\nmatrices. The algorithms implemented in METIS are based on the\nmultilevel recursive-bisection, multilevel k-way, and multi-constraint\npartitioning schemes."
+        },
+        {
+            "name": "cgns",
+            "description": "The CFD General Notation System (CGNS) provides a general, portable, and\nextensible standard for the storage and retrieval of computational fluid\ndynamics (CFD) analysis data."
+        },
+        {
+            "name": "gl2ps",
+            "description": "GL2PS is a C library providing high quality vector output for any OpenGL\napplication."
+        }
+    ],
+    "dependent_to": [
+        {
+            "name": "dealii",
+            "description": "C++ software library providing well-documented tools to build finite\nelement codes for a broad variety of PDEs."
+        },
+        {
+            "name": "omega-h",
+            "description": "Omega_h is a C++11 library providing data structures and algorithms for\nadaptive discretizations. Its specialty is anisotropic triangle and\ntetrahedral mesh adaptation. It runs efficiently on most modern HPC\nhardware including GPUs."
+        }
+    ]
+}

@@ -1,0 +1,75 @@
+{
+    "name": "modern-wheel",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "1.2",
+            "sha256": "48612f698d7159f0eb10d93ddc3e2682b06a54d3a836ff227636be3261aed15e"
+        },
+        {
+            "name": "1.1",
+            "sha256": "d8ba4891257b96108e9b9406a556f8ced3b71ce85c3fcdca6bfd9cc37bf010a3"
+        },
+        {
+            "name": "1.0",
+            "sha256": "b90a1e29af0b67dfa4c07f9c19b2d04fa78cd878b29a9c42bc766dabd6cb1b90"
+        }
+    ],
+    "build_system": "CMakePackage",
+    "conflicts": [
+        {
+            "name": "+ipo",
+            "spec": "^cmake@:3.8",
+            "description": "+ipo is not supported by CMake < 3.9"
+        }
+    ],
+    "variants": [
+        {
+            "name": "build_type",
+            "default": "RelWithDebInfo",
+            "description": "CMake build type"
+        },
+        {
+            "name": "ipo",
+            "default": false,
+            "description": "CMake interprocedural optimization"
+        },
+        {
+            "name": "shared",
+            "default": true,
+            "description": "Enables the build of shared libraries"
+        },
+        {
+            "name": "test",
+            "default": true,
+            "description": "Enables the build of unit tests"
+        }
+    ],
+    "homepage": "https://github.com/alalazo/modern_wheel",
+    "maintainers": [
+        "alalazo"
+    ],
+    "patches": [
+        {
+            "owner": "builtin.modern-wheel",
+            "sha256": "721d2d9276e552c956a4aad9745c044676ab737d25f43099b9d7a838f121bd69",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "add_virtual_destructor.patch",
+            "version": ""
+        }
+    ],
+    "resources": [],
+    "description": "C++ utility collection. Provides various facilities of common use in\nmodern codebases like dynamic linking helpers, loadable plugins\nfacilities and misc patterns.\n",
+    "dependencies": [
+        {
+            "name": "cmake",
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
+        },
+        {
+            "name": "boost",
+            "description": "Boost provides free peer-reviewed portable C++ source libraries,\nemphasizing libraries that work well with the C++ Standard Library.\nBoost libraries are intended to be widely useful, and usable across a\nbroad spectrum of applications. The Boost license encourages both\ncommercial and non-commercial use."
+        }
+    ],
+    "dependent_to": []
+}

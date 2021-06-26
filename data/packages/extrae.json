@@ -1,0 +1,125 @@
+{
+    "name": "extrae",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "3.8.3",
+            "sha256": "c3bf27fb6f18e66200e40a0b4c35bc257766e5c1a525dc5725f561879e88bf32"
+        },
+        {
+            "name": "3.7.1",
+            "sha256": "c83ddd18a380c9414d64ee5de263efc6f7bac5fe362d5b8374170c7f18360378"
+        },
+        {
+            "name": "3.4.1",
+            "sha256": "77bfec16d6b5eee061fbaa879949dcef4cad28395d6a546b1ae1b9246f142725"
+        }
+    ],
+    "build_system": "AutotoolsPackage",
+    "conflicts": [
+        {
+            "name": "+cupti",
+            "spec": "~cuda",
+            "description": "CUPTI requires CUDA"
+        }
+    ],
+    "variants": [
+        {
+            "name": "dyninst",
+            "default": false,
+            "description": "Use dyninst for dynamic code installation"
+        },
+        {
+            "name": "papi",
+            "default": true,
+            "description": "Use PAPI to collect performance counters"
+        },
+        {
+            "name": "cuda",
+            "default": false,
+            "description": "Enable support for tracing CUDA"
+        },
+        {
+            "name": "cupti",
+            "default": false,
+            "description": "Enable CUPTI support"
+        }
+    ],
+    "homepage": "https://tools.bsc.es/extrae",
+    "maintainers": [],
+    "patches": [],
+    "resources": [],
+    "description": "Extrae is the package devoted to generate tracefiles which can be\nanalyzed later by Paraver. Extrae is a tool that uses different\ninterposition mechanisms to inject probes into the target application so\nas to gather information regarding the application performance. The\nExtrae instrumentation package can instrument the MPI programin model,\nand the following parallel programming models either alone or in\nconjunction with MPI : OpenMP, CUDA, OpenCL, pthread, OmpSs\n",
+    "dependencies": [
+        {
+            "name": "autoconf",
+            "description": "Autoconf -- system configuration part of autotools"
+        },
+        {
+            "name": "automake",
+            "description": "Automake -- make file builder part of autotools"
+        },
+        {
+            "name": "libtool",
+            "description": "libtool -- library building part of autotools."
+        },
+        {
+            "name": "m4",
+            "description": "GNU M4 is an implementation of the traditional Unix macro processor."
+        },
+        {
+            "name": "mpi",
+            "description": "MVAPICH2-X is the advanced version of the MVAPICH2 MPI library with\nenhanced features (UMR, ODP, DC, Core-Direct, SHARP, XPMEM), OSU INAM\n(InifniBand Network Monitoring and Analysis),PGAS (OpenSHMEM, UPC,\nUPC++, and CAF), and MPI+PGAS programming models with unified\ncommunication runtime. MVAPICH2-X is not installable from source and is\nonly available through a binary mirror. If you do not find the binary\nyou're looking for, send us an email at mvapich@cse.ohio-state.edu. The\nbinary mirror url is: http://mvapich.cse.ohio-\nstate.edu/download/mvapich/spack-mirror/mvapich2x/"
+        },
+        {
+            "name": "libunwind",
+            "description": "A portable and efficient C programming interface (API) to determine the\ncall-chain of a program."
+        },
+        {
+            "name": "boost",
+            "description": "Boost provides free peer-reviewed portable C++ source libraries,\nemphasizing libraries that work well with the C++ Standard Library.\nBoost libraries are intended to be widely useful, and usable across a\nbroad spectrum of applications. The Boost license encourages both\ncommercial and non-commercial use."
+        },
+        {
+            "name": "libdwarf",
+            "description": "The DWARF Debugging Information Format is of interest to programmers\nworking on compilers and debuggers (and any one interested in reading or\nwriting DWARF information). It was developed by a committee (known as\nthe PLSIG at the time) starting around 1991. Starting around 1991 SGI\ndeveloped the libdwarf and dwarfdump tools for internal use and as part\nof SGI IRIX developer tools. Since that time dwarfdump and libdwarf have\nbeen shipped (as an executable and archive respectively, not source)\nwith every release of the SGI MIPS/IRIX C compiler."
+        },
+        {
+            "name": "papi",
+            "description": "PAPI provides the tool designer and application engineer with a\nconsistent interface and methodology for use of the performance counter\nhardware found in most major microprocessors. PAPI enables software\nengineers to see, in near real time, the relation between software\nperformance and processor events. In addition Component PAPI provides\naccess to a collection of components that expose performance measurement\nopportunities across the hardware and software stack."
+        },
+        {
+            "name": "elf",
+            "description": "libelf lets you read, modify or create ELF object files in an\narchitecture-independent way. The library takes care of size and endian\nissues, e.g. you can process a file for SPARC processors on an Intel-\nbased system. Note: libelf is no longer maintained and packages that\ndepend on libelf should migrate to elfutils."
+        },
+        {
+            "name": "libxml2",
+            "description": "Libxml2 is the XML C parser and toolkit developed for the Gnome project\n(but usable outside of the Gnome platform), it is free software\navailable under the MIT License."
+        },
+        {
+            "name": "numactl",
+            "description": "NUMA support for Linux"
+        },
+        {
+            "name": "binutils",
+            "description": "GNU binutils, which contain the linker, assembler, objdump and others"
+        },
+        {
+            "name": "gettext",
+            "description": "GNU internationalization (i18n) and localization (l10n) library."
+        },
+        {
+            "name": "dyninst",
+            "description": "API for dynamic binary instrumentation. Modify programs while they are\nexecuting without recompiling, re-linking, or re-executing."
+        },
+        {
+            "name": "cuda",
+            "description": "CUDA is a parallel computing platform and programming model invented by\nNVIDIA. It enables dramatic increases in computing performance by\nharnessing the power of the graphics processing unit (GPU). Note: This\npackage does not currently install the drivers necessary to run CUDA.\nThese will need to be installed manually. See:\nhttps://docs.nvidia.com/cuda/ for details."
+        }
+    ],
+    "dependent_to": [
+        {
+            "name": "ompss",
+            "description": "OmpSs is an effort to integrate features from the StarSs programming\nmodel developed by BSC into a single programming model. In particular,\nour objective is to extend OpenMP with new directives to support\nasynchronous parallelism and heterogeneity (devices like GPUs). However,\nit can also be understood as new directives extending other accelerator\nbased APIs like CUDA or OpenCL. Our OmpSs environment is built on top of\nour Mercurium compiler and Nanos++ runtime system."
+        }
+    ]
+}

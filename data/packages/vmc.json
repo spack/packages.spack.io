@@ -1,0 +1,70 @@
+{
+    "name": "vmc",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "1-0-p3",
+            "sha256": "46385776d7639fdf23df2a2a5426fb9a9a69836d237c1259b1a22bfb649cb47e"
+        },
+        {
+            "name": "1-0-p2",
+            "sha256": "46b4c82b0b7516502e88db920732fc78f06f0393ac740a17816f2eb53f80e75e"
+        },
+        {
+            "name": "1-0-p1",
+            "sha256": "4a20515f7de426797955cec4a271958b07afbaa330770eeefb5805c882ad9749"
+        }
+    ],
+    "build_system": "CMakePackage",
+    "conflicts": [
+        {
+            "name": "+ipo",
+            "spec": "^cmake@:3.8",
+            "description": "+ipo is not supported by CMake < 3.9"
+        }
+    ],
+    "variants": [
+        {
+            "name": "build_type",
+            "default": "RelWithDebInfo",
+            "description": "CMake build type"
+        },
+        {
+            "name": "ipo",
+            "default": false,
+            "description": "CMake interprocedural optimization"
+        }
+    ],
+    "homepage": "https://github.com/vmc-project/vmc",
+    "maintainers": [
+        "ChristianTackeGSI"
+    ],
+    "patches": [
+        {
+            "owner": "builtin.vmc",
+            "sha256": "4c9ae296a9a8f3c04c2fb3967758e401ee91812eaaef6f9f0a2c764b643b7b1a",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "dict_fixes_101.patch",
+            "version": "@1-0-p1"
+        }
+    ],
+    "resources": [],
+    "description": "The Virtual Monte Carlo (VMC) library\n",
+    "dependencies": [
+        {
+            "name": "cmake",
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
+        },
+        {
+            "name": "root",
+            "description": "ROOT is a data analysis framework."
+        }
+    ],
+    "dependent_to": [
+        {
+            "name": "geant4-vmc",
+            "description": "Geant4 VMC implements the Virtual Monte Carlo (VMC) for Geant4."
+        }
+    ]
+}

@@ -1,0 +1,178 @@
+{
+    "name": "netcdf-fortran",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "4.5.3",
+            "sha256": "123a5c6184336891e62cf2936b9f2d1c54e8dee299cfd9d2c1a1eb05dd668a74"
+        },
+        {
+            "name": "4.5.2",
+            "sha256": "b959937d7d9045184e9d2040a915d94a7f4d0185f4a9dceb8f08c94b0c3304aa"
+        },
+        {
+            "name": "4.4.5",
+            "sha256": "2467536ce29daea348c736476aa8e684c075d2f6cab12f3361885cb6905717b8"
+        },
+        {
+            "name": "4.4.4",
+            "sha256": "b2d395175f8d283e68c8be516e231a96b191ade67ad0caafaf7fa01b1e6b5d75"
+        },
+        {
+            "name": "4.4.3",
+            "sha256": "330373aa163d5931e475b5e83da5c1ad041e855185f24e6a8b85d73b48d6cda9"
+        }
+    ],
+    "build_system": "AutotoolsPackage",
+    "conflicts": [],
+    "variants": [
+        {
+            "name": "pic",
+            "default": true,
+            "description": "Produce position-independent code (for shared libs)"
+        },
+        {
+            "name": "shared",
+            "default": true,
+            "description": "Enable shared library"
+        },
+        {
+            "name": "doc",
+            "default": false,
+            "description": "Enable building docs"
+        }
+    ],
+    "homepage": "https://www.unidata.ucar.edu/software/netcdf",
+    "maintainers": [
+        "skosukhin",
+        "WardF"
+    ],
+    "patches": [
+        {
+            "owner": "builtin.netcdf-fortran",
+            "sha256": "edb7e6cd2b7245c6e484b52eefacf9e6abb989c18c0c516acd564ba7170e84f2",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "nag_libtool_2.4.2.patch",
+            "version": "@:4.4.4%nag"
+        },
+        {
+            "owner": "builtin.netcdf-fortran",
+            "sha256": "c8694a1a1898082d9da21f881e693b6c9d462985ba31ea0e666c04e17bd412a1",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "nag_libtool_2.4.6.patch",
+            "version": "@4.4.5:%nag"
+        },
+        {
+            "owner": "builtin.netcdf-fortran",
+            "sha256": "c4d10d5e4454a80efc9cab2dbc25efd781b2ee878abf2a30f4e52124ab8cd0ce",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "nag_testing.patch",
+            "version": "@4.4.5%nag"
+        },
+        {
+            "owner": "builtin.netcdf-fortran",
+            "sha256": "ef26f0860c0d258af7ba28780a981545a8a1c053dbdabe2d656d6e40ce1c7c06",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "logging.patch",
+            "version": "@:4.4.5"
+        },
+        {
+            "owner": "builtin.netcdf-fortran",
+            "sha256": "55fef65a4652fc5b8114db25bc558c762d9d4d287377a7db0ea2a2937d625e44",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "excessive_linking.patch",
+            "version": "@4.4.5"
+        },
+        {
+            "owner": "builtin.netcdf-fortran",
+            "sha256": "b050dbd8d832d13c8c7f69c903251fb6ce567abbfae75c6347e066585d032a7e",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "no_parallel_build.patch",
+            "version": "@4.5.2"
+        }
+    ],
+    "resources": [],
+    "description": "NetCDF (network Common Data Form) is a set of software libraries and\nmachine-independent data formats that support the creation, access, and\nsharing of array-oriented scientific data. This is the Fortran\ndistribution.\n",
+    "dependencies": [
+        {
+            "name": "netcdf-c",
+            "description": "NetCDF (network Common Data Form) is a set of software libraries and\nmachine-independent data formats that support the creation, access, and\nsharing of array-oriented scientific data. This is the C distribution."
+        },
+        {
+            "name": "doxygen",
+            "description": "Doxygen is the de facto standard tool for generating documentation from\nannotated C++ sources, but it also supports other popular programming\nlanguages such as C, Objective-C, C#, PHP, Java, Python, IDL (Corba,\nMicrosoft, and UNO/OpenOffice flavors), Fortran, VHDL, Tcl, and to some\nextent D.."
+        }
+    ],
+    "dependent_to": [
+        {
+            "name": "regcm",
+            "description": "RegCM, ICTP Regional Climate Model (https://ictp.it)."
+        },
+        {
+            "name": "xios",
+            "description": "XML-IO-SERVER library for IO management of climate models."
+        },
+        {
+            "name": "wrf",
+            "description": "The Weather Research and Forecasting (WRF) Model is a next-generation\nmesoscale numerical weather prediction system designed for both\natmospheric research and operational forecasting applications."
+        },
+        {
+            "name": "wps",
+            "description": "The Weather Research and Forecasting Pre-Processing System (WPS)"
+        },
+        {
+            "name": "parallelio",
+            "description": "The Parallel IO libraries (PIO) are high-level parallel I/O C and\nFortran libraries for applications that need to do netCDF I/O from large\nnumbers of processors on a HPC system."
+        },
+        {
+            "name": "yambo",
+            "description": "Yambo is a FORTRAN/C code for Many-Body calculations in solid state and\nmolecular physics. Yambo relies on the Kohn-Sham wavefunctions generated\nby two DFT public codes: abinit, and PWscf. The code was originally\ndeveloped in the Condensed Matter Theoretical Group of the Physics\nDepartment at the University of Rome \"Tor Vergata\" by Andrea Marini.\nPrevious to its release under the GPL license, yambo was known as SELF."
+        },
+        {
+            "name": "abinit",
+            "description": "ABINIT is a package whose main program allows one to find the total\nenergy, charge density and electronic structure of systems made of\nelectrons and nuclei (molecules and periodic solids) within Density\nFunctional Theory (DFT), using pseudopotentials and a planewave or\nwavelet basis. ABINIT also includes options to optimize the geometry\naccording to the DFT forces and stresses, or to perform molecular\ndynamics simulations using these forces, or to generate dynamical\nmatrices, Born effective charges, and dielectric tensors, based on\nDensity-Functional Perturbation Theory, and many more properties.\nExcited states can be computed within the Many-Body Perturbation Theory\n(the GW approximation and the Bethe-Salpeter equation), and Time-\nDependent Density Functional Theory (for molecules). In addition to the\nmain ABINIT code, different utility programs are provided."
+        },
+        {
+            "name": "etsf-io",
+            "description": "ETSF_IO is a library implementing the Nanoquanta/ETSF file format\nspecifications. ETSF_IO enables an architecture-independent exchange of\ncrystallographic data, electronic wavefunctions, densities and\npotentials, as well as spectroscopic data. It is meant to be used by\nquantum-physical and quantum-chemical applications relying upon Density\nFunctional Theory (DFT)."
+        },
+        {
+            "name": "elmerfem",
+            "description": "Elmer is an open source multiphysical simulation software. It includes\nphysical models of fluid dynamics, structural mechanics,\nelectromagnetics, heat transfer and acoustics."
+        },
+        {
+            "name": "ioapi",
+            "description": "Models-3/EDSS Input/Output Applications Programming Interface."
+        },
+        {
+            "name": "gchp",
+            "description": "GEOS-Chem High Performance model of atmospheric chemistry"
+        },
+        {
+            "name": "ferret",
+            "description": "Ferret is an interactive computer visualization and analysis environment\ndesigned to meet the needs of oceanographers and meteorologists\nanalyzing large and complex gridded data sets."
+        },
+        {
+            "name": "siesta",
+            "description": "SIESTA performs electronic structure calculations and ab initio\nmolecular dynamics simulations of molecules and solids."
+        },
+        {
+            "name": "octopus",
+            "description": "A real-space finite-difference (time-dependent) density-functional\ntheory code."
+        },
+        {
+            "name": "amber",
+            "description": "Amber is a suite of biomolecular simulation programs together with Amber\ntools. A manual download is required for Ambers. Spack will search your\ncurrent directory for the download files. Alternatively, add the files\nto a mirror so that Spack can find them. For instructions on how to set\nup a mirror, see http://spack.readthedocs.io/en/latest/mirrors.html\nNote: Only certain versions of ambertools are compatible with amber.\nOnly the latter version of ambertools for each amber version is\nsupported."
+        },
+        {
+            "name": "esmf",
+            "description": "The Earth System Modeling Framework (ESMF) is high-performance, flexible\nsoftware infrastructure for building and coupling weather, climate, and\nrelated Earth science applications. The ESMF defines an architecture for\ncomposing complex, coupled modeling systems and includes data structures\nand utilities for developing individual models."
+        }
+    ]
+}

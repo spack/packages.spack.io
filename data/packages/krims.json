@@ -1,0 +1,87 @@
+{
+    "name": "krims",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "develop",
+            "branch": "master"
+        },
+        {
+            "name": "0.2.1",
+            "sha256": "baac8de392e6c2a73a535f71596f51d4a80a08d9c0ecbf9a2d72d1d70dd17999"
+        }
+    ],
+    "build_system": "CMakePackage",
+    "conflicts": [
+        {
+            "name": "+ipo",
+            "spec": "^cmake@:3.8",
+            "description": "+ipo is not supported by CMake < 3.9"
+        },
+        {
+            "name": "%intel",
+            "spec": "",
+            "description": "krims only builds with gcc and clang"
+        },
+        {
+            "name": "%gcc@:4.8",
+            "spec": "",
+            "description": "None"
+        },
+        {
+            "name": "%clang@:3.5",
+            "spec": "",
+            "description": "None"
+        }
+    ],
+    "variants": [
+        {
+            "name": "build_type",
+            "default": "DebugRelease",
+            "description": "The build type to build"
+        },
+        {
+            "name": "ipo",
+            "default": false,
+            "description": "CMake interprocedural optimization"
+        },
+        {
+            "name": "shared",
+            "default": true,
+            "description": "Build shared libraries (else the static one)"
+        },
+        {
+            "name": "examples",
+            "default": false,
+            "description": "Compile examples"
+        }
+    ],
+    "homepage": "http://lazyten.org/krims",
+    "maintainers": [
+        "mfherbst"
+    ],
+    "patches": [
+        {
+            "owner": "builtin.krims",
+            "sha256": "d4f0a6f8555676b2684d05623a47f05eb3d6986e0e6975a89433a1be7b90b171",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "float80.patch",
+            "version": ""
+        }
+    ],
+    "resources": [],
+    "description": "The bucket of Krimskrams every C or C++ project needs\n",
+    "dependencies": [
+        {
+            "name": "cmake",
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
+        }
+    ],
+    "dependent_to": [
+        {
+            "name": "lazyten",
+            "description": "Lightweight linear algebra library based on lazy matrices"
+        }
+    ]
+}

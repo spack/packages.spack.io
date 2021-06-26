@@ -1,0 +1,102 @@
+{
+    "name": "jali",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "master",
+            "branch": "master"
+        },
+        {
+            "name": "1.1.5",
+            "sha256": "4f18f3e8b50f20a89918e99596a7226c215944d84df642bc1fb2d6c31464b95b"
+        },
+        {
+            "name": "1.1.4",
+            "sha256": "135ab02be1487fcdfb039613cbed630bce336d581a66468c66209db0a9d8a104"
+        },
+        {
+            "name": "1.1.1",
+            "sha256": "c96c000b3893ea7f15bbc886524476dd466ae145e77deedc27e412fcc3541207"
+        },
+        {
+            "name": "1.1.0",
+            "sha256": "783dfcd6a9284af83bb380ed257fa8b0757dc2f7f9196d935eb974fb6523c644"
+        },
+        {
+            "name": "1.0.5",
+            "sha256": "979170615d33a7bf20c96bd4d0285e05a2bbd901164e377a8bccbd9af9463801"
+        }
+    ],
+    "build_system": "CMakePackage",
+    "conflicts": [
+        {
+            "name": "+ipo",
+            "spec": "^cmake@:3.8",
+            "description": "+ipo is not supported by CMake < 3.9"
+        }
+    ],
+    "variants": [
+        {
+            "name": "build_type",
+            "default": "RelWithDebInfo",
+            "description": "CMake build type"
+        },
+        {
+            "name": "ipo",
+            "default": false,
+            "description": "CMake interprocedural optimization"
+        },
+        {
+            "name": "mstk",
+            "default": true,
+            "description": "Enable MSTK"
+        }
+    ],
+    "homepage": "https://github.com/lanl/jali",
+    "maintainers": [
+        "raovgarimella"
+    ],
+    "patches": [],
+    "resources": [],
+    "description": "Jali is a parallel, unstructured mesh infrastructure library designed\nfor use by multi-physics simulations.\n",
+    "dependencies": [
+        {
+            "name": "cmake",
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
+        },
+        {
+            "name": "mpi",
+            "description": "MVAPICH2-X is the advanced version of the MVAPICH2 MPI library with\nenhanced features (UMR, ODP, DC, Core-Direct, SHARP, XPMEM), OSU INAM\n(InifniBand Network Monitoring and Analysis),PGAS (OpenSHMEM, UPC,\nUPC++, and CAF), and MPI+PGAS programming models with unified\ncommunication runtime. MVAPICH2-X is not installable from source and is\nonly available through a binary mirror. If you do not find the binary\nyou're looking for, send us an email at mvapich@cse.ohio-state.edu. The\nbinary mirror url is: http://mvapich.cse.ohio-\nstate.edu/download/mvapich/spack-mirror/mvapich2x/"
+        },
+        {
+            "name": "boost",
+            "description": "Boost provides free peer-reviewed portable C++ source libraries,\nemphasizing libraries that work well with the C++ Standard Library.\nBoost libraries are intended to be widely useful, and usable across a\nbroad spectrum of applications. The Boost license encourages both\ncommercial and non-commercial use."
+        },
+        {
+            "name": "mstk",
+            "description": "MSTK is a mesh framework that allows users to represent, manipulate and\nquery unstructured 3D arbitrary topology meshes in a general manner\nwithout the need to code their own data structures. MSTK is a flexible\nframework in that it allows a variety of underlying representations for\nthe mesh while maintaining a common interface. It allows users to choose\nfrom different mesh representations either at initialization\n(implemented) or during the program execution (not yet implemented) so\nthat the optimal data structures are used for the particular algorithm.\nThe interaction of users and applications with MSTK is through a\nfunctional interface that acts as though the mesh always contains\nvertices, edges, faces and regions and maintains connectivity between\nall these entities."
+        },
+        {
+            "name": "zoltan",
+            "description": "The Zoltan library is a toolkit of parallel combinatorial algorithms for\nparallel, unstructured, and/or adaptive scientific applications.\nZoltan's largest component is a suite of dynamic load-balancing and\npartitioning algorithms that increase applications' parallel performance\nby reducing idle time. Zoltan also has graph coloring and graph ordering\nalgorithms, which are useful in task schedulers and parallel\npreconditioners."
+        },
+        {
+            "name": "metis",
+            "description": "METIS is a set of serial programs for partitioning graphs, partitioning\nfinite element meshes, and producing fill reducing orderings for sparse\nmatrices. The algorithms implemented in METIS are based on the\nmultilevel recursive-bisection, multilevel k-way, and multi-constraint\npartitioning schemes."
+        },
+        {
+            "name": "exodusii",
+            "description": "Exodus II is a C++/Fortran library developed to store and retrieve data\nfor finite element analyses. It's used for preprocessing (problem\ndefinition), postprocessing (results visualization), and data transfer\nbetween codes. An Exodus II data file is a random access, machine\nindependent, binary file that is written and read via C, C++, or Fortran\nAPI routines."
+        },
+        {
+            "name": "unittest-cpp",
+            "description": "UnitTest++ is a lightweight unit testing framework for C++. It was\ndesigned to do test-driven development on a wide variety of platforms.\nSimplicity, portability, speed, and small footprint are all very\nimportant aspects of UnitTest++. UnitTest++ is mostly standard C++ and\nmakes minimal use of advanced library and language features, which means\nit should be easily portable to just about any platform."
+        }
+    ],
+    "dependent_to": [
+        {
+            "name": "wonton",
+            "description": "Wonton is a support package for the Portage\n(https://github.com/laristra/portage) and Tangram\n(https://github.com/laristra/tangram) libraries. It contains some\nmesh/state classes, wrappers for other mesh/state libraries and some\nutilities required by Portage and Tangram."
+        }
+    ]
+}

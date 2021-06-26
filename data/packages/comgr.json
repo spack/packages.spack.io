@@ -1,0 +1,176 @@
+{
+    "name": "comgr",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "master",
+            "branch": "amd-stg-open"
+        },
+        {
+            "name": "4.2.0",
+            "sha256": "40a1ea50d2aea0cf75c4d17cdd6a7fe44ae999bf0147d24a756ca4675ce24e36"
+        },
+        {
+            "name": "4.1.0",
+            "sha256": "ffb625978555c63582aa46857672431793261166aa31761eff4fe5c2cab661ae"
+        },
+        {
+            "name": "4.0.0",
+            "sha256": "f389601fb70b2d9a60d0e2798919af9ddf7b8376a2e460141507fe50073dfb31"
+        },
+        {
+            "name": "3.10.0",
+            "sha256": "b44ee5805a6236213d758fa4b612bb859d8f774b9b4bdc3a2699bb009dd631bc"
+        },
+        {
+            "name": "3.9.0",
+            "sha256": "6600e144d72dadb6d893a3388b42af103b9443755ce556f4e9e205ccd8ec0c83"
+        },
+        {
+            "name": "3.8.0",
+            "sha256": "62a35480dfabaa98883d91ed0f7c490daa9bbd424af37e07e5d85a6e8030b146"
+        },
+        {
+            "name": "3.7.0",
+            "sha256": "73e56ec3c63dade24ad351e9340e2f8e127694028c1fb7cec5035376bf098432"
+        },
+        {
+            "name": "3.5.0",
+            "sha256": "25c963b46a82d76d55b2302e0e18aac8175362656a465549999ad13d07b689b9"
+        }
+    ],
+    "build_system": "CMakePackage",
+    "conflicts": [
+        {
+            "name": "+ipo",
+            "spec": "^cmake@:3.8",
+            "description": "+ipo is not supported by CMake < 3.9"
+        }
+    ],
+    "variants": [
+        {
+            "name": "build_type",
+            "default": "Release",
+            "description": "CMake build type"
+        },
+        {
+            "name": "ipo",
+            "default": false,
+            "description": "CMake interprocedural optimization"
+        }
+    ],
+    "homepage": "https://github.com/RadeonOpenCompute/ROCm-CompilerSupport",
+    "maintainers": [
+        "srekolam",
+        "arjun-raj-kuppala",
+        "haampie"
+    ],
+    "patches": [
+        {
+            "owner": "builtin.comgr",
+            "sha256": "4dda4b3dcd61df74050076881e102c6f4ec637ea8f35a3a4e7079b8a4fa9af4c",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "hip-tests.patch",
+            "version": ""
+        }
+    ],
+    "resources": [],
+    "description": "This provides various Lightning Compiler related services. It currently\ncontains one library, the Code Object Manager (Comgr)\n",
+    "dependencies": [
+        {
+            "name": "cmake",
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
+        },
+        {
+            "name": "zlib",
+            "description": "A free, general-purpose, legally unencumbered lossless data-compression\nlibrary."
+        },
+        {
+            "name": "z3",
+            "description": "Z3 is a theorem prover from Microsoft Research. It is licensed under the\nMIT license."
+        },
+        {
+            "name": "ncurses",
+            "description": "The ncurses (new curses) library is a free software emulation of curses\nin System V Release 4.0, and more. It uses terminfo format, supports\npads and color and multiple highlights and forms characters and\nfunction-key mapping, and has all the other SYSV-curses enhancements\nover BSD curses."
+        },
+        {
+            "name": "llvm-amdgpu",
+            "description": "Toolkit for the construction of highly optimized compilers, optimizers,\nand run-time environments."
+        },
+        {
+            "name": "rocm-device-libs",
+            "description": "set of AMD specific device-side language runtime libraries"
+        },
+        {
+            "name": "rocm-cmake",
+            "description": "ROCM cmake modules provides cmake modules for common build tasks needed\nfor the ROCM software stack"
+        }
+    ],
+    "dependent_to": [
+        {
+            "name": "rocm-tensile",
+            "description": "Radeon Open Compute Tensile library"
+        },
+        {
+            "name": "hipblas",
+            "description": "hipBLAS is a BLAS marshalling library, with multiple supported backends"
+        },
+        {
+            "name": "atmi",
+            "description": "Asynchronous Task and Memory Interface, or ATMI, is a runtime framework\nand programming model for heterogeneous CPU-GPU systems. It provides a\nconsistent, declarative API to create task graphs on CPUs and GPUs\n(integrated and discrete)."
+        },
+        {
+            "name": "rocm-opencl",
+            "description": "OpenCL: Open Computing Language on ROCclr"
+        },
+        {
+            "name": "aomp",
+            "description": "llvm openmp compiler from AMD."
+        },
+        {
+            "name": "rocprim",
+            "description": "Radeon Open Compute Parallel Primitives Library"
+        },
+        {
+            "name": "rocm-openmp-extras",
+            "description": "OpenMP support for ROCm LLVM."
+        },
+        {
+            "name": "rocalution",
+            "description": "rocALUTION is a sparse linear algebra library with focus on exploring\nfine-grained parallelism on top of AMD's Radeon Open eCosystem Platform\nROCm runtime and toolchains, targeting modern CPU and GPU platforms.\nBased on C++ and HIP, it provides a portable, generic and flexible\ndesign that allows seamless integration with other scientific software\npackages."
+        },
+        {
+            "name": "rocm-gdb",
+            "description": "This is ROCmgdb, the ROCm source-level debugger for Linux, based on GDB,\nthe GNU source-level debugger."
+        },
+        {
+            "name": "rccl",
+            "description": "RCCL (pronounced \"Rickle\") is a stand-alone library of standard\ncollective communication routines for GPUs, implementing all-reduce,\nall-gather, reduce, broadcast, and reduce-scatter."
+        },
+        {
+            "name": "hip",
+            "description": "HIP is a C++ Runtime API and Kernel Language that allows developers to\ncreate portable applications for AMD and NVIDIA GPUs from single source\ncode."
+        },
+        {
+            "name": "rocm-dbgapi",
+            "description": "The AMD Debugger API is a library that provides all the support\nnecessary for a debugger and other tools to perform low level control of\nthe execution and inspection of execution state of AMD's commercially\navailable GPU architectures."
+        },
+        {
+            "name": "rocrand",
+            "description": "The rocRAND project provides functions that generate pseudo-random and\nquasi-random numbers."
+        },
+        {
+            "name": "rocsolver",
+            "description": "rocSOLVER is a work-in-progress implementation of a subset of LAPACK\nfunctionality on the ROCm platform."
+        },
+        {
+            "name": "rocm-opencl-runtime",
+            "description": "ROCm OpenCL 2.0 compatible language runtime. It Supports offline and in-\nprocess/in-memory compilation"
+        },
+        {
+            "name": "hip-rocclr",
+            "description": "Hip-ROCclr is a virtual device interface that compute runtimes interact\nwith to different backends such as ROCr or PAL This abstraction allows\nruntimes to work on Windows as well as on Linux without much effort."
+        }
+    ]
+}

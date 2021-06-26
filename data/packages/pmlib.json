@@ -1,0 +1,94 @@
+{
+    "name": "pmlib",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "master",
+            "branch": "master"
+        },
+        {
+            "name": "6.4.1",
+            "commit": "0a35f5bec8c12e532e5a1bdac8c32c659fd3ee11"
+        }
+    ],
+    "build_system": "CMakePackage",
+    "conflicts": [
+        {
+            "name": "+ipo",
+            "spec": "^cmake@:3.8",
+            "description": "+ipo is not supported by CMake < 3.9"
+        }
+    ],
+    "variants": [
+        {
+            "name": "build_type",
+            "default": "RelWithDebInfo",
+            "description": "CMake build type"
+        },
+        {
+            "name": "ipo",
+            "default": false,
+            "description": "CMake interprocedural optimization"
+        },
+        {
+            "name": "mpi",
+            "default": true,
+            "description": "Activate MPI support"
+        },
+        {
+            "name": "example",
+            "default": false,
+            "description": "This option turns on compiling sample codes."
+        },
+        {
+            "name": "fortran",
+            "default": false,
+            "description": "This option tells a compiler to use a Fortran."
+        },
+        {
+            "name": "openmp",
+            "default": false,
+            "description": "Enable OpenMP directives"
+        },
+        {
+            "name": "papi",
+            "default": false,
+            "description": "Use PAPI library"
+        },
+        {
+            "name": "otf",
+            "default": false,
+            "description": "Use OTF library"
+        },
+        {
+            "name": "precisetimer",
+            "default": true,
+            "description": "This option provides -DUSE_PRECISE_TIMER to C++ compiler option CMAKE_CXX_FLAGS when building the PMlib library."
+        }
+    ],
+    "homepage": "https://github.com/avr-aics-riken/PMlib",
+    "maintainers": [],
+    "patches": [
+        {
+            "owner": "builtin.pmlib",
+            "sha256": "1989dd1400c96570e89b1ce29c8df8400850357ee66055a936c155ed2ec5edc5",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "fix_compiler_options.patch",
+            "version": ""
+        }
+    ],
+    "resources": [],
+    "description": "This library records the statistics information of run-time performance\nand the trace information of a user code and reports its summary. The\nPMlib is able to use for both serial and parallel environments including\nhybrid(OpenMP & MPI) code. In addition, PAPI interface allows us to\naccess the information of build-in hardware counter.\n",
+    "dependencies": [
+        {
+            "name": "cmake",
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
+        },
+        {
+            "name": "mpi",
+            "description": "MVAPICH2-X is the advanced version of the MVAPICH2 MPI library with\nenhanced features (UMR, ODP, DC, Core-Direct, SHARP, XPMEM), OSU INAM\n(InifniBand Network Monitoring and Analysis),PGAS (OpenSHMEM, UPC,\nUPC++, and CAF), and MPI+PGAS programming models with unified\ncommunication runtime. MVAPICH2-X is not installable from source and is\nonly available through a binary mirror. If you do not find the binary\nyou're looking for, send us an email at mvapich@cse.ohio-state.edu. The\nbinary mirror url is: http://mvapich.cse.ohio-\nstate.edu/download/mvapich/spack-mirror/mvapich2x/"
+        }
+    ],
+    "dependent_to": []
+}

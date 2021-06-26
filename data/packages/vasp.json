@@ -1,0 +1,95 @@
+{
+    "name": "vasp",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "6.1.1",
+            "sha256": "e37a4dfad09d3ad0410833bcd55af6b599179a085299026992c2d8e319bf6927"
+        },
+        {
+            "name": "5.4.4.pl2",
+            "sha256": "98f75fd75399a23d76d060a6155f4416b340a1704f256a00146f89024035bc8e"
+        },
+        {
+            "name": "5.4.4",
+            "sha256": "5bd2449462386f01e575f9adf629c08cb03a13142806ffb6a71309ca4431cfb3"
+        }
+    ],
+    "build_system": "MakefilePackage",
+    "conflicts": [
+        {
+            "name": "%gcc@:8",
+            "spec": "",
+            "description": "GFortran before 9.x does not support all features needed to build VASP"
+        },
+        {
+            "name": "+vaspsol",
+            "spec": "+cuda",
+            "description": "+vaspsol only available for CPU"
+        }
+    ],
+    "variants": [
+        {
+            "name": "scalapack",
+            "default": false,
+            "description": "Enables build with SCALAPACK"
+        },
+        {
+            "name": "cuda",
+            "default": false,
+            "description": "Enables running on Nvidia GPUs"
+        },
+        {
+            "name": "vaspsol",
+            "default": false,
+            "description": "Enable VASPsol implicit solvation model\nhttps://github.com/henniggroup/VASPsol"
+        }
+    ],
+    "homepage": "http://vasp.at",
+    "maintainers": [],
+    "patches": [],
+    "resources": [
+        {
+            "version": "+vaspsol",
+            "name": "vaspsol",
+            "destination": "",
+            "placement": null
+        }
+    ],
+    "description": " The Vienna Ab initio Simulation Package (VASP) is a computer program\nfor atomic scale materials modelling, e.g. electronic structure\ncalculations and quantum-mechanical molecular dynamics, from first\nprinciples.\n",
+    "dependencies": [
+        {
+            "name": "rsync",
+            "description": "An open source utility that provides fast incremental file transfer."
+        },
+        {
+            "name": "blas",
+            "description": "Intel oneAPI MKL."
+        },
+        {
+            "name": "lapack",
+            "description": "Intel oneAPI MKL."
+        },
+        {
+            "name": "fftw",
+            "description": "FFTW is a C subroutine library for computing the discrete Fourier\ntransform (DFT) in one or more dimensions, of arbitrary input size, and\nof both real and complex data (as well as of even/odd data, i.e. the\ndiscrete cosine/sine transforms or DCT/DST). We believe that FFTW, which\nis free software, should become the FFT library of choice for most\napplications."
+        },
+        {
+            "name": "mpi",
+            "description": "MVAPICH2-X is the advanced version of the MVAPICH2 MPI library with\nenhanced features (UMR, ODP, DC, Core-Direct, SHARP, XPMEM), OSU INAM\n(InifniBand Network Monitoring and Analysis),PGAS (OpenSHMEM, UPC,\nUPC++, and CAF), and MPI+PGAS programming models with unified\ncommunication runtime. MVAPICH2-X is not installable from source and is\nonly available through a binary mirror. If you do not find the binary\nyou're looking for, send us an email at mvapich@cse.ohio-state.edu. The\nbinary mirror url is: http://mvapich.cse.ohio-\nstate.edu/download/mvapich/spack-mirror/mvapich2x/"
+        },
+        {
+            "name": "netlib-scalapack",
+            "description": "ScaLAPACK is a library of high-performance linear algebra routines for\nparallel distributed memory machines"
+        },
+        {
+            "name": "cuda",
+            "description": "CUDA is a parallel computing platform and programming model invented by\nNVIDIA. It enables dramatic increases in computing performance by\nharnessing the power of the graphics processing unit (GPU). Note: This\npackage does not currently install the drivers necessary to run CUDA.\nThese will need to be installed manually. See:\nhttps://docs.nvidia.com/cuda/ for details."
+        },
+        {
+            "name": "qd",
+            "description": "C++/Fortran-90 double-double and quad-double package. With modifications\nfor easier integration with NJet. see http://crd-\nlegacy.lbl.gov/~dhbailey/mpdist/ for authors page"
+        }
+    ],
+    "dependent_to": []
+}

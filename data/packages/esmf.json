@@ -1,0 +1,151 @@
+{
+    "name": "esmf",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "8.0.1",
+            "sha256": "9172fb73f3fe95c8188d889ee72fdadb4f978b1d969e1d8e401e8d106def1d84"
+        },
+        {
+            "name": "8.0.0",
+            "sha256": "051dca45f9803d7e415c0ea146df15ce487fb55f0fce18ca61d96d4dba0c8774"
+        },
+        {
+            "name": "7.1.0r",
+            "sha256": "ae9a5edb8d40ae97a35cbd4bd00b77061f995c77c43d36334dbb95c18b00a889"
+        }
+    ],
+    "build_system": "MakefilePackage",
+    "conflicts": [],
+    "variants": [
+        {
+            "name": "mpi",
+            "default": true,
+            "description": "Build with MPI support"
+        },
+        {
+            "name": "lapack",
+            "default": true,
+            "description": "Build with LAPACK support"
+        },
+        {
+            "name": "netcdf",
+            "default": true,
+            "description": "Build with NetCDF support"
+        },
+        {
+            "name": "pnetcdf",
+            "default": true,
+            "description": "Build with pNetCDF support"
+        },
+        {
+            "name": "xerces",
+            "default": true,
+            "description": "Build with Xerces support"
+        },
+        {
+            "name": "pio",
+            "default": true,
+            "description": "Enable ParallelIO support"
+        },
+        {
+            "name": "debug",
+            "default": false,
+            "description": "Make a debuggable version of the library"
+        }
+    ],
+    "homepage": "https://www.earthsystemcog.org/projects/esmf/",
+    "maintainers": [],
+    "patches": [
+        {
+            "owner": "builtin.esmf",
+            "sha256": "19cd7e8428e78aaa8b1b5e493d3fddc08908d4f036aa31cac08ec2fe35cb0f39",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "intel.patch",
+            "version": "@:7.0.99%intel@17:"
+        },
+        {
+            "owner": "builtin.esmf",
+            "sha256": "961a3c35cdcf9f644dc8de9bbee8e5bb052c46f2e2945a6b189c4a5eb8dc6069",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "gcc.patch",
+            "version": "@:7.0.99%gcc@6:"
+        },
+        {
+            "owner": "builtin.esmf",
+            "sha256": "4031ebfe236d81cdd6e789341a819250cb573611efeec1327bce5c84d06f2c1f",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "mvapich2.patch",
+            "version": "@:7.0.99"
+        },
+        {
+            "owner": "builtin.esmf",
+            "sha256": "e7325db75445d1003becbf81ce2aa405abea847ac97a0796907793bca5df59ef",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "darwin_dylib_install_name.patch",
+            "version": "@:7.0.99 arch=darwin-None-None"
+        },
+        {
+            "owner": "builtin.esmf",
+            "sha256": "65cc928aee83d408adee711d24dc8c5e7a6280b472b5f244527031ea96a6fab2",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "cstddef.patch",
+            "version": "@7.1.0r%gcc@8:"
+        }
+    ],
+    "resources": [],
+    "description": "The Earth System Modeling Framework (ESMF) is high-performance, flexible\nsoftware infrastructure for building and coupling weather, climate, and\nrelated Earth science applications. The ESMF defines an architecture for\ncomposing complex, coupled modeling systems and includes data structures\nand utilities for developing individual models.\n",
+    "dependencies": [
+        {
+            "name": "zlib",
+            "description": "A free, general-purpose, legally unencumbered lossless data-compression\nlibrary."
+        },
+        {
+            "name": "libxml2",
+            "description": "Libxml2 is the XML C parser and toolkit developed for the Gnome project\n(but usable outside of the Gnome platform), it is free software\navailable under the MIT License."
+        },
+        {
+            "name": "mpi",
+            "description": "MVAPICH2-X is the advanced version of the MVAPICH2 MPI library with\nenhanced features (UMR, ODP, DC, Core-Direct, SHARP, XPMEM), OSU INAM\n(InifniBand Network Monitoring and Analysis),PGAS (OpenSHMEM, UPC,\nUPC++, and CAF), and MPI+PGAS programming models with unified\ncommunication runtime. MVAPICH2-X is not installable from source and is\nonly available through a binary mirror. If you do not find the binary\nyou're looking for, send us an email at mvapich@cse.ohio-state.edu. The\nbinary mirror url is: http://mvapich.cse.ohio-\nstate.edu/download/mvapich/spack-mirror/mvapich2x/"
+        },
+        {
+            "name": "lapack",
+            "description": "Intel oneAPI MKL."
+        },
+        {
+            "name": "netcdf-c",
+            "description": "NetCDF (network Common Data Form) is a set of software libraries and\nmachine-independent data formats that support the creation, access, and\nsharing of array-oriented scientific data. This is the C distribution."
+        },
+        {
+            "name": "netcdf-fortran",
+            "description": "NetCDF (network Common Data Form) is a set of software libraries and\nmachine-independent data formats that support the creation, access, and\nsharing of array-oriented scientific data. This is the Fortran\ndistribution."
+        },
+        {
+            "name": "parallel-netcdf",
+            "description": "PnetCDF (Parallel netCDF) is a high-performance parallel I/O library for\naccessing files in format compatibility with Unidata's NetCDF,\nspecifically the formats of CDF-1, 2, and 5."
+        },
+        {
+            "name": "xerces-c",
+            "description": "Xerces-C++ is a validating XML parser written in a portable subset of\nC++. Xerces-C++ makes it easy to give your application the ability to\nread and write XML data. A shared library is provided for parsing,\ngenerating, manipulating, and validating XML documents using the DOM,\nSAX, and SAX2 APIs."
+        },
+        {
+            "name": "perl",
+            "description": "Perl 5 is a highly capable, feature-rich programming language with over\n27 years of development."
+        }
+    ],
+    "dependent_to": [
+        {
+            "name": "gchp",
+            "description": "GEOS-Chem High Performance model of atmospheric chemistry"
+        },
+        {
+            "name": "ncl",
+            "description": "NCL is an interpreted language designed specifically for scientific data\nanalysis and visualization. Supports NetCDF 3/4, GRIB 1/2, HDF 4/5, HDF-\nEOD 2/5, shapefile, ASCII, binary. Numerous analysis functions are\nbuilt-in."
+        }
+    ]
+}

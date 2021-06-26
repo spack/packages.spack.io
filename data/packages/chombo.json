@@ -1,0 +1,83 @@
+{
+    "name": "chombo",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "3.2",
+            "commit": "71d856c"
+        },
+        {
+            "name": "develop",
+            "tag": "master"
+        }
+    ],
+    "build_system": "MakefilePackage",
+    "conflicts": [],
+    "variants": [
+        {
+            "name": "mpi",
+            "default": true,
+            "description": "Enable MPI parallel support"
+        },
+        {
+            "name": "hdf5",
+            "default": true,
+            "description": "Enable HDF5 support"
+        },
+        {
+            "name": "dims",
+            "default": "3",
+            "description": "Number of PDE dimensions [1-6]"
+        }
+    ],
+    "homepage": "https://commons.lbl.gov/display/chombo",
+    "maintainers": [],
+    "patches": [
+        {
+            "owner": "builtin.chombo",
+            "sha256": "8ae2a6d68da0ae718cb1f23df342f3a47553d75c26f0544fcb3f6c6e17288c95",
+            "level": 0,
+            "working_dir": ".",
+            "relative_path": "hdf5-16api.patch",
+            "version": "@3.2"
+        },
+        {
+            "owner": "builtin.chombo",
+            "sha256": "a113bd5cf04b8e61e480123f787d0558b816c69666761294932dc864ca0ab71b",
+            "level": 0,
+            "working_dir": ".",
+            "relative_path": "Make.defs.local.template.patch",
+            "version": "@3.2"
+        }
+    ],
+    "resources": [],
+    "description": "The Chombo package provides a set of tools for implementing finite\ndifference and finite-volume methods for the solution of partial\ndifferential equations on block-structured adaptively refined logically\nrectangular (i.e. Cartesian) grids.\n",
+    "dependencies": [
+        {
+            "name": "blas",
+            "description": "Intel oneAPI MKL."
+        },
+        {
+            "name": "lapack",
+            "description": "Intel oneAPI MKL."
+        },
+        {
+            "name": "gmake",
+            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files."
+        },
+        {
+            "name": "mpi",
+            "description": "MVAPICH2-X is the advanced version of the MVAPICH2 MPI library with\nenhanced features (UMR, ODP, DC, Core-Direct, SHARP, XPMEM), OSU INAM\n(InifniBand Network Monitoring and Analysis),PGAS (OpenSHMEM, UPC,\nUPC++, and CAF), and MPI+PGAS programming models with unified\ncommunication runtime. MVAPICH2-X is not installable from source and is\nonly available through a binary mirror. If you do not find the binary\nyou're looking for, send us an email at mvapich@cse.ohio-state.edu. The\nbinary mirror url is: http://mvapich.cse.ohio-\nstate.edu/download/mvapich/spack-mirror/mvapich2x/"
+        },
+        {
+            "name": "hdf5",
+            "description": "HDF5 is a data model, library, and file format for storing and managing\ndata. It supports an unlimited variety of datatypes, and is designed for\nflexible and efficient I/O and for high volume and complex data."
+        }
+    ],
+    "dependent_to": [
+        {
+            "name": "fastmath",
+            "description": "FASTMath is a suite of ~15 numerical libraries frequently used together\nin various SciDAC and CSE applications. The suite includes\ndiscretization libraries for structured, AMR and unstructured grids as\nwell as solver libraries for ODE's, Time Integrators, Iterative, Non-\nLinear, and Direct Solvers."
+        }
+    ]
+}

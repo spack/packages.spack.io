@@ -1,0 +1,712 @@
+{
+    "name": "llvm-doe",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "doe",
+            "branch": "doe",
+            "preferred": true
+        },
+        {
+            "name": "upstream",
+            "branch": "llvm.org/main"
+        },
+        {
+            "name": "bolt",
+            "branch": "bolt/main"
+        },
+        {
+            "name": "clacc",
+            "branch": "clacc/master"
+        },
+        {
+            "name": "pragma-clang-loop",
+            "branch": "sollve/pragma-clang-loop"
+        },
+        {
+            "name": "pragma-omp-tile",
+            "branch": "sollve/pragma-omp-tile"
+        }
+    ],
+    "build_system": "CMakePackage",
+    "conflicts": [
+        {
+            "name": "%gcc@5:",
+            "spec": "+cuda ^cuda@:7.5 arch=linux-None-x86_64:",
+            "description": "None"
+        },
+        {
+            "name": "%gcc@6:",
+            "spec": "+cuda ^cuda@:8 arch=linux-None-x86_64:",
+            "description": "None"
+        },
+        {
+            "name": "%gcc@6:",
+            "spec": "+cuda ^cuda@:9 arch=linux-None-ppc64le:",
+            "description": "None"
+        },
+        {
+            "name": "%gcc@7:",
+            "spec": "+cuda ^cuda@:9.1 arch=linux-None-x86_64:",
+            "description": "None"
+        },
+        {
+            "name": "%gcc@8:",
+            "spec": "+cuda ^cuda@:10.0.130 arch=linux-None-x86_64:",
+            "description": "None"
+        },
+        {
+            "name": "%gcc@8:",
+            "spec": "+cuda ^cuda@:10.0.130 arch=linux-None-ppc64le:",
+            "description": "None"
+        },
+        {
+            "name": "%gcc@9:",
+            "spec": "+cuda ^cuda@:10.2.89 arch=linux-None-x86_64:",
+            "description": "None"
+        },
+        {
+            "name": "%gcc@9:",
+            "spec": "+cuda ^cuda@:10.1.243 arch=linux-None-ppc64le:",
+            "description": "None"
+        },
+        {
+            "name": "%gcc@:4",
+            "spec": "+cuda ^cuda@11.0.2: arch=linux-None-x86_64:",
+            "description": "None"
+        },
+        {
+            "name": "%gcc@:4",
+            "spec": "+cuda ^cuda@11.0.2: arch=linux-None-ppc64le:",
+            "description": "None"
+        },
+        {
+            "name": "%gcc@10:",
+            "spec": "+cuda ^cuda@:11.0.2 arch=linux-None-x86_64:",
+            "description": "None"
+        },
+        {
+            "name": "%gcc@10:",
+            "spec": "+cuda ^cuda@:11.0.2 arch=linux-None-ppc64le:",
+            "description": "None"
+        },
+        {
+            "name": "%gcc@11:",
+            "spec": "+cuda ^cuda@:11.1.0 arch=linux-None-x86_64:",
+            "description": "None"
+        },
+        {
+            "name": "%gcc@11:",
+            "spec": "+cuda ^cuda@:11.1.0 arch=linux-None-ppc64le:",
+            "description": "None"
+        },
+        {
+            "name": "%pgi@:14.8",
+            "spec": "+cuda ^cuda@:7.0.27 arch=linux-None-x86_64:",
+            "description": "None"
+        },
+        {
+            "name": "%pgi@:15.3,15.5:",
+            "spec": "+cuda ^cuda@7.5 arch=linux-None-x86_64:",
+            "description": "None"
+        },
+        {
+            "name": "%pgi@:16.2,16.0:16.3",
+            "spec": "+cuda ^cuda@8 arch=linux-None-x86_64:",
+            "description": "None"
+        },
+        {
+            "name": "%pgi@:15,18:",
+            "spec": "+cuda ^cuda@9.0:9.1 arch=linux-None-x86_64:",
+            "description": "None"
+        },
+        {
+            "name": "%pgi@:16,19:",
+            "spec": "+cuda ^cuda@9.2.88:10 arch=linux-None-x86_64:",
+            "description": "None"
+        },
+        {
+            "name": "%pgi@:17,20:",
+            "spec": "+cuda ^cuda@10.1.105:10.2.89 arch=linux-None-x86_64:",
+            "description": "None"
+        },
+        {
+            "name": "%pgi@:17,21:",
+            "spec": "+cuda ^cuda@11.0.2:11.1.0 arch=linux-None-x86_64:",
+            "description": "None"
+        },
+        {
+            "name": "%clang@:3.4",
+            "spec": "+cuda ^cuda@:7.5 arch=linux-None-x86_64:",
+            "description": "None"
+        },
+        {
+            "name": "%clang@:3.7,4:",
+            "spec": "+cuda ^cuda@8.0:9.0 arch=linux-None-x86_64:",
+            "description": "None"
+        },
+        {
+            "name": "%clang@:3.7,4.1:",
+            "spec": "+cuda ^cuda@9.1 arch=linux-None-x86_64:",
+            "description": "None"
+        },
+        {
+            "name": "%clang@:3.7,5.1:",
+            "spec": "+cuda ^cuda@9.2 arch=linux-None-x86_64:",
+            "description": "None"
+        },
+        {
+            "name": "%clang@:3.7,6.1:",
+            "spec": "+cuda ^cuda@10.0.130 arch=linux-None-x86_64:",
+            "description": "None"
+        },
+        {
+            "name": "%clang@:3.7,7.1:",
+            "spec": "+cuda ^cuda@10.1.105 arch=linux-None-x86_64:",
+            "description": "None"
+        },
+        {
+            "name": "%clang@:3.7,8.1:",
+            "spec": "+cuda ^cuda@10.1.105:10.1.243 arch=linux-None-x86_64:",
+            "description": "None"
+        },
+        {
+            "name": "%clang@:3.2,9:",
+            "spec": "+cuda ^cuda@10.2.89 arch=linux-None-x86_64:",
+            "description": "None"
+        },
+        {
+            "name": "%clang@:5",
+            "spec": "+cuda ^cuda@11.0.2: arch=linux-None-x86_64:",
+            "description": "None"
+        },
+        {
+            "name": "%clang@:5",
+            "spec": "+cuda ^cuda@11.0.2: arch=linux-None-ppc64le:",
+            "description": "None"
+        },
+        {
+            "name": "%clang@10:",
+            "spec": "+cuda ^cuda@:11.0.2 arch=linux-None-x86_64:",
+            "description": "None"
+        },
+        {
+            "name": "%clang@10:",
+            "spec": "+cuda ^cuda@:11.0.2 arch=linux-None-ppc64le:",
+            "description": "None"
+        },
+        {
+            "name": "%clang@11:",
+            "spec": "+cuda ^cuda@:11.1.0 arch=linux-None-x86_64:",
+            "description": "None"
+        },
+        {
+            "name": "%clang@11:",
+            "spec": "+cuda ^cuda@:11.1.0 arch=linux-None-ppc64le:",
+            "description": "None"
+        },
+        {
+            "name": "%pgi",
+            "spec": "+cuda ^cuda@:8 arch=linux-None-ppc64le:",
+            "description": "None"
+        },
+        {
+            "name": "%pgi@:16",
+            "spec": "+cuda ^cuda@:9.1.185 arch=linux-None-ppc64le:",
+            "description": "None"
+        },
+        {
+            "name": "%pgi@:17",
+            "spec": "+cuda ^cuda@:10 arch=linux-None-ppc64le:",
+            "description": "None"
+        },
+        {
+            "name": "%clang@4:",
+            "spec": "+cuda ^cuda@:9.0.176 arch=linux-None-ppc64le:",
+            "description": "None"
+        },
+        {
+            "name": "%clang@5:",
+            "spec": "+cuda ^cuda@:9.1 arch=linux-None-ppc64le:",
+            "description": "None"
+        },
+        {
+            "name": "%clang@6:",
+            "spec": "+cuda ^cuda@:9.2 arch=linux-None-ppc64le:",
+            "description": "None"
+        },
+        {
+            "name": "%clang@7:",
+            "spec": "+cuda ^cuda@10.0.130 arch=linux-None-ppc64le:",
+            "description": "None"
+        },
+        {
+            "name": "%clang@7.1:",
+            "spec": "+cuda ^cuda@:10.1.105 arch=linux-None-ppc64le:",
+            "description": "None"
+        },
+        {
+            "name": "%clang@8.1:",
+            "spec": "+cuda ^cuda@:10.2.89 arch=linux-None-ppc64le:",
+            "description": "None"
+        },
+        {
+            "name": "%intel@:11.0",
+            "spec": "+cuda ^cuda@:3.1",
+            "description": "None"
+        },
+        {
+            "name": "%intel@:12.0",
+            "spec": "+cuda ^cuda@5.5:",
+            "description": "None"
+        },
+        {
+            "name": "%intel@:13.0",
+            "spec": "+cuda ^cuda@6.0:",
+            "description": "None"
+        },
+        {
+            "name": "%intel@:13.2",
+            "spec": "+cuda ^cuda@6.5:",
+            "description": "None"
+        },
+        {
+            "name": "%intel@:14.9",
+            "spec": "+cuda ^cuda@7:",
+            "description": "None"
+        },
+        {
+            "name": "%intel@16.0:",
+            "spec": "+cuda ^cuda@:8.0.43",
+            "description": "None"
+        },
+        {
+            "name": "%intel@17.0:",
+            "spec": "+cuda ^cuda@:8.0.60",
+            "description": "None"
+        },
+        {
+            "name": "%intel@18.0:",
+            "spec": "+cuda ^cuda@:9.9",
+            "description": "None"
+        },
+        {
+            "name": "%intel@19.0:",
+            "spec": "+cuda ^cuda@:10.0",
+            "description": "None"
+        },
+        {
+            "name": "%intel@19.1:",
+            "spec": "+cuda ^cuda@:10.1",
+            "description": "None"
+        },
+        {
+            "name": "%intel@19.2:",
+            "spec": "+cuda ^cuda@:11.1.0",
+            "description": "None"
+        },
+        {
+            "name": "%xl@:12,14:",
+            "spec": "+cuda ^cuda@:9.1",
+            "description": "None"
+        },
+        {
+            "name": "%xl@:12,14:15,17:",
+            "spec": "+cuda ^cuda@9.2",
+            "description": "None"
+        },
+        {
+            "name": "%xl@:12,17:",
+            "spec": "+cuda ^cuda@:11.1.0",
+            "description": "None"
+        },
+        {
+            "name": "platform=darwin",
+            "spec": "+cuda ^cuda@11.0.2:",
+            "description": "None"
+        },
+        {
+            "name": "~cuda",
+            "spec": "cuda_arch=10",
+            "description": "None"
+        },
+        {
+            "name": "~cuda",
+            "spec": "cuda_arch=11",
+            "description": "None"
+        },
+        {
+            "name": "~cuda",
+            "spec": "cuda_arch=12",
+            "description": "None"
+        },
+        {
+            "name": "~cuda",
+            "spec": "cuda_arch=13",
+            "description": "None"
+        },
+        {
+            "name": "~cuda",
+            "spec": "cuda_arch=20",
+            "description": "None"
+        },
+        {
+            "name": "~cuda",
+            "spec": "cuda_arch=21",
+            "description": "None"
+        },
+        {
+            "name": "~cuda",
+            "spec": "cuda_arch=30",
+            "description": "None"
+        },
+        {
+            "name": "~cuda",
+            "spec": "cuda_arch=32",
+            "description": "None"
+        },
+        {
+            "name": "~cuda",
+            "spec": "cuda_arch=35",
+            "description": "None"
+        },
+        {
+            "name": "~cuda",
+            "spec": "cuda_arch=37",
+            "description": "None"
+        },
+        {
+            "name": "~cuda",
+            "spec": "cuda_arch=50",
+            "description": "None"
+        },
+        {
+            "name": "~cuda",
+            "spec": "cuda_arch=52",
+            "description": "None"
+        },
+        {
+            "name": "~cuda",
+            "spec": "cuda_arch=53",
+            "description": "None"
+        },
+        {
+            "name": "~cuda",
+            "spec": "cuda_arch=60",
+            "description": "None"
+        },
+        {
+            "name": "~cuda",
+            "spec": "cuda_arch=61",
+            "description": "None"
+        },
+        {
+            "name": "~cuda",
+            "spec": "cuda_arch=62",
+            "description": "None"
+        },
+        {
+            "name": "~cuda",
+            "spec": "cuda_arch=70",
+            "description": "None"
+        },
+        {
+            "name": "~cuda",
+            "spec": "cuda_arch=72",
+            "description": "None"
+        },
+        {
+            "name": "~cuda",
+            "spec": "cuda_arch=75",
+            "description": "None"
+        },
+        {
+            "name": "~cuda",
+            "spec": "cuda_arch=80",
+            "description": "None"
+        },
+        {
+            "name": "~cuda",
+            "spec": "cuda_arch=86",
+            "description": "None"
+        },
+        {
+            "name": "+ipo",
+            "spec": "^cmake@:3.8",
+            "description": "+ipo is not supported by CMake < 3.9"
+        },
+        {
+            "name": "+llvm_dylib",
+            "spec": "+shared_libs",
+            "description": "None"
+        },
+        {
+            "name": "+lldb",
+            "spec": "~clang",
+            "description": "None"
+        },
+        {
+            "name": "+libcxx",
+            "spec": "~clang",
+            "description": "None"
+        },
+        {
+            "name": "+internal_unwind",
+            "spec": "~clang",
+            "description": "None"
+        },
+        {
+            "name": "+compiler-rt",
+            "spec": "~clang",
+            "description": "None"
+        },
+        {
+            "name": "%gcc@:5.0.999",
+            "spec": "",
+            "description": "None"
+        },
+        {
+            "name": "cuda_arch=none",
+            "spec": "+cuda",
+            "description": "A value for cuda_arch must be specified."
+        },
+        {
+            "name": "+mlir",
+            "spec": "",
+            "description": "None"
+        },
+        {
+            "name": "+flang",
+            "spec": "~clang",
+            "description": "None"
+        },
+        {
+            "name": "+code_signing",
+            "spec": "arch=linux-None-None",
+            "description": "None"
+        },
+        {
+            "name": "+code_signing",
+            "spec": "arch=cray-None-None",
+            "description": "None"
+        },
+        {
+            "name": "+code_signing",
+            "spec": "~lldb arch=darwin-None-None",
+            "description": "code signing is only necessary for building the in-tree debug server on macOS. Turning this variant off enables a build of llvm with lldb that uses the system debug server"
+        },
+        {
+            "name": "^cmake@3.19.0",
+            "spec": "@:11.0.0",
+            "description": "None"
+        }
+    ],
+    "variants": [
+        {
+            "name": "cuda",
+            "default": false,
+            "description": "Build with CUDA"
+        },
+        {
+            "name": "cuda_arch",
+            "default": "none",
+            "description": "CUDA architecture"
+        },
+        {
+            "name": "build_type",
+            "default": "Release",
+            "description": "CMake build type"
+        },
+        {
+            "name": "ipo",
+            "default": false,
+            "description": "CMake interprocedural optimization"
+        },
+        {
+            "name": "clang",
+            "default": true,
+            "description": "Build the LLVM C/C++/Objective-C compiler frontend"
+        },
+        {
+            "name": "flang",
+            "default": false,
+            "description": "Build the LLVM Fortran compiler frontend"
+        },
+        {
+            "name": "omp_debug",
+            "default": false,
+            "description": "Include debugging code in OpenMP runtime libraries"
+        },
+        {
+            "name": "lldb",
+            "default": false,
+            "description": "Build the LLVM debugger"
+        },
+        {
+            "name": "lld",
+            "default": true,
+            "description": "Build the LLVM linker"
+        },
+        {
+            "name": "mlir",
+            "default": false,
+            "description": "Build with MLIR support"
+        },
+        {
+            "name": "internal_unwind",
+            "default": true,
+            "description": "Build the libcxxabi libunwind"
+        },
+        {
+            "name": "polly",
+            "default": true,
+            "description": "Build the LLVM polyhedral optimization plugin, only builds for 3.7.0+"
+        },
+        {
+            "name": "libcxx",
+            "default": true,
+            "description": "Build the LLVM C++ standard library"
+        },
+        {
+            "name": "compiler-rt",
+            "default": true,
+            "description": "Build LLVM compiler runtime, including sanitizers"
+        },
+        {
+            "name": "gold",
+            "default": true,
+            "description": "Add support for LTO with the gold linker plugin"
+        },
+        {
+            "name": "split_dwarf",
+            "default": false,
+            "description": "Build with split dwarf information"
+        },
+        {
+            "name": "shared_libs",
+            "default": false,
+            "description": "Build all components as shared libraries, faster, less memory to build, less stable"
+        },
+        {
+            "name": "llvm_dylib",
+            "default": false,
+            "description": "Build LLVM shared library, containing all components in a single shared library"
+        },
+        {
+            "name": "all_targets",
+            "default": false,
+            "description": "Build all supported targets, default targets <current arch>,NVPTX,AMDGPU,CppBackend"
+        },
+        {
+            "name": "omp_tsan",
+            "default": false,
+            "description": "Build with OpenMP capable thread sanitizer"
+        },
+        {
+            "name": "argobots",
+            "default": false,
+            "description": "Build BOLT/OpenMP with Argobots. Effective when @bolt"
+        },
+        {
+            "name": "code_signing",
+            "default": false,
+            "description": "Enable code-signing on macOS"
+        },
+        {
+            "name": "python",
+            "default": false,
+            "description": "Install python bindings"
+        }
+    ],
+    "homepage": "https://github.com/llvm-doe-org",
+    "maintainers": [
+        "shintaro-iwasaki"
+    ],
+    "patches": [
+        {
+            "owner": "builtin.llvm-doe",
+            "sha256": "332fe65f78b2b4a242045ec2394eee8db631fbcbe27b0016d5e5c859e34f47af",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "constexpr_longdouble_9.0.patch",
+            "version": "@9:10.0.0+libcxx"
+        },
+        {
+            "owner": "builtin.llvm-doe",
+            "sha256": "47284669559b98dd068b193b72a48add09112fcb90a9bfe5c609b79628a20d2b",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "lldb_external_ncurses-10.patch",
+            "version": "@10.0.0:10.99+lldb"
+        },
+        {
+            "owner": "builtin.llvm-doe",
+            "sha256": "7b286b164174a2eeb72931c7d9d246baef170f476d1abcedcec48a9c0692366c",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "llvm_python_path.patch",
+            "version": "@11.0.0"
+        }
+    ],
+    "resources": [],
+    "description": "This package provides a collection of the experimental LLVM projects\ndone by the US DOE research and development teams.\n",
+    "dependencies": [
+        {
+            "name": "cuda",
+            "description": "CUDA is a parallel computing platform and programming model invented by\nNVIDIA. It enables dramatic increases in computing performance by\nharnessing the power of the graphics processing unit (GPU). Note: This\npackage does not currently install the drivers necessary to run CUDA.\nThese will need to be installed manually. See:\nhttps://docs.nvidia.com/cuda/ for details."
+        },
+        {
+            "name": "cmake",
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
+        },
+        {
+            "name": "python",
+            "description": "The Python programming language."
+        },
+        {
+            "name": "pkgconfig",
+            "description": "pkgconf is a program which helps to configure compiler and linker flags\nfor development frameworks. It is similar to pkg-config from\nfreedesktop.org, providing additional functionality while also\nmaintaining compatibility."
+        },
+        {
+            "name": "z3",
+            "description": "Z3 is a theorem prover from Microsoft Research. It is licensed under the\nMIT license."
+        },
+        {
+            "name": "perl-data-dumper",
+            "description": "Stringified perl data structures, suitable for both printing and eval"
+        },
+        {
+            "name": "hwloc",
+            "description": "The Hardware Locality (hwloc) software project. The Portable Hardware\nLocality (hwloc) software package provides a portable abstraction\n(across OS, versions, architectures, ...) of the hierarchical topology\nof modern architectures, including NUMA memory nodes, sockets, shared\ncaches, cores and simultaneous multithreading. It also gathers various\nsystem attributes such as cache and memory information as well as the\nlocality of I/O devices such as network interfaces, InfiniBand HCAs or\nGPUs. It primarily aims at helping applications with gathering\ninformation about modern computing hardware so as to exploit it\naccordingly and efficiently."
+        },
+        {
+            "name": "libelf",
+            "description": "libelf lets you read, modify or create ELF object files in an\narchitecture-independent way. The library takes care of size and endian\nissues, e.g. you can process a file for SPARC processors on an Intel-\nbased system. Note: libelf is no longer maintained and packages that\ndepend on libelf should migrate to elfutils."
+        },
+        {
+            "name": "libffi",
+            "description": "The libffi library provides a portable, high level programming interface\nto various calling conventions. This allows a programmer to call any\nfunction specified by a call interface description at run time."
+        },
+        {
+            "name": "ncurses",
+            "description": "The ncurses (new curses) library is a free software emulation of curses\nin System V Release 4.0, and more. It uses terminfo format, supports\npads and color and multiple highlights and forms characters and\nfunction-key mapping, and has all the other SYSV-curses enhancements\nover BSD curses."
+        },
+        {
+            "name": "swig",
+            "description": "SWIG is an interface compiler that connects programs written in C and\nC++ with scripting languages such as Perl, Python, Ruby, and Tcl. It\nworks by taking the declarations found in C/C++ header files and using\nthem to generate the wrapper code that scripting languages need to\naccess the underlying C/C++ code. In addition, SWIG provides a variety\nof customization features that let you tailor the wrapping process to\nsuit your application."
+        },
+        {
+            "name": "libedit",
+            "description": "An autotools compatible port of the NetBSD editline library"
+        },
+        {
+            "name": "py-six",
+            "description": "Python 2 and 3 compatibility utilities."
+        },
+        {
+            "name": "binutils",
+            "description": "GNU binutils, which contain the linker, assembler, objdump and others"
+        }
+    ],
+    "dependent_to": []
+}

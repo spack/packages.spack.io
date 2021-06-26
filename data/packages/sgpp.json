@@ -1,0 +1,264 @@
+{
+    "name": "sgpp",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "master",
+            "branch": "master"
+        },
+        {
+            "name": "3.3.0",
+            "sha256": "ca4d5b79f315b425ce69b04940c141451a76848bf1bd7b96067217304c68e2d4"
+        },
+        {
+            "name": "3.2.0",
+            "sha256": "dab83587fd447f92ed8546eacaac6b8cbe65b8db5e860218c0fa2e42f776962d"
+        },
+        {
+            "name": "3.1.0",
+            "sha256": "6b46bc5b3966e92567d6754130666bdffb7be1d1d2c1b427d7ce964b8eaab526"
+        },
+        {
+            "name": "3.0.0",
+            "sha256": "4dd9049e664abd7db78c355fea5e192167812f443115d4bf686a51bb1e9bda9c"
+        }
+    ],
+    "build_system": "SConsPackage",
+    "conflicts": [
+        {
+            "name": "%gcc@:4.8.4",
+            "spec": "",
+            "description": "Compiler with c++11 support is required!"
+        },
+        {
+            "name": "%apple-clang@:3.9",
+            "spec": "",
+            "description": "Compiler with c++11 support is required!"
+        },
+        {
+            "name": "%clang@:3.2",
+            "spec": "",
+            "description": "Compiler with c++11 support is required!"
+        },
+        {
+            "name": "%intel@:14",
+            "spec": "",
+            "description": "Compiler with c++11 support is required!"
+        },
+        {
+            "name": "-pde",
+            "spec": "+python+solver",
+            "description": "None"
+        },
+        {
+            "name": "+pde",
+            "spec": "~solver",
+            "description": "None"
+        },
+        {
+            "name": "+datadriven",
+            "spec": "~solver",
+            "description": "None"
+        },
+        {
+            "name": "+datadriven",
+            "spec": "~optimization",
+            "description": "None"
+        },
+        {
+            "name": "+datadriven",
+            "spec": "~pde",
+            "description": "None"
+        },
+        {
+            "name": "+misc",
+            "spec": "~datadriven",
+            "description": "None"
+        },
+        {
+            "name": "+misc",
+            "spec": "~solver",
+            "description": "None"
+        },
+        {
+            "name": "+misc",
+            "spec": "~optimization",
+            "description": "None"
+        },
+        {
+            "name": "+misc",
+            "spec": "~pde",
+            "description": "None"
+        },
+        {
+            "name": "+misc",
+            "spec": "@1.0.0:3.1.0",
+            "description": "The misc module was introduced in version 3.2.0"
+        },
+        {
+            "name": "+combigrid",
+            "spec": "@1.0.0:3.2.0~optimization",
+            "description": "None"
+        },
+        {
+            "name": "+combigrid",
+            "spec": "@1.0.0:3.2.0~pde",
+            "description": "None"
+        },
+        {
+            "name": "+combigrid",
+            "spec": "@1.0.0:3.2.0~solver",
+            "description": "None"
+        },
+        {
+            "name": "+combigrid",
+            "spec": "@1.0.0:3.2.0~quadrature",
+            "description": "None"
+        }
+    ],
+    "variants": [
+        {
+            "name": "python",
+            "default": true,
+            "description": "Provide Python bindings for SGpp"
+        },
+        {
+            "name": "optimization",
+            "default": true,
+            "description": "Builds the optimization module of SGpp"
+        },
+        {
+            "name": "pde",
+            "default": true,
+            "description": "Builds the datadriven module of SGpp"
+        },
+        {
+            "name": "quadrature",
+            "default": true,
+            "description": "Builds the datadriven module of SGpp"
+        },
+        {
+            "name": "datadriven",
+            "default": false,
+            "description": "Builds the datadriven module of SGpp"
+        },
+        {
+            "name": "misc",
+            "default": false,
+            "description": "Builds the misc module of SGpp"
+        },
+        {
+            "name": "combigrid",
+            "default": false,
+            "description": "Builds the combigrid module of SGpp"
+        },
+        {
+            "name": "solver",
+            "default": true,
+            "description": "Builds the solver module of SGpp"
+        },
+        {
+            "name": "opencl",
+            "default": false,
+            "description": "Enables support for OpenCL accelerated operations"
+        },
+        {
+            "name": "mpi",
+            "default": false,
+            "description": "Enables support for MPI-distributed operations"
+        }
+    ],
+    "homepage": "https://sgpp.sparsegrids.org",
+    "maintainers": [
+        "G-071",
+        "leiterrl",
+        "pfluegdk"
+    ],
+    "patches": [
+        {
+            "owner": "builtin.sgpp",
+            "sha256": "05e8832456aefece50ec5bafbfd4791850d7c3dcb148bee60c405f86cde18607",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "directory.patch",
+            "version": "@1.0.0:3.2.0"
+        },
+        {
+            "owner": "builtin.sgpp",
+            "sha256": "fc2b21defb9c56d6304998298413e8535a62b7d103e07d8868485a381f169f36",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "fix-setup-py.patch",
+            "version": "@3.2.0"
+        },
+        {
+            "owner": "builtin.sgpp",
+            "sha256": "fed8c3318578dd70c3c0878a92463699fd358db930c834a0897b7386be33c2a6",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "ocl.patch",
+            "version": "@3.2.0+opencl"
+        },
+        {
+            "owner": "builtin.sgpp",
+            "sha256": "28c3f6dc38780a697bdd1478d29c1f968b413ac79720a08b51a9b16e7c1305af",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "avx512_datadriven_compilation.patch",
+            "version": "@:3.3.0+datadriven"
+        },
+        {
+            "owner": "builtin.sgpp",
+            "sha256": "1d94416231a2504f25f611c8b700376d80b858c81e0e2d0d9138f1cea8ae7467",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "for_aarch64.patch",
+            "version": "arch=linux-None-aarch64:"
+        }
+    ],
+    "resources": [],
+    "description": "SGpp is a library and framework for sparse grids in different flavors.\nSGpp supports both hierarchical spatially-adaptive sparse grids and the\ndimensionally-adaptive sparse grid combination technique.\n",
+    "dependencies": [
+        {
+            "name": "scons",
+            "description": "SCons is a software construction tool"
+        },
+        {
+            "name": "zlib",
+            "description": "A free, general-purpose, legally unencumbered lossless data-compression\nlibrary."
+        },
+        {
+            "name": "python",
+            "description": "The Python programming language."
+        },
+        {
+            "name": "py-setuptools",
+            "description": "A Python utility that aids in the process of downloading, building,\nupgrading, installing, and uninstalling Python packages."
+        },
+        {
+            "name": "swig",
+            "description": "SWIG is an interface compiler that connects programs written in C and\nC++ with scripting languages such as Perl, Python, Ruby, and Tcl. It\nworks by taking the declarations found in C/C++ header files and using\nthem to generate the wrapper code that scripting languages need to\naccess the underlying C/C++ code. In addition, SWIG provides a variety\nof customization features that let you tailor the wrapping process to\nsuit your application."
+        },
+        {
+            "name": "py-numpy",
+            "description": "NumPy is the fundamental package for scientific computing with Python.\nIt contains among other things: a powerful N-dimensional array object,\nsophisticated (broadcasting) functions, tools for integrating C/C++ and\nFortran code, and useful linear algebra, Fourier transform, and random\nnumber capabilities"
+        },
+        {
+            "name": "py-scipy",
+            "description": "SciPy (pronounced \"Sigh Pie\") is a Scientific Library for Python. It\nprovides many user-friendly and efficient numerical routines such as\nroutines for numerical integration and optimization."
+        },
+        {
+            "name": "opencl",
+            "description": "This package aims at creating an Open Source alternative to vendor\nspecific OpenCL ICD loaders."
+        },
+        {
+            "name": "mpi",
+            "description": "MVAPICH2-X is the advanced version of the MVAPICH2 MPI library with\nenhanced features (UMR, ODP, DC, Core-Direct, SHARP, XPMEM), OSU INAM\n(InifniBand Network Monitoring and Analysis),PGAS (OpenSHMEM, UPC,\nUPC++, and CAF), and MPI+PGAS programming models with unified\ncommunication runtime. MVAPICH2-X is not installable from source and is\nonly available through a binary mirror. If you do not find the binary\nyou're looking for, send us an email at mvapich@cse.ohio-state.edu. The\nbinary mirror url is: http://mvapich.cse.ohio-\nstate.edu/download/mvapich/spack-mirror/mvapich2x/"
+        },
+        {
+            "name": "boost",
+            "description": "Boost provides free peer-reviewed portable C++ source libraries,\nemphasizing libraries that work well with the C++ Standard Library.\nBoost libraries are intended to be widely useful, and usable across a\nbroad spectrum of applications. The Boost license encourages both\ncommercial and non-commercial use."
+        }
+    ],
+    "dependent_to": []
+}

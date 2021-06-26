@@ -1,0 +1,91 @@
+{
+    "name": "fdb",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "5.7.8",
+            "sha256": "6adac23c0d1de54aafb3c663d077b85d0f804724596623b381ff15ea4a835f60"
+        }
+    ],
+    "build_system": "CMakePackage",
+    "conflicts": [
+        {
+            "name": "+ipo",
+            "spec": "^cmake@:3.8",
+            "description": "+ipo is not supported by CMake < 3.9"
+        }
+    ],
+    "variants": [
+        {
+            "name": "build_type",
+            "default": "RelWithDebInfo",
+            "description": "CMake build type"
+        },
+        {
+            "name": "ipo",
+            "default": false,
+            "description": "CMake interprocedural optimization"
+        },
+        {
+            "name": "tools",
+            "default": true,
+            "description": "Build the command line tools"
+        },
+        {
+            "name": "backends",
+            "default": "none",
+            "description": "List of supported backends"
+        }
+    ],
+    "homepage": "https://github.com/ecmwf/fdb",
+    "maintainers": [
+        "skosukhin"
+    ],
+    "patches": [
+        {
+            "owner": "builtin.fdb",
+            "sha256": "60f74ae4fee03c6d19c9aa13cf4403454e5c5b73a1555f53e75d624921e25c35",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "metkit_1.7.0.patch",
+            "version": "@:5.7.10+tools ^metkit@1.7.0:"
+        },
+        {
+            "owner": "builtin.fdb",
+            "sha256": "e2254577e6d84a61d394eddcf42f894582f5daaf58d8962c609e41be0e3471b3",
+            "level": 1,
+            "working_dir": ".",
+            "url": "https://github.com/ecmwf/fdb/commit/86e06b60f9a2d76a389a5f49bedd566d4c2ad2b2.patch",
+            "version": "@5.7.1:5.7.10+tools"
+        }
+    ],
+    "resources": [],
+    "description": "FDB (Fields DataBase) is a domain-specific object store developed at\nECMWF for storing, indexing and retrieving GRIB data.\n",
+    "dependencies": [
+        {
+            "name": "cmake",
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
+        },
+        {
+            "name": "ecbuild",
+            "description": "ecBuild is the ECMWF build system. It is built on top of CMake and\nconsists of a set of macros as well as a wrapper around CMake,"
+        },
+        {
+            "name": "eckit",
+            "description": "ecKit is a cross-platform c++ toolkit that supports development of tools\nand applications at ECMWF."
+        },
+        {
+            "name": "eccodes",
+            "description": "ecCodes is a package developed by ECMWF for processing meteorological\ndata in GRIB (1/2), BUFR (3/4) and GTS header formats."
+        },
+        {
+            "name": "metkit",
+            "description": "Toolkit for manipulating and describing meteorological objects,\nimplementing the MARS language and associated processing and semantics."
+        },
+        {
+            "name": "lustre",
+            "description": "Lustre is a type of parallel distributed file system, generally used for\nlarge-scale cluster computing."
+        }
+    ],
+    "dependent_to": []
+}

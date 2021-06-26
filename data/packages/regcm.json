@@ -1,0 +1,70 @@
+{
+    "name": "regcm",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "4.7.0",
+            "sha256": "456631c10dcb83d70e51c3babda2f7a1aa41ed9e60cb4209deb3764655267519",
+            "url": "https://gforge.ictp.it/gf/download/frsrelease/259/1845/RegCM-4.7.0.tar.gz"
+        }
+    ],
+    "build_system": "AutotoolsPackage",
+    "conflicts": [
+        {
+            "name": "%intel",
+            "spec": "@4.7.0",
+            "description": "Intel compiler not working with this specific version of RegCM (generates a bug at runtime): please install a newer version of RegCM or use a different compiler."
+        }
+    ],
+    "variants": [
+        {
+            "name": "debug",
+            "default": false,
+            "description": "Build RegCM using debug options."
+        },
+        {
+            "name": "profile",
+            "default": false,
+            "description": "Build RegCM using profiling options."
+        },
+        {
+            "name": "singleprecision",
+            "default": false,
+            "description": "Build RegCM using single precision float type."
+        },
+        {
+            "name": "extension",
+            "default": "none",
+            "description": "Build extensions for a specific architecture. Only available for GCC and Intel compilers; moreover, GCC builds only one architecture optimization."
+        },
+        {
+            "name": "pnetcdf",
+            "default": false,
+            "description": "Build NetCDF using the high performance parallel NetCDF implementation."
+        }
+    ],
+    "homepage": "https://gforge.ictp.it/gf/project/regcm/",
+    "maintainers": [],
+    "patches": [],
+    "resources": [],
+    "description": "RegCM, ICTP Regional Climate Model (https://ictp.it).\n",
+    "dependencies": [
+        {
+            "name": "netcdf-c",
+            "description": "NetCDF (network Common Data Form) is a set of software libraries and\nmachine-independent data formats that support the creation, access, and\nsharing of array-oriented scientific data. This is the C distribution."
+        },
+        {
+            "name": "netcdf-fortran",
+            "description": "NetCDF (network Common Data Form) is a set of software libraries and\nmachine-independent data formats that support the creation, access, and\nsharing of array-oriented scientific data. This is the Fortran\ndistribution."
+        },
+        {
+            "name": "hdf5",
+            "description": "HDF5 is a data model, library, and file format for storing and managing\ndata. It supports an unlimited variety of datatypes, and is designed for\nflexible and efficient I/O and for high volume and complex data."
+        },
+        {
+            "name": "mpi",
+            "description": "MVAPICH2-X is the advanced version of the MVAPICH2 MPI library with\nenhanced features (UMR, ODP, DC, Core-Direct, SHARP, XPMEM), OSU INAM\n(InifniBand Network Monitoring and Analysis),PGAS (OpenSHMEM, UPC,\nUPC++, and CAF), and MPI+PGAS programming models with unified\ncommunication runtime. MVAPICH2-X is not installable from source and is\nonly available through a binary mirror. If you do not find the binary\nyou're looking for, send us an email at mvapich@cse.ohio-state.edu. The\nbinary mirror url is: http://mvapich.cse.ohio-\nstate.edu/download/mvapich/spack-mirror/mvapich2x/"
+        }
+    ],
+    "dependent_to": []
+}

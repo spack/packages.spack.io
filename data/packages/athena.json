@@ -1,0 +1,260 @@
+{
+    "name": "athena",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "master",
+            "branch": "master"
+        },
+        {
+            "name": "4.2",
+            "sha256": "6334848d7f1325aa44859418feac8ce223b56793ae8907103000af5b27f50e7e"
+        }
+    ],
+    "build_system": "AutotoolsPackage",
+    "conflicts": [
+        {
+            "name": "flux=hllc",
+            "spec": "gas=mhd",
+            "description": "None"
+        },
+        {
+            "name": "flux=exact",
+            "spec": "gas=mhd",
+            "description": "None"
+        },
+        {
+            "name": "flux=two-shock",
+            "spec": "gas=mhd",
+            "description": "None"
+        },
+        {
+            "name": "+h_correction",
+            "spec": "flux=hllc",
+            "description": "None"
+        },
+        {
+            "name": "+h_correction",
+            "spec": "flux=hlld",
+            "description": "None"
+        },
+        {
+            "name": "+h_correction",
+            "spec": "flux=hlle",
+            "description": "None"
+        },
+        {
+            "name": "+h_correction",
+            "spec": "flux=force",
+            "description": "None"
+        },
+        {
+            "name": "+h_correction",
+            "spec": "flux=exact",
+            "description": "None"
+        },
+        {
+            "name": "+h_correction",
+            "spec": "flux=two-shock",
+            "description": "None"
+        },
+        {
+            "name": "coord=cylindrical",
+            "spec": "gravity=none",
+            "description": "None"
+        },
+        {
+            "name": "coord=cylindrical",
+            "spec": "particles=none",
+            "description": "None"
+        },
+        {
+            "name": "integrator=vl",
+            "spec": "order=3",
+            "description": "None"
+        },
+        {
+            "name": "integrator=vl",
+            "spec": "order=2",
+            "description": "None"
+        }
+    ],
+    "variants": [
+        {
+            "name": "problem",
+            "default": "linear_wave",
+            "description": "Problem generator"
+        },
+        {
+            "name": "gas",
+            "default": "mhd",
+            "description": "Gas properties"
+        },
+        {
+            "name": "eos",
+            "default": "adiabatic",
+            "description": "Equation of state"
+        },
+        {
+            "name": "nscalars",
+            "default": 0,
+            "description": "Number of advected scalars"
+        },
+        {
+            "name": "gravity",
+            "default": "none",
+            "description": "Algorithm for self gravity"
+        },
+        {
+            "name": "particles",
+            "default": "none",
+            "description": "Dust particle integration algorithm"
+        },
+        {
+            "name": "coord",
+            "default": "cartesian",
+            "description": "Coordinate System"
+        },
+        {
+            "name": "conduction",
+            "default": false,
+            "description": "Enable thermal conduction"
+        },
+        {
+            "name": "resistivity",
+            "default": false,
+            "description": "Enable resistivity"
+        },
+        {
+            "name": "special_relativity",
+            "default": false,
+            "description": "Enable special relativistic hydro or MHD"
+        },
+        {
+            "name": "viscosity",
+            "default": false,
+            "description": "Enable viscosity"
+        },
+        {
+            "name": "order",
+            "default": "2",
+            "description": "Order and type of spatial reconstruction"
+        },
+        {
+            "name": "flux",
+            "default": "roe",
+            "description": "Flux function"
+        },
+        {
+            "name": "integrator",
+            "default": "ctu",
+            "description": "Unsplit integration algorithm"
+        },
+        {
+            "name": "cflags",
+            "default": "opt",
+            "description": "Compiler flags"
+        },
+        {
+            "name": "fargo",
+            "default": false,
+            "description": "Enable FARGO algorithm"
+        },
+        {
+            "name": "fft",
+            "default": false,
+            "description": "Use FFTW block decomposition"
+        },
+        {
+            "name": "fofc",
+            "default": false,
+            "description": "Enable first-order flux correction"
+        },
+        {
+            "name": "ghost",
+            "default": false,
+            "description": "Write ghost zones"
+        },
+        {
+            "name": "h_correction",
+            "default": false,
+            "description": "Turn on H-correction"
+        },
+        {
+            "name": "mpi",
+            "default": true,
+            "description": "Enable MPI parallelization"
+        },
+        {
+            "name": "shearing_box",
+            "default": false,
+            "description": "Turn on shearing-box"
+        },
+        {
+            "name": "single",
+            "default": false,
+            "description": "Use single-precision instead of double-precision"
+        },
+        {
+            "name": "sts",
+            "default": false,
+            "description": "Turn on super timestepping"
+        },
+        {
+            "name": "smr",
+            "default": false,
+            "description": "Use static mesh refinement"
+        },
+        {
+            "name": "rotating_frame",
+            "default": false,
+            "description": "Turn on rotating_frame"
+        },
+        {
+            "name": "l1_inflow",
+            "default": false,
+            "description": "Enable inflow from L1 point"
+        }
+    ],
+    "homepage": "https://princetonuniversity.github.io/Athena-Cversion/",
+    "maintainers": [],
+    "patches": [
+        {
+            "owner": "builtin.athena",
+            "sha256": "e4a3a881c6e47c353831709aff132629074dd2df3768a6d1fb45b60bf22a8e81",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "missing-separator.patch",
+            "version": ""
+        }
+    ],
+    "resources": [],
+    "description": "Athena is a grid-based code for astrophysical magnetohydrodynamics\n(MHD). It was developed primarily for studies of the interstellar\nmedium, star formation, and accretion flows.\n",
+    "dependencies": [
+        {
+            "name": "autoconf",
+            "description": "Autoconf -- system configuration part of autotools"
+        },
+        {
+            "name": "automake",
+            "description": "Automake -- make file builder part of autotools"
+        },
+        {
+            "name": "libtool",
+            "description": "libtool -- library building part of autotools."
+        },
+        {
+            "name": "m4",
+            "description": "GNU M4 is an implementation of the traditional Unix macro processor."
+        },
+        {
+            "name": "mpi",
+            "description": "MVAPICH2-X is the advanced version of the MVAPICH2 MPI library with\nenhanced features (UMR, ODP, DC, Core-Direct, SHARP, XPMEM), OSU INAM\n(InifniBand Network Monitoring and Analysis),PGAS (OpenSHMEM, UPC,\nUPC++, and CAF), and MPI+PGAS programming models with unified\ncommunication runtime. MVAPICH2-X is not installable from source and is\nonly available through a binary mirror. If you do not find the binary\nyou're looking for, send us an email at mvapich@cse.ohio-state.edu. The\nbinary mirror url is: http://mvapich.cse.ohio-\nstate.edu/download/mvapich/spack-mirror/mvapich2x/"
+        },
+        {
+            "name": "fftw",
+            "description": "FFTW is a C subroutine library for computing the discrete Fourier\ntransform (DFT) in one or more dimensions, of arbitrary input size, and\nof both real and complex data (as well as of even/odd data, i.e. the\ndiscrete cosine/sine transforms or DCT/DST). We believe that FFTW, which\nis free software, should become the FFT library of choice for most\napplications."
+        }
+    ],
+    "dependent_to": []
+}

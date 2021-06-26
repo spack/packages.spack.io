@@ -1,0 +1,98 @@
+{
+    "name": "lazyten",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "develop",
+            "branch": "master"
+        },
+        {
+            "name": "0.4.1",
+            "sha256": "696d151382993c13d04516c77db3ea712a70e3cb449539b9e79abc78cf245ae4"
+        }
+    ],
+    "build_system": "CMakePackage",
+    "conflicts": [
+        {
+            "name": "+ipo",
+            "spec": "^cmake@:3.8",
+            "description": "+ipo is not supported by CMake < 3.9"
+        },
+        {
+            "name": "%intel",
+            "spec": "",
+            "description": "krims only builds with gcc and clang"
+        },
+        {
+            "name": "%gcc@:4.8",
+            "spec": "",
+            "description": "None"
+        },
+        {
+            "name": "%clang@:3.5",
+            "spec": "",
+            "description": "None"
+        }
+    ],
+    "variants": [
+        {
+            "name": "build_type",
+            "default": "DebugRelease",
+            "description": "The build type to build"
+        },
+        {
+            "name": "ipo",
+            "default": false,
+            "description": "CMake interprocedural optimization"
+        },
+        {
+            "name": "shared",
+            "default": true,
+            "description": "Build shared libraries (else the static one)"
+        },
+        {
+            "name": "arpack",
+            "default": true,
+            "description": "Build with Arpack support"
+        },
+        {
+            "name": "examples",
+            "default": false,
+            "description": "Compile examples"
+        }
+    ],
+    "homepage": "http://lazyten.org",
+    "maintainers": [
+        "mfherbst"
+    ],
+    "patches": [],
+    "resources": [],
+    "description": "Lightweight linear algebra library based on lazy matrices\n",
+    "dependencies": [
+        {
+            "name": "cmake",
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
+        },
+        {
+            "name": "krims",
+            "description": "The bucket of Krimskrams every C or C++ project needs"
+        },
+        {
+            "name": "blas",
+            "description": "Intel oneAPI MKL."
+        },
+        {
+            "name": "lapack",
+            "description": "Intel oneAPI MKL."
+        },
+        {
+            "name": "armadillo",
+            "description": "Armadillo is a high quality linear algebra library (matrix maths) for\nthe C++ language, aiming towards a good balance between speed and ease\nof use."
+        },
+        {
+            "name": "arpack-ng",
+            "description": "ARPACK-NG is a collection of Fortran77 subroutines designed to solve\nlarge scale eigenvalue problems. Important Features: * Reverse\nCommunication Interface. * Single and Double Precision Real Arithmetic\nVersions for Symmetric, Non-symmetric, Standard or Generalized Problems.\n* Single and Double Precision Complex Arithmetic Versions for Standard\nor Generalized Problems. * Routines for Banded Matrices - Standard or\nGeneralized Problems. * Routines for The Singular Value Decomposition. *\nExample driver routines that may be used as templates to implement\nnumerous Shift-Invert strategies for all problem types, data types and\nprecision. This project is a joint project between Debian, Octave and\nScilab in order to provide a common and maintained version of arpack.\nIndeed, no single release has been published by Rice university for the\nlast few years and since many software (Octave, Scilab, R, Matlab...)\nforked it and implemented their own modifications, arpack-ng aims to\ntackle this by providing a common repository and maintained versions.\narpack-ng is replacing arpack almost everywhere."
+        }
+    ],
+    "dependent_to": []
+}

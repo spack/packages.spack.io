@@ -1,0 +1,133 @@
+{
+    "name": "cntk",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "master",
+            "branch": "master"
+        },
+        {
+            "name": "2.0",
+            "sha256": "3adee17f166e2a682dfb551ca017ae5c3836ca9772c0af14215a7e76254f201c"
+        }
+    ],
+    "build_system": "Package",
+    "conflicts": [],
+    "variants": [
+        {
+            "name": "opencv",
+            "default": false,
+            "description": "Enable OpenCV support."
+        },
+        {
+            "name": "kaldi",
+            "default": false,
+            "description": "Enable Kaldi support."
+        },
+        {
+            "name": "asgd",
+            "default": true,
+            "description": "Enable DataParallelASGD powered by Multiverso."
+        },
+        {
+            "name": "1bitsgd",
+            "default": false,
+            "description": "Enable 1bitsgd support."
+        },
+        {
+            "name": "cuda",
+            "default": false,
+            "description": "Enable CUDA support."
+        },
+        {
+            "name": "debug",
+            "default": false,
+            "description": "Debug build."
+        }
+    ],
+    "homepage": "https://www.microsoft.com/en-us/research/product/cognitive-toolkit",
+    "maintainers": [],
+    "patches": [
+        {
+            "owner": "builtin.cntk",
+            "sha256": "b928d26172eda4fa71b3238669d89d0992c5dc69e09b3fccba323cc29536c8e9",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "build.patch",
+            "version": ""
+        },
+        {
+            "owner": "builtin.cntk",
+            "sha256": "2af46453f738f98c8f4910175acc755c68cc6598ed597afa6113a296046eb260",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "kaldireader-openblas.patch",
+            "version": ""
+        },
+        {
+            "owner": "builtin.cntk",
+            "sha256": "0684f98bb58cd919ecdd9cb730c46d465c5573611422b6eb4662345a57c2ce32",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "lock-file.patch",
+            "version": ""
+        }
+    ],
+    "resources": [],
+    "description": "The Microsoft Cognitive Toolkit is a unified deep-learning toolkit that\ndescribes neural networks as a series of computational steps via a\ndirected graph.\n",
+    "dependencies": [
+        {
+            "name": "libzip",
+            "description": "libzip is a C library for reading, creating, and modifying zip archives."
+        },
+        {
+            "name": "openblas",
+            "description": "OpenBLAS: An optimized BLAS library"
+        },
+        {
+            "name": "mpi",
+            "description": "MVAPICH2-X is the advanced version of the MVAPICH2 MPI library with\nenhanced features (UMR, ODP, DC, Core-Direct, SHARP, XPMEM), OSU INAM\n(InifniBand Network Monitoring and Analysis),PGAS (OpenSHMEM, UPC,\nUPC++, and CAF), and MPI+PGAS programming models with unified\ncommunication runtime. MVAPICH2-X is not installable from source and is\nonly available through a binary mirror. If you do not find the binary\nyou're looking for, send us an email at mvapich@cse.ohio-state.edu. The\nbinary mirror url is: http://mvapich.cse.ohio-\nstate.edu/download/mvapich/spack-mirror/mvapich2x/"
+        },
+        {
+            "name": "boost",
+            "description": "Boost provides free peer-reviewed portable C++ source libraries,\nemphasizing libraries that work well with the C++ Standard Library.\nBoost libraries are intended to be widely useful, and usable across a\nbroad spectrum of applications. The Boost license encourages both\ncommercial and non-commercial use."
+        },
+        {
+            "name": "protobuf",
+            "description": "Google's data interchange format."
+        },
+        {
+            "name": "kaldi",
+            "description": "Kaldi is a toolkit for speech recognition written in C++ and licensed\nunder the Apache License v2.0. Kaldi is intended for use by speech\nrecognition researchers."
+        },
+        {
+            "name": "opencv",
+            "description": "OpenCV (Open Source Computer Vision Library) is an open source computer\nvision and machine learning software library."
+        },
+        {
+            "name": "cuda",
+            "description": "CUDA is a parallel computing platform and programming model invented by\nNVIDIA. It enables dramatic increases in computing performance by\nharnessing the power of the graphics processing unit (GPU). Note: This\npackage does not currently install the drivers necessary to run CUDA.\nThese will need to be installed manually. See:\nhttps://docs.nvidia.com/cuda/ for details."
+        },
+        {
+            "name": "cub",
+            "description": "CUB is a C++ header library of cooperative threadblock primitives and\nother utilities for CUDA kernel programming."
+        },
+        {
+            "name": "cudnn",
+            "description": "NVIDIA cuDNN is a GPU-accelerated library of primitives for deep neural\nnetworks"
+        },
+        {
+            "name": "nccl",
+            "description": "Optimized primitives for collective multi-GPU communication."
+        },
+        {
+            "name": "cntk1bitsgd",
+            "description": "CNTK1bitSGD is the header-only 1-bit stochastic gradient descent (1bit-\nSGD) library for the Computational Network Toolkit (CNTK)."
+        },
+        {
+            "name": "multiverso",
+            "description": "Multiverso is a parameter server based framework for training machine\nlearning models on big data with numbers of machines."
+        }
+    ],
+    "dependent_to": []
+}

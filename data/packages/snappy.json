@@ -1,0 +1,106 @@
+{
+    "name": "snappy",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "1.1.8",
+            "sha256": "16b677f07832a612b0836178db7f374e414f94657c138e6993cbfc5dcc58651f"
+        },
+        {
+            "name": "1.1.7",
+            "sha256": "3dfa02e873ff51a11ee02b9ca391807f0c8ea0529a4924afa645fbf97163f9d4"
+        }
+    ],
+    "build_system": "CMakePackage",
+    "conflicts": [
+        {
+            "name": "+ipo",
+            "spec": "^cmake@:3.8",
+            "description": "+ipo is not supported by CMake < 3.9"
+        }
+    ],
+    "variants": [
+        {
+            "name": "build_type",
+            "default": "RelWithDebInfo",
+            "description": "CMake build type"
+        },
+        {
+            "name": "ipo",
+            "default": false,
+            "description": "CMake interprocedural optimization"
+        },
+        {
+            "name": "shared",
+            "default": true,
+            "description": "Build shared libraries"
+        },
+        {
+            "name": "pic",
+            "default": true,
+            "description": "Build position independent code"
+        }
+    ],
+    "homepage": "https://github.com/google/snappy",
+    "maintainers": [],
+    "patches": [
+        {
+            "owner": "builtin.snappy",
+            "sha256": "c9cfecb1f7a623418590cf4e00ae7d308d1c3faeb15046c2e5090e38221da7cd",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "link_gtest.patch",
+            "version": ""
+        }
+    ],
+    "resources": [],
+    "description": "A fast compressor/decompressor: https://code.google.com/p/snappy\n",
+    "dependencies": [
+        {
+            "name": "cmake",
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
+        },
+        {
+            "name": "googletest",
+            "description": "Google test framework for C++. Also called gtest."
+        }
+    ],
+    "dependent_to": [
+        {
+            "name": "ffmpeg",
+            "description": "FFmpeg is a complete, cross-platform solution to record, convert and\nstream audio and video."
+        },
+        {
+            "name": "arrow",
+            "description": "A cross-language development platform for in-memory data. This package\ncontains the C++ bindings."
+        },
+        {
+            "name": "c-blosc",
+            "description": "Blosc, an extremely fast, multi-threaded, meta-compressor library"
+        },
+        {
+            "name": "mongo-c-driver",
+            "description": "libmongoc is a client library written in C for MongoDB."
+        },
+        {
+            "name": "orc",
+            "description": "the smallest, fastest columnar storage for Hadoop workloads."
+        },
+        {
+            "name": "eckit",
+            "description": "ecKit is a cross-platform c++ toolkit that supports development of tools\nand applications at ECMWF."
+        },
+        {
+            "name": "rocksdb",
+            "description": "RocksDB: A Persistent Key-Value Store for Flash and RAM Storage"
+        },
+        {
+            "name": "leveldb",
+            "description": "LevelDB is a fast key-value storage library written at Google that\nprovides an ordered mapping from string keys to string values."
+        },
+        {
+            "name": "c-blosc2",
+            "description": "Next generation c-blosc with a new API, a new container and other bells\nand whistles"
+        }
+    ]
+}

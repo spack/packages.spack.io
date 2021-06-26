@@ -1,0 +1,139 @@
+{
+    "name": "darshan-runtime",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "master",
+            "branch": "master",
+            "submodules": true
+        },
+        {
+            "name": "3.3.0",
+            "sha256": "2e8bccf28acfa9f9394f2084ec18122c66e45d966087fa2e533928e824fcb57a",
+            "preferred": true
+        },
+        {
+            "name": "3.3.0-pre2",
+            "sha256": "0fc09f86f935132b7b05df981b05cdb3796a1ea02c7acd1905323691df65e761"
+        },
+        {
+            "name": "3.3.0-pre1",
+            "sha256": "1c655359455b5122921091bab9961491be58a5f0158f073d09fe8cc772bd0812"
+        },
+        {
+            "name": "3.2.1",
+            "sha256": "d63048b7a3d1c4de939875943e3e7a2468a9034fcb68585edbc87f57f622e7f7"
+        },
+        {
+            "name": "3.2.0",
+            "sha256": "4035435bdc0fa2a678247fbf8d5a31dfeb3a133baf06577786b1fe8d00a31b7e"
+        },
+        {
+            "name": "3.1.8",
+            "sha256": "3ed51c8d5d93b4a8cbb7d53d13052140a9dffe0bc1a3e1ebfc44a36a184b5c82"
+        },
+        {
+            "name": "3.1.7",
+            "sha256": "9ba535df292727ac1e8025bdf2dc42942715205cad8319d925723fd88709e8d6"
+        },
+        {
+            "name": "3.1.6",
+            "sha256": "21cb24e2a971c45e04476e00441b7fbea63d2afa727a5cf8b7a4a9d9004dd856"
+        },
+        {
+            "name": "3.1.0",
+            "sha256": "b847047c76759054577823fbe21075cfabb478cdafad341d480274fb1cef861c"
+        },
+        {
+            "name": "3.0.0",
+            "sha256": "95232710f5631bbf665964c0650df729c48104494e887442596128d189da43e0"
+        }
+    ],
+    "build_system": "Package",
+    "conflicts": [
+        {
+            "name": "+hdf5",
+            "spec": "@:3.1.8",
+            "description": "+hdf5 variant only available starting from version 3.2.0"
+        },
+        {
+            "name": "+apmpi",
+            "spec": "@:3.2.1",
+            "description": "+apmpi variant only available starting from version 3.3.0"
+        },
+        {
+            "name": "+apmpi_sync",
+            "spec": "@:3.2.1",
+            "description": "+apmpi variant only available starting from version 3.3.0"
+        },
+        {
+            "name": "+apxc",
+            "spec": "@:3.2.1",
+            "description": "+apxc variant only available starting from version 3.3.0"
+        }
+    ],
+    "variants": [
+        {
+            "name": "mpi",
+            "default": true,
+            "description": "Compile with MPI support"
+        },
+        {
+            "name": "hdf5",
+            "default": false,
+            "description": "Compile with HDF5 module"
+        },
+        {
+            "name": "apmpi",
+            "default": false,
+            "description": "Compile with AutoPerf MPI module"
+        },
+        {
+            "name": "apmpi_sync",
+            "default": false,
+            "description": "Compile with AutoPerf MPI module (with collective synchronization timing)"
+        },
+        {
+            "name": "apxc",
+            "default": false,
+            "description": "Compile with AutoPerf XC module"
+        },
+        {
+            "name": "scheduler",
+            "default": "NONE",
+            "description": "queue system scheduler JOB ID"
+        }
+    ],
+    "homepage": "http://www.mcs.anl.gov/research/projects/darshan/",
+    "maintainers": [
+        "shanedsnyder",
+        "carns"
+    ],
+    "patches": [],
+    "resources": [],
+    "description": "Darshan (runtime) is a scalable HPC I/O characterization tool designed\nto capture an accurate picture of application I/O behavior, including\nproperties such as patterns of access within files, with minimum\noverhead. DarshanRuntime package should be installed on systems where\nyou intend to instrument MPI applications.\n",
+    "dependencies": [
+        {
+            "name": "mpi",
+            "description": "MVAPICH2-X is the advanced version of the MVAPICH2 MPI library with\nenhanced features (UMR, ODP, DC, Core-Direct, SHARP, XPMEM), OSU INAM\n(InifniBand Network Monitoring and Analysis),PGAS (OpenSHMEM, UPC,\nUPC++, and CAF), and MPI+PGAS programming models with unified\ncommunication runtime. MVAPICH2-X is not installable from source and is\nonly available through a binary mirror. If you do not find the binary\nyou're looking for, send us an email at mvapich@cse.ohio-state.edu. The\nbinary mirror url is: http://mvapich.cse.ohio-\nstate.edu/download/mvapich/spack-mirror/mvapich2x/"
+        },
+        {
+            "name": "zlib",
+            "description": "A free, general-purpose, legally unencumbered lossless data-compression\nlibrary."
+        },
+        {
+            "name": "hdf5",
+            "description": "HDF5 is a data model, library, and file format for storing and managing\ndata. It supports an unlimited variety of datatypes, and is designed for\nflexible and efficient I/O and for high volume and complex data."
+        },
+        {
+            "name": "papi",
+            "description": "PAPI provides the tool designer and application engineer with a\nconsistent interface and methodology for use of the performance counter\nhardware found in most major microprocessors. PAPI enables software\nengineers to see, in near real time, the relation between software\nperformance and processor events. In addition Component PAPI provides\naccess to a collection of components that expose performance measurement\nopportunities across the hardware and software stack."
+        }
+    ],
+    "dependent_to": [
+        {
+            "name": "ecp-data-vis-sdk",
+            "description": "ECP Data & Vis SDK"
+        }
+    ]
+}

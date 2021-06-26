@@ -1,0 +1,158 @@
+{
+    "name": "spla",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "1.5.0",
+            "sha256": "bea782d46ce615e1c40efc2bfb19d95e3b59f332fc9ca83ac7e6684b8ac2dd93"
+        },
+        {
+            "name": "1.4.0",
+            "sha256": "364a9fe759fddec8a0839cf79f1cf0619fc36f4d4c15f1c2b1f437249d7840c6"
+        },
+        {
+            "name": "1.3.0",
+            "sha256": "ff05a22bd655607ff941f3228ac8605a813e1eec6eaa49fbcf7b58a3a4cf5f00"
+        },
+        {
+            "name": "1.2.1",
+            "sha256": "4d7237f752dc6257778c84ee19c9635072b1cb8ce8d9ab6e34a047f63a736b29"
+        },
+        {
+            "name": "1.2.0",
+            "sha256": "96ddd13c155ef3d7e40f87a982cdb439cf9e720523e66b6d20125d346ffe8fca"
+        },
+        {
+            "name": "1.1.1",
+            "sha256": "907c374d9c53b21b9f67ce648e7b2b09c320db234a1013d3f05919cd93c95a4b"
+        },
+        {
+            "name": "1.1.0",
+            "sha256": "b0c4ebe4988abc2b3434e6c50e7eb0612f3f401bc1aa79ad58a6a92dc87fa65b"
+        },
+        {
+            "name": "1.0.0",
+            "sha256": "a0eb269b84d7525b223dc650de12170bba30fbb3ae4f93eb2b5cbdce335e4da1"
+        },
+        {
+            "name": "develop",
+            "branch": "develop"
+        },
+        {
+            "name": "master",
+            "branch": "master"
+        }
+    ],
+    "build_system": "CMakePackage",
+    "conflicts": [
+        {
+            "name": "+ipo",
+            "spec": "^cmake@:3.8",
+            "description": "+ipo is not supported by CMake < 3.9"
+        },
+        {
+            "name": "+cuda",
+            "spec": "+rocm",
+            "description": "+cuda and +rocm are mutually exclusive"
+        }
+    ],
+    "variants": [
+        {
+            "name": "build_type",
+            "default": "RelWithDebInfo",
+            "description": "CMake build type"
+        },
+        {
+            "name": "ipo",
+            "default": false,
+            "description": "CMake interprocedural optimization"
+        },
+        {
+            "name": "openmp",
+            "default": true,
+            "description": "Build with OpenMP support"
+        },
+        {
+            "name": "static",
+            "default": false,
+            "description": "Build as static library"
+        },
+        {
+            "name": "cuda",
+            "default": false,
+            "description": "CUDA backend"
+        },
+        {
+            "name": "rocm",
+            "default": false,
+            "description": "ROCm backend"
+        },
+        {
+            "name": "fortran",
+            "default": false,
+            "description": "Build fortran module"
+        }
+    ],
+    "homepage": "https://github.com/eth-cscs/spla",
+    "maintainers": [],
+    "patches": [
+        {
+            "owner": "builtin.spla",
+            "sha256": "818d2e7a6090296d9522a1f789e6a439ec42527b424083f2f18aae5cc52ce128",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "0001-amd_blis.patch",
+            "version": "@1.3.0:1.4.0 ^amdblis"
+        }
+    ],
+    "resources": [],
+    "description": "Specialized Parallel Linear Algebra, providing distributed GEMM\nfunctionality for specific matrix distributions with optional GPU\nacceleration.\n",
+    "dependencies": [
+        {
+            "name": "cmake",
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
+        },
+        {
+            "name": "mpi",
+            "description": "MVAPICH2-X is the advanced version of the MVAPICH2 MPI library with\nenhanced features (UMR, ODP, DC, Core-Direct, SHARP, XPMEM), OSU INAM\n(InifniBand Network Monitoring and Analysis),PGAS (OpenSHMEM, UPC,\nUPC++, and CAF), and MPI+PGAS programming models with unified\ncommunication runtime. MVAPICH2-X is not installable from source and is\nonly available through a binary mirror. If you do not find the binary\nyou're looking for, send us an email at mvapich@cse.ohio-state.edu. The\nbinary mirror url is: http://mvapich.cse.ohio-\nstate.edu/download/mvapich/spack-mirror/mvapich2x/"
+        },
+        {
+            "name": "blas",
+            "description": "Intel oneAPI MKL."
+        },
+        {
+            "name": "cuda",
+            "description": "CUDA is a parallel computing platform and programming model invented by\nNVIDIA. It enables dramatic increases in computing performance by\nharnessing the power of the graphics processing unit (GPU). Note: This\npackage does not currently install the drivers necessary to run CUDA.\nThese will need to be installed manually. See:\nhttps://docs.nvidia.com/cuda/ for details."
+        },
+        {
+            "name": "rocblas",
+            "description": "Radeon Open Compute BLAS library"
+        },
+        {
+            "name": "hip",
+            "description": "HIP is a C++ Runtime API and Kernel Language that allows developers to\ncreate portable applications for AMD and NVIDIA GPUs from single source\ncode."
+        },
+        {
+            "name": "openblas",
+            "description": "OpenBLAS: An optimized BLAS library"
+        },
+        {
+            "name": "amdblis",
+            "description": "AMD Optimized BLIS. BLIS is a portable software framework for\ninstantiating high-performance BLAS-like dense linear algebra libraries.\nThe framework was designed to isolate essential kernels of computation\nthat, when optimized, immediately enable optimized implementations of\nmost of its commonly used and computationally intensive operations."
+        },
+        {
+            "name": "blis",
+            "description": "BLIS is a portable software framework for instantiating high-performance\nBLAS-like dense linear algebra libraries. The framework was designed to\nisolate essential kernels of computation that, when optimized,\nimmediately enable optimized implementations of most of its commonly\nused and computationally intensive operations. BLIS is written in ISO\nC99 and available under a new/modified/3-clause BSD license. While BLIS\nexports a new BLAS-like API, it also includes a BLAS compatibility layer\nwhich gives application developers access to BLIS implementations via\ntraditional BLAS routine calls. An object-based API unique to BLIS is\nalso available."
+        },
+        {
+            "name": "intel-mkl",
+            "description": "Intel Math Kernel Library."
+        }
+    ],
+    "dependent_to": [
+        {
+            "name": "sirius",
+            "description": "Domain specific library for electronic structure calculations"
+        }
+    ]
+}

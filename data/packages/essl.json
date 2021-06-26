@@ -1,0 +1,64 @@
+{
+    "name": "essl",
+    "aliases": [
+        {
+            "name": "blas",
+            "alias_for": "{essl}"
+        }
+    ],
+    "versions": [],
+    "build_system": "Package",
+    "conflicts": [
+        {
+            "name": "+cuda",
+            "spec": "+ilp64",
+            "description": "ESSL+cuda+ilp64 cannot combine CUDA acceleration 64 bit integers"
+        },
+        {
+            "name": "+cuda",
+            "spec": "threads=none",
+            "description": "ESSL+cuda threads=none cannot combine CUDA acceleration without multithreading support"
+        }
+    ],
+    "variants": [
+        {
+            "name": "ilp64",
+            "default": false,
+            "description": "64 bit integers"
+        },
+        {
+            "name": "threads",
+            "default": "openmp",
+            "description": "Multithreading support"
+        },
+        {
+            "name": "cuda",
+            "default": false,
+            "description": "CUDA acceleration"
+        }
+    ],
+    "homepage": "https://www.ibm.com/systems/power/software/essl/",
+    "maintainers": [],
+    "patches": [],
+    "resources": [],
+    "description": "IBM's Engineering and Scientific Subroutine Library (ESSL).\n",
+    "dependencies": [],
+    "dependent_to": [
+        {
+            "name": "dihydrogen",
+            "description": "DiHydrogen is the second version of the Hydrogen fork of the well-known\ndistributed linear algebra library, Elemental. DiHydrogen aims to be a\nbasic distributed multilinear algebra interface with a particular\nemphasis on the needs of the distributed machine learning effort, LBANN."
+        },
+        {
+            "name": "elemental",
+            "description": "Elemental: Distributed-memory dense and sparse-direct linear algebra and\noptimization library."
+        },
+        {
+            "name": "hydrogen",
+            "description": "Hydrogen: Distributed-memory dense and sparse-direct linear algebra and\noptimization library. Based on the Elemental library."
+        },
+        {
+            "name": "p3dfft3",
+            "description": "P3DFFT++ (a.k.a. P3DFFT v. 3) is a new generation of P3DFFT library that\naims to provide a comprehensive framework for simulating multiscale\nphenomena. It takes the essence of P3DFFT further by creating an\nextensible, modular structure uniquely adaptable to a greater range of\nuse cases."
+        }
+    ]
+}

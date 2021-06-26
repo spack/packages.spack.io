@@ -1,0 +1,232 @@
+{
+    "name": "conduit",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "develop",
+            "branch": "develop",
+            "submodules": true
+        },
+        {
+            "name": "master",
+            "branch": "develop",
+            "submodules": true
+        },
+        {
+            "name": "0.7.2",
+            "sha256": "359fd176297700cdaed2c63e3b72d236ff3feec21a655c7c8292033d21d5228a"
+        },
+        {
+            "name": "0.7.1",
+            "sha256": "460a480cf08fedbf5b38f707f94f20828798327adadb077f80dbab048fd0a07d"
+        },
+        {
+            "name": "0.7.0",
+            "sha256": "ecaa9668ebec5d4efad19b104d654a587c0adbd5f502128f89601408cb4d7d0c"
+        },
+        {
+            "name": "0.6.0",
+            "sha256": "078f086a13b67a97e4ab6fe1063f2fef2356df297e45b43bb43d74635f80475d"
+        },
+        {
+            "name": "0.5.1",
+            "sha256": "68a3696d1ec6d3a4402b44a464d723e6529ec41016f9b44c053676affe516d44"
+        },
+        {
+            "name": "0.5.0",
+            "sha256": "7efac668763d02bd0a2c0c1b134d9f5ee27e99008183905bb0512e5502b8b4fe"
+        },
+        {
+            "name": "0.4.0",
+            "sha256": "c228e6f0ce5a9c0ffb98e0b3d886f2758ace1a4b40d00f3f118542c0747c1f52"
+        },
+        {
+            "name": "0.3.1",
+            "sha256": "7b358ca03bb179876291d4a55d6a1c944b7407a80a588795b9e47940b1990521"
+        },
+        {
+            "name": "0.3.0",
+            "sha256": "52e9cf5720560e5f7492876c39ef2ea20ae73187338361d2744bdf67567da155"
+        },
+        {
+            "name": "0.2.1",
+            "sha256": "796576b9c69717c52f0035542c260eb7567aa351ee892d3fbe3521c38f1520c4"
+        },
+        {
+            "name": "0.2.0",
+            "sha256": "31eff8dbc654a4b235cfcbc326a319e1752728684296721535c7ca1c9b463061"
+        }
+    ],
+    "build_system": "CMakePackage",
+    "conflicts": [
+        {
+            "name": "+ipo",
+            "spec": "^cmake@:3.8",
+            "description": "+ipo is not supported by CMake < 3.9"
+        }
+    ],
+    "variants": [
+        {
+            "name": "build_type",
+            "default": "RelWithDebInfo",
+            "description": "CMake build type"
+        },
+        {
+            "name": "ipo",
+            "default": false,
+            "description": "CMake interprocedural optimization"
+        },
+        {
+            "name": "shared",
+            "default": true,
+            "description": "Build Conduit as shared libs"
+        },
+        {
+            "name": "test",
+            "default": true,
+            "description": "Enable Conduit unit tests"
+        },
+        {
+            "name": "python",
+            "default": false,
+            "description": "Build Conduit Python support"
+        },
+        {
+            "name": "fortran",
+            "default": true,
+            "description": "Build Conduit Fortran support"
+        },
+        {
+            "name": "mpi",
+            "default": true,
+            "description": "Build Conduit MPI Support"
+        },
+        {
+            "name": "hdf5",
+            "default": true,
+            "description": "Build Conduit HDF5 support"
+        },
+        {
+            "name": "hdf5_compat",
+            "default": true,
+            "description": "Build Conduit with HDF5 1.8.x (compatibility mode)"
+        },
+        {
+            "name": "silo",
+            "default": false,
+            "description": "Build Conduit Silo support"
+        },
+        {
+            "name": "adios",
+            "default": false,
+            "description": "Build Conduit ADIOS support"
+        },
+        {
+            "name": "zfp",
+            "default": false,
+            "description": "Build Conduit ZFP support"
+        },
+        {
+            "name": "doc",
+            "default": false,
+            "description": "Build Conduit's documentation"
+        },
+        {
+            "name": "doxygen",
+            "default": false,
+            "description": "Build Conduit's Doxygen documentation"
+        }
+    ],
+    "homepage": "http://software.llnl.gov/conduit",
+    "maintainers": [
+        "cyrush"
+    ],
+    "patches": [
+        {
+            "owner": "builtin.conduit",
+            "sha256": "c1b1e41202a3a198ed1e753ac318c15117c3d9e485f84c34c1988d98c8bbbc9e",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "fj_flags.patch",
+            "version": "%fj"
+        }
+    ],
+    "resources": [],
+    "description": "Conduit is an open source project from Lawrence Livermore National\nLaboratory that provides an intuitive model for describing hierarchical\nscientific data in C++, C, Fortran, and Python. It is used for data\ncoupling between packages in-core, serialization, and I/O tasks.\n",
+    "dependencies": [
+        {
+            "name": "cmake",
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
+        },
+        {
+            "name": "python",
+            "description": "The Python programming language."
+        },
+        {
+            "name": "py-numpy",
+            "description": "NumPy is the fundamental package for scientific computing with Python.\nIt contains among other things: a powerful N-dimensional array object,\nsophisticated (broadcasting) functions, tools for integrating C/C++ and\nFortran code, and useful linear algebra, Fourier transform, and random\nnumber capabilities"
+        },
+        {
+            "name": "py-mpi4py",
+            "description": "This package provides Python bindings for the Message Passing Interface\n(MPI) standard. It is implemented on top of the MPI-1/MPI-2\nspecification and exposes an API which grounds on the standard MPI-2 C++\nbindings."
+        },
+        {
+            "name": "hdf5",
+            "description": "HDF5 is a data model, library, and file format for storing and managing\ndata. It supports an unlimited variety of datatypes, and is designed for\nflexible and efficient I/O and for high volume and complex data."
+        },
+        {
+            "name": "silo",
+            "description": "Silo is a library for reading and writing a wide variety of scientific\ndata to binary, disk files."
+        },
+        {
+            "name": "adios",
+            "description": "The Adaptable IO System (ADIOS) provides a simple, flexible way for\nscientists to describe the data in their code that may need to be\nwritten, read, or processed outside of the running simulation."
+        },
+        {
+            "name": "zfp",
+            "description": "zfp is a compressed number format for multidimensional floating-point\nand integer arrays. zfp provides compressed-array classes that support\nhigh throughput read and write random access to individual array\nelements. zfp also supports serial and parallel (OpenMP and CUDA)\ncompression of whole arrays."
+        },
+        {
+            "name": "h5z-zfp",
+            "description": "A highly flexible floating point and integer compression plugin for the\nHDF5 library using ZFP compression."
+        },
+        {
+            "name": "mpi",
+            "description": "MVAPICH2-X is the advanced version of the MVAPICH2 MPI library with\nenhanced features (UMR, ODP, DC, Core-Direct, SHARP, XPMEM), OSU INAM\n(InifniBand Network Monitoring and Analysis),PGAS (OpenSHMEM, UPC,\nUPC++, and CAF), and MPI+PGAS programming models with unified\ncommunication runtime. MVAPICH2-X is not installable from source and is\nonly available through a binary mirror. If you do not find the binary\nyou're looking for, send us an email at mvapich@cse.ohio-state.edu. The\nbinary mirror url is: http://mvapich.cse.ohio-\nstate.edu/download/mvapich/spack-mirror/mvapich2x/"
+        },
+        {
+            "name": "py-sphinx",
+            "description": "Sphinx Documentation Generator."
+        },
+        {
+            "name": "py-sphinx-rtd-theme",
+            "description": "ReadTheDocs.org theme for Sphinx."
+        },
+        {
+            "name": "doxygen",
+            "description": "Doxygen is the de facto standard tool for generating documentation from\nannotated C++ sources, but it also supports other popular programming\nlanguages such as C, Objective-C, C#, PHP, Java, Python, IDL (Corba,\nMicrosoft, and UNO/OpenOffice flavors), Fortran, VHDL, Tcl, and to some\nextent D.."
+        }
+    ],
+    "dependent_to": [
+        {
+            "name": "ascent",
+            "description": "Ascent is an open source many-core capable lightweight in situ\nvisualization and analysis infrastructure for multi-physics HPC\nsimulations."
+        },
+        {
+            "name": "mfem",
+            "description": "Free, lightweight, scalable C++ library for finite element methods."
+        },
+        {
+            "name": "axom",
+            "description": "Axom provides a robust, flexible software infrastructure for the\ndevelopment of multi-physics applications and computational tools."
+        },
+        {
+            "name": "lbann",
+            "description": "LBANN: Livermore Big Artificial Neural Network Toolkit. A distributed\nmemory, HPC-optimized, model and data parallel training toolkit for deep\nneural networks."
+        },
+        {
+            "name": "dray",
+            "description": "High-Order Mesh Ray Tracer."
+        }
+    ]
+}

@@ -1,0 +1,87 @@
+{
+    "name": "liblas",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "1.8.1",
+            "sha256": "9adb4a98c63b461ed2bc82e214ae522cbd809cff578f28511122efe6c7ea4e76"
+        }
+    ],
+    "build_system": "CMakePackage",
+    "conflicts": [
+        {
+            "name": "+ipo",
+            "spec": "^cmake@:3.8",
+            "description": "+ipo is not supported by CMake < 3.9"
+        }
+    ],
+    "variants": [
+        {
+            "name": "build_type",
+            "default": "RelWithDebInfo",
+            "description": "CMake build type"
+        },
+        {
+            "name": "ipo",
+            "default": false,
+            "description": "CMake interprocedural optimization"
+        },
+        {
+            "name": "endian",
+            "default": false,
+            "description": "Build with \"Endian-aware\" option"
+        },
+        {
+            "name": "gdal",
+            "default": false,
+            "description": "Build with GDAL for enhanced performance"
+        },
+        {
+            "name": "geotiff",
+            "default": true,
+            "description": "Build with GeoTIFF for enhanced performance"
+        },
+        {
+            "name": "laszip",
+            "default": false,
+            "description": "Build with LasZip"
+        }
+    ],
+    "homepage": "https://liblas.org/",
+    "maintainers": [],
+    "patches": [],
+    "resources": [],
+    "description": "libLAS is a C/C++ library for reading and writing the very common LAS\nLiDAR format.\n",
+    "dependencies": [
+        {
+            "name": "cmake",
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
+        },
+        {
+            "name": "libgeotiff",
+            "description": "GeoTIFF represents an effort by over 160 different remote sensing, GIS,\ncartographic, and surveying related companies and organizations to\nestablish a TIFF based interchange format for georeferenced raster\nimagery."
+        },
+        {
+            "name": "boost",
+            "description": "Boost provides free peer-reviewed portable C++ source libraries,\nemphasizing libraries that work well with the C++ Standard Library.\nBoost libraries are intended to be widely useful, and usable across a\nbroad spectrum of applications. The Boost license encourages both\ncommercial and non-commercial use."
+        },
+        {
+            "name": "laszip",
+            "description": "Free and lossless LiDAR compression"
+        },
+        {
+            "name": "gdal",
+            "description": "GDAL (Geospatial Data Abstraction Library) is a translator library for\nraster and vector geospatial data formats that is released under an\nX/MIT style Open Source license by the Open Source Geospatial\nFoundation. As a library, it presents a single raster abstract data\nmodel and vector abstract data model to the calling application for all\nsupported formats. It also comes with a variety of useful command line\nutilities for data translation and processing."
+        }
+    ],
+    "dependent_to": [
+        {
+            "name": "pktools",
+            "description": "Processing Kernel for geospatial data"
+        },
+        {
+            "name": "grass",
+            "description": "GRASS GIS (Geographic Resources Analysis Support System), is a free and\nopen source Geographic Information System (GIS) software suite used for\ngeospatial data management and analysis, image processing, graphics and\nmaps production, spatial modeling, and visualization."
+        }
+    ]
+}

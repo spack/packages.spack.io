@@ -1,0 +1,146 @@
+{
+    "name": "salmon-tddft",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "2.0.0",
+            "sha256": "c3bb80bc5d338cba21cd8f345acbf2f2d81ef75af069a0a0ddbdc0acf358456c"
+        },
+        {
+            "name": "1.2.1",
+            "sha256": "a5045149e49abe9dd9edefe00cd1508a1323081bc3d034632176b728effdbaeb"
+        }
+    ],
+    "build_system": "CMakePackage",
+    "conflicts": [
+        {
+            "name": "+ipo",
+            "spec": "^cmake@:3.8",
+            "description": "+ipo is not supported by CMake < 3.9"
+        },
+        {
+            "name": "+scalapack",
+            "spec": "~mpi",
+            "description": "None"
+        },
+        {
+            "name": "+eigenexa",
+            "spec": "@:1.9.9",
+            "description": "None"
+        },
+        {
+            "name": "+eigenexa",
+            "spec": "~scalapack",
+            "description": "None"
+        },
+        {
+            "name": "+manycore",
+            "spec": "@2.0.0:",
+            "description": "None"
+        },
+        {
+            "name": "+current_processing",
+            "spec": "@2.0.0:",
+            "description": "None"
+        }
+    ],
+    "variants": [
+        {
+            "name": "build_type",
+            "default": "RelWithDebInfo",
+            "description": "CMake build type"
+        },
+        {
+            "name": "ipo",
+            "default": false,
+            "description": "CMake interprocedural optimization"
+        },
+        {
+            "name": "mpi",
+            "default": false,
+            "description": "Enable MPI"
+        },
+        {
+            "name": "libxc",
+            "default": false,
+            "description": "Enable libxc"
+        },
+        {
+            "name": "scalapack",
+            "default": false,
+            "description": "Enable scalapack"
+        },
+        {
+            "name": "eigenexa",
+            "default": false,
+            "description": "Enable eigenexa"
+        },
+        {
+            "name": "manycore",
+            "default": false,
+            "description": "Enable optimization of reduction for many-core processor"
+        },
+        {
+            "name": "current_processing",
+            "default": false,
+            "description": "Enable preprocessing of the current computation in RT"
+        }
+    ],
+    "homepage": "https://salmon-tddft.jp",
+    "maintainers": [],
+    "patches": [
+        {
+            "owner": "builtin.salmon-tddft",
+            "sha256": "929b2627072089cff5f5b173f3484b3159c3d77f4b7d8fd4561899e1edb81f83",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "fjmpi.patch",
+            "version": "@2.0.0:%fj"
+        },
+        {
+            "owner": "builtin.salmon-tddft",
+            "sha256": "069e935c80378969048b6657d480e35d0ab7d6ec67dc71f476d2b3767306f59b",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "v2.0.libxc-5.0.patch",
+            "version": "@2.0.0+libxc"
+        },
+        {
+            "owner": "builtin.salmon-tddft",
+            "sha256": "f1bbda0b41129321fc8f4649c5519366206579be4ca9f1a51d6e9490e0ee3c65",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "cmakefix.patch",
+            "version": "+scalapack"
+        }
+    ],
+    "resources": [],
+    "description": "SALMON is an open-source computer program for ab-initio quantum-\nmechanical calculations of electron dynamics at the nanoscale that takes\nplace in various situations of light-matter interactions. It is based on\ntime-dependent density functional theory, solving time-dependent Kohn-\nSham equation in real time and real space with norm-conserving\npseudopotentials.\n",
+    "dependencies": [
+        {
+            "name": "cmake",
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
+        },
+        {
+            "name": "mpi",
+            "description": "MVAPICH2-X is the advanced version of the MVAPICH2 MPI library with\nenhanced features (UMR, ODP, DC, Core-Direct, SHARP, XPMEM), OSU INAM\n(InifniBand Network Monitoring and Analysis),PGAS (OpenSHMEM, UPC,\nUPC++, and CAF), and MPI+PGAS programming models with unified\ncommunication runtime. MVAPICH2-X is not installable from source and is\nonly available through a binary mirror. If you do not find the binary\nyou're looking for, send us an email at mvapich@cse.ohio-state.edu. The\nbinary mirror url is: http://mvapich.cse.ohio-\nstate.edu/download/mvapich/spack-mirror/mvapich2x/"
+        },
+        {
+            "name": "scalapack",
+            "description": "Intel oneAPI MKL."
+        },
+        {
+            "name": "eigenexa",
+            "description": "EigenExa is a high-performance eigenvalue solver."
+        },
+        {
+            "name": "lapack",
+            "description": "Intel oneAPI MKL."
+        },
+        {
+            "name": "libxc",
+            "description": "Libxc is a library of exchange-correlation functionals for density-\nfunctional theory."
+        }
+    ],
+    "dependent_to": []
+}

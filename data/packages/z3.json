@@ -1,0 +1,106 @@
+{
+    "name": "z3",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "4.8.9",
+            "sha256": "c9fd04b9b33be74fffaac3ec2bc2c320d1a4cc32e395203c55126b12a14ff3f4"
+        },
+        {
+            "name": "4.8.8",
+            "sha256": "6962facdcdea287c5eeb1583debe33ee23043144d0e5308344e6a8ee4503bcff"
+        },
+        {
+            "name": "4.8.7",
+            "sha256": "8c1c49a1eccf5d8b952dadadba3552b0eac67482b8a29eaad62aa7343a0732c3"
+        },
+        {
+            "name": "4.5.0",
+            "sha256": "aeae1d239c5e06ac183be7dd853775b84698db1265cb2258e5918a28372d4a0c"
+        }
+    ],
+    "build_system": "CMakePackage",
+    "conflicts": [
+        {
+            "name": "+ipo",
+            "spec": "^cmake@:3.8",
+            "description": "+ipo is not supported by CMake < 3.9"
+        }
+    ],
+    "variants": [
+        {
+            "name": "build_type",
+            "default": "RelWithDebInfo",
+            "description": "CMake build type"
+        },
+        {
+            "name": "ipo",
+            "default": false,
+            "description": "CMake interprocedural optimization"
+        },
+        {
+            "name": "python",
+            "default": true,
+            "description": "Enable python binding"
+        },
+        {
+            "name": "gmp",
+            "default": false,
+            "description": "GNU multiple precision library support"
+        }
+    ],
+    "homepage": "https://github.com/Z3Prover/z3/wiki",
+    "maintainers": [],
+    "patches": [
+        {
+            "owner": "builtin.z3",
+            "sha256": "27317886c4ff04ae338632facd673bcdaf02f09e1a6e892a5619b7eecceaf50a",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "fix_1016_2.patch",
+            "version": "@4.5.0"
+        }
+    ],
+    "resources": [],
+    "description": "Z3 is a theorem prover from Microsoft Research. It is licensed under the\nMIT license.\n",
+    "dependencies": [
+        {
+            "name": "cmake",
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
+        },
+        {
+            "name": "python",
+            "description": "The Python programming language."
+        },
+        {
+            "name": "py-setuptools",
+            "description": "A Python utility that aids in the process of downloading, building,\nupgrading, installing, and uninstalling Python packages."
+        },
+        {
+            "name": "gmp",
+            "description": "GMP is a free library for arbitrary precision arithmetic, operating on\nsigned integers, rational numbers, and floating-point numbers."
+        }
+    ],
+    "dependent_to": [
+        {
+            "name": "llvm-amdgpu",
+            "description": "Toolkit for the construction of highly optimized compilers, optimizers,\nand run-time environments."
+        },
+        {
+            "name": "llvm-doe",
+            "description": "This package provides a collection of the experimental LLVM projects\ndone by the US DOE research and development teams."
+        },
+        {
+            "name": "rose",
+            "description": "A compiler infrastructure to build source-to-source program\ntransformation and analysis tools. (Developed at Lawrence Livermore\nNational Lab)"
+        },
+        {
+            "name": "llvm",
+            "description": "The LLVM Project is a collection of modular and reusable compiler and\ntoolchain technologies. Despite its name, LLVM has little to do with\ntraditional virtual machines, though it does provide helpful libraries\nthat can be used to build them. The name \"LLVM\" itself is not an\nacronym; it is the full name of the project."
+        },
+        {
+            "name": "comgr",
+            "description": "This provides various Lightning Compiler related services. It currently\ncontains one library, the Code Object Manager (Comgr)"
+        }
+    ]
+}

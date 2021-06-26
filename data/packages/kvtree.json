@@ -1,0 +1,101 @@
+{
+    "name": "kvtree",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "master",
+            "branch": "master"
+        },
+        {
+            "name": "1.1.1",
+            "sha256": "4776bd55a559b7f9bb594454ae6b14ebff0087c93c3d59ac7d1ab27df4aa4d74"
+        },
+        {
+            "name": "1.1.0",
+            "sha256": "3e6c003e7b8094d7c2d1529a973d68a68f953ffa63dcde5f4c7c7e81ddf06564"
+        },
+        {
+            "name": "1.0.3",
+            "sha256": "c742cdb1241ef4cb13767019204d5350a3c4383384bed9fb66680b93ff44b0d4"
+        },
+        {
+            "name": "1.0.2",
+            "sha256": "56fb5b747758c24a907a8380e8748d296900d94de9547bc15f6b427ac4ae2ec4"
+        }
+    ],
+    "build_system": "CMakePackage",
+    "conflicts": [
+        {
+            "name": "+ipo",
+            "spec": "^cmake@:3.8",
+            "description": "+ipo is not supported by CMake < 3.9"
+        }
+    ],
+    "variants": [
+        {
+            "name": "build_type",
+            "default": "RelWithDebInfo",
+            "description": "CMake build type"
+        },
+        {
+            "name": "ipo",
+            "default": false,
+            "description": "CMake interprocedural optimization"
+        },
+        {
+            "name": "mpi",
+            "default": true,
+            "description": "Build with MPI message packing"
+        },
+        {
+            "name": "file_lock",
+            "default": "FLOCK",
+            "description": "File locking style for KVTree."
+        }
+    ],
+    "homepage": "https://github.com/ecp-veloc/KVTree",
+    "maintainers": [],
+    "patches": [],
+    "resources": [],
+    "description": "KVTree provides a fully extensible C datastructure modeled after perl\nhashes.\n",
+    "dependencies": [
+        {
+            "name": "cmake",
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
+        },
+        {
+            "name": "mpi",
+            "description": "MVAPICH2-X is the advanced version of the MVAPICH2 MPI library with\nenhanced features (UMR, ODP, DC, Core-Direct, SHARP, XPMEM), OSU INAM\n(InifniBand Network Monitoring and Analysis),PGAS (OpenSHMEM, UPC,\nUPC++, and CAF), and MPI+PGAS programming models with unified\ncommunication runtime. MVAPICH2-X is not installable from source and is\nonly available through a binary mirror. If you do not find the binary\nyou're looking for, send us an email at mvapich@cse.ohio-state.edu. The\nbinary mirror url is: http://mvapich.cse.ohio-\nstate.edu/download/mvapich/spack-mirror/mvapich2x/"
+        }
+    ],
+    "dependent_to": [
+        {
+            "name": "redset",
+            "description": "Create MPI communicators for disparate redundancy sets"
+        },
+        {
+            "name": "axom",
+            "description": "Axom provides a robust, flexible software infrastructure for the\ndevelopment of multi-physics applications and computational tools."
+        },
+        {
+            "name": "er",
+            "description": "Encoding and redundancy on a file set"
+        },
+        {
+            "name": "axl",
+            "description": "Asynchronous transfer library"
+        },
+        {
+            "name": "shuffile",
+            "description": "Shuffle files between MPI ranks"
+        },
+        {
+            "name": "scr",
+            "description": "SCR caches checkpoint data in storage on the compute nodes of a Linux\ncluster to provide a fast, scalable checkpoint/restart capability for\nMPI codes"
+        },
+        {
+            "name": "filo",
+            "description": "File flush and fetch, with MPI"
+        }
+    ]
+}

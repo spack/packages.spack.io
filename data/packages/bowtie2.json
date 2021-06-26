@@ -1,0 +1,156 @@
+{
+    "name": "bowtie2",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "2.4.2",
+            "sha256": "4cc555eeeeb8ae2d47aaa1551f3f01b57f567a013e4e0d1f30e90f462865027e"
+        },
+        {
+            "name": "2.4.1",
+            "sha256": "566d6fb01a361883747103d797308ee4bdb70f6db7d27bfc72a520587815df22"
+        },
+        {
+            "name": "2.3.5.1",
+            "sha256": "335c8dafb1487a4a9228ef922fbce4fffba3ce8bc211e2d7085aac092155a53f"
+        },
+        {
+            "name": "2.3.5",
+            "sha256": "2b6b2c46fbb5565ba6206b47d07ece8754b295714522149d92acebefef08347b"
+        },
+        {
+            "name": "2.3.4.1",
+            "sha256": "a1efef603b91ecc11cfdb822087ae00ecf2dd922e03c85eea1ed7f8230c119dc"
+        },
+        {
+            "name": "2.3.1",
+            "sha256": "33bd54f5041a31878e7e450cdcf0afba08345fa1133ce8ac6fd00bf7e521a443"
+        },
+        {
+            "name": "2.3.0",
+            "sha256": "f9f841e780e78b1ae24b17981e2469e6d5add90ec22ef563af23ae2dd5ca003c"
+        },
+        {
+            "name": "2.2.5",
+            "sha256": "e22766dd9421c10e82a3e207ee1f0eb924c025b909ad5fffa36633cd7978d3b0"
+        }
+    ],
+    "build_system": "MakefilePackage",
+    "conflicts": [
+        {
+            "name": "%gcc@6:",
+            "spec": "@:2.3.1",
+            "description": "None"
+        },
+        {
+            "name": "^intel-oneapi-tbb",
+            "spec": "@:2.3.5.1",
+            "description": "None"
+        },
+        {
+            "name": "@:2.3.5.0",
+            "spec": "arch=linux-None-aarch64:",
+            "description": "None"
+        },
+        {
+            "name": "@2.4.1",
+            "spec": "arch=linux-None-aarch64:",
+            "description": "None"
+        }
+    ],
+    "variants": [],
+    "homepage": "http://bowtie-bio.sourceforge.net/bowtie2/index.shtml",
+    "maintainers": [],
+    "patches": [
+        {
+            "owner": "builtin.bowtie2",
+            "sha256": "bca0b48208784e482dc5684f0eb44249fdcb97ae5fe5565c3973552f588edeca",
+            "level": 0,
+            "working_dir": ".",
+            "relative_path": "bowtie2-2.2.5.patch",
+            "version": "@2.2.5"
+        },
+        {
+            "owner": "builtin.bowtie2",
+            "sha256": "ce58dce3dbcebb0162f39929653bd23b81e66116f74f3aa4636d8e91e83978b1",
+            "level": 0,
+            "working_dir": ".",
+            "relative_path": "bowtie2-2.3.1.patch",
+            "version": "@2.3.1"
+        },
+        {
+            "owner": "builtin.bowtie2",
+            "sha256": "22da0b229c4fbbaee531d6a671192050988e59e04acd2d5deae848d0577907e0",
+            "level": 0,
+            "working_dir": ".",
+            "relative_path": "bowtie2-2.3.0.patch",
+            "version": "@2.3.0"
+        }
+    ],
+    "resources": [],
+    "description": "Bowtie 2 is an ultrafast and memory-efficient tool for aligning\nsequencing reads to long reference sequences\n",
+    "dependencies": [
+        {
+            "name": "tbb",
+            "description": "Intel Parallel Studio."
+        },
+        {
+            "name": "readline",
+            "description": "The GNU Readline library provides a set of functions for use by\napplications that allow users to edit command lines as they are typed\nin. Both Emacs and vi editing modes are available. The Readline library\nincludes additional functions to maintain a list of previously-entered\ncommand lines, to recall and perhaps reedit those lines, and perform\ncsh-like history expansion on previous commands."
+        },
+        {
+            "name": "perl",
+            "description": "Perl 5 is a highly capable, feature-rich programming language with over\n27 years of development."
+        },
+        {
+            "name": "python",
+            "description": "The Python programming language."
+        },
+        {
+            "name": "zlib",
+            "description": "A free, general-purpose, legally unencumbered lossless data-compression\nlibrary."
+        },
+        {
+            "name": "simde",
+            "description": "The SIMDe header-only library provides fast, portable implementations of\nSIMD intrinsics on hardware which doesn't natively support them, such as\ncalling SSE functions on ARM. There is no performance penalty if the\nhardware supports the native implementation (e.g., SSE/AVX runs at full\nspeed on x86, NEON on ARM, etc.)."
+        }
+    ],
+    "dependent_to": [
+        {
+            "name": "tophat",
+            "description": "Spliced read mapper for RNA-Seq."
+        },
+        {
+            "name": "sparta",
+            "description": "small RNA-PARE Target Analyzer (sPARTA) is a tool which utilizes high-\nthroughput sequencing to profile genome-wide cleavage products."
+        },
+        {
+            "name": "bismark",
+            "description": "A tool to map bisulfite converted sequence reads and determine cytosine\nmethylation states"
+        },
+        {
+            "name": "py-unicycler",
+            "description": "Unicycler is an assembly pipeline for bacterial genomes. It can assemble\nIllumina-only read sets where it functions as a SPAdes-optimiser. It can\nalso assembly long-read-only sets (PacBio or Nanopore) where it runs a\nminiasm+Racon pipeline. For the best possible assemblies, give it both\nIllumina reads and long reads, and it will conduct a hybrid assembly."
+        },
+        {
+            "name": "hic-pro",
+            "description": "HiC-Pro is a package designed to process Hi-C data, from raw fastq files\n(paired-end Illumina data) to the normalized contact maps"
+        },
+        {
+            "name": "fastq-screen",
+            "description": "FastQ Screen allows you to screen a library of sequences in FastQ format\nagainst a set of sequence databases so you can see if the composition of\nthe library matches with what you expect."
+        },
+        {
+            "name": "trinity",
+            "description": "Trinity, developed at the Broad Institute and the Hebrew University of\nJerusalem, represents a novel method for the efficient and robust de\nnovo reconstruction of transcriptomes from RNA-seq data. Trinity\ncombines three independent software modules: Inchworm, Chrysalis, and\nButterfly, applied sequentially to process large volumes of RNA-seq\nreads. Trinity partitions the sequence data into many individual de\nBruijn graphs, each representing the transcriptional complexity at a\ngiven gene or locus, and then processes each graph independently to\nextract full-length splicing isoforms and to tease apart transcripts\nderived from paralogous genes."
+        },
+        {
+            "name": "rsem",
+            "description": "RSEM is a software package for estimating gene and isoform expression\nlevels from RNA-Seq data."
+        },
+        {
+            "name": "py-haphpipe",
+            "description": "HAplotype and PHylodynamics pipeline for viral assembly, population\ngenetics, and phylodynamics."
+        }
+    ]
+}

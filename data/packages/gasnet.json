@@ -1,0 +1,80 @@
+{
+    "name": "gasnet",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "develop",
+            "branch": "develop"
+        },
+        {
+            "name": "main",
+            "branch": "stable"
+        },
+        {
+            "name": "master",
+            "branch": "master"
+        },
+        {
+            "name": "2021.3.0",
+            "sha256": "8a40fb3fa8bacc3922cd4d45217816fcb60100357ab97fb622a245567ea31747"
+        },
+        {
+            "name": "2020.10.0",
+            "sha256": "ed17baf7fce90499b539857ee37b3eea961aa475cffbde77e4c607a34ece06a0"
+        },
+        {
+            "name": "2020.3.0",
+            "sha256": "019eb2d2284856e6fabe6c8c0061c874f10e95fa0265245f227fd3497f1bb274"
+        },
+        {
+            "name": "2019.9.0",
+            "sha256": "117f5fdb16e53d0fa8a47a1e28cccab1d8020ed4f6e50163d985dc90226aaa2c"
+        }
+    ],
+    "build_system": "Package",
+    "conflicts": [],
+    "variants": [
+        {
+            "name": "conduits",
+            "default": "smp",
+            "description": "The hardware-dependent network backends to enable.\n(smp) = SMP conduit for single-node operation ;\n(ibv) = Native InfiniBand verbs conduit ;\n(udp) = Portable UDP conduit, for Ethernet networks ;\n(mpi) = Low-performance/portable MPI conduit ;\nFor detailed recommendations, consult https://gasnet.lbl.gov"
+        },
+        {
+            "name": "debug",
+            "default": false,
+            "description": "Enable library debugging mode"
+        }
+    ],
+    "homepage": "https://gasnet.lbl.gov",
+    "maintainers": [
+        "PHHargrove",
+        "bonachea"
+    ],
+    "patches": [],
+    "resources": [],
+    "description": "GASNet is a language-independent, networking middleware layer that\nprovides network-independent, high-performance communication primitives\nincluding Remote Memory Access (RMA) and Active Messages (AM). It has\nbeen used to implement parallel programming models and libraries such as\nUPC, UPC++, Co-Array Fortran, Legion, Chapel, and many others. The\ninterface is primarily intended as a compilation target and for use by\nruntime library writers (as opposed to end users), and the primary goals\nare high performance, interface portability, and expressiveness.\n***NOTICE***: The GASNet library built by this Spack package is ONLY\nintended for unit-testing purposes, and is generally UNSUITABLE FOR\nPRODUCTION USE. The RECOMMENDED way to build GASNet is as an embedded\nlibrary as configured by the higher-level client runtime package (UPC++,\nLegion, etc), including system-specific configuration.\n",
+    "dependencies": [
+        {
+            "name": "mpi",
+            "description": "MVAPICH2-X is the advanced version of the MVAPICH2 MPI library with\nenhanced features (UMR, ODP, DC, Core-Direct, SHARP, XPMEM), OSU INAM\n(InifniBand Network Monitoring and Analysis),PGAS (OpenSHMEM, UPC,\nUPC++, and CAF), and MPI+PGAS programming models with unified\ncommunication runtime. MVAPICH2-X is not installable from source and is\nonly available through a binary mirror. If you do not find the binary\nyou're looking for, send us an email at mvapich@cse.ohio-state.edu. The\nbinary mirror url is: http://mvapich.cse.ohio-\nstate.edu/download/mvapich/spack-mirror/mvapich2x/"
+        },
+        {
+            "name": "autoconf",
+            "description": "Autoconf -- system configuration part of autotools"
+        },
+        {
+            "name": "automake",
+            "description": "Automake -- make file builder part of autotools"
+        }
+    ],
+    "dependent_to": [
+        {
+            "name": "upcxx",
+            "description": "UPC++ is a C++ library that supports Partitioned Global Address Space\n(PGAS) programming, and is designed to interoperate smoothly and\nefficiently with MPI, OpenMP, CUDA and AMTs. It leverages GASNet-EX to\ndeliver low-overhead, fine-grained communication, including Remote\nMemory Access (RMA) and Remote Procedure Call (RPC)."
+        },
+        {
+            "name": "tau",
+            "description": "A portable profiling and tracing toolkit for performance analysis of\nparallel programs written in Fortran, C, C++, UPC, Java, Python."
+        }
+    ]
+}

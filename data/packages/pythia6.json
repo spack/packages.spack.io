@@ -1,0 +1,264 @@
+{
+    "name": "pythia6",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "6.4.28",
+            "sha256": "01cbff47e99365b5e46f6d62c1735d3cae1932c4710604850d59f538cb758020"
+        }
+    ],
+    "build_system": "CMakePackage",
+    "conflicts": [
+        {
+            "name": "+ipo",
+            "spec": "^cmake@:3.8",
+            "description": "+ipo is not supported by CMake < 3.9"
+        }
+    ],
+    "variants": [
+        {
+            "name": "build_type",
+            "default": "RelWithDebInfo",
+            "description": "CMake build type"
+        },
+        {
+            "name": "ipo",
+            "default": false,
+            "description": "CMake interprocedural optimization"
+        },
+        {
+            "name": "root",
+            "default": false,
+            "description": "Build extra (non OEM) code to allow use by Root."
+        },
+        {
+            "name": "nmxhep",
+            "default": 4000,
+            "description": "Extent of particle arrays in the /HEPEVT/ COMMON block."
+        }
+    ],
+    "homepage": "https://pythiasix.hepforge.org/",
+    "maintainers": [],
+    "patches": [
+        {
+            "owner": "builtin.pythia6",
+            "sha256": "d0817529347cbe70a4cac0da49410e5bf84f84d39f5e46810d8e278993e6e943",
+            "level": 0,
+            "working_dir": ".",
+            "relative_path": "pythia6.patch",
+            "version": ""
+        },
+        {
+            "owner": "builtin.pythia6",
+            "sha256": "535de70ce8e9bfc989897dc3d8f726b44bc810b298cb908ccac0837f1da30ff5",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "pythia6-root.patch",
+            "version": "+root"
+        }
+    ],
+    "resources": [
+        {
+            "version": "+root",
+            "name": "root-pythia6-shim",
+            "destination": ".",
+            "placement": {
+                "pythia6_common_address.c": "pythia6_common_address.c",
+                "tpythia6_called_from_cc.F": "tpythia6_called_from_cc.F"
+            }
+        },
+        {
+            "version": "",
+            "name": "main60.f",
+            "destination": "example",
+            "placement": {
+                "main60.f": "main60.f"
+            }
+        },
+        {
+            "version": "",
+            "name": "main61.f",
+            "destination": "example",
+            "placement": {
+                "main61.f": "main61.f"
+            }
+        },
+        {
+            "version": "",
+            "name": "main62.f",
+            "destination": "example",
+            "placement": {
+                "main62.f": "main62.f"
+            }
+        },
+        {
+            "version": "",
+            "name": "main63.f",
+            "destination": "example",
+            "placement": {
+                "main63.f": "main63.f"
+            }
+        },
+        {
+            "version": "",
+            "name": "main64.f",
+            "destination": "example",
+            "placement": {
+                "main64.f": "main64.f"
+            }
+        },
+        {
+            "version": "",
+            "name": "main65.f",
+            "destination": "example",
+            "placement": {
+                "main65.f": "main65.f"
+            }
+        },
+        {
+            "version": "",
+            "name": "main66.f",
+            "destination": "example",
+            "placement": {
+                "main66.f": "main66.f"
+            }
+        },
+        {
+            "version": "",
+            "name": "main67.f",
+            "destination": "example",
+            "placement": {
+                "main67.f": "main67.f"
+            }
+        },
+        {
+            "version": "",
+            "name": "main68.f",
+            "destination": "example",
+            "placement": {
+                "main68.f": "main68.f"
+            }
+        },
+        {
+            "version": "",
+            "name": "main69.f",
+            "destination": "example",
+            "placement": {
+                "main69.f": "main69.f"
+            }
+        },
+        {
+            "version": "",
+            "name": "main71.f",
+            "destination": "example",
+            "placement": {
+                "main71.f": "main71.f"
+            }
+        },
+        {
+            "version": "",
+            "name": "main72.f",
+            "destination": "example",
+            "placement": {
+                "main72.f": "main72.f"
+            }
+        },
+        {
+            "version": "",
+            "name": "main73.f",
+            "destination": "example",
+            "placement": {
+                "main73.f": "main73.f"
+            }
+        },
+        {
+            "version": "",
+            "name": "main75.f",
+            "destination": "example",
+            "placement": {
+                "main75.f": "main75.f"
+            }
+        },
+        {
+            "version": "",
+            "name": "main77.f",
+            "destination": "example",
+            "placement": {
+                "main77.f": "main77.f"
+            }
+        },
+        {
+            "version": "",
+            "name": "main78.f",
+            "destination": "example",
+            "placement": {
+                "main78.f": "main78.f"
+            }
+        },
+        {
+            "version": "",
+            "name": "main79.f",
+            "destination": "example",
+            "placement": {
+                "main79.f": "main79.f"
+            }
+        },
+        {
+            "version": "",
+            "name": "main81.f",
+            "destination": "example",
+            "placement": {
+                "main81.f": "main81.f"
+            }
+        },
+        {
+            "version": "",
+            "name": "ttbar.lhe",
+            "destination": "example",
+            "placement": {
+                "ttbar.lhe": "ttbar.lhe"
+            }
+        },
+        {
+            "version": "",
+            "name": "update_notes-6.4.28.txt",
+            "destination": "doc",
+            "placement": {
+                "update_notes-6.4.28.txt": "update_notes-6.4.28.txt"
+            }
+        },
+        {
+            "version": "",
+            "name": "lutp0613man2.pdf",
+            "destination": "doc",
+            "placement": {
+                "lutp0613man2.pdf": "lutp0613man2.pdf"
+            }
+        },
+        {
+            "version": "",
+            "name": "pythia6-announcement.txt",
+            "destination": "doc",
+            "placement": {
+                "pythia6-announcement.txt": "pythia6-announcement.txt"
+            }
+        }
+    ],
+    "description": "PYTHIA is a program for the generation of high-energy physics events,\ni.e. for the description of collisions at high energies between\nelementary particles such as e+, e-, p and pbar in various combinations.\nPYTHIA6 is a Fortran package which is no longer maintained: new\nprospective users should use Pythia8 instead. This recipe includes\npatches required to interoperate with Root.\n",
+    "dependencies": [
+        {
+            "name": "cmake",
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
+        }
+    ],
+    "dependent_to": [
+        {
+            "name": "genie",
+            "description": "Genie is a neutrino Monte Carlo Generator."
+        },
+        {
+            "name": "root",
+            "description": "ROOT is a data analysis framework."
+        }
+    ]
+}

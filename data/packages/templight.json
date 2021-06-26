@@ -1,0 +1,104 @@
+{
+    "name": "templight",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "develop",
+            "branch": "master"
+        },
+        {
+            "name": "2019.01.09",
+            "commit": "0899a4345607f1bb244cae477214f274ad2c52cc"
+        },
+        {
+            "name": "2018.07.20",
+            "commit": "91589f95427620dd0a2346bd69ba922f374aa42a"
+        }
+    ],
+    "build_system": "CMakePackage",
+    "conflicts": [
+        {
+            "name": "+ipo",
+            "spec": "^cmake@:3.8",
+            "description": "+ipo is not supported by CMake < 3.9"
+        }
+    ],
+    "variants": [
+        {
+            "name": "build_type",
+            "default": "Release",
+            "description": "CMake build type"
+        },
+        {
+            "name": "ipo",
+            "default": false,
+            "description": "CMake interprocedural optimization"
+        }
+    ],
+    "homepage": "https://github.com/mikael-s-persson/templight",
+    "maintainers": [],
+    "patches": [
+        {
+            "owner": "builtin.templight",
+            "sha256": "12c31f683b917f12f0a94a512666637f523b7ff38fc33c4bc191639ddde92a5b",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "develop-20180720.patch",
+            "version": "@2018.07.20"
+        }
+    ],
+    "resources": [
+        {
+            "version": "@develop",
+            "name": "llvm-trunk",
+            "destination": ".",
+            "placement": "llvm"
+        },
+        {
+            "version": "@develop",
+            "name": "clang-trunk",
+            "destination": "llvm/tools",
+            "placement": "clang"
+        },
+        {
+            "version": "@2019.01.09",
+            "name": "llvm-r350726",
+            "destination": ".",
+            "placement": "llvm"
+        },
+        {
+            "version": "@2019.01.09",
+            "name": "clang-r350726",
+            "destination": "llvm/tools",
+            "placement": "clang"
+        },
+        {
+            "version": "@2018.07.20",
+            "name": "llvm-r337566",
+            "destination": ".",
+            "placement": "llvm"
+        },
+        {
+            "version": "@2018.07.20",
+            "name": "clang-r337566",
+            "destination": "llvm/tools",
+            "placement": "clang"
+        }
+    ],
+    "description": "Templight is a Clang-based tool to profile the time and memory\nconsumption of template instantiations and to perform interactive\ndebugging sessions to gain introspection into the template instantiation\nprocess.\n",
+    "dependencies": [
+        {
+            "name": "cmake",
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
+        },
+        {
+            "name": "python",
+            "description": "The Python programming language."
+        },
+        {
+            "name": "py-lit",
+            "description": "lit is a portable tool for executing LLVM and Clang style test suites,\nsummarizing their results, and providing indication of failures. lit is\ndesigned to be a lightweight testing tool with as simple a user\ninterface as possible."
+        }
+    ],
+    "dependent_to": []
+}

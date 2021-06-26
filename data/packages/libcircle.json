@@ -1,0 +1,68 @@
+{
+    "name": "libcircle",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "master",
+            "branch": "master"
+        },
+        {
+            "name": "0.3.0",
+            "sha256": "5ce38eb5b3c2b394bca1316310758f276c893dd3f4c15d7bc14ea05d3110ce58",
+            "url": "https://github.com/hpc/libcircle/releases/download/v0.3/libcircle-0.3.0.tar.gz"
+        },
+        {
+            "name": "0.2.1-rc.1",
+            "sha256": "5747f91cf4417023304dcc92fd07e3617ac712ca1eeb698880979bbca3f54865"
+        }
+    ],
+    "build_system": "AutotoolsPackage",
+    "conflicts": [],
+    "variants": [],
+    "homepage": "https://github.com/hpc/libcircle",
+    "maintainers": [],
+    "patches": [
+        {
+            "owner": "builtin.libcircle",
+            "sha256": "fd725f5ef80721efde2988891fc2aab6367e9f1f6ee5cf93b94c224b8294c14d",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "CrayPE_configure-ac.patch",
+            "version": "%cce"
+        }
+    ],
+    "resources": [],
+    "description": "libcircle provides an efficient distributed queue on a cluster, using\nself-stabilizing work stealing.\n",
+    "dependencies": [
+        {
+            "name": "mpi",
+            "description": "MVAPICH2-X is the advanced version of the MVAPICH2 MPI library with\nenhanced features (UMR, ODP, DC, Core-Direct, SHARP, XPMEM), OSU INAM\n(InifniBand Network Monitoring and Analysis),PGAS (OpenSHMEM, UPC,\nUPC++, and CAF), and MPI+PGAS programming models with unified\ncommunication runtime. MVAPICH2-X is not installable from source and is\nonly available through a binary mirror. If you do not find the binary\nyou're looking for, send us an email at mvapich@cse.ohio-state.edu. The\nbinary mirror url is: http://mvapich.cse.ohio-\nstate.edu/download/mvapich/spack-mirror/mvapich2x/"
+        },
+        {
+            "name": "pkgconfig",
+            "description": "pkgconf is a program which helps to configure compiler and linker flags\nfor development frameworks. It is similar to pkg-config from\nfreedesktop.org, providing additional functionality while also\nmaintaining compatibility."
+        },
+        {
+            "name": "libpciaccess",
+            "description": "Generic PCI access library."
+        },
+        {
+            "name": "autoconf",
+            "description": "Autoconf -- system configuration part of autotools"
+        },
+        {
+            "name": "automake",
+            "description": "Automake -- make file builder part of autotools"
+        }
+    ],
+    "dependent_to": [
+        {
+            "name": "mpifileutils",
+            "description": "mpiFileUtils is a suite of MPI-based tools to manage large datasets,\nwhich may vary from large directory trees to large files. High-\nperformance computing users often generate large datasets with parallel\napplications that run with many processes (millions in some cases).\nHowever those users are then stuck with single-process tools like cp and\nrm to manage their datasets. This suite provides MPI-based tools to\nhandle typical jobs like copy, remove, and compare for such datasets,\nproviding speedups of up to 20-30x."
+        },
+        {
+            "name": "mpi-bash",
+            "description": "Parallel scripting right from the Bourne-Again Shell (Bash)"
+        }
+    ]
+}

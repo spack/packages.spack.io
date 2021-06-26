@@ -1,0 +1,94 @@
+{
+    "name": "ibm-databroker",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "master",
+            "branch": "master"
+        },
+        {
+            "name": "0.7.0",
+            "sha256": "5460fa1c5c05ad25c759b2ee4cecee92980d4dde5bc7c5f6da9242806cf22bb8"
+        },
+        {
+            "name": "0.6.1",
+            "sha256": "2c7d6c6a269d4ae97aad4d770533e742f367da84758130c283733f25df83e535"
+        },
+        {
+            "name": "0.6.0",
+            "sha256": "5856209d965c923548ebb69119344f1fc596d4c0631121b230448cc91bac4290"
+        }
+    ],
+    "build_system": "CMakePackage",
+    "conflicts": [
+        {
+            "name": "+ipo",
+            "spec": "^cmake@:3.8",
+            "description": "+ipo is not supported by CMake < 3.9"
+        }
+    ],
+    "variants": [
+        {
+            "name": "build_type",
+            "default": "RelWithDebInfo",
+            "description": "CMake build type"
+        },
+        {
+            "name": "ipo",
+            "default": false,
+            "description": "CMake interprocedural optimization"
+        },
+        {
+            "name": "python",
+            "default": false,
+            "description": "Build Python bindings"
+        }
+    ],
+    "homepage": "https://github.com/IBM/data-broker",
+    "maintainers": [
+        "bhatiaharsh"
+    ],
+    "patches": [
+        {
+            "owner": "builtin.ibm-databroker",
+            "sha256": "007ae0f5a930c554ba16a2bf20fcf4c3ec03f987358e51f2e77832959680e235",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "fixes_in_v0.6.1.patch",
+            "version": "@0.6.1"
+        },
+        {
+            "owner": "builtin.ibm-databroker",
+            "sha256": "f712608ac62ddf6625737b32526069010ba5de0708c4eb84a32881dd4156b29e",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "fixes_in_v0.7.0.patch",
+            "version": "@0.7.0"
+        }
+    ],
+    "resources": [],
+    "description": "The Data Broker (DBR) is a distributed, in-memory container of key-value\nstores enabling applications in a workflow to exchange data through one\nor more shared namespaces. Thanks to a small set of primitives,\napplications in a workflow deployed in a (possibly) shared nothing\ndistributed cluster, can easily share and exchange data and messages\nwith applications.\n",
+    "dependencies": [
+        {
+            "name": "python",
+            "description": "The Python programming language."
+        },
+        {
+            "name": "cmake",
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
+        },
+        {
+            "name": "redis",
+            "description": "Redis is an open source (BSD licensed), in-memory data structure store,\nused as a database, cache and message broker. It supports data\nstructures such as strings, hashes, lists, sets, sorted sets with range\nqueries, bitmaps, hyperloglogs, geospatial indexes with radius queries\nand streams. Redis has built-in replication, Lua scripting, LRU\neviction, transactions and different levels of on-disk persistence, and\nprovides high availability via Redis Sentinel and automatic partitioning\nwith Redis Cluster"
+        },
+        {
+            "name": "libevent",
+            "description": "The libevent API provides a mechanism to execute a callback function\nwhen a specific event occurs on a file descriptor or after a timeout has\nbeen reached. Furthermore, libevent also support callbacks due to\nsignals or regular timeouts."
+        },
+        {
+            "name": "py-setuptools",
+            "description": "A Python utility that aids in the process of downloading, building,\nupgrading, installing, and uninstalling Python packages."
+        }
+    ],
+    "dependent_to": []
+}

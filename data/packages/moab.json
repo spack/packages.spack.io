@@ -1,0 +1,247 @@
+{
+    "name": "moab",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "develop",
+            "branch": "develop"
+        },
+        {
+            "name": "master",
+            "branch": "master"
+        },
+        {
+            "name": "5.2.1",
+            "sha256": "60d31762be3f0e5c89416c764e844ec88dac294169b59a5ead3c316b50f85c29"
+        },
+        {
+            "name": "5.2.0",
+            "sha256": "805ed3546deff39e076be4d1f68aba1cf0dda8c34ce43e1fc179d1aff57c5d5d"
+        },
+        {
+            "name": "5.1.0",
+            "sha256": "0371fc25d2594589e95700739f01614f097b6157fb6023ed8995e582726ca658"
+        },
+        {
+            "name": "5.0.2",
+            "commit": "01d05b1805236ef44da36f67eb2701095f2e33c7"
+        },
+        {
+            "name": "5.0.1",
+            "commit": "6cc12bd4ae3fa7c9ad81c595e4d38fa84f0884be"
+        },
+        {
+            "name": "5.0.0",
+            "sha256": "df5d5eb8c0d0dbb046de2e60aa611f276cbf007c9226c44a24ed19c570244e64"
+        },
+        {
+            "name": "4.9.2",
+            "sha256": "26611b8cc24f6b7df52eb4ecbd31523d61523da0524b5a2d066a7656e2e82ac5"
+        },
+        {
+            "name": "4.9.1",
+            "sha256": "b26cee46c096157323cafe047ad58616e16ebdb1e06caf6878673817cb4410cf"
+        },
+        {
+            "name": "4.9.0",
+            "sha256": "267a7c05da847e4ea856db2c649a5484fb7bdc132ab56721ca50ee69a7389f4d"
+        },
+        {
+            "name": "4.8.2",
+            "sha256": "b105cff42930058dc14eabb9a25e979df7289b175732fe319d2494e83e09e968"
+        }
+    ],
+    "build_system": "AutotoolsPackage",
+    "conflicts": [
+        {
+            "name": "+irel",
+            "spec": "~cgm",
+            "description": "None"
+        },
+        {
+            "name": "+pnetcdf",
+            "spec": "~mpi",
+            "description": "None"
+        },
+        {
+            "name": "+parmetis",
+            "spec": "~mpi",
+            "description": "None"
+        },
+        {
+            "name": "+coupler",
+            "spec": "~mpi",
+            "description": "None"
+        }
+    ],
+    "variants": [
+        {
+            "name": "mpi",
+            "default": true,
+            "description": "enable mpi support"
+        },
+        {
+            "name": "hdf5",
+            "default": true,
+            "description": "Required to enable the hdf5 (default I/O) format"
+        },
+        {
+            "name": "netcdf",
+            "default": false,
+            "description": "Required to enable the ExodusII reader/writer."
+        },
+        {
+            "name": "pnetcdf",
+            "default": false,
+            "description": "Enable pnetcdf (AKA parallel-netcdf) support"
+        },
+        {
+            "name": "zoltan",
+            "default": false,
+            "description": "Enable zoltan support"
+        },
+        {
+            "name": "cgm",
+            "default": false,
+            "description": "Enable common geometric module"
+        },
+        {
+            "name": "metis",
+            "default": true,
+            "description": "Enable metis link"
+        },
+        {
+            "name": "parmetis",
+            "default": true,
+            "description": "Enable parmetis link"
+        },
+        {
+            "name": "irel",
+            "default": false,
+            "description": "Enable irel interface"
+        },
+        {
+            "name": "fbigeom",
+            "default": false,
+            "description": "Enable fbigeom interface"
+        },
+        {
+            "name": "coupler",
+            "default": true,
+            "description": "Enable mbcoupler tool"
+        },
+        {
+            "name": "dagmc",
+            "default": false,
+            "description": "Enable dagmc tool"
+        },
+        {
+            "name": "debug",
+            "default": false,
+            "description": "enable debug symbols"
+        },
+        {
+            "name": "shared",
+            "default": false,
+            "description": "Enables the build of shared libraries"
+        },
+        {
+            "name": "fortran",
+            "default": true,
+            "description": "Enable Fortran support"
+        }
+    ],
+    "homepage": "https://bitbucket.org/fathomteam/moab",
+    "maintainers": [
+        "vijaysm",
+        "iulian787"
+    ],
+    "patches": [
+        {
+            "owner": "builtin.moab",
+            "sha256": "2d17f204eda8da9b46f227aac0b10f6db3dfadde6e5061e03c8b0b0b39b69f25",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "tools-492.patch",
+            "version": "@4.9.2"
+        }
+    ],
+    "resources": [],
+    "description": "MOAB is a component for representing and evaluating mesh data. MOAB can\nstore structured and unstructured mesh, consisting of elements in the\nfinite element 'zoo.' The functional interface to MOAB is simple yet\npowerful, allowing the representation of many types of metadata commonly\nfound on the mesh. MOAB is optimized for efficiency in space and time,\nbased on access to mesh in chunks rather than through individual\nentities, while also versatile enough to support individual entity\naccess.\n",
+    "dependencies": [
+        {
+            "name": "autoconf",
+            "description": "Autoconf -- system configuration part of autotools"
+        },
+        {
+            "name": "automake",
+            "description": "Automake -- make file builder part of autotools"
+        },
+        {
+            "name": "libtool",
+            "description": "libtool -- library building part of autotools."
+        },
+        {
+            "name": "m4",
+            "description": "GNU M4 is an implementation of the traditional Unix macro processor."
+        },
+        {
+            "name": "blas",
+            "description": "Intel oneAPI MKL."
+        },
+        {
+            "name": "lapack",
+            "description": "Intel oneAPI MKL."
+        },
+        {
+            "name": "mpi",
+            "description": "MVAPICH2-X is the advanced version of the MVAPICH2 MPI library with\nenhanced features (UMR, ODP, DC, Core-Direct, SHARP, XPMEM), OSU INAM\n(InifniBand Network Monitoring and Analysis),PGAS (OpenSHMEM, UPC,\nUPC++, and CAF), and MPI+PGAS programming models with unified\ncommunication runtime. MVAPICH2-X is not installable from source and is\nonly available through a binary mirror. If you do not find the binary\nyou're looking for, send us an email at mvapich@cse.ohio-state.edu. The\nbinary mirror url is: http://mvapich.cse.ohio-\nstate.edu/download/mvapich/spack-mirror/mvapich2x/"
+        },
+        {
+            "name": "hdf5",
+            "description": "HDF5 is a data model, library, and file format for storing and managing\ndata. It supports an unlimited variety of datatypes, and is designed for\nflexible and efficient I/O and for high volume and complex data."
+        },
+        {
+            "name": "netcdf-c",
+            "description": "NetCDF (network Common Data Form) is a set of software libraries and\nmachine-independent data formats that support the creation, access, and\nsharing of array-oriented scientific data. This is the C distribution."
+        },
+        {
+            "name": "parallel-netcdf",
+            "description": "PnetCDF (Parallel netCDF) is a high-performance parallel I/O library for\naccessing files in format compatibility with Unidata's NetCDF,\nspecifically the formats of CDF-1, 2, and 5."
+        },
+        {
+            "name": "cgm",
+            "description": "The Common Geometry Module, Argonne (CGMA) is a code library which\nprovides geometry functionality used for mesh generation and other\napplications."
+        },
+        {
+            "name": "metis",
+            "description": "METIS is a set of serial programs for partitioning graphs, partitioning\nfinite element meshes, and producing fill reducing orderings for sparse\nmatrices. The algorithms implemented in METIS are based on the\nmultilevel recursive-bisection, multilevel k-way, and multi-constraint\npartitioning schemes."
+        },
+        {
+            "name": "parmetis",
+            "description": "ParMETIS is an MPI-based parallel library that implements a variety of\nalgorithms for partitioning unstructured graphs, meshes, and for\ncomputing fill-reducing orderings of sparse matrices."
+        },
+        {
+            "name": "zoltan",
+            "description": "The Zoltan library is a toolkit of parallel combinatorial algorithms for\nparallel, unstructured, and/or adaptive scientific applications.\nZoltan's largest component is a suite of dynamic load-balancing and\npartitioning algorithms that increase applications' parallel performance\nby reducing idle time. Zoltan also has graph coloring and graph ordering\nalgorithms, which are useful in task schedulers and parallel\npreconditioners."
+        }
+    ],
+    "dependent_to": [
+        {
+            "name": "mofem-cephas",
+            "description": "MoFEM is finite element core library"
+        },
+        {
+            "name": "meshkit",
+            "description": "MeshKit is an open-source library of mesh generation functionality. Its\ndesign philosophy is two-fold: it provides a collection of meshing\nalgorithms for use in real meshing problems, along with other tools\ncommonly needed to support mesh generation"
+        },
+        {
+            "name": "camellia",
+            "description": "Camellia: user-friendly MPI-parallel adaptive finite element package,\nwith support for DPG and other hybrid methods, built atop Trilinos."
+        },
+        {
+            "name": "petsc",
+            "description": "PETSc is a suite of data structures and routines for the scalable\n(parallel) solution of scientific applications modeled by partial\ndifferential equations."
+        }
+    ]
+}

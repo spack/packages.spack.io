@@ -1,0 +1,195 @@
+{
+    "name": "grib-api",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "1.24.0",
+            "sha256": "6b0d443cb0802c5de652e5816c5b88734cb3ead454eb932c5ec12ef8d4f77bcd"
+        },
+        {
+            "name": "1.21.0",
+            "sha256": "50c2b58303ab578c55735e6c21c72ffc24f82a5bf52565550f54d49cb60e8a90"
+        },
+        {
+            "name": "1.17.0",
+            "sha256": "55cbb4fdcb4ee1be6a27cece9ae7e26070beb8ab6cb7e77773db3fb0d4272462"
+        },
+        {
+            "name": "1.16.0",
+            "sha256": "0068ca4149a9f991d4c86a813ac73b4e2299c6a3fd53aba9e6ab276ef6f0ff9a"
+        }
+    ],
+    "build_system": "CMakePackage",
+    "conflicts": [
+        {
+            "name": "+ipo",
+            "spec": "^cmake@:3.8",
+            "description": "+ipo is not supported by CMake < 3.9"
+        },
+        {
+            "name": "+openmp",
+            "spec": "+pthreads",
+            "description": "Cannot enable both POSIX threads and OMP"
+        },
+        {
+            "name": "+numpy",
+            "spec": "~python",
+            "description": "Numpy variant is valid only when the Python interface is enabled"
+        }
+    ],
+    "variants": [
+        {
+            "name": "build_type",
+            "default": "RelWithDebInfo",
+            "description": "The build type to build"
+        },
+        {
+            "name": "ipo",
+            "default": false,
+            "description": "CMake interprocedural optimization"
+        },
+        {
+            "name": "netcdf",
+            "default": false,
+            "description": "Enable netcdf encoding/decoding using netcdf library"
+        },
+        {
+            "name": "jp2k",
+            "default": "openjpeg",
+            "description": "Specify JPEG2000 decoding/encoding backend"
+        },
+        {
+            "name": "png",
+            "default": false,
+            "description": "Enable png for decoding/encoding"
+        },
+        {
+            "name": "aec",
+            "default": false,
+            "description": "Enable Adaptive Entropy Coding for decoding/encoding"
+        },
+        {
+            "name": "pthreads",
+            "default": false,
+            "description": "Enable POSIX threads"
+        },
+        {
+            "name": "openmp",
+            "default": false,
+            "description": "Enable OpenMP threads"
+        },
+        {
+            "name": "python",
+            "default": false,
+            "description": "Enable the Python interface"
+        },
+        {
+            "name": "numpy",
+            "default": false,
+            "description": "Enable numpy support in the Python interface"
+        },
+        {
+            "name": "fortran",
+            "default": false,
+            "description": "Enable the Fortran support"
+        },
+        {
+            "name": "examples",
+            "default": true,
+            "description": "Build the examples (part of the full test suite)"
+        },
+        {
+            "name": "test",
+            "default": true,
+            "description": "Enable the tests"
+        }
+    ],
+    "homepage": "https://software.ecmwf.int/wiki/display/GRIB/Home",
+    "maintainers": [
+        "skosukhin"
+    ],
+    "patches": [
+        {
+            "owner": "builtin.grib-api",
+            "sha256": "9abcf53ee1b8844f2aa5ff360b83f9548752b25b0357c94ddc4ae56f84d27978",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "enable_only_openjpeg.patch",
+            "version": "jp2k=openjpeg"
+        },
+        {
+            "owner": "builtin.grib-api",
+            "sha256": "ea464dbfca988537bdbb73143b97b88746b2270afea025d26bbe0aee41bb990d",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "enable_only_jasper.patch",
+            "version": "jp2k=jasper"
+        },
+        {
+            "owner": "builtin.grib-api",
+            "sha256": "d26fbed250ea617056e2e70f31c7d0b8a850c8972ed5f57106c8573e150d0544",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "disable_numpy.patch",
+            "version": "~numpy+python"
+        },
+        {
+            "owner": "builtin.grib-api",
+            "sha256": "caa4c2f2ac4a13a61c3372cd64f2f6f6570c78ed2ab91497a76b02c584abe1bc",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "cmake_install_rpath.patch",
+            "version": ""
+        }
+    ],
+    "resources": [],
+    "description": "The ECMWF GRIB API is an application program interface accessible from\nC, FORTRAN and Python programs developed for encoding and decoding WMO\nFM-92 GRIB edition 1 and edition 2 messages.\n",
+    "dependencies": [
+        {
+            "name": "cmake",
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
+        },
+        {
+            "name": "netcdf-c",
+            "description": "NetCDF (network Common Data Form) is a set of software libraries and\nmachine-independent data formats that support the creation, access, and\nsharing of array-oriented scientific data. This is the C distribution."
+        },
+        {
+            "name": "openjpeg",
+            "description": "OpenJPEG is an open-source JPEG 2000 codec written in C language. It has\nbeen developed in order to promote the use of JPEG 2000, a still-image\ncompression standard from the Joint Photographic Experts Group (JPEG).\nSince April 2015, it is officially recognized by ISO/IEC and ITU-T as a\nJPEG 2000 Reference Software."
+        },
+        {
+            "name": "jasper",
+            "description": "Library for manipulating JPEG-2000 images"
+        },
+        {
+            "name": "libpng",
+            "description": "libpng is the official PNG reference library."
+        },
+        {
+            "name": "libaec",
+            "description": "Libaec provides fast lossless compression of 1 up to 32 bit wide signed\nor unsigned integers (samples). It implements Golomb-Rice compression\nmethod under the BSD license and includes a free drop-in replacement for\nthe SZIP library."
+        },
+        {
+            "name": "python",
+            "description": "The Python programming language."
+        },
+        {
+            "name": "py-numpy",
+            "description": "NumPy is the fundamental package for scientific computing with Python.\nIt contains among other things: a powerful N-dimensional array object,\nsophisticated (broadcasting) functions, tools for integrating C/C++ and\nFortran code, and useful linear algebra, Fourier transform, and random\nnumber capabilities"
+        }
+    ],
+    "dependent_to": [
+        {
+            "name": "cdo",
+            "description": "CDO is a collection of command line Operators to manipulate and analyse\nClimate and NWP model Data."
+        },
+        {
+            "name": "libemos",
+            "description": "The Interpolation library (EMOSLIB) includes Interpolation software and\nBUFR & CREX encoding/decoding routines."
+        },
+        {
+            "name": "magics",
+            "description": "Magics is the latest generation of the ECMWF's Meteorological plotting\nsoftware MAGICS. Although completely redesigned in C++, it is intended\nto be as backwards-compatible as possible with the Fortran interface."
+        }
+    ]
+}

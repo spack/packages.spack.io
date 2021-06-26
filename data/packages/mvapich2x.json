@@ -1,0 +1,75 @@
+{
+    "name": "mvapich2x",
+    "aliases": [
+        {
+            "name": "mpi",
+            "alias_for": "{mvapich2x}"
+        },
+        {
+            "name": "mpi@:3.1",
+            "alias_for": "{mvapich2x}"
+        }
+    ],
+    "versions": [
+        {
+            "name": "2.3",
+            "sha256": "fc47070e2e9fac09b97022be2320200d732a0a4a820a2b51532b88f8ded14536",
+            "preferred": true
+        },
+        {
+            "name": "2.3rc3",
+            "sha256": "85a9f1ea1a837d487e356f021ef6f3a4661ad270a0c5f54777b362ee4d45166f"
+        }
+    ],
+    "build_system": "AutotoolsPackage",
+    "conflicts": [],
+    "variants": [
+        {
+            "name": "feature",
+            "default": "basic",
+            "description": "Feature descriptions are specified at: https://mvapich.cse.ohio-state.edu/downloads/"
+        },
+        {
+            "name": "process_managers",
+            "default": "mpirun",
+            "description": "List of the process managers to activate"
+        },
+        {
+            "name": "distribution",
+            "default": "stock-ofed",
+            "description": "The type of distribution of the fabric."
+        },
+        {
+            "name": "pmi_version",
+            "default": "pmi1",
+            "description": "The pmi version to be used with slurm. This variant is IGNORED if set for mpirun or jsrun. jsrun uses pmix regardless of chosen option."
+        }
+    ],
+    "homepage": "http://mvapich.cse.ohio-state.edu",
+    "maintainers": [
+        "nithintsk",
+        "harisubramoni"
+    ],
+    "patches": [],
+    "resources": [],
+    "description": "MVAPICH2-X is the advanced version of the MVAPICH2 MPI library with\nenhanced features (UMR, ODP, DC, Core-Direct, SHARP, XPMEM), OSU INAM\n(InifniBand Network Monitoring and Analysis),PGAS (OpenSHMEM, UPC,\nUPC++, and CAF), and MPI+PGAS programming models with unified\ncommunication runtime. MVAPICH2-X is not installable from source and is\nonly available through a binary mirror. If you do not find the binary\nyou're looking for, send us an email at mvapich@cse.ohio-state.edu. The\nbinary mirror url is: http://mvapich.cse.ohio-\nstate.edu/download/mvapich/spack-mirror/mvapich2x/\n",
+    "dependencies": [
+        {
+            "name": "bison",
+            "description": "Bison is a general-purpose parser generator that converts an annotated\ncontext-free grammar into a deterministic LR or generalized LR (GLR)\nparser employing LALR(1) parser tables."
+        },
+        {
+            "name": "libpciaccess",
+            "description": "Generic PCI access library."
+        },
+        {
+            "name": "libxml2",
+            "description": "Libxml2 is the XML C parser and toolkit developed for the Gnome project\n(but usable outside of the Gnome platform), it is free software\navailable under the MIT License."
+        },
+        {
+            "name": "pmix",
+            "description": "The Process Management Interface (PMI) has been used for quite some time\nas a means of exchanging wireup information needed for interprocess\ncommunication. However, meeting the significant orchestration challenges\npresented by exascale systems requires that the process-to-system\ninterface evolve to permit a tighter integration between the different\ncomponents of the parallel application and existing and future SMS\nsolutions. PMI Exascale (PMIx) addresses these needs by providing an\nextended version of the PMI definitions specifically designed to support\nexascale and beyond environments by: (a) adding flexibility to the\nfunctionality expressed in the existing APIs, (b) augmenting the\ninterfaces with new APIs that provide extended capabilities, (c) forging\na collaboration between subsystem providers including resource manager,\nfabric, file system, and programming library developers, (d)\nestablishing a standards-like body for maintaining the definitions, and\n(e) providing a reference implementation of the PMIx standard that\ndemonstrates the desired level of scalability while maintaining strict\nseparation between it and the standard itself."
+        }
+    ],
+    "dependent_to": []
+}

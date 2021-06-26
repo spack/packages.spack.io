@@ -1,0 +1,63 @@
+{
+    "name": "nek5000",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "develop",
+            "branch": "master"
+        },
+        {
+            "name": "17.0",
+            "checksum": "4d8d4793ce3c926c54e09a5a5968fa959fe0ba46bd2e6b8043e099528ee35a60"
+        },
+        {
+            "name": "19.0",
+            "checksum": "db129877a10ff568d49edc77cf65f9e732eecb1fce10edbd91ffc5ac10c41ad6"
+        }
+    ],
+    "build_system": "Package",
+    "conflicts": [],
+    "variants": [
+        {
+            "name": "mpi",
+            "default": true,
+            "description": "Build with MPI."
+        },
+        {
+            "name": "profiling",
+            "default": true,
+            "description": "Build with profiling data."
+        },
+        {
+            "name": "visit",
+            "default": false,
+            "description": "Build with Visit."
+        }
+    ],
+    "homepage": "https://nek5000.mcs.anl.gov/",
+    "maintainers": [],
+    "patches": [
+        {
+            "owner": "builtin.nek5000",
+            "sha256": "ba9ecafa77dc57b14aa1883280c3b6f525cdef19c74dc7bd6a0c2baa40db1455",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "add_fjfortran.patch",
+            "version": "%fj"
+        }
+    ],
+    "resources": [],
+    "description": "A fast and scalable high-order solver for computational fluid dynamics\n",
+    "dependencies": [
+        {
+            "name": "mpi",
+            "description": "MVAPICH2-X is the advanced version of the MVAPICH2 MPI library with\nenhanced features (UMR, ODP, DC, Core-Direct, SHARP, XPMEM), OSU INAM\n(InifniBand Network Monitoring and Analysis),PGAS (OpenSHMEM, UPC,\nUPC++, and CAF), and MPI+PGAS programming models with unified\ncommunication runtime. MVAPICH2-X is not installable from source and is\nonly available through a binary mirror. If you do not find the binary\nyou're looking for, send us an email at mvapich@cse.ohio-state.edu. The\nbinary mirror url is: http://mvapich.cse.ohio-\nstate.edu/download/mvapich/spack-mirror/mvapich2x/"
+        }
+    ],
+    "dependent_to": [
+        {
+            "name": "ceed",
+            "description": "Ceed is a collection of benchmarks, miniapps, software libraries and\nAPIs for efficient high-order finite element and spectral element\ndiscretizations for exascale applications developed in the Department of\nEnergy (DOE) and partially supported by the Exascale Computing Project\n(ECP). This is a Spack bundle package that installs the CEED software\ncomponents."
+        }
+    ]
+}

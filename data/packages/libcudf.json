@@ -1,0 +1,71 @@
+{
+    "name": "libcudf",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "0.15.0",
+            "sha256": "2570636b72cce4c52f71e36307f51f630e2f9ea94a1abc018d40ce919ba990e4"
+        }
+    ],
+    "build_system": "CMakePackage",
+    "conflicts": [
+        {
+            "name": "+ipo",
+            "spec": "^cmake@:3.8",
+            "description": "+ipo is not supported by CMake < 3.9"
+        }
+    ],
+    "variants": [
+        {
+            "name": "build_type",
+            "default": "RelWithDebInfo",
+            "description": "CMake build type"
+        },
+        {
+            "name": "ipo",
+            "default": false,
+            "description": "CMake interprocedural optimization"
+        }
+    ],
+    "homepage": "https://rapids.ai",
+    "maintainers": [],
+    "patches": [],
+    "resources": [],
+    "description": "Built based on the Apache Arrow columnar memory format, cuDF is a GPU\nDataFrame library for loading, joining, aggregating, filtering, and\notherwise manipulating data.\n",
+    "dependencies": [
+        {
+            "name": "cmake",
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
+        },
+        {
+            "name": "cuda",
+            "description": "CUDA is a parallel computing platform and programming model invented by\nNVIDIA. It enables dramatic increases in computing performance by\nharnessing the power of the graphics processing unit (GPU). Note: This\npackage does not currently install the drivers necessary to run CUDA.\nThese will need to be installed manually. See:\nhttps://docs.nvidia.com/cuda/ for details."
+        },
+        {
+            "name": "boost",
+            "description": "Boost provides free peer-reviewed portable C++ source libraries,\nemphasizing libraries that work well with the C++ Standard Library.\nBoost libraries are intended to be widely useful, and usable across a\nbroad spectrum of applications. The Boost license encourages both\ncommercial and non-commercial use."
+        },
+        {
+            "name": "arrow",
+            "description": "A cross-language development platform for in-memory data. This package\ncontains the C++ bindings."
+        },
+        {
+            "name": "librmm",
+            "description": "RMM: RAPIDS Memory Manager. Achieving optimal performance in GPU-centric\nworkflows frequently requires customizing how host and device memory are\nallocated."
+        },
+        {
+            "name": "dlpack",
+            "description": "DLPack is an RFC for common tensor and operator guidelines in deep\nlearning systems."
+        }
+    ],
+    "dependent_to": [
+        {
+            "name": "libcuml",
+            "description": "cuML is a suite of libraries that implement machine learning algorithms\nand mathematical primitives functions that share compatible APIs with\nother RAPIDS projects."
+        },
+        {
+            "name": "py-cudf",
+            "description": "Built based on the Apache Arrow columnar memory format, cuDF is a GPU\nDataFrame library for loading, joining, aggregating, filtering, and\notherwise manipulating data."
+        }
+    ]
+}

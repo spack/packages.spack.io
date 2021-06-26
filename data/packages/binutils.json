@@ -1,0 +1,290 @@
+{
+    "name": "binutils",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "2.36.1",
+            "sha256": "5b4bd2e79e30ce8db0abd76dd2c2eae14a94ce212cfc59d3c37d23e24bc6d7a3"
+        },
+        {
+            "name": "2.35.2",
+            "sha256": "cfa7644dbecf4591e136eb407c1c1da16578bd2b03f0c2e8acdceba194bb9d61"
+        },
+        {
+            "name": "2.35.1",
+            "sha256": "320e7a1d0f46fcd9f413f1046e216cbe23bb2bce6deb6c6a63304425e48b1942"
+        },
+        {
+            "name": "2.35",
+            "sha256": "7d24660f87093670738e58bcc7b7b06f121c0fcb0ca8fc44368d675a5ef9cff7"
+        },
+        {
+            "name": "2.34",
+            "sha256": "89f010078b6cf69c23c27897d686055ab89b198dddf819efb0a4f2c38a0b36e6"
+        },
+        {
+            "name": "2.33.1",
+            "sha256": "0cb4843da15a65a953907c96bad658283f3c4419d6bcc56bf2789db16306adb2"
+        },
+        {
+            "name": "2.32",
+            "sha256": "de38b15c902eb2725eac6af21183a5f34ea4634cb0bcef19612b50e5ed31072d"
+        },
+        {
+            "name": "2.31.1",
+            "sha256": "ffcc382695bf947da6135e7436b8ed52d991cf270db897190f19d6f9838564d0"
+        },
+        {
+            "name": "2.29.1",
+            "sha256": "1509dff41369fb70aed23682351b663b56db894034773e6dbf7d5d6071fc55cc"
+        },
+        {
+            "name": "2.28",
+            "sha256": "6297433ee120b11b4b0a1c8f3512d7d73501753142ab9e2daa13c5a3edd32a72"
+        },
+        {
+            "name": "2.27",
+            "sha256": "369737ce51587f92466041a97ab7d2358c6d9e1b6490b3940eb09fb0a9a6ac88"
+        },
+        {
+            "name": "2.26",
+            "sha256": "c2ace41809542f5237afc7e3b8f32bb92bc7bc53c6232a84463c423b0714ecd9"
+        },
+        {
+            "name": "2.25.1",
+            "sha256": "b5b14added7d78a8d1ca70b5cb75fef57ce2197264f4f5835326b0df22ac9f22"
+        },
+        {
+            "name": "2.25",
+            "sha256": "22defc65cfa3ef2a3395faaea75d6331c6e62ea5dfacfed3e2ec17b08c882923"
+        },
+        {
+            "name": "2.24",
+            "sha256": "e5e8c5be9664e7f7f96e0d09919110ab5ad597794f5b1809871177a0f0f14137"
+        },
+        {
+            "name": "2.23.2",
+            "sha256": "fe914e56fed7a9ec2eb45274b1f2e14b0d8b4f41906a5194eac6883cfe5c1097"
+        },
+        {
+            "name": "2.20.1",
+            "sha256": "71d37c96451333c5c0b84b170169fdcb138bbb27397dc06281905d9717c8ed64"
+        }
+    ],
+    "build_system": "AutotoolsPackage",
+    "conflicts": [
+        {
+            "name": "+gold",
+            "spec": "arch=darwin-None-None",
+            "description": "Binutils cannot build linkers on macOS"
+        },
+        {
+            "name": "+gas",
+            "spec": "~ld",
+            "description": "Assembler not always compatible with system ld"
+        },
+        {
+            "name": "~ld",
+            "spec": "+gold",
+            "description": "None"
+        }
+    ],
+    "variants": [
+        {
+            "name": "plugins",
+            "default": true,
+            "description": "enable plugins, needed for gold linker"
+        },
+        {
+            "name": "gold",
+            "default": false,
+            "description": "build the gold linker"
+        },
+        {
+            "name": "libiberty",
+            "default": false,
+            "description": "Also install libiberty."
+        },
+        {
+            "name": "nls",
+            "default": true,
+            "description": "Enable Native Language Support"
+        },
+        {
+            "name": "headers",
+            "default": false,
+            "description": "Install extra headers (e.g. ELF)"
+        },
+        {
+            "name": "lto",
+            "default": false,
+            "description": "Enable lto."
+        },
+        {
+            "name": "ld",
+            "default": false,
+            "description": "Enable ld."
+        },
+        {
+            "name": "gas",
+            "default": false,
+            "description": "Enable as assembler."
+        },
+        {
+            "name": "interwork",
+            "default": false,
+            "description": "Enable interwork."
+        },
+        {
+            "name": "libs",
+            "default": "shared,static",
+            "description": "Build shared libs, static libs or both"
+        }
+    ],
+    "homepage": "http://www.gnu.org/software/binutils/",
+    "maintainers": [],
+    "patches": [
+        {
+            "owner": "builtin.binutils",
+            "sha256": "0a0ca84889b6727dc0cc88650f55fd79452dddba762674a83a153374792fdaac",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "cr16.patch",
+            "version": "@:2.29.1"
+        },
+        {
+            "owner": "builtin.binutils",
+            "sha256": "10e7a67069a16def0375a80062f68e2208c015656d7e888cf760165624eed5f4",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "update_symbol-2.26.patch",
+            "version": "@2.26"
+        }
+    ],
+    "resources": [],
+    "description": "GNU binutils, which contain the linker, assembler, objdump and others\n",
+    "dependencies": [
+        {
+            "name": "zlib",
+            "description": "A free, general-purpose, legally unencumbered lossless data-compression\nlibrary."
+        },
+        {
+            "name": "diffutils",
+            "description": "GNU Diffutils is a package of several programs related to finding\ndifferences between files."
+        },
+        {
+            "name": "gettext",
+            "description": "GNU internationalization (i18n) and localization (l10n) library."
+        },
+        {
+            "name": "m4",
+            "description": "GNU M4 is an implementation of the traditional Unix macro processor."
+        },
+        {
+            "name": "bison",
+            "description": "Bison is a general-purpose parser generator that converts an annotated\ncontext-free grammar into a deterministic LR or generalized LR (GLR)\nparser employing LALR(1) parser tables."
+        },
+        {
+            "name": "texinfo",
+            "description": "Texinfo is the official documentation format of the GNU project. It was\ninvented by Richard Stallman and Bob Chassell many years ago, loosely\nbased on Brian Reid's Scribe and other formatting languages of the time.\nIt is used by many non-GNU projects as well."
+        }
+    ],
+    "dependent_to": [
+        {
+            "name": "ldc",
+            "description": "The LDC project aims to provide a portable D programming language\ncompiler with modern optimization and code generation capabilities. LDC\nis fully Open Source; the parts of the code not taken/adapted from other\nprojects are BSD-licensed (see the LICENSE file for details). Consult\nthe D wiki for further information: http://wiki.dlang.org/LDC"
+        },
+        {
+            "name": "hpctoolkit",
+            "description": "HPCToolkit is an integrated suite of tools for measurement and analysis\nof program performance on computers ranging from multicore desktop\nsystems to the nation's largest supercomputers. By using statistical\nsampling of timers and hardware performance counters, HPCToolkit\ncollects accurate measurements of a program's work, resource\nconsumption, and inefficiency and attributes them to the full calling\ncontext in which they occur."
+        },
+        {
+            "name": "extrae",
+            "description": "Extrae is the package devoted to generate tracefiles which can be\nanalyzed later by Paraver. Extrae is a tool that uses different\ninterposition mechanisms to inject probes into the target application so\nas to gather information regarding the application performance. The\nExtrae instrumentation package can instrument the MPI programin model,\nand the following parallel programming models either alone or in\nconjunction with MPI : OpenMP, CUDA, OpenCL, pthread, OmpSs"
+        },
+        {
+            "name": "apex",
+            "description": "Autonomic Performance Environment for eXascale (APEX)."
+        },
+        {
+            "name": "openmpi",
+            "description": "An open source Message Passing Interface implementation. The Open MPI\nProject is an open source Message Passing Interface implementation that\nis developed and maintained by a consortium of academic, research, and\nindustry partners. Open MPI is therefore able to combine the expertise,\ntechnologies, and resources from all across the High Performance\nComputing community in order to build the best MPI library available.\nOpen MPI offers advantages for system and software vendors, application\ndevelopers and computer science researchers."
+        },
+        {
+            "name": "srilm",
+            "description": "SRILM (SRI Language Modeling Toolkit) is a toolkit for building and\napplying statistical language models (LMs), primarily for use in speech\nrecognition, statistical tagging and segmentation, and machine\ntranslation."
+        },
+        {
+            "name": "gcc",
+            "description": "The GNU Compiler Collection includes front ends for C, C++, Objective-C,\nFortran, Ada, and Go, as well as libraries for these languages."
+        },
+        {
+            "name": "py-llvmlite",
+            "description": "A lightweight LLVM python binding for writing JIT compilers"
+        },
+        {
+            "name": "ldc-bootstrap",
+            "description": "The LDC project aims to provide a portable D programming language\ncompiler with modern optimization and code generation capabilities. LDC\nis fully Open Source; the parts of the code not taken/adapted from other\nprojects are BSD-licensed (see the LICENSE file for details). Consult\nthe D wiki for further information: http://wiki.dlang.org/LDC This old\nversion of the compiler is needed to bootstrap newer ones."
+        },
+        {
+            "name": "mesa18",
+            "description": "Mesa is an open-source implementation of the OpenGL specification - a\nsystem for rendering interactive 3D graphics."
+        },
+        {
+            "name": "llvm-doe",
+            "description": "This package provides a collection of the experimental LLVM projects\ndone by the US DOE research and development teams."
+        },
+        {
+            "name": "sst-macro",
+            "description": "The Structural Simulation Toolkit Macroscale Element Library simulates\nlarge-scale parallel computer architectures for the coarse-grained study\nof distributed-memory applications. The simulator is driven from either\na trace file or skeleton application. SST/macro's modular architecture\ncan be extended with additional network models, trace file formats,\nsoftware services, and processor models."
+        },
+        {
+            "name": "abi-dumper",
+            "description": "ABI Dumper is a tool to dump ABI of an ELF object containing DWARF debug\ninfo."
+        },
+        {
+            "name": "dropwatch",
+            "description": "Dropwatch is a project I started in an effort to improve the ability for\ndevelopers and system administrator to diagnose problems in the Linux\nNetworking stack, specifically in our ability to diagnose where packets\nare getting dropped."
+        },
+        {
+            "name": "openspeedshop-utils",
+            "description": "OpenSpeedShop is a community effort led by Trenza, Inc. It builds on top\nof a broad list of community infrastructures, most notably Dyninst and\nMRNet from UW, libmonitor from Rice, and PAPI from UTK. OpenSpeedShop is\nan open source multi platform Linux performance tool which is targeted\nto support performance analysis of applications running on both single\nnode and large scale IA64, IA32, EM64T, AMD64, PPC, ARM, Power8, Intel\nPhi, Blue Gene and Cray platforms. OpenSpeedShop development is hosted\nby Trenza Inc.. The infrastructure and base components of OpenSpeedShop\nare released as open source code primarily under LGPL. openspeedshop-\nutils is a package that does not have the qt3 gui. It was created to\navoid a conflict between openspeedshop and cbtf-argonavis-gui based on\nthe fact that spack will not allow a qt3 and qt4/qt5 dependency in a\npackages dependency tree."
+        },
+        {
+            "name": "llvm",
+            "description": "The LLVM Project is a collection of modular and reusable compiler and\ntoolchain technologies. Despite its name, LLVM has little to do with\ntraditional virtual machines, though it does provide helpful libraries\nthat can be used to build them. The name \"LLVM\" itself is not an\nacronym; it is the full name of the project."
+        },
+        {
+            "name": "pnmpi",
+            "description": "PnMPI is a dynamic MPI tool infrastructure that builds on top of the\nstandardized PMPI interface."
+        },
+        {
+            "name": "abi-compliance-checker",
+            "description": "A tool for checking backward compatibility of a C/C++ library API."
+        },
+        {
+            "name": "kcov",
+            "description": "Code coverage tool for compiled programs, Python and Bash which uses\ndebugging information to collect and report data without special\ncompilation options"
+        },
+        {
+            "name": "sollve",
+            "description": "The SOLLVE Project aims at scaling OpenMP by leveraging LLVM for\nexascale performance and portability of applications. This package\nprovides a collection of Clang/LLVM compilers and an OpenMP runtime\nlibrary."
+        },
+        {
+            "name": "tau",
+            "description": "A portable profiling and tracing toolkit for performance analysis of\nparallel programs written in Fortran, C, C++, UPC, Java, Python."
+        },
+        {
+            "name": "cbtf-krell",
+            "description": "CBTF Krell project contains collector and runtime contributions to the\nCBTF project. These contributions include many performance data\ncollectors and support libraries as well as some example tools that\ndrive the data collection at HPC levels of scale."
+        },
+        {
+            "name": "nvptx-tools",
+            "description": "nvptx-tools: A collection of tools for use with nvptx-none GCC\ntoolchains. These tools are necessary when building a version of GCC\nthat enables offloading of OpenMP/OpenACC code to NVIDIA GPUs."
+        },
+        {
+            "name": "openspeedshop",
+            "description": "OpenSpeedShop is a community effort led by Trenza, Inc. It builds on top\nof a broad list of community infrastructures, most notably Dyninst and\nMRNet from UW, libmonitor from Rice, and PAPI from UTK. OpenSpeedShop is\nan open source multi platform Linux performance tool which is targeted\nto support performance analysis of applications running on both single\nnode and large scale IA64, IA32, EM64T, AMD64, PPC, ARM, Power8, Intel\nPhi, Blue Gene and Cray platforms. OpenSpeedShop development is hosted\nby Trenza Inc.. The infrastructure and base components of OpenSpeedShop\nare released as open source code primarily under LGPL."
+        }
+    ]
+}

@@ -1,0 +1,101 @@
+{
+    "name": "libflame",
+    "aliases": [
+        {
+            "name": "lapack",
+            "alias_for": "{libflame+lapack2flame}"
+        },
+        {
+            "name": "flame@5.2",
+            "alias_for": "{libflame@5.2.0}"
+        },
+        {
+            "name": "flame@5.1",
+            "alias_for": "{libflame@5.1.0}"
+        }
+    ],
+    "versions": [
+        {
+            "name": "master",
+            "branch": "master"
+        },
+        {
+            "name": "5.2.0",
+            "sha256": "997c860f351a5c7aaed8deec00f502167599288fd0559c92d5bfd77d0b4d475c"
+        },
+        {
+            "name": "5.1.0",
+            "sha256": "e7189b750890bd781fe773f366b374518dd1d89a6513d3d6261bf549826384d1"
+        }
+    ],
+    "build_system": "AutotoolsPackage",
+    "conflicts": [],
+    "variants": [
+        {
+            "name": "lapack2flame",
+            "default": true,
+            "description": "Map legacy LAPACK routine invocations to their corresponding native C implementations in libflame."
+        },
+        {
+            "name": "threads",
+            "default": "none",
+            "description": "Multithreading support"
+        },
+        {
+            "name": "static",
+            "default": true,
+            "description": "Build static library"
+        },
+        {
+            "name": "shared",
+            "default": true,
+            "description": "Build shared library"
+        },
+        {
+            "name": "debug",
+            "default": false,
+            "description": "Build with debugging support"
+        }
+    ],
+    "homepage": "https://www.cs.utexas.edu/~flame/web/libFLAME.html",
+    "maintainers": [],
+    "patches": [
+        {
+            "owner": "builtin.libflame",
+            "sha256": "952fb1aea7056fdf37c38dfad596d375dfd9d35d82d0e7662cacb06c08e5e4bf",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "Makefile_5.1.0.patch",
+            "version": "@5.1.0"
+        },
+        {
+            "owner": "builtin.libflame",
+            "sha256": "c5cae9e9afe42a6cdca1dcfdc39058a3e75d076483467c1e0fefe6bb76a4b16b",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "Makefile_5.2.0.patch",
+            "version": "@5.2.0"
+        },
+        {
+            "owner": "builtin.libflame",
+            "sha256": "bf75a5b56d4d63f23d01976eb2e61bb0b2816b662a7c7a3de9f03b9276b0973a",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "Makefile_5.2.0_darwin.patch",
+            "version": "@5.2.0"
+        }
+    ],
+    "resources": [],
+    "description": "libflame is a portable library for dense matrix computations, providing\nmuch of the functionality present in LAPACK, developed by current and\nformer members of the Science of High-Performance Computing (SHPC) group\nin the Institute for Computational Engineering and Sciences at The\nUniversity of Texas at Austin. libflame includes a compatibility layer,\nlapack2flame, which includes a complete LAPACK implementation.\n",
+    "dependencies": [
+        {
+            "name": "blas",
+            "description": "Intel oneAPI MKL."
+        },
+        {
+            "name": "python",
+            "description": "The Python programming language."
+        }
+    ],
+    "dependent_to": []
+}

@@ -1,0 +1,106 @@
+{
+    "name": "hoomd-blue",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "develop",
+            "submodules": true
+        },
+        {
+            "name": "2.2.2",
+            "tag": "v2.2.2",
+            "submodules": true
+        },
+        {
+            "name": "2.1.6",
+            "tag": "v2.1.6",
+            "submodules": true
+        }
+    ],
+    "build_system": "CMakePackage",
+    "conflicts": [
+        {
+            "name": "+ipo",
+            "spec": "^cmake@:3.8",
+            "description": "+ipo is not supported by CMake < 3.9"
+        },
+        {
+            "name": "%gcc@:4.6",
+            "spec": "",
+            "description": "None"
+        },
+        {
+            "name": "%gcc@6.0:",
+            "spec": "@2.1.6",
+            "description": "None"
+        },
+        {
+            "name": "%gcc@7.0:",
+            "spec": "",
+            "description": "None"
+        }
+    ],
+    "variants": [
+        {
+            "name": "build_type",
+            "default": "RelWithDebInfo",
+            "description": "CMake build type"
+        },
+        {
+            "name": "ipo",
+            "default": false,
+            "description": "CMake interprocedural optimization"
+        },
+        {
+            "name": "mpi",
+            "default": true,
+            "description": "Compile with MPI enabled"
+        },
+        {
+            "name": "cuda",
+            "default": true,
+            "description": "Compile with CUDA Toolkit"
+        },
+        {
+            "name": "doc",
+            "default": false,
+            "description": "Generate documentation"
+        }
+    ],
+    "homepage": "http://glotzerlab.engin.umich.edu/hoomd-blue/",
+    "maintainers": [],
+    "patches": [],
+    "resources": [],
+    "description": "HOOMD-blue is a general-purpose particle simulation toolkit. It scales\nfrom a single CPU core to thousands of GPUs. You define particle initial\nconditions and interactions in a high-level python script. Then tell\nHOOMD-blue how you want to execute the job and it takes care of the\nrest. Python job scripts give you unlimited flexibility to create custom\ninitialization routines, control simulation parameters, and perform in\nsitu analysis.\n",
+    "dependencies": [
+        {
+            "name": "cmake",
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
+        },
+        {
+            "name": "python",
+            "description": "The Python programming language."
+        },
+        {
+            "name": "py-numpy",
+            "description": "NumPy is the fundamental package for scientific computing with Python.\nIt contains among other things: a powerful N-dimensional array object,\nsophisticated (broadcasting) functions, tools for integrating C/C++ and\nFortran code, and useful linear algebra, Fourier transform, and random\nnumber capabilities"
+        },
+        {
+            "name": "pkgconfig",
+            "description": "pkgconf is a program which helps to configure compiler and linker flags\nfor development frameworks. It is similar to pkg-config from\nfreedesktop.org, providing additional functionality while also\nmaintaining compatibility."
+        },
+        {
+            "name": "mpi",
+            "description": "MVAPICH2-X is the advanced version of the MVAPICH2 MPI library with\nenhanced features (UMR, ODP, DC, Core-Direct, SHARP, XPMEM), OSU INAM\n(InifniBand Network Monitoring and Analysis),PGAS (OpenSHMEM, UPC,\nUPC++, and CAF), and MPI+PGAS programming models with unified\ncommunication runtime. MVAPICH2-X is not installable from source and is\nonly available through a binary mirror. If you do not find the binary\nyou're looking for, send us an email at mvapich@cse.ohio-state.edu. The\nbinary mirror url is: http://mvapich.cse.ohio-\nstate.edu/download/mvapich/spack-mirror/mvapich2x/"
+        },
+        {
+            "name": "cuda",
+            "description": "CUDA is a parallel computing platform and programming model invented by\nNVIDIA. It enables dramatic increases in computing performance by\nharnessing the power of the graphics processing unit (GPU). Note: This\npackage does not currently install the drivers necessary to run CUDA.\nThese will need to be installed manually. See:\nhttps://docs.nvidia.com/cuda/ for details."
+        },
+        {
+            "name": "doxygen",
+            "description": "Doxygen is the de facto standard tool for generating documentation from\nannotated C++ sources, but it also supports other popular programming\nlanguages such as C, Objective-C, C#, PHP, Java, Python, IDL (Corba,\nMicrosoft, and UNO/OpenOffice flavors), Fortran, VHDL, Tcl, and to some\nextent D.."
+        }
+    ],
+    "dependent_to": []
+}

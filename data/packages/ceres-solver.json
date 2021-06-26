@@ -1,0 +1,86 @@
+{
+    "name": "ceres-solver",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "2.0.0",
+            "sha256": "10298a1d75ca884aa0507d1abb0e0f04800a92871cd400d4c361b56a777a7603"
+        },
+        {
+            "name": "1.14.0",
+            "sha256": "4744005fc3b902fed886ea418df70690caa8e2ff6b5a90f3dd88a3d291ef8e8e"
+        },
+        {
+            "name": "1.12.0",
+            "sha256": "745bfed55111e086954126b748eb9efe20e30be5b825c6dec3c525cf20afc895"
+        }
+    ],
+    "build_system": "CMakePackage",
+    "conflicts": [
+        {
+            "name": "+ipo",
+            "spec": "^cmake@:3.8",
+            "description": "+ipo is not supported by CMake < 3.9"
+        }
+    ],
+    "variants": [
+        {
+            "name": "build_type",
+            "default": "RelWithDebInfo",
+            "description": "CMake build type"
+        },
+        {
+            "name": "ipo",
+            "default": false,
+            "description": "CMake interprocedural optimization"
+        },
+        {
+            "name": "suitesparse",
+            "default": false,
+            "description": "Build with SuiteSparse"
+        },
+        {
+            "name": "shared",
+            "default": true,
+            "description": "Build shared libraries"
+        },
+        {
+            "name": "examples",
+            "default": false,
+            "description": "Build examples"
+        }
+    ],
+    "homepage": "http://ceres-solver.org",
+    "maintainers": [],
+    "patches": [],
+    "resources": [],
+    "description": "Ceres Solver is an open source C++ library for modeling and solving\nlarge, complicated optimization problems. It can be used to solve Non-\nlinear Least Squares problems with bounds constraints and general\nunconstrained optimization problems. It is a mature, feature rich, and\nperformant library that has been used in production at Google since\n2010.\n",
+    "dependencies": [
+        {
+            "name": "cmake",
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
+        },
+        {
+            "name": "eigen",
+            "description": "Eigen is a C++ template library for linear algebra matrices, vectors,\nnumerical solvers, and related algorithms."
+        },
+        {
+            "name": "lapack",
+            "description": "Intel oneAPI MKL."
+        },
+        {
+            "name": "glog",
+            "description": "C++ implementation of the Google logging module."
+        }
+    ],
+    "dependent_to": [
+        {
+            "name": "votca-xtp",
+            "description": "Versatile Object-oriented Toolkit for Coarse-graining Applications\n(VOTCA) is a package intended to reduce the amount of routine work when\ndoing systematic coarse-graining of various systems. The core is written\nin C++. This package contains the VOTCA exciton transport engine."
+        },
+        {
+            "name": "g2o",
+            "description": "g2o is an open-source C++ framework for optimizing graph-based nonlinear\nerror functions. g2o has been designed to be easily extensible to a wide\nrange of problems and a new problem typically can be specified in a few\nlines of code. The current implementation provides solutions to several\nvariants of SLAM and BA."
+        }
+    ]
+}

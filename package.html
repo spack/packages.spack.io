@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+
+<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+<script type="text/javascript" src="js/jquery.orgchart.js"></script>
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+<link rel="stylesheet" href="css/jquery.orgchart.css">
+
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+
+<style>
+@import url(https://fonts.googleapis.com/css?family=Raleway:400,700,900);
+
+h1, h2 {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 700;
+}
+#controls {
+  position: absolute:
+  top: 10px;
+  left: 30px;
+}
+
+</style>
+<body>
+<div class="container" style="padding:30px; display:none" id="fail">
+   <h1>Nope</h1>
+    <img src="img/troll.png">
+</div>
+<div class="container-fluid" id="success">
+    <div class="row">
+        <div class="col-md-9">
+         <h2 style="margin-left:25px" id="package-name"></h2>
+       </div>
+    </div>
+    <div class="row">
+        <div class="col-md-9">
+           <div id="info"></div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-8" style="margin-left:25px">
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col"></th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">Description</th>
+      <td id="package_description"></td>
+    </tr>
+    <tr>
+      <th scope="row">Homepage</th>
+      <td id="homepage"></td>
+    </tr>
+    <tr>
+      <th scope="row">Build System</th>
+      <td id="build_system"></td>
+    </tr>
+    <tr id="aliases-row" style="display:none">
+      <th scope="row">Aliases</th>
+      <td id="aliases"></td>
+    </tr>
+    <tr id="maintainers-row" style="display:none">
+      <th scope="row">Maintainers</th>
+      <td id="maintainers"></td>
+    </tr>
+    <tr id="conflicts-row" style="display:none">
+      <th scope="row">Conflicts</th>
+      <td id="conflicts"></td>
+    </tr>
+    <tr id="variants-row" style="display:none">
+      <th scope="row">Variants</th>
+      <td id="variants"></td>
+    </tr>
+    <tr>
+      <th scope="row">Versions</th>
+      <td id="versions"></td>
+    </tr>
+    <tr id="patches-row" style="display:none">
+      <th scope="row">Patches</th>
+      <td id="patches"></td>
+    </tr>
+    <tr id="resources-row" style="display:none">
+      <th scope="row">Resources</th>
+      <td id="resources"></td>
+    </tr>
+
+  </tbody>
+</table>
+
+        </div>
+        <div class="col-md-3">
+            <ul class="list-group" id="description" style="display:none">
+            <li class="list-group-item"><span id="text"></span></li>
+         </ul>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-9">
+           <div id="required"></div>
+        </div>
+    </div>
+    <div class="row" style="padding-bottom:200px">
+        <div class="col-md-9">
+          <div id="theplot"></div>
+          <a style='padding:30px;' href='index.html'>< back to index</a>
+        </div>
+        <div class="col-md-3">
+            <ul class="list-group" id="description_bottom" style="display:none">
+            <li class="list-group-item"><span id="text_bottom"></span></li>
+         </ul>
+        </div>
+    </div>
+</div>
+
+<script>
+
+
+function getParameterByName(name, url = window.location.href) {
+    name = name.replace(/[\[\]]/g, '\\$&');
+    var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, ' '));
+}
+
+function loadJSON(path, success, error)
+{
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function()
+    {
+        if (xhr.readyState === XMLHttpRequest.DONE) {
+            if (xhr.status === 200) {
+                if (success) {
+                    success(JSON.parse(xhr.responseText));
+                }
+            } else {
+                $("#success").hide();         
+                $("#fail").show();         
+            }
+        }
+    };
+    xhr.open("GET", path, true);
+    xhr.send();
+}
+
+
+$(document).ready(function() {
+    window.package_name = getParameterByName('name');
+    console.log(window.package_name);
+
+    $("#package-name").text(window.package_name);
+
+    // Read in package data
+    loadJSON('data/packages/' + window.package_name + '.json',
+        function(data) {    
+            console.log(data);
+
+    // For each attribute, update interface (and show) if it's available.
+    $("#package_description").text(data['description']);
+    $("#homepage").html("<a target='_blank' href='" + data['homepage'] + "'>" + data['homepage'] + "</a>");
+
+    // Build system file is lowercase with html
+    if (data['build_system'] == "Package") {
+        url = "https://spack.readthedocs.io/en/latest/spack.build_systems.html"
+    } else {
+        var build_system = data['build_system'].toLowerCase() + ".html";
+        url = "https://spack.readthedocs.io/en/latest/build_systems/" + build_system 
+    }
+    $("#build_system").html("<a target='_blank' href='" + url + "'>" + data['build_system'] + "</a>");
+
+    var versions = ""
+    $.each(data['versions'], function(i, item) {
+        var title = ""
+        var style = "font-weight:600"
+        if ('sha256' in item){
+            title = "sha256:" + item['sha256'];
+            style = "font-weight:600;cursor:pointer"
+        }
+        versions += "<span style='" + style + "' title='" + title + "'>" + item['name'] + "</span><br>";
+    });
+    $("#versions").html(versions);
+
+    // Only show aliases if we have them
+    if (data['aliases'].length != 0) {
+        var aliases = ""
+        $.each(data['aliases'], function(i, item) {
+           aliases += item['name'] + "<span style='padding-right:10px'></span>"; 
+        });
+        $("#aliases").html(aliases);
+        $("#aliases-row").show();
+    }
+    
+    // Only show maintainers if we have them
+    if (data['maintainers'].length != 0) {
+        var maintainers = ""
+        $.each(data['maintainers'], function(i, item) {
+           maintainers += "<a target='_blank' href='https://github.com/" + item + "'>" + item + "</a>";    
+        });
+        $("#maintainers").html(maintainers);
+        $("#maintainers-row").show();
+    }
+
+    // Only show conflicts if we have them
+    if (data['conflicts'].length != 0) {
+        var conflicts = ""
+        $.each(data['conflicts'], function(i, item) {
+           var new_conflict = item['name'];
+           if (item['spec']) {
+               new_conflict += " when " + item['spec'];
+           }
+           conflicts += new_conflict + "<br>";   
+        });
+        $("#conflicts").html(conflicts);
+        $("#conflicts-row").show();
+    }
+
+    // Only show patches if we have them
+    if (data['patches'].length != 0) {
+        var patches = ""
+        $.each(data['patches'], function(i, item) {
+           patches += "<span style='font-weight:600'>" + item['relative_path'] + " </span>when " + item['version'] + "<br>";   
+        });
+        $("#patches").html(patches);
+        $("#patches-row").show();
+    }
+
+    // Only show conflicts if we have them
+    if (data['resources'].length != 0) {
+        var resources = ""
+        $.each(data['resources'], function(i, item) {
+           resources += "<span style='font-weight:600'>" + item['name'] + " </span> placed at " + item['placement'] + " when "+ item['version'] +"<br>";   
+
+        });
+        $("#resources").html(resources);
+        $("#resources-row").show();
+    }
+
+    // Only show conflicts if we have them
+    if (data['variants'].length != 0) {
+        var variants = ""
+        $.each(data['variants'], function(i, item) {
+          variants += "<span class='badge badge-primary'>" + item['name'] + "</span> (" + item['default'] + ") " + item['description'] + "<br>";   
+        });
+        $("#variants").html(variants);
+        $("#variants-row").show();
+
+    }
+
+    // Dependency children
+    var children = [];
+    $.each(data['dependencies'], function(i, item) {
+        children.push({"name": item['name'], "title": item['description'], "id": "package-" + item['name']})
+    });
+
+    // Required by
+    var required = [];
+    $.each(data['dependent_to'], function(i, item) {
+        required.push({"name": item['name'], "title": item['description'], "id": "package-" + item['name']})
+    });
+
+    // Dependency children            
+    var datasource = {
+      'name': "Dependencies",
+      'title': data['name'] + ": " + data['description'],
+      'children': children
+    }
+    
+    var oc = $('#info').orgchart({
+      'data' : datasource,
+      'nodeContent': 'title',
+      'toggleSiblingsResp': false,
+      'chartClass': 'depschart',
+      'createNode': function($node, data) {
+        $node.on('click', function() {
+            if ((data['name'] != "Dependencies") && (data['name'] != "Required By")) {
+                document.location = "?name=" + data['name']       
+            }
+        });          
+        $node.on('mouseover', function() {
+           $("#description").show();
+           $("#text").html(data['title'] + "<br><a href='?name=" + data['name'] + "'><br>View " + data['name']+ "</a>")
+        });
+      }
+    });
+
+    // Required by
+    var datasource = {
+      'name': "Required by",
+      'title': "These packages require " + data['name'] + " as a dependency.",
+      'children': required
+    }
+    
+    var oc = $('#required').orgchart({
+      'data' : datasource,
+      'nodeContent': 'title',
+      'toggleSiblingsResp': false,
+      'chartClass': 'reqchart',
+      'createNode': function($node, data) {
+        $node.on('click', function() {
+            if ((data['name'] != "Dependencies") && (data['name'] != "Required By")) {
+                document.location = "?name=" + data['name']       
+            }
+        });
+        $node.on('mouseover', function() {
+           $("#description_bottom").show();
+           $("#text_bottom").html(data['title'] + "<br><a href='?name=" + data['name'] + "'><br>View " + data['name']+ "</a>")
+        });
+      }
+    });
+
+    $(window).resize(function() {
+      var width = $(window).width();
+      if(width > 576) {
+        oc.init({'verticalLevel': undefined});
+      } else {
+        oc.init({'verticalLevel': 2});
+      }
+    });
+        
+    })
+    $(".edge, .horizontalEdge, .rightEdge .oci").off('click');
+
+        
+})
+
+</script>

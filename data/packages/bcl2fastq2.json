@@ -1,0 +1,77 @@
+{
+    "name": "bcl2fastq2",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "2.20.0.422",
+            "sha256": "8dd3044767d044aa4ce46de0de562b111c44e5b8b7348e04e665eb1b4f101fe3"
+        },
+        {
+            "name": "2.19.1.403",
+            "sha256": "cf13580f2c1ebcc3642b4d98a02ad01e41a44e644db7d31730f9767b25521806"
+        }
+    ],
+    "build_system": "Package",
+    "conflicts": [
+        {
+            "name": "platform=darwin",
+            "spec": "",
+            "description": "malloc.h/etc requirements break build on macs"
+        }
+    ],
+    "variants": [],
+    "homepage": "https://support.illumina.com/downloads/bcl2fastq-conversion-software-v2-20.html",
+    "maintainers": [],
+    "patches": [
+        {
+            "owner": "builtin.bcl2fastq2",
+            "sha256": "22bd1a5faa46013d0b0ceea4164b4cf688b180674c72b25b37ad7635897be081",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "cmake-macros.patch",
+            "version": ""
+        },
+        {
+            "owner": "builtin.bcl2fastq2",
+            "sha256": "04956b22cdcc054c458a4ad4797fcec8a9c434755d0037517931031ba6a2e755",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "cxxConfigure-cmake.patch",
+            "version": ""
+        }
+    ],
+    "resources": [],
+    "description": "The bcl2fastq2 Conversion Software converts base call (BCL) files from a\nsequencing run into FASTQ files.\n",
+    "dependencies": [
+        {
+            "name": "boost",
+            "description": "Boost provides free peer-reviewed portable C++ source libraries,\nemphasizing libraries that work well with the C++ Standard Library.\nBoost libraries are intended to be widely useful, and usable across a\nbroad spectrum of applications. The Boost license encourages both\ncommercial and non-commercial use."
+        },
+        {
+            "name": "cmake",
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
+        },
+        {
+            "name": "libxml2",
+            "description": "Libxml2 is the XML C parser and toolkit developed for the Gnome project\n(but usable outside of the Gnome platform), it is free software\navailable under the MIT License."
+        },
+        {
+            "name": "libxslt",
+            "description": "Libxslt is the XSLT C library developed for the GNOME project. XSLT\nitself is a an XML language to define transformation for XML. Libxslt is\nbased on libxml2 the XML C library developed for the GNOME project. It\nalso implements most of the EXSLT set of processor-portable extensions\nfunctions and some of Saxon's evaluate and expressions extensions."
+        },
+        {
+            "name": "libgcrypt",
+            "description": "Cryptographic library based on the code from GnuPG."
+        },
+        {
+            "name": "zlib",
+            "description": "A free, general-purpose, legally unencumbered lossless data-compression\nlibrary."
+        }
+    ],
+    "dependent_to": [
+        {
+            "name": "supernova",
+            "description": "Supernova is a software package for de novo assembly from Chromium\nLinked-Reads that are made from a single whole-genome library from an\nindividual DNA source. A key feature of Supernova is that it creates\ndiploid assemblies, thus separately representing maternal and paternal\nchromosomes over very long distances. Almost all other methods instead\nmerge homologous chromosomes into single incorrect 'consensus'\nsequences. Supernova is the only practical method for creating diploid\nassemblies of large genomes. To install this package, you will need to\ngo to the supernova download page of supernova, register with your email\naddress and download supernova yourself. Spack will search your current\ndirectory for the download file. Alternatively, add this file yo a\nmirror so that Spack can find it. For instructions on how to set up a\nmirror, see http://spack.readthedocs.io/en/latest/mirrors.html"
+        }
+    ]
+}

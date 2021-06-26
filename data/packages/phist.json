@@ -1,0 +1,243 @@
+{
+    "name": "phist",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "develop",
+            "branch": "devel"
+        },
+        {
+            "name": "master",
+            "branch": "master"
+        },
+        {
+            "name": "1.9.4",
+            "sha256": "9dde3ca0480358fa0877ec8424aaee4011c5defc929219a5930388a7cdb4c8a6"
+        },
+        {
+            "name": "1.9.3",
+            "sha256": "3ab7157e9f535a4c8537846cb11b516271ef13f82d0f8ebb7f96626fb9ab86cf"
+        },
+        {
+            "name": "1.9.2",
+            "sha256": "289678fa7172708f5d32d6bd924c8fdfe72b413bba5bbb8ce6373c85c5ec5ae5"
+        },
+        {
+            "name": "1.9.1",
+            "sha256": "6e6411115ec48afe605b4f2179e9bc45d60f15459428f474f3f32b80d2830f1f"
+        },
+        {
+            "name": "1.9.0",
+            "sha256": "990d3308fc0083ed0f9f565d00c649ee70c3df74d44cbe5f19dfe05263d06559"
+        },
+        {
+            "name": "1.8.0",
+            "sha256": "ee42946bce187e126452053b5f5c200b57b6e40ee3f5bcf0751f3ced585adeb0"
+        },
+        {
+            "name": "1.7.5",
+            "sha256": "f11fe27f2aa13d69eb285cc0f32c33c1603fa1286b84e54c81856c6f2bdef500"
+        },
+        {
+            "name": "1.7.4",
+            "sha256": "c5324f639b8c95b07cd29c3cd8dd7dd576c84a0b9228dbb88f8b87605424419e"
+        },
+        {
+            "name": "1.7.3",
+            "sha256": "ab2d853c9ba13bcd3069fcc61c359cb412466a2e4b22ebbd2f5263cffa685126"
+        },
+        {
+            "name": "1.7.2",
+            "sha256": "29b504d78b5efd57b87d2ca6e20bc8a32b1ba55b40f5a5b7189cc0d28e43bcc0"
+        },
+        {
+            "name": "1.6.1",
+            "sha256": "4ed4869f24f920a494aeae0f7d1d94fe9efce55ebe0d298a5948c9603e07994d"
+        },
+        {
+            "name": "1.6.0",
+            "sha256": "667a967b37d248242c275226c96efc447ef73a2b15f241c6a588d570d7fac07b"
+        },
+        {
+            "name": "1.4.3",
+            "sha256": "9cc1c7ba7f7a04e94f4497da14199e4631a0d02d0e4187f3e16f4c242dc777c1"
+        }
+    ],
+    "build_system": "CMakePackage",
+    "conflicts": [
+        {
+            "name": "+ipo",
+            "spec": "^cmake@:3.8",
+            "description": "+ipo is not supported by CMake < 3.9"
+        },
+        {
+            "name": "~openmp",
+            "spec": "@:1.7.3",
+            "description": "None"
+        },
+        {
+            "name": "~host",
+            "spec": "@:1.7.3",
+            "description": "None"
+        },
+        {
+            "name": "~int64",
+            "spec": "kernel_lib=builtin",
+            "description": "None"
+        },
+        {
+            "name": "+int64",
+            "spec": "kernel_lib=eigen",
+            "description": "None"
+        },
+        {
+            "name": "+fortran",
+            "spec": "@:1.6.99",
+            "description": "None"
+        },
+        {
+            "name": "%gcc@:4.9.1",
+            "spec": "",
+            "description": "None"
+        }
+    ],
+    "variants": [
+        {
+            "name": "build_type",
+            "default": "RelWithDebInfo",
+            "description": "CMake build type"
+        },
+        {
+            "name": "ipo",
+            "default": false,
+            "description": "CMake interprocedural optimization"
+        },
+        {
+            "name": "kernel_lib",
+            "default": "builtin",
+            "description": "select the kernel library (backend) for phist"
+        },
+        {
+            "name": "int64",
+            "default": true,
+            "description": "Use 64-bit global indices."
+        },
+        {
+            "name": "outlev",
+            "default": "2",
+            "description": "verbosity. 0: errors 1: +warnings 2: +info 3: +verbose 4: +extreme 5: +debug"
+        },
+        {
+            "name": "host",
+            "default": true,
+            "description": "allow PHIST to use compiler flags that lead to host-specific code. Set this to False when cross-compiling."
+        },
+        {
+            "name": "shared",
+            "default": true,
+            "description": "Enables the build of shared libraries"
+        },
+        {
+            "name": "mpi",
+            "default": true,
+            "description": "enable/disable MPI (note that the kernel library may not support this choice)"
+        },
+        {
+            "name": "openmp",
+            "default": true,
+            "description": "enable/disable OpenMP"
+        },
+        {
+            "name": "parmetis",
+            "default": false,
+            "description": "enable/disable ParMETIS partitioning (only actually used with kernel_lib=builtin)"
+        },
+        {
+            "name": "scamac",
+            "default": true,
+            "description": "enable/disable building the \"SCAlable MAtrix Collection\" matrix generators."
+        },
+        {
+            "name": "trilinos",
+            "default": false,
+            "description": "enable/disable Trilinos third-party libraries. For all kernel_libs, we can use Belos and Anasazi iterative solvers. For the Trilinos backends (kernel_lib=epetra|tpetra) we can use preconditioner packages such as Ifpack, Ifpack2 and ML."
+        },
+        {
+            "name": "fortran",
+            "default": true,
+            "description": "generate Fortran 2003 bindings (requires Python3 and a Fortran compiler)"
+        }
+    ],
+    "homepage": "https://bitbucket.org/essex/phist/",
+    "maintainers": [
+        "jthies"
+    ],
+    "patches": [
+        {
+            "owner": "builtin.phist",
+            "sha256": "e46f92ef664068c179670101b7c0ff02d45e643d016eca5fe18f14e6ec03b9ef",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "update_tpetra_gotypes.patch",
+            "version": "@:1.8.99"
+        },
+        {
+            "owner": "builtin.phist",
+            "sha256": "1fc9ac6c1cce2804d171dd12470e709cd1e3839be6d51f7e5c33427ba4b379ca",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "sbang.patch",
+            "version": "+fortran"
+        }
+    ],
+    "resources": [],
+    "description": "The Pipelined, Hybrid-parallel Iterative Solver Toolkit provides\nimplementations of and interfaces to block iterative solvers for sparse\nlinear and eigenvalue problems. In contrast to other libraries we\nsupport multiple backends (e.g. Trilinos, PETSc and our own optimized\nkernels), and interfaces in multiple languages such as C, C++, Fortran\n2003 and Python. PHIST has a clear focus on portability and hardware\nperformance: in particular support row-major storage of block vectors\nand using GPUs (via the ghost library or Trilinos/Tpetra).\n",
+    "dependencies": [
+        {
+            "name": "cmake",
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
+        },
+        {
+            "name": "blas",
+            "description": "Intel oneAPI MKL."
+        },
+        {
+            "name": "lapack",
+            "description": "Intel oneAPI MKL."
+        },
+        {
+            "name": "python",
+            "description": "The Python programming language."
+        },
+        {
+            "name": "mpi",
+            "description": "MVAPICH2-X is the advanced version of the MVAPICH2 MPI library with\nenhanced features (UMR, ODP, DC, Core-Direct, SHARP, XPMEM), OSU INAM\n(InifniBand Network Monitoring and Analysis),PGAS (OpenSHMEM, UPC,\nUPC++, and CAF), and MPI+PGAS programming models with unified\ncommunication runtime. MVAPICH2-X is not installable from source and is\nonly available through a binary mirror. If you do not find the binary\nyou're looking for, send us an email at mvapich@cse.ohio-state.edu. The\nbinary mirror url is: http://mvapich.cse.ohio-\nstate.edu/download/mvapich/spack-mirror/mvapich2x/"
+        },
+        {
+            "name": "trilinos",
+            "description": "The Trilinos Project is an effort to develop algorithms and enabling\ntechnologies within an object-oriented software framework for the\nsolution of large-scale, complex multi-physics engineering and\nscientific problems. A unique design feature of Trilinos is its focus on\npackages."
+        },
+        {
+            "name": "petsc",
+            "description": "PETSc is a suite of data structures and routines for the scalable\n(parallel) solution of scientific applications modeled by partial\ndifferential equations."
+        },
+        {
+            "name": "eigen",
+            "description": "Eigen is a C++ template library for linear algebra matrices, vectors,\nnumerical solvers, and related algorithms."
+        },
+        {
+            "name": "ghost",
+            "description": "GHOST: a General, Hybrid and Optimized Sparse Toolkit. This library\nprovides highly optimized building blocks for implementing sparse\niterative eigenvalue and linear solvers multi- and manycore clusters and\non heterogenous CPU/GPU machines. For an iterative solver library using\nthese kernels, see the phist package."
+        },
+        {
+            "name": "parmetis",
+            "description": "ParMETIS is an MPI-based parallel library that implements a variety of\nalgorithms for partitioning unstructured graphs, meshes, and for\ncomputing fill-reducing orderings of sparse matrices."
+        }
+    ],
+    "dependent_to": [
+        {
+            "name": "xsdk",
+            "description": "Xsdk is a suite of Department of Energy (DOE) packages for numerical\nsimulation. This is a Spack bundle package that installs the xSDK\npackages"
+        }
+    ]
+}

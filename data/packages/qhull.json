@@ -1,0 +1,88 @@
+{
+    "name": "qhull",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "2020.1",
+            "sha256": "1ac92a5538f61e297c72aebe4d4ffd731ceb3e6045d6d15faf1c212713798df4",
+            "url": "http://www.qhull.org/download/qhull-2020-src-8.0.0.tgz"
+        },
+        {
+            "name": "2019.1",
+            "sha256": "2b7990558c363076261564f61b74db4d0d73b71869755108a469038c07dc43fb",
+            "url": "http://www.qhull.org/download/qhull-2019-src-7.3.2.tgz"
+        },
+        {
+            "name": "2015.2",
+            "sha256": "78b010925c3b577adc3d58278787d7df08f7c8fb02c3490e375eab91bb58a436",
+            "url": "http://www.qhull.org/download/qhull-2015-src-7.2.0.tgz"
+        },
+        {
+            "name": "2012.1",
+            "sha256": "a35ecaa610550b7f05c3ce373d89c30cf74b059a69880f03080c556daebcff88",
+            "url": "http://www.qhull.org/download/qhull-2012.1-src.tgz"
+        }
+    ],
+    "build_system": "CMakePackage",
+    "conflicts": [
+        {
+            "name": "+ipo",
+            "spec": "^cmake@:3.8",
+            "description": "+ipo is not supported by CMake < 3.9"
+        }
+    ],
+    "variants": [
+        {
+            "name": "build_type",
+            "default": "RelWithDebInfo",
+            "description": "CMake build type"
+        },
+        {
+            "name": "ipo",
+            "default": false,
+            "description": "CMake interprocedural optimization"
+        }
+    ],
+    "homepage": "http://www.qhull.org",
+    "maintainers": [],
+    "patches": [
+        {
+            "owner": "builtin.qhull",
+            "sha256": "10ddc62a1600b0ede23fb0502e29dca389d18689fd8dfe7a849e3a989c0e607e",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "qhull-unused-intel-17.02.patch",
+            "version": "@2015.2"
+        }
+    ],
+    "resources": [],
+    "description": "Qhull computes the convex hull, Delaunay triangulation, Voronoi diagram,\nhalfspace intersection about a point, furt hest-site Delaunay\ntriangulation, and furthest-site Voronoi diagram. The source code runs\nin 2-d, 3-d, 4-d, and higher dimensions. Qhull implements the Quickhull\nalgorithm for computing the convex hull. It handles roundoff errors from\nfloating point arithmetic. It computes volumes, surface areas, and\napproximations to the convex hull.\n",
+    "dependencies": [
+        {
+            "name": "cmake",
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
+        }
+    ],
+    "dependent_to": [
+        {
+            "name": "plplot",
+            "description": "PLplot is a cross-platform package for creating scientific plots."
+        },
+        {
+            "name": "py-matplotlib",
+            "description": "Matplotlib is a comprehensive library for creating static, animated, and\ninteractive visualizations in Python."
+        },
+        {
+            "name": "tulip",
+            "description": "Tulip is an information visualization framework dedicated to the\nanalysis and visualization of relational data. Tulip aims to provide the\ndeveloper with a complete library, supporting the design of interactive\ninformation visualization applications for relational data that can be\ntailored to the problems he or she is addressing."
+        },
+        {
+            "name": "gdal",
+            "description": "GDAL (Geospatial Data Abstraction Library) is a translator library for\nraster and vector geospatial data formats that is released under an\nX/MIT style Open Source license by the Open Source Geospatial\nFoundation. As a library, it presents a single raster abstract data\nmodel and vector abstract data model to the calling application for all\nsupported formats. It also comes with a variety of useful command line\nutilities for data translation and processing."
+        },
+        {
+            "name": "octave",
+            "description": "GNU Octave is a high-level language, primarily intended for numerical\ncomputations. It provides a convenient command line interface for\nsolving linear and nonlinear problems numerically, and for performing\nother numerical experiments using a language that is mostly compatible\nwith Matlab. It may also be used as a batch-oriented language."
+        }
+    ]
+}
