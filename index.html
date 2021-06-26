@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" conteSpt="width=device-width, initial-scale=1">
+  <title>Spack Packages</title>
+  <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+
+<style>
+@import url(https://fonts.googleapis.com/css?family=Raleway:400,700,900);
+body {
+  background-color: #0f3a80;
+}
+.title {
+  padding-top:20px;
+  padding-left:10px;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 700;
+  color: white;
+}
+.card:hover {
+  transform: scale(1.1);
+  background-color: white;
+}
+.flex-grid {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  max-width: 2000px;
+}
+@media only screen and (max-width: 600px) {
+  .card {
+    width: calc(100%) !important;
+  }
+}
+.card {
+  overflow: hidden;
+  cursor: pointer;
+  background-color: white;
+  box-sizing: border-box;
+  border-radius: 5px;
+  border: .75rem solid white;
+  margin: 10px;
+  padding: 3px;
+  height: 5vh;
+  color: #333;
+  min-height: 50px;
+  width: calc(20%);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+#search {
+  position: absolute;
+  left: 490px;
+  top: 28px;
+}
+</style>
+</head>
+<body>
+     <h1 class='title'><img src="img/spack-logo.svg" style="width:60px; padding-right:15px; padding-bottom:7px">Spack Packages</h1>
+     <div id="search">
+       <div class="input-group">
+         <div class="form-outline">
+           <input placeholder="search" type="search" id="searchbox" class="form-control" />
+         </div>
+       </div>
+     </div>
+<main class="grid flex-grid" id='app'>
+</main> 
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+
+function loadJSON(path, success, error)
+{
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function()
+    {
+        if (xhr.readyState === XMLHttpRequest.DONE) {
+            if (xhr.status === 200) {
+                if (success)
+                    success(JSON.parse(xhr.responseText));
+            } else {
+                if (error)
+                    error(xhr);
+            }
+        }
+    };
+    xhr.open("GET", path, true);
+    xhr.send();
+}
+
+
+loadJSON('data/packages.json',
+    function(data) {    
+      $.each(data, function(i, item) {
+        $("#app").append("<div onclick='document.location=\"package.html?name=" + item + "\"' class='card'>" + item + "</div>");
+    });
+})
+$("#searchbox").on("keyup", function () {
+    var search = $(this).val().trim().toLowerCase();
+    $('.card').hide();
+    $(".card").show().filter(function () {
+        return $(this).text().toLowerCase().indexOf(search) < 0;
+    }).hide();        
+});
+</script>
+</body>
+</html>
