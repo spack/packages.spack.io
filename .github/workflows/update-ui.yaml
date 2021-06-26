@@ -1,0 +1,25 @@
+name: Update Spack Package Interface
+on:
+  schedule:
+    - cron:  '0 5 * * *'
+
+jobs:
+  extraction:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+    - name: Clone development branch of spack
+      run: git clone https://github.com/spack/spack /opt/spackydoo    
+    - name: Run update script
+      run: |
+         export PATH=/opt/spackydoo/bin:$PATH
+         spack python generate_packages.py
+
+    - name: Push Results
+      run: |
+        git config --global user.name "github-actions"
+        git config --global user.email "github-actions@users.noreply.github.com"
+        git add data/*
+        git commit -m "Automated push with new spackages $(date '+%Y-%m-%d')" || exit 0
+        git push origin main || exit 0
