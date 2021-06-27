@@ -1,74 +1,21 @@
 {
-    "name": "amdfftw",
+    "name": "cray-fftw",
     "aliases": [
         {
             "name": "fftw-api@3",
-            "alias_for": "{amdfftw@2:}"
+            "alias_for": "{cray-fftw}"
         }
     ],
     "versions": [
         {
-            "name": "3.0",
-            "sha256": "a69deaf45478a59a69f77c4f7e9872967f1cfe996592dd12beb6318f18ea0bcd"
+            "name": "3.3.8.8"
         },
         {
-            "name": "2.2",
-            "sha256": "de9d777236fb290c335860b458131678f75aa0799c641490c644c843f0e246f8"
+            "name": "3.3.8.7"
         }
     ],
-    "build_system": "AutotoolsPackage",
-    "conflicts": [
-        {
-            "name": "%gcc@8:8.9999",
-            "spec": "@3.3.7",
-            "description": "None"
-        },
-        {
-            "name": "precision=long_double",
-            "spec": "@2.1.5",
-            "description": "Long double precision is not supported in FFTW 2"
-        },
-        {
-            "name": "precision=quad",
-            "spec": "@2.1.5",
-            "description": "Quad precision is not supported in FFTW 2"
-        },
-        {
-            "name": "precision=quad",
-            "spec": "+mpi",
-            "description": "Quad precision is not supported in MPI"
-        },
-        {
-            "name": "precision=quad",
-            "spec": "@2.2%aocc",
-            "description": "AOCC clang doesn't support quad precision"
-        },
-        {
-            "name": "+debug",
-            "spec": "@2.2%aocc",
-            "description": "AOCC clang doesn't support debug"
-        },
-        {
-            "name": "%gcc@:7.2",
-            "spec": "@2.2:",
-            "description": "Required GCC version above 7.2 for AMDFFTW"
-        },
-        {
-            "name": "+amd-fast-planner",
-            "spec": "@2.2",
-            "description": "amd-fast-planner is supported from 3.0 onwards"
-        },
-        {
-            "name": "+amd-fast-planner",
-            "spec": "precision=quad",
-            "description": "amd-fast-planner doesn't support quad precision"
-        },
-        {
-            "name": "+amd-fast-planner",
-            "spec": "precision=long_double",
-            "description": "amd-fast-planner doesn't support long_double precision"
-        }
-    ],
+    "build_system": "Package",
+    "conflicts": [],
     "variants": [
         {
             "name": "precision",
@@ -77,69 +24,29 @@
         },
         {
             "name": "openmp",
-            "default": true,
-            "description": "Enable OpenMP support"
+            "default": false,
+            "description": "Enable OpenMP support."
         },
         {
             "name": "mpi",
             "default": true,
             "description": "Activate MPI support"
-        },
-        {
-            "name": "shared",
-            "default": true,
-            "description": "Builds a shared version of the library"
-        },
-        {
-            "name": "threads",
-            "default": false,
-            "description": "Enable SMP threads support"
-        },
-        {
-            "name": "debug",
-            "default": false,
-            "description": "Builds a debug version of the library"
-        },
-        {
-            "name": "amd-fast-planner",
-            "default": false,
-            "description": "Option to reduce the planning time without muchtradeoff in the performance. It is supported forFloat and double precisions only."
         }
     ],
-    "homepage": "https://developer.amd.com/amd-aocl/fftw/",
+    "homepage": "https://docs.nersc.gov/development/libraries/fftw/",
     "maintainers": [
-        "amd-toolchain-support"
+        "haampie"
     ],
     "patches": [],
     "resources": [],
-    "description": "FFTW (AMD Optimized version) is a comprehensive collection of fast C\nroutines for computing the Discrete Fourier Transform (DFT) and various\nspecial cases thereof. It is an open-source implementation of the Fast\nFourier transform algorithm. It can compute transforms of real and\ncomplex-values arrays of arbitrary size and dimension. AMD Optimized\nFFTW is the optimized FFTW implementation targeted for AMD CPUs. For\nsingle precision build, please use precision value as float. Example :\nspack install amdfftw precision=float\n",
+    "description": "FFTW is a C subroutine library for computing the discrete Fourier\ntransform (DFT) in one or more dimensions, of arbitrary input size, and\nof both real and complex data (as well as of even/odd data, i.e. the\ndiscrete cosine/sine transforms or DCT/DST). This package is a wrapper\nfor Cray's version of FFTW. To install this package, list it as an\nexternal package in packages.yaml, and make sure to load the correct\ncray-fftw module. In some cases you need to load cray-mpich before cray-\nfftw.\n",
     "dependencies": [
         {
             "name": "mpi",
-            "description": "Virtual package for the Message Passing Interface."
-        },
-        {
-            "name": "llvm-openmp",
-            "description": "The OpenMP subproject of LLVM contains the components required to build\nan executable OpenMP program that are outside the compiler itself."
-        },
-        {
-            "name": "texinfo",
-            "description": "Texinfo is the official documentation format of the GNU project. It was\ninvented by Richard Stallman and Bob Chassell many years ago, loosely\nbased on Brian Reid's Scribe and other formatting languages of the time.\nIt is used by many non-GNU projects as well."
+            "description": "Fujitsu MPI implementation only for Fujitsu compiler."
         }
     ],
     "dependent_to": [
-        {
-            "name": "qmcpack",
-            "description": "QMCPACK, is a modern high-performance open-source Quantum Monte Carlo\n(QMC) simulation code."
-        },
-        {
-            "name": "spfft",
-            "description": "Sparse 3D FFT library with MPI, OpenMP, CUDA and ROCm support."
-        },
-        {
-            "name": "rmgdft",
-            "description": "RMGDFT is a high performance real-space density functional code designed\nfor large scale electronic structure calculations."
-        },
         {
             "name": "quantum-espresso",
             "description": "Quantum ESPRESSO is an integrated suite of Open-Source computer codes\nfor electronic-structure calculations and materials modeling at the\nnanoscale. It is based on density-functional theory, plane waves, and\npseudopotentials."
@@ -149,40 +56,20 @@
             "description": "CDO is a collection of command line Operators to manipulate and analyse\nClimate and NWP model Data."
         },
         {
-            "name": "cp2k",
-            "description": "CP2K is a quantum chemistry and solid state physics software package\nthat can perform atomistic simulations of solid state, liquid,\nmolecular, periodic, material, crystal, and biological systems"
-        },
-        {
-            "name": "votca-tools",
-            "description": "Versatile Object-oriented Toolkit for Coarse-graining Applications\n(VOTCA) is a package intended to reduce the amount of routine work when\ndoing systematic coarse-graining of various systems. The core is written\nin C++. This package contains the basic tools library of VOTCA."
-        },
-        {
-            "name": "itk",
-            "description": "The Insight Toolkit (ITK) is an open-source, cross-platform toolkit for\nN-dimensional scientific image processing, segmentation, and\nregistration. The Insight Toolkit (ITK) is an open-source, cross-\nplatform toolkit for N-dimensional scientific image processing,\nsegmentation, and registration. Segmentation is the process of\nidentifying and classifying data found in a digitally sampled\nrepresentation. Typically the sampled representation is an image\nacquired from such medical instrumentation as CT or MRI scanners.\nRegistration is the task of aligning or developing correspondences\nbetween data. For example, in the medical environment, a CT scan may be\naligned with a MRI scan in order to combine the information contained in\nboth."
+            "name": "lammps",
+            "description": "LAMMPS stands for Large-scale Atomic/Molecular Massively Parallel\nSimulator. This package uses patch releases, not stable release. See\nhttps://github.com/spack/spack/pull/5342 for a detailed discussion."
         },
         {
             "name": "arrayfire",
             "description": "ArrayFire is a high performance software library for parallel computing\nwith an easy-to-use API. Its array based function set makes parallel\nprogramming more accessible."
         },
         {
-            "name": "abinit",
-            "description": "ABINIT is a package whose main program allows one to find the total\nenergy, charge density and electronic structure of systems made of\nelectrons and nuclei (molecules and periodic solids) within Density\nFunctional Theory (DFT), using pseudopotentials and a planewave or\nwavelet basis. ABINIT also includes options to optimize the geometry\naccording to the DFT forces and stresses, or to perform molecular\ndynamics simulations using these forces, or to generate dynamical\nmatrices, Born effective charges, and dielectric tensors, based on\nDensity-Functional Perturbation Theory, and many more properties.\nExcited states can be computed within the Many-Body Perturbation Theory\n(the GW approximation and the Bethe-Salpeter equation), and Time-\nDependent Density Functional Theory (for molecules). In addition to the\nmain ABINIT code, different utility programs are provided."
-        },
-        {
-            "name": "openfoam",
-            "description": "OpenFOAM is a GPL-opensource C++ CFD-toolbox. This offering is supported\nby OpenCFD Ltd, producer and distributor of the OpenFOAM software via\nwww.openfoam.com, and owner of the OPENFOAM trademark. OpenCFD Ltd has\nbeen developing and releasing OpenFOAM since its debut in 2004."
-        },
-        {
-            "name": "ngspice",
-            "description": "ngspice is the open source spice simulator for electric and electronic\ncircuits."
-        },
-        {
             "name": "gromacs",
             "description": "GROMACS (GROningen MAchine for Chemical Simulations) is a molecular\ndynamics package primarily designed for simulations of proteins, lipids\nand nucleic acids. It was originally developed in the Biophysical\nChemistry department of University of Groningen, and is now maintained\nby contributors in universities and research centers across the world.\nGROMACS is one of the fastest and most popular software packages\navailable and can run on CPUs as well as GPUs. It is free, open source\nreleased under the GNU General Public License. Starting from version\n4.6, GROMACS is released under the GNU Lesser General Public License."
         },
         {
-            "name": "sirius",
-            "description": "Domain specific library for electronic structure calculations"
+            "name": "votca-tools",
+            "description": "Versatile Object-oriented Toolkit for Coarse-graining Applications\n(VOTCA) is a package intended to reduce the amount of routine work when\ndoing systematic coarse-graining of various systems. The core is written\nin C++. This package contains the basic tools library of VOTCA."
         },
         {
             "name": "libvdwxc",
@@ -193,16 +80,48 @@
             "description": "SpeexDSP is a patent-free, Open Source/Free Software DSP library."
         },
         {
-            "name": "lammps",
-            "description": "LAMMPS stands for Large-scale Atomic/Molecular Massively Parallel\nSimulator. This package uses patch releases, not stable release. See\nhttps://github.com/spack/spack/pull/5342 for a detailed discussion."
+            "name": "itk",
+            "description": "The Insight Toolkit (ITK) is an open-source, cross-platform toolkit for\nN-dimensional scientific image processing, segmentation, and\nregistration. The Insight Toolkit (ITK) is an open-source, cross-\nplatform toolkit for N-dimensional scientific image processing,\nsegmentation, and registration. Segmentation is the process of\nidentifying and classifying data found in a digitally sampled\nrepresentation. Typically the sampled representation is an image\nacquired from such medical instrumentation as CT or MRI scanners.\nRegistration is the task of aligning or developing correspondences\nbetween data. For example, in the medical environment, a CT scan may be\naligned with a MRI scan in order to combine the information contained in\nboth."
+        },
+        {
+            "name": "sirius",
+            "description": "Domain specific library for electronic structure calculations"
+        },
+        {
+            "name": "octopus",
+            "description": "A real-space finite-difference (time-dependent) density-functional\ntheory code."
         },
         {
             "name": "hpcc",
             "description": "HPC Challenge is a benchmark suite that measures a range memory access\npatterns. The HPC Challenge benchmark consists of basically 7 tests: 1)\nHPL - the Linpack TPP benchmark which measures the floating point rate\nof execution for solving a linear system of equations. 2) DGEMM -\nmeasures the floating point rate of execution of double precision real\nmatrix-matrix multiplication. 3) STREAM - a simple synthetic benchmark\nprogram that measures sustainable memory bandwidth (in GB/s) and the\ncorresponding computation rate for simple vector kernel. 4) PTRANS\n(parallel matrix transpose) - exercises the communications where pairs\nof processors communicate with each other simultaneously. It is a useful\ntest of the total communications capacity of the network. 5)\nRandomAccess - measures the rate of integer random updates of memory\n(GUPS). 6) FFT - measures the floating point rate of execution of double\nprecision complex one-dimensional Discrete Fourier Transform (DFT). 7)\nCommunication bandwidth and latency - a set of tests to measure latency\nand bandwidth of a number of simultaneous communication patterns; based\non b_eff (effective bandwidth benchmark)."
         },
         {
-            "name": "octopus",
-            "description": "A real-space finite-difference (time-dependent) density-functional\ntheory code."
+            "name": "spfft",
+            "description": "Sparse 3D FFT library with MPI, OpenMP, CUDA and ROCm support."
+        },
+        {
+            "name": "cp2k",
+            "description": "CP2K is a quantum chemistry and solid state physics software package\nthat can perform atomistic simulations of solid state, liquid,\nmolecular, periodic, material, crystal, and biological systems"
+        },
+        {
+            "name": "abinit",
+            "description": "ABINIT is a package whose main program allows one to find the total\nenergy, charge density and electronic structure of systems made of\nelectrons and nuclei (molecules and periodic solids) within Density\nFunctional Theory (DFT), using pseudopotentials and a planewave or\nwavelet basis. ABINIT also includes options to optimize the geometry\naccording to the DFT forces and stresses, or to perform molecular\ndynamics simulations using these forces, or to generate dynamical\nmatrices, Born effective charges, and dielectric tensors, based on\nDensity-Functional Perturbation Theory, and many more properties.\nExcited states can be computed within the Many-Body Perturbation Theory\n(the GW approximation and the Bethe-Salpeter equation), and Time-\nDependent Density Functional Theory (for molecules). In addition to the\nmain ABINIT code, different utility programs are provided."
+        },
+        {
+            "name": "qmcpack",
+            "description": "QMCPACK, is a modern high-performance open-source Quantum Monte Carlo\n(QMC) simulation code."
+        },
+        {
+            "name": "ngspice",
+            "description": "ngspice is the open source spice simulator for electric and electronic\ncircuits."
+        },
+        {
+            "name": "openfoam",
+            "description": "OpenFOAM is a GPL-opensource C++ CFD-toolbox. This offering is supported\nby OpenCFD Ltd, producer and distributor of the OpenFOAM software via\nwww.openfoam.com, and owner of the OPENFOAM trademark. OpenCFD Ltd has\nbeen developing and releasing OpenFOAM since its debut in 2004."
+        },
+        {
+            "name": "rmgdft",
+            "description": "RMGDFT is a high performance real-space density functional code designed\nfor large scale electronic structure calculations."
         }
     ]
 }

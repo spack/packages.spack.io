@@ -248,7 +248,11 @@ $(document).ready(function() {
     if (data['variants'].length != 0) {
         var variants = ""
         $.each(data['variants'], function(i, item) {
-          variants += "<span class='badge badge-primary'>" + item['name'] + "</span> (" + item['default'] + ") " + item['description'] + "<br>";   
+          variant_type = "_true"
+          if (item['default'] == false) {
+              variant_type = "_false"
+          }
+          variants += "<a href='variants.html#" + item['name'] + variant_type + "'><span class='badge badge-primary'>" + item['name'] + "</span></a> (" + item['default'] + ") " + item['description'] + "<br>";   
         });
         $("#variants").html(variants);
         $("#variants-row").show();
