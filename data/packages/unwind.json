@@ -1,44 +1,107 @@
 {
-    "name": "apple-libunwind",
+    "name": "libunwind",
     "aliases": [
         {
             "name": "unwind",
-            "alias_for": "{apple-libunwind}"
+            "alias_for": "{libunwind}"
         }
     ],
-    "versions": [],
-    "build_system": "Package",
-    "conflicts": [
+    "versions": [
         {
-            "name": "platform=linux",
-            "spec": "",
-            "description": "None"
+            "name": "master",
+            "branch": "master"
         },
         {
-            "name": "platform=cray",
-            "spec": "",
-            "description": "None"
+            "name": "1.5-head",
+            "branch": "v1.5-stable"
+        },
+        {
+            "name": "1.5.0",
+            "sha256": "90337653d92d4a13de590781371c604f9031cdb50520366aa1e3a91e1efb1017"
+        },
+        {
+            "name": "1.4.0",
+            "sha256": "df59c931bd4d7ebfd83ee481c943edf015138089b8e50abed8d9c57ba9338435"
+        },
+        {
+            "name": "1.3.1",
+            "sha256": "43997a3939b6ccdf2f669b50fdb8a4d3205374728c2923ddc2354c65260214f8"
+        },
+        {
+            "name": "1.2.1",
+            "sha256": "3f3ecb90e28cbe53fba7a4a27ccce7aad188d3210bb1964a923a731a27a75acb"
+        },
+        {
+            "name": "1.1",
+            "sha256": "9dfe0fcae2a866de9d3942c66995e4b460230446887dbdab302d41a8aee8d09a"
         }
     ],
-    "variants": [],
-    "homepage": "https://opensource.apple.com/source/libunwind/libunwind-35.3/",
-    "maintainers": [],
+    "build_system": "AutotoolsPackage",
+    "conflicts": [
+        {
+            "name": "platform=darwin",
+            "spec": "",
+            "description": "Non-GNU libunwind needs ELF libraries Darwin does not have"
+        }
+    ],
+    "variants": [
+        {
+            "name": "pic",
+            "default": false,
+            "description": "Compile with position independent code."
+        },
+        {
+            "name": "xz",
+            "default": false,
+            "description": "Support xz (lzma) compressed symbol tables."
+        },
+        {
+            "name": "zlib",
+            "default": false,
+            "description": "Support zlib compressed symbol tables (1.5 and later)."
+        }
+    ],
+    "homepage": "http://www.nongnu.org/libunwind/",
+    "maintainers": [
+        "mwkrentel"
+    ],
     "patches": [],
     "resources": [],
-    "description": "Placeholder package for Apple's analogue to non-GNU libunwind\n",
-    "dependencies": [],
+    "description": "A portable and efficient C programming interface (API) to determine the\ncall-chain of a program.\n",
+    "dependencies": [
+        {
+            "name": "autoconf",
+            "description": "Autoconf -- system configuration part of autotools"
+        },
+        {
+            "name": "automake",
+            "description": "Automake -- make file builder part of autotools"
+        },
+        {
+            "name": "libtool",
+            "description": "libtool -- library building part of autotools."
+        },
+        {
+            "name": "m4",
+            "description": "GNU M4 is an implementation of the traditional Unix macro processor."
+        },
+        {
+            "name": "xz",
+            "description": "XZ Utils is free general-purpose data compression software with high\ncompression ratio. XZ Utils were written for POSIX-like systems, but\nalso work on some not-so-POSIX systems. XZ Utils are the successor to\nLZMA Utils."
+        },
+        {
+            "name": "zlib",
+            "description": "A free, general-purpose, legally unencumbered lossless data-compression\nlibrary."
+        }
+    ],
     "dependent_to": [
         {
-            "name": "swipl",
-            "description": "SWI-Prolog is a versatile implementation of the Prolog language.\nAlthough SWI-Prolog gained its popularity primarily in education, its\ndevelopment is mostly driven by the needs for application development.\nThis is facilitated by a rich interface to other IT components by\nsupporting many document types and (network) protocols as well as a\ncomprehensive low-level interface to C that is the basis for high-level\ninterfaces to C++, Java (bundled), C#, Python, etc (externally\navailable). Data type extensions such as dicts and strings as well as\nfull support for Unicode and unbounded integers simplify smooth exchange\nof data with other components."
+            "name": "py-py-spy",
+            "description": "A Sampling Profiler for Python."
         },
         {
             "name": "mfem",
             "description": "Free, lightweight, scalable C++ library for finite element methods."
-        },
-        {
-            "name": "py-py-spy",
-            "description": "A Sampling Profiler for Python."
         },
         {
             "name": "gperftools",
@@ -47,6 +110,10 @@
         {
             "name": "caliper",
             "description": "Caliper is a program instrumentation and performance measurement\nframework. It is designed as a performance analysis toolbox in a\nlibrary, allowing one to bake performance analysis capabilities directly\ninto applications and activate them at runtime."
+        },
+        {
+            "name": "swipl",
+            "description": "SWI-Prolog is a versatile implementation of the Prolog language.\nAlthough SWI-Prolog gained its popularity primarily in education, its\ndevelopment is mostly driven by the needs for application development.\nThis is facilitated by a rich interface to other IT components by\nsupporting many document types and (network) protocols as well as a\ncomprehensive low-level interface to C that is the basis for high-level\ninterfaces to C++, Java (bundled), C#, Python, etc (externally\navailable). Data type extensions such as dicts and strings as well as\nfull support for Unicode and unbounded integers simplify smooth exchange\nof data with other components."
         }
     ]
 }

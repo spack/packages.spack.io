@@ -1,15 +1,19 @@
 {
-    "name": "fujitsu-fftw",
+    "name": "amdfftw",
     "aliases": [
         {
             "name": "fftw-api@3",
-            "alias_for": "{fujitsu-fftw}"
+            "alias_for": "{amdfftw@2:}"
         }
     ],
     "versions": [
         {
-            "name": "1.0.0",
-            "sha256": "b5931e352355d8d1ffeb215922f4b96de11b8585c423fceeaffbf3d5436f6f2f"
+            "name": "3.0",
+            "sha256": "a69deaf45478a59a69f77c4f7e9872967f1cfe996592dd12beb6318f18ea0bcd"
+        },
+        {
+            "name": "2.2",
+            "sha256": "de9d777236fb290c335860b458131678f75aa0799c641490c644c843f0e246f8"
         }
     ],
     "build_system": "AutotoolsPackage",
@@ -25,11 +29,6 @@
             "description": "Long double precision is not supported in FFTW 2"
         },
         {
-            "name": "precision=long_double",
-            "spec": "%fj",
-            "description": "ARM-SVE vector instructions only works in single or double precision"
-        },
-        {
             "name": "precision=quad",
             "spec": "@2.1.5",
             "description": "Quad precision is not supported in FFTW 2"
@@ -41,58 +40,33 @@
         },
         {
             "name": "precision=quad",
-            "spec": "%fj",
-            "description": "Fujitsu Compiler doesn't support quad precision"
+            "spec": "@2.2%aocc",
+            "description": "AOCC clang doesn't support quad precision"
         },
         {
-            "name": "%arm",
-            "spec": "",
-            "description": "None"
+            "name": "+debug",
+            "spec": "@2.2%aocc",
+            "description": "AOCC clang doesn't support debug"
         },
         {
-            "name": "%cce",
-            "spec": "",
-            "description": "None"
+            "name": "%gcc@:7.2",
+            "spec": "@2.2:",
+            "description": "Required GCC version above 7.2 for AMDFFTW"
         },
         {
-            "name": "%apple-clang",
-            "spec": "",
-            "description": "None"
+            "name": "+amd-fast-planner",
+            "spec": "@2.2",
+            "description": "amd-fast-planner is supported from 3.0 onwards"
         },
         {
-            "name": "%clang",
-            "spec": "",
-            "description": "None"
+            "name": "+amd-fast-planner",
+            "spec": "precision=quad",
+            "description": "amd-fast-planner doesn't support quad precision"
         },
         {
-            "name": "%gcc",
-            "spec": "",
-            "description": "None"
-        },
-        {
-            "name": "%intel",
-            "spec": "",
-            "description": "None"
-        },
-        {
-            "name": "%nag",
-            "spec": "",
-            "description": "None"
-        },
-        {
-            "name": "%pgi",
-            "spec": "",
-            "description": "None"
-        },
-        {
-            "name": "%xl",
-            "spec": "",
-            "description": "None"
-        },
-        {
-            "name": "%xl_r",
-            "spec": "",
-            "description": "None"
+            "name": "+amd-fast-planner",
+            "spec": "precision=long_double",
+            "description": "amd-fast-planner doesn't support long_double precision"
         }
     ],
     "variants": [
@@ -117,20 +91,32 @@
             "description": "Builds a shared version of the library"
         },
         {
+            "name": "threads",
+            "default": false,
+            "description": "Enable SMP threads support"
+        },
+        {
             "name": "debug",
             "default": false,
             "description": "Builds a debug version of the library"
+        },
+        {
+            "name": "amd-fast-planner",
+            "default": false,
+            "description": "Option to reduce the planning time without muchtradeoff in the performance. It is supported forFloat and double precisions only."
         }
     ],
-    "homepage": "https://github.com/fujitsu/fftw3",
-    "maintainers": [],
+    "homepage": "https://developer.amd.com/amd-aocl/fftw/",
+    "maintainers": [
+        "amd-toolchain-support"
+    ],
     "patches": [],
     "resources": [],
-    "description": "FFTW (Fujitsu Optimized version) is a comprehensive collection of fast C\nroutines for computing the Discrete Fourier Transform (DFT) and various\nspecial cases thereof. It is an open-source implementation of the Fast\nFourier transform algorithm. It can compute transforms of real and\ncomplex-values arrays of arbitrary size and dimension. Fujitsu Optimized\nFFTW is the optimized FFTW implementation targeted for A64FX CPUs. For\nsingle precision build, please use precision value as float. Example :\nspack install fujitsufftw precision=float\n",
+    "description": "FFTW (AMD Optimized version) is a comprehensive collection of fast C\nroutines for computing the Discrete Fourier Transform (DFT) and various\nspecial cases thereof. It is an open-source implementation of the Fast\nFourier transform algorithm. It can compute transforms of real and\ncomplex-values arrays of arbitrary size and dimension. AMD Optimized\nFFTW is the optimized FFTW implementation targeted for AMD CPUs. For\nsingle precision build, please use precision value as float. Example :\nspack install amdfftw precision=float\n",
     "dependencies": [
         {
             "name": "mpi",
-            "description": "MVAPICH2-X is the advanced version of the MVAPICH2 MPI library with\nenhanced features (UMR, ODP, DC, Core-Direct, SHARP, XPMEM), OSU INAM\n(InifniBand Network Monitoring and Analysis),PGAS (OpenSHMEM, UPC,\nUPC++, and CAF), and MPI+PGAS programming models with unified\ncommunication runtime. MVAPICH2-X is not installable from source and is\nonly available through a binary mirror. If you do not find the binary\nyou're looking for, send us an email at mvapich@cse.ohio-state.edu. The\nbinary mirror url is: http://mvapich.cse.ohio-\nstate.edu/download/mvapich/spack-mirror/mvapich2x/"
+            "description": "Virtual package for the Message Passing Interface."
         },
         {
             "name": "llvm-openmp",
@@ -143,72 +129,72 @@
     ],
     "dependent_to": [
         {
-            "name": "cdo",
-            "description": "CDO is a collection of command line Operators to manipulate and analyse\nClimate and NWP model Data."
-        },
-        {
-            "name": "ngspice",
-            "description": "ngspice is the open source spice simulator for electric and electronic\ncircuits."
-        },
-        {
-            "name": "lammps",
-            "description": "LAMMPS stands for Large-scale Atomic/Molecular Massively Parallel\nSimulator. This package uses patch releases, not stable release. See\nhttps://github.com/spack/spack/pull/5342 for a detailed discussion."
-        },
-        {
-            "name": "arrayfire",
-            "description": "ArrayFire is a high performance software library for parallel computing\nwith an easy-to-use API. Its array based function set makes parallel\nprogramming more accessible."
-        },
-        {
             "name": "qmcpack",
             "description": "QMCPACK, is a modern high-performance open-source Quantum Monte Carlo\n(QMC) simulation code."
-        },
-        {
-            "name": "libvdwxc",
-            "description": "Portable C library of density functionals with van der Waals\ninteractions for density functional theory"
-        },
-        {
-            "name": "rmgdft",
-            "description": "RMGDFT is a high performance real-space density functional code designed\nfor large scale electronic structure calculations."
-        },
-        {
-            "name": "itk",
-            "description": "The Insight Toolkit (ITK) is an open-source, cross-platform toolkit for\nN-dimensional scientific image processing, segmentation, and\nregistration. The Insight Toolkit (ITK) is an open-source, cross-\nplatform toolkit for N-dimensional scientific image processing,\nsegmentation, and registration. Segmentation is the process of\nidentifying and classifying data found in a digitally sampled\nrepresentation. Typically the sampled representation is an image\nacquired from such medical instrumentation as CT or MRI scanners.\nRegistration is the task of aligning or developing correspondences\nbetween data. For example, in the medical environment, a CT scan may be\naligned with a MRI scan in order to combine the information contained in\nboth."
         },
         {
             "name": "spfft",
             "description": "Sparse 3D FFT library with MPI, OpenMP, CUDA and ROCm support."
         },
         {
-            "name": "abinit",
-            "description": "ABINIT is a package whose main program allows one to find the total\nenergy, charge density and electronic structure of systems made of\nelectrons and nuclei (molecules and periodic solids) within Density\nFunctional Theory (DFT), using pseudopotentials and a planewave or\nwavelet basis. ABINIT also includes options to optimize the geometry\naccording to the DFT forces and stresses, or to perform molecular\ndynamics simulations using these forces, or to generate dynamical\nmatrices, Born effective charges, and dielectric tensors, based on\nDensity-Functional Perturbation Theory, and many more properties.\nExcited states can be computed within the Many-Body Perturbation Theory\n(the GW approximation and the Bethe-Salpeter equation), and Time-\nDependent Density Functional Theory (for molecules). In addition to the\nmain ABINIT code, different utility programs are provided."
-        },
-        {
-            "name": "sirius",
-            "description": "Domain specific library for electronic structure calculations"
+            "name": "rmgdft",
+            "description": "RMGDFT is a high performance real-space density functional code designed\nfor large scale electronic structure calculations."
         },
         {
             "name": "quantum-espresso",
             "description": "Quantum ESPRESSO is an integrated suite of Open-Source computer codes\nfor electronic-structure calculations and materials modeling at the\nnanoscale. It is based on density-functional theory, plane waves, and\npseudopotentials."
         },
         {
-            "name": "openfoam",
-            "description": "OpenFOAM is a GPL-opensource C++ CFD-toolbox. This offering is supported\nby OpenCFD Ltd, producer and distributor of the OpenFOAM software via\nwww.openfoam.com, and owner of the OPENFOAM trademark. OpenCFD Ltd has\nbeen developing and releasing OpenFOAM since its debut in 2004."
+            "name": "cdo",
+            "description": "CDO is a collection of command line Operators to manipulate and analyse\nClimate and NWP model Data."
         },
         {
-            "name": "speexdsp",
-            "description": "SpeexDSP is a patent-free, Open Source/Free Software DSP library."
-        },
-        {
-            "name": "gromacs",
-            "description": "GROMACS (GROningen MAchine for Chemical Simulations) is a molecular\ndynamics package primarily designed for simulations of proteins, lipids\nand nucleic acids. It was originally developed in the Biophysical\nChemistry department of University of Groningen, and is now maintained\nby contributors in universities and research centers across the world.\nGROMACS is one of the fastest and most popular software packages\navailable and can run on CPUs as well as GPUs. It is free, open source\nreleased under the GNU General Public License. Starting from version\n4.6, GROMACS is released under the GNU Lesser General Public License."
+            "name": "cp2k",
+            "description": "CP2K is a quantum chemistry and solid state physics software package\nthat can perform atomistic simulations of solid state, liquid,\nmolecular, periodic, material, crystal, and biological systems"
         },
         {
             "name": "votca-tools",
             "description": "Versatile Object-oriented Toolkit for Coarse-graining Applications\n(VOTCA) is a package intended to reduce the amount of routine work when\ndoing systematic coarse-graining of various systems. The core is written\nin C++. This package contains the basic tools library of VOTCA."
         },
         {
-            "name": "cp2k",
-            "description": "CP2K is a quantum chemistry and solid state physics software package\nthat can perform atomistic simulations of solid state, liquid,\nmolecular, periodic, material, crystal, and biological systems"
+            "name": "itk",
+            "description": "The Insight Toolkit (ITK) is an open-source, cross-platform toolkit for\nN-dimensional scientific image processing, segmentation, and\nregistration. The Insight Toolkit (ITK) is an open-source, cross-\nplatform toolkit for N-dimensional scientific image processing,\nsegmentation, and registration. Segmentation is the process of\nidentifying and classifying data found in a digitally sampled\nrepresentation. Typically the sampled representation is an image\nacquired from such medical instrumentation as CT or MRI scanners.\nRegistration is the task of aligning or developing correspondences\nbetween data. For example, in the medical environment, a CT scan may be\naligned with a MRI scan in order to combine the information contained in\nboth."
+        },
+        {
+            "name": "arrayfire",
+            "description": "ArrayFire is a high performance software library for parallel computing\nwith an easy-to-use API. Its array based function set makes parallel\nprogramming more accessible."
+        },
+        {
+            "name": "abinit",
+            "description": "ABINIT is a package whose main program allows one to find the total\nenergy, charge density and electronic structure of systems made of\nelectrons and nuclei (molecules and periodic solids) within Density\nFunctional Theory (DFT), using pseudopotentials and a planewave or\nwavelet basis. ABINIT also includes options to optimize the geometry\naccording to the DFT forces and stresses, or to perform molecular\ndynamics simulations using these forces, or to generate dynamical\nmatrices, Born effective charges, and dielectric tensors, based on\nDensity-Functional Perturbation Theory, and many more properties.\nExcited states can be computed within the Many-Body Perturbation Theory\n(the GW approximation and the Bethe-Salpeter equation), and Time-\nDependent Density Functional Theory (for molecules). In addition to the\nmain ABINIT code, different utility programs are provided."
+        },
+        {
+            "name": "openfoam",
+            "description": "OpenFOAM is a GPL-opensource C++ CFD-toolbox. This offering is supported\nby OpenCFD Ltd, producer and distributor of the OpenFOAM software via\nwww.openfoam.com, and owner of the OPENFOAM trademark. OpenCFD Ltd has\nbeen developing and releasing OpenFOAM since its debut in 2004."
+        },
+        {
+            "name": "ngspice",
+            "description": "ngspice is the open source spice simulator for electric and electronic\ncircuits."
+        },
+        {
+            "name": "gromacs",
+            "description": "GROMACS (GROningen MAchine for Chemical Simulations) is a molecular\ndynamics package primarily designed for simulations of proteins, lipids\nand nucleic acids. It was originally developed in the Biophysical\nChemistry department of University of Groningen, and is now maintained\nby contributors in universities and research centers across the world.\nGROMACS is one of the fastest and most popular software packages\navailable and can run on CPUs as well as GPUs. It is free, open source\nreleased under the GNU General Public License. Starting from version\n4.6, GROMACS is released under the GNU Lesser General Public License."
+        },
+        {
+            "name": "sirius",
+            "description": "Domain specific library for electronic structure calculations"
+        },
+        {
+            "name": "libvdwxc",
+            "description": "Portable C library of density functionals with van der Waals\ninteractions for density functional theory"
+        },
+        {
+            "name": "speexdsp",
+            "description": "SpeexDSP is a patent-free, Open Source/Free Software DSP library."
+        },
+        {
+            "name": "lammps",
+            "description": "LAMMPS stands for Large-scale Atomic/Molecular Massively Parallel\nSimulator. This package uses patch releases, not stable release. See\nhttps://github.com/spack/spack/pull/5342 for a detailed discussion."
         },
         {
             "name": "hpcc",

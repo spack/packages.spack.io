@@ -174,7 +174,8 @@ $(document).ready(function() {
         var build_system = data['build_system'].toLowerCase() + ".html";
         url = "https://spack.readthedocs.io/en/latest/build_systems/" + build_system 
     }
-    $("#build_system").html("<a target='_blank' href='" + url + "'>" + data['build_system'] + "</a>");
+    package_py = "https://github.com/spack/spack/tree/develop/var/spack/repos/builtin/packages/" + data['name'] + "/package.py"
+    $("#build_system").html("<a target='_blank' href='" + url + "'>" + data['build_system'] + "</a> (view <a target='_blank' href='"+ package_py +"'>package.py</a>)");
 
     var versions = ""
     $.each(data['versions'], function(i, item) {
@@ -202,7 +203,7 @@ $(document).ready(function() {
     if (data['maintainers'].length != 0) {
         var maintainers = ""
         $.each(data['maintainers'], function(i, item) {
-           maintainers += "<a target='_blank' href='https://github.com/" + item + "'>" + item + "</a>";    
+           maintainers += "<a target='_blank' href='https://github.com/" + item + "'> " + item + " </a> ";    
         });
         $("#maintainers").html(maintainers);
         $("#maintainers-row").show();

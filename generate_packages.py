@@ -132,9 +132,10 @@ def main():
         # Aliases can be linked too
         for alias in raw_aliases:
             metas[alias] = meta
-    
+
     # We need one file with all names available
     names = list(metas.keys())
+    names.sort()
     outfile = os.path.join(here, "data", "packages.json")
     write_json(names, outfile)
 
