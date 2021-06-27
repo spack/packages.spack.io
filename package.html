@@ -174,7 +174,8 @@ $(document).ready(function() {
         var build_system = data['build_system'].toLowerCase() + ".html";
         url = "https://spack.readthedocs.io/en/latest/build_systems/" + build_system 
     }
-    package_py = "https://github.com/spack/spack/tree/develop/var/spack/repos/builtin/packages/" + data['name'] + "/package.py"
+    package_dir = "https://github.com/spack/spack/tree/develop/var/spack/repos/builtin/packages/" + data['name']
+    package_py = package_dir + "/package.py"
     $("#build_system").html("<a target='_blank' href='" + url + "'>" + data['build_system'] + "</a> (view <a target='_blank' href='"+ package_py +"'>package.py</a>)");
 
     var versions = ""
@@ -227,7 +228,13 @@ $(document).ready(function() {
     if (data['patches'].length != 0) {
         var patches = ""
         $.each(data['patches'], function(i, item) {
-           patches += "<span style='font-weight:600'>" + item['relative_path'] + " </span>when " + item['version'] + "<br>";   
+            var link = ""
+            if ('relative_path' in item){
+                link = "<a target='_blank' href='" + package_dir + "/" + item['relative_path'] + "'>" + item['relative_path'] + "</a>"
+            } else {
+                link = "<a target='_blank' href='" + item['url'] + "'>link</a>"
+            }
+           patches += "<span style='font-weight:600'>" + link + " </span>when " + item['version'] + "<br>";   
         });
         $("#patches").html(patches);
         $("#patches-row").show();

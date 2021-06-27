@@ -82,7 +82,9 @@ def main():
             for name, variant in pkg.variants.items():
                 if name not in package_variants:
                     package_variants[name] = []
-                package_variants[name].append({"package": pkg.name, "default": variant.default})
+                package_variants[name].append(
+                    {"package": pkg.name, "default": variant.default}
+                )
                 variants.append(
                     {
                         "name": name,
@@ -143,7 +145,7 @@ def main():
     # Save package variants
     outfile = os.path.join(here, "data", "variants.json")
     write_json(package_variants, outfile)
-    
+
     # We need one file with all names available
     names = list(metas.keys())
     names.sort()
