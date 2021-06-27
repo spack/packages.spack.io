@@ -34,10 +34,14 @@ def write_json(content, filename):
 
 def main():
 
-    pkgs = set(spack.repo.all_package_names(include_virtuals=True))
+    pkgs = spack.repo.all_package_names(include_virtuals=True)
     deps_of = {}
     descriptions = {}
     metas = {}
+    package_variants = {}
+
+    # Iterate through consistent order
+    pkgs = set(sorted(pkgs))
 
     for i, package in enumerate(pkgs):
 
@@ -76,6 +80,9 @@ def main():
         variants = []
         if pkg.variants:
             for name, variant in pkg.variants.items():
+                if name not in package_variants:
+                    package_variants[name] = []
+                package_variants[name].append({"package": pkg.name, "default": variant.default})
                 variants.append(
                     {
                         "name": name,
@@ -133,6 +140,10 @@ def main():
         for alias in raw_aliases:
             metas[alias] = meta
 
+    # Save package variants
+    outfile = os.path.join(here, "data", "variants.json")
+    write_json(package_variants, outfile)
+    
     # We need one file with all names available
     names = list(metas.keys())
     names.sort()
