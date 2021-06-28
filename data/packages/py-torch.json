@@ -832,11 +832,11 @@
         },
         {
             "name": "blas",
-            "description": "Intel Math Kernel Library."
+            "description": "LAPACK version 3.X is a comprehensive FORTRAN library that does linear\nalgebra operations including matrix inversions, least squared solutions\nto linear sets of equations, eigenvector analysis, singular value\ndecomposition, etc. It is a very comprehensive and reputable package\nthat has found extensive use in the scientific community."
         },
         {
             "name": "lapack",
-            "description": "Intel Math Kernel Library."
+            "description": "LAPACK version 3.X is a comprehensive FORTRAN library that does linear\nalgebra operations including matrix inversions, least squared solutions\nto linear sets of equations, eigenvector analysis, singular value\ndecomposition, etc. It is a very comprehensive and reputable package\nthat has found extensive use in the scientific community."
         },
         {
             "name": "protobuf",
@@ -868,7 +868,7 @@
         },
         {
             "name": "mpi",
-            "description": "MPICH is a high performance and widely portable implementation of the\nMessage Passing Interface (MPI) standard."
+            "description": "MVAPICH2-X is the advanced version of the MVAPICH2 MPI library with\nenhanced features (UMR, ODP, DC, Core-Direct, SHARP, XPMEM), OSU INAM\n(InifniBand Network Monitoring and Analysis),PGAS (OpenSHMEM, UPC,\nUPC++, and CAF), and MPI+PGAS programming models with unified\ncommunication runtime. MVAPICH2-X is not installable from source and is\nonly available through a binary mirror. If you do not find the binary\nyou're looking for, send us an email at mvapich@cse.ohio-state.edu. The\nbinary mirror url is: http://mvapich.cse.ohio-\nstate.edu/download/mvapich/spack-mirror/mvapich2x/"
         },
         {
             "name": "nccl",
@@ -908,7 +908,7 @@
         },
         {
             "name": "tbb",
-            "description": "Intel oneAPI TBB."
+            "description": "Widely used C++ template library for task parallelism. Intel Threading\nBuilding Blocks (Intel TBB) lets you easily write parallel C++ programs\nthat take full advantage of multicore performance, that are portable and\ncomposable, and that have future-proof scalability."
         },
         {
             "name": "py-hypothesis",
@@ -925,20 +925,60 @@
     ],
     "dependent_to": [
         {
-            "name": "mlperf-deepcam",
-            "description": "PyTorch implementation for the climate segmentation benchmark, based on\nthe Exascale Deep Learning for Climate Analytics"
-        },
-        {
             "name": "py-torchsummary",
             "description": "Keras has a neat API to view the visualization of the model which is\nvery helpful while debugging your network. Here is a barebone code to\ntry and mimic the same in PyTorch. The aim is to provide information\ncomplementary to, what is not provided by print(your_model) in PyTorch."
+        },
+        {
+            "name": "py-torchvision",
+            "description": "The torchvision package consists of popular datasets, model\narchitectures, and common image transformations for computer vision."
+        },
+        {
+            "name": "py-gpytorch",
+            "description": "GPyTorch is a Gaussian process library implemented using PyTorch.\nGPyTorch is designed for creating scalable, flexible, and modular\nGaussian process models with ease."
+        },
+        {
+            "name": "py-torch-spline-conv",
+            "description": "This is a PyTorch implementation of the spline-based convolution\noperator of SplineCNN."
+        },
+        {
+            "name": "py-torchaudio",
+            "description": "The aim of torchaudio is to apply PyTorch to the audio domain. By\nsupporting PyTorch, torchaudio follows the same philosophy of providing\nstrong GPU acceleration, having a focus on trainable features through\nthe autograd system, and having consistent style (tensor names and\ndimension names). Therefore, it is primarily a machine learning library\nand not a general signal processing library. The benefits of Pytorch is\nbe seen in torchaudio through having all the computations be through\nPytorch operations which makes it easy to use and feel like a natural\nextension."
+        },
+        {
+            "name": "py-torch-nvidia-apex",
+            "description": "A PyTorch Extension: Tools for easy mixed precision and distributed\ntraining in Pytorch"
+        },
+        {
+            "name": "py-pytorch-lightning",
+            "description": "PyTorch Lightning is the lightweight PyTorch wrapper for ML researchers."
+        },
+        {
+            "name": "py-dgl",
+            "description": "Deep Graph Library (DGL). DGL is an easy-to-use, high performance and\nscalable Python package for deep learning on graphs. DGL is framework\nagnostic, meaning if a deep graph model is a component of an end-to-end\napplication, the rest of the logics can be implemented in any major\nframeworks, such as PyTorch, Apache MXNet or TensorFlow."
+        },
+        {
+            "name": "py-visdom",
+            "description": "Visdom aims to facilitate visualization of (remote) data with an\nemphasis on supporting scientific experimentation."
         },
         {
             "name": "cosmoflow-benchmark",
             "description": "This is a an implementation of the CosmoFlow 3D convolutional neural\nnetwork for benchmarking. It is written in TensorFlow with the Keras API\nand uses Horovod for distributed training."
         },
         {
-            "name": "py-torchvision",
-            "description": "The torchvision package consists of popular datasets, model\narchitectures, and common image transformations for computer vision."
+            "name": "py-torch-geometric",
+            "description": "PyTorch Geometric (PyG) is a geometric deep learning extension library\nfor PyTorch. It consists of various methods for deep learning on graphs\nand other irregular structures, also known as geometric deep learning,\nfrom a variety of published papers. In addition, it consists of an easy-\nto-use mini-batch loader for many small and single giant graphs, multi\ngpu-support, a large number of common benchmark datasets (based on\nsimple interfaces to create your own), and helpful transforms, both for\nlearning on arbitrary graphs as well as on 3D meshes or point clouds."
+        },
+        {
+            "name": "py-torch-cluster",
+            "description": "This package consists of a small extension library of highly optimized\ngraph cluster algorithms for the use in PyTorch."
+        },
+        {
+            "name": "py-torch-scatter",
+            "description": "This package consists of a small extension library of highly optimized\nsparse update (scatter and segment) operations for the use in PyTorch,\nwhich are missing in the main package."
+        },
+        {
+            "name": "minigan",
+            "description": "miniGAN is a generative adversarial network code developed as part of\nthe Exascale Computing Project's (ECP) ExaLearn project at Sandia\nNational Laboratories."
         },
         {
             "name": "py-torchmetrics",
@@ -949,56 +989,16 @@
             "description": "The CRADL proxy application captured performance metrics during\ninference on data from multiphysics codes, specifically ALE\nhydrodynamics codes."
         },
         {
-            "name": "minigan",
-            "description": "miniGAN is a generative adversarial network code developed as part of\nthe Exascale Computing Project's (ECP) ExaLearn project at Sandia\nNational Laboratories."
+            "name": "py-horovod",
+            "description": "Horovod is a distributed deep learning training framework for\nTensorFlow, Keras, PyTorch, and Apache MXNet."
         },
         {
-            "name": "py-torch-scatter",
-            "description": "This package consists of a small extension library of highly optimized\nsparse update (scatter and segment) operations for the use in PyTorch,\nwhich are missing in the main package."
+            "name": "mlperf-deepcam",
+            "description": "PyTorch implementation for the climate segmentation benchmark, based on\nthe Exascale Deep Learning for Climate Analytics"
         },
         {
             "name": "py-torchtext",
             "description": "Text utilities and datasets for PyTorch."
-        },
-        {
-            "name": "py-pytorch-lightning",
-            "description": "PyTorch Lightning is the lightweight PyTorch wrapper for ML researchers."
-        },
-        {
-            "name": "py-gpytorch",
-            "description": "GPyTorch is a Gaussian process library implemented using PyTorch.\nGPyTorch is designed for creating scalable, flexible, and modular\nGaussian process models with ease."
-        },
-        {
-            "name": "py-torchaudio",
-            "description": "The aim of torchaudio is to apply PyTorch to the audio domain. By\nsupporting PyTorch, torchaudio follows the same philosophy of providing\nstrong GPU acceleration, having a focus on trainable features through\nthe autograd system, and having consistent style (tensor names and\ndimension names). Therefore, it is primarily a machine learning library\nand not a general signal processing library. The benefits of Pytorch is\nbe seen in torchaudio through having all the computations be through\nPytorch operations which makes it easy to use and feel like a natural\nextension."
-        },
-        {
-            "name": "py-torch-cluster",
-            "description": "This package consists of a small extension library of highly optimized\ngraph cluster algorithms for the use in PyTorch."
-        },
-        {
-            "name": "py-visdom",
-            "description": "Visdom aims to facilitate visualization of (remote) data with an\nemphasis on supporting scientific experimentation."
-        },
-        {
-            "name": "py-torch-geometric",
-            "description": "PyTorch Geometric (PyG) is a geometric deep learning extension library\nfor PyTorch. It consists of various methods for deep learning on graphs\nand other irregular structures, also known as geometric deep learning,\nfrom a variety of published papers. In addition, it consists of an easy-\nto-use mini-batch loader for many small and single giant graphs, multi\ngpu-support, a large number of common benchmark datasets (based on\nsimple interfaces to create your own), and helpful transforms, both for\nlearning on arbitrary graphs as well as on 3D meshes or point clouds."
-        },
-        {
-            "name": "py-torch-nvidia-apex",
-            "description": "A PyTorch Extension: Tools for easy mixed precision and distributed\ntraining in Pytorch"
-        },
-        {
-            "name": "py-dgl",
-            "description": "Deep Graph Library (DGL). DGL is an easy-to-use, high performance and\nscalable Python package for deep learning on graphs. DGL is framework\nagnostic, meaning if a deep graph model is a component of an end-to-end\napplication, the rest of the logics can be implemented in any major\nframeworks, such as PyTorch, Apache MXNet or TensorFlow."
-        },
-        {
-            "name": "py-torch-spline-conv",
-            "description": "This is a PyTorch implementation of the spline-based convolution\noperator of SplineCNN."
-        },
-        {
-            "name": "py-horovod",
-            "description": "Horovod is a distributed deep learning training framework for\nTensorFlow, Keras, PyTorch, and Apache MXNet."
         }
     ]
 }
