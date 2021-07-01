@@ -8,6 +8,11 @@
             "submodules": true
         },
         {
+            "name": "1.9.0",
+            "tag": "v1.9.0",
+            "submodules": true
+        },
+        {
             "name": "1.8.1",
             "tag": "v1.8.1",
             "submodules": true
@@ -51,6 +56,7 @@
             "name": "1.4.0",
             "tag": "v1.4.0",
             "submodules": true,
+            "deprecated": true,
             "submodules_delete": [
                 "third_party/fbgemm"
             ]
@@ -89,6 +95,7 @@
             "name": "0.4.1",
             "tag": "v0.4.1",
             "submodules": true,
+            "deprecated": true,
             "submodules_delete": [
                 "third_party/nervanagpu"
             ]
@@ -96,12 +103,14 @@
         {
             "name": "0.4.0",
             "tag": "v0.4.0",
-            "submodules": true
+            "submodules": true,
+            "deprecated": true
         },
         {
             "name": "0.3.1",
             "tag": "v0.3.1",
-            "submodules": true
+            "submodules": true,
+            "deprecated": true
         }
     ],
     "build_system": "PythonPackage",
@@ -507,106 +516,121 @@
             "description": "None"
         },
         {
+            "name": "+cuda",
+            "spec": "+rocm",
+            "description": "None"
+        },
+        {
             "name": "+cudnn",
             "spec": "~cuda",
             "description": "None"
         },
         {
-            "name": "+magma",
-            "spec": "~cuda",
-            "description": "None"
-        },
-        {
-            "name": "+fbgemm",
-            "spec": "@:0.4",
-            "description": "None"
-        },
-        {
-            "name": "+fbgemm",
-            "spec": "@1.4.0",
-            "description": "None"
-        },
-        {
-            "name": "+miopen",
-            "spec": "@:0.4",
-            "description": "None"
-        },
-        {
-            "name": "+mkldnn",
-            "spec": "@:0.3",
-            "description": "None"
-        },
-        {
-            "name": "+qnnpack",
-            "spec": "@:0.4",
-            "description": "None"
-        },
-        {
-            "name": "+xnnpack",
-            "spec": "@:1.4",
+            "name": "+cudnn",
+            "spec": "@:0.4.999",
             "description": "None"
         },
         {
             "name": "+nccl",
-            "spec": "~cuda",
+            "spec": "~cuda~rocm",
             "description": "None"
         },
         {
-            "name": "+opencv",
-            "spec": "@:0.4",
+            "name": "+nccl",
+            "spec": "arch=darwin-None-None",
             "description": "None"
         },
         {
-            "name": "+ffmpeg",
-            "spec": "@:0.4",
+            "name": "+numa",
+            "spec": "arch=darwin-None-None",
+            "description": "Only available on Linux"
+        },
+        {
+            "name": "+valgrind",
+            "spec": "arch=darwin-None-None",
+            "description": "Only available on Linux"
+        },
+        {
+            "name": "+valgrind",
+            "spec": "@:1.7.999",
             "description": "None"
         },
         {
-            "name": "+leveldb",
-            "spec": "@:0.4",
+            "name": "+mpi",
+            "spec": "~distributed",
             "description": "None"
         },
         {
-            "name": "+lmdb",
-            "spec": "@:0.4",
+            "name": "+gloo",
+            "spec": "~distributed",
             "description": "None"
         },
         {
-            "name": "+binary",
-            "spec": "@:0.4",
+            "name": "+tensorpipe",
+            "spec": "~distributed",
             "description": "None"
         },
         {
-            "name": "+redis",
-            "spec": "@:1.0",
+            "name": "+tensorpipe",
+            "spec": "@:1.5.999",
             "description": "None"
         },
         {
-            "name": "+zstd",
-            "spec": "@:1.0",
+            "name": "+kineto",
+            "spec": "@:1.7.999",
             "description": "None"
         },
         {
-            "name": "+tbb",
-            "spec": "@:1.1",
+            "name": "~caffe2",
+            "spec": "@0.4.0:1.6.999",
+            "description": "None"
+        },
+        {
+            "name": "+caffe2",
+            "spec": "@:0.3.1",
+            "description": "None"
+        },
+        {
+            "name": "+xnnpack",
+            "spec": "@:1.4.999",
+            "description": "None"
+        },
+        {
+            "name": "~onnx_ml",
+            "spec": "@:1.4.999",
+            "description": "None"
+        },
+        {
+            "name": "+rocm",
+            "spec": "@:0.4.999",
+            "description": "None"
+        },
+        {
+            "name": "+fbgemm",
+            "spec": "@:0.4.999,1.4.0",
+            "description": "None"
+        },
+        {
+            "name": "+qnnpack",
+            "spec": "@:0.4.999",
+            "description": "None"
+        },
+        {
+            "name": "+mkldnn",
+            "spec": "@:0.4.999",
             "description": "None"
         },
         {
             "name": "cuda_arch=none",
             "spec": "+cuda",
             "description": "Must specify CUDA compute capabilities of your GPU, see https://developer.nvidia.com/cuda-gpus"
-        },
-        {
-            "name": "+rocm",
-            "spec": "+cuda",
-            "description": "None"
         }
     ],
     "variants": [
         {
             "name": "cuda",
             "default": true,
-            "description": "Build with CUDA"
+            "description": "Use CUDA"
         },
         {
             "name": "cuda_arch",
@@ -614,119 +638,109 @@
             "description": "CUDA architecture"
         },
         {
-            "name": "cudnn",
+            "name": "caffe2",
             "default": true,
-            "description": "Enables the cuDNN build"
+            "description": "Build Caffe2"
         },
         {
             "name": "rocm",
             "default": false,
-            "description": "Build with ROCm build"
+            "description": "Use ROCm"
         },
         {
-            "name": "magma",
-            "default": false,
-            "description": "Enables the MAGMA build"
+            "name": "cudnn",
+            "default": true,
+            "description": "Use cuDNN"
         },
         {
             "name": "fbgemm",
-            "default": false,
-            "description": "Enables the FBGEMM build"
-        },
-        {
-            "name": "test",
-            "default": false,
-            "description": "Enables the test build"
-        },
-        {
-            "name": "miopen",
-            "default": false,
-            "description": "Enables the MIOpen build"
-        },
-        {
-            "name": "mkldnn",
             "default": true,
-            "description": "Enables use of MKLDNN"
+            "description": "Use FBGEMM (quantized 8-bit server operators)"
         },
         {
-            "name": "nnpack",
-            "default": false,
-            "description": "Enables NNPACK build"
+            "name": "kineto",
+            "default": true,
+            "description": "Use Kineto profiling library"
         },
         {
-            "name": "qnnpack",
-            "default": false,
-            "description": "Enables QNNPACK build (quantized 8-bit operators)"
+            "name": "magma",
+            "default": true,
+            "description": "Use MAGMA"
         },
         {
-            "name": "xnnpack",
+            "name": "metal",
             "default": false,
-            "description": "Enables XNNPACK build"
-        },
-        {
-            "name": "distributed",
-            "default": false,
-            "description": "Enables distributed (c10d, gloo, mpi, etc.) build"
+            "description": "Use Metal for Caffe2 iOS build"
         },
         {
             "name": "nccl",
             "default": true,
-            "description": "Use Spack-installed NCCL"
+            "description": "Use NCCL"
         },
         {
-            "name": "caffe2",
-            "default": false,
-            "description": "Enables Caffe2 operators build"
+            "name": "nnpack",
+            "default": true,
+            "description": "Use NNPACK"
         },
         {
-            "name": "gloo",
-            "default": false,
-            "description": "Enables features related to distributed support"
+            "name": "numa",
+            "default": true,
+            "description": "Use NUMA"
         },
         {
-            "name": "opencv",
-            "default": false,
-            "description": "Enables use of OpenCV for additional operators"
+            "name": "numpy",
+            "default": true,
+            "description": "Use NumPy"
         },
         {
             "name": "openmp",
             "default": true,
-            "description": "Enables use of OpenMP for parallelization"
+            "description": "Use OpenMP for parallel code"
         },
         {
-            "name": "ffmpeg",
-            "default": false,
-            "description": "Enables use of ffmpeg for additional operators"
+            "name": "qnnpack",
+            "default": true,
+            "description": "Use QNNPACK (quantized 8-bit operators)"
         },
         {
-            "name": "leveldb",
-            "default": false,
-            "description": "Enables use of LevelDB for storage"
+            "name": "valgrind",
+            "default": true,
+            "description": "Use Valgrind"
         },
         {
-            "name": "lmdb",
-            "default": false,
-            "description": "Enables use of LMDB for storage"
+            "name": "xnnpack",
+            "default": true,
+            "description": "Use XNNPACK"
         },
         {
-            "name": "binary",
-            "default": false,
-            "description": "Enables the additional binaries/ build"
+            "name": "mkldnn",
+            "default": true,
+            "description": "Use MKLDNN"
         },
         {
-            "name": "redis",
-            "default": false,
-            "description": "Use Redis for distributed workflows"
+            "name": "distributed",
+            "default": true,
+            "description": "Use distributed"
         },
         {
-            "name": "zstd",
-            "default": false,
-            "description": "Enables use of ZSTD"
+            "name": "mpi",
+            "default": true,
+            "description": "Use MPI for Caffe2"
         },
         {
-            "name": "tbb",
-            "default": false,
-            "description": "Enables TBB support"
+            "name": "gloo",
+            "default": true,
+            "description": "Use Gloo"
+        },
+        {
+            "name": "tensorpipe",
+            "default": true,
+            "description": "Use TensorPipe"
+        },
+        {
+            "name": "onnx_ml",
+            "default": true,
+            "description": "Enable traditional ONNX ML API"
         }
     ],
     "homepage": "https://pytorch.org/",
@@ -736,11 +750,19 @@
     "patches": [
         {
             "owner": "builtin.py-torch",
+            "sha256": "e37afffe45cf7594c22050109942370e49983ad772d12ebccf508377dc9dcfc9",
+            "level": 1,
+            "working_dir": ".",
+            "url": "https://patch-diff.githubusercontent.com/raw/pytorch/pytorch/pull/59220.patch",
+            "version": "@1.2.0:"
+        },
+        {
+            "owner": "builtin.py-torch",
             "sha256": "e17eaa42f5d7c18bf0d7c37d7b0910127a01ad53fdce3e226a92893356a70395",
             "level": 1,
             "working_dir": ".",
             "url": "https://patch-diff.githubusercontent.com/raw/pytorch/pytorch/pull/55063.patch",
-            "version": "@1.1.0:"
+            "version": "@1.1.0:1.8.1"
         },
         {
             "owner": "builtin.py-torch",
@@ -760,11 +782,27 @@
         },
         {
             "owner": "builtin.py-torch",
+            "sha256": "e2995591995a89ae4bbc77a583a55970009b77065c44905eee373d6cf6118049",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "sleef.patch",
+            "version": "@1.0.0:1.5.999"
+        },
+        {
+            "owner": "builtin.py-torch",
             "sha256": "17561b16cd2db22f10c0fe1fdcb428aecb0ac3964ba022a41343a6bb8cba7049",
             "level": 1,
             "working_dir": ".",
             "url": "https://github.com/pytorch/pytorch/commit/e921cd222a8fbeabf5a3e74e83e0d8dfb01aa8b5.patch",
             "version": "@1.1:1.5"
+        },
+        {
+            "owner": "builtin.py-torch",
+            "sha256": "13484bad3ddc52af072962673118bc5bd2da6f10aa0a88f2c5888a43d98e0001",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "cusparseGetErrorString.patch",
+            "version": "@0.4.1:1.0.999 ^cuda@10.1.243:"
         },
         {
             "owner": "builtin.py-torch",
@@ -799,10 +837,6 @@
             "description": "A Python utility that aids in the process of downloading, building,\nupgrading, installing, and uninstalling Python packages."
         },
         {
-            "name": "py-numpy",
-            "description": "NumPy is the fundamental package for scientific computing with Python.\nIt contains among other things: a powerful N-dimensional array object,\nsophisticated (broadcasting) functions, tools for integrating C/C++ and\nFortran code, and useful linear algebra, Fourier transform, and random\nnumber capabilities"
-        },
-        {
             "name": "py-future",
             "description": "Clean single-source support for Python 3 and 2"
         },
@@ -831,24 +865,48 @@
             "description": "A Fast, Extensible Progress Meter"
         },
         {
-            "name": "blas",
-            "description": "The NVIDIA HPC SDK is a comprehensive suite of compilers, libraries and\ntools essential to maximizing developer productivity and the performance\nand portability of HPC applications. The NVIDIA HPC SDK C, C++, and\nFortran compilers support GPU acceleration of HPC modeling and\nsimulation applications with standard C++ and Fortran, OpenACC\ndirectives, and CUDA. GPU-accelerated math libraries maximize\nperformance on common HPC algorithms, and optimized communications\nlibraries enable standards-based multi-GPU and scalable systems\nprogramming. Performance profiling and debugging tools simplify porting\nand optimization of HPC applications."
-        },
-        {
-            "name": "lapack",
-            "description": "The NVIDIA HPC SDK is a comprehensive suite of compilers, libraries and\ntools essential to maximizing developer productivity and the performance\nand portability of HPC applications. The NVIDIA HPC SDK C, C++, and\nFortran compilers support GPU acceleration of HPC modeling and\nsimulation applications with standard C++ and Fortran, OpenACC\ndirectives, and CUDA. GPU-accelerated math libraries maximize\nperformance on common HPC algorithms, and optimized communications\nlibraries enable standards-based multi-GPU and scalable systems\nprogramming. Performance profiling and debugging tools simplify porting\nand optimization of HPC applications."
+            "name": "py-protobuf",
+            "description": "Protocol buffers are Google's language-neutral, platform-neutral,\nextensible mechanism for serializing structured data - think XML, but\nsmaller, faster, and simpler. You define how you want your data to be\nstructured once, then you can use special generated source code to\neasily write and read your structured data to and from a variety of data\nstreams and using a variety of languages."
         },
         {
             "name": "protobuf",
             "description": "Google's data interchange format."
         },
         {
-            "name": "py-protobuf",
-            "description": "Protocol buffers are Google's language-neutral, platform-neutral,\nextensible mechanism for serializing structured data - think XML, but\nsmaller, faster, and simpler. You define how you want your data to be\nstructured once, then you can use special generated source code to\neasily write and read your structured data to and from a variety of data\nstreams and using a variety of languages."
+            "name": "blas",
+            "description": "XBLAS is a reference implementation for extra precision BLAS. XBLAS is a\nreference implementation for the dense and banded BLAS routines, along\nwith extended and mixed precision version. Extended precision is only\nused internally; input and output arguments remain the same as in the\nexisting BLAS. Extra precisions is implemented as double-double (i.e.,\n128-bit total, 106-bit significand). Mixed precision permits some\ninput/output arguments of different types (mixing real and complex) or\nprecisions (mixing single and double). This implementation is proof of\nconcept, and no attempt was made to optimize performance; performance\nshould be as good as straightforward but careful code written by hand."
+        },
+        {
+            "name": "lapack",
+            "description": "Fujitsu SSL2 (Scientific Subroutine Library II) is Math library for\nFujitsu compiler. Fujitsu SSL2 implementation only for Fujitsu compiler.\nFujitsu SSL2 provides the function of blas, lapack and scalapack."
         },
         {
             "name": "eigen",
             "description": "Eigen is a C++ template library for linear algebra matrices, vectors,\nnumerical solvers, and related algorithms."
+        },
+        {
+            "name": "sleef",
+            "description": "SIMD Library for Evaluating Elementary Functions, vectorized libm and\nDFT."
+        },
+        {
+            "name": "fp16",
+            "description": "FP16 is a header-only library for conversion to/from half-precision\nfloating point formats"
+        },
+        {
+            "name": "pthreadpool",
+            "description": "pthreadpool is a portable and efficient thread pool implementation."
+        },
+        {
+            "name": "psimd",
+            "description": "Portable 128-bit SIMD intrinsics."
+        },
+        {
+            "name": "fxdiv",
+            "description": "Header-only library for division via fixed-point multiplication by\ninverse."
+        },
+        {
+            "name": "benchmark",
+            "description": "A microbenchmark support library"
         },
         {
             "name": "cudnn",
@@ -859,56 +917,32 @@
             "description": "The MAGMA project aims to develop a dense linear algebra library similar\nto LAPACK but for heterogeneous/hybrid architectures, starting with\ncurrent \"Multicore+GPU\" systems."
         },
         {
-            "name": "onednn",
-            "description": "oneAPI Deep Neural Network Library (oneDNN). Formerly known as Intel\nMKL-DNN and DNNL."
-        },
-        {
-            "name": "qnnpack",
-            "description": "QNNPACK (Quantized Neural Networks PACKage) is a mobile-optimized\nlibrary for low-precision high-performance neural network inference.\nQNNPACK provides implementation of common neural network operators on\nquantized 8-bit tensors."
-        },
-        {
-            "name": "mpi",
-            "description": "The NVIDIA HPC SDK is a comprehensive suite of compilers, libraries and\ntools essential to maximizing developer productivity and the performance\nand portability of HPC applications. The NVIDIA HPC SDK C, C++, and\nFortran compilers support GPU acceleration of HPC modeling and\nsimulation applications with standard C++ and Fortran, OpenACC\ndirectives, and CUDA. GPU-accelerated math libraries maximize\nperformance on common HPC algorithms, and optimized communications\nlibraries enable standards-based multi-GPU and scalable systems\nprogramming. Performance profiling and debugging tools simplify porting\nand optimization of HPC applications."
-        },
-        {
             "name": "nccl",
             "description": "Optimized primitives for collective multi-GPU communication."
         },
         {
-            "name": "gloo",
-            "description": "Gloo is a collective communications library."
+            "name": "numactl",
+            "description": "NUMA support for Linux"
         },
         {
-            "name": "opencv",
-            "description": "OpenCV (Open Source Computer Vision Library) is an open source computer\nvision and machine learning software library."
+            "name": "py-numpy",
+            "description": "NumPy is the fundamental package for scientific computing with Python.\nIt contains among other things: a powerful N-dimensional array object,\nsophisticated (broadcasting) functions, tools for integrating C/C++ and\nFortran code, and useful linear algebra, Fourier transform, and random\nnumber capabilities"
         },
         {
             "name": "llvm-openmp",
             "description": "The OpenMP subproject of LLVM contains the components required to build\nan executable OpenMP program that are outside the compiler itself."
         },
         {
-            "name": "ffmpeg",
-            "description": "FFmpeg is a complete, cross-platform solution to record, convert and\nstream audio and video."
+            "name": "valgrind",
+            "description": "An instrumentation framework for building dynamic analysis. There are\nValgrind tools that can automatically detect many memory management and\nthreading bugs, and profile your programs in detail. You can also use\nValgrind to build new tools. Valgrind is Open Source / Free Software,\nand is freely available under the GNU General Public License, version 2."
         },
         {
-            "name": "leveldb",
-            "description": "LevelDB is a fast key-value storage library written at Google that\nprovides an ordered mapping from string keys to string values."
+            "name": "mpi",
+            "description": "Cray's MPICH is a high performance and widely portable implementation of\nthe Message Passing Interface (MPI) standard."
         },
         {
-            "name": "lmdb",
-            "description": "Symas LMDB is an extraordinarily fast, memory-efficient database we\ndeveloped for the Symas OpenLDAP Project. With memory-mapped files, it\nhas the read performance of a pure in-memory database while retaining\nthe persistence of standard disk-based databases."
-        },
-        {
-            "name": "redis",
-            "description": "Redis is an open source (BSD licensed), in-memory data structure store,\nused as a database, cache and message broker. It supports data\nstructures such as strings, hashes, lists, sets, sorted sets with range\nqueries, bitmaps, hyperloglogs, geospatial indexes with radius queries\nand streams. Redis has built-in replication, Lua scripting, LRU\neviction, transactions and different levels of on-disk persistence, and\nprovides high availability via Redis Sentinel and automatic partitioning\nwith Redis Cluster"
-        },
-        {
-            "name": "zstd",
-            "description": "Zstandard, or zstd as short version, is a fast lossless compression\nalgorithm, targeting real-time compression scenarios at zlib-level and\nbetter compression ratios."
-        },
-        {
-            "name": "tbb",
-            "description": "Intel oneAPI TBB."
+            "name": "mkl",
+            "description": "Intel Parallel Studio."
         },
         {
             "name": "py-hypothesis",
@@ -925,24 +959,12 @@
     ],
     "dependent_to": [
         {
-            "name": "py-torchaudio",
-            "description": "The aim of torchaudio is to apply PyTorch to the audio domain. By\nsupporting PyTorch, torchaudio follows the same philosophy of providing\nstrong GPU acceleration, having a focus on trainable features through\nthe autograd system, and having consistent style (tensor names and\ndimension names). Therefore, it is primarily a machine learning library\nand not a general signal processing library. The benefits of Pytorch is\nbe seen in torchaudio through having all the computations be through\nPytorch operations which makes it easy to use and feel like a natural\nextension."
+            "name": "py-torch-geometric",
+            "description": "PyTorch Geometric (PyG) is a geometric deep learning extension library\nfor PyTorch. It consists of various methods for deep learning on graphs\nand other irregular structures, also known as geometric deep learning,\nfrom a variety of published papers. In addition, it consists of an easy-\nto-use mini-batch loader for many small and single giant graphs, multi\ngpu-support, a large number of common benchmark datasets (based on\nsimple interfaces to create your own), and helpful transforms, both for\nlearning on arbitrary graphs as well as on 3D meshes or point clouds."
         },
         {
-            "name": "py-horovod",
-            "description": "Horovod is a distributed deep learning training framework for\nTensorFlow, Keras, PyTorch, and Apache MXNet."
-        },
-        {
-            "name": "py-pytorch-lightning",
-            "description": "PyTorch Lightning is the lightweight PyTorch wrapper for ML researchers."
-        },
-        {
-            "name": "py-gpytorch",
-            "description": "GPyTorch is a Gaussian process library implemented using PyTorch.\nGPyTorch is designed for creating scalable, flexible, and modular\nGaussian process models with ease."
-        },
-        {
-            "name": "minigan",
-            "description": "miniGAN is a generative adversarial network code developed as part of\nthe Exascale Computing Project's (ECP) ExaLearn project at Sandia\nNational Laboratories."
+            "name": "cradl",
+            "description": "The CRADL proxy application captured performance metrics during\ninference on data from multiphysics codes, specifically ALE\nhydrodynamics codes."
         },
         {
             "name": "py-torch-spline-conv",
@@ -953,16 +975,36 @@
             "description": "Deep Graph Library (DGL). DGL is an easy-to-use, high performance and\nscalable Python package for deep learning on graphs. DGL is framework\nagnostic, meaning if a deep graph model is a component of an end-to-end\napplication, the rest of the logics can be implemented in any major\nframeworks, such as PyTorch, Apache MXNet or TensorFlow."
         },
         {
-            "name": "py-visdom",
-            "description": "Visdom aims to facilitate visualization of (remote) data with an\nemphasis on supporting scientific experimentation."
+            "name": "py-pytorch-lightning",
+            "description": "PyTorch Lightning is the lightweight PyTorch wrapper for ML researchers."
         },
         {
             "name": "py-torch-nvidia-apex",
             "description": "A PyTorch Extension: Tools for easy mixed precision and distributed\ntraining in Pytorch"
         },
         {
-            "name": "cradl",
-            "description": "The CRADL proxy application captured performance metrics during\ninference on data from multiphysics codes, specifically ALE\nhydrodynamics codes."
+            "name": "py-torchmetrics",
+            "description": "Machine learning metrics for distributed, scalable PyTorch applications."
+        },
+        {
+            "name": "py-torchtext",
+            "description": "Text utilities and datasets for PyTorch."
+        },
+        {
+            "name": "minigan",
+            "description": "miniGAN is a generative adversarial network code developed as part of\nthe Exascale Computing Project's (ECP) ExaLearn project at Sandia\nNational Laboratories."
+        },
+        {
+            "name": "py-gpytorch",
+            "description": "GPyTorch is a Gaussian process library implemented using PyTorch.\nGPyTorch is designed for creating scalable, flexible, and modular\nGaussian process models with ease."
+        },
+        {
+            "name": "py-visdom",
+            "description": "Visdom aims to facilitate visualization of (remote) data with an\nemphasis on supporting scientific experimentation."
+        },
+        {
+            "name": "py-torchvision",
+            "description": "The torchvision package consists of popular datasets, model\narchitectures, and common image transformations for computer vision."
         },
         {
             "name": "py-torch-scatter",
@@ -973,32 +1015,24 @@
             "description": "This is a an implementation of the CosmoFlow 3D convolutional neural\nnetwork for benchmarking. It is written in TensorFlow with the Keras API\nand uses Horovod for distributed training."
         },
         {
-            "name": "py-torchmetrics",
-            "description": "Machine learning metrics for distributed, scalable PyTorch applications."
-        },
-        {
-            "name": "py-torch-cluster",
-            "description": "This package consists of a small extension library of highly optimized\ngraph cluster algorithms for the use in PyTorch."
-        },
-        {
-            "name": "py-torchvision",
-            "description": "The torchvision package consists of popular datasets, model\narchitectures, and common image transformations for computer vision."
-        },
-        {
-            "name": "py-torchtext",
-            "description": "Text utilities and datasets for PyTorch."
-        },
-        {
             "name": "py-torchsummary",
             "description": "Keras has a neat API to view the visualization of the model which is\nvery helpful while debugging your network. Here is a barebone code to\ntry and mimic the same in PyTorch. The aim is to provide information\ncomplementary to, what is not provided by print(your_model) in PyTorch."
+        },
+        {
+            "name": "py-torchaudio",
+            "description": "The aim of torchaudio is to apply PyTorch to the audio domain. By\nsupporting PyTorch, torchaudio follows the same philosophy of providing\nstrong GPU acceleration, having a focus on trainable features through\nthe autograd system, and having consistent style (tensor names and\ndimension names). Therefore, it is primarily a machine learning library\nand not a general signal processing library. The benefits of Pytorch is\nbe seen in torchaudio through having all the computations be through\nPytorch operations which makes it easy to use and feel like a natural\nextension."
+        },
+        {
+            "name": "py-horovod",
+            "description": "Horovod is a distributed deep learning training framework for\nTensorFlow, Keras, PyTorch, and Apache MXNet."
         },
         {
             "name": "mlperf-deepcam",
             "description": "PyTorch implementation for the climate segmentation benchmark, based on\nthe Exascale Deep Learning for Climate Analytics"
         },
         {
-            "name": "py-torch-geometric",
-            "description": "PyTorch Geometric (PyG) is a geometric deep learning extension library\nfor PyTorch. It consists of various methods for deep learning on graphs\nand other irregular structures, also known as geometric deep learning,\nfrom a variety of published papers. In addition, it consists of an easy-\nto-use mini-batch loader for many small and single giant graphs, multi\ngpu-support, a large number of common benchmark datasets (based on\nsimple interfaces to create your own), and helpful transforms, both for\nlearning on arbitrary graphs as well as on 3D meshes or point clouds."
+            "name": "py-torch-cluster",
+            "description": "This package consists of a small extension library of highly optimized\ngraph cluster algorithms for the use in PyTorch."
         }
     ]
 }
