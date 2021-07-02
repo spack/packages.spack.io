@@ -3,6 +3,10 @@
     "aliases": [],
     "versions": [
         {
+            "name": "1.9.0",
+            "sha256": "9a55de12ffebbe41d1704459c5c9289eeaf0f0eb6a4d0104ea222d7ab889fdf4"
+        },
+        {
             "name": "1.8.5",
             "sha256": "4c2e6b8571fc176271515a309b45687a2981af1b07ff3f00d0b035a597aa32fd"
         },
@@ -176,7 +180,13 @@
         }
     ],
     "build_system": "AutotoolsPackage",
-    "conflicts": [],
+    "conflicts": [
+        {
+            "name": "%gcc@10:",
+            "spec": "@:1.8.5",
+            "description": "yoda up to 1.8.5 is missing a <limits> include in AnalysisObject.h.Use version 1.9.0 or later, or patch earlier versions if needed."
+        }
+    ],
     "variants": [
         {
             "name": "root",
@@ -290,12 +300,12 @@
     ],
     "dependent_to": [
         {
-            "name": "rivet",
-            "description": "Rivet - the particle-physics MC analysis toolkit"
-        },
-        {
             "name": "professor",
             "description": "Professor Monte-Carlo tuning package"
+        },
+        {
+            "name": "rivet",
+            "description": "Rivet - the particle-physics MC analysis toolkit"
         }
     ]
 }

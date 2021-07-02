@@ -53,42 +53,43 @@
         }
     ],
     "build_system": "AutotoolsPackage",
-    "conflicts": [],
+    "conflicts": [
+        {
+            "name": "+gui",
+            "spec": "features=big",
+            "description": "+gui requires features=huge"
+        },
+        {
+            "name": "+gui",
+            "spec": "features=normal",
+            "description": "+gui requires features=huge"
+        },
+        {
+            "name": "+gui",
+            "spec": "features=small",
+            "description": "+gui requires features=huge"
+        },
+        {
+            "name": "+gui",
+            "spec": "features=tiny",
+            "description": "+gui requires features=huge"
+        }
+    ],
     "variants": [
         {
-            "name": "huge",
+            "name": "cscope",
             "default": false,
-            "description": "Use 'huge' feature set"
+            "description": "build with cscope support"
         },
         {
-            "name": "big",
-            "default": false,
-            "description": "Use 'big' feature set"
+            "name": "features",
+            "default": "normal",
+            "description": "feature set"
         },
         {
-            "name": "normal",
+            "name": "gui",
             "default": false,
-            "description": "Use 'normal' feature set"
-        },
-        {
-            "name": "small",
-            "default": false,
-            "description": "Use 'small' feature set"
-        },
-        {
-            "name": "tiny",
-            "default": false,
-            "description": "Use 'tiny' feature set"
-        },
-        {
-            "name": "python",
-            "default": false,
-            "description": "build with Python"
-        },
-        {
-            "name": "ruby",
-            "default": false,
-            "description": "build with Ruby"
+            "description": "build with gui (gvim)"
         },
         {
             "name": "lua",
@@ -101,14 +102,14 @@
             "description": "build with Perl"
         },
         {
-            "name": "cscope",
+            "name": "python",
             "default": false,
-            "description": "build with cscope support"
+            "description": "build with Python"
         },
         {
-            "name": "gui",
+            "name": "ruby",
             "default": false,
-            "description": "build with gui (gvim)"
+            "description": "build with Ruby"
         },
         {
             "name": "x",
@@ -117,18 +118,24 @@
         }
     ],
     "homepage": "http://www.vim.org",
-    "maintainers": [],
+    "maintainers": [
+        "sethrj"
+    ],
     "patches": [],
     "resources": [],
     "description": "Vim is a highly configurable text editor built to enable efficient text\nediting. It is an improved version of the vi editor distributed with\nmost UNIX systems. Vim is often called a \"programmer's editor,\" and so\nuseful for programming that many consider it an entire IDE. It's not\njust for programmers, though. Vim is perfect for all kinds of text\nediting, from composing email to editing configuration files.\n",
     "dependencies": [
         {
-            "name": "python",
-            "description": "The Python programming language."
+            "name": "findutils",
+            "description": "The GNU Find Utilities are the basic directory searching utilities of\nthe GNU operating system."
         },
         {
-            "name": "ruby",
-            "description": "A dynamic, open source programming language with a focus on simplicity\nand productivity."
+            "name": "ncurses",
+            "description": "The ncurses (new curses) library is a free software emulation of curses\nin System V Release 4.0, and more. It uses terminfo format, supports\npads and color and multiple highlights and forms characters and\nfunction-key mapping, and has all the other SYSV-curses enhancements\nover BSD curses."
+        },
+        {
+            "name": "cscope",
+            "description": "Cscope is a developer's tool for browsing source code."
         },
         {
             "name": "lua",
@@ -139,8 +146,16 @@
             "description": "Perl 5 is a highly capable, feature-rich programming language with over\n27 years of development."
         },
         {
-            "name": "cscope",
-            "description": "Cscope is a developer's tool for browsing source code."
+            "name": "python",
+            "description": "The Python programming language."
+        },
+        {
+            "name": "ruby",
+            "description": "A dynamic, open source programming language with a focus on simplicity\nand productivity."
+        },
+        {
+            "name": "fontconfig",
+            "description": "Fontconfig is a library for configuring/customizing font access"
         },
         {
             "name": "libx11",
@@ -161,18 +176,6 @@
         {
             "name": "libxtst",
             "description": "libXtst provides the Xlib-based client API for the XTEST & RECORD\nextensions. The XTEST extension is a minimal set of client and server\nextensions required to completely test the X11 server with no user\nintervention. This extension is not intended to support general\njournaling and playback of user actions. The RECORD extension supports\nthe recording and reporting of all core X protocol and arbitrary X\nextension protocol."
-        },
-        {
-            "name": "ncurses",
-            "description": "The ncurses (new curses) library is a free software emulation of curses\nin System V Release 4.0, and more. It uses terminfo format, supports\npads and color and multiple highlights and forms characters and\nfunction-key mapping, and has all the other SYSV-curses enhancements\nover BSD curses."
-        },
-        {
-            "name": "findutils",
-            "description": "The GNU Find Utilities are the basic directory searching utilities of\nthe GNU operating system."
-        },
-        {
-            "name": "fontconfig",
-            "description": "Fontconfig is a library for configuring/customizing font access"
         }
     ],
     "dependent_to": []
