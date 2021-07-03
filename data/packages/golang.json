@@ -191,6 +191,16 @@
     "build_system": "AutotoolsPackage",
     "conflicts": [
         {
+            "name": "@:4.5",
+            "spec": "languages=go",
+            "description": "support for Go has been added in GCC 4.6"
+        },
+        {
+            "name": "platform=darwin",
+            "spec": "languages=go",
+            "description": "Go not supported on MacOS"
+        },
+        {
             "name": "languages=brig",
             "spec": "@:6",
             "description": "None"
@@ -208,21 +218,6 @@
         {
             "name": "languages=c",
             "spec": "@:4.7",
-            "description": "None"
-        },
-        {
-            "name": "languages=go",
-            "spec": "@:4.5",
-            "description": "None"
-        },
-        {
-            "name": "languages=go",
-            "spec": "arch=darwin-None-None",
-            "description": "None"
-        },
-        {
-            "name": "languages=go",
-            "spec": "+nvptx",
             "description": "None"
         },
         {
@@ -246,12 +241,17 @@
             "description": "None"
         },
         {
-            "name": "+nvptx",
-            "spec": "@:6",
+            "name": "@:6",
+            "spec": "+nvptx",
             "description": "NVPTX only supported in gcc 7 and above"
         },
         {
             "name": "languages=ada",
+            "spec": "+nvptx",
+            "description": "None"
+        },
+        {
+            "name": "languages=go",
             "spec": "+nvptx",
             "description": "None"
         },
@@ -325,7 +325,8 @@
     ],
     "homepage": "https://gcc.gnu.org",
     "maintainers": [
-        "michaelkuhn"
+        "michaelkuhn",
+        "alalazo"
     ],
     "patches": [
         {
@@ -514,10 +515,6 @@
             "description": "Zip is a compression and file packaging/archive utility."
         },
         {
-            "name": "cuda",
-            "description": "CUDA is a parallel computing platform and programming model invented by\nNVIDIA. It enables dramatic increases in computing performance by\nharnessing the power of the graphics processing unit (GPU). Note: This\npackage does not currently install the drivers necessary to run CUDA.\nThese will need to be installed manually. See:\nhttps://docs.nvidia.com/cuda/ for details."
-        },
-        {
             "name": "dejagnu",
             "description": "DejaGnu is a framework for testing other programs. Its purpose is to\nprovide a single front end for all tests."
         },
@@ -536,6 +533,10 @@
         {
             "name": "guile",
             "description": "Guile is the GNU Ubiquitous Intelligent Language for Extensions, the\nofficial extension language for the GNU operating system."
+        },
+        {
+            "name": "cuda",
+            "description": "CUDA is a parallel computing platform and programming model invented by\nNVIDIA. It enables dramatic increases in computing performance by\nharnessing the power of the graphics processing unit (GPU). Note: This\npackage does not currently install the drivers necessary to run CUDA.\nThese will need to be installed manually. See:\nhttps://docs.nvidia.com/cuda/ for details."
         }
     ],
     "dependent_to": []
