@@ -3,6 +3,14 @@
     "aliases": [],
     "versions": [
         {
+            "name": "master",
+            "branch": "master"
+        },
+        {
+            "name": "2.6.0",
+            "sha256": "50cdd384f44f06a34469e7125f8b2ffae13c1975d373c3f1510d91be2b7638ec"
+        },
+        {
             "name": "2.5.4",
             "sha256": "7734fb417ae0c367b418dea15096aef2e278a423e527c615aab47f0683683b67"
         },
@@ -37,6 +45,66 @@
     ],
     "build_system": "CMakePackage",
     "conflicts": [
+        {
+            "name": "^blt@:0.3.6",
+            "spec": "+rocm",
+            "description": "None"
+        },
+        {
+            "name": "amdgpu_target=none",
+            "spec": "+rocm",
+            "description": "None"
+        },
+        {
+            "name": "~rocm",
+            "spec": "amdgpu_target=gfx701",
+            "description": "None"
+        },
+        {
+            "name": "~rocm",
+            "spec": "amdgpu_target=gfx801",
+            "description": "None"
+        },
+        {
+            "name": "~rocm",
+            "spec": "amdgpu_target=gfx802",
+            "description": "None"
+        },
+        {
+            "name": "~rocm",
+            "spec": "amdgpu_target=gfx803",
+            "description": "None"
+        },
+        {
+            "name": "~rocm",
+            "spec": "amdgpu_target=gfx900",
+            "description": "None"
+        },
+        {
+            "name": "~rocm",
+            "spec": "amdgpu_target=gfx906",
+            "description": "None"
+        },
+        {
+            "name": "~rocm",
+            "spec": "amdgpu_target=gfx908",
+            "description": "None"
+        },
+        {
+            "name": "~rocm",
+            "spec": "amdgpu_target=gfx1010",
+            "description": "None"
+        },
+        {
+            "name": "~rocm",
+            "spec": "amdgpu_target=gfx1011",
+            "description": "None"
+        },
+        {
+            "name": "~rocm",
+            "spec": "amdgpu_target=gfx1012",
+            "description": "None"
+        },
         {
             "name": "%gcc@5:",
             "spec": "+cuda ^cuda@:7.5 arch=linux-None-x86_64:",
@@ -439,8 +507,8 @@
         },
         {
             "name": "~cuda",
-            "spec": "",
-            "description": "Magma requires cuda"
+            "spec": "~rocm",
+            "description": "Either CUDA or HIP support must be enabled"
         },
         {
             "name": "+ipo",
@@ -448,8 +516,18 @@
             "description": "+ipo is not supported by CMake < 3.9"
         },
         {
+            "name": "+rocm",
+            "spec": "+cuda",
+            "description": "CUDA must be disabled to support HIP (ROCm)"
+        },
+        {
+            "name": "+rocm",
+            "spec": "@:2.5.4",
+            "description": "HIP support starts in version 2.6.0"
+        },
+        {
             "name": "cuda_arch=none",
-            "spec": "",
+            "spec": "+cuda",
             "description": "Please indicate a CUDA arch value or values"
         },
         {
@@ -459,6 +537,16 @@
         }
     ],
     "variants": [
+        {
+            "name": "rocm",
+            "default": false,
+            "description": "Enable ROCm support"
+        },
+        {
+            "name": "amdgpu_target",
+            "default": "none",
+            "description": "AMD GPU architecture"
+        },
         {
             "name": "cuda",
             "default": true,
@@ -558,6 +646,18 @@
     "description": "The MAGMA project aims to develop a dense linear algebra library similar\nto LAPACK but for heterogeneous/hybrid architectures, starting with\ncurrent \"Multicore+GPU\" systems.\n",
     "dependencies": [
         {
+            "name": "llvm-amdgpu",
+            "description": "Toolkit for the construction of highly optimized compilers, optimizers,\nand run-time environments."
+        },
+        {
+            "name": "hsa-rocr-dev",
+            "description": "This repository includes the user mode API nterfaces and libraries\nnecessary for host applications to launch computer kernels to available\nHSA ROCm kernel agents.AMD Heterogeneous System Architecture HSA - Linux\nHSA Runtime for Boltzmann (ROCm) platforms."
+        },
+        {
+            "name": "hip",
+            "description": "HIP is a C++ Runtime API and Kernel Language that allows developers to\ncreate portable applications for AMD and NVIDIA GPUs from single source\ncode."
+        },
+        {
             "name": "cuda",
             "description": "CUDA is a parallel computing platform and programming model invented by\nNVIDIA. It enables dramatic increases in computing performance by\nharnessing the power of the graphics processing unit (GPU). Note: This\npackage does not currently install the drivers necessary to run CUDA.\nThese will need to be installed manually. See:\nhttps://docs.nvidia.com/cuda/ for details."
         },
@@ -567,37 +667,49 @@
         },
         {
             "name": "blas",
-            "description": "The NVIDIA HPC SDK is a comprehensive suite of compilers, libraries and\ntools essential to maximizing developer productivity and the performance\nand portability of HPC applications. The NVIDIA HPC SDK C, C++, and\nFortran compilers support GPU acceleration of HPC modeling and\nsimulation applications with standard C++ and Fortran, OpenACC\ndirectives, and CUDA. GPU-accelerated math libraries maximize\nperformance on common HPC algorithms, and optimized communications\nlibraries enable standards-based multi-GPU and scalable systems\nprogramming. Performance profiling and debugging tools simplify porting\nand optimization of HPC applications."
+            "description": "A BLAS and LAPACK wrapper library with runtime exchangable backends"
         },
         {
             "name": "lapack",
-            "description": "The NVIDIA HPC SDK is a comprehensive suite of compilers, libraries and\ntools essential to maximizing developer productivity and the performance\nand portability of HPC applications. The NVIDIA HPC SDK C, C++, and\nFortran compilers support GPU acceleration of HPC modeling and\nsimulation applications with standard C++ and Fortran, OpenACC\ndirectives, and CUDA. GPU-accelerated math libraries maximize\nperformance on common HPC algorithms, and optimized communications\nlibraries enable standards-based multi-GPU and scalable systems\nprogramming. Performance profiling and debugging tools simplify porting\nand optimization of HPC applications."
+            "description": "A BLAS and LAPACK wrapper library with runtime exchangable backends"
+        },
+        {
+            "name": "hipblas",
+            "description": "hipBLAS is a BLAS marshalling library, with multiple supported backends"
+        },
+        {
+            "name": "hipsparse",
+            "description": "hipSPARSE is a SPARSE marshalling library, with multiple supported\nbackends"
         }
     ],
     "dependent_to": [
         {
-            "name": "xsdk",
-            "description": "Xsdk is a suite of Department of Energy (DOE) packages for numerical\nsimulation. This is a Spack bundle package that installs the xSDK\npackages"
-        },
-        {
-            "name": "tasmanian",
-            "description": "The Toolkit for Adaptive Stochastic Modeling and Non-Intrusive\nApproximatioN is a robust library for high dimensional integration and\ninterpolation as well as parameter calibration."
+            "name": "heffte",
+            "description": "Highly Efficient FFT for Exascale"
         },
         {
             "name": "py-torch",
             "description": "Tensors and Dynamic neural networks in Python with strong GPU\nacceleration."
         },
         {
-            "name": "sirius",
-            "description": "Domain specific library for electronic structure calculations"
+            "name": "hiop",
+            "description": "HiOp is an optimization solver for solving certain mathematical\noptimization problems expressed as nonlinear programming problems. HiOp\nis a lightweight HPC solver that leverages application's existing data\nparallelism to parallelize the optimization iterations by using\nspecialized linear algebra kernels."
         },
         {
             "name": "amgx",
             "description": "AmgX provides a simple path to accelerated core solver technology on\nNVIDIA GPUs. AmgX provides up to 10x acceleration to the computationally\nintense linear solver portion of simulations, and is especially well\nsuited for implicit unstructured methods. It is a high performance,\nstate-of-the-art library and includes a flexible solver composition\nsystem that allows a user to easily construct complex nested solvers and\npreconditioners."
         },
         {
-            "name": "heffte",
-            "description": "Highly Efficient FFT for Exascale"
+            "name": "ceed",
+            "description": "Ceed is a collection of benchmarks, miniapps, software libraries and\nAPIs for efficient high-order finite element and spectral element\ndiscretizations for exascale applications developed in the Department of\nEnergy (DOE) and partially supported by the Exascale Computing Project\n(ECP). This is a Spack bundle package that installs the CEED software\ncomponents."
+        },
+        {
+            "name": "sirius",
+            "description": "Domain specific library for electronic structure calculations"
+        },
+        {
+            "name": "tasmanian",
+            "description": "The Toolkit for Adaptive Stochastic Modeling and Non-Intrusive\nApproximatioN is a robust library for high dimensional integration and\ninterpolation as well as parameter calibration."
         },
         {
             "name": "libceed",
@@ -608,12 +720,8 @@
             "description": "DFTB+ is an implementation of the Density Functional based Tight Binding\n(DFTB) method, containing many extensions to the original method."
         },
         {
-            "name": "ceed",
-            "description": "Ceed is a collection of benchmarks, miniapps, software libraries and\nAPIs for efficient high-order finite element and spectral element\ndiscretizations for exascale applications developed in the Department of\nEnergy (DOE) and partially supported by the Exascale Computing Project\n(ECP). This is a Spack bundle package that installs the CEED software\ncomponents."
-        },
-        {
-            "name": "hiop",
-            "description": "HiOp is an optimization solver for solving certain mathematical\noptimization problems expressed as nonlinear programming problems. HiOp\nis a lightweight HPC solver that leverages application's existing data\nparallelism to parallelize the optimization iterations by using\nspecialized linear algebra kernels."
+            "name": "xsdk",
+            "description": "Xsdk is a suite of Department of Energy (DOE) packages for numerical\nsimulation. This is a Spack bundle package that installs the xSDK\npackages"
         }
     ]
 }
