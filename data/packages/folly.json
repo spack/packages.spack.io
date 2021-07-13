@@ -3,33 +3,50 @@
     "aliases": [],
     "versions": [
         {
-            "name": "2017.06.05.00",
-            "sha256": "d22ceda4dfe33583828be1193fa3929d70c51998f0797236e293c44ef828c6d0"
-        },
-        {
-            "name": "2016.11.14.00",
-            "sha256": "cde5b3e1a38d181f7c4e52d590de1c1aca58da7b27b3020d08e9aa45b4c3ed74"
-        },
-        {
-            "name": "2016.11.07.00",
-            "sha256": "4400d7f0fead90d88ce4caee9f0e9aeb8008c9954ea9034e19ae7226175206ba"
-        },
-        {
-            "name": "2016.10.31.00",
-            "sha256": "7bef9ee956248f68f1c4e96be67561842ee6cc030a58e132b93b9be57b6b29ea"
-        },
-        {
-            "name": "2016.10.24.00",
-            "sha256": "d54b609d3750a6a1cfbda7c62e1457af60cf5efc48d7a8e6552d67909e064757"
-        },
-        {
-            "name": "2016.10.17.00",
-            "sha256": "0f83685016d020111ba54ddc48c0cf33e1e0b9b35cee5ae82d5f2cbc5f6b0e82"
+            "name": "2021.05.24.00",
+            "sha256": "9d308adefe4670637f5c7d96309b3b394ac3fa129bc954f5dfbdd8b741c02aad"
         }
     ],
-    "build_system": "AutotoolsPackage",
-    "conflicts": [],
-    "variants": [],
+    "build_system": "CMakePackage",
+    "conflicts": [
+        {
+            "name": "+ipo",
+            "spec": "^cmake@:3.8",
+            "description": "+ipo is not supported by CMake < 3.9"
+        }
+    ],
+    "variants": [
+        {
+            "name": "build_type",
+            "default": "RelWithDebInfo",
+            "description": "CMake build type"
+        },
+        {
+            "name": "ipo",
+            "default": false,
+            "description": "CMake interprocedural optimization"
+        },
+        {
+            "name": "cxxstd",
+            "default": "14",
+            "description": "Use the specified C++ standard when building."
+        },
+        {
+            "name": "libdwarf",
+            "default": false,
+            "description": "Optional Dependency"
+        },
+        {
+            "name": "elfutils",
+            "default": false,
+            "description": "Optional Dependency"
+        },
+        {
+            "name": "libunwind",
+            "default": false,
+            "description": "Optional Dependency"
+        }
+    ],
     "homepage": "https://github.com/facebook/folly",
     "maintainers": [],
     "patches": [],
@@ -37,20 +54,8 @@
     "description": "Folly (acronymed loosely after Facebook Open Source Library) is a\nlibrary of C++11 components designed with practicality and efficiency in\nmind. Folly contains a variety of core library components used\nextensively at Facebook. In particular, it's often a dependency of\nFacebook's other open source C++ efforts and place where those projects\ncan share code.\n",
     "dependencies": [
         {
-            "name": "m4",
-            "description": "GNU M4 is an implementation of the traditional Unix macro processor."
-        },
-        {
-            "name": "autoconf",
-            "description": "Autoconf -- system configuration part of autotools"
-        },
-        {
-            "name": "automake",
-            "description": "Automake -- make file builder part of autotools"
-        },
-        {
-            "name": "libtool",
-            "description": "libtool -- library building part of autotools."
+            "name": "cmake",
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
         },
         {
             "name": "pkgconfig",
@@ -75,6 +80,22 @@
         {
             "name": "libevent",
             "description": "The libevent API provides a mechanism to execute a callback function\nwhen a specific event occurs on a file descriptor or after a timeout has\nbeen reached. Furthermore, libevent also support callbacks due to\nsignals or regular timeouts."
+        },
+        {
+            "name": "fmt",
+            "description": "fmt (formerly cppformat) is an open-source formatting library. It can be\nused as a safe alternative to printf or as a fast alternative to C++\nIOStreams."
+        },
+        {
+            "name": "libdwarf",
+            "description": "The DWARF Debugging Information Format is of interest to programmers\nworking on compilers and debuggers (and any one interested in reading or\nwriting DWARF information). It was developed by a committee (known as\nthe PLSIG at the time) starting around 1991. Starting around 1991 SGI\ndeveloped the libdwarf and dwarfdump tools for internal use and as part\nof SGI IRIX developer tools. Since that time dwarfdump and libdwarf have\nbeen shipped (as an executable and archive respectively, not source)\nwith every release of the SGI MIPS/IRIX C compiler."
+        },
+        {
+            "name": "elfutils",
+            "description": "elfutils is a collection of various binary tools such as eu-objdump, eu-\nreadelf, and other utilities that allow you to inspect and manipulate\nELF files. Refer to Table 5.Tools Included in elfutils for Red Hat\nDeveloper for a complete list of binary tools that are distributed with\nthe Red Hat Developer Toolset version of elfutils."
+        },
+        {
+            "name": "libunwind",
+            "description": "A portable and efficient C programming interface (API) to determine the\ncall-chain of a program."
         }
     ],
     "dependent_to": []
