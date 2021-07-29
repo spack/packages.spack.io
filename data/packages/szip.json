@@ -1,50 +1,76 @@
 {
-    "name": "libszip",
+    "name": "libaec",
     "aliases": [
         {
             "name": "szip",
-            "alias_for": "{libszip}"
+            "alias_for": "{libaec}"
         }
     ],
     "versions": [
         {
-            "name": "2.1.1",
-            "sha256": "21ee958b4f2d4be2c9cabfa5e1a94877043609ce86fde5f286f105f7ff84d412"
+            "name": "1.0.2",
+            "sha256": "b9e5bbbc8bf9cbfd3b9b4ce38b3311f2c88d3d99f476edb35590eb0006aa1fc5"
         },
         {
-            "name": "2.1",
-            "sha256": "a816d95d5662e8279625abdbea7d0e62157d7d1f028020b1075500bf483ed5ef"
+            "name": "1.0.1",
+            "sha256": "3668eb4ed36724441e488a7aadc197426afef4b1e8bd139af6d3e36023906459"
+        },
+        {
+            "name": "1.0.0",
+            "sha256": "849f08b08ddaaffe543d06d0ced5e4ee3e526b13a67c5f422d126b1c9cf1b546"
         }
     ],
-    "build_system": "AutotoolsPackage",
-    "conflicts": [],
-    "variants": [],
-    "homepage": "https://support.hdfgroup.org/doc_resource/SZIP/",
+    "build_system": "CMakePackage",
+    "conflicts": [
+        {
+            "name": "+ipo",
+            "spec": "^cmake@:3.8",
+            "description": "+ipo is not supported by CMake < 3.9"
+        }
+    ],
+    "variants": [
+        {
+            "name": "build_type",
+            "default": "RelWithDebInfo",
+            "description": "CMake build type"
+        },
+        {
+            "name": "ipo",
+            "default": false,
+            "description": "CMake interprocedural optimization"
+        }
+    ],
+    "homepage": "https://gitlab.dkrz.de/k202009/libaec",
     "maintainers": [],
     "patches": [],
     "resources": [],
-    "description": "Szip is an implementation of the extended-Rice lossless compression\nalgorithm. It provides lossless compression of scientific data, and is\nprovided with HDF software products.\n",
-    "dependencies": [],
+    "description": "Libaec provides fast lossless compression of 1 up to 32 bit wide signed\nor unsigned integers (samples). It implements Golomb-Rice compression\nmethod under the BSD license and includes a free drop-in replacement for\nthe SZIP library.\n",
+    "dependencies": [
+        {
+            "name": "cmake",
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
+        }
+    ],
     "dependent_to": [
+        {
+            "name": "hdf",
+            "description": "HDF4 (also known as HDF) is a library and multi-object file format for\nstoring and managing data between machines."
+        },
         {
             "name": "ncl",
             "description": "NCL is an interpreted language designed specifically for scientific data\nanalysis and visualization. Supports NetCDF 3/4, GRIB 1/2, HDF 4/5, HDF-\nEOD 2/5, shapefile, ASCII, binary. Numerous analysis functions are\nbuilt-in."
-        },
-        {
-            "name": "cdo",
-            "description": "CDO is a collection of command line Operators to manipulate and analyse\nClimate and NWP model Data."
         },
         {
             "name": "hdf5",
             "description": "HDF5 is a data model, library, and file format for storing and managing\ndata. It supports an unlimited variety of datatypes, and is designed for\nflexible and efficient I/O and for high volume and complex data."
         },
         {
-            "name": "adios",
-            "description": "The Adaptable IO System (ADIOS) provides a simple, flexible way for\nscientists to describe the data in their code that may need to be\nwritten, read, or processed outside of the running simulation."
+            "name": "cdo",
+            "description": "CDO is a collection of command line Operators to manipulate and analyse\nClimate and NWP model Data."
         },
         {
-            "name": "hdf",
-            "description": "HDF4 (also known as HDF) is a library and multi-object file format for\nstoring and managing data between machines."
+            "name": "adios",
+            "description": "The Adaptable IO System (ADIOS) provides a simple, flexible way for\nscientists to describe the data in their code that may need to be\nwritten, read, or processed outside of the running simulation."
         }
     ]
 }
