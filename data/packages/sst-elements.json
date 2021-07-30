@@ -28,7 +28,33 @@
         }
     ],
     "build_system": "AutotoolsPackage",
-    "conflicts": [],
+    "conflicts": [
+        {
+            "name": "+dumpi",
+            "spec": "",
+            "description": "Dumpi not currently supported, contact SST Developers for help"
+        },
+        {
+            "name": "+otf",
+            "spec": "",
+            "description": "OTF not currently supported, contact SST Developers for help"
+        },
+        {
+            "name": "+otf2",
+            "spec": "",
+            "description": "OTF2 not currently supported, contact SST Developers for help"
+        },
+        {
+            "name": "~dramsim2",
+            "spec": "+hybridsim",
+            "description": "hybridsim requires dramsim2, spec should include +dramsim2"
+        },
+        {
+            "name": "~nvdimmsim",
+            "spec": "+hybridsim",
+            "description": "hybridsim requires nvdimmsim, spec should include +nvdimmsim"
+        }
+    ],
     "variants": [
         {
             "name": "pin",
@@ -39,6 +65,21 @@
             "name": "dramsim2",
             "default": false,
             "description": "Build with DRAMSim2 support"
+        },
+        {
+            "name": "dramsim3",
+            "default": false,
+            "description": "Build with DRAMSim3 support"
+        },
+        {
+            "name": "dumpi",
+            "default": false,
+            "description": "Build with Dumpi support"
+        },
+        {
+            "name": "flashdimmsim",
+            "default": false,
+            "description": "Build with FlashDIMMSim support"
         },
         {
             "name": "nvdimmsim",
@@ -64,15 +105,25 @@
             "name": "ramulator",
             "default": false,
             "description": "Build with Ramulator support"
+        },
+        {
+            "name": "otf",
+            "default": false,
+            "description": "Build with OTF"
+        },
+        {
+            "name": "otf2",
+            "default": false,
+            "description": "Build with OTF2"
         }
     ],
     "homepage": "https://github.com/sstsimulator",
     "maintainers": [
-        "jjwilke"
+        "sknigh"
     ],
     "patches": [],
     "resources": [],
-    "description": "SST Elements implements a range of components for performing\narchitecture simulation from node-level to system-level using the SST\ndiscrete event core\n",
+    "description": "SST Elements implements a range of components for performing\narchitecture simulation from node-level to system-level using the SST\ndiscrete event core.\n",
     "dependencies": [
         {
             "name": "python",
@@ -89,6 +140,18 @@
         {
             "name": "dramsim2",
             "description": "DRAMsim is a hardware-validated, cycle-accurate C based simulator for\nDRAM devices such as DDR3"
+        },
+        {
+            "name": "dramsim3",
+            "description": "DRAMsim3 models the timing paramaters and memory controller behavior for\nseveral DRAM protocols such as DDR3, DDR4, LPDDR3, LPDDR4, GDDR5, GDDR6,\nHBM, HMC, STT-MRAM. It is implemented in C++ as an objected oriented\nmodel that includes a parameterized DRAM bank model, DRAM controllers,\ncommand queues and system-level interfaces to interact with a CPU\nsimulator (GEM5, ZSim) or trace workloads. It is designed to be\naccurate, portable and parallel."
+        },
+        {
+            "name": "sst-dumpi",
+            "description": "The DUMPI package provides libraries to collect and read traces of MPI\napplications. Traces are created by linking an application with a\nlibrary that uses the PMPI interface to intercept MPI calls. DUMPI\nrecords signatures of all MPI-1 and MPI-2 subroutine calls, return\nvalues, request information, and PAPI counters."
+        },
+        {
+            "name": "flashdimmsim",
+            "description": "FlashDIMMSim: a reasonably accurate flash DIMM simulator."
         },
         {
             "name": "hybridsim",
@@ -111,8 +174,20 @@
             "description": "HBM Simulator based on DRAMSim2"
         },
         {
+            "name": "otf",
+            "description": "To improve scalability for very large and massively parallel traces the\nOpen Trace Format (OTF) is developed at ZIH as a successor format to the\nVampir Trace Format (VTF3)."
+        },
+        {
+            "name": "otf2",
+            "description": "The Open Trace Format 2 is a highly scalable, memory efficient event\ntrace data format plus support library."
+        },
+        {
             "name": "gettext",
             "description": "GNU internationalization (i18n) and localization (l10n) library."
+        },
+        {
+            "name": "zlib",
+            "description": "A free, general-purpose, legally unencumbered lossless data-compression\nlibrary."
         },
         {
             "name": "autoconf",
