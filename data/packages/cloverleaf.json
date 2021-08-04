@@ -3,17 +3,53 @@
     "aliases": [],
     "versions": [
         {
+            "name": "master",
+            "tag": "master",
+            "submodules": true
+        },
+        {
             "name": "1.1",
             "sha256": "de87f7ee6b917e6b3d243ccbbe620370c62df890e3ef7bdbab46569b57be132f"
         }
     ],
     "build_system": "MakefilePackage",
-    "conflicts": [],
+    "conflicts": [
+        {
+            "name": "build=cuda",
+            "spec": "%aocc",
+            "description": "Currently AOCC supports only ref variant"
+        },
+        {
+            "name": "build=openacc_cray",
+            "spec": "%aocc",
+            "description": "Currently AOCC supports only ref variant"
+        },
+        {
+            "name": "build=serial",
+            "spec": "%aocc",
+            "description": "Currently AOCC supports only ref variant"
+        },
+        {
+            "name": "@1.1",
+            "spec": "%aocc",
+            "description": "AOCC support is provided from version v.1.3 and above"
+        }
+    ],
     "variants": [
         {
             "name": "build",
             "default": "ref",
             "description": "Type of Parallelism Build"
+        },
+        {
+            "name": "ieee",
+            "default": false,
+            "description": "Build with IEEE standards"
+        },
+        {
+            "name": "debug",
+            "default": false,
+            "description": "Build with DEBUG flags"
         }
     ],
     "homepage": "http://uk-mac.github.io/CloverLeaf",
@@ -24,7 +60,7 @@
     "dependencies": [
         {
             "name": "mpi",
-            "description": "Intel Parallel Studio."
+            "description": "Virtual package for the Message Passing Interface."
         },
         {
             "name": "cuda",
