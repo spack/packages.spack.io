@@ -13,6 +13,7 @@ import subprocess
 import shutil
 import sys
 import os
+from datetime import datetime
 
 import spack.repo
 import spack.spec
@@ -42,6 +43,14 @@ def main():
 
     # Iterate through consistent order
     pkgs = set(sorted(pkgs))
+
+    # Prepre to create repology output alongside packages files
+    repology = {
+        "repository_name": "spack",
+        "num_packages": len(pkgs),
+        "last_update": str(datetime.now()),
+        "packages": {},
+    }
 
     for i, package in enumerate(pkgs):
 
@@ -142,9 +151,34 @@ def main():
         for alias in raw_aliases:
             metas[alias] = meta
 
+        repology_versions = []
+        if versions:
+            repology_versions = versions[0]["name"]
+
+        # Add to repology
+        repology_pkg = {
+            "version": repology_versions,
+            "summary": meta["description"],
+            "maintainers": meta["maintainers"],
+            "licenses": {},
+            "downloads": pkg.all_urls,
+            "homepages": [pkg.homepage],
+            "categories": [],
+            "dependencies": meta["dependencies"],
+            "alias": meta["aliases"],
+        }
+
+        repology['packages'][pkg.name] = repology_pkg
+        for alias in raw_aliases:
+            repology['packages'][alias] = repology_pkg
+
     # Save package variants
     outfile = os.path.join(here, "data", "variants.json")
     write_json(package_variants, outfile)
+
+    # Save repology
+    outfile = os.path.join(here, "data", "repology.json")
+    write_json(repology, outfile)
 
     # We need one file with all names available
     names = list(metas.keys())

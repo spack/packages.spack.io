@@ -3,6 +3,10 @@
     "aliases": [],
     "versions": [
         {
+            "name": "2021.05.001",
+            "sha256": "a4f1a4e3964f2473a5f8177f2091a9da5c6b5ef9280b8272dfefcbc3aad44d41"
+        },
+        {
             "name": "2020.05.001",
             "sha256": "66ff1cf332ce1c82075dc7b5587ae72511d2bcb3a45322c94af6b01996439ce5"
         },
@@ -57,6 +61,66 @@
     ],
     "build_system": "AutotoolsPackage",
     "conflicts": [
+        {
+            "name": "^blt@:0.3.6",
+            "spec": "+rocm",
+            "description": "None"
+        },
+        {
+            "name": "amdgpu_target=none",
+            "spec": "+rocm",
+            "description": "None"
+        },
+        {
+            "name": "~rocm",
+            "spec": "amdgpu_target=gfx701",
+            "description": "None"
+        },
+        {
+            "name": "~rocm",
+            "spec": "amdgpu_target=gfx801",
+            "description": "None"
+        },
+        {
+            "name": "~rocm",
+            "spec": "amdgpu_target=gfx802",
+            "description": "None"
+        },
+        {
+            "name": "~rocm",
+            "spec": "amdgpu_target=gfx803",
+            "description": "None"
+        },
+        {
+            "name": "~rocm",
+            "spec": "amdgpu_target=gfx900",
+            "description": "None"
+        },
+        {
+            "name": "~rocm",
+            "spec": "amdgpu_target=gfx906",
+            "description": "None"
+        },
+        {
+            "name": "~rocm",
+            "spec": "amdgpu_target=gfx908",
+            "description": "None"
+        },
+        {
+            "name": "~rocm",
+            "spec": "amdgpu_target=gfx1010",
+            "description": "None"
+        },
+        {
+            "name": "~rocm",
+            "spec": "amdgpu_target=gfx1011",
+            "description": "None"
+        },
+        {
+            "name": "~rocm",
+            "spec": "amdgpu_target=gfx1012",
+            "description": "None"
+        },
         {
             "name": "%gcc@5:",
             "spec": "+cuda ^cuda@:7.5 arch=linux-None-x86_64:",
@@ -456,9 +520,34 @@
             "name": "~cuda",
             "spec": "cuda_arch=86",
             "description": "None"
+        },
+        {
+            "name": "+openmp",
+            "spec": "@2021.05.001:%gcc@:7.999",
+            "description": "ELPA-2021.05.001+ requires GCC-8+ for OpenMP support"
+        },
+        {
+            "name": "+rocm",
+            "spec": "@:2020.99",
+            "description": "ROCm support was introduced in ELPA 2021.05.001"
+        },
+        {
+            "name": "+mpi",
+            "spec": "+rocm",
+            "description": "ROCm support and MPI are not yet compatible"
         }
     ],
     "variants": [
+        {
+            "name": "rocm",
+            "default": false,
+            "description": "Enable ROCm support"
+        },
+        {
+            "name": "amdgpu_target",
+            "default": "none",
+            "description": "AMD GPU architecture"
+        },
         {
             "name": "cuda",
             "default": false,
@@ -471,8 +560,13 @@
         },
         {
             "name": "openmp",
-            "default": false,
+            "default": true,
             "description": "Activates OpenMP support"
+        },
+        {
+            "name": "mpi",
+            "default": true,
+            "description": "Activates MPI support"
         }
     ],
     "homepage": "https://elpa.mpcdf.mpg.de/",
@@ -491,24 +585,40 @@
     "description": "Eigenvalue solvers for Petaflop-Applications (ELPA)\n",
     "dependencies": [
         {
+            "name": "llvm-amdgpu",
+            "description": "Toolkit for the construction of highly optimized compilers, optimizers,\nand run-time environments."
+        },
+        {
+            "name": "hsa-rocr-dev",
+            "description": "This repository includes the user mode API nterfaces and libraries\nnecessary for host applications to launch computer kernels to available\nHSA ROCm kernel agents.AMD Heterogeneous System Architecture HSA - Linux\nHSA Runtime for Boltzmann (ROCm) platforms."
+        },
+        {
+            "name": "hip",
+            "description": "HIP is a C++ Runtime API and Kernel Language that allows developers to\ncreate portable applications for AMD and NVIDIA GPUs from single source\ncode."
+        },
+        {
             "name": "cuda",
             "description": "CUDA is a parallel computing platform and programming model invented by\nNVIDIA. It enables dramatic increases in computing performance by\nharnessing the power of the graphics processing unit (GPU). Note: This\npackage does not currently install the drivers necessary to run CUDA.\nThese will need to be installed manually. See:\nhttps://docs.nvidia.com/cuda/ for details."
         },
         {
-            "name": "mpi",
-            "description": "MPICH is a high performance and widely portable implementation of the\nMessage Passing Interface (MPI) standard."
-        },
-        {
             "name": "blas",
-            "description": "Lightweight but flexible shim designed to rectify the incompatibilities\nbetween the Accelerate/vecLib BLAS and LAPACK libraries shipped with\nmacOS and FORTRAN code compiled with modern compilers such as GNU\nFortran."
+            "description": "IBM's Engineering and Scientific Subroutine Library (ESSL)."
         },
         {
             "name": "lapack",
-            "description": "Lightweight but flexible shim designed to rectify the incompatibilities\nbetween the Accelerate/vecLib BLAS and LAPACK libraries shipped with\nmacOS and FORTRAN code compiled with modern compilers such as GNU\nFortran."
+            "description": "A BLAS and LAPACK wrapper library with runtime exchangable backends"
+        },
+        {
+            "name": "mpi",
+            "description": "MVAPICH2-GDR is an optimized version of the MVAPICH2 MPI library for\nGPU-enabled HPC and Deep Learning Applications. MVAPICH2-GDR is not\ninstallable from source and is only available through a binary mirror.\nIf you do not find the binary you're looking for, send us an email at\nmvapich@cse.ohio-state.edu. The binary mirror url is:\nhttp://mvapich.cse.ohio-state.edu/download/mvapich/spack-\nmirror/mvapich2-gdr/"
         },
         {
             "name": "scalapack",
-            "description": "Intel oneAPI MKL."
+            "description": "ScaLAPACK is a library of high-performance linear algebra routines for\nparallel distributed memory machines"
+        },
+        {
+            "name": "rocblas",
+            "description": "Radeon Open Compute BLAS library"
         },
         {
             "name": "libtool",
@@ -521,24 +631,24 @@
     ],
     "dependent_to": [
         {
-            "name": "elsi",
-            "description": "ELSI provides a unified interface for electronic structure codes to a\nvariety of eigenvalue solvers."
-        },
-        {
             "name": "q-e-sirius",
             "description": "SIRIUS enabled fork of QuantumESPRESSO."
-        },
-        {
-            "name": "quantum-espresso",
-            "description": "Quantum ESPRESSO is an integrated suite of Open-Source computer codes\nfor electronic-structure calculations and materials modeling at the\nnanoscale. It is based on density-functional theory, plane waves, and\npseudopotentials."
         },
         {
             "name": "cp2k",
             "description": "CP2K is a quantum chemistry and solid state physics software package\nthat can perform atomistic simulations of solid state, liquid,\nmolecular, periodic, material, crystal, and biological systems"
         },
         {
+            "name": "elsi",
+            "description": "ELSI provides a unified interface for electronic structure codes to a\nvariety of eigenvalue solvers."
+        },
+        {
             "name": "sirius",
             "description": "Domain specific library for electronic structure calculations"
+        },
+        {
+            "name": "quantum-espresso",
+            "description": "Quantum ESPRESSO is an integrated suite of Open-Source computer codes\nfor electronic-structure calculations and materials modeling at the\nnanoscale. It is based on density-functional theory, plane waves, and\npseudopotentials."
         }
     ]
 }
