@@ -3,26 +3,70 @@
     "aliases": [],
     "versions": [
         {
+            "name": "7.2.42",
+            "sha256": "73f03776dbf9b2147bfcc5b7c062af5befa0944608f6fc4b6a1e590615400fc6"
+        },
+        {
+            "name": "7.1.14",
+            "sha256": "7c2ff30f4b1d72d5dc116de9d70761f2c206700c69d85dd82a17a5a6374453d2"
+        },
+        {
+            "name": "7.0.12",
+            "sha256": "9995387c681d0e5a9bd52cb274530b23c0370468b6be86f6c90a6ec445cb8a01"
+        },
+        {
             "name": "3.3.17",
-            "sha256": "c9b87ae4ef367ed43afc2d43eb961745668e40670995e8e24c13db41b7e85d73"
+            "sha256": "c9b87ae4ef367ed43afc2d43eb961745668e40670995e8e24c13db41b7e85d73",
+            "deprecated": true
         }
     ],
     "build_system": "MakefilePackage",
-    "conflicts": [],
+    "conflicts": [
+        {
+            "name": "linalg=mkl",
+            "spec": "fft=fftw",
+            "description": "None"
+        },
+        {
+            "name": "linalg=mkl",
+            "spec": "fft=internal",
+            "description": "None"
+        },
+        {
+            "name": "linalg=blis",
+            "spec": "@:3",
+            "description": "None"
+        },
+        {
+            "name": "fft=mkl",
+            "spec": "linalg=internal",
+            "description": "None"
+        },
+        {
+            "name": "fft=mkl",
+            "spec": "linalg=generic",
+            "description": "None"
+        },
+        {
+            "name": "fft=mkl",
+            "spec": "linalg=openblas",
+            "description": "None"
+        },
+        {
+            "name": "fft=mkl",
+            "spec": "linalg=blis",
+            "description": "None"
+        }
+    ],
     "variants": [
         {
-            "name": "blas",
-            "default": true,
+            "name": "linalg",
+            "default": "internal",
             "description": "Build with custom BLAS library"
         },
         {
-            "name": "lapack",
-            "default": true,
-            "description": "Build with custom LAPACK library"
-        },
-        {
             "name": "fft",
-            "default": true,
+            "default": "internal",
             "description": "Build with custom FFT library"
         },
         {
@@ -39,9 +83,14 @@
             "name": "libxc",
             "default": true,
             "description": "Link to Libxc functional library"
+        },
+        {
+            "name": "w90",
+            "default": false,
+            "description": "wannier90 support, requires wannier90 library"
         }
     ],
-    "homepage": "http://elk.sourceforge.net/",
+    "homepage": "https://elk.sourceforge.io/",
     "maintainers": [],
     "patches": [],
     "resources": [],
@@ -49,11 +98,23 @@
     "dependencies": [
         {
             "name": "blas",
-            "description": "The NVIDIA HPC SDK is a comprehensive suite of compilers, libraries and\ntools essential to maximizing developer productivity and the performance\nand portability of HPC applications. The NVIDIA HPC SDK C, C++, and\nFortran compilers support GPU acceleration of HPC modeling and\nsimulation applications with standard C++ and Fortran, OpenACC\ndirectives, and CUDA. GPU-accelerated math libraries maximize\nperformance on common HPC algorithms, and optimized communications\nlibraries enable standards-based multi-GPU and scalable systems\nprogramming. Performance profiling and debugging tools simplify porting\nand optimization of HPC applications."
+            "description": "Intel Parallel Studio."
         },
         {
             "name": "lapack",
-            "description": "The NVIDIA HPC SDK is a comprehensive suite of compilers, libraries and\ntools essential to maximizing developer productivity and the performance\nand portability of HPC applications. The NVIDIA HPC SDK C, C++, and\nFortran compilers support GPU acceleration of HPC modeling and\nsimulation applications with standard C++ and Fortran, OpenACC\ndirectives, and CUDA. GPU-accelerated math libraries maximize\nperformance on common HPC algorithms, and optimized communications\nlibraries enable standards-based multi-GPU and scalable systems\nprogramming. Performance profiling and debugging tools simplify porting\nand optimization of HPC applications."
+            "description": "Intel Parallel Studio."
+        },
+        {
+            "name": "mkl",
+            "description": "Intel Parallel Studio."
+        },
+        {
+            "name": "openblas",
+            "description": "OpenBLAS: An optimized BLAS library"
+        },
+        {
+            "name": "blis",
+            "description": "BLIS is a portable software framework for instantiating high-performance\nBLAS-like dense linear algebra libraries. The framework was designed to\nisolate essential kernels of computation that, when optimized,\nimmediately enable optimized implementations of most of its commonly\nused and computationally intensive operations. BLIS is written in ISO\nC99 and available under a new/modified/3-clause BSD license. While BLIS\nexports a new BLAS-like API, it also includes a BLAS compatibility layer\nwhich gives application developers access to BLIS implementations via\ntraditional BLAS routine calls. An object-based API unique to BLIS is\nalso available."
         },
         {
             "name": "fftw",
@@ -61,11 +122,15 @@
         },
         {
             "name": "mpi",
-            "description": "The NVIDIA HPC SDK is a comprehensive suite of compilers, libraries and\ntools essential to maximizing developer productivity and the performance\nand portability of HPC applications. The NVIDIA HPC SDK C, C++, and\nFortran compilers support GPU acceleration of HPC modeling and\nsimulation applications with standard C++ and Fortran, OpenACC\ndirectives, and CUDA. GPU-accelerated math libraries maximize\nperformance on common HPC algorithms, and optimized communications\nlibraries enable standards-based multi-GPU and scalable systems\nprogramming. Performance profiling and debugging tools simplify porting\nand optimization of HPC applications."
+            "description": "Intel oneAPI MPI."
         },
         {
             "name": "libxc",
             "description": "Libxc is a library of exchange-correlation functionals for density-\nfunctional theory."
+        },
+        {
+            "name": "wannier90",
+            "description": "Wannier90 calculates maximally-localised Wannier functions (MLWFs).\nWannier90 is released under the GNU General Public License."
         }
     ],
     "dependent_to": []
