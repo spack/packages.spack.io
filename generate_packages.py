@@ -157,6 +157,7 @@ def main():
 
         # Add to repology
         repology_pkg = {
+            "name": pkg.name,
             "version": repology_versions,
             "summary": meta["description"],
             "maintainers": meta["maintainers"],
@@ -168,9 +169,9 @@ def main():
             "alias": meta["aliases"],
         }
 
-        repology['packages'][pkg.name] = repology_pkg
+        repology["packages"][pkg.name] = repology_pkg
         for alias in raw_aliases:
-            repology['packages'][alias] = repology_pkg
+            repology["packages"][alias] = repology_pkg
 
     # Save package variants
     outfile = os.path.join(here, "data", "variants.json")
