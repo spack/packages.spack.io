@@ -59,25 +59,12 @@ def main():
         descriptions[pkg.name] = pkg.format_doc().strip()
 
         patches = []
-        patches_repology = []
         if pkg.patches:
             for key, patchlist in pkg.patches.items():
                 for patch in patchlist:
                     patch = patch.to_dict()
                     patch.update({"version": str(key)})
                     patches.append(patch)
-                    if patch["version"]:
-                        patches_repology.append(
-                            "%s when %s"
-                            % (
-                                patch.get("relative_path") or patch.get("url"),
-                                patch["version"],
-                            )
-                        )
-                    else:
-                        patches_repology.append(
-                            patch.get("relative_path") or patch.get("url")
-                        )
 
         resources = []
         if pkg.resources:
@@ -123,6 +110,61 @@ def main():
                     seen_versions.add(str(version[0]))
                     meta = {"name": str(version[0]), "hash": version[2]}
                     versions.append(meta)
+
+        # Repology wants a completely different format for versions
+        repology_versions = []
+        if hasattr(pkg, "version_list"):
+
+            # We can't determine if something is a branch from the list
+            for version in pkg.version_list:
+                try:
+                    url = pkg.url_for_version(version)
+                except:
+                    url = pkg.all_urls
+
+                if isinstance(version, dict):
+                    version_str = str(version["version"])
+                else:
+                    version_str = str(version[0])
+
+                meta = {"version": version_str, "downloads": [url]}
+                meta["patches"] = [x for x in patches if x["version"] == version_str]
+                # We can only get specific deps with concretization, which doesn't always work
+                # This is currently commented out / disabled because it means that
+                # processing likely takes many hours, more than we have for GHA.
+                # try:
+                #    spec = spack.spec.Spec("%s@%s" %(pkg.name, version_str))
+                #    spec.concretize()
+                #    deps = list(spec.dependencies_dict().keys())
+                # except:
+                #    deps = []
+                # meta['dependencies'] = deps
+                repology_versions.append(meta)
+
+        elif pkg.versions:
+            for version, version_meta in pkg.versions.items():
+                try:
+                    url = pkg.url_for_version(version)
+                except:
+                    url = pkg.all_urls
+                meta = {"version": str(version), "downloads": [url]}
+
+                # Look for version specific patches
+                meta["patches"] = [x for x in patches if x["version"] == str(version)]
+
+                # Is there a develop branch?
+                if version.isdevelop():
+                    meta["branch"] = str(version)
+
+                # We can only get specific deps with concretization, which doesn't always work
+                # try:
+                #    spec = spack.spec.Spec("%s@%s" %(pkg.name, version))
+                #    spec.concretize()
+                #    deps = list(spec.dependencies_dict().keys())
+                # except:
+                #    deps = []
+                # meta['dependencies'] = deps
+                repology_versions.append(meta)
 
         variants = []
         if pkg.variants:
@@ -189,10 +231,6 @@ def main():
         for alias in raw_aliases:
             metas[alias] = meta
 
-        repology_versions = []
-        if versions:
-            repology_versions = [x["name"] for x in versions]
-
         # Best effort to get urls for versions
         try:
 
@@ -217,14 +255,12 @@ def main():
         # Add to repology
         repology_pkg = {
             "name": pkg.name,
-            "spack_branch": "develop",
             "version": repology_versions,
             "summary": meta["description"],
             "maintainers": meta["maintainers"],
             "licenses": {},
             "downloads": urls,
             "homepages": [pkg.homepage],
-            "patches": patches_repology,
             "categories": [],
             "dependencies": meta["dependencies"],
             "alias": meta["aliases"],
