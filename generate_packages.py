@@ -59,12 +59,25 @@ def main():
         descriptions[pkg.name] = pkg.format_doc().strip()
 
         patches = []
+        patches_repology = []
         if pkg.patches:
             for key, patchlist in pkg.patches.items():
                 for patch in patchlist:
                     patch = patch.to_dict()
                     patch.update({"version": str(key)})
                     patches.append(patch)
+                    if patch["version"]:
+                        patches_repology.append(
+                            "%s when %s"
+                            % (
+                                patch.get("relative_path") or patch.get("url"),
+                                patch["version"],
+                            )
+                        )
+                    else:
+                        patches_repology.append(
+                            patch.get("relative_path") or patch.get("url")
+                        )
 
         resources = []
         if pkg.resources:
@@ -80,11 +93,36 @@ def main():
                     )
 
         versions = []
+        seen_versions = set()
         for version, hashes in pkg.versions.items():
+
+            # Skip a version we have already seen
+            if str(version) in seen_versions:
+                continue
+            seen_versions.add(str(version))
             meta = {"name": str(version)}
             for key, h in hashes.items():
                 meta[key] = h
             versions.append(meta)
+
+        # Some packages also have a version list
+        if hasattr(pkg, "version_list"):
+            for version in pkg.version_list:
+
+                if isinstance(version, dict):
+                    if str(version["version"]) in seen_versions:
+                        continue
+                    seen_versions.add(str(version["version"]))
+                    meta = {"name": str(version["version"]), "hash": version["sha256"]}
+                    versions.append(meta)
+
+                else:
+                    # Skip a version we have already seen
+                    if str(version[0]) in seen_versions:
+                        continue
+                    seen_versions.add(str(version[0]))
+                    meta = {"name": str(version[0]), "hash": version[2]}
+                    versions.append(meta)
 
         variants = []
         if pkg.variants:
@@ -153,17 +191,40 @@ def main():
 
         repology_versions = []
         if versions:
-            repology_versions = versions[0]["name"]
+            repology_versions = [x["name"] for x in versions]
+
+        # Best effort to get urls for versions
+        try:
+
+            # These packages seem to have a bug that isn't caught
+            if pkg.name in ["hdf-eos5", "hdf-eos2"]:
+                urls = pkg.all_urls
+            else:
+                # This is the typical way - just filling in the version in the string
+                urls = [pkg.url_for_version(x["name"]) for x in versions]
+        except:
+
+            # Fall back to trying to parse the version list
+            if hasattr(pkg, "version_list"):
+                urls = []
+                for version in pkg.version_list:
+                    urls.append(pkg.url_for_version(version))
+
+            # And if all else fails, just present the raw URL
+            else:
+                urls = pkg.all_urls
 
         # Add to repology
         repology_pkg = {
             "name": pkg.name,
+            "spack_branch": "develop",
             "version": repology_versions,
             "summary": meta["description"],
             "maintainers": meta["maintainers"],
             "licenses": {},
-            "downloads": pkg.all_urls,
+            "downloads": urls,
             "homepages": [pkg.homepage],
+            "patches": patches_repology,
             "categories": [],
             "dependencies": meta["dependencies"],
             "alias": meta["aliases"],
