@@ -1,0 +1,69 @@
+{
+    "name": "nemsio",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "2.5.2",
+            "sha256": "c59e9379969690de8d030cbf4bbbbe3726faf13c304f3b88b0f6aec1496d2c08"
+        }
+    ],
+    "build_system": "CMakePackage",
+    "conflicts": [
+        {
+            "name": "+ipo",
+            "spec": "^cmake@:3.8",
+            "description": "+ipo is not supported by CMake < 3.9"
+        }
+    ],
+    "variants": [
+        {
+            "name": "build_type",
+            "default": "RelWithDebInfo",
+            "description": "CMake build type"
+        },
+        {
+            "name": "ipo",
+            "default": false,
+            "description": "CMake interprocedural optimization"
+        }
+    ],
+    "homepage": "https://noaa-emc.github.io/NCEPLIBS-nemsio",
+    "maintainers": [
+        "t-brown"
+    ],
+    "patches": [],
+    "resources": [],
+    "description": "The NOAA Environmental Modeling System I/O (NEMSIO) library. The basic\nfunctions it provides are to read and write data sets for all the NEMS\napplications.\n",
+    "dependencies": [
+        {
+            "name": "cmake",
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
+        },
+        {
+            "name": "bacio",
+            "description": "The bacio ibrary performs binary I/O for the NCEP models, processing\nunformatted byte-addressable data records, and transforming the little\nendian files and big endian files."
+        },
+        {
+            "name": "mpi",
+            "description": "The HPC-X MPI implementation from NVIDIA/Mellanox based on OpenMPI. This\npackage is for external specs only."
+        },
+        {
+            "name": "w3nco",
+            "description": "This library contains Fortran 90 decoder/encoder routines for GRIB\nedition 1 with NCO changes."
+        }
+    ],
+    "dependent_to": [
+        {
+            "name": "ufs-utils",
+            "description": "The UFS Utilities package contains programs set up the model grid and\ncreate coldstart initial conditions."
+        },
+        {
+            "name": "ncep-post",
+            "description": "The NCEP Post Processor is a software package designed to generate\nuseful products from raw model output."
+        },
+        {
+            "name": "ufs-weather-model",
+            "description": "The Unified Forecast System (UFS) Weather Model (WM) is a prognostic\nmodel that can be used for short- and medium-range research and\noperational forecasts, as exemplified by its use in the operational\nGlobal Forecast System (GFS) of the National Oceanic and Atmospheric\nAdministration (NOAA)."
+        }
+    ]
+}

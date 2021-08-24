@@ -1,0 +1,57 @@
+{
+    "name": "wrf-io",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "1.2.0",
+            "sha256": "000cf5294a2c68460085258186e1f36c86d3d0d9c433aa969a0f92736b745617"
+        }
+    ],
+    "build_system": "CMakePackage",
+    "conflicts": [
+        {
+            "name": "+ipo",
+            "spec": "^cmake@:3.8",
+            "description": "+ipo is not supported by CMake < 3.9"
+        }
+    ],
+    "variants": [
+        {
+            "name": "build_type",
+            "default": "RelWithDebInfo",
+            "description": "CMake build type"
+        },
+        {
+            "name": "ipo",
+            "default": false,
+            "description": "CMake interprocedural optimization"
+        }
+    ],
+    "homepage": "https://noaa-emc.github.io/NCEPLIBS-wrf_io",
+    "maintainers": [
+        "t-brown"
+    ],
+    "patches": [],
+    "resources": [],
+    "description": "The WRFIO package is a lightweight WRF-IO API library for Unified Post\nProcessor (UPP). It reads wrf forecasts (WRF state plus diagnostics).\n",
+    "dependencies": [
+        {
+            "name": "cmake",
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
+        },
+        {
+            "name": "netcdf-c",
+            "description": "NetCDF (network Common Data Form) is a set of software libraries and\nmachine-independent data formats that support the creation, access, and\nsharing of array-oriented scientific data. This is the C distribution."
+        },
+        {
+            "name": "netcdf-fortran",
+            "description": "NetCDF (network Common Data Form) is a set of software libraries and\nmachine-independent data formats that support the creation, access, and\nsharing of array-oriented scientific data. This is the Fortran\ndistribution."
+        }
+    ],
+    "dependent_to": [
+        {
+            "name": "ncep-post",
+            "description": "The NCEP Post Processor is a software package designed to generate\nuseful products from raw model output."
+        }
+    ]
+}

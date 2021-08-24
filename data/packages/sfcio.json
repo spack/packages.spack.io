@@ -1,0 +1,53 @@
+{
+    "name": "sfcio",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "1.4.1",
+            "sha256": "d9f900cf18ec1a839b4128c069b1336317ffc682086283443354896746b89c59"
+        }
+    ],
+    "build_system": "CMakePackage",
+    "conflicts": [
+        {
+            "name": "+ipo",
+            "spec": "^cmake@:3.8",
+            "description": "+ipo is not supported by CMake < 3.9"
+        }
+    ],
+    "variants": [
+        {
+            "name": "build_type",
+            "default": "RelWithDebInfo",
+            "description": "CMake build type"
+        },
+        {
+            "name": "ipo",
+            "default": false,
+            "description": "CMake interprocedural optimization"
+        }
+    ],
+    "homepage": "https://noaa-emc.github.io/NCEPLIBS-sfcio",
+    "maintainers": [
+        "t-brown"
+    ],
+    "patches": [],
+    "resources": [],
+    "description": "The SFCIO library provides an API to read the NCEP Spectral model\nsurface files.\n",
+    "dependencies": [
+        {
+            "name": "cmake",
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
+        }
+    ],
+    "dependent_to": [
+        {
+            "name": "ufs-utils",
+            "description": "The UFS Utilities package contains programs set up the model grid and\ncreate coldstart initial conditions."
+        },
+        {
+            "name": "ncep-post",
+            "description": "The NCEP Post Processor is a software package designed to generate\nuseful products from raw model output."
+        }
+    ]
+}
