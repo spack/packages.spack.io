@@ -1,0 +1,82 @@
+{
+    "name": "parmmg",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "1.3.0",
+            "sha256": "d43b73a73b62545b5a31bbe25562f69c9e63ad8a6d416bd459781203e37427cf"
+        },
+        {
+            "name": "1.2.0",
+            "sha256": "99729cc292dcb59c87e3f25d4cabf5a64841e83b624d383e1fd3fb7f960df672"
+        },
+        {
+            "name": "1.1.0",
+            "sha256": "a5904f1f56b7809ab9ec2f6118b03a082ec2b5564355a73c74fc55426cc69600"
+        },
+        {
+            "name": "1.0.0",
+            "sha256": "614feb815ff6cdfc9bced30e8105994f0bf3a812243619d3349203ec1851cf6d"
+        }
+    ],
+    "build_system": "CMakePackage",
+    "conflicts": [
+        {
+            "name": "+ipo",
+            "spec": "^cmake@:3.8",
+            "description": "+ipo is not supported by CMake < 3.9"
+        }
+    ],
+    "variants": [
+        {
+            "name": "build_type",
+            "default": "RelWithDebInfo",
+            "description": "CMake build type"
+        },
+        {
+            "name": "ipo",
+            "default": false,
+            "description": "CMake interprocedural optimization"
+        },
+        {
+            "name": "pic",
+            "default": true,
+            "description": "Build with position independent code"
+        }
+    ],
+    "homepage": "https://www.mmgtools.org",
+    "maintainers": [
+        "corentin-dev"
+    ],
+    "patches": [],
+    "resources": [],
+    "description": "ParMMG is a parallel remesher based on MMG\n",
+    "dependencies": [
+        {
+            "name": "cmake",
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
+        },
+        {
+            "name": "mmg",
+            "description": "Mmg is an open source software for simplicial remeshing. It provides 3\napplications and 4 libraries: - the mmg2d application and the libmmg2d\nlibrary: adaptation and optimization of a two-dimensional triangulation\nand generation of a triangulation from a set of points or from given\nboundary edges - the mmgs application and the libmmgs library:\nadaptation and optimization of a surface triangulation and isovalue\ndiscretization - the mmg3d application and the libmmg3d library:\nadaptation and optimization of a tetrahedral mesh and implicit domain\nmeshing - the libmmg library gathering the libmmg2d, libmmgs and\nlibmmg3d libraries."
+        },
+        {
+            "name": "metis",
+            "description": "METIS is a set of serial programs for partitioning graphs, partitioning\nfinite element meshes, and producing fill reducing orderings for sparse\nmatrices. The algorithms implemented in METIS are based on the\nmultilevel recursive-bisection, multilevel k-way, and multi-constraint\npartitioning schemes."
+        },
+        {
+            "name": "vtk",
+            "description": "The Visualization Toolkit (VTK) is an open-source, freely available\nsoftware system for 3D computer graphics, image processing and\nvisualization."
+        },
+        {
+            "name": "mpi",
+            "description": "Fujitsu MPI implementation only for Fujitsu compiler."
+        }
+    ],
+    "dependent_to": [
+        {
+            "name": "petsc",
+            "description": "PETSc is a suite of data structures and routines for the scalable\n(parallel) solution of scientific applications modeled by partial\ndifferential equations."
+        }
+    ]
+}
