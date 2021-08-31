@@ -3,13 +3,38 @@
     "aliases": [],
     "versions": [
         {
+            "name": "1.9.0.1",
+            "sha256": "81e9753cf451afe8248d44c841e102349e07cde942b11d1f91b5f85feb622b99"
+        },
+        {
+            "name": "1.8.9.0",
+            "sha256": "da5d2b4dcd52aec96e7d96ba4d0e97efebbd40fe9e640535e5ee3d5cd082ae50"
+        },
+        {
             "name": "1.8.2.0",
             "sha256": "7f5dad4e8670568a71f79d2bcebb08d95b875506d3d5faefafe1a8b3afa14f18"
         }
     ],
-    "build_system": "Package",
-    "conflicts": [],
-    "variants": [],
+    "build_system": "CMakePackage",
+    "conflicts": [
+        {
+            "name": "+ipo",
+            "spec": "^cmake@:3.8",
+            "description": "+ipo is not supported by CMake < 3.9"
+        }
+    ],
+    "variants": [
+        {
+            "name": "build_type",
+            "default": "RelWithDebInfo",
+            "description": "CMake build type"
+        },
+        {
+            "name": "ipo",
+            "default": false,
+            "description": "CMake interprocedural optimization"
+        }
+    ],
     "homepage": "http://nccmp.sourceforge.net/",
     "maintainers": [],
     "patches": [],
@@ -17,9 +42,18 @@
     "description": "Compare NetCDF Files\n",
     "dependencies": [
         {
+            "name": "cmake",
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
+        },
+        {
             "name": "netcdf-c",
             "description": "NetCDF (network Common Data Form) is a set of software libraries and\nmachine-independent data formats that support the creation, access, and\nsharing of array-oriented scientific data. This is the C distribution."
         }
     ],
-    "dependent_to": []
+    "dependent_to": [
+        {
+            "name": "nalu-wind",
+            "description": "Nalu-Wind: Wind energy focused variant of Nalu."
+        }
+    ]
 }
