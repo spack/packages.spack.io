@@ -11,6 +11,10 @@
             "branch": "master"
         },
         {
+            "name": "1.4.0",
+            "commit": "f811917c1def4d0fcd8db3fe5c948ce13409e28e"
+        },
+        {
             "name": "1.3.0",
             "commit": "4678668c66f634169def81620a85c9a20b7cec78"
         },
@@ -519,18 +523,8 @@
             "description": "None"
         },
         {
-            "name": "^hip@4.1.0:",
-            "spec": "@master",
-            "description": "None"
-        },
-        {
             "name": "^hipblas@4.1.0:",
             "spec": "@:1.3.0",
-            "description": "None"
-        },
-        {
-            "name": "^hipblas@4.1.0:",
-            "spec": "@master",
             "description": "None"
         },
         {
@@ -539,18 +533,8 @@
             "description": "None"
         },
         {
-            "name": "^hipsparse@4.1.0:",
-            "spec": "@master",
-            "description": "None"
-        },
-        {
             "name": "^rocthrust@4.1.0:",
             "spec": "@:1.3.0",
-            "description": "None"
-        },
-        {
-            "name": "^rocthrust@4.1.0:",
-            "spec": "@master",
             "description": "None"
         }
     ],
@@ -616,7 +600,24 @@
         "tcojean",
         "hartwiganzt"
     ],
-    "patches": [],
+    "patches": [
+        {
+            "owner": "builtin.ginkgo",
+            "sha256": "43e571a49ea774793d89d145571c95ae7cdf991f5220d8fe84db217a3c613a32",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "1.4.0_skip_invalid_smoke_tests.patch",
+            "version": "@master"
+        },
+        {
+            "owner": "builtin.ginkgo",
+            "sha256": "43e571a49ea774793d89d145571c95ae7cdf991f5220d8fe84db217a3c613a32",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "1.4.0_skip_invalid_smoke_tests.patch",
+            "version": "@1.4.0"
+        }
+    ],
     "resources": [],
     "description": "High-performance linear algebra library for manycore systems, with a\nfocus on sparse solution of linear systems.\n",
     "dependencies": [
@@ -671,12 +672,12 @@
     ],
     "dependent_to": [
         {
-            "name": "dealii",
-            "description": "C++ software library providing well-documented tools to build finite\nelement codes for a broad variety of PDEs."
-        },
-        {
             "name": "xsdk",
             "description": "Xsdk is a suite of Department of Energy (DOE) packages for numerical\nsimulation. This is a Spack bundle package that installs the xSDK\npackages"
+        },
+        {
+            "name": "dealii",
+            "description": "C++ software library providing well-documented tools to build finite\nelement codes for a broad variety of PDEs."
         }
     ]
 }
