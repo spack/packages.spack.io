@@ -3,36 +3,42 @@
     "aliases": [],
     "versions": [
         {
-            "name": "0.10.0",
-            "sha256": "0de0396220a9566a580166e66b39674cb40efd2176f52ad2c65486c99c920c8c"
+            "name": "0.12.0",
+            "sha256": "bd5b5009ca914c8fa7944b92ea6b4ca6fb7d146f65d526f21bf8b3c6a0520e44"
         }
     ],
-    "build_system": "AutotoolsPackage",
-    "conflicts": [],
-    "variants": [],
-    "homepage": "https://logging.apache.org/log4cxx/latest_stable/",
-    "maintainers": [],
-    "patches": [
+    "build_system": "CMakePackage",
+    "conflicts": [
         {
-            "owner": "builtin.log4cxx",
-            "sha256": "81a3a702261e8bf67b65629d9d1d7187e7c093413ce68e9abe38b0ae020a9ca7",
-            "level": 1,
-            "working_dir": ".",
-            "relative_path": "log4cxx-0.10.0-missing_includes.patch",
-            "version": ""
+            "name": "+ipo",
+            "spec": "^cmake@:3.8",
+            "description": "+ipo is not supported by CMake < 3.9"
+        }
+    ],
+    "variants": [
+        {
+            "name": "build_type",
+            "default": "RelWithDebInfo",
+            "description": "CMake build type"
         },
         {
-            "owner": "builtin.log4cxx",
-            "sha256": "084fff0ee93baf28f93cd4a9352c4daa11a40b6eaf3d04c9a4552732d2476ccd",
-            "level": 1,
-            "working_dir": ".",
-            "relative_path": "log4cxx-0.10.0-narrowing-fixes-from-upstream.patch",
-            "version": ""
+            "name": "ipo",
+            "default": false,
+            "description": "CMake interprocedural optimization"
         }
     ],
+    "homepage": "https://logging.apache.org/log4cxx/latest_stable/",
+    "maintainers": [
+        "nicmcd"
+    ],
+    "patches": [],
     "resources": [],
     "description": "A C++ port of Log4j\n",
     "dependencies": [
+        {
+            "name": "cmake",
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
+        },
         {
             "name": "apr-util",
             "description": "Apache Portable Runtime Utility"
@@ -40,6 +46,10 @@
         {
             "name": "apr",
             "description": "Apache portable runtime."
+        },
+        {
+            "name": "zlib",
+            "description": "A free, general-purpose, legally unencumbered lossless data-compression\nlibrary."
         },
         {
             "name": "zip",
