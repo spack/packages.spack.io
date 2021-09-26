@@ -11,41 +11,89 @@
             "branch": "master"
         },
         {
+            "name": "1.5.1",
+            "sha256": "4dac7e9152694d2ec4aefd982a52ecc064a8cb8f2c9eab0425428127c3719e2e"
+        },
+        {
+            "name": "1.5.0",
+            "sha256": "ee299ac1c08c38c9e7871d4af745f1075570ddbb708bb62d82257244585e5183"
+        },
+        {
             "name": "1.4.0",
             "sha256": "3b8ffb45346b2fe56aaa7ba15a515e62f9dff45a28e6a014248e20094bbe50a1"
+        },
+        {
+            "name": "1.3.2",
+            "sha256": "83dbfb2e4bed28ef4e2ae430d30505874b4b50252e2f31dc422b3bc191a87ab0"
+        },
+        {
+            "name": "1.3.1",
+            "sha256": "414fa352e7b478442e6f5d0b51ff00deeb4fc705de805676c0e68829f3f30967"
+        },
+        {
+            "name": "1.3.0",
+            "sha256": "ffaa5c6abfbf79aec6389ab7caaa2c8a91bce24fd046d9741418ff815cd445d2"
+        },
+        {
+            "name": "1.2.0",
+            "sha256": "0a1411276aa0787382573df5e0f60cc38ca8079f2353fb7a7e8dc57050a7d2cb"
+        },
+        {
+            "name": "1.1.0",
+            "sha256": "626727565a8b78be0dc8883539b01aaff2bb3bd42395899643bc4d6cc2313773"
+        },
+        {
+            "name": "1.0.2",
+            "sha256": "b03b4ac9f0715279b2a5e064fd85047cb640a85c2361d732930307f8bbf2aeb8"
+        },
+        {
+            "name": "1.0.1",
+            "sha256": "b1341bb39e7e70334d7acf831fe7f2061376e7516b44d18b31797748c2a169a3"
         }
     ],
     "build_system": "AutotoolsPackage",
-    "conflicts": [],
+    "conflicts": [
+        {
+            "name": "%gcc@10:",
+            "spec": "@:1.3.2",
+            "description": "gcc>10 is not supported"
+        },
+        {
+            "name": "schedulers=slurm",
+            "spec": "@:1.3.2",
+            "description": "Slurm is not supported"
+        }
+    ],
     "variants": [
+        {
+            "name": "fortran",
+            "default": false,
+            "description": "Enable Fortran modules"
+        },
         {
             "name": "mpi",
             "default": false,
             "description": "Enable MPI support"
         },
         {
-            "name": "fortran",
-            "default": true,
-            "description": "Enable Fortran modules"
-        },
-        {
             "name": "fabrics",
             "default": "none",
-            "description": "List of fabrics that are enabled; 'auto' lets gpi-2 determine"
+            "description": "List of fabrics that are enabled; 'none' use GPI-2 default (infiniband), 'infiniband' will use 'rdma-core' from Spack"
         },
         {
             "name": "schedulers",
             "default": "none",
-            "description": "List of schedulers for which support is enabled; 'auto' lets gpi-2 determine"
+            "description": "List of lauchers for which support is enabled; 'auto', 'none' or 'pbs' use 'gaspi_run.ssh'"
         }
     ],
     "homepage": "http://www.gpi-site.com",
     "maintainers": [
-        "robert-mijakovic"
+        "robert-mijakovic",
+        "acastanedam"
     ],
     "patches": [],
     "resources": [],
-    "description": "GPI-2 is an API for the development of scalable, asynchronous and fault\ntolerant parallel applications. It implements the GASPI specification\n(www.gaspi.de)\n",
+    "description": "GPI-2 implements GASPI specification, an API specification for\nasynchronous communication. It provides a flexible, scalable and fault\ntolerant interface for parallel applications.\n",
     "dependencies": [
         {
             "name": "autoconf",
@@ -64,8 +112,16 @@
             "description": "GNU M4 is an implementation of the traditional Unix macro processor."
         },
         {
+            "name": "gawk",
+            "description": "If you are like many computer users, you would frequently like to make\nchanges in various text files wherever certain patterns appear, or\nextract data from parts of certain lines while discarding the rest. To\nwrite a program to do this in a language such as C or Pascal is a time-\nconsuming inconvenience that may take many lines of code. The job is\neasy with awk, especially the GNU implementation: gawk. The awk utility\ninterprets a special-purpose programming language that makes it possible\nto handle simple data-reformatting jobs with just a few lines of code."
+        },
+        {
+            "name": "openssh",
+            "description": "OpenSSH is the premier connectivity tool for remote login with the SSH\nprotocol. It encrypts all traffic to eliminate eavesdropping, connection\nhijacking, and other attacks. In addition, OpenSSH provides a large\nsuite of secure tunneling capabilities, several authentication methods,\nand sophisticated configuration options."
+        },
+        {
             "name": "mpi",
-            "description": "Intel Parallel Studio."
+            "description": "The NVIDIA HPC SDK is a comprehensive suite of compilers, libraries and\ntools essential to maximizing developer productivity and the performance\nand portability of HPC applications. The NVIDIA HPC SDK C, C++, and\nFortran compilers support GPU acceleration of HPC modeling and\nsimulation applications with standard C++ and Fortran, OpenACC\ndirectives, and CUDA. GPU-accelerated math libraries maximize\nperformance on common HPC algorithms, and optimized communications\nlibraries enable standards-based multi-GPU and scalable systems\nprogramming. Performance profiling and debugging tools simplify porting\nand optimization of HPC applications."
         },
         {
             "name": "rdma-core",

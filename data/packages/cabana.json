@@ -7,6 +7,10 @@
             "branch": "master"
         },
         {
+            "name": "0.4.0",
+            "sha256": "c347d23dc4a5204f9cc5906ccf3454f0b0b1612351bbe0d1c58b14cddde81e85"
+        },
+        {
             "name": "0.3.0",
             "sha256": "fb67ab9aaf254b103ae0eb5cc913ddae3bf3cd0cf6010e9686e577a2981ca84f"
         },
@@ -29,6 +33,16 @@
             "name": "+ipo",
             "spec": "^cmake@:3.8",
             "description": "+ipo is not supported by CMake < 3.9"
+        },
+        {
+            "name": "+rocm",
+            "spec": "@:0.2.0",
+            "description": "None"
+        },
+        {
+            "name": "+sycl",
+            "spec": "@:0.3.0",
+            "description": "None"
         }
     ],
     "variants": [
@@ -43,19 +57,34 @@
             "description": "CMake interprocedural optimization"
         },
         {
-            "name": "serial",
-            "default": true,
-            "description": "enable Serial backend (default)"
+            "name": "cuda",
+            "default": false,
+            "description": "Whether to build CUDA backend"
         },
         {
             "name": "openmp",
             "default": false,
-            "description": "enable OpenMP backend"
+            "description": "Whether to build OpenMP backend"
         },
         {
-            "name": "cuda",
+            "name": "pthread",
             "default": false,
-            "description": "enable Cuda backend"
+            "description": "Whether to build Pthread backend"
+        },
+        {
+            "name": "serial",
+            "default": true,
+            "description": "Whether to build serial backend"
+        },
+        {
+            "name": "rocm",
+            "default": false,
+            "description": "Whether to build HIP backend"
+        },
+        {
+            "name": "sycl",
+            "default": false,
+            "description": "Whether to build the SYCL backend"
         },
         {
             "name": "shared",
@@ -66,10 +95,29 @@
             "name": "mpi",
             "default": true,
             "description": "Build with mpi support"
+        },
+        {
+            "name": "arborx",
+            "default": false,
+            "description": "Build with ArborX support"
+        },
+        {
+            "name": "heffte",
+            "default": false,
+            "description": "Build with heFFTe support"
+        },
+        {
+            "name": "hypre",
+            "default": false,
+            "description": "Build with HYPRE support"
         }
     ],
     "homepage": "https://github.com/ECP-copa/Cabana",
-    "maintainers": [],
+    "maintainers": [
+        "junghans",
+        "sslattery",
+        "streeve"
+    ],
     "patches": [],
     "resources": [],
     "description": "The Exascale Co-Design Center for Particle Applications Toolkit\n",
@@ -87,8 +135,20 @@
             "description": "Kokkos implements a programming model in C++ for writing performance\nportable applications targeting all major HPC platforms."
         },
         {
+            "name": "arborx",
+            "description": "ArborX is a performance-portable library for geometric search"
+        },
+        {
+            "name": "heffte",
+            "description": "Highly Efficient FFT for Exascale"
+        },
+        {
+            "name": "hypre-cmake",
+            "description": "Hypre is a library of high performance preconditioners that features\nparallel multigrid methods for both structured and unstructured grid\nproblems."
+        },
+        {
             "name": "mpi",
-            "description": "Intel Parallel Studio."
+            "description": "The NVIDIA HPC SDK is a comprehensive suite of compilers, libraries and\ntools essential to maximizing developer productivity and the performance\nand portability of HPC applications. The NVIDIA HPC SDK C, C++, and\nFortran compilers support GPU acceleration of HPC modeling and\nsimulation applications with standard C++ and Fortran, OpenACC\ndirectives, and CUDA. GPU-accelerated math libraries maximize\nperformance on common HPC algorithms, and optimized communications\nlibraries enable standards-based multi-GPU and scalable systems\nprogramming. Performance profiling and debugging tools simplify porting\nand optimization of HPC applications."
         }
     ],
     "dependent_to": [
