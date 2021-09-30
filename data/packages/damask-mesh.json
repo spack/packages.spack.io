@@ -1,0 +1,66 @@
+{
+    "name": "damask-mesh",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "3.0.0-alpha4",
+            "sha256": "0bb8bde43b27d852b1fb6e359a7157354544557ad83d87987b03f5d629ce5493"
+        }
+    ],
+    "build_system": "CMakePackage",
+    "conflicts": [
+        {
+            "name": "+ipo",
+            "spec": "^cmake@:3.8",
+            "description": "+ipo is not supported by CMake < 3.9"
+        }
+    ],
+    "variants": [
+        {
+            "name": "build_type",
+            "default": "DebugRelease",
+            "description": "The build type to build"
+        },
+        {
+            "name": "ipo",
+            "default": false,
+            "description": "CMake interprocedural optimization"
+        }
+    ],
+    "homepage": "https://damask3.mpie.de",
+    "maintainers": [
+        "MarDieh"
+    ],
+    "patches": [
+        {
+            "owner": "builtin.damask-mesh",
+            "sha256": "ad6715216f8fe50374503371f2e7032660c6a64aac6036a9f94a93df4916d0a3",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "CMakeDebugRelease.patch",
+            "version": "@3.0.0-alpha4"
+        }
+    ],
+    "resources": [],
+    "description": "Mesh solver for DAMASK\n",
+    "dependencies": [
+        {
+            "name": "cmake",
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
+        },
+        {
+            "name": "petsc",
+            "description": "PETSc is a suite of data structures and routines for the scalable\n(parallel) solution of scientific applications modeled by partial\ndifferential equations."
+        },
+        {
+            "name": "hdf5",
+            "description": "HDF5 is a data model, library, and file format for storing and managing\ndata. It supports an unlimited variety of datatypes, and is designed for\nflexible and efficient I/O and for high volume and complex data."
+        }
+    ],
+    "dependent_to": [
+        {
+            "name": "damask",
+            "description": "DAMASK - The Duesseldorf Advanced Material Simulation Kit A unified\nmulti-physics crystal plasticity simulation package. The solution of\ncontinuum mechanical boundary value problems requires a constitutive\nresponse that connects deformation and stress at each material point.\nThis problem is solved in DAMASK on the basis of crystal plasticity\nusing a variety of constitutive models and homogenization approaches.\nHowever, treating mechanics in isolation is no longer sufficient to\nstudy emergent advanced high-strength materials. In these materials,\ndeformation happens interrelated with displacive phase transformation,\nsignificant heating, and potential damage evolution. Therefore, DAMASK\nis capable of handling multi-physics problems. Following a modular\napproach, additional field equations are solved in a fully coupled way\nusing a staggered approach."
+        }
+    ]
+}
