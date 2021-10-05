@@ -54,6 +54,26 @@
             "name": "^evtgen+pythia8",
             "spec": "+evtgen",
             "description": "Building pythia with evtgen bindings and evtgen with pythia bindings results in a circular dependency that cannot be resolved at the moment! Use pythia8+evtgen^evtgen~pythia8"
+        },
+        {
+            "name": "+evtgen",
+            "spec": "~hepmc",
+            "description": "+evtgen requires +hepmc"
+        },
+        {
+            "name": "+mpich",
+            "spec": "@:8.304",
+            "description": "MPICH support was added in 8.304"
+        },
+        {
+            "name": "+hdf5",
+            "spec": "@:8.304",
+            "description": "HDF5 support was added in 8.304"
+        },
+        {
+            "name": "+hdf5",
+            "spec": "~mpich",
+            "description": "MPICH is required for reading HDF5 files"
         }
     ],
     "variants": [
@@ -65,22 +85,62 @@
         {
             "name": "hepmc",
             "default": true,
-            "description": "Build HepMC2 extensions"
+            "description": "Export PYTHIA events to the HEPMC format, version 2"
+        },
+        {
+            "name": "hepmc3",
+            "default": true,
+            "description": "Export PYTHIA events to the HEPMC format, version 3"
         },
         {
             "name": "evtgen",
             "default": false,
-            "description": "Build EvtGen extensions"
+            "description": "Particle decays with the EvtGen decay package"
         },
         {
             "name": "root",
             "default": false,
-            "description": "Build ROOT extensions"
+            "description": "Use ROOT trees and histograms with PYTHIA"
         },
         {
             "name": "fastjet",
             "default": false,
-            "description": "Build fastjet extensions"
+            "description": "Building of jets using the FastJet package, version 3"
+        },
+        {
+            "name": "lhapdf",
+            "default": false,
+            "description": "Support the use of external PDF sets via LHAPDF"
+        },
+        {
+            "name": "rivet",
+            "default": false,
+            "description": "Support use of RIVET through direct interface"
+        },
+        {
+            "name": "python",
+            "default": false,
+            "description": "Interface to use PYTHIA in Python"
+        },
+        {
+            "name": "madgraph5amc",
+            "default": false,
+            "description": "MadGraph matrix element plugins for parton showers"
+        },
+        {
+            "name": "openmpi",
+            "default": false,
+            "description": "Multi-threading support via OpenMP"
+        },
+        {
+            "name": "mpich",
+            "default": false,
+            "description": "Multi-threading support via MPICH"
+        },
+        {
+            "name": "hdf5",
+            "default": false,
+            "description": "Support the use of HDF5 format"
         }
     ],
     "homepage": "http://home.thep.lu.se/Pythia/",
@@ -104,6 +164,10 @@
             "description": "The HepMC package is an object oriented, C++ event record for High\nEnergy Physics Monte Carlo generators and simulation."
         },
         {
+            "name": "hepmc3",
+            "description": "The HepMC package is an object oriented, C++ event record for High\nEnergy Physics Monte Carlo generators and simulation."
+        },
+        {
             "name": "root",
             "description": "ROOT is a data analysis framework."
         },
@@ -114,9 +178,49 @@
         {
             "name": "fastjet",
             "description": "A high energy physics software package for jet finding in pp and e+e-\ncollisions."
+        },
+        {
+            "name": "lhapdf",
+            "description": "LHAPDF is a general purpose C++ interpolator, used for evaluating PDFs\nfrom discretised data files."
+        },
+        {
+            "name": "boost",
+            "description": "Boost provides free peer-reviewed portable C++ source libraries,\nemphasizing libraries that work well with the C++ Standard Library.\nBoost libraries are intended to be widely useful, and usable across a\nbroad spectrum of applications. The Boost license encourages both\ncommercial and non-commercial use."
+        },
+        {
+            "name": "rivet",
+            "description": "Rivet - the particle-physics MC analysis toolkit"
+        },
+        {
+            "name": "python",
+            "description": "The Python programming language."
+        },
+        {
+            "name": "madgraph5amc",
+            "description": "MadGraph5_aMC@NLO is a framework that aims at providing all the elements\nnecessary for SM and BSM phenomenology, such as the computations of\ncross sections, the generation of hard events and their matching with\nevent generators, and the use of a variety of tools relevant to event\nmanipulation and analysis."
+        },
+        {
+            "name": "openmpi",
+            "description": "An open source Message Passing Interface implementation. The Open MPI\nProject is an open source Message Passing Interface implementation that\nis developed and maintained by a consortium of academic, research, and\nindustry partners. Open MPI is therefore able to combine the expertise,\ntechnologies, and resources from all across the High Performance\nComputing community in order to build the best MPI library available.\nOpen MPI offers advantages for system and software vendors, application\ndevelopers and computer science researchers."
+        },
+        {
+            "name": "mpich",
+            "description": "MPICH is a high performance and widely portable implementation of the\nMessage Passing Interface (MPI) standard."
+        },
+        {
+            "name": "hdf5",
+            "description": "HDF5 is a data model, library, and file format for storing and managing\ndata. It supports an unlimited variety of datatypes, and is designed for\nflexible and efficient I/O and for high volume and complex data."
+        },
+        {
+            "name": "highfive",
+            "description": "HighFive - Header only C++ HDF5 interface"
         }
     ],
     "dependent_to": [
+        {
+            "name": "whizard",
+            "description": "WHIZARD is a program system designed for the efficient calculation of\nmulti-particle scattering cross sections and simulated event samples."
+        },
         {
             "name": "acts",
             "description": "A Common Tracking Software (Acts) This project contains an experiment-\nindependent set of track reconstruction tools. The main philosophy is to\nprovide high-level track reconstruction modules that can be used for any\ntracking detector. The description of the tracking detector's geometry\nis optimized for efficient navigation and quick extrapolation of tracks.\nConverters for several common geometry description languages exist.\nHaving a highly performant, yet largely customizable implementation of\ntrack reconstruction algorithms was a primary objective for the design\nof this toolset. Additionally, the applicability to real-life HEP\nexperiments plays major role in the development process. Apart from\nalgorithmic code, this project also provides an event data model for the\ndescription of track parameters and measurements. Key features of this\nproject include: tracking geometry description which can be constructed\nfrom TGeo, DD4Hep, or GDML input, simple and efficient event data model,\nperformant and highly flexible algorithms for track propagation and\nfitting, basic seed finding algorithms."
@@ -126,20 +230,16 @@
             "description": "DIRE (short for dipole resummation) a C++ program for all-order\nradiative corrections to scattering processes in high-energy particle\ncollisions."
         },
         {
-            "name": "delphes",
-            "description": "A high energy physics framework for fast simulation of a generic\ncollider experiment."
-        },
-        {
             "name": "root",
             "description": "ROOT is a data analysis framework."
         },
         {
-            "name": "whizard",
-            "description": "WHIZARD is a program system designed for the efficient calculation of\nmulti-particle scattering cross sections and simulated event samples."
-        },
-        {
             "name": "evtgen",
             "description": "EvtGen is a Monte Carlo event generator that simulates the decays of\nheavy flavour particles, primarily B and D mesons."
+        },
+        {
+            "name": "delphes",
+            "description": "A high energy physics framework for fast simulation of a generic\ncollider experiment."
         }
     ]
 }

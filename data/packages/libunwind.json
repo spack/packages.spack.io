@@ -33,7 +33,8 @@
         },
         {
             "name": "1.1",
-            "sha256": "9dfe0fcae2a866de9d3942c66995e4b460230446887dbdab302d41a8aee8d09a"
+            "sha256": "9dfe0fcae2a866de9d3942c66995e4b460230446887dbdab302d41a8aee8d09a",
+            "deprecated": true
         }
     ],
     "build_system": "AutotoolsPackage",
@@ -46,9 +47,59 @@
     ],
     "variants": [
         {
+            "name": "docs",
+            "default": true,
+            "description": "Build man page"
+        },
+        {
+            "name": "libs",
+            "default": "shared,static",
+            "description": "Build shared libs, static libs or both"
+        },
+        {
             "name": "pic",
             "default": false,
             "description": "Compile with position independent code."
+        },
+        {
+            "name": "tests",
+            "default": true,
+            "description": "Build tests"
+        },
+        {
+            "name": "block_signals",
+            "default": false,
+            "description": "Block signals before performing mutex operations"
+        },
+        {
+            "name": "components",
+            "default": "none",
+            "description": "Build specified libunwind libraries"
+        },
+        {
+            "name": "conservative_checks",
+            "default": false,
+            "description": "Validate all memory addresses before use"
+        },
+        {
+            "name": "cxx_exceptions",
+            "default": false,
+            "description": "Use libunwind to handle C++ exceptions"
+        },
+        {
+            "name": "debug",
+            "default": false,
+            "description": "Turn on debug support (slows down execution)"
+        },
+        {
+            "name": "debug_frame",
+            "default": false,
+            "description": "Load the \".debug_frame\" section if available"
+        },
+        {
+            "name": "weak_backtrace",
+            "default": true,
+            "description": "Provide the weak 'backtrace' symbol"
         },
         {
             "name": "xz",
@@ -100,8 +151,16 @@
     ],
     "dependent_to": [
         {
-            "name": "uftrace",
-            "description": "Dynamic function graph tracer for Linux which demangles C, C++ and Rust\ncalls"
+            "name": "cbtf-krell",
+            "description": "CBTF Krell project contains collector and runtime contributions to the\nCBTF project. These contributions include many performance data\ncollectors and support libraries as well as some example tools that\ndrive the data collection at HPC levels of scale."
+        },
+        {
+            "name": "tau",
+            "description": "A portable profiling and tracing toolkit for performance analysis of\nparallel programs written in Fortran, C, C++, UPC, Java, Python."
+        },
+        {
+            "name": "hpctoolkit",
+            "description": "HPCToolkit is an integrated suite of tools for measurement and analysis\nof program performance on computers ranging from multicore desktop\nsystems to the nation's largest supercomputers. By using statistical\nsampling of timers and hardware performance counters, HPCToolkit\ncollects accurate measurements of a program's work, resource\nconsumption, and inefficiency and attributes them to the full calling\ncontext in which they occur."
         },
         {
             "name": "heaptrack",
@@ -112,40 +171,32 @@
             "description": "The Score-P measurement infrastructure is a highly scalable and easy-to-\nuse tool suite for profiling, event tracing, and online analysis of HPC\napplications."
         },
         {
-            "name": "cbtf-krell",
-            "description": "CBTF Krell project contains collector and runtime contributions to the\nCBTF project. These contributions include many performance data\ncollectors and support libraries as well as some example tools that\ndrive the data collection at HPC levels of scale."
-        },
-        {
             "name": "argobots",
             "description": "Argobots, which was developed as a part of the Argo project, is a\nlightweight runtime system that supports integrated computation and data\nmovement with massive concurrency. It will directly leverage the lowest-\nlevel constructs in the hardware and OS: lightweight notification\nmechanisms, data movement engines, memory mapping, and data placement\nstrategies. It consists of an execution model and a memory model."
         },
         {
-            "name": "tau",
-            "description": "A portable profiling and tracing toolkit for performance analysis of\nparallel programs written in Fortran, C, C++, UPC, Java, Python."
+            "name": "uftrace",
+            "description": "Dynamic function graph tracer for Linux which demangles C, C++ and Rust\ncalls"
         },
         {
             "name": "coral",
             "description": "CORAL is an abstraction layer with an SQL-free API to access data stored\nusing relational database technologies. It is used directly by\nexperiment-specific applications and internally by COOL."
         },
         {
-            "name": "igprof",
-            "description": "IgProf (the Ignominous Profiler) is a simple nice tool for measuring and\nanalysing application memory and performance characteristics. IgProf\nrequires no changes to the application or the build process. It\ncurrently works on Linux (ia32, x86_64)."
-        },
-        {
-            "name": "hpctoolkit",
-            "description": "HPCToolkit is an integrated suite of tools for measurement and analysis\nof program performance on computers ranging from multicore desktop\nsystems to the nation's largest supercomputers. By using statistical\nsampling of timers and hardware performance counters, HPCToolkit\ncollects accurate measurements of a program's work, resource\nconsumption, and inefficiency and attributes them to the full calling\ncontext in which they occur."
-        },
-        {
             "name": "folly",
             "description": "Folly (acronymed loosely after Facebook Open Source Library) is a\nlibrary of C++11 components designed with practicality and efficiency in\nmind. Folly contains a variety of core library components used\nextensively at Facebook. In particular, it's often a dependency of\nFacebook's other open source C++ efforts and place where those projects\ncan share code."
+        },
+        {
+            "name": "rocm-gdb",
+            "description": "This is ROCmgdb, the ROCm source-level debugger for Linux, based on GDB,\nthe GNU source-level debugger."
         },
         {
             "name": "gaudi",
             "description": "An experiment-independent HEP event data processing framework"
         },
         {
-            "name": "rocm-gdb",
-            "description": "This is ROCmgdb, the ROCm source-level debugger for Linux, based on GDB,\nthe GNU source-level debugger."
+            "name": "igprof",
+            "description": "IgProf (the Ignominous Profiler) is a simple nice tool for measuring and\nanalysing application memory and performance characteristics. IgProf\nrequires no changes to the application or the build process. It\ncurrently works on Linux (ia32, x86_64)."
         },
         {
             "name": "extrae",
