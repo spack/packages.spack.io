@@ -1,19 +1,43 @@
 {
-    "name": "amdfftw",
+    "name": "fftw",
     "aliases": [
         {
+            "name": "fftw-api@2",
+            "alias_for": "{fftw@2.1.5}"
+        },
+        {
             "name": "fftw-api@3",
-            "alias_for": "{amdfftw@2:}"
+            "alias_for": "{fftw@3:}"
         }
     ],
     "versions": [
         {
-            "name": "3.0",
-            "sha256": "a69deaf45478a59a69f77c4f7e9872967f1cfe996592dd12beb6318f18ea0bcd"
+            "name": "3.3.9",
+            "sha256": "bf2c7ce40b04ae811af714deb512510cc2c17b9ab9d6ddcf49fe4487eea7af3d"
         },
         {
-            "name": "2.2",
-            "sha256": "de9d777236fb290c335860b458131678f75aa0799c641490c644c843f0e246f8"
+            "name": "3.3.8",
+            "sha256": "6113262f6e92c5bd474f2875fa1b01054c4ad5040f6b0da7c03c98821d9ae303"
+        },
+        {
+            "name": "3.3.7",
+            "sha256": "3b609b7feba5230e8f6dd8d245ddbefac324c5a6ae4186947670d9ac2cd25573"
+        },
+        {
+            "name": "3.3.6-pl2",
+            "sha256": "a5de35c5c824a78a058ca54278c706cdf3d4abba1c56b63531c2cb05f5d57da2"
+        },
+        {
+            "name": "3.3.5",
+            "sha256": "8ecfe1b04732ec3f5b7d279fdb8efcad536d555f9d1e8fabd027037d45ea8bcf"
+        },
+        {
+            "name": "3.3.4",
+            "sha256": "8f0cde90929bc05587c3368d2f15cd0530a60b8a9912a8e2979a72dbe5af0982"
+        },
+        {
+            "name": "2.1.5",
+            "sha256": "f8057fae1c7df8b99116783ef3e94a6a44518d49c72e2e630c24b689c6022630"
         }
     ],
     "build_system": "AutotoolsPackage",
@@ -37,36 +61,6 @@
             "name": "precision=quad",
             "spec": "+mpi",
             "description": "Quad precision is not supported in MPI"
-        },
-        {
-            "name": "precision=quad",
-            "spec": "@2.2%aocc",
-            "description": "AOCC clang doesn't support quad precision"
-        },
-        {
-            "name": "+debug",
-            "spec": "@2.2%aocc",
-            "description": "AOCC clang doesn't support debug"
-        },
-        {
-            "name": "%gcc@:7.2",
-            "spec": "@2.2:",
-            "description": "Required GCC version above 7.2 for AMDFFTW"
-        },
-        {
-            "name": "+amd-fast-planner",
-            "spec": "@2.2",
-            "description": "amd-fast-planner is supported from 3.0 onwards"
-        },
-        {
-            "name": "+amd-fast-planner",
-            "spec": "precision=quad",
-            "description": "amd-fast-planner doesn't support quad precision"
-        },
-        {
-            "name": "+amd-fast-planner",
-            "spec": "precision=long_double",
-            "description": "amd-fast-planner doesn't support long_double precision"
         }
     ],
     "variants": [
@@ -77,8 +71,8 @@
         },
         {
             "name": "openmp",
-            "default": true,
-            "description": "Enable OpenMP support"
+            "default": false,
+            "description": "Enable OpenMP support."
         },
         {
             "name": "mpi",
@@ -86,33 +80,57 @@
             "description": "Activate MPI support"
         },
         {
-            "name": "shared",
-            "default": true,
-            "description": "Builds a shared version of the library"
-        },
-        {
-            "name": "threads",
+            "name": "pfft_patches",
             "default": false,
-            "description": "Enable SMP threads support"
-        },
-        {
-            "name": "debug",
-            "default": false,
-            "description": "Builds a debug version of the library"
-        },
-        {
-            "name": "amd-fast-planner",
-            "default": false,
-            "description": "Option to reduce the planning time without muchtradeoff in the performance. It is supported forFloat and double precisions only."
+            "description": "Add extra transpose functions for PFFT compatibility"
         }
     ],
-    "homepage": "https://developer.amd.com/amd-aocl/fftw/",
-    "maintainers": [
-        "amd-toolchain-support"
+    "homepage": "https://www.fftw.org",
+    "maintainers": [],
+    "patches": [
+        {
+            "owner": "builtin.fftw",
+            "sha256": "c710e07d856c1f821396c56bc67f3d0b25e5586c5a3edd42d05e6c1bcc3b4b2c",
+            "level": 0,
+            "working_dir": ".",
+            "relative_path": "pfft-3.3.9.patch",
+            "version": "@3.3.9:+pfft_patches"
+        },
+        {
+            "owner": "builtin.fftw",
+            "sha256": "8132c27659f992311dcf3d1500056e0f9400aa22f6824124e3607dbaa8dfe3c0",
+            "level": 0,
+            "working_dir": ".",
+            "relative_path": "pfft-3.3.5.patch",
+            "version": "@3.3.5:3.3.8+pfft_patches"
+        },
+        {
+            "owner": "builtin.fftw",
+            "sha256": "4c813199aa39c0d2b23259ee3c3a58c9c96a3c0d09fe3485a33f299b95e0d9e7",
+            "level": 0,
+            "working_dir": ".",
+            "relative_path": "pfft-3.3.4.patch",
+            "version": "@3.3.4+pfft_patches"
+        },
+        {
+            "owner": "builtin.fftw",
+            "sha256": "5382f2695960800c0c93cb01fabdf9f4efa478f4171163c516c9fe1d9288449e",
+            "level": 0,
+            "working_dir": ".",
+            "relative_path": "pgi-3.3.6-pl2.patch",
+            "version": "@3.3.6-pl2%pgi"
+        },
+        {
+            "owner": "builtin.fftw",
+            "sha256": "116635693452a2ca3bdc3f87c20569b4bf9d7813ecfe9581cef6e362b0770c1e",
+            "level": 0,
+            "working_dir": ".",
+            "relative_path": "intel-configure.patch",
+            "version": "@3:3.3.8%intel"
+        }
     ],
-    "patches": [],
     "resources": [],
-    "description": "FFTW (AMD Optimized version) is a comprehensive collection of fast C\nroutines for computing the Discrete Fourier Transform (DFT) and various\nspecial cases thereof. It is an open-source implementation of the Fast\nFourier transform algorithm. It can compute transforms of real and\ncomplex-values arrays of arbitrary size and dimension. AMD Optimized\nFFTW is the optimized FFTW implementation targeted for AMD CPUs. For\nsingle precision build, please use precision value as float. Example :\nspack install amdfftw precision=float\n",
+    "description": "FFTW is a C subroutine library for computing the discrete Fourier\ntransform (DFT) in one or more dimensions, of arbitrary input size, and\nof both real and complex data (as well as of even/odd data, i.e. the\ndiscrete cosine/sine transforms or DCT/DST). We believe that FFTW, which\nis free software, should become the FFT library of choice for most\napplications.\n",
     "dependencies": [
         {
             "name": "gnuconfig",
@@ -120,15 +138,23 @@
         },
         {
             "name": "mpi",
-            "description": "MPICH is a high performance and widely portable implementation of the\nMessage Passing Interface (MPI) standard."
+            "description": "An open source Message Passing Interface implementation. The Open MPI\nProject is an open source Message Passing Interface implementation that\nis developed and maintained by a consortium of academic, research, and\nindustry partners. Open MPI is therefore able to combine the expertise,\ntechnologies, and resources from all across the High Performance\nComputing community in order to build the best MPI library available.\nOpen MPI offers advantages for system and software vendors, application\ndevelopers and computer science researchers."
         },
         {
             "name": "llvm-openmp",
             "description": "The OpenMP subproject of LLVM contains the components required to build\nan executable OpenMP program that are outside the compiler itself."
         },
         {
-            "name": "texinfo",
-            "description": "Texinfo is the official documentation format of the GNU project. It was\ninvented by Richard Stallman and Bob Chassell many years ago, loosely\nbased on Brian Reid's Scribe and other formatting languages of the time.\nIt is used by many non-GNU projects as well."
+            "name": "automake",
+            "description": "Automake -- make file builder part of autotools"
+        },
+        {
+            "name": "autoconf",
+            "description": "Autoconf -- system configuration part of autotools"
+        },
+        {
+            "name": "libtool",
+            "description": "libtool -- library building part of autotools."
         }
     ],
     "dependent_to": [
@@ -137,60 +163,60 @@
             "description": "QMCPACK, is a modern high-performance open-source Quantum Monte Carlo\n(QMC) simulation code."
         },
         {
-            "name": "rmgdft",
-            "description": "RMGDFT is a high performance real-space density functional code designed\nfor large scale electronic structure calculations."
-        },
-        {
-            "name": "openfoam",
-            "description": "OpenFOAM is a GPL-opensource C++ CFD-toolbox. This offering is supported\nby OpenCFD Ltd, producer and distributor of the OpenFOAM software via\nwww.openfoam.com, and owner of the OPENFOAM trademark. OpenCFD Ltd has\nbeen developing and releasing OpenFOAM since its debut in 2004."
-        },
-        {
-            "name": "speexdsp",
-            "description": "SpeexDSP is a patent-free, Open Source/Free Software DSP library."
-        },
-        {
-            "name": "quantum-espresso",
-            "description": "Quantum ESPRESSO is an integrated suite of Open-Source computer codes\nfor electronic-structure calculations and materials modeling at the\nnanoscale. It is based on density-functional theory, plane waves, and\npseudopotentials."
-        },
-        {
-            "name": "cp2k",
-            "description": "CP2K is a quantum chemistry and solid state physics software package\nthat can perform atomistic simulations of solid state, liquid,\nmolecular, periodic, material, crystal, and biological systems"
-        },
-        {
-            "name": "lammps",
-            "description": "LAMMPS stands for Large-scale Atomic/Molecular Massively Parallel\nSimulator. This package uses patch releases, not stable release. See\nhttps://github.com/spack/spack/pull/5342 for a detailed discussion."
-        },
-        {
-            "name": "gromacs",
-            "description": "GROMACS (GROningen MAchine for Chemical Simulations) is a molecular\ndynamics package primarily designed for simulations of proteins, lipids\nand nucleic acids. It was originally developed in the Biophysical\nChemistry department of University of Groningen, and is now maintained\nby contributors in universities and research centers across the world.\nGROMACS is one of the fastest and most popular software packages\navailable and can run on CPUs as well as GPUs. It is free, open source\nreleased under the GNU General Public License. Starting from version\n4.6, GROMACS is released under the GNU Lesser General Public License."
-        },
-        {
-            "name": "kadath",
-            "description": "KADATH SPECTRAL SOLVER. The Frankfurt University/Kadath (FUKA) Initial\nData solver branch is a collection of ID solvers aimed at delivering\nconsistent initial data (ID) solutions to the eXtended Conformal Thin-\nSandwich (XCTS) formulation of Einstein's field equations for a variety\nof compact object configurations to include extremely compact,\nasymmetric, and mixed spin binaries."
-        },
-        {
-            "name": "hpcc",
-            "description": "HPC Challenge is a benchmark suite that measures a range memory access\npatterns. The HPC Challenge benchmark consists of basically 7 tests: 1)\nHPL - the Linpack TPP benchmark which measures the floating point rate\nof execution for solving a linear system of equations. 2) DGEMM -\nmeasures the floating point rate of execution of double precision real\nmatrix-matrix multiplication. 3) STREAM - a simple synthetic benchmark\nprogram that measures sustainable memory bandwidth (in GB/s) and the\ncorresponding computation rate for simple vector kernel. 4) PTRANS\n(parallel matrix transpose) - exercises the communications where pairs\nof processors communicate with each other simultaneously. It is a useful\ntest of the total communications capacity of the network. 5)\nRandomAccess - measures the rate of integer random updates of memory\n(GUPS). 6) FFT - measures the floating point rate of execution of double\nprecision complex one-dimensional Discrete Fourier Transform (DFT). 7)\nCommunication bandwidth and latency - a set of tests to measure latency\nand bandwidth of a number of simultaneous communication patterns; based\non b_eff (effective bandwidth benchmark)."
+            "name": "gromacs-chain-coordinate",
+            "description": "A modification of GROMACS that implements the \"chain coordinate\", a\nreaction coordinate for pore formation in membranes and stalk formation\nbetween membranes."
         },
         {
             "name": "votca-tools",
             "description": "Versatile Object-oriented Toolkit for Coarse-graining Applications\n(VOTCA) is a package intended to reduce the amount of routine work when\ndoing systematic coarse-graining of various systems. The core is written\nin C++. This package contains the basic tools library of VOTCA."
         },
         {
-            "name": "ngspice",
-            "description": "ngspice is the open source spice simulator for electric and electronic\ncircuits."
-        },
-        {
-            "name": "sirius",
-            "description": "Domain specific library for electronic structure calculations"
-        },
-        {
             "name": "abinit",
             "description": "ABINIT is a package whose main program allows one to find the total\nenergy, charge density and electronic structure of systems made of\nelectrons and nuclei (molecules and periodic solids) within Density\nFunctional Theory (DFT), using pseudopotentials and a planewave or\nwavelet basis. ABINIT also includes options to optimize the geometry\naccording to the DFT forces and stresses, or to perform molecular\ndynamics simulations using these forces, or to generate dynamical\nmatrices, Born effective charges, and dielectric tensors, based on\nDensity-Functional Perturbation Theory, and many more properties.\nExcited states can be computed within the Many-Body Perturbation Theory\n(the GW approximation and the Bethe-Salpeter equation), and Time-\nDependent Density Functional Theory (for molecules). In addition to the\nmain ABINIT code, different utility programs are provided."
         },
         {
+            "name": "octopus",
+            "description": "A real-space finite-difference (time-dependent) density-functional\ntheory code."
+        },
+        {
+            "name": "lammps",
+            "description": "LAMMPS stands for Large-scale Atomic/Molecular Massively Parallel\nSimulator. This package uses patch releases, not stable release. See\nhttps://github.com/spack/spack/pull/5342 for a detailed discussion."
+        },
+        {
+            "name": "kadath",
+            "description": "KADATH SPECTRAL SOLVER. The Frankfurt University/Kadath (FUKA) Initial\nData solver branch is a collection of ID solvers aimed at delivering\nconsistent initial data (ID) solutions to the eXtended Conformal Thin-\nSandwich (XCTS) formulation of Einstein's field equations for a variety\nof compact object configurations to include extremely compact,\nasymmetric, and mixed spin binaries."
+        },
+        {
+            "name": "cdo",
+            "description": "CDO is a collection of command line Operators to manipulate and analyse\nClimate and NWP model Data."
+        },
+        {
+            "name": "cp2k",
+            "description": "CP2K is a quantum chemistry and solid state physics software package\nthat can perform atomistic simulations of solid state, liquid,\nmolecular, periodic, material, crystal, and biological systems"
+        },
+        {
             "name": "arrayfire",
             "description": "ArrayFire is a high performance software library for parallel computing\nwith an easy-to-use API. Its array based function set makes parallel\nprogramming more accessible."
+        },
+        {
+            "name": "gromacs",
+            "description": "GROMACS (GROningen MAchine for Chemical Simulations) is a molecular\ndynamics package primarily designed for simulations of proteins, lipids\nand nucleic acids. It was originally developed in the Biophysical\nChemistry department of University of Groningen, and is now maintained\nby contributors in universities and research centers across the world.\nGROMACS is one of the fastest and most popular software packages\navailable and can run on CPUs as well as GPUs. It is free, open source\nreleased under the GNU General Public License. Starting from version\n4.6, GROMACS is released under the GNU Lesser General Public License."
+        },
+        {
+            "name": "rmgdft",
+            "description": "RMGDFT is a high performance real-space density functional code designed\nfor large scale electronic structure calculations."
+        },
+        {
+            "name": "hpcc",
+            "description": "HPC Challenge is a benchmark suite that measures a range memory access\npatterns. The HPC Challenge benchmark consists of basically 7 tests: 1)\nHPL - the Linpack TPP benchmark which measures the floating point rate\nof execution for solving a linear system of equations. 2) DGEMM -\nmeasures the floating point rate of execution of double precision real\nmatrix-matrix multiplication. 3) STREAM - a simple synthetic benchmark\nprogram that measures sustainable memory bandwidth (in GB/s) and the\ncorresponding computation rate for simple vector kernel. 4) PTRANS\n(parallel matrix transpose) - exercises the communications where pairs\nof processors communicate with each other simultaneously. It is a useful\ntest of the total communications capacity of the network. 5)\nRandomAccess - measures the rate of integer random updates of memory\n(GUPS). 6) FFT - measures the floating point rate of execution of double\nprecision complex one-dimensional Discrete Fourier Transform (DFT). 7)\nCommunication bandwidth and latency - a set of tests to measure latency\nand bandwidth of a number of simultaneous communication patterns; based\non b_eff (effective bandwidth benchmark)."
+        },
+        {
+            "name": "speexdsp",
+            "description": "SpeexDSP is a patent-free, Open Source/Free Software DSP library."
+        },
+        {
+            "name": "spfft",
+            "description": "Sparse 3D FFT library with MPI, OpenMP, CUDA and ROCm support."
         },
         {
             "name": "itk",
@@ -201,20 +227,20 @@
             "description": "Portable C library of density functionals with van der Waals\ninteractions for density functional theory"
         },
         {
-            "name": "cdo",
-            "description": "CDO is a collection of command line Operators to manipulate and analyse\nClimate and NWP model Data."
+            "name": "openfoam",
+            "description": "OpenFOAM is a GPL-opensource C++ CFD-toolbox. This offering is supported\nby OpenCFD Ltd, producer and distributor of the OpenFOAM software via\nwww.openfoam.com, and owner of the OPENFOAM trademark. OpenCFD Ltd has\nbeen developing and releasing OpenFOAM since its debut in 2004."
         },
         {
-            "name": "octopus",
-            "description": "A real-space finite-difference (time-dependent) density-functional\ntheory code."
+            "name": "ngspice",
+            "description": "ngspice is the open source spice simulator for electric and electronic\ncircuits."
         },
         {
-            "name": "spfft",
-            "description": "Sparse 3D FFT library with MPI, OpenMP, CUDA and ROCm support."
+            "name": "quantum-espresso",
+            "description": "Quantum ESPRESSO is an integrated suite of Open-Source computer codes\nfor electronic-structure calculations and materials modeling at the\nnanoscale. It is based on density-functional theory, plane waves, and\npseudopotentials."
         },
         {
-            "name": "gromacs-chain-coordinate",
-            "description": "A modification of GROMACS that implements the \"chain coordinate\", a\nreaction coordinate for pore formation in membranes and stalk formation\nbetween membranes."
+            "name": "sirius",
+            "description": "Domain specific library for electronic structure calculations"
         }
     ]
 }

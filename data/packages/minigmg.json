@@ -9,16 +9,56 @@
     ],
     "build_system": "Package",
     "conflicts": [],
-    "variants": [],
+    "variants": [
+        {
+            "name": "vec",
+            "default": "ompif",
+            "description": "Which method of vectorisation to use"
+        },
+        {
+            "name": "opt",
+            "default": false,
+            "description": "Enable optimization flags for improved OpenMP"
+        }
+    ],
     "homepage": "http://crd.lbl.gov/departments/computer-science/PAR/research/previous-projects/miniGMG/",
     "maintainers": [],
-    "patches": [],
+    "patches": [
+        {
+            "owner": "builtin.minigmg",
+            "sha256": "41a3422f0e28d0f0ba785b6ceaabe4e57c015a5aaed43fdf16619ffdfdae55d3",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "simde.patch",
+            "version": "vec=simde"
+        },
+        {
+            "owner": "builtin.minigmg",
+            "sha256": "819fe72412126805873a8f7720d9422597ab0dadd509c0b1ff5bc0dbd11782d7",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "aarch64_time.patch",
+            "version": "arch=linux-None-aarch64:"
+        },
+        {
+            "owner": "builtin.minigmg",
+            "sha256": "f4dad8e5d961e61f884208b6cf7b44cff646ba43af56d2fc5a556b8f20143700",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "inline_static.patch",
+            "version": ""
+        }
+    ],
     "resources": [],
     "description": "miniGMG is a compact benchmark for understanding the performance\nchallenges associated with geometric multigrid solvers found in\napplications built from AMR MG frameworks like CHOMBO or BoxLib when\nrunning on modern multi- and manycore-based supercomputers. It includes\nboth productive reference examples as well as highly-optimized\nimplementations for CPUs and GPUs. It is sufficiently general that it\nhas been used to evaluate a broad range of research topics including\nPGAS programming models and algorithmic tradeoffs inherit in multigrid.\nminiGMG was developed under the CACHE Joint Math-CS Institute. Note,\nminiGMG code has been supersceded by HPGMG.\n",
     "dependencies": [
         {
             "name": "mpi",
-            "description": "MPICH is a high performance and widely portable implementation of the\nMessage Passing Interface (MPI) standard."
+            "description": "An open source Message Passing Interface implementation. The Open MPI\nProject is an open source Message Passing Interface implementation that\nis developed and maintained by a consortium of academic, research, and\nindustry partners. Open MPI is therefore able to combine the expertise,\ntechnologies, and resources from all across the High Performance\nComputing community in order to build the best MPI library available.\nOpen MPI offers advantages for system and software vendors, application\ndevelopers and computer science researchers."
+        },
+        {
+            "name": "simde",
+            "description": "The SIMDe header-only library provides fast, portable implementations of\nSIMD intrinsics on hardware which doesn't natively support them, such as\ncalling SSE functions on ARM. There is no performance penalty if the\nhardware supports the native implementation (e.g., SSE/AVX runs at full\nspeed on x86, NEON on ARM, etc.)."
         }
     ],
     "dependent_to": []
