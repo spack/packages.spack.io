@@ -3,6 +3,10 @@
     "aliases": [],
     "versions": [
         {
+            "name": "6.23.1",
+            "sha256": "23a1b0488aec5719e2f9e399342e10f30d497cbb9fd39470ef0975c1b502ae35"
+        },
+        {
             "name": "5.3.0",
             "sha256": "c9fdb53fe3bf1f8e7dcca1a7dd6e430862502f088aca2903d141511212e79429"
         },
@@ -29,7 +33,23 @@
     ],
     "build_system": "PythonPackage",
     "conflicts": [],
-    "variants": [],
+    "variants": [
+        {
+            "name": "django",
+            "default": false,
+            "description": "Enable django support"
+        },
+        {
+            "name": "numpy",
+            "default": false,
+            "description": "Enable numpy support"
+        },
+        {
+            "name": "pandas",
+            "default": false,
+            "description": "Enable pandas support"
+        }
+    ],
     "homepage": "https://github.com/HypothesisWorks/hypothesis-python",
     "maintainers": [
         "adamjstewart"
@@ -57,16 +77,32 @@
         {
             "name": "py-sortedcontainers",
             "description": "Sorted Containers is an Apache2 licensed sorted collections library,\nwritten in pure-Python, and fast as C-extensions."
-        }
-    ],
-    "dependent_to": [
+        },
         {
-            "name": "py-torch",
-            "description": "Tensors and Dynamic neural networks in Python with strong GPU\nacceleration."
+            "name": "py-django",
+            "description": "The Web framework for perfectionists with deadlines."
+        },
+        {
+            "name": "py-pytz",
+            "description": "World timezone definitions, modern and historical."
         },
         {
             "name": "py-numpy",
             "description": "NumPy is the fundamental package for scientific computing with Python.\nIt contains among other things: a powerful N-dimensional array object,\nsophisticated (broadcasting) functions, tools for integrating C/C++ and\nFortran code, and useful linear algebra, Fourier transform, and random\nnumber capabilities"
+        },
+        {
+            "name": "py-pandas",
+            "description": "pandas is a fast, powerful, flexible and easy to use open source data\nanalysis and manipulation tool, built on top of the Python programming\nlanguage."
+        }
+    ],
+    "dependent_to": [
+        {
+            "name": "py-numpy",
+            "description": "NumPy is the fundamental package for scientific computing with Python.\nIt contains among other things: a powerful N-dimensional array object,\nsophisticated (broadcasting) functions, tools for integrating C/C++ and\nFortran code, and useful linear algebra, Fourier transform, and random\nnumber capabilities"
+        },
+        {
+            "name": "py-torch",
+            "description": "Tensors and Dynamic neural networks in Python with strong GPU\nacceleration."
         }
     ]
 }
