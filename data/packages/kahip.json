@@ -7,12 +7,23 @@
             "branch": "master"
         },
         {
+            "name": "3.11",
+            "sha256": "347575d48c306b92ab6e47c13fa570e1af1e210255f470e6aa12c2509a8c13e3"
+        },
+        {
             "name": "2.00",
-            "sha256": "1cc9e5b12fea559288d377e8b8b701af1b2b707de8e550d0bda18b36be29d21d"
+            "sha256": "1cc9e5b12fea559288d377e8b8b701af1b2b707de8e550d0bda18b36be29d21d",
+            "url": "https://algo2.iti.kit.edu/schulz/software_releases/KaHIP_2.00.tar.gz",
+            "deprecated": true
         }
     ],
-    "build_system": "SConsPackage",
+    "build_system": "CMakePackage",
     "conflicts": [
+        {
+            "name": "+ipo",
+            "spec": "^cmake@:3.8",
+            "description": "+ipo is not supported by CMake < 3.9"
+        },
         {
             "name": "%apple-clang",
             "spec": "",
@@ -24,9 +35,22 @@
             "description": "None"
         }
     ],
-    "variants": [],
+    "variants": [
+        {
+            "name": "build_type",
+            "default": "RelWithDebInfo",
+            "description": "CMake build type"
+        },
+        {
+            "name": "ipo",
+            "default": false,
+            "description": "CMake interprocedural optimization"
+        }
+    ],
     "homepage": "http://algo2.iti.kit.edu/documents/kahip/index.html",
-    "maintainers": [],
+    "maintainers": [
+        "ma595"
+    ],
     "patches": [
         {
             "owner": "builtin.kahip",
@@ -34,7 +58,7 @@
             "level": 1,
             "working_dir": ".",
             "relative_path": "fix-sconstruct-for-py3.patch",
-            "version": "@2: ^python@3:"
+            "version": "@2:2.10 ^python@3:"
         },
         {
             "owner": "builtin.kahip",
@@ -49,6 +73,10 @@
     "description": "KaHIP - Karlsruhe High Quality Partitioning - is a family of graph\npartitioning programs. It includes KaFFPa (Karlsruhe Fast Flow\nPartitioner), which is a multilevel graph partitioning algorithm, in its\nvariants Strong, Eco and Fast, KaFFPaE (KaFFPaEvolutionary) which is a\nparallel evolutionary algorithm that uses KaFFPa to provide combine and\nmutation operations, as well as KaBaPE which extends the evolutionary\nalgorithm. Moreover, specialized techniques are included to partition\nroad networks (Buffoon), to output a vertex separator from a given\npartition or techniques geared towards efficient partitioning of social\nnetworks.\n",
     "dependencies": [
         {
+            "name": "cmake",
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
+        },
+        {
             "name": "scons",
             "description": "SCons is a software construction tool"
         },
@@ -58,7 +86,7 @@
         },
         {
             "name": "mpi",
-            "description": "Intel Parallel Studio."
+            "description": "Fujitsu MPI implementation only for Fujitsu compiler."
         }
     ],
     "dependent_to": [
