@@ -1,0 +1,93 @@
+{
+    "name": "salome-med",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "4.1.0",
+            "sha256": "847db5d6fbc9ce6924cb4aea86362812c9a5ef6b9684377e4dd6879627651fce"
+        },
+        {
+            "name": "4.0.0",
+            "sha256": "a474e90b5882ce69c5e9f66f6359c53b8b73eb448c5f631fa96e8cd2c14df004"
+        },
+        {
+            "name": "3.3.1",
+            "sha256": "856e9c4bb75eb0cceac3d5a5c65b1ce52fb3c46b9182920e1c9f34ae69bd2d5f"
+        },
+        {
+            "name": "3.2.0",
+            "sha256": "d52e9a1bdd10f31aa154c34a5799b48d4266dc6b4a5ee05a9ceda525f2c6c138"
+        }
+    ],
+    "build_system": "CMakePackage",
+    "conflicts": [
+        {
+            "name": "+ipo",
+            "spec": "^cmake@:3.8",
+            "description": "+ipo is not supported by CMake < 3.9"
+        }
+    ],
+    "variants": [
+        {
+            "name": "build_type",
+            "default": "RelWithDebInfo",
+            "description": "CMake build type"
+        },
+        {
+            "name": "ipo",
+            "default": false,
+            "description": "CMake interprocedural optimization"
+        },
+        {
+            "name": "mpi",
+            "default": false,
+            "description": "Enable MPI"
+        },
+        {
+            "name": "static",
+            "default": false,
+            "description": "Enable static library build"
+        },
+        {
+            "name": "fortran",
+            "default": false,
+            "description": "Enable Fortran"
+        }
+    ],
+    "homepage": "https://docs.salome-platform.org/latest/dev/MEDCoupling/developer/med-file.html",
+    "maintainers": [
+        "franciskloss"
+    ],
+    "patches": [
+        {
+            "owner": "builtin.salome-med",
+            "sha256": "7a1b541fe3b11c5800f92741aa03f5e16aa62e847b9a7d78e258dc2c2aefbfeb",
+            "level": 1,
+            "working_dir": "./tools/medimport/4.0.0",
+            "relative_path": "MAJ_400_410_champs.patch",
+            "version": "@4.1.0+static"
+        }
+    ],
+    "resources": [],
+    "description": "salome-med is the MED file format that is the SALOME platform standard\nfile for meshes and fields and salome-med is based on HDF5 library.\n",
+    "dependencies": [
+        {
+            "name": "cmake",
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
+        },
+        {
+            "name": "mpi",
+            "description": "MPItrampoline: A forwarding MPI implementation that can use any other\nMPI implementation via an MPI ABI."
+        },
+        {
+            "name": "hdf5",
+            "description": "HDF5 is a data model, library, and file format for storing and managing\ndata. It supports an unlimited variety of datatypes, and is designed for\nflexible and efficient I/O and for high volume and complex data."
+        }
+    ],
+    "dependent_to": [
+        {
+            "name": "salome-medcoupling",
+            "description": "salome-medcoupling is a part of SALOME platform to manipulate meshes and\nfields in memory, and use salome-med format for files."
+        }
+    ]
+}
