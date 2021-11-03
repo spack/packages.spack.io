@@ -10,7 +10,23 @@
     ],
     "build_system": "MakefilePackage",
     "conflicts": [],
-    "variants": [],
+    "variants": [
+        {
+            "name": "X",
+            "default": false,
+            "description": "Build with X11 support."
+        },
+        {
+            "name": "png",
+            "default": true,
+            "description": "Enable driver for Portable Network Graphics file."
+        },
+        {
+            "name": "ps",
+            "default": true,
+            "description": "Enable driver for PostScript files."
+        }
+    ],
     "homepage": "https://sites.astro.caltech.edu/~tjp/pgplot/",
     "maintainers": [
         "eschnett"
@@ -18,24 +34,49 @@
     "patches": [
         {
             "owner": "builtin.pgplot",
-            "sha256": "8bc4fed7fd8d8c76cb20eaadf418d73a1e30d9de75814fc4b35328e4af0d0664",
+            "sha256": "e341960a08a7d02d1e72e919b6a49119ceee1705a49a5b1e4fc592e669d9d823",
             "level": 1,
             "working_dir": ".",
             "relative_path": "g77_gcc.conf.patch",
+            "version": ""
+        },
+        {
+            "owner": "builtin.pgplot",
+            "sha256": "e22026eb642fb749e73dc15e2b77525cea78245557050b9bca3e9700c5e560ec",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "pndriv.c.patch",
+            "version": ""
+        },
+        {
+            "owner": "builtin.pgplot",
+            "sha256": "1732c27cf4626d8a2348006223c314e2f885f67e351eeba2787c78bf87121679",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "grsy00.f.patch",
             "version": ""
         }
     ],
     "resources": [],
     "description": "PGPLOT Graphics Subroutine Library The PGPLOT Graphics Subroutine\nLibrary is a Fortran- or C-callable, device-independent graphics package\nfor making simple scientific graphs. It is intended for making graphical\nimages of publication quality with minimum effort on the part of the\nuser. For most applications, the program can be device-independent, and\nthe output can be directed to the appropriate device at run time.\n",
-    "dependencies": [],
-    "dependent_to": [
+    "dependencies": [
         {
-            "name": "kadath",
-            "description": "KADATH SPECTRAL SOLVER. The Frankfurt University/Kadath (FUKA) Initial\nData solver branch is a collection of ID solvers aimed at delivering\nconsistent initial data (ID) solutions to the eXtended Conformal Thin-\nSandwich (XCTS) formulation of Einstein's field equations for a variety\nof compact object configurations to include extremely compact,\nasymmetric, and mixed spin binaries."
+            "name": "libx11",
+            "description": "libX11 - Core X11 protocol client library."
         },
+        {
+            "name": "libpng",
+            "description": "libpng is the official PNG reference library."
+        }
+    ],
+    "dependent_to": [
         {
             "name": "lorene",
             "description": "LORENE: Langage Objet pour la RElativite NumeriquE LORENE is a set of\nC++ classes to solve various problems arising in numerical relativity,\nand more generally in computational astrophysics. It provides tools to\nsolve partial differential equations by means of multi-domain spectral\nmethods."
+        },
+        {
+            "name": "kadath",
+            "description": "KADATH SPECTRAL SOLVER. The Frankfurt University/Kadath (FUKA) Initial\nData solver branch is a collection of ID solvers aimed at delivering\nconsistent initial data (ID) solutions to the eXtended Conformal Thin-\nSandwich (XCTS) formulation of Einstein's field equations for a variety\nof compact object configurations to include extremely compact,\nasymmetric, and mixed spin binaries."
         }
     ]
 }
