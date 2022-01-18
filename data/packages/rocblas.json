@@ -3,6 +3,10 @@
     "aliases": [],
     "versions": [
         {
+            "name": "4.5.0",
+            "sha256": "22d15a1389a10f1324f5e0ceac1a6ec0758a2801a18419a55e37e2bc63793eaf"
+        },
+        {
             "name": "4.3.1",
             "sha256": "ad3c09573cb2bcfdb12bfb5a05e85f9c95073993fd610981df24dda792727b4b"
         },
@@ -49,6 +53,56 @@
             "name": "+ipo",
             "spec": "^cmake@:3.8",
             "description": "+ipo is not supported by CMake < 3.9"
+        },
+        {
+            "name": "tensile_architecture=gfx906",
+            "spec": "@4.0.1:",
+            "description": "None"
+        },
+        {
+            "name": "tensile_architecture=gfx908",
+            "spec": "@4.0.1:",
+            "description": "None"
+        },
+        {
+            "name": "tensile_architecture=gfx906:xnack-",
+            "spec": "@:4.0.0",
+            "description": "None"
+        },
+        {
+            "name": "tensile_architecture=gfx908:xnack-",
+            "spec": "@:4.0.0",
+            "description": "None"
+        },
+        {
+            "name": "tensile_architecture=gfx90a:xnack+",
+            "spec": "@:4.2.1",
+            "description": "None"
+        },
+        {
+            "name": "tensile_architecture=gfx90a:xnack-",
+            "spec": "@:4.2.1",
+            "description": "None"
+        },
+        {
+            "name": "tensile_architecture=gfx1010",
+            "spec": "@:4.2.1",
+            "description": "None"
+        },
+        {
+            "name": "tensile_architecture=gfx1011",
+            "spec": "@:4.2.1",
+            "description": "None"
+        },
+        {
+            "name": "tensile_architecture=gfx1012",
+            "spec": "@:4.2.1",
+            "description": "None"
+        },
+        {
+            "name": "tensile_architecture=gfx1030",
+            "spec": "@:4.2.1",
+            "description": "None"
         }
     ],
     "variants": [
@@ -144,6 +198,12 @@
             "name": "Tensile",
             "destination": "",
             "placement": null
+        },
+        {
+            "version": "@4.5.0",
+            "name": "Tensile",
+            "destination": "",
+            "placement": null
         }
     ],
     "description": "Radeon Open Compute BLAS library\n",
@@ -211,44 +271,48 @@
     ],
     "dependent_to": [
         {
-            "name": "miopen-hip",
-            "description": "AMD's library for high performance machine learning primitives."
+            "name": "spla",
+            "description": "Specialized Parallel Linear Algebra, providing distributed GEMM\nfunctionality for specific matrix distributions with optional GPU\nacceleration."
         },
         {
-            "name": "rocalution",
-            "description": "rocALUTION is a sparse linear algebra library with focus on exploring\nfine-grained parallelism on top of AMD's Radeon Open eCosystem Platform\nROCm runtime and toolchains, targeting modern CPU and GPU platforms.\nBased on C++ and HIP, it provides a portable, generic and flexible\ndesign that allows seamless integration with other scientific software\npackages."
-        },
-        {
-            "name": "rocm-validation-suite",
-            "description": "The ROCm Validation Suite (RVS) is a system administrators and cluster\nmanager's tool for detecting and troubleshooting common problems\naffecting AMD GPU(s) running in a high-performance computing\nenvironment, enabled using the ROCm software stack on a compatible\nplatform."
-        },
-        {
-            "name": "elpa",
-            "description": "Eigenvalue solvers for Petaflop-Applications (ELPA)"
-        },
-        {
-            "name": "tasmanian",
-            "description": "The Toolkit for Adaptive Stochastic Modeling and Non-Intrusive\nApproximatioN is a robust library for high dimensional integration and\ninterpolation as well as parameter calibration."
+            "name": "hipsolver",
+            "description": "hipSOLVER is a LAPACK marshalling library, with multiple supported\nbackends. It sits between the application and a 'worker' LAPACK library,\nmarshalling inputs into the backend library and marshalling results back\nto the application. hipSOLVER exports an interface that does not require\nthe client to change, regardless of the chosen backend. Currently,\nhipSOLVER supports rocSOLVER and cuSOLVER as backends."
         },
         {
             "name": "migraphx",
             "description": "AMD's graph optimization engine."
         },
         {
-            "name": "blaspp",
-            "description": "C++ API for the Basic Linear Algebra Subroutines. Developed by the\nInnovative Computing Laboratory at the University of Tennessee,\nKnoxville."
-        },
-        {
             "name": "sirius",
             "description": "Domain specific library for electronic structure calculations"
         },
         {
-            "name": "spla",
-            "description": "Specialized Parallel Linear Algebra, providing distributed GEMM\nfunctionality for specific matrix distributions with optional GPU\nacceleration."
+            "name": "miopen-hip",
+            "description": "AMD's library for high performance machine learning primitives."
         },
         {
             "name": "cosma",
             "description": "Distributed Communication-Optimal Matrix-Matrix Multiplication Library"
+        },
+        {
+            "name": "rocalution",
+            "description": "rocALUTION is a sparse linear algebra library with focus on exploring\nfine-grained parallelism on top of AMD's Radeon Open eCosystem Platform\nROCm runtime and toolchains, targeting modern CPU and GPU platforms.\nBased on C++ and HIP, it provides a portable, generic and flexible\ndesign that allows seamless integration with other scientific software\npackages."
+        },
+        {
+            "name": "elpa",
+            "description": "Eigenvalue solvers for Petaflop-Applications (ELPA)"
+        },
+        {
+            "name": "blaspp",
+            "description": "C++ API for the Basic Linear Algebra Subroutines. Developed by the\nInnovative Computing Laboratory at the University of Tennessee,\nKnoxville."
+        },
+        {
+            "name": "rocm-validation-suite",
+            "description": "The ROCm Validation Suite (RVS) is a system administrators and cluster\nmanager's tool for detecting and troubleshooting common problems\naffecting AMD GPU(s) running in a high-performance computing\nenvironment, enabled using the ROCm software stack on a compatible\nplatform."
+        },
+        {
+            "name": "petsc",
+            "description": "PETSc is a suite of data structures and routines for the scalable\n(parallel) solution of scientific applications modeled by partial\ndifferential equations."
         },
         {
             "name": "hipblas",
@@ -257,6 +321,10 @@
         {
             "name": "rocsolver",
             "description": "rocSOLVER is a work-in-progress implementation of a subset of LAPACK\nfunctionality on the ROCm platform."
+        },
+        {
+            "name": "tasmanian",
+            "description": "The Toolkit for Adaptive Stochastic Modeling and Non-Intrusive\nApproximatioN is a robust library for high dimensional integration and\ninterpolation as well as parameter calibration."
         }
     ]
 }

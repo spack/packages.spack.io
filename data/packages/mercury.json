@@ -8,6 +8,10 @@
             "submodules": true
         },
         {
+            "name": "2.1.0",
+            "sha256": "9a58437161e9273b1b1c484d2f1a477a89eea9afe84575415025d47656f3761b"
+        },
+        {
             "name": "2.0.1",
             "sha256": "335946d9620ac669643ffd9861a5fb3ee486834bab674b7779eaac9d6662e3fa"
         },
@@ -34,16 +38,6 @@
             "name": "+ipo",
             "spec": "^cmake@:3.8",
             "description": "+ipo is not supported by CMake < 3.9"
-        },
-        {
-            "name": "+ofi",
-            "spec": "@:0.9",
-            "description": "None"
-        },
-        {
-            "name": "~ofi",
-            "spec": "+udreg",
-            "description": "None"
         }
     ],
     "variants": [
@@ -63,11 +57,6 @@
             "description": "Use BMI plugin"
         },
         {
-            "name": "cci",
-            "default": false,
-            "description": "Use CCI plugin"
-        },
-        {
             "name": "mpi",
             "default": false,
             "description": "Use MPI plugin"
@@ -81,6 +70,11 @@
             "name": "sm",
             "default": true,
             "description": "Use shared-memory plugin"
+        },
+        {
+            "name": "ucx",
+            "default": false,
+            "description": "Use UCX plugin"
         },
         {
             "name": "boostsys",
@@ -135,7 +129,7 @@
         },
         {
             "name": "mpi",
-            "description": "The NVIDIA HPC SDK is a comprehensive suite of compilers, libraries and\ntools essential to maximizing developer productivity and the performance\nand portability of HPC applications. The NVIDIA HPC SDK C, C++, and\nFortran compilers support GPU acceleration of HPC modeling and\nsimulation applications with standard C++ and Fortran, OpenACC\ndirectives, and CUDA. GPU-accelerated math libraries maximize\nperformance on common HPC algorithms, and optimized communications\nlibraries enable standards-based multi-GPU and scalable systems\nprogramming. Performance profiling and debugging tools simplify porting\nand optimization of HPC applications."
+            "description": "The HPC-X MPI implementation from NVIDIA/Mellanox based on OpenMPI. This\npackage is for external specs only."
         },
         {
             "name": "libfabric",
@@ -148,24 +142,28 @@
         {
             "name": "boost",
             "description": "Boost provides free peer-reviewed portable C++ source libraries,\nemphasizing libraries that work well with the C++ Standard Library.\nBoost libraries are intended to be widely useful, and usable across a\nbroad spectrum of applications. The Boost license encourages both\ncommercial and non-commercial use."
+        },
+        {
+            "name": "ucx",
+            "description": "a communication library implementing high-performance messaging for\nMPI/PGAS frameworks"
         }
     ],
     "dependent_to": [
-        {
-            "name": "mochi-margo",
-            "description": "A library that provides Argobots bindings to the Mercury RPC\nimplementation."
-        },
         {
             "name": "pdc",
             "description": "Proactive Data Containers (PDC) software provides an object-centric API\nand a runtime system with a set of data object management services.\nThese services allow placing data in the memory and storage hierarchy,\nperforming data movement asynchronously, and providing scalable metadata\noperations to find data objects."
         },
         {
-            "name": "unifyfs",
-            "description": "User level file system that enables applications to use node-local\nstorage as burst buffers for shared files. Supports scalable and\nefficient aggregation of I/O bandwidth from burst buffers while having\nthe same life cycle as a batch-submitted job. UnifyFS is designed to\nsupport common I/O workloads, including checkpoint/restart. While\nprimarily designed for N-N write/read, UnifyFS compliments its\nfunctionality with the support for N-1 write/read."
+            "name": "mochi-margo",
+            "description": "A library that provides Argobots bindings to the Mercury RPC\nimplementation."
         },
         {
             "name": "margo",
             "description": "A library that provides Argobots bindings to the Mercury RPC\nimplementation. This name will be deprecated soon; please use the mochi-\nmargo package instead."
+        },
+        {
+            "name": "unifyfs",
+            "description": "User level file system that enables applications to use node-local\nstorage as burst buffers for shared files. Supports scalable and\nefficient aggregation of I/O bandwidth from burst buffers while having\nthe same life cycle as a batch-submitted job. UnifyFS is designed to\nsupport common I/O workloads, including checkpoint/restart. While\nprimarily designed for N-N write/read, UnifyFS compliments its\nfunctionality with the support for N-1 write/read."
         }
     ]
 }

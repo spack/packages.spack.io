@@ -3,6 +3,10 @@
     "aliases": [],
     "versions": [
         {
+            "name": "4.5.0",
+            "sha256": "187777ed49cc7c496c897e8ba80532d458c9afbc51a960e45f96923ad896c18e"
+        },
+        {
             "name": "4.3.1",
             "sha256": "7b1f774774de5fa3d2b777e3a262328559d56165c32aa91b002505694362e7b2"
         },
@@ -69,13 +73,42 @@
         "arjun-raj-kuppala",
         "haampie"
     ],
-    "patches": [],
+    "patches": [
+        {
+            "owner": "builtin.hipblas",
+            "sha256": "15d79d6565f1d6219536237a1c2324019ca5810c91b044da4af2d8da3b4c9747",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "link-clients-blas.patch",
+            "version": "@4.3.0:4.3.2"
+        },
+        {
+            "owner": "builtin.hipblas",
+            "sha256": "a2cc151b6ade1ed08452d4dac6dbec092b25d51a2da24e4bad9e95b91a04d925",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "link-clients-blas-4.5.0.patch",
+            "version": "@4.5.0:"
+        }
+    ],
     "resources": [],
     "description": "hipBLAS is a BLAS marshalling library, with multiple supported backends\n",
     "dependencies": [
         {
             "name": "cmake",
             "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
+        },
+        {
+            "name": "googletest",
+            "description": "Google test framework for C++. Also called gtest."
+        },
+        {
+            "name": "netlib-lapack",
+            "description": "LAPACK version 3.X is a comprehensive FORTRAN library that does linear\nalgebra operations including matrix inversions, least squared solutions\nto linear sets of equations, eigenvector analysis, singular value\ndecomposition, etc. It is a very comprehensive and reputable package\nthat has found extensive use in the scientific community."
+        },
+        {
+            "name": "boost",
+            "description": "Boost provides free peer-reviewed portable C++ source libraries,\nemphasizing libraries that work well with the C++ Standard Library.\nBoost libraries are intended to be widely useful, and usable across a\nbroad spectrum of applications. The Boost license encourages both\ncommercial and non-commercial use."
         },
         {
             "name": "hip",
@@ -100,20 +133,16 @@
     ],
     "dependent_to": [
         {
-            "name": "dbcsr",
-            "description": "Distributed Block Compressed Sparse Row matrix library."
-        },
-        {
-            "name": "libceed",
-            "description": "The CEED API Library: Code for Efficient Extensible Discretizations."
-        },
-        {
             "name": "magma",
             "description": "The MAGMA project aims to develop a dense linear algebra library similar\nto LAPACK but for heterogeneous/hybrid architectures, starting with\ncurrent \"Multicore+GPU\" systems."
         },
         {
-            "name": "heffte",
-            "description": "Highly Efficient FFT for Exascale"
+            "name": "hiop",
+            "description": "HiOp is an optimization solver for solving certain mathematical\noptimization problems expressed as nonlinear programming problems. HiOp\nis a lightweight HPC solver that leverages application\"s existing data\nparallelism to parallelize the optimization iterations by using\nspecialized linear algebra kernels."
+        },
+        {
+            "name": "superlu-dist",
+            "description": "A general purpose library for the direct solution of large, sparse,\nnonsymmetric systems of linear equations on high performance machines."
         },
         {
             "name": "petsc",
@@ -126,6 +155,18 @@
         {
             "name": "ginkgo",
             "description": "High-performance linear algebra library for manycore systems, with a\nfocus on sparse solution of linear systems."
+        },
+        {
+            "name": "libceed",
+            "description": "The CEED API Library: Code for Efficient Extensible Discretizations."
+        },
+        {
+            "name": "heffte",
+            "description": "Highly Efficient FFT for Exascale"
+        },
+        {
+            "name": "dbcsr",
+            "description": "Distributed Block Compressed Sparse Row matrix library."
         }
     ]
 }

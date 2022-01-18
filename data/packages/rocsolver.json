@@ -3,6 +3,10 @@
     "aliases": [],
     "versions": [
         {
+            "name": "4.5.0",
+            "sha256": "0295862da941f31f4d43b19195b79331bd17f5968032f75c89d2791a6f8c1e8c"
+        },
+        {
             "name": "4.3.1",
             "sha256": "c6e7468d7041718ce6e1c7f50ec80a552439ac9cfed2dc3f753ae417dda5724f"
         },
@@ -79,13 +83,34 @@
         "arjun-raj-kuppala",
         "haampie"
     ],
-    "patches": [],
+    "patches": [
+        {
+            "owner": "builtin.rocsolver",
+            "sha256": "bed776208b4903367a4fd4d59c45738306b8177f871cccc7e10ff3fa398f5c67",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "link-clients-blas.patch",
+            "version": "@4.3.0:4.3.2"
+        }
+    ],
     "resources": [],
     "description": "rocSOLVER is a work-in-progress implementation of a subset of LAPACK\nfunctionality on the ROCm platform.\n",
     "dependencies": [
         {
             "name": "cmake",
             "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
+        },
+        {
+            "name": "fmt",
+            "description": "fmt (formerly cppformat) is an open-source formatting library. It can be\nused as a safe alternative to printf or as a fast alternative to C++\nIOStreams."
+        },
+        {
+            "name": "googletest",
+            "description": "Google test framework for C++. Also called gtest."
+        },
+        {
+            "name": "netlib-lapack",
+            "description": "LAPACK version 3.X is a comprehensive FORTRAN library that does linear\nalgebra operations including matrix inversions, least squared solutions\nto linear sets of equations, eigenvector analysis, singular value\ndecomposition, etc. It is a very comprehensive and reputable package\nthat has found extensive use in the scientific community."
         },
         {
             "name": "hip",
@@ -101,6 +126,18 @@
         }
     ],
     "dependent_to": [
+        {
+            "name": "hipsolver",
+            "description": "hipSOLVER is a LAPACK marshalling library, with multiple supported\nbackends. It sits between the application and a 'worker' LAPACK library,\nmarshalling inputs into the backend library and marshalling results back\nto the application. hipSOLVER exports an interface that does not require\nthe client to change, regardless of the chosen backend. Currently,\nhipSOLVER supports rocSOLVER and cuSOLVER as backends."
+        },
+        {
+            "name": "superlu-dist",
+            "description": "A general purpose library for the direct solution of large, sparse,\nnonsymmetric systems of linear equations on high performance machines."
+        },
+        {
+            "name": "petsc",
+            "description": "PETSc is a suite of data structures and routines for the scalable\n(parallel) solution of scientific applications modeled by partial\ndifferential equations."
+        },
         {
             "name": "strumpack",
             "description": "STRUMPACK -- STRUctured Matrix PACKage - provides linear solvers for\nsparse matrices and for dense rank-structured matrices, i.e., matrices\nthat exhibit some kind of low-rank property. It provides a distributed\nmemory fully algebraic sparse solver and preconditioner. The\npreconditioner is mostly aimed at large sparse linear systems which\nresult from the discretization of a partial differential equation, but\nis not limited to any particular type of problem. STRUMPACK also\nprovides preconditioned GMRES and BiCGStab iterative solvers."

@@ -7,6 +7,10 @@
             "branch": "develop"
         },
         {
+            "name": "6.0.0",
+            "sha256": "c7178e54df20a9363ae3e5ac5b3ee9db756a4ddd4b8fff045127e93b73b151f4"
+        },
+        {
             "name": "5.8.0",
             "sha256": "d4ed403351f72434d347df592da6c91a69452071860525385b3339c824e8a213"
         },
@@ -132,6 +136,11 @@
         {
             "name": "~rocm",
             "spec": "amdgpu_target=gfx908",
+            "description": "None"
+        },
+        {
+            "name": "~rocm",
+            "spec": "amdgpu_target=gfx90a",
             "description": "None"
         },
         {
@@ -673,6 +682,16 @@
             "name": "+superlu-mt",
             "spec": "@:2.7.0~lapack",
             "description": "None"
+        },
+        {
+            "name": "+rocm+examples",
+            "spec": "@6.0.0",
+            "description": "None"
+        },
+        {
+            "name": "+caliper",
+            "spec": "~profiling",
+            "description": "None"
         }
     ],
     "variants": [
@@ -737,6 +756,16 @@
             "description": "Enable KINSOL solver"
         },
         {
+            "name": "cstd",
+            "default": "99",
+            "description": "C language standard"
+        },
+        {
+            "name": "cxxstd",
+            "default": "14",
+            "description": "C++ language standard"
+        },
+        {
             "name": "precision",
             "default": "double",
             "description": "real type precision"
@@ -770,6 +799,11 @@
             "name": "sycl",
             "default": false,
             "description": "Enable SYCL vector"
+        },
+        {
+            "name": "caliper",
+            "default": false,
+            "description": "Enable Caliper instrumentation/profiling"
         },
         {
             "name": "hypre",
@@ -845,13 +879,18 @@
             "name": "monitoring",
             "default": false,
             "description": "Build with simulation monitoring capabilities"
+        },
+        {
+            "name": "profiling",
+            "default": false,
+            "description": "Build with profiling capabilities"
         }
     ],
     "homepage": "https://computing.llnl.gov/projects/sundials",
     "maintainers": [
+        "balos1",
         "cswoodward",
-        "gardner48",
-        "balos1"
+        "gardner48"
     ],
     "patches": [
         {
@@ -920,27 +959,31 @@
         },
         {
             "name": "mpi",
-            "description": "The NVIDIA HPC SDK is a comprehensive suite of compilers, libraries and\ntools essential to maximizing developer productivity and the performance\nand portability of HPC applications. The NVIDIA HPC SDK C, C++, and\nFortran compilers support GPU acceleration of HPC modeling and\nsimulation applications with standard C++ and Fortran, OpenACC\ndirectives, and CUDA. GPU-accelerated math libraries maximize\nperformance on common HPC algorithms, and optimized communications\nlibraries enable standards-based multi-GPU and scalable systems\nprogramming. Performance profiling and debugging tools simplify porting\nand optimization of HPC applications."
+            "description": "The HPC-X MPI implementation from NVIDIA/Mellanox based on OpenMPI. This\npackage is for external specs only."
         },
         {
             "name": "raja",
             "description": "RAJA Parallel Framework."
         },
         {
-            "name": "lapack",
-            "description": "Intel oneAPI MKL."
+            "name": "caliper",
+            "description": "Caliper is a program instrumentation and performance measurement\nframework. It is designed as a performance analysis toolbox in a\nlibrary, allowing one to bake performance analysis capabilities directly\ninto applications and activate them at runtime."
         },
         {
-            "name": "suite-sparse",
-            "description": "SuiteSparse is a suite of sparse matrix algorithms"
+            "name": "lapack",
+            "description": "Automatically Tuned Linear Algebra Software, generic shared ATLAS is an\napproach for the automatic generation and optimization of numerical\nsoftware. Currently ATLAS supplies optimized versions for the complete\nset of linear algebra kernels known as the Basic Linear Algebra\nSubroutines (BLAS), and a subset of the linear algebra routines in the\nLAPACK library."
+        },
+        {
+            "name": "hypre",
+            "description": "Hypre is a library of high performance preconditioners that features\nparallel multigrid methods for both structured and unstructured grid\nproblems."
         },
         {
             "name": "petsc",
             "description": "PETSc is a suite of data structures and routines for the scalable\n(parallel) solution of scientific applications modeled by partial\ndifferential equations."
         },
         {
-            "name": "hypre",
-            "description": "Hypre is a library of high performance preconditioners that features\nparallel multigrid methods for both structured and unstructured grid\nproblems."
+            "name": "suite-sparse",
+            "description": "SuiteSparse is a suite of sparse matrix algorithms"
         },
         {
             "name": "superlu-dist",
@@ -957,36 +1000,36 @@
     ],
     "dependent_to": [
         {
-            "name": "fastmath",
-            "description": "FASTMath is a suite of ~15 numerical libraries frequently used together\nin various SciDAC and CSE applications. The suite includes\ndiscretization libraries for structured, AMR and unstructured grids as\nwell as solver libraries for ODE's, Time Integrators, Iterative, Non-\nLinear, and Direct Solvers."
+            "name": "amrex",
+            "description": "AMReX is a publicly available software framework designed for building\nmassively parallel block- structured adaptive mesh refinement (AMR)\napplications."
         },
         {
             "name": "mfem",
             "description": "Free, lightweight, scalable C++ library for finite element methods."
         },
         {
-            "name": "cantera",
-            "description": "Cantera is a suite of object-oriented software tools for problems\ninvolving chemical kinetics, thermodynamics, and/or transport processes."
+            "name": "dealii",
+            "description": "C++ software library providing well-documented tools to build finite\nelement codes for a broad variety of PDEs."
         },
         {
             "name": "xsdk",
             "description": "Xsdk is a suite of Department of Energy (DOE) packages for numerical\nsimulation. This is a Spack bundle package that installs the xSDK\npackages"
         },
         {
-            "name": "amrex",
-            "description": "AMReX is a publicly available software framework designed for building\nmassively parallel block- structured adaptive mesh refinement (AMR)\napplications."
-        },
-        {
-            "name": "uqtk",
-            "description": "Sandia Uncertainty Quantification Toolkit. The UQ Toolkit (UQTk) is a\ncollection of libraries and tools for the quantification of uncertainty\nin numerical model predictions"
-        },
-        {
             "name": "amp",
             "description": "The Advanced Multi-Physics (AMP) package. The Advanced Multi-Physics\n(AMP) package is an open source parallel object-oriented computational\nframework that is designed with single and multi-domain multi-physics\napplications in mind."
         },
         {
-            "name": "dealii",
-            "description": "C++ software library providing well-documented tools to build finite\nelement codes for a broad variety of PDEs."
+            "name": "fastmath",
+            "description": "FASTMath is a suite of ~15 numerical libraries frequently used together\nin various SciDAC and CSE applications. The suite includes\ndiscretization libraries for structured, AMR and unstructured grids as\nwell as solver libraries for ODE's, Time Integrators, Iterative, Non-\nLinear, and Direct Solvers."
+        },
+        {
+            "name": "cantera",
+            "description": "Cantera is a suite of object-oriented software tools for problems\ninvolving chemical kinetics, thermodynamics, and/or transport processes."
+        },
+        {
+            "name": "uqtk",
+            "description": "Sandia Uncertainty Quantification Toolkit. The UQ Toolkit (UQTk) is a\ncollection of libraries and tools for the quantification of uncertainty\nin numerical model predictions"
         }
     ]
 }

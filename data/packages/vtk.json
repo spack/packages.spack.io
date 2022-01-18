@@ -3,8 +3,13 @@
     "aliases": [],
     "versions": [
         {
+            "name": "9.1.0",
+            "sha256": "8fed42f4f8f1eb8083107b68eaa9ad71da07110161a3116ad807f43e5ca5ce96"
+        },
+        {
             "name": "9.0.3",
-            "sha256": "bc3eb9625b2b8dbfecb6052a2ab091fc91405de4333b0ec68f3323815154ed8a"
+            "sha256": "bc3eb9625b2b8dbfecb6052a2ab091fc91405de4333b0ec68f3323815154ed8a",
+            "preferred": true
         },
         {
             "name": "9.0.1",
@@ -151,6 +156,22 @@
         },
         {
             "owner": "builtin.vtk",
+            "sha256": "760fd6d098d1d545b200bb297cbf0df5d010d8f62b7bead9011d0b0eeebad252",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "internal_findHDF5.patch",
+            "version": "@:8"
+        },
+        {
+            "owner": "builtin.vtk",
+            "sha256": "87656ca858fabf3260de60b4f87ce59082f38d9b11e7c31f9d5836da5b245485",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "vtk-adios2-module-no-kit.patch",
+            "version": "@:9.0.3"
+        },
+        {
+            "owner": "builtin.vtk",
             "sha256": "35cdaf691eb63a88931a2c6c33b67eea6e23192e681acc0eee7c1f7aca464f9a",
             "level": 1,
             "working_dir": ".",
@@ -211,7 +232,7 @@
         },
         {
             "name": "mpi",
-            "description": "The NVIDIA HPC SDK is a comprehensive suite of compilers, libraries and\ntools essential to maximizing developer productivity and the performance\nand portability of HPC applications. The NVIDIA HPC SDK C, C++, and\nFortran compilers support GPU acceleration of HPC modeling and\nsimulation applications with standard C++ and Fortran, OpenACC\ndirectives, and CUDA. GPU-accelerated math libraries maximize\nperformance on common HPC algorithms, and optimized communications\nlibraries enable standards-based multi-GPU and scalable systems\nprogramming. Performance profiling and debugging tools simplify porting\nand optimization of HPC applications."
+            "description": "The HPC-X MPI implementation from NVIDIA/Mellanox based on OpenMPI. This\npackage is for external specs only."
         },
         {
             "name": "expat",
@@ -231,7 +252,7 @@
         },
         {
             "name": "jpeg",
-            "description": "libjpeg-turbo is a fork of the original IJG libjpeg which uses SIMD to\naccelerate baseline JPEG compression and decompression. libjpeg is a\nlibrary that implements JPEG image encoding, decoding and transcoding."
+            "description": "libjpeg is a widely used free library with functions for handling the\nJPEG image data format. It implements a JPEG codec (encoding and\ndecoding) alongside various utilities for handling JPEG data."
         },
         {
             "name": "jsoncpp",
@@ -275,25 +296,53 @@
         },
         {
             "name": "sqlite",
-            "description": "SQLite3 is an SQL database engine in a C library. Programs that link the\nSQLite3 library can have SQL database access without running a separate\nRDBMS process."
+            "description": "SQLite is a C-language library that implements a small, fast, self-\ncontained, high-reliability, full-featured, SQL database engine."
+        },
+        {
+            "name": "pugixml",
+            "description": "Light-weight, simple, and fast XML parser for C++ with XPath support"
+        },
+        {
+            "name": "libogg",
+            "description": "Ogg is a multimedia container format, and the native file and stream\nformat for the Xiph.org multimedia codecs."
+        },
+        {
+            "name": "libtheora",
+            "description": "Theora Video Compression."
+        },
+        {
+            "name": "utf8cpp",
+            "description": "A simple, portable and lightweight generic library for handling UTF-8\nencoded strings."
+        },
+        {
+            "name": "gl2ps",
+            "description": "GL2PS is a C library providing high quality vector output for any OpenGL\napplication."
+        },
+        {
+            "name": "proj",
+            "description": "PROJ is a generic coordinate transformation software, that transforms\ngeospatial coordinates from one coordinate reference system (CRS) to\nanother. This includes cartographic projections as well as geodetic\ntransformations."
+        },
+        {
+            "name": "cgns",
+            "description": "The CFD General Notation System (CGNS) provides a general, portable, and\nextensible standard for the storage and retrieval of computational fluid\ndynamics (CFD) analysis data."
+        },
+        {
+            "name": "seacas",
+            "description": "The SEACAS Project contains the Exodus and IOSS libraries and a\ncollection of applications which create, query, modify, or translate\nexodus databases. Default is to build the exodus and IOSS libraries and\nthe io_shell, io_info, io_modify, struc_to_unstruc apps."
         }
     ],
     "dependent_to": [
         {
+            "name": "opencv",
+            "description": "OpenCV (Open Source Computer Vision Library) is an open source computer\nvision and machine learning software library."
+        },
+        {
+            "name": "py-pyvista",
+            "description": "Easier Pythonic interface to VTK."
+        },
+        {
             "name": "liggghts",
             "description": "Discrete element method particle simulation."
-        },
-        {
-            "name": "sensei",
-            "description": "SENSEI is a platform for scalable in-situ analysis and visualization.\nIts design motto is 'Write once, run everywhere', this means that once\nthe application is instrumented with SENSEI it can use existing and\nfuture analysis backends. Existing backends include: Paraview/Catalyst,\nVisit/Libsim, ADIOS, Python scripts, and so on."
-        },
-        {
-            "name": "py-mne",
-            "description": "MNE python project for MEG and EEG data analysis."
-        },
-        {
-            "name": "memsurfer",
-            "description": "MemSurfer is a tool to compute and analyze membrane surfaces found in a\nwide variety of large-scale molecular simulations."
         },
         {
             "name": "fsl",
@@ -304,48 +353,60 @@
             "description": "The libMesh library provides a framework for the numerical simulation of\npartial differential equations using arbitrary unstructured\ndiscretizations on serial and parallel platforms."
         },
         {
+            "name": "kassiopeia",
+            "description": "Simulation of electric and magnetic fields and particle tracking."
+        },
+        {
             "name": "opencascade",
             "description": "Open CASCADE Technology is a software development kit (SDK) intended for\ndevelopment of applications dealing with 3D CAD data, freely available\nin open source. It includes a set of C++ class libraries providing\nservices for 3D surface and solid modeling, visualization, data exchange\nand rapid application development."
         },
         {
-            "name": "py-pyvista",
-            "description": "Easier Pythonic interface to VTK."
-        },
-        {
-            "name": "opencv",
-            "description": "OpenCV (Open Source Computer Vision Library) is an open source computer\nvision and machine learning software library."
-        },
-        {
-            "name": "py-mayavi",
-            "description": "Mayavi: 3D visualization of scientific data in Python."
+            "name": "geant4",
+            "description": "Geant4 is a toolkit for the simulation of the passage of particles\nthrough matter. Its areas of application include high energy, nuclear\nand accelerator physics, as well as studies in medical and space\nscience."
         },
         {
             "name": "fenics",
             "description": "FEniCS is organized as a collection of interoperable components that\ntogether form the FEniCS Project. These components include the problem-\nsolving environment DOLFIN, the form compiler FFC, the finite element\ntabulator FIAT, the just-in-time compiler Instant / Dijitso, the code\ngeneration interface UFC, the form language UFL and a range of\nadditional components."
         },
         {
-            "name": "py-damask",
-            "description": "Pre- and post-processing tools for DAMASK"
+            "name": "py-mne",
+            "description": "MNE python project for MEG and EEG data analysis."
+        },
+        {
+            "name": "f3d",
+            "description": "A fast and minimalist scriptable 3D viewer."
+        },
+        {
+            "name": "py-mayavi",
+            "description": "Mayavi: 3D visualization of scientific data in Python."
         },
         {
             "name": "parmmg",
             "description": "ParMMG is a parallel remesher based on MMG"
         },
         {
-            "name": "visit",
-            "description": "VisIt is an Open Source, interactive, scalable, visualization, animation\nand analysis tool. See comments in VisIt's package.py for tips about\nbuilding VisIt with spack. Building VisIt with Spack is still\nexperimental and many standard features are likely disabled\nLINUX-------------------------------------------------------------------\nspack install visit ^python+shared ^glib@2.56.3 ^py-setuptools@44.1.0\nLINUX-W/O-OPENGL--------------------------------------------------------\nspack install visit ^python+shared ^glib@2.56.3 ^py-setuptools@44.1.0 \\\n^mesa+opengl\nMACOS-------------------------------------------------------------------\nspack install visit ^python+shared ^glib@2.56.3 ^py-setuptools@44.1.0 \\\n^qt~framework"
-        },
-        {
             "name": "py-fury",
             "description": "Free Unified Rendering in Python."
         },
         {
-            "name": "kassiopeia",
-            "description": "Simulation of electric and magnetic fields and particle tracking."
+            "name": "memsurfer",
+            "description": "MemSurfer is a tool to compute and analyze membrane surfaces found in a\nwide variety of large-scale molecular simulations."
         },
         {
             "name": "gxsview",
             "description": "Gxsview is a stand-alone multi-platform integrated tool to visualize\ninput data of Monte Carlo radiation transport calculation code, MCNP5,\nand PHITS3. It consists of 3D, 2D, cross-section, and input file\nviewers. Also, this software is capable of exporting in 2D(png, jpg, and\nxpm) or 3D(stl, vtk, vtp and ply) formats."
+        },
+        {
+            "name": "visit",
+            "description": "VisIt is an Open Source, interactive, scalable, visualization, animation\nand analysis tool. See comments in VisIt's package.py for tips about\nbuilding VisIt with spack. Building VisIt with Spack is still\nexperimental and many standard features are likely disabled\nLINUX-------------------------------------------------------------------\nspack install visit ^python+shared ^glib@2.56.3 ^py-setuptools@44.1.0\nLINUX-W/O-OPENGL--------------------------------------------------------\nspack install visit ^python+shared ^glib@2.56.3 ^py-setuptools@44.1.0 \\\n^mesa+opengl\nMACOS-------------------------------------------------------------------\nspack install visit ^python+shared ^glib@2.56.3 ^py-setuptools@44.1.0 \\\n^qt~framework"
+        },
+        {
+            "name": "sensei",
+            "description": "SENSEI is a platform for scalable in-situ analysis and visualization.\nIts design motto is 'Write once, run everywhere', this means that once\nthe application is instrumented with SENSEI it can use existing and\nfuture analysis backends. Existing backends include: Paraview/Catalyst,\nVisit/Libsim, ADIOS, Python scripts, and so on."
+        },
+        {
+            "name": "py-damask",
+            "description": "Pre- and post-processing tools for DAMASK"
         },
         {
             "name": "openfoam",

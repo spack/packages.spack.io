@@ -181,13 +181,13 @@ def main():
                 if name not in package_variants:
                     package_variants[name] = []
                 package_variants[name].append(
-                    {"package": pkg.name, "default": variant.default}
+                    {"package": pkg.name, "default": variant[0].default}
                 )
                 variants.append(
                     {
                         "name": name,
-                        "default": variant.default,
-                        "description": variant.description,
+                        "default": variant[0].default,
+                        "description": variant[0].description,
                     }
                 )
 

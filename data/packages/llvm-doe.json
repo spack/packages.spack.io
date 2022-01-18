@@ -26,6 +26,10 @@
         {
             "name": "pragma-omp-tile",
             "branch": "sollve/pragma-omp-tile"
+        },
+        {
+            "name": "13.0.0",
+            "branch": "llvm.org/llvmorg-13.0.0"
         }
     ],
     "build_system": "CMakePackage",
@@ -91,6 +95,16 @@
             "description": "None"
         },
         {
+            "name": "%gcc@7:",
+            "spec": "@:4+libcxx",
+            "description": "None"
+        },
+        {
+            "name": "%gcc@7:",
+            "spec": "@:4+compiler-rt",
+            "description": "None"
+        },
+        {
             "name": "%gcc@8:",
             "spec": "+cuda ^cuda@:10.0.130 arch=linux-None-x86_64:",
             "description": "None"
@@ -98,6 +112,11 @@
         {
             "name": "%gcc@8:",
             "spec": "+cuda ^cuda@:10.0.130 arch=linux-None-ppc64le:",
+            "description": "None"
+        },
+        {
+            "name": "%gcc@8:",
+            "spec": "@:5",
             "description": "None"
         },
         {
@@ -243,6 +262,16 @@
         {
             "name": "%clang@6:",
             "spec": "+cuda ^cuda@:9.2 arch=linux-None-ppc64le:",
+            "description": "None"
+        },
+        {
+            "name": "%clang@6:",
+            "spec": "@:4+libcxx",
+            "description": "None"
+        },
+        {
+            "name": "%clang@6:",
+            "spec": "@:4+compiler-rt",
             "description": "None"
         },
         {
@@ -451,6 +480,11 @@
             "description": "None"
         },
         {
+            "name": "+link_llvm_dylib",
+            "spec": "~llvm_dylib",
+            "description": "None"
+        },
+        {
             "name": "+lldb",
             "spec": "~clang",
             "description": "None"
@@ -471,9 +505,64 @@
             "description": "None"
         },
         {
-            "name": "%gcc@:5.0",
-            "spec": "",
+            "name": "+flang",
+            "spec": "~clang",
             "description": "None"
+        },
+        {
+            "name": "~mlir",
+            "spec": "+flang",
+            "description": "Flang requires MLIR"
+        },
+        {
+            "name": "%gcc@:5.0",
+            "spec": "@8:",
+            "description": "None"
+        },
+        {
+            "name": "%clang@8:",
+            "spec": "@:4",
+            "description": "None"
+        },
+        {
+            "name": "%gcc@:10",
+            "spec": "@13:+libcxx",
+            "description": "None"
+        },
+        {
+            "name": "%clang@:10",
+            "spec": "@13:+libcxx",
+            "description": "None"
+        },
+        {
+            "name": "%apple-clang@:11",
+            "spec": "@13:+libcxx",
+            "description": "None"
+        },
+        {
+            "name": "%apple-clang@6:",
+            "spec": "@:4+libcxx",
+            "description": "None"
+        },
+        {
+            "name": "%apple-clang@6:",
+            "spec": "@:4+compiler-rt",
+            "description": "None"
+        },
+        {
+            "name": "+omp_tsan",
+            "spec": "@:5",
+            "description": "None"
+        },
+        {
+            "name": "+omp_as_runtime",
+            "spec": "~clang",
+            "description": "omp_as_runtime requires clang being built."
+        },
+        {
+            "name": "+omp_as_runtime",
+            "spec": "@:11.1",
+            "description": "omp_as_runtime works since LLVM 12."
         },
         {
             "name": "cuda_arch=none",
@@ -482,12 +571,7 @@
         },
         {
             "name": "+mlir",
-            "spec": "",
-            "description": "None"
-        },
-        {
-            "name": "+flang",
-            "spec": "~clang",
+            "spec": "@:9",
             "description": "None"
         },
         {
@@ -603,6 +687,11 @@
             "description": "Build LLVM shared library, containing all components in a single shared library"
         },
         {
+            "name": "link_llvm_dylib",
+            "default": false,
+            "description": "Link LLVM tools against the LLVM shared library"
+        },
+        {
             "name": "all_targets",
             "default": false,
             "description": "Build all supported targets, default targets <current arch>,NVPTX,AMDGPU,CppBackend"
@@ -611,6 +700,11 @@
             "name": "omp_tsan",
             "default": false,
             "description": "Build with OpenMP capable thread sanitizer"
+        },
+        {
+            "name": "omp_as_runtime",
+            "default": true,
+            "description": "Build OpenMP runtime via ENABLE_RUNTIME by just-built Clang"
         },
         {
             "name": "argobots",
@@ -626,11 +720,21 @@
             "name": "python",
             "default": false,
             "description": "Install python bindings"
+        },
+        {
+            "name": "version_suffix",
+            "default": "none",
+            "description": "Add a symbol suffix"
+        },
+        {
+            "name": "z3",
+            "default": false,
+            "description": "Use Z3 for the clang static analyzer"
         }
     ],
     "homepage": "https://github.com/llvm-doe-org",
     "maintainers": [
-        "shintaro-iwasaki"
+        "vlkale"
     ],
     "patches": [
         {
@@ -674,8 +778,12 @@
             "description": "The Python programming language."
         },
         {
+            "name": "ninja",
+            "description": "Ninja is a small build system with a focus on speed. It differs from\nother build systems in two major respects: it is designed to have its\ninput files generated by a higher-level build system, and it is designed\nto run builds as fast as possible."
+        },
+        {
             "name": "pkgconfig",
-            "description": "pkg-config is a helper tool used when compiling applications and\nlibraries"
+            "description": "pkgconf is a program which helps to configure compiler and linker flags\nfor development frameworks. It is similar to pkg-config from\nfreedesktop.org, providing additional functionality while also\nmaintaining compatibility."
         },
         {
             "name": "z3",

@@ -3,8 +3,18 @@
     "aliases": [],
     "versions": [
         {
+            "name": "master",
+            "branch": "master",
+            "submodules": true
+        },
+        {
             "name": "2020.0",
-            "branch": "Dalton2020.0",
+            "tag": "2020.0",
+            "submodules": true
+        },
+        {
+            "name": "2018.2",
+            "tag": "2018.2",
             "submodules": true
         }
     ],
@@ -14,25 +24,95 @@
             "name": "+ipo",
             "spec": "^cmake@:3.8",
             "description": "+ipo is not supported by CMake < 3.9"
+        },
+        {
+            "name": "%gcc@10:",
+            "spec": "@2018.2",
+            "description": "Dalton 2018.2 cannot be built with GCC >= 10, please use an older version or a different compiler suite."
         }
     ],
     "variants": [
         {
             "name": "build_type",
-            "default": "RelWithDebInfo",
+            "default": "Release",
             "description": "CMake build type"
         },
         {
             "name": "ipo",
             "default": false,
             "description": "CMake interprocedural optimization"
+        },
+        {
+            "name": "ilp64",
+            "default": false,
+            "description": "Use 64-bit integers"
+        },
+        {
+            "name": "mpi",
+            "default": true,
+            "description": "Use MPI"
+        },
+        {
+            "name": "gen1int",
+            "default": true,
+            "description": "Build Gen1Int library"
+        },
+        {
+            "name": "pelib",
+            "default": true,
+            "description": "Build PE library to enable polarizable embedding calculations"
+        },
+        {
+            "name": "pde",
+            "default": true,
+            "description": "Enable polarizable density embedding through the PE library"
+        },
+        {
+            "name": "qfitlib",
+            "default": true,
+            "description": "Build QFIT library"
         }
     ],
     "homepage": "https://daltonprogram.org",
-    "maintainers": [],
-    "patches": [],
+    "maintainers": [
+        "foeroyingur"
+    ],
+    "patches": [
+        {
+            "owner": "builtin.dalton",
+            "sha256": "9066440043ab764bd981d684b9759f2e3243d79202037bcf3ed7f7e1ccb7b22c",
+            "level": 1,
+            "working_dir": "external/pelib",
+            "relative_path": "pelib-master.patch",
+            "version": "@master%gcc@10:+mpi+pelib"
+        },
+        {
+            "owner": "builtin.dalton",
+            "sha256": "9bf586139e087d5a32300d965f3d14ff91229a9b0cd4c1fe62491ba2aef0f294",
+            "level": 1,
+            "working_dir": "external/pelib",
+            "relative_path": "pelib-2020.0.patch",
+            "version": "@2020.0%gcc@10:+mpi+pelib"
+        },
+        {
+            "owner": "builtin.dalton",
+            "sha256": "1764898f2fb2782bfd65e9d3e7461f01aed04c707bd04b8dadda7adb81159e7f",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "soppa-2018.2.patch",
+            "version": "@2018.2%intel"
+        },
+        {
+            "owner": "builtin.dalton",
+            "sha256": "530585aeac1f5bcf95593d75bb4159e615c720fbbc9cb30aa7bb9c526890426f",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "cbiexc-2018.2.patch",
+            "version": "@2018.2%intel"
+        }
+    ],
     "resources": [],
-    "description": " The Dalto nprogram is designed to allow convenient, automated\ndetermination of a largenumber of molecular properties based on an HF,\nHF-srDFT, DFT, MP2, CC, CI, MCSCF or MC-srDFT reference wave function.\n",
+    "description": "Molecular electronic-structure program with extensive functionality for\ncalculations of molecular properties at the HF, DFT, MCSCF, MC-srDFT,\nand CC levels of theory.\n",
     "dependencies": [
         {
             "name": "cmake",
@@ -40,15 +120,19 @@
         },
         {
             "name": "blas",
-            "description": "Intel oneAPI MKL."
+            "description": "BLIS is a portable software framework for instantiating high-performance\nBLAS-like dense linear algebra libraries. The framework was designed to\nisolate essential kernels of computation that, when optimized,\nimmediately enable optimized implementations of most of its commonly\nused and computationally intensive operations. BLIS is written in ISO\nC99 and available under a new/modified/3-clause BSD license. While BLIS\nexports a new BLAS-like API, it also includes a BLAS compatibility layer\nwhich gives application developers access to BLIS implementations via\ntraditional BLAS routine calls. An object-based API unique to BLIS is\nalso available."
         },
         {
             "name": "lapack",
-            "description": "Intel oneAPI MKL."
+            "description": "Automatically Tuned Linear Algebra Software, generic shared ATLAS is an\napproach for the automatic generation and optimization of numerical\nsoftware. Currently ATLAS supplies optimized versions for the complete\nset of linear algebra kernels known as the Basic Linear Algebra\nSubroutines (BLAS), and a subset of the linear algebra routines in the\nLAPACK library."
+        },
+        {
+            "name": "hdf5",
+            "description": "HDF5 is a data model, library, and file format for storing and managing\ndata. It supports an unlimited variety of datatypes, and is designed for\nflexible and efficient I/O and for high volume and complex data."
         },
         {
             "name": "mpi",
-            "description": "The NVIDIA HPC SDK is a comprehensive suite of compilers, libraries and\ntools essential to maximizing developer productivity and the performance\nand portability of HPC applications. The NVIDIA HPC SDK C, C++, and\nFortran compilers support GPU acceleration of HPC modeling and\nsimulation applications with standard C++ and Fortran, OpenACC\ndirectives, and CUDA. GPU-accelerated math libraries maximize\nperformance on common HPC algorithms, and optimized communications\nlibraries enable standards-based multi-GPU and scalable systems\nprogramming. Performance profiling and debugging tools simplify porting\nand optimization of HPC applications."
+            "description": "The HPC-X MPI implementation from NVIDIA/Mellanox based on OpenMPI. This\npackage is for external specs only."
         }
     ],
     "dependent_to": []

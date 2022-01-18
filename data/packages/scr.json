@@ -8,8 +8,11 @@
         },
         {
             "name": "legacy",
-            "branch": "legacy",
-            "deprecated": true
+            "branch": "legacy"
+        },
+        {
+            "name": "3.0rc2",
+            "sha256": "4b2a718af56b3683e428d25a2269c038e9452db734221d370e3023a491477fad"
         },
         {
             "name": "3.0rc1",
@@ -17,8 +20,7 @@
         },
         {
             "name": "2.0.0",
-            "sha256": "471978ae0afb56a20847d3989b994fbd680d1dea21e77a5a46a964b6e3deed6b",
-            "deprecated": true
+            "sha256": "471978ae0afb56a20847d3989b994fbd680d1dea21e77a5a46a964b6e3deed6b"
         },
         {
             "name": "1.2.2",
@@ -44,9 +46,14 @@
             "description": "+ipo is not supported by CMake < 3.9"
         },
         {
-            "name": "~dtcmp",
-            "spec": "@3:",
-            "description": "<SCR> DTCMP required for versions >=3"
+            "name": "~shared",
+            "spec": "+bbapi",
+            "description": "See SCR issue #453"
+        },
+        {
+            "name": "~shared",
+            "spec": "+examples",
+            "description": "See SCR issue #455"
         }
     ],
     "variants": [
@@ -69,6 +76,11 @@
             "name": "libyogrt",
             "default": true,
             "description": "Build SCR with libyogrt for get_time_remaining."
+        },
+        {
+            "name": "pdsh",
+            "default": true,
+            "description": "Enable use of PDSH"
         },
         {
             "name": "scr_config",
@@ -96,14 +108,39 @@
             "description": "Asynchronous data transfer API to use with SCR."
         },
         {
+            "name": "bbapi",
+            "default": true,
+            "description": "Enable IBM BBAPI support"
+        },
+        {
             "name": "bbapi_fallback",
-            "default": "False",
+            "default": false,
             "description": "Using BBAPI, if source or destination don't support             file extents then fallback to pthreads"
+        },
+        {
+            "name": "dw",
+            "default": false,
+            "description": "Enable Cray DataWarp support"
+        },
+        {
+            "name": "examples",
+            "default": true,
+            "description": "Build SCR example programs"
         },
         {
             "name": "file_lock",
             "default": "FLOCK",
             "description": "File locking style for SCR."
+        },
+        {
+            "name": "shared",
+            "default": true,
+            "description": "Build with shared libraries"
+        },
+        {
+            "name": "tests",
+            "default": true,
+            "description": "Build with CTest included"
         },
         {
             "name": "cache_base",
@@ -117,7 +154,10 @@
         }
     ],
     "homepage": "https://computing.llnl.gov/projects/scalable-checkpoint-restart-for-mpi",
-    "maintainers": [],
+    "maintainers": [
+        "CamStan",
+        "gonsie"
+    ],
     "patches": [],
     "resources": [],
     "description": "SCR caches checkpoint data in storage on the compute nodes of a Linux\ncluster to provide a fast, scalable checkpoint/restart capability for\nMPI codes\n",
@@ -127,20 +167,20 @@
             "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
         },
         {
-            "name": "pdsh",
-            "description": "PDSH: a high performance, parallel remote shell utility"
+            "name": "mpi",
+            "description": "The HPC-X MPI implementation from NVIDIA/Mellanox based on OpenMPI. This\npackage is for external specs only."
         },
         {
             "name": "zlib",
             "description": "A free, general-purpose, legally unencumbered lossless data-compression\nlibrary."
         },
         {
-            "name": "mpi",
-            "description": "The NVIDIA HPC SDK is a comprehensive suite of compilers, libraries and\ntools essential to maximizing developer productivity and the performance\nand portability of HPC applications. The NVIDIA HPC SDK C, C++, and\nFortran compilers support GPU acceleration of HPC modeling and\nsimulation applications with standard C++ and Fortran, OpenACC\ndirectives, and CUDA. GPU-accelerated math libraries maximize\nperformance on common HPC algorithms, and optimized communications\nlibraries enable standards-based multi-GPU and scalable systems\nprogramming. Performance profiling and debugging tools simplify porting\nand optimization of HPC applications."
-        },
-        {
             "name": "axl",
             "description": "Asynchronous transfer library"
+        },
+        {
+            "name": "dtcmp",
+            "description": "The Datatype Comparison Library provides comparison operations and\nparallel sort algorithms for MPI applications."
         },
         {
             "name": "er",
@@ -167,12 +207,12 @@
             "description": "Represent and manipulate file system paths"
         },
         {
-            "name": "dtcmp",
-            "description": "The Datatype Comparison Library provides comparison operations and\nparallel sort algorithms for MPI applications."
-        },
-        {
             "name": "libyogrt",
             "description": "Your One Get Remaining Time Library."
+        },
+        {
+            "name": "pdsh",
+            "description": "PDSH: a high performance, parallel remote shell utility"
         }
     ],
     "dependent_to": [

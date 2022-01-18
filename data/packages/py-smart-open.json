@@ -3,6 +3,10 @@
     "aliases": [],
     "versions": [
         {
+            "name": "5.2.1",
+            "sha256": "75abf758717a92a8f53aa96953f0c245c8cedf8e1e4184903db3659b419d4c17"
+        },
+        {
             "name": "1.10.0",
             "sha256": "bea5624c0c2e49987c227bdf3596573157eccd96fd1d53198856c8d53948fa2c"
         },
@@ -13,10 +17,31 @@
     ],
     "build_system": "PythonPackage",
     "conflicts": [],
-    "variants": [],
+    "variants": [
+        {
+            "name": "gcs",
+            "default": false,
+            "description": "Adds Google Cloud support"
+        },
+        {
+            "name": "s3",
+            "default": false,
+            "description": "Adds AWS S3 support"
+        },
+        {
+            "name": "http",
+            "default": true,
+            "description": "Adds http and webhdfs support"
+        },
+        {
+            "name": "azure",
+            "default": false,
+            "description": "Adds Microsoft Azure Support"
+        }
+    ],
     "homepage": "https://github.com/piskvorky/smart_open",
     "maintainers": [
-        "adamjstewart"
+        "marcusboden"
     ],
     "patches": [],
     "resources": [],
@@ -31,30 +56,46 @@
             "description": "A Python utility that aids in the process of downloading, building,\nupgrading, installing, and uninstalling Python packages."
         },
         {
-            "name": "py-requests",
-            "description": "Python HTTP for Humans."
+            "name": "py-google-cloud-storage",
+            "description": "Google Cloud Storage API client library."
         },
         {
             "name": "py-boto3",
             "description": "The AWS SDK for Python."
         },
         {
-            "name": "py-boto",
-            "description": "Boto is a Python package that provides interfaces to Amazon Web\nServices."
+            "name": "py-requests",
+            "description": "Python HTTP for Humans."
         },
         {
-            "name": "py-google-cloud-storage",
-            "description": "Google Cloud Storage API client library."
+            "name": "py-azure-storage-blob",
+            "description": "Microsoft Azure Blob Storage Client Library for Python"
+        },
+        {
+            "name": "py-azure-common",
+            "description": "Microsoft Azure Client Library for Python (Common)."
+        },
+        {
+            "name": "py-azure-core",
+            "description": "Microsoft Azure Core Library for Python."
         },
         {
             "name": "py-bz2file",
             "description": "Python library for reading and writing bzip2-compressed files."
+        },
+        {
+            "name": "py-boto",
+            "description": "Boto is a Python package that provides interfaces to Amazon Web\nServices."
         }
     ],
     "dependent_to": [
         {
             "name": "py-gensim",
             "description": "Gensim is a Python library for topic modelling, document indexing and\nsimilarity retrieval with large corpora. Target audience is the natural\nlanguage processing (NLP) and information retrieval (IR) community."
+        },
+        {
+            "name": "snakemake",
+            "description": "Snakemake is an MIT-licensed workflow management system."
         }
     ]
 }

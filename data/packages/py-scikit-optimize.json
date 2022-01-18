@@ -3,6 +3,10 @@
     "aliases": [],
     "versions": [
         {
+            "name": "master",
+            "branch": "master"
+        },
+        {
             "name": "0.5.2",
             "sha256": "1d7657a4b8ef9aa6d81e49b369c677c584e83269f11710557741d3b3f8fa0a75"
         }
@@ -14,13 +18,27 @@
             "name": "plots",
             "default": true,
             "description": "Build with plot support from py-matplotlib"
+        },
+        {
+            "name": "gptune",
+            "default": false,
+            "description": "Build with patches for GPTune"
         }
     ],
     "homepage": "https://scikit-optimize.github.io",
     "maintainers": [
-        "adamjstewart"
+        "liuyangzhuan"
     ],
-    "patches": [],
+    "patches": [
+        {
+            "owner": "builtin.py-scikit-optimize",
+            "sha256": "21f43c946412111d8aa2243aa45399add052ccd11e475d6d0521ad4d9c3ca788",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "space.patch",
+            "version": "+gptune"
+        }
+    ],
     "resources": [],
     "description": "Scikit-Optimize, or skopt, is a simple and efficient library to minimize\n(very) expensive and noisy black-box functions. It implements several\nmethods for sequential model-based optimization. skopt aims to be\naccessible and easy to use in many contexts. The library is built on top\nof NumPy, SciPy and Scikit-Learn.\n",
     "dependencies": [
@@ -45,14 +63,18 @@
             "description": "A set of python modules for machine learning and data mining."
         },
         {
+            "name": "py-pyyaml",
+            "description": "PyYAML is a YAML parser and emitter for Python."
+        },
+        {
             "name": "py-matplotlib",
             "description": "Matplotlib is a comprehensive library for creating static, animated, and\ninteractive visualizations in Python."
         }
     ],
     "dependent_to": [
         {
-            "name": "py-ytopt",
-            "description": "Ytopt package implements search using Random Forest (SuRF), an\nautotuning search method developed within Y-Tune ECP project."
+            "name": "gptune",
+            "description": "GPTune is an autotuning framework that relies on multitask and transfer\nlearnings to help solve the underlying black-box optimization problem\nusing Bayesian optimization methodologies."
         }
     ]
 }

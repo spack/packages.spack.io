@@ -3,60 +3,81 @@
     "aliases": [],
     "versions": [
         {
+            "name": "2021.11.001",
+            "sha256": "fb361da6c59946661b73e51538d419028f763d7cb9dacf9d8cd5c9cd3fb7802f"
+        },
+        {
+            "name": "2021.05.002_bugfix",
+            "sha256": "deabc48de5b9e4b2f073d749d335c8f354a7ce4245b643a23b7951cd6c90224b"
+        },
+        {
             "name": "2021.05.001",
             "sha256": "a4f1a4e3964f2473a5f8177f2091a9da5c6b5ef9280b8272dfefcbc3aad44d41"
         },
         {
             "name": "2020.05.001",
-            "sha256": "66ff1cf332ce1c82075dc7b5587ae72511d2bcb3a45322c94af6b01996439ce5"
+            "sha256": "66ff1cf332ce1c82075dc7b5587ae72511d2bcb3a45322c94af6b01996439ce5",
+            "deprecated": true
         },
         {
             "name": "2019.11.001",
-            "sha256": "10374a8f042e23c7e1094230f7e2993b6f3580908a213dbdf089792d05aff357"
+            "sha256": "10374a8f042e23c7e1094230f7e2993b6f3580908a213dbdf089792d05aff357",
+            "deprecated": true
         },
         {
             "name": "2019.05.002",
-            "sha256": "d2eab5e5d74f53601220b00d18185670da8c00c13e1c1559ecfb0cd7cb2c4e8d"
+            "sha256": "d2eab5e5d74f53601220b00d18185670da8c00c13e1c1559ecfb0cd7cb2c4e8d",
+            "deprecated": true
         },
         {
             "name": "2018.11.001",
-            "sha256": "cc27fe8ba46ce6e6faa8aea02c8c9983052f8e73a00cfea38abf7613cb1e1b16"
+            "sha256": "cc27fe8ba46ce6e6faa8aea02c8c9983052f8e73a00cfea38abf7613cb1e1b16",
+            "deprecated": true
         },
         {
             "name": "2018.05.001.rc1",
-            "sha256": "598c01da20600a4514ea4d503b93e977ac0367e797cab7a7c1b0e0e3e86490db"
+            "sha256": "598c01da20600a4514ea4d503b93e977ac0367e797cab7a7c1b0e0e3e86490db",
+            "deprecated": true
         },
         {
             "name": "2017.11.001",
-            "sha256": "59f99c3abe2190fac0db8a301d0b9581ee134f438669dbc92551a54f6f861820"
+            "sha256": "59f99c3abe2190fac0db8a301d0b9581ee134f438669dbc92551a54f6f861820",
+            "deprecated": true
         },
         {
             "name": "2017.05.003",
-            "sha256": "bccd49ce35a323bd734b17642aed8f2588fea4cc78ee8133d88554753bc3bf1b"
+            "sha256": "bccd49ce35a323bd734b17642aed8f2588fea4cc78ee8133d88554753bc3bf1b",
+            "deprecated": true
         },
         {
             "name": "2017.05.002",
-            "sha256": "568b71024c094d667b5cbb23045ad197ed5434071152ac608dae490ace5eb0aa"
+            "sha256": "568b71024c094d667b5cbb23045ad197ed5434071152ac608dae490ace5eb0aa",
+            "deprecated": true
         },
         {
             "name": "2017.05.001",
-            "sha256": "28f7edad60984d93da299016ad33571dc6db1cdc9fab0ceaef05dc07de2c7dfd"
+            "sha256": "28f7edad60984d93da299016ad33571dc6db1cdc9fab0ceaef05dc07de2c7dfd",
+            "deprecated": true
         },
         {
             "name": "2016.11.001.pre",
-            "sha256": "69b67f0f6faaa2b3b5fd848127b632be32771636d2ad04583c5269d550956f92"
+            "sha256": "69b67f0f6faaa2b3b5fd848127b632be32771636d2ad04583c5269d550956f92",
+            "deprecated": true
         },
         {
             "name": "2016.05.004",
-            "sha256": "08c59dc9da458bab856f489d779152e5506e04f0d4b8d6dcf114ca5fbbe46c58"
+            "sha256": "08c59dc9da458bab856f489d779152e5506e04f0d4b8d6dcf114ca5fbbe46c58",
+            "deprecated": true
         },
         {
             "name": "2016.05.003",
-            "sha256": "c8da50c987351514e61491e14390cdea4bdbf5b09045261991876ed5b433fca4"
+            "sha256": "c8da50c987351514e61491e14390cdea4bdbf5b09045261991876ed5b433fca4",
+            "deprecated": true
         },
         {
             "name": "2015.11.001",
-            "sha256": "c0761a92a31c08a4009c9688c85fc3fc8fde9b6ce05e514c3e1587cf045e9eba"
+            "sha256": "c0761a92a31c08a4009c9688c85fc3fc8fde9b6ce05e514c3e1587cf045e9eba",
+            "deprecated": true
         }
     ],
     "build_system": "AutotoolsPackage",
@@ -104,6 +125,11 @@
         {
             "name": "~rocm",
             "spec": "amdgpu_target=gfx908",
+            "description": "None"
+        },
+        {
+            "name": "~rocm",
+            "spec": "amdgpu_target=gfx90a",
             "description": "None"
         },
         {
@@ -577,6 +603,11 @@
             "name": "mpi",
             "default": true,
             "description": "Activates MPI support"
+        },
+        {
+            "name": "autotune",
+            "default": false,
+            "description": "Enables autotuning for matrix restribution"
         }
     ],
     "homepage": "https://elpa.mpcdf.mpg.de/",
@@ -616,19 +647,19 @@
         },
         {
             "name": "blas",
-            "description": "Intel oneAPI MKL."
+            "description": "BLIS is a portable software framework for instantiating high-performance\nBLAS-like dense linear algebra libraries. The framework was designed to\nisolate essential kernels of computation that, when optimized,\nimmediately enable optimized implementations of most of its commonly\nused and computationally intensive operations. BLIS is written in ISO\nC99 and available under a new/modified/3-clause BSD license. While BLIS\nexports a new BLAS-like API, it also includes a BLAS compatibility layer\nwhich gives application developers access to BLIS implementations via\ntraditional BLAS routine calls. An object-based API unique to BLIS is\nalso available."
         },
         {
             "name": "lapack",
-            "description": "Intel oneAPI MKL."
+            "description": "Automatically Tuned Linear Algebra Software, generic shared ATLAS is an\napproach for the automatic generation and optimization of numerical\nsoftware. Currently ATLAS supplies optimized versions for the complete\nset of linear algebra kernels known as the Basic Linear Algebra\nSubroutines (BLAS), and a subset of the linear algebra routines in the\nLAPACK library."
         },
         {
             "name": "mpi",
-            "description": "The NVIDIA HPC SDK is a comprehensive suite of compilers, libraries and\ntools essential to maximizing developer productivity and the performance\nand portability of HPC applications. The NVIDIA HPC SDK C, C++, and\nFortran compilers support GPU acceleration of HPC modeling and\nsimulation applications with standard C++ and Fortran, OpenACC\ndirectives, and CUDA. GPU-accelerated math libraries maximize\nperformance on common HPC algorithms, and optimized communications\nlibraries enable standards-based multi-GPU and scalable systems\nprogramming. Performance profiling and debugging tools simplify porting\nand optimization of HPC applications."
+            "description": "The HPC-X MPI implementation from NVIDIA/Mellanox based on OpenMPI. This\npackage is for external specs only."
         },
         {
             "name": "scalapack",
-            "description": "Intel oneAPI MKL."
+            "description": "ScaLAPACK is a library of high-performance linear algebra routines for\nparallel distributed memory machines. It depends on external libraries\nincluding BLAS and LAPACK for Linear Algebra computations. AMD's\noptimized version of ScaLAPACK enables using BLIS and LibFLAME library\nthat have optimized dense matrix functions and solvers for AMD EPYC\nprocessor family CPUs."
         },
         {
             "name": "rocblas",
@@ -645,6 +676,22 @@
     ],
     "dependent_to": [
         {
+            "name": "cp2k",
+            "description": "CP2K is a quantum chemistry and solid state physics software package\nthat can perform atomistic simulations of solid state, liquid,\nmolecular, periodic, material, crystal, and biological systems"
+        },
+        {
+            "name": "sirius",
+            "description": "Domain specific library for electronic structure calculations"
+        },
+        {
+            "name": "q-e-sirius",
+            "description": "SIRIUS enabled fork of QuantumESPRESSO."
+        },
+        {
+            "name": "berkeleygw",
+            "description": "BerkeleyGW is a many-body perturbation theory code for excited states,\nusing the GW method and the GW plus Bethe-Salpeter equation (GW-BSE)\nmethod to solve respectively for quasiparticle excitations and optical\nproperties of materials."
+        },
+        {
             "name": "elsi",
             "description": "ELSI provides a unified interface for electronic structure codes to a\nvariety of eigenvalue solvers."
         },
@@ -653,24 +700,8 @@
             "description": "FLEUR (Full-potential Linearised augmented plane wave in EURope) is a\ncode family for calculating groundstate as well as excited-state\nproperties of solids within the context of density functional theory\n(DFT)."
         },
         {
-            "name": "cp2k",
-            "description": "CP2K is a quantum chemistry and solid state physics software package\nthat can perform atomistic simulations of solid state, liquid,\nmolecular, periodic, material, crystal, and biological systems"
-        },
-        {
-            "name": "q-e-sirius",
-            "description": "SIRIUS enabled fork of QuantumESPRESSO."
-        },
-        {
-            "name": "sirius",
-            "description": "Domain specific library for electronic structure calculations"
-        },
-        {
             "name": "quantum-espresso",
             "description": "Quantum ESPRESSO is an integrated suite of Open-Source computer codes\nfor electronic-structure calculations and materials modeling at the\nnanoscale. It is based on density-functional theory, plane waves, and\npseudopotentials."
-        },
-        {
-            "name": "berkeleygw",
-            "description": "BerkeleyGW is a many-body perturbation theory code for excited states,\nusing the GW method and the GW plus Bethe-Salpeter equation (GW-BSE)\nmethod to solve respectively for quasiparticle excitations and optical\nproperties of materials."
         }
     ]
 }

@@ -7,6 +7,14 @@
             "branch": "develop"
         },
         {
+            "name": "7.0",
+            "sha256": "85beceb1aaa1678a49e774c085866d4612d9d64108e0ac49b23152c8622880ee"
+        },
+        {
+            "name": "6.8",
+            "sha256": "654855c69864de7ece5ef2f2c0dea2d32698fe51192a8646b1555b0c57e033b2"
+        },
+        {
             "name": "6.7",
             "sha256": "fe0ce74ff736b10d2a20c9d59025c01f88f86b00d229c123b1791f1edd7b4315",
             "url": "https://gitlab.com/QEF/q-e/-/archive/qe-6.7MaX-Release/q-e-qe-6.7MaX-Release.tar.gz"
@@ -56,22 +64,42 @@
             "sha256": "3b26038efb9e3f8ac7a2b950c31d8c29169a3556c0b68c299eb88a4be8dc9048"
         }
     ],
-    "build_system": "Package",
+    "build_system": "CMakePackage",
     "conflicts": [
         {
-            "name": "+scalapack",
-            "spec": "~mpi",
-            "description": "scalapack is a parallel library and needs MPI support"
+            "name": "+ipo",
+            "spec": "^cmake@:3.8",
+            "description": "+ipo is not supported by CMake < 3.9"
         },
         {
-            "name": "+elpa",
-            "spec": "~mpi",
-            "description": "elpa is a parallel library and needs MPI support"
+            "name": "@:6.7",
+            "spec": "+cmake",
+            "description": "+cmake works since QE v6.8"
         },
         {
-            "name": "+elpa",
-            "spec": "@:5.4.0",
+            "name": "^fftw~openmp",
+            "spec": "+openmp",
             "description": "None"
+        },
+        {
+            "name": "^amdfftw~openmp",
+            "spec": "+openmp",
+            "description": "None"
+        },
+        {
+            "name": "^openblas threads=none",
+            "spec": "+openmp",
+            "description": "None"
+        },
+        {
+            "name": "^openblas threads=pthreads",
+            "spec": "+openmp",
+            "description": "None"
+        },
+        {
+            "name": "@:5.4.0",
+            "spec": "+elpa",
+            "description": "+elpa requires QE >= 6.0"
         },
         {
             "name": "hdf5=parallel",
@@ -104,24 +132,34 @@
             "description": "QE-to-QMCPACK wave function converter requires HDF5"
         },
         {
-            "name": "+epw",
-            "spec": "@:5",
+            "name": "~epw",
+            "spec": "+cmake",
+            "description": "epw cannot be turned off when using CMake"
+        },
+        {
+            "name": "@:5",
+            "spec": "+epw",
             "description": "EPW only available from version 6.0.0 and on"
         },
         {
-            "name": "+epw",
-            "spec": "~mpi",
-            "description": "EPW needs MPI"
+            "name": "~mpi",
+            "spec": "~cmake+epw",
+            "description": "EPW needs MPI when ~cmake"
         },
         {
-            "name": "+epw",
-            "spec": "^openmpi@2.0.0:2",
+            "name": "^openmpi@2.0.0:2",
+            "spec": "+epw",
             "description": "OpenMPI version incompatible with EPW"
         },
         {
-            "name": "+epw",
-            "spec": "^openmpi@1.10.7%pgi@17.0:17.12",
+            "name": "^openmpi@1.10.7%pgi@17.0:17.12",
+            "spec": "+epw",
             "description": "PGI+OpenMPI version combo incompatible with EPW"
+        },
+        {
+            "name": "+environ",
+            "spec": "+cmake",
+            "description": "environ doesn't work with CMake"
         },
         {
             "name": "@:6.2,6.5:6.6",
@@ -137,38 +175,43 @@
             "name": "@6.5:",
             "spec": "+environ",
             "description": "6.4.x is the latest QE series supported by Environ"
-        },
-        {
-            "name": "^fftw~openmp",
-            "spec": "+openmp",
-            "description": "None"
-        },
-        {
-            "name": "^amdfftw~openmp",
-            "spec": "+openmp",
-            "description": "None"
-        },
-        {
-            "name": "^openblas threads=none",
-            "spec": "+openmp",
-            "description": "None"
-        },
-        {
-            "name": "^openblas threads=pthreads",
-            "spec": "+openmp",
-            "description": "None"
         }
     ],
     "variants": [
         {
-            "name": "mpi",
+            "name": "build_type",
+            "default": "RelWithDebInfo",
+            "description": "CMake build type"
+        },
+        {
+            "name": "ipo",
+            "default": false,
+            "description": "CMake interprocedural optimization"
+        },
+        {
+            "name": "cmake",
             "default": true,
-            "description": "Builds with mpi support"
+            "description": "Builds via CMake"
+        },
+        {
+            "name": "libxc",
+            "default": false,
+            "description": "Uses libxc"
         },
         {
             "name": "openmp",
             "default": false,
             "description": "Enables openMP support"
+        },
+        {
+            "name": "patch",
+            "default": true,
+            "description": "Apply recommended upstream patches. May need to be set to False for third party patches or plugins"
+        },
+        {
+            "name": "mpi",
+            "default": true,
+            "description": "Builds with mpi support"
         },
         {
             "name": "scalapack",
@@ -186,19 +229,14 @@
             "description": "Builds with HDF5 support"
         },
         {
-            "name": "epw",
-            "default": false,
-            "description": "Builds Electron-phonon Wannier executable"
-        },
-        {
-            "name": "patch",
-            "default": true,
-            "description": "Apply recommended upstream patches. May need to be set to False for third party patches or plugins"
-        },
-        {
             "name": "qmcpack",
             "default": false,
             "description": "Build QE-to-QMCPACK wave function converter"
+        },
+        {
+            "name": "epw",
+            "default": false,
+            "description": "Builds Electron-phonon Wannier executable"
         },
         {
             "name": "environ",
@@ -208,9 +246,25 @@
     ],
     "homepage": "http://quantum-espresso.org",
     "maintainers": [
-        "naromero77"
+        "ye-luo"
     ],
     "patches": [
+        {
+            "owner": "builtin.quantum-espresso",
+            "sha256": "ef60641d8b953b4ba21d9c662b172611305bb63786996ad6e81e7609891677ff",
+            "level": 1,
+            "working_dir": ".",
+            "url": "https://raw.githubusercontent.com/QMCPACK/qmcpack/develop/external_codes/quantum_espresso/add_pw2qmcpack_to_qe-7.0.diff",
+            "version": "@7.0+qmcpack"
+        },
+        {
+            "owner": "builtin.quantum-espresso",
+            "sha256": "69f7fbd72aba810c35a0b034188e45bea8f9f11d3150c0715e1b3518d5c09248",
+            "level": 1,
+            "working_dir": ".",
+            "url": "https://raw.githubusercontent.com/QMCPACK/qmcpack/develop/external_codes/quantum_espresso/add_pw2qmcpack_to_qe-6.8.diff",
+            "version": "@6.8+qmcpack"
+        },
         {
             "owner": "builtin.quantum-espresso",
             "sha256": "72564c168231dd4a1279a74e76919af701d47cee9a851db6e205753004fe9bb5",
@@ -333,11 +387,11 @@
         },
         {
             "owner": "builtin.quantum-espresso",
-            "sha256": "f823d27162ee6bbc351a934d417b9427e69a01009322a3323922bfade2770017",
+            "sha256": "85ae021c4493bd78fc55ebff29be88b77cfd1e97f991defd2b6cd99308ca493e",
             "level": 1,
             "working_dir": ".",
             "relative_path": "configure_aocc.patch",
-            "version": "@6.7%aocc"
+            "version": "@6.7:6.8%aocc"
         },
         {
             "owner": "builtin.quantum-espresso",
@@ -389,24 +443,20 @@
     "description": "Quantum ESPRESSO is an integrated suite of Open-Source computer codes\nfor electronic-structure calculations and materials modeling at the\nnanoscale. It is based on density-functional theory, plane waves, and\npseudopotentials.\n",
     "dependencies": [
         {
-            "name": "blas",
-            "description": "Intel oneAPI MKL."
+            "name": "cmake",
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
         },
         {
-            "name": "lapack",
-            "description": "Intel oneAPI MKL."
-        },
-        {
-            "name": "fftw-api",
-            "description": "Intel oneAPI MKL."
+            "name": "libxc",
+            "description": "Libxc is a library of exchange-correlation functionals for density-\nfunctional theory."
         },
         {
             "name": "mpi",
-            "description": "The NVIDIA HPC SDK is a comprehensive suite of compilers, libraries and\ntools essential to maximizing developer productivity and the performance\nand portability of HPC applications. The NVIDIA HPC SDK C, C++, and\nFortran compilers support GPU acceleration of HPC modeling and\nsimulation applications with standard C++ and Fortran, OpenACC\ndirectives, and CUDA. GPU-accelerated math libraries maximize\nperformance on common HPC algorithms, and optimized communications\nlibraries enable standards-based multi-GPU and scalable systems\nprogramming. Performance profiling and debugging tools simplify porting\nand optimization of HPC applications."
+            "description": "The HPC-X MPI implementation from NVIDIA/Mellanox based on OpenMPI. This\npackage is for external specs only."
         },
         {
             "name": "scalapack",
-            "description": "Intel oneAPI MKL."
+            "description": "ScaLAPACK is a library of high-performance linear algebra routines for\nparallel distributed memory machines. It depends on external libraries\nincluding BLAS and LAPACK for Linear Algebra computations. AMD's\noptimized version of ScaLAPACK enables using BLIS and LibFLAME library\nthat have optimized dense matrix functions and solvers for AMD EPYC\nprocessor family CPUs."
         },
         {
             "name": "elpa",
@@ -415,6 +465,18 @@
         {
             "name": "hdf5",
             "description": "HDF5 is a data model, library, and file format for storing and managing\ndata. It supports an unlimited variety of datatypes, and is designed for\nflexible and efficient I/O and for high volume and complex data."
+        },
+        {
+            "name": "blas",
+            "description": "BLIS is a portable software framework for instantiating high-performance\nBLAS-like dense linear algebra libraries. The framework was designed to\nisolate essential kernels of computation that, when optimized,\nimmediately enable optimized implementations of most of its commonly\nused and computationally intensive operations. BLIS is written in ISO\nC99 and available under a new/modified/3-clause BSD license. While BLIS\nexports a new BLAS-like API, it also includes a BLAS compatibility layer\nwhich gives application developers access to BLIS implementations via\ntraditional BLAS routine calls. An object-based API unique to BLIS is\nalso available."
+        },
+        {
+            "name": "lapack",
+            "description": "Automatically Tuned Linear Algebra Software, generic shared ATLAS is an\napproach for the automatic generation and optimization of numerical\nsoftware. Currently ATLAS supplies optimized versions for the complete\nset of linear algebra kernels known as the Basic Linear Algebra\nSubroutines (BLAS), and a subset of the linear algebra routines in the\nLAPACK library."
+        },
+        {
+            "name": "fftw-api",
+            "description": "FFTW (Fujitsu Optimized version) is a comprehensive collection of fast C\nroutines for computing the Discrete Fourier Transform (DFT) and various\nspecial cases thereof. It is an open-source implementation of the Fast\nFourier transform algorithm. It can compute transforms of real and\ncomplex-values arrays of arbitrary size and dimension. Fujitsu Optimized\nFFTW is the optimized FFTW implementation targeted for A64FX CPUs. For\nsingle precision build, please use precision value as float. Example :\nspack install fujitsufftw precision=float"
         }
     ],
     "dependent_to": []

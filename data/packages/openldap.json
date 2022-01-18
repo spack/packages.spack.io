@@ -3,6 +3,10 @@
     "aliases": [],
     "versions": [
         {
+            "name": "2.6.0",
+            "sha256": "b71c580eac573e9aba15d95f33dd4dd08f2ed4f0d7fc09e08ad4be7ed1e41a4f"
+        },
+        {
             "name": "2.4.49",
             "sha256": "e3b117944b4180f23befe87d0dcf47f29de775befbc469dcf4ac3dab3311e56e"
         },
@@ -12,7 +16,13 @@
         }
     ],
     "build_system": "AutotoolsPackage",
-    "conflicts": [],
+    "conflicts": [
+        {
+            "name": "~static",
+            "spec": "~shared",
+            "description": "None"
+        }
+    ],
     "variants": [
         {
             "name": "client_only",
@@ -33,6 +43,31 @@
             "name": "perl",
             "default": false,
             "description": "Perl backend to Slapd"
+        },
+        {
+            "name": "sasl",
+            "default": true,
+            "description": "Build with Cyrus SASL support"
+        },
+        {
+            "name": "static",
+            "default": false,
+            "description": "Build static libraries"
+        },
+        {
+            "name": "shared",
+            "default": true,
+            "description": "Build shared libraries"
+        },
+        {
+            "name": "dynamic",
+            "default": true,
+            "description": "Enable linking built binaries with dynamic libs"
+        },
+        {
+            "name": "wt",
+            "default": false,
+            "description": "Enable WiredTiger backend"
         }
     ],
     "homepage": "https://www.openldap.org/",
@@ -70,18 +105,34 @@
             "description": "Oracle Berkeley DB"
         },
         {
+            "name": "cyrus-sasl",
+            "description": "This is the Cyrus SASL API implementation. It can be used on the client\nor server side to provide authentication and authorization services."
+        },
+        {
             "name": "perl",
             "description": "Perl 5 is a highly capable, feature-rich programming language with over\n27 years of development."
+        },
+        {
+            "name": "groff",
+            "description": "Groff (GNU troff) is a typesetting system that reads plain text mixed\nwith formatting commands and produces formatted output. Output may be\nPostScript or PDF, html, or ASCII/UTF8 for display at the terminal."
+        },
+        {
+            "name": "pkgconfig",
+            "description": "pkgconf is a program which helps to configure compiler and linker flags\nfor development frameworks. It is similar to pkg-config from\nfreedesktop.org, providing additional functionality while also\nmaintaining compatibility."
+        },
+        {
+            "name": "wiredtiger",
+            "description": "WiredTiger is an high performance, scalable, production quality, NoSQL,\nOpen Source extensible platform for data management."
         }
     ],
     "dependent_to": [
         {
-            "name": "py-python-ldap",
-            "description": "python-ldap provides an object-oriented API to access LDAP directory\nservers from Python programs."
-        },
-        {
             "name": "bdii",
             "description": "The Berkeley Database Information Index (BDII) consists of a standard\nLDAP database which is updated by an external process. The update\nprocess obtains LDIF from a number of sources and merges them. It then\ncompares this to the contents of the database and creates an LDIF file\nof the differences. This is then used to update the database."
+        },
+        {
+            "name": "py-python-ldap",
+            "description": "python-ldap provides an object-oriented API to access LDAP directory\nservers from Python programs."
         },
         {
             "name": "percona-server",

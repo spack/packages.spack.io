@@ -34,6 +34,16 @@
     "build_system": "AutotoolsPackage",
     "conflicts": [
         {
+            "name": "hdf5@1.10.8:",
+            "spec": "@:4.10.2",
+            "description": "None"
+        },
+        {
+            "name": "hdf5@1.13.0:",
+            "spec": "@:4.11",
+            "description": "None"
+        },
+        {
             "name": "+hzip",
             "spec": "@4.11-bsd",
             "description": "None"
@@ -114,6 +124,14 @@
             "working_dir": ".",
             "relative_path": "H5FD_class_t-terminate.patch",
             "version": "@:4.10.2 ^hdf5@1.10.0:"
+        },
+        {
+            "owner": "builtin.silo",
+            "sha256": "eb2a3a025d35a5c8dcb1d3178ee67aa1e905e58b80910e3789995dd632256174",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "H5EPR_SEMI_COLON.patch",
+            "version": "@:4.11 ^hdf5@1.10.8:1.10,1.12.1:1.12"
         }
     ],
     "resources": [],
@@ -141,7 +159,7 @@
         },
         {
             "name": "mpi",
-            "description": "The NVIDIA HPC SDK is a comprehensive suite of compilers, libraries and\ntools essential to maximizing developer productivity and the performance\nand portability of HPC applications. The NVIDIA HPC SDK C, C++, and\nFortran compilers support GPU acceleration of HPC modeling and\nsimulation applications with standard C++ and Fortran, OpenACC\ndirectives, and CUDA. GPU-accelerated math libraries maximize\nperformance on common HPC algorithms, and optimized communications\nlibraries enable standards-based multi-GPU and scalable systems\nprogramming. Performance profiling and debugging tools simplify porting\nand optimization of HPC applications."
+            "description": "The HPC-X MPI implementation from NVIDIA/Mellanox based on OpenMPI. This\npackage is for external specs only."
         },
         {
             "name": "hdf5",
@@ -170,6 +188,26 @@
     ],
     "dependent_to": [
         {
+            "name": "visit-silo",
+            "description": "This is the Silo Plug-In for VisIt. It can be installed after VisIt is\ninstalled along SILO library. It is made as an extension to VisIt that\ncan be activated or as an environment with a view: ~/.visit Complete\nexplanation at:\nhttps://github.com/spack/spack/pull/22907#issuecomment-824218296"
+        },
+        {
+            "name": "bookleaf-cpp",
+            "description": "BookLeaf is a 2D unstructured hydrodynamics mini-app."
+        },
+        {
+            "name": "coevp",
+            "description": "CoEVP is a scale-bridging proxy application for embedded viscoplasticity\napplications. It is created and maintained by The Exascale Co-Design\nCenter for Materials in Extreme Environments (ExMatEx). The code is\nintended to serve as a vehicle for co-design by allowing others to\nextend and/or reimplement it as needed to test performance of new\narchitectures, programming models, etc. Due to the size and complexity\nof the studied models, as well as restrictions on distribution, the\ncurrently available LULESH proxy application provides the coarse-scale\nmodel implementation and the ASPA proxy application provides the\nadaptive sampling support."
+        },
+        {
+            "name": "lulesh",
+            "description": "LULESH is a highly simplified application, hard-coded to only style\ntypical in scientific C or C++ based applications. Hard code to only\nsolve a Sedov blast problem with analytic answer"
+        },
+        {
+            "name": "macsio",
+            "description": "A Multi-purpose, Application-Centric, Scalable I/O Proxy Application."
+        },
+        {
             "name": "amp",
             "description": "The Advanced Multi-Physics (AMP) package. The Advanced Multi-Physics\n(AMP) package is an open source parallel object-oriented computational\nframework that is designed with single and multi-domain multi-physics\napplications in mind."
         },
@@ -178,28 +216,8 @@
             "description": "SAMRAI (Structured Adaptive Mesh Refinement Application Infrastructure)\nis an object-oriented C++ software library enables exploration of\nnumerical, algorithmic, parallel computing, and software issues\nassociated with applying structured adaptive mesh refinement (SAMR)\ntechnology in large-scale parallel application development."
         },
         {
-            "name": "bookleaf-cpp",
-            "description": "BookLeaf is a 2D unstructured hydrodynamics mini-app."
-        },
-        {
-            "name": "lulesh",
-            "description": "LULESH is a highly simplified application, hard-coded to only style\ntypical in scientific C or C++ based applications. Hard code to only\nsolve a Sedov blast problem with analytic answer"
-        },
-        {
-            "name": "coevp",
-            "description": "CoEVP is a scale-bridging proxy application for embedded viscoplasticity\napplications. It is created and maintained by The Exascale Co-Design\nCenter for Materials in Extreme Environments (ExMatEx). The code is\nintended to serve as a vehicle for co-design by allowing others to\nextend and/or reimplement it as needed to test performance of new\narchitectures, programming models, etc. Due to the size and complexity\nof the studied models, as well as restrictions on distribution, the\ncurrently available LULESH proxy application provides the coarse-scale\nmodel implementation and the ASPA proxy application provides the\nadaptive sampling support."
-        },
-        {
-            "name": "macsio",
-            "description": "A Multi-purpose, Application-Centric, Scalable I/O Proxy Application."
-        },
-        {
-            "name": "parflow",
-            "description": "ParFlow is an open-source parallel watershed simulator which includes\noverland flow, complex topology, heterogeneity and coupled land-surface\nprocesses."
-        },
-        {
-            "name": "visit-silo",
-            "description": "This is the Silo Plug-In for VisIt. It can be installed after VisIt is\ninstalled along SILO library. It is made as an extension to VisIt that\ncan be activated or as an environment with a view: ~/.visit Complete\nexplanation at:\nhttps://github.com/spack/spack/pull/22907#issuecomment-824218296"
+            "name": "simulationio",
+            "description": "SimulationIO: Efficient and convenient I/O for large PDE simulations"
         },
         {
             "name": "conduit",
@@ -212,6 +230,10 @@
         {
             "name": "exampm",
             "description": "Exascale Material Point Method (MPM) Mini-App"
+        },
+        {
+            "name": "parflow",
+            "description": "ParFlow is an open-source parallel watershed simulator which includes\noverland flow, complex topology, heterogeneity and coupled land-surface\nprocesses."
         }
     ]
 }

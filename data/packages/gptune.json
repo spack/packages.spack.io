@@ -1,0 +1,162 @@
+{
+    "name": "gptune",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "master",
+            "branch": "master"
+        }
+    ],
+    "build_system": "CMakePackage",
+    "conflicts": [
+        {
+            "name": "+ipo",
+            "spec": "^cmake@:3.8",
+            "description": "+ipo is not supported by CMake < 3.9"
+        },
+        {
+            "name": "openmpi@:3",
+            "spec": "",
+            "description": "None"
+        }
+    ],
+    "variants": [
+        {
+            "name": "build_type",
+            "default": "RelWithDebInfo",
+            "description": "CMake build type"
+        },
+        {
+            "name": "ipo",
+            "default": false,
+            "description": "CMake interprocedural optimization"
+        },
+        {
+            "name": "app",
+            "default": false,
+            "description": "Build all HPC application examples"
+        }
+    ],
+    "homepage": "https://gptune.lbl.gov/",
+    "maintainers": [
+        "liuyangzhuan"
+    ],
+    "patches": [],
+    "resources": [],
+    "description": "GPTune is an autotuning framework that relies on multitask and transfer\nlearnings to help solve the underlying black-box optimization problem\nusing Bayesian optimization methodologies.\n",
+    "dependencies": [
+        {
+            "name": "cmake",
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
+        },
+        {
+            "name": "mpi",
+            "description": "The HPC-X MPI implementation from NVIDIA/Mellanox based on OpenMPI. This\npackage is for external specs only."
+        },
+        {
+            "name": "jq",
+            "description": "jq is a lightweight and flexible command-line JSON processor."
+        },
+        {
+            "name": "blas",
+            "description": "BLIS is a portable software framework for instantiating high-performance\nBLAS-like dense linear algebra libraries. The framework was designed to\nisolate essential kernels of computation that, when optimized,\nimmediately enable optimized implementations of most of its commonly\nused and computationally intensive operations. BLIS is written in ISO\nC99 and available under a new/modified/3-clause BSD license. While BLIS\nexports a new BLAS-like API, it also includes a BLAS compatibility layer\nwhich gives application developers access to BLIS implementations via\ntraditional BLAS routine calls. An object-based API unique to BLIS is\nalso available."
+        },
+        {
+            "name": "lapack",
+            "description": "Automatically Tuned Linear Algebra Software, generic shared ATLAS is an\napproach for the automatic generation and optimization of numerical\nsoftware. Currently ATLAS supplies optimized versions for the complete\nset of linear algebra kernels known as the Basic Linear Algebra\nSubroutines (BLAS), and a subset of the linear algebra routines in the\nLAPACK library."
+        },
+        {
+            "name": "scalapack",
+            "description": "ScaLAPACK is a library of high-performance linear algebra routines for\nparallel distributed memory machines. It depends on external libraries\nincluding BLAS and LAPACK for Linear Algebra computations. AMD's\noptimized version of ScaLAPACK enables using BLIS and LibFLAME library\nthat have optimized dense matrix functions and solvers for AMD EPYC\nprocessor family CPUs."
+        },
+        {
+            "name": "py-setuptools",
+            "description": "A Python utility that aids in the process of downloading, building,\nupgrading, installing, and uninstalling Python packages."
+        },
+        {
+            "name": "py-ipyparallel",
+            "description": "IPython's architecture for parallel and distributed computing."
+        },
+        {
+            "name": "py-numpy",
+            "description": "NumPy is the fundamental package for scientific computing with Python.\nIt contains among other things: a powerful N-dimensional array object,\nsophisticated (broadcasting) functions, tools for integrating C/C++ and\nFortran code, and useful linear algebra, Fourier transform, and random\nnumber capabilities"
+        },
+        {
+            "name": "py-pandas",
+            "description": "pandas is a fast, powerful, flexible and easy to use open source data\nanalysis and manipulation tool, built on top of the Python programming\nlanguage."
+        },
+        {
+            "name": "py-joblib",
+            "description": "Lightweight pipelining with Python functions."
+        },
+        {
+            "name": "py-scikit-learn",
+            "description": "A set of python modules for machine learning and data mining."
+        },
+        {
+            "name": "py-matplotlib",
+            "description": "Matplotlib is a comprehensive library for creating static, animated, and\ninteractive visualizations in Python."
+        },
+        {
+            "name": "py-pyyaml",
+            "description": "PyYAML is a YAML parser and emitter for Python."
+        },
+        {
+            "name": "py-scikit-optimize",
+            "description": "Scikit-Optimize, or skopt, is a simple and efficient library to minimize\n(very) expensive and noisy black-box functions. It implements several\nmethods for sequential model-based optimization. skopt aims to be\naccessible and easy to use in many contexts. The library is built on top\nof NumPy, SciPy and Scikit-Learn."
+        },
+        {
+            "name": "py-gpy",
+            "description": "The Gaussian Process Toolbox."
+        },
+        {
+            "name": "py-lhsmdu",
+            "description": "Latin Hypercube Sampling with Multi-Dimensional Uniformity (LHS-MDU)\nfrom Deutsch and Deutsch, Latin hypercube sampling with multidimensional\nuniformity."
+        },
+        {
+            "name": "py-hpbandster",
+            "description": "A distributed Hyperband implementation with lots of room for\nimprovement"
+        },
+        {
+            "name": "py-opentuner",
+            "description": "An extensible framework for program autotuning."
+        },
+        {
+            "name": "py-ytopt-autotune",
+            "description": "Common interface for autotuning search space and method definition."
+        },
+        {
+            "name": "py-filelock",
+            "description": "A platform-independent file lock for Python. This package contains a\nsingle module, which implements a platform independent file lock in\nPython, which provides a simple way of inter-process communication"
+        },
+        {
+            "name": "py-requests",
+            "description": "Python HTTP for Humans."
+        },
+        {
+            "name": "py-cython",
+            "description": "The Cython compiler for writing C extensions for the Python language."
+        },
+        {
+            "name": "py-pyaml",
+            "description": "PyYAML-based python module to produce pretty and readable YAML-\nserialized data."
+        },
+        {
+            "name": "py-mpi4py",
+            "description": "This package provides Python bindings for the Message Passing Interface\n(MPI) standard. It is implemented on top of the MPI-1/MPI-2\nspecification and exposes an API which grounds on the standard MPI-2 C++\nbindings."
+        },
+        {
+            "name": "pygmo",
+            "description": "Parallel Global Multiobjective Optimizer (and its Python alter ego\nPyGMO) is a C++ / Python platform to perform parallel computations of\noptimisation tasks (global and local) via the asynchronous generalized\nisland model."
+        },
+        {
+            "name": "openturns",
+            "description": "OpenTURNS is a scientific C++ and Python library featuring an internal\ndata model and algorithms dedicated to the treatment of uncertainties.\nThe main goal of this library is to provide all functionalities needed\nto treat uncertainties in studies with industrial applications. Targeted\nusers are all engineers who want to introduce the probabilistic\ndimension in their so far deterministic studies."
+        },
+        {
+            "name": "superlu-dist",
+            "description": "A general purpose library for the direct solution of large, sparse,\nnonsymmetric systems of linear equations on high performance machines."
+        }
+    ],
+    "dependent_to": []
+}

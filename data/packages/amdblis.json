@@ -8,6 +8,14 @@
     ],
     "versions": [
         {
+            "name": "3.1",
+            "sha256": "2891948925b9db99eec02a1917d9887a7bee9ad2afc5421c9ba58602a620f2bf"
+        },
+        {
+            "name": "3.0.1",
+            "sha256": "dff643e6ef946846e91e8f81b75ff8fe21f1f2d227599aecd654d184d9beff3e"
+        },
+        {
             "name": "3.0",
             "sha256": "ac848c040cd6c3550fe49148dbdf109216cad72d3235763ee7ee8134e1528517"
         },
@@ -17,7 +25,13 @@
         }
     ],
     "build_system": "Package",
-    "conflicts": [],
+    "conflicts": [
+        {
+            "name": "+ilp64",
+            "spec": "@:3.0.0",
+            "description": "ilp64 is supported from amdblis 3.0.1 version onwards"
+        }
+    ],
     "variants": [
         {
             "name": "threads",
@@ -43,6 +57,11 @@
             "name": "static",
             "default": true,
             "description": "Build static library"
+        },
+        {
+            "name": "ilp64",
+            "default": false,
+            "description": "Build with ILP64 support"
         }
     ],
     "homepage": "https://developer.amd.com/amd-aocl/blas-library/",
@@ -60,16 +79,16 @@
     ],
     "dependent_to": [
         {
+            "name": "spla",
+            "description": "Specialized Parallel Linear Algebra, providing distributed GEMM\nfunctionality for specific matrix distributions with optional GPU\nacceleration."
+        },
+        {
             "name": "sirius",
             "description": "Domain specific library for electronic structure calculations"
         },
         {
             "name": "berkeleygw",
             "description": "BerkeleyGW is a many-body perturbation theory code for excited states,\nusing the GW method and the GW plus Bethe-Salpeter equation (GW-BSE)\nmethod to solve respectively for quasiparticle excitations and optical\nproperties of materials."
-        },
-        {
-            "name": "spla",
-            "description": "Specialized Parallel Linear Algebra, providing distributed GEMM\nfunctionality for specific matrix distributions with optional GPU\nacceleration."
         }
     ]
 }

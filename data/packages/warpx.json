@@ -7,6 +7,18 @@
             "branch": "development"
         },
         {
+            "name": "22.01",
+            "sha256": "e465ffadabb7dc360c63c4d3862dc08082b5b0e77923d3fb05570408748b0d28"
+        },
+        {
+            "name": "21.12",
+            "sha256": "847c98aac20c73d94c823378803c82be9a14139f1c14ea483757229b452ce4c1"
+        },
+        {
+            "name": "21.11",
+            "sha256": "ce60377771c732033a77351cd3500b24b5d14b54a5adc7a622767b9251c10d0b"
+        },
+        {
             "name": "21.10",
             "sha256": "d372c573f0360094d5982d64eceeb0149d6620eb75e8fdbfdc6777f3328fb454"
         },
@@ -41,6 +53,11 @@
             "name": "+ipo",
             "spec": "^cmake@:3.8",
             "description": "+ipo is not supported by CMake < 3.9"
+        },
+        {
+            "name": "dims=1",
+            "spec": "@:21.12",
+            "description": "WarpX 1D support starts in 22.01+"
         },
         {
             "name": "~qed +qedtablegen",
@@ -147,7 +164,16 @@
         "MaxThevenet",
         "RemiLehe"
     ],
-    "patches": [],
+    "patches": [
+        {
+            "owner": "builtin.warpx",
+            "sha256": "5b538e63c5f1b45cf257a8e524eaa8aa9eaa843ca5258b83705d9736562b890d",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "2626.patch",
+            "version": "@21.12"
+        }
+    ],
     "resources": [],
     "description": "WarpX is an advanced electromagnetic Particle-In-Cell code. It supports\nmany features including Perfectly-Matched Layers (PML) and mesh\nrefinement. In addition, WarpX is a highly-parallel and highly-optimized\ncode and features hybrid OpenMP/MPI parallelization, advanced\nvectorization techniques and load balancing capabilities. For WarpX'\nPython bindings and PICMI input support, see the 'py-warpx' package.\n",
     "dependencies": [
@@ -164,36 +190,12 @@
             "description": "Boost provides free peer-reviewed portable C++ source libraries,\nemphasizing libraries that work well with the C++ Standard Library.\nBoost libraries are intended to be widely useful, and usable across a\nbroad spectrum of applications. The Boost license encourages both\ncommercial and non-commercial use."
         },
         {
+            "name": "mpi",
+            "description": "The HPC-X MPI implementation from NVIDIA/Mellanox based on OpenMPI. This\npackage is for external specs only."
+        },
+        {
             "name": "cuda",
             "description": "CUDA is a parallel computing platform and programming model invented by\nNVIDIA. It enables dramatic increases in computing performance by\nharnessing the power of the graphics processing unit (GPU). Note: This\npackage does not currently install the drivers necessary to run CUDA.\nThese will need to be installed manually. See:\nhttps://docs.nvidia.com/cuda/ for details."
-        },
-        {
-            "name": "llvm-openmp",
-            "description": "The OpenMP subproject of LLVM contains the components required to build\nan executable OpenMP program that are outside the compiler itself."
-        },
-        {
-            "name": "mpi",
-            "description": "The NVIDIA HPC SDK is a comprehensive suite of compilers, libraries and\ntools essential to maximizing developer productivity and the performance\nand portability of HPC applications. The NVIDIA HPC SDK C, C++, and\nFortran compilers support GPU acceleration of HPC modeling and\nsimulation applications with standard C++ and Fortran, OpenACC\ndirectives, and CUDA. GPU-accelerated math libraries maximize\nperformance on common HPC algorithms, and optimized communications\nlibraries enable standards-based multi-GPU and scalable systems\nprogramming. Performance profiling and debugging tools simplify porting\nand optimization of HPC applications."
-        },
-        {
-            "name": "lapackpp",
-            "description": "LAPACK++: C++ API for the LAPACK Linear Algebra Package. Developed by\nthe Innovative Computing Laboratory at the University of Tennessee,\nKnoxville."
-        },
-        {
-            "name": "blaspp",
-            "description": "C++ API for the Basic Linear Algebra Subroutines. Developed by the\nInnovative Computing Laboratory at the University of Tennessee,\nKnoxville."
-        },
-        {
-            "name": "fftw",
-            "description": "FFTW is a C subroutine library for computing the discrete Fourier\ntransform (DFT) in one or more dimensions, of arbitrary input size, and\nof both real and complex data (as well as of even/odd data, i.e. the\ndiscrete cosine/sine transforms or DCT/DST). We believe that FFTW, which\nis free software, should become the FFT library of choice for most\napplications."
-        },
-        {
-            "name": "pkgconfig",
-            "description": "pkg-config is a helper tool used when compiling applications and\nlibraries"
-        },
-        {
-            "name": "openpmd-api",
-            "description": "C++ & Python API for Scientific I/O"
         },
         {
             "name": "rocfft",
@@ -206,6 +208,30 @@
         {
             "name": "rocrand",
             "description": "The rocRAND project provides functions that generate pseudo-random and\nquasi-random numbers."
+        },
+        {
+            "name": "llvm-openmp",
+            "description": "The OpenMP subproject of LLVM contains the components required to build\nan executable OpenMP program that are outside the compiler itself."
+        },
+        {
+            "name": "fftw",
+            "description": "FFTW is a C subroutine library for computing the discrete Fourier\ntransform (DFT) in one or more dimensions, of arbitrary input size, and\nof both real and complex data (as well as of even/odd data, i.e. the\ndiscrete cosine/sine transforms or DCT/DST). We believe that FFTW, which\nis free software, should become the FFT library of choice for most\napplications."
+        },
+        {
+            "name": "pkgconfig",
+            "description": "pkgconf is a program which helps to configure compiler and linker flags\nfor development frameworks. It is similar to pkg-config from\nfreedesktop.org, providing additional functionality while also\nmaintaining compatibility."
+        },
+        {
+            "name": "lapackpp",
+            "description": "LAPACK++: C++ API for the LAPACK Linear Algebra Package. Developed by\nthe Innovative Computing Laboratory at the University of Tennessee,\nKnoxville."
+        },
+        {
+            "name": "blaspp",
+            "description": "C++ API for the Basic Linear Algebra Subroutines. Developed by the\nInnovative Computing Laboratory at the University of Tennessee,\nKnoxville."
+        },
+        {
+            "name": "openpmd-api",
+            "description": "C++ & Python API for Scientific I/O"
         }
     ],
     "dependent_to": [

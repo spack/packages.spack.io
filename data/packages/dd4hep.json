@@ -7,6 +7,10 @@
             "branch": "master"
         },
         {
+            "name": "1.19",
+            "sha256": "d2eccf5e8402ba7dab2e1d7236e12ee4db9b1c5e4253c40a140bf35580db1d9b"
+        },
+        {
             "name": "1.18",
             "sha256": "1e909a42b969dfd966224fa8ab1eca5aa05136baf3c00a140f2f6d812b497152"
         },
@@ -20,51 +24,63 @@
         },
         {
             "name": "1.16",
-            "sha256": "ea9755cd255cf1b058e0e3cd743101ca9ca5ff79f4c60be89f9ba72b1ae5ec69"
+            "sha256": "ea9755cd255cf1b058e0e3cd743101ca9ca5ff79f4c60be89f9ba72b1ae5ec69",
+            "deprecated": true
         },
         {
             "name": "1.15",
-            "sha256": "992a24bd4b3dfaffecec9d1c09e8cde2c7f89d38756879a47b23208242f4e352"
+            "sha256": "992a24bd4b3dfaffecec9d1c09e8cde2c7f89d38756879a47b23208242f4e352",
+            "deprecated": true
         },
         {
             "name": "1.14.1",
-            "sha256": "5b5742f1e23c2b36d3174cca95f810ce909c0eb66f3d6d7acb0ba657819e6717"
+            "sha256": "5b5742f1e23c2b36d3174cca95f810ce909c0eb66f3d6d7acb0ba657819e6717",
+            "deprecated": true
         },
         {
             "name": "1.14",
-            "sha256": "b603aa3c0db8dda392253aa71fa4a0f0c3c9715d47df0b895d45c1e8849f4895"
+            "sha256": "b603aa3c0db8dda392253aa71fa4a0f0c3c9715d47df0b895d45c1e8849f4895",
+            "deprecated": true
         },
         {
             "name": "1.13.1",
-            "sha256": "83fa70cd74ce93b2f52f098388dff58d179f05ace5b50aea3f408bb8abf7cb73"
+            "sha256": "83fa70cd74ce93b2f52f098388dff58d179f05ace5b50aea3f408bb8abf7cb73",
+            "deprecated": true
         },
         {
             "name": "1.13",
-            "sha256": "0b1f9d902ebe21a9178c1e41204c066b29f68c8836fd1d03a9ce979811ddb295"
+            "sha256": "0b1f9d902ebe21a9178c1e41204c066b29f68c8836fd1d03a9ce979811ddb295",
+            "deprecated": true
         },
         {
             "name": "1.12.1",
-            "sha256": "85e8c775ec03c499ce10911e228342e757c81ce9ef2a9195cb253b85175a2e93"
+            "sha256": "85e8c775ec03c499ce10911e228342e757c81ce9ef2a9195cb253b85175a2e93",
+            "deprecated": true
         },
         {
             "name": "1.12",
-            "sha256": "133a1fb8ce0466d2482f3ebb03e60b3bebb9b2d3e33d14ba15c8fbb91706b398"
+            "sha256": "133a1fb8ce0466d2482f3ebb03e60b3bebb9b2d3e33d14ba15c8fbb91706b398",
+            "deprecated": true
         },
         {
             "name": "1.11.2",
-            "sha256": "96a53dd26cb8df11c6dae54669fbc9cc3c90dd47c67e07b24be9a1341c95abc4"
+            "sha256": "96a53dd26cb8df11c6dae54669fbc9cc3c90dd47c67e07b24be9a1341c95abc4",
+            "deprecated": true
         },
         {
             "name": "1.11.1",
-            "sha256": "d7902dd7f6744bbda92f6e303ad5a3410eec4a0d2195cdc86f6c1167e72893f0"
+            "sha256": "d7902dd7f6744bbda92f6e303ad5a3410eec4a0d2195cdc86f6c1167e72893f0",
+            "deprecated": true
         },
         {
             "name": "1.11",
-            "sha256": "25643296f15f9d11ad4ad550b7c3b92e8974fc56f1ee8e4455501010789ae7b6"
+            "sha256": "25643296f15f9d11ad4ad550b7c3b92e8974fc56f1ee8e4455501010789ae7b6",
+            "deprecated": true
         },
         {
             "name": "1.10",
-            "sha256": "1d6b5d1c368dc8bcedd9c61b7c7e1a44bad427f8bd34932516aff47c88a31d95"
+            "sha256": "1d6b5d1c368dc8bcedd9c61b7c7e1a44bad427f8bd34932516aff47c88a31d95",
+            "deprecated": true
         }
     ],
     "build_system": "CMakePackage",
@@ -78,6 +94,11 @@
             "name": "^cmake@3.16:3.17.0",
             "spec": "@1.15",
             "description": "cmake version with buggy FindPython breaks dd4hep cmake config"
+        },
+        {
+            "name": "~ddrec+dddetectors",
+            "spec": "",
+            "description": "Need to enable +ddrec to build +dddetectors."
         }
     ],
     "variants": [
@@ -92,19 +113,54 @@
             "description": "CMake interprocedural optimization"
         },
         {
-            "name": "xercesc",
-            "default": false,
-            "description": "Enable 'Detector Builders' based on XercesC"
+            "name": "ddcad",
+            "default": true,
+            "description": "Enable CAD interface based on Assimp"
         },
         {
-            "name": "geant4",
-            "default": false,
+            "name": "ddg4",
+            "default": true,
             "description": "Enable the simulation part based on Geant4"
         },
         {
-            "name": "assimp",
+            "name": "ddrec",
+            "default": true,
+            "description": "Build DDRec subpackage."
+        },
+        {
+            "name": "dddetectors",
+            "default": true,
+            "description": "Build DDDetectors subpackage."
+        },
+        {
+            "name": "ddcond",
+            "default": true,
+            "description": "Build DDCond subpackage."
+        },
+        {
+            "name": "ddalign",
+            "default": true,
+            "description": "Build DDAlign subpackage."
+        },
+        {
+            "name": "dddigi",
+            "default": true,
+            "description": "Build DDDigi subpackage."
+        },
+        {
+            "name": "ddeve",
+            "default": true,
+            "description": "Build DDEve subpackage."
+        },
+        {
+            "name": "utilityapps",
+            "default": true,
+            "description": "Build UtilityApps subpackage."
+        },
+        {
+            "name": "xercesc",
             "default": false,
-            "description": "Enable CAD interface based on Assimp"
+            "description": "Enable 'Detector Builders' based on XercesC"
         },
         {
             "name": "hepmc3",
@@ -125,6 +181,11 @@
             "name": "geant4units",
             "default": false,
             "description": "Use geant4 units throughout"
+        },
+        {
+            "name": "tbb",
+            "default": false,
+            "description": "Enable build with tbb"
         },
         {
             "name": "debug",
@@ -201,6 +262,10 @@
         {
             "name": "hepmc3",
             "description": "The HepMC package is an object oriented, C++ event record for High\nEnergy Physics Monte Carlo generators and simulation."
+        },
+        {
+            "name": "intel-tbb",
+            "description": "Widely used C++ template library for task parallelism. Intel Threading\nBuilding Blocks (Intel TBB) lets you easily write parallel C++ programs\nthat take full advantage of multicore performance, that are portable and\ncomposable, and that have future-proof scalability."
         },
         {
             "name": "lcio",

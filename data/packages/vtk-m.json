@@ -11,13 +11,13 @@
             "branch": "release"
         },
         {
-            "name": "1.7.0-rc1",
-            "sha256": "e9cedc21f0ad326317acc7689ee0c7719a6cb8af41e87fd232aee5ab8d0620e4"
+            "name": "1.7.0",
+            "sha256": "a86667ac22057462fc14495363cfdcc486da125b366cb568ec23c86946439be4",
+            "preferred": true
         },
         {
             "name": "1.6.0",
-            "sha256": "14e62d306dd33f82eb9ddb1d5cee987b7a0b91bf08a7a02ca3bce3968c95fd76",
-            "preferred": true
+            "sha256": "14e62d306dd33f82eb9ddb1d5cee987b7a0b91bf08a7a02ca3bce3968c95fd76"
         },
         {
             "name": "1.5.5",
@@ -491,6 +491,11 @@
             "name": "%gcc@:4.10",
             "spec": "",
             "description": "vtk-m requires gcc >= 5. Please install a newer version"
+        },
+        {
+            "name": "+cuda",
+            "spec": "cuda_arch=none",
+            "description": "vtk-m +cuda requires that cuda_arch be set"
         }
     ],
     "variants": [
@@ -599,7 +604,7 @@
         },
         {
             "name": "mpi",
-            "description": "The NVIDIA HPC SDK is a comprehensive suite of compilers, libraries and\ntools essential to maximizing developer productivity and the performance\nand portability of HPC applications. The NVIDIA HPC SDK C, C++, and\nFortran compilers support GPU acceleration of HPC modeling and\nsimulation applications with standard C++ and Fortran, OpenACC\ndirectives, and CUDA. GPU-accelerated math libraries maximize\nperformance on common HPC algorithms, and optimized communications\nlibraries enable standards-based multi-GPU and scalable systems\nprogramming. Performance profiling and debugging tools simplify porting\nand optimization of HPC applications."
+            "description": "The HPC-X MPI implementation from NVIDIA/Mellanox based on OpenMPI. This\npackage is for external specs only."
         },
         {
             "name": "kokkos",
@@ -616,16 +621,16 @@
     ],
     "dependent_to": [
         {
+            "name": "vtk-h",
+            "description": "VTK-h is a toolkit of scientific visualization algorithms for emerging\nprocessor architectures. VTK-h brings together several projects like\nVTK-m and DIY2 to provide a toolkit with hybrid parallel capabilities."
+        },
+        {
             "name": "ecp-data-vis-sdk",
             "description": "ECP Data & Vis SDK"
         },
         {
             "name": "fides",
             "description": "A library that provides a schema for ADIOS2 streams."
-        },
-        {
-            "name": "vtk-h",
-            "description": "VTK-h is a toolkit of scientific visualization algorithms for emerging\nprocessor architectures. VTK-h brings together several projects like\nVTK-m and DIY2 to provide a toolkit with hybrid parallel capabilities."
         }
     ]
 }

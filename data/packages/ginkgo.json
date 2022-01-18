@@ -84,6 +84,11 @@
         },
         {
             "name": "~rocm",
+            "spec": "amdgpu_target=gfx90a",
+            "description": "None"
+        },
+        {
+            "name": "~rocm",
             "spec": "amdgpu_target=gfx1010",
             "description": "None"
         },
@@ -528,6 +533,11 @@
             "description": "None"
         },
         {
+            "name": "+openmp",
+            "spec": "+oneapi",
+            "description": "None"
+        },
+        {
             "name": "^hip@4.1.0:",
             "spec": "@:1.3.0",
             "description": "None"
@@ -595,6 +605,11 @@
             "description": "Build with OpenMP"
         },
         {
+            "name": "oneapi",
+            "default": false,
+            "description": "Build with oneAPI support"
+        },
+        {
             "name": "develtools",
             "default": false,
             "description": "Compile with develtools enabled"
@@ -626,6 +641,22 @@
             "working_dir": ".",
             "relative_path": "1.4.0_skip_invalid_smoke_tests.patch",
             "version": "@1.4.0"
+        },
+        {
+            "owner": "builtin.ginkgo",
+            "sha256": "dfe92d97e9e0a4408a33b122f020da5fa9c6adb685f413608c65df9de7724c17",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "1.4.0_dpcpp_use_old_standard.patch",
+            "version": "@master+oneapi"
+        },
+        {
+            "owner": "builtin.ginkgo",
+            "sha256": "dfe92d97e9e0a4408a33b122f020da5fa9c6adb685f413608c65df9de7724c17",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "1.4.0_dpcpp_use_old_standard.patch",
+            "version": "@1.4.0+oneapi"
         }
     ],
     "resources": [],
@@ -678,16 +709,24 @@
         {
             "name": "numactl",
             "description": "NUMA support for Linux"
+        },
+        {
+            "name": "intel-oneapi-mkl",
+            "description": "Intel oneAPI MKL."
+        },
+        {
+            "name": "intel-oneapi-dpl",
+            "description": "Intel oneAPI DPL."
         }
     ],
     "dependent_to": [
         {
-            "name": "xsdk",
-            "description": "Xsdk is a suite of Department of Energy (DOE) packages for numerical\nsimulation. This is a Spack bundle package that installs the xSDK\npackages"
-        },
-        {
             "name": "dealii",
             "description": "C++ software library providing well-documented tools to build finite\nelement codes for a broad variety of PDEs."
+        },
+        {
+            "name": "xsdk",
+            "description": "Xsdk is a suite of Department of Energy (DOE) packages for numerical\nsimulation. This is a Spack bundle package that installs the xSDK\npackages"
         }
     ]
 }
