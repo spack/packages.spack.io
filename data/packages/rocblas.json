@@ -3,6 +3,10 @@
     "aliases": [],
     "versions": [
         {
+            "name": "4.5.2",
+            "sha256": "15d725e38f91d1ff7772c4204b97c1515af58fa7b8ec2a2014b99b6d337909c4"
+        },
+        {
             "name": "4.5.0",
             "sha256": "22d15a1389a10f1324f5e0ceac1a6ec0758a2801a18419a55e37e2bc63793eaf"
         },
@@ -20,31 +24,38 @@
         },
         {
             "name": "4.1.0",
-            "sha256": "8be20c722bab169bc4badd79a9eab9a1aa338e0e5ff58ad85ba6bf09e8ac60f4"
+            "sha256": "8be20c722bab169bc4badd79a9eab9a1aa338e0e5ff58ad85ba6bf09e8ac60f4",
+            "deprecated": true
         },
         {
             "name": "4.0.0",
-            "sha256": "78e37a7597b581d90a29e4b956fa65d0f8d1c8fb51667906b5fe2a223338d401"
+            "sha256": "78e37a7597b581d90a29e4b956fa65d0f8d1c8fb51667906b5fe2a223338d401",
+            "deprecated": true
         },
         {
             "name": "3.10.0",
-            "sha256": "9bfd0cf99662192b1ac105ab387531cfa9338ae615db80ed690c6a14d987e0e8"
+            "sha256": "9bfd0cf99662192b1ac105ab387531cfa9338ae615db80ed690c6a14d987e0e8",
+            "deprecated": true
         },
         {
             "name": "3.9.0",
-            "sha256": "3ecd2d9fd2be0e1697a191d143a2d447b53a91ae01afb50231d591136ad5e2fe"
+            "sha256": "3ecd2d9fd2be0e1697a191d143a2d447b53a91ae01afb50231d591136ad5e2fe",
+            "deprecated": true
         },
         {
             "name": "3.8.0",
-            "sha256": "568a9da0360349b1b134d74cc67cbb69b43c06eeca7c33b50072cd26cd3d8900"
+            "sha256": "568a9da0360349b1b134d74cc67cbb69b43c06eeca7c33b50072cd26cd3d8900",
+            "deprecated": true
         },
         {
             "name": "3.7.0",
-            "sha256": "9425db5f8e8b6f7fb172d09e2a360025b63a4e54414607709efc5acb28819642"
+            "sha256": "9425db5f8e8b6f7fb172d09e2a360025b63a4e54414607709efc5acb28819642",
+            "deprecated": true
         },
         {
             "name": "3.5.0",
-            "sha256": "8560fabef7f13e8d67da997de2295399f6ec595edfd77e452978c140d5f936f0"
+            "sha256": "8560fabef7f13e8d67da997de2295399f6ec595edfd77e452978c140d5f936f0",
+            "deprecated": true
         }
     ],
     "build_system": "CMakePackage",
@@ -204,6 +215,12 @@
             "name": "Tensile",
             "destination": "",
             "placement": null
+        },
+        {
+            "version": "@4.5.2",
+            "name": "Tensile",
+            "destination": "",
+            "placement": null
         }
     ],
     "description": "Radeon Open Compute BLAS library\n",
@@ -271,32 +288,20 @@
     ],
     "dependent_to": [
         {
-            "name": "spla",
-            "description": "Specialized Parallel Linear Algebra, providing distributed GEMM\nfunctionality for specific matrix distributions with optional GPU\nacceleration."
-        },
-        {
-            "name": "hipsolver",
-            "description": "hipSOLVER is a LAPACK marshalling library, with multiple supported\nbackends. It sits between the application and a 'worker' LAPACK library,\nmarshalling inputs into the backend library and marshalling results back\nto the application. hipSOLVER exports an interface that does not require\nthe client to change, regardless of the chosen backend. Currently,\nhipSOLVER supports rocSOLVER and cuSOLVER as backends."
-        },
-        {
-            "name": "migraphx",
-            "description": "AMD's graph optimization engine."
-        },
-        {
-            "name": "sirius",
-            "description": "Domain specific library for electronic structure calculations"
+            "name": "cosma",
+            "description": "Distributed Communication-Optimal Matrix-Matrix Multiplication Library"
         },
         {
             "name": "miopen-hip",
             "description": "AMD's library for high performance machine learning primitives."
         },
         {
-            "name": "cosma",
-            "description": "Distributed Communication-Optimal Matrix-Matrix Multiplication Library"
+            "name": "rocsolver",
+            "description": "rocSOLVER is a work-in-progress implementation of a subset of LAPACK\nfunctionality on the ROCm platform."
         },
         {
-            "name": "rocalution",
-            "description": "rocALUTION is a sparse linear algebra library with focus on exploring\nfine-grained parallelism on top of AMD's Radeon Open eCosystem Platform\nROCm runtime and toolchains, targeting modern CPU and GPU platforms.\nBased on C++ and HIP, it provides a portable, generic and flexible\ndesign that allows seamless integration with other scientific software\npackages."
+            "name": "rocm-validation-suite",
+            "description": "The ROCm Validation Suite (RVS) is a system administrators and cluster\nmanager's tool for detecting and troubleshooting common problems\naffecting AMD GPU(s) running in a high-performance computing\nenvironment, enabled using the ROCm software stack on a compatible\nplatform."
         },
         {
             "name": "elpa",
@@ -307,24 +312,36 @@
             "description": "C++ API for the Basic Linear Algebra Subroutines. Developed by the\nInnovative Computing Laboratory at the University of Tennessee,\nKnoxville."
         },
         {
-            "name": "rocm-validation-suite",
-            "description": "The ROCm Validation Suite (RVS) is a system administrators and cluster\nmanager's tool for detecting and troubleshooting common problems\naffecting AMD GPU(s) running in a high-performance computing\nenvironment, enabled using the ROCm software stack on a compatible\nplatform."
+            "name": "rocalution",
+            "description": "rocALUTION is a sparse linear algebra library with focus on exploring\nfine-grained parallelism on top of AMD's Radeon Open eCosystem Platform\nROCm runtime and toolchains, targeting modern CPU and GPU platforms.\nBased on C++ and HIP, it provides a portable, generic and flexible\ndesign that allows seamless integration with other scientific software\npackages."
         },
         {
-            "name": "petsc",
-            "description": "PETSc is a suite of data structures and routines for the scalable\n(parallel) solution of scientific applications modeled by partial\ndifferential equations."
+            "name": "hipsolver",
+            "description": "hipSOLVER is a LAPACK marshalling library, with multiple supported\nbackends. It sits between the application and a 'worker' LAPACK library,\nmarshalling inputs into the backend library and marshalling results back\nto the application. hipSOLVER exports an interface that does not require\nthe client to change, regardless of the chosen backend. Currently,\nhipSOLVER supports rocSOLVER and cuSOLVER as backends."
+        },
+        {
+            "name": "spla",
+            "description": "Specialized Parallel Linear Algebra, providing distributed GEMM\nfunctionality for specific matrix distributions with optional GPU\nacceleration."
         },
         {
             "name": "hipblas",
             "description": "hipBLAS is a BLAS marshalling library, with multiple supported backends"
         },
         {
-            "name": "rocsolver",
-            "description": "rocSOLVER is a work-in-progress implementation of a subset of LAPACK\nfunctionality on the ROCm platform."
-        },
-        {
             "name": "tasmanian",
             "description": "The Toolkit for Adaptive Stochastic Modeling and Non-Intrusive\nApproximatioN is a robust library for high dimensional integration and\ninterpolation as well as parameter calibration."
+        },
+        {
+            "name": "migraphx",
+            "description": "AMD's graph optimization engine."
+        },
+        {
+            "name": "sirius",
+            "description": "Domain specific library for electronic structure calculations"
+        },
+        {
+            "name": "petsc",
+            "description": "PETSc is a suite of data structures and routines for the scalable\n(parallel) solution of scientific applications modeled by partial\ndifferential equations."
         }
     ]
 }

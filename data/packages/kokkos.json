@@ -11,6 +11,10 @@
             "branch": "develop"
         },
         {
+            "name": "3.5.00",
+            "sha256": "748f06aed63b1e77e3653cd2f896ef0d2c64cb2e2d896d9e5a57fec3ff0244ff"
+        },
+        {
             "name": "3.4.01",
             "sha256": "146d5e233228e75ef59ca497e8f5872d9b272cb93e8e9cdfe05ad34a23f483d1"
         },
@@ -21,6 +25,14 @@
         {
             "name": "3.3.01",
             "sha256": "4919b00bb7b6eb80f6c335a32f98ebe262229d82e72d3bae6dd91aaf3d234c37"
+        },
+        {
+            "name": "3.3.00",
+            "sha256": "170b9deaa1943185e928f8fcb812cd4593a07ed7d220607467e8f0419e147295"
+        },
+        {
+            "name": "3.2.01",
+            "sha256": "9e27a3d8f81559845e190d60f277d84d6f558412a3df3301d9545e91373bcaf1"
         },
         {
             "name": "3.2.00",
@@ -529,42 +541,37 @@
         {
             "name": "+rocm",
             "spec": "amdgpu_target=gfx701",
-            "description": "gfx701 is not supported; Kokkos supports the following AMD GPU targets: gfx900, gfx906, gfx908"
+            "description": "gfx701 is not supported; Kokkos supports the following AMD GPU targets: gfx900, gfx906, gfx908, gfx90a"
         },
         {
             "name": "+rocm",
             "spec": "amdgpu_target=gfx801",
-            "description": "gfx801 is not supported; Kokkos supports the following AMD GPU targets: gfx900, gfx906, gfx908"
+            "description": "gfx801 is not supported; Kokkos supports the following AMD GPU targets: gfx900, gfx906, gfx908, gfx90a"
         },
         {
             "name": "+rocm",
             "spec": "amdgpu_target=gfx802",
-            "description": "gfx802 is not supported; Kokkos supports the following AMD GPU targets: gfx900, gfx906, gfx908"
+            "description": "gfx802 is not supported; Kokkos supports the following AMD GPU targets: gfx900, gfx906, gfx908, gfx90a"
         },
         {
             "name": "+rocm",
             "spec": "amdgpu_target=gfx803",
-            "description": "gfx803 is not supported; Kokkos supports the following AMD GPU targets: gfx900, gfx906, gfx908"
-        },
-        {
-            "name": "+rocm",
-            "spec": "amdgpu_target=gfx90a",
-            "description": "gfx90a is not supported; Kokkos supports the following AMD GPU targets: gfx900, gfx906, gfx908"
+            "description": "gfx803 is not supported; Kokkos supports the following AMD GPU targets: gfx900, gfx906, gfx908, gfx90a"
         },
         {
             "name": "+rocm",
             "spec": "amdgpu_target=gfx1010",
-            "description": "gfx1010 is not supported; Kokkos supports the following AMD GPU targets: gfx900, gfx906, gfx908"
+            "description": "gfx1010 is not supported; Kokkos supports the following AMD GPU targets: gfx900, gfx906, gfx908, gfx90a"
         },
         {
             "name": "+rocm",
             "spec": "amdgpu_target=gfx1011",
-            "description": "gfx1011 is not supported; Kokkos supports the following AMD GPU targets: gfx900, gfx906, gfx908"
+            "description": "gfx1011 is not supported; Kokkos supports the following AMD GPU targets: gfx900, gfx906, gfx908, gfx90a"
         },
         {
             "name": "+rocm",
             "spec": "amdgpu_target=gfx1012",
-            "description": "gfx1012 is not supported; Kokkos supports the following AMD GPU targets: gfx900, gfx906, gfx908"
+            "description": "gfx1012 is not supported; Kokkos supports the following AMD GPU targets: gfx900, gfx906, gfx908, gfx90a"
         },
         {
             "name": "+sycl",
@@ -806,8 +813,8 @@
     ],
     "homepage": "https://github.com/kokkos/kokkos",
     "maintainers": [
-        "DavidPoliakoff",
-        "jciesko"
+        "janciesko",
+        "crtrott"
     ],
     "patches": [],
     "resources": [],
@@ -856,44 +863,56 @@
     ],
     "dependent_to": [
         {
-            "name": "arborx",
-            "description": "ArborX is a performance-portable library for geometric search"
-        },
-        {
-            "name": "compadre",
-            "description": "The Compadre Toolkit provides a performance portable solution for the\nparallel evaluation of computationally dense kernels. The toolkit\nspecifically targets the Generalized Moving Least Squares (GMLS)\napproach, which requires the inversion of small dense matrices. The\nresult is a set of weights that provide the information needed for remap\nor entries that constitute the rows of some globally sparse matrix."
+            "name": "legion",
+            "description": "Legion is a data-centric parallel programming system for writing\nportable high performance programs targeted at distributed heterogeneous\narchitectures. Legion presents abstractions which allow programmers to\ndescribe properties of program data (e.g. independence, locality). By\nmaking the Legion programming system aware of the structure of program\ndata, it can automate many of the tedious tasks programmers currently\nface, including correctly extracting task- and data-level parallelism\nand moving data around complex memory hierarchies. A novel mapping\ninterface provides explicit programmer controlled placement of data in\nthe memory hierarchy and assignment of tasks to processors in a way that\nis orthogonal to correctness, thereby enabling easy porting and tuning\nof Legion applications to new architectures."
         },
         {
             "name": "kokkos-kernels",
             "description": "Kokkos Kernels provides math kernels, often BLAS or LAPACK for small\nmatrices, that can be used in larger Kokkos parallel routines"
         },
         {
-            "name": "wonton",
-            "description": "Wonton is a support package for the Portage\n(https://github.com/laristra/portage) and Tangram\n(https://github.com/laristra/tangram) libraries. It contains some\nmesh/state classes, wrappers for other mesh/state libraries and some\nutilities required by Portage and Tangram."
+            "name": "arborx",
+            "description": "ArborX is a performance-portable library for geometric search"
         },
         {
             "name": "flcl",
             "description": "API for Fortran to C++ and C++ to Fortran multi-dimensional array\ninteroperability using Kokkos."
         },
         {
-            "name": "lammps",
-            "description": "LAMMPS stands for Large-scale Atomic/Molecular Massively Parallel\nSimulator. This package uses patch releases, not stable release. See\nhttps://github.com/spack/spack/pull/5342 for a detailed discussion."
+            "name": "nlcglib",
+            "description": "Nonlinear CG methods for wave-function optimization in DFT."
         },
         {
             "name": "cabana",
             "description": "The Exascale Co-Design Center for Particle Applications Toolkit"
         },
         {
+            "name": "portage",
+            "description": "Portage is a framework that computational physics applications can use\nto build a highly customized, hybrid parallel (MPI+X) conservative\nremapping library for transfer of field data between meshes."
+        },
+        {
+            "name": "lammps",
+            "description": "LAMMPS stands for Large-scale Atomic/Molecular Massively Parallel\nSimulator. This package uses patch releases, not stable release. See\nhttps://github.com/spack/spack/pull/5342 for a detailed discussion."
+        },
+        {
             "name": "py-pykokkos-base",
             "description": "Minimal set of bindings for Kokkos interoperability with Python\n(initialize, finalize, View, DynRankView, Kokkos-tools)"
         },
         {
-            "name": "nlcglib",
-            "description": "Nonlinear CG methods for wave-function optimization in DFT."
+            "name": "flecsi",
+            "description": "FleCSI is a compile-time configurable framework designed to support\nmulti-physics application development. As such, FleCSI attempts to\nprovide a very general set of infrastructure design patterns that can be\nspecialized and extended to suit the needs of a broad variety of solver\nand data requirements. Current support includes multi-dimensional mesh\ntopology, mesh geometry, and mesh adjacency information, n-dimensional\nhashed-tree data structures, graph partitioning interfaces,and\ndependency closures."
         },
         {
-            "name": "portage",
-            "description": "Portage is a framework that computational physics applications can use\nto build a highly customized, hybrid parallel (MPI+X) conservative\nremapping library for transfer of field data between meshes."
+            "name": "exampm",
+            "description": "Exascale Material Point Method (MPM) Mini-App"
+        },
+        {
+            "name": "wonton",
+            "description": "Wonton is a support package for the Portage\n(https://github.com/laristra/portage) and Tangram\n(https://github.com/laristra/tangram) libraries. It contains some\nmesh/state classes, wrappers for other mesh/state libraries and some\nutilities required by Portage and Tangram."
+        },
+        {
+            "name": "compadre",
+            "description": "The Compadre Toolkit provides a performance portable solution for the\nparallel evaluation of computationally dense kernels. The toolkit\nspecifically targets the Generalized Moving Least Squares (GMLS)\napproach, which requires the inversion of small dense matrices. The\nresult is a set of weights that provide the information needed for remap\nor entries that constitute the rows of some globally sparse matrix."
         },
         {
             "name": "petsc",
@@ -902,18 +921,6 @@
         {
             "name": "vtk-m",
             "description": "VTK-m is a toolkit of scientific visualization algorithms for emerging\nprocessor architectures. VTK-m supports the fine-grained concurrency for\ndata analysis and visualization algorithms required to drive extreme\nscale computing by providing abstract models for data and execution that\ncan be applied to a variety of algorithms across many different\nprocessor architectures."
-        },
-        {
-            "name": "legion",
-            "description": "Legion is a data-centric parallel programming system for writing\nportable high performance programs targeted at distributed heterogeneous\narchitectures. Legion presents abstractions which allow programmers to\ndescribe properties of program data (e.g. independence, locality). By\nmaking the Legion programming system aware of the structure of program\ndata, it can automate many of the tedious tasks programmers currently\nface, including correctly extracting task- and data-level parallelism\nand moving data around complex memory hierarchies. A novel mapping\ninterface provides explicit programmer controlled placement of data in\nthe memory hierarchy and assignment of tasks to processors in a way that\nis orthogonal to correctness, thereby enabling easy porting and tuning\nof Legion applications to new architectures."
-        },
-        {
-            "name": "exampm",
-            "description": "Exascale Material Point Method (MPM) Mini-App"
-        },
-        {
-            "name": "flecsi",
-            "description": "FleCSI is a compile-time configurable framework designed to support\nmulti-physics application development. As such, FleCSI attempts to\nprovide a very general set of infrastructure design patterns that can be\nspecialized and extended to suit the needs of a broad variety of solver\nand data requirements. Current support includes multi-dimensional mesh\ntopology, mesh geometry, and mesh adjacency information, n-dimensional\nhashed-tree data structures, graph partitioning interfaces,and\ndependency closures."
         }
     ]
 }
