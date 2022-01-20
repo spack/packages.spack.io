@@ -1,0 +1,262 @@
+{
+    "name": "spectre",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "develop",
+            "branch": "develop"
+        },
+        {
+            "name": "2022.01.03",
+            "sha256": "872a0d152c19864ad543ddcc585ce30baaad4185c2617c13463d780175cbde5f"
+        },
+        {
+            "name": "2021.12.15",
+            "sha256": "4bfe9e27412e263ffdc6fcfcb84011f16d34a9fdd633ad7fc84a34c898f67e5c"
+        }
+    ],
+    "build_system": "CMakePackage",
+    "conflicts": [
+        {
+            "name": "+ipo",
+            "spec": "^cmake@:3.8",
+            "description": "+ipo is not supported by CMake < 3.9"
+        },
+        {
+            "name": "%gcc@:6",
+            "spec": "",
+            "description": "None"
+        },
+        {
+            "name": "%clang@:7",
+            "spec": "",
+            "description": "None"
+        },
+        {
+            "name": "%apple-clang@:10",
+            "spec": "",
+            "description": "None"
+        }
+    ],
+    "variants": [
+        {
+            "name": "build_type",
+            "default": "RelWithDebInfo",
+            "description": "CMake build type"
+        },
+        {
+            "name": "ipo",
+            "default": false,
+            "description": "CMake interprocedural optimization"
+        },
+        {
+            "name": "executables",
+            "default": "none",
+            "description": "Executables to install"
+        },
+        {
+            "name": "python",
+            "default": false,
+            "description": "Build Python bindings"
+        },
+        {
+            "name": "doc",
+            "default": false,
+            "description": "Build documentation"
+        },
+        {
+            "name": "memory_allocator",
+            "default": "system",
+            "description": "Which memory allocator to use"
+        },
+        {
+            "name": "formaline",
+            "default": true,
+            "description": "Write the source tree into simulation output files to increase reproducibility of results"
+        },
+        {
+            "name": "profiling",
+            "default": false,
+            "description": "Enable options to make profiling SpECTRE easier"
+        }
+    ],
+    "homepage": "https://spectre-code.com",
+    "maintainers": [
+        "nilsleiffischer"
+    ],
+    "patches": [
+        {
+            "owner": "builtin.spectre",
+            "sha256": "767f7b29f617c0aa0e363ef45ab7dda41d440c309529829e9e9c65e9d76530d6",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "install-pre-2022.01.03.patch",
+            "version": "@:2022.01.03"
+        },
+        {
+            "owner": "builtin.spectre",
+            "sha256": "912877d4f553adff8b6df8264c50600c1e6d5a9c3ad18be0b86c9d801c07699c",
+            "level": 1,
+            "working_dir": ".",
+            "url": "https://github.com/sxs-collaboration/spectre/commit/cffeba1bc24bf7c00ec8bac710f02d3db36fa111.patch",
+            "version": "@:2022.01.03"
+        },
+        {
+            "owner": "builtin.spectre",
+            "sha256": "65416aab51ccf13ae7fb7296389f8bf637698e56f4a12720cc57221d04988772",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "build-testing-pre-2022.01.03.patch",
+            "version": "@:2022.01.03"
+        },
+        {
+            "owner": "builtin.spectre",
+            "sha256": "160d55bb2537ea8f3937cea59a9a0fd56a2bfef856bb7fd8e9dceb504c04836c",
+            "level": 1,
+            "working_dir": ".",
+            "url": "https://github.com/sxs-collaboration/spectre/commit/ada1d15d5963bd22581dd8966599e1529a99645d.patch",
+            "version": "@:2022.01.03"
+        },
+        {
+            "owner": "builtin.spectre",
+            "sha256": "07be176ca4dda74a2dd8e71c31dab638a9f3567c3a58eb7fddbfde001646fb8c",
+            "level": 1,
+            "working_dir": ".",
+            "url": "https://github.com/sxs-collaboration/spectre/commit/1b61e62a27b02b658cc6a74c4d46af1f5b5d0a4d.patch",
+            "version": "@:2022.01.03"
+        },
+        {
+            "owner": "builtin.spectre",
+            "sha256": "eb6094028530d9f28cb9c91a90b4af908cc537c8525fb4c81b11c74fd0354932",
+            "level": 1,
+            "working_dir": ".",
+            "url": "https://github.com/sxs-collaboration/spectre/commit/a2203824ef38ec79a247703ae8cd215befffe391.patch",
+            "version": "@:2022.01.03 ^charmpp@7.0.0:"
+        },
+        {
+            "owner": "builtin.spectre",
+            "sha256": "bf539feb01d01e178889828dbbe5e990e8ee58c9e971d8634845c70a7cfb42a9",
+            "level": 1,
+            "working_dir": ".",
+            "url": "https://github.com/sxs-collaboration/spectre/commit/001fc190a6ec73ad6c19ada9444d04a2320f2b96.patch",
+            "version": "@:2022.01.03 ^boost@1.77:"
+        },
+        {
+            "owner": "builtin.spectre",
+            "sha256": "5a5a3abf102e92812933e7318daabe2ca0a5a00d81d9663731c527e5dc6c8ced",
+            "level": 1,
+            "working_dir": ".",
+            "url": "https://github.com/sxs-collaboration/spectre/commit/82ff2c39cdae0ecc1e42bdf4564506a4ca869818.patch",
+            "version": "@:2022.01.03 ^python@3.10:"
+        },
+        {
+            "owner": "builtin.spectre",
+            "sha256": "eb50b31af79d1e6b6535503bc30a9c5efd2ce36bd3638a2b3ab02af44bac6de3",
+            "level": 1,
+            "working_dir": ".",
+            "url": "https://github.com/sxs-collaboration/spectre/commit/eb887635f5e2b394ae2c7e96170e9d907eb315cf.patch",
+            "version": "@:2022.01.03 ^hdf5+mpi"
+        }
+    ],
+    "resources": [],
+    "description": "The SpECTRE numerical relativity code. SpECTRE is an open-source code\nfor multi-scale, multi-physics problems in astrophysics and\ngravitational physics. In the future, we hope that it can be applied to\nproblems across discipline boundaries in fluid dynamics, geoscience,\nplasma physics, nuclear physics, and engineering. It runs at petascale\nand is designed for future exascale computers. SpECTRE is being\ndeveloped in support of our collaborative Simulating eXtreme Spacetimes\n(SXS) research program into the multi-messenger astrophysics of neutron\nstar mergers, core-collapse supernovae, and gamma-ray bursts.\n",
+    "dependencies": [
+        {
+            "name": "cmake",
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
+        },
+        {
+            "name": "ninja",
+            "description": "Ninja is a small build system with a focus on speed. It differs from\nother build systems in two major respects: it is designed to have its\ninput files generated by a higher-level build system, and it is designed\nto run builds as fast as possible."
+        },
+        {
+            "name": "python",
+            "description": "The Python programming language."
+        },
+        {
+            "name": "charmpp",
+            "description": "Charm++ is a parallel programming framework in C++ supported by an\nadaptive runtime system, which enhances user productivity and allows\nprograms to run portably from small multicore computers (your laptop) to\nthe largest supercomputers."
+        },
+        {
+            "name": "blaze",
+            "description": "Blaze is an open-source, high-performance C++ math library for dense and\nsparse arithmetic. With its state-of-the-art Smart Expression Template\nimplementation Blaze combines the elegance and ease of use of a domain-\nspecific language with HPC-grade performance, making it one of the most\nintuitive and fastest C++ math libraries available."
+        },
+        {
+            "name": "boost",
+            "description": "Boost provides free peer-reviewed portable C++ source libraries,\nemphasizing libraries that work well with the C++ Standard Library.\nBoost libraries are intended to be widely useful, and usable across a\nbroad spectrum of applications. The Boost license encourages both\ncommercial and non-commercial use."
+        },
+        {
+            "name": "brigand",
+            "description": "Brigand Meta-programming library"
+        },
+        {
+            "name": "gsl",
+            "description": "The GNU Scientific Library (GSL) is a numerical library for C and C++\nprogrammers. It is free software under the GNU General Public License.\nThe library provides a wide range of mathematical routines such as\nrandom number generators, special functions and least-squares fitting.\nThere are over 1000 functions in total with an extensive test suite."
+        },
+        {
+            "name": "hdf5",
+            "description": "HDF5 is a data model, library, and file format for storing and managing\ndata. It supports an unlimited variety of datatypes, and is designed for\nflexible and efficient I/O and for high volume and complex data."
+        },
+        {
+            "name": "jemalloc",
+            "description": "jemalloc is a general purpose malloc(3) implementation that emphasizes\nfragmentation avoidance and scalable concurrency support."
+        },
+        {
+            "name": "libsharp",
+            "description": "Libsharp is a code library for spherical harmonic transforms (SHTs) and\nspin-weighted spherical harmonic transforms, which evolved from the\nlibpsht library."
+        },
+        {
+            "name": "libxsmm",
+            "description": "Library for specialized dense and sparse matrix operations, and deep\nlearning primitives."
+        },
+        {
+            "name": "blas",
+            "description": "Lightweight but flexible shim designed to rectify the incompatibilities\nbetween the Accelerate/vecLib BLAS and LAPACK libraries shipped with\nmacOS and FORTRAN code compiled with modern compilers such as GNU\nFortran."
+        },
+        {
+            "name": "lapack",
+            "description": "Lightweight but flexible shim designed to rectify the incompatibilities\nbetween the Accelerate/vecLib BLAS and LAPACK libraries shipped with\nmacOS and FORTRAN code compiled with modern compilers such as GNU\nFortran."
+        },
+        {
+            "name": "yaml-cpp",
+            "description": "A YAML parser and emitter in C++"
+        },
+        {
+            "name": "catch2",
+            "description": "Catch2 is a multi-paradigm test framework for C++, which also supports\nObjective-C (and maybe C)."
+        },
+        {
+            "name": "py-numpy",
+            "description": "NumPy is the fundamental package for scientific computing with Python.\nIt contains among other things: a powerful N-dimensional array object,\nsophisticated (broadcasting) functions, tools for integrating C/C++ and\nFortran code, and useful linear algebra, Fourier transform, and random\nnumber capabilities"
+        },
+        {
+            "name": "py-scipy",
+            "description": "SciPy (pronounced \"Sigh Pie\") is a Scientific Library for Python. It\nprovides many user-friendly and efficient numerical routines such as\nroutines for numerical integration and optimization."
+        },
+        {
+            "name": "py-h5py",
+            "description": "The h5py package provides both a high- and low-level interface to the\nHDF5 library from Python."
+        },
+        {
+            "name": "py-pybind11",
+            "description": "pybind11 -- Seamless operability between C++11 and Python. pybind11 is a\nlightweight header-only library that exposes C++ types in Python and\nvice versa, mainly to create Python bindings of existing C++ code. Its\ngoals and syntax are similar to the excellent Boost.Python library by\nDavid Abrahams: to minimize boilerplate code in traditional extension\nmodules by inferring type information using compile-time introspection."
+        },
+        {
+            "name": "py-matplotlib",
+            "description": "Matplotlib is a comprehensive library for creating static, animated, and\ninteractive visualizations in Python."
+        },
+        {
+            "name": "doxygen",
+            "description": "Doxygen is the de facto standard tool for generating documentation from\nannotated C++ sources, but it also supports other popular programming\nlanguages such as C, Objective-C, C#, PHP, Java, Python, IDL (Corba,\nMicrosoft, and UNO/OpenOffice flavors), Fortran, VHDL, Tcl, and to some\nextent D.."
+        },
+        {
+            "name": "py-beautifulsoup4",
+            "description": "Beautiful Soup is a Python library for pulling data out of HTML and XML\nfiles. It works with your favorite parser to provide idiomatic ways of\nnavigating, searching, and modifying the parse tree."
+        },
+        {
+            "name": "py-pybtex",
+            "description": "Pybtex is a BibTeX-compatible bibliography processor written in Python."
+        }
+    ],
+    "dependent_to": []
+}

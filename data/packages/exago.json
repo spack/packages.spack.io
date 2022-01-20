@@ -3,6 +3,12 @@
     "aliases": [],
     "versions": [
         {
+            "name": "1.3.0",
+            "commit": "58b039d746a6eac8e84b0afc01354cd58caec485",
+            "submodules": true,
+            "preferred": true
+        },
+        {
             "name": "1.2.0",
             "commit": "255a214e",
             "submodules": true
@@ -40,7 +46,8 @@
         },
         {
             "name": "develop",
-            "branch": "develop"
+            "branch": "develop",
+            "submodules": true
         }
     ],
     "build_system": "CMakePackage",
@@ -459,6 +466,11 @@
             "name": "+ipo",
             "spec": "^cmake@:3.8",
             "description": "+ipo is not supported by CMake < 3.9"
+        },
+        {
+            "name": "~hiop~ipopt",
+            "spec": "",
+            "description": "ExaGO needs at least one solver enabled"
         }
     ],
     "variants": [
@@ -493,6 +505,11 @@
             "description": "Enable/Disable RAJA"
         },
         {
+            "name": "python",
+            "default": true,
+            "description": "Enable/Disable Python bindings"
+        },
+        {
             "name": "hiop",
             "default": false,
             "description": "Enable/Disable HiOp"
@@ -522,11 +539,11 @@
         },
         {
             "name": "mpi",
-            "description": "HPE MPI is HPE's implementation of the Message Passing Interface (MPI)\nstandard. Note: HPE MPI is proprietry software. Spack will search your\ncurrent directory for the download file. Alternatively, add this file to\na mirror so that Spack can find it. For instructions on how to set up a\nmirror, see https://spack.readthedocs.io/en/latest/mirrors.html"
+            "description": "IBM MPI implementation from Spectrum MPI."
         },
         {
             "name": "blas",
-            "description": "The Cray Scientific Libraries package, LibSci, is a collection of\nnumerical routines optimized for best performance on Cray systems."
+            "description": "Lightweight but flexible shim designed to rectify the incompatibilities\nbetween the Accelerate/vecLib BLAS and LAPACK libraries shipped with\nmacOS and FORTRAN code compiled with modern compilers such as GNU\nFortran."
         },
         {
             "name": "raja",
