@@ -63,6 +63,71 @@
     "build_system": "CMakePackage",
     "conflicts": [
         {
+            "name": "^blt@:0.3.6",
+            "spec": "+rocm",
+            "description": "None"
+        },
+        {
+            "name": "amdgpu_target=none",
+            "spec": "+rocm",
+            "description": "None"
+        },
+        {
+            "name": "~rocm",
+            "spec": "amdgpu_target=gfx701",
+            "description": "None"
+        },
+        {
+            "name": "~rocm",
+            "spec": "amdgpu_target=gfx801",
+            "description": "None"
+        },
+        {
+            "name": "~rocm",
+            "spec": "amdgpu_target=gfx802",
+            "description": "None"
+        },
+        {
+            "name": "~rocm",
+            "spec": "amdgpu_target=gfx803",
+            "description": "None"
+        },
+        {
+            "name": "~rocm",
+            "spec": "amdgpu_target=gfx900",
+            "description": "None"
+        },
+        {
+            "name": "~rocm",
+            "spec": "amdgpu_target=gfx906",
+            "description": "None"
+        },
+        {
+            "name": "~rocm",
+            "spec": "amdgpu_target=gfx908",
+            "description": "None"
+        },
+        {
+            "name": "~rocm",
+            "spec": "amdgpu_target=gfx90a",
+            "description": "None"
+        },
+        {
+            "name": "~rocm",
+            "spec": "amdgpu_target=gfx1010",
+            "description": "None"
+        },
+        {
+            "name": "~rocm",
+            "spec": "amdgpu_target=gfx1011",
+            "description": "None"
+        },
+        {
+            "name": "~rocm",
+            "spec": "amdgpu_target=gfx1012",
+            "description": "None"
+        },
+        {
             "name": "%gcc@:4",
             "spec": "+cuda ^cuda@11.0:",
             "description": "None"
@@ -473,19 +538,24 @@
             "description": "+ipo is not supported by CMake < 3.9"
         },
         {
-            "name": "+hip",
-            "spec": "amdgpu_target=none",
-            "description": "None"
+            "name": "%gcc@:4.10",
+            "spec": "",
+            "description": "vtk-m requires gcc >= 5. Please install a newer version"
         },
         {
-            "name": "+hip",
+            "name": "+rocm",
             "spec": "+cuda",
             "description": "None"
         },
         {
-            "name": "%gcc@:4.10",
-            "spec": "",
-            "description": "vtk-m requires gcc >= 5. Please install a newer version"
+            "name": "+rocm",
+            "spec": "~kokkos",
+            "description": "VTK-m does not support HIP without Kokkos"
+        },
+        {
+            "name": "+shared",
+            "spec": "+cuda_native",
+            "description": "None"
         },
         {
             "name": "+cuda",
@@ -495,9 +565,19 @@
     ],
     "variants": [
         {
+            "name": "rocm",
+            "default": false,
+            "description": "Enable ROCm support"
+        },
+        {
+            "name": "amdgpu_target",
+            "default": "none",
+            "description": "AMD GPU architecture"
+        },
+        {
             "name": "cuda",
             "default": false,
-            "description": "build cuda support"
+            "description": "Build with CUDA"
         },
         {
             "name": "cuda_arch",
@@ -560,6 +640,16 @@
             "description": "build test library"
         },
         {
+            "name": "kokkos",
+            "default": false,
+            "description": "build using Kokkos backend"
+        },
+        {
+            "name": "cuda_native",
+            "default": true,
+            "description": "build using native cuda backend"
+        },
+        {
             "name": "openmp",
             "default": true,
             "description": "build openmp support"
@@ -568,16 +658,6 @@
             "name": "tbb",
             "default": false,
             "description": "build TBB support"
-        },
-        {
-            "name": "hip",
-            "default": false,
-            "description": "build hip support"
-        },
-        {
-            "name": "amdgpu_target",
-            "default": "none",
-            "description": ""
         }
     ],
     "homepage": "https://m.vtk.org/",
@@ -591,6 +671,18 @@
     "description": "VTK-m is a toolkit of scientific visualization algorithms for emerging\nprocessor architectures. VTK-m supports the fine-grained concurrency for\ndata analysis and visualization algorithms required to drive extreme\nscale computing by providing abstract models for data and execution that\ncan be applied to a variety of algorithms across many different\nprocessor architectures.\n",
     "dependencies": [
         {
+            "name": "llvm-amdgpu",
+            "description": "Toolkit for the construction of highly optimized compilers, optimizers,\nand run-time environments."
+        },
+        {
+            "name": "hsa-rocr-dev",
+            "description": "This repository includes the user mode API nterfaces and libraries\nnecessary for host applications to launch computer kernels to available\nHSA ROCm kernel agents.AMD Heterogeneous System Architecture HSA - Linux\nHSA Runtime for Boltzmann (ROCm) platforms."
+        },
+        {
+            "name": "hip",
+            "description": "HIP is a C++ Runtime API and Kernel Language that allows developers to\ncreate portable applications for AMD and NVIDIA GPUs from single source\ncode."
+        },
+        {
             "name": "cuda",
             "description": "CUDA is a parallel computing platform and programming model invented by\nNVIDIA. It enables dramatic increases in computing performance by\nharnessing the power of the graphics processing unit (GPU). Note: This\npackage does not currently install the drivers necessary to run CUDA.\nThese will need to be installed manually. See:\nhttps://docs.nvidia.com/cuda/ for details."
         },
@@ -600,11 +692,11 @@
         },
         {
             "name": "tbb",
-            "description": "Intel Parallel Studio."
+            "description": "Intel oneAPI TBB."
         },
         {
             "name": "mpi",
-            "description": "HPE MPI is HPE's implementation of the Message Passing Interface (MPI)\nstandard. Note: HPE MPI is proprietry software. Spack will search your\ncurrent directory for the download file. Alternatively, add this file to\na mirror so that Spack can find it. For instructions on how to set up a\nmirror, see https://spack.readthedocs.io/en/latest/mirrors.html"
+            "description": "There can only be one (MPI process)!"
         },
         {
             "name": "kokkos",
@@ -613,24 +705,20 @@
         {
             "name": "rocm-cmake",
             "description": "ROCM cmake modules provides cmake modules for common build tasks needed\nfor the ROCM software stack"
-        },
-        {
-            "name": "hip",
-            "description": "HIP is a C++ Runtime API and Kernel Language that allows developers to\ncreate portable applications for AMD and NVIDIA GPUs from single source\ncode."
         }
     ],
     "dependent_to": [
         {
-            "name": "fides",
-            "description": "A library that provides a schema for ADIOS2 streams."
+            "name": "vtk-h",
+            "description": "VTK-h is a toolkit of scientific visualization algorithms for emerging\nprocessor architectures. VTK-h brings together several projects like\nVTK-m and DIY2 to provide a toolkit with hybrid parallel capabilities."
         },
         {
             "name": "ecp-data-vis-sdk",
             "description": "ECP Data & Vis SDK"
         },
         {
-            "name": "vtk-h",
-            "description": "VTK-h is a toolkit of scientific visualization algorithms for emerging\nprocessor architectures. VTK-h brings together several projects like\nVTK-m and DIY2 to provide a toolkit with hybrid parallel capabilities."
+            "name": "fides",
+            "description": "A library that provides a schema for ADIOS2 streams."
         }
     ]
 }
