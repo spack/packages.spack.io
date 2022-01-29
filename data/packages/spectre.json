@@ -36,12 +36,17 @@
             "name": "%apple-clang@:10",
             "spec": "",
             "description": "None"
+        },
+        {
+            "name": "+shared",
+            "spec": "@:2022.01.03 arch=darwin-None-None",
+            "description": "None"
         }
     ],
     "variants": [
         {
             "name": "build_type",
-            "default": "RelWithDebInfo",
+            "default": "Release",
             "description": "CMake build type"
         },
         {
@@ -63,6 +68,16 @@
             "name": "doc",
             "default": false,
             "description": "Build documentation"
+        },
+        {
+            "name": "debug_symbols",
+            "default": true,
+            "description": "Build with debug symbols"
+        },
+        {
+            "name": "shared",
+            "default": false,
+            "description": "Build shared libraries instead of static"
         },
         {
             "name": "memory_allocator",
@@ -127,6 +142,14 @@
         },
         {
             "owner": "builtin.spectre",
+            "sha256": "cd39217614a40f080d812e20220044aa8b26b9413324a7cd7a304e2378a2b426",
+            "level": 1,
+            "working_dir": ".",
+            "url": "https://github.com/sxs-collaboration/spectre/commit/4bb3f25f905f83d8295a28a8036f6971dc4e75a2.patch",
+            "version": "@:2022.01.03"
+        },
+        {
+            "owner": "builtin.spectre",
             "sha256": "eb6094028530d9f28cb9c91a90b4af908cc537c8525fb4c81b11c74fd0354932",
             "level": 1,
             "working_dir": ".",
@@ -156,6 +179,14 @@
             "working_dir": ".",
             "url": "https://github.com/sxs-collaboration/spectre/commit/eb887635f5e2b394ae2c7e96170e9d907eb315cf.patch",
             "version": "@:2022.01.03 ^hdf5+mpi"
+        },
+        {
+            "owner": "builtin.spectre",
+            "sha256": "29ad44594ecfd6442a64d2cb57ed2d712cb8d93707c6bceea8030a9a2682b7ed",
+            "level": 1,
+            "working_dir": ".",
+            "url": "https://github.com/sxs-collaboration/spectre/commit/b7c54a2a20c6d62aae6b1c97e3468d4cd39ed6ad.patch",
+            "version": "@:2022.01.03+shared"
         }
     ],
     "resources": [],
@@ -211,11 +242,11 @@
         },
         {
             "name": "blas",
-            "description": "Intel Math Kernel Library."
+            "description": "Intel oneAPI MKL."
         },
         {
             "name": "lapack",
-            "description": "Intel Math Kernel Library."
+            "description": "libFLAME (AMD Optimized version) is a portable library for dense matrix\ncomputations, providing much of the functionality present in Linear\nAlgebra Package (LAPACK). It includes a compatibility layer, FLAPACK,\nwhich includes complete LAPACK implementation. The library provides\nscientific and numerical computing communities with a modern, high-\nperformance dense linear algebra library that is extensible, easy to\nuse, and available under an open source license. libFLAME is a C-only\nimplementation and does not depend on any external FORTRAN libraries\nincluding LAPACK. There is an optional backward compatibility layer,\nlapack2flame that maps LAPACK routine invocations to their corresponding\nnative C implementations in libFLAME. This allows legacy applications to\nstart taking advantage of libFLAME with virtually no changes to their\nsource code. In combination with BLIS library which includes\noptimizations for the AMD EPYC processor family, libFLAME enables\nrunning high performing LAPACK functionalities on AMD platform."
         },
         {
             "name": "yaml-cpp",
