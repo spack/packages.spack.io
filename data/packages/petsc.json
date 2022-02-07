@@ -1126,7 +1126,7 @@
         },
         {
             "name": "blas",
-            "description": "Lightweight but flexible shim designed to rectify the incompatibilities\nbetween the Accelerate/vecLib BLAS and LAPACK libraries shipped with\nmacOS and FORTRAN code compiled with modern compilers such as GNU\nFortran."
+            "description": "BLIS is a portable software framework for instantiating high-performance\nBLAS-like dense linear algebra libraries. The framework was designed to\nisolate essential kernels of computation that, when optimized,\nimmediately enable optimized implementations of most of its commonly\nused and computationally intensive operations. BLIS is written in ISO\nC99 and available under a new/modified/3-clause BSD license. While BLIS\nexports a new BLAS-like API, it also includes a BLAS compatibility layer\nwhich gives application developers access to BLIS implementations via\ntraditional BLAS routine calls. An object-based API unique to BLIS is\nalso available."
         },
         {
             "name": "lapack",
@@ -1134,7 +1134,7 @@
         },
         {
             "name": "mpi",
-            "description": "Virtual package for the Message Passing Interface."
+            "description": "Cray's MPICH is a high performance and widely portable implementation of\nthe Message Passing Interface (MPI) standard."
         },
         {
             "name": "hipblas",
@@ -1222,7 +1222,7 @@
         },
         {
             "name": "scalapack",
-            "description": "ScaLAPACK is a library of high-performance linear algebra routines for\nparallel distributed memory machines. It depends on external libraries\nincluding BLAS and LAPACK for Linear Algebra computations. AMD's\noptimized version of ScaLAPACK enables using BLIS and LibFLAME library\nthat have optimized dense matrix functions and solvers for AMD EPYC\nprocessor family CPUs."
+            "description": "Intel Math Kernel Library."
         },
         {
             "name": "mumps",
@@ -1323,96 +1323,20 @@
     ],
     "dependent_to": [
         {
-            "name": "fastmath",
-            "description": "FASTMath is a suite of ~15 numerical libraries frequently used together\nin various SciDAC and CSE applications. The suite includes\ndiscretization libraries for structured, AMR and unstructured grids as\nwell as solver libraries for ODE's, Time Integrators, Iterative, Non-\nLinear, and Direct Solvers."
+            "name": "phist",
+            "description": "The Pipelined, Hybrid-parallel Iterative Solver Toolkit provides\nimplementations of and interfaces to block iterative solvers for sparse\nlinear and eigenvalue problems. In contrast to other libraries we\nsupport multiple backends (e.g. Trilinos, PETSc and our own optimized\nkernels), and interfaces in multiple languages such as C, C++, Fortran\n2003 and Python. PHIST has a clear focus on portability and hardware\nperformance: in particular support row-major storage of block vectors\nand using GPUs (via the ghost library or Trilinos/Tpetra)."
         },
         {
-            "name": "hpgmg",
-            "description": "HPGMG implements full multigrid (FMG) algorithms using finite-volume and\nfinite-element methods. Different algorithmic variants adjust the\narithmetic intensity and architectural properties that are tested. These\nFMG methods converge up to discretization error in one F-cycle, thus may\nbe considered direct solvers. An F-cycle visits the finest level a total\nof two times, the first coarsening (8x smaller) 4 times, the second\ncoarsening 6 times, etc."
-        },
-        {
-            "name": "steps",
-            "description": "STochastic Engine for Pathway Simulation"
-        },
-        {
-            "name": "amp",
-            "description": "The Advanced Multi-Physics (AMP) package. The Advanced Multi-Physics\n(AMP) package is an open source parallel object-oriented computational\nframework that is designed with single and multi-domain multi-physics\napplications in mind."
-        },
-        {
-            "name": "pflotran",
-            "description": "PFLOTRAN is an open source, state-of-the-art massively parallel\nsubsurface flow and reactive transport code."
-        },
-        {
-            "name": "pism",
-            "description": "Parallel Ice Sheet Model"
-        },
-        {
-            "name": "fenics-dolfinx",
-            "description": "Next generation FEniCS problem solving environment"
-        },
-        {
-            "name": "libmesh",
-            "description": "The libMesh library provides a framework for the numerical simulation of\npartial differential equations using arbitrary unstructured\ndiscretizations on serial and parallel platforms."
-        },
-        {
-            "name": "mofem-cephas",
-            "description": "MoFEM is finite element core library"
-        },
-        {
-            "name": "ceed",
-            "description": "Ceed is a collection of benchmarks, miniapps, software libraries and\nAPIs for efficient high-order finite element and spectral element\ndiscretizations for exascale applications developed in the Department of\nEnergy (DOE) and partially supported by the Exascale Computing Project\n(ECP). This is a Spack bundle package that installs the CEED software\ncomponents."
-        },
-        {
-            "name": "dealii",
-            "description": "C++ software library providing well-documented tools to build finite\nelement codes for a broad variety of PDEs."
-        },
-        {
-            "name": "xsdk",
-            "description": "Xsdk is a suite of Department of Energy (DOE) packages for numerical\nsimulation. This is a Spack bundle package that installs the xSDK\npackages"
-        },
-        {
-            "name": "amrex",
-            "description": "AMReX is a publicly available software framework designed for building\nmassively parallel block- structured adaptive mesh refinement (AMR)\napplications."
-        },
-        {
-            "name": "opencarp",
-            "description": "The openCARP simulation software, an open cardiac electrophysiology\nsimulator for in-silico experiments."
+            "name": "sundials",
+            "description": "SUNDIALS (SUite of Nonlinear and DIfferential/ALgebraic equation\nSolvers)"
         },
         {
             "name": "precice",
             "description": "preCICE (Precise Code Interaction Coupling Environment) is a coupling\nlibrary for partitioned multi-physics simulations. Partitioned means\nthat preCICE couples existing programs (solvers) capable of simulating a\nsubpart of the complete physics involved in a simulation."
         },
         {
-            "name": "damask-grid",
-            "description": "Grid solver for DAMASK"
-        },
-        {
-            "name": "fenics",
-            "description": "FEniCS is organized as a collection of interoperable components that\ntogether form the FEniCS Project. These components include the problem-\nsolving environment DOLFIN, the form compiler FFC, the finite element\ntabulator FIAT, the just-in-time compiler Instant / Dijitso, the code\ngeneration interface UFC, the form language UFL and a range of\nadditional components."
-        },
-        {
-            "name": "slepc",
-            "description": "Scalable Library for Eigenvalue Problem Computations."
-        },
-        {
-            "name": "gmsh",
-            "description": "Gmsh is a free 3D finite element grid generator with a built-in CAD\nengine and post-processor. Its design goal is to provide a fast, light\nand user-friendly meshing tool with parametric input and advanced\nvisualization capabilities. Gmsh is built around four modules: geometry,\nmesh, solver and post-processing. The specification of any input to\nthese modules is done either interactively using the graphical user\ninterface or in ASCII text files using Gmsh's own scripting language."
-        },
-        {
-            "name": "damask-mesh",
-            "description": "Mesh solver for DAMASK"
-        },
-        {
-            "name": "phist",
-            "description": "The Pipelined, Hybrid-parallel Iterative Solver Toolkit provides\nimplementations of and interfaces to block iterative solvers for sparse\nlinear and eigenvalue problems. In contrast to other libraries we\nsupport multiple backends (e.g. Trilinos, PETSc and our own optimized\nkernels), and interfaces in multiple languages such as C, C++, Fortran\n2003 and Python. PHIST has a clear focus on portability and hardware\nperformance: in particular support row-major storage of block vectors\nand using GPUs (via the ghost library or Trilinos/Tpetra)."
-        },
-        {
-            "name": "akantu",
-            "description": "Akantu means a little element in Kinyarwanda, a Bantu language. From\nnow on it is also an opensource object-oriented Finite Element library\nwhich has the ambition to be generic and efficient."
-        },
-        {
-            "name": "elsi",
-            "description": "ELSI provides a unified interface for electronic structure codes to a\nvariety of eigenvalue solvers."
+            "name": "steps",
+            "description": "STochastic Engine for Pathway Simulation"
         },
         {
             "name": "mfem",
@@ -1423,16 +1347,92 @@
             "description": "Alquimia is an interface that exposes the capabilities of mature\ngeochemistry codes such as CrunchFlow and PFLOTRAN"
         },
         {
+            "name": "pism",
+            "description": "Parallel Ice Sheet Model"
+        },
+        {
+            "name": "ceed",
+            "description": "Ceed is a collection of benchmarks, miniapps, software libraries and\nAPIs for efficient high-order finite element and spectral element\ndiscretizations for exascale applications developed in the Department of\nEnergy (DOE) and partially supported by the Exascale Computing Project\n(ECP). This is a Spack bundle package that installs the CEED software\ncomponents."
+        },
+        {
+            "name": "libmesh",
+            "description": "The libMesh library provides a framework for the numerical simulation of\npartial differential equations using arbitrary unstructured\ndiscretizations on serial and parallel platforms."
+        },
+        {
+            "name": "hpgmg",
+            "description": "HPGMG implements full multigrid (FMG) algorithms using finite-volume and\nfinite-element methods. Different algorithmic variants adjust the\narithmetic intensity and architectural properties that are tested. These\nFMG methods converge up to discretization error in one F-cycle, thus may\nbe considered direct solvers. An F-cycle visits the finest level a total\nof two times, the first coarsening (8x smaller) 4 times, the second\ncoarsening 6 times, etc."
+        },
+        {
             "name": "py-petsc4py",
             "description": "This package provides Python bindings for the PETSc package."
+        },
+        {
+            "name": "amp",
+            "description": "The Advanced Multi-Physics (AMP) package. The Advanced Multi-Physics\n(AMP) package is an open source parallel object-oriented computational\nframework that is designed with single and multi-domain multi-physics\napplications in mind."
+        },
+        {
+            "name": "gmsh",
+            "description": "Gmsh is a free 3D finite element grid generator with a built-in CAD\nengine and post-processor. Its design goal is to provide a fast, light\nand user-friendly meshing tool with parametric input and advanced\nvisualization capabilities. Gmsh is built around four modules: geometry,\nmesh, solver and post-processing. The specification of any input to\nthese modules is done either interactively using the graphical user\ninterface or in ASCII text files using Gmsh's own scripting language."
+        },
+        {
+            "name": "opencarp",
+            "description": "The openCARP simulation software, an open cardiac electrophysiology\nsimulator for in-silico experiments."
+        },
+        {
+            "name": "damask-grid",
+            "description": "Grid solver for DAMASK"
+        },
+        {
+            "name": "fastmath",
+            "description": "FASTMath is a suite of ~15 numerical libraries frequently used together\nin various SciDAC and CSE applications. The suite includes\ndiscretization libraries for structured, AMR and unstructured grids as\nwell as solver libraries for ODE's, Time Integrators, Iterative, Non-\nLinear, and Direct Solvers."
+        },
+        {
+            "name": "mofem-cephas",
+            "description": "MoFEM is finite element core library"
+        },
+        {
+            "name": "pflotran",
+            "description": "PFLOTRAN is an open source, state-of-the-art massively parallel\nsubsurface flow and reactive transport code."
+        },
+        {
+            "name": "fenics-dolfinx",
+            "description": "Next generation FEniCS problem solving environment"
+        },
+        {
+            "name": "slepc",
+            "description": "Scalable Library for Eigenvalue Problem Computations."
+        },
+        {
+            "name": "dealii",
+            "description": "C++ software library providing well-documented tools to build finite\nelement codes for a broad variety of PDEs."
         },
         {
             "name": "exago",
             "description": "ExaGO is a package for solving large-scale power grid optimization\nproblems on parallel and distributed architectures, particularly\ntargeted for exascale machines."
         },
         {
-            "name": "sundials",
-            "description": "SUNDIALS (SUite of Nonlinear and DIfferential/ALgebraic equation\nSolvers)"
+            "name": "damask-mesh",
+            "description": "Mesh solver for DAMASK"
+        },
+        {
+            "name": "amrex",
+            "description": "AMReX is a publicly available software framework designed for building\nmassively parallel block- structured adaptive mesh refinement (AMR)\napplications."
+        },
+        {
+            "name": "fenics",
+            "description": "FEniCS is organized as a collection of interoperable components that\ntogether form the FEniCS Project. These components include the problem-\nsolving environment DOLFIN, the form compiler FFC, the finite element\ntabulator FIAT, the just-in-time compiler Instant / Dijitso, the code\ngeneration interface UFC, the form language UFL and a range of\nadditional components."
+        },
+        {
+            "name": "akantu",
+            "description": "Akantu means a little element in Kinyarwanda, a Bantu language. From\nnow on it is also an opensource object-oriented Finite Element library\nwhich has the ambition to be generic and efficient."
+        },
+        {
+            "name": "elsi",
+            "description": "ELSI provides a unified interface for electronic structure codes to a\nvariety of eigenvalue solvers."
+        },
+        {
+            "name": "xsdk",
+            "description": "Xsdk is a suite of Department of Energy (DOE) packages for numerical\nsimulation. This is a Spack bundle package that installs the xSDK\npackages"
         }
     ]
 }
