@@ -1,34 +1,129 @@
 {
-    "name": "mesa18",
+    "name": "mesa",
     "aliases": [
         {
             "name": "gl@4.5",
-            "alias_for": "{mesa18}"
+            "alias_for": "{mesa+opengl}"
         },
         {
             "name": "glx@1.4",
-            "alias_for": "{mesa18+glx}"
+            "alias_for": "{mesa+glx}"
         },
         {
             "name": "osmesa",
-            "alias_for": "{mesa18+osmesa}"
+            "alias_for": "{mesa+osmesa}"
         }
     ],
     "versions": [
         {
-            "name": "18.3.6",
-            "tag": "mesa-18.3.6"
+            "name": "master",
+            "tag": "master"
+        },
+        {
+            "name": "21.3.1",
+            "sha256": "2b0dc2540cb192525741d00f706dbc4586349185dafc65729c7fda0800cc474d"
+        },
+        {
+            "name": "21.2.6",
+            "sha256": "1e7e22d93c6e8859fa044b1121119d26b2e67e4184b92ebb81c66497dc80c954"
+        },
+        {
+            "name": "21.2.5",
+            "sha256": "8e49585fb760d973723dab6435d0c86f7849b8305b1e6d99f475138d896bacbb"
+        },
+        {
+            "name": "21.2.4",
+            "sha256": "fe6ede82d1ac02339da3c2ec1820a379641902fd351a52cc01153f76eff85b44"
+        },
+        {
+            "name": "21.2.3",
+            "sha256": "7245284a159d2484770e1835a673e79e4322a9ddf43b17859668244946db7174"
+        },
+        {
+            "name": "21.2.1",
+            "sha256": "2c65e6710b419b67456a48beefd0be827b32db416772e0e363d5f7d54dc01787"
+        },
+        {
+            "name": "21.0.3",
+            "sha256": "565c6f4bd2d5747b919454fc1d439963024fc78ca56fd05158c3b2cde2f6912b"
+        },
+        {
+            "name": "21.0.0",
+            "sha256": "e6204e98e6a8d77cf9dc5d34f99dd8e3ef7144f3601c808ca0dd26ba522e0d84"
+        },
+        {
+            "name": "20.3.4",
+            "sha256": "dc21a987ec1ff45b278fe4b1419b1719f1968debbb80221480e44180849b4084"
+        },
+        {
+            "name": "20.2.1",
+            "sha256": "d1a46d9a3f291bc0e0374600bdcb59844fa3eafaa50398e472a36fc65fd0244a"
         }
     ],
-    "build_system": "AutotoolsPackage",
+    "build_system": "MesonPackage",
     "conflicts": [
         {
+            "name": "~llvm",
+            "spec": "swr=auto",
+            "description": "None"
+        },
+        {
+            "name": "~llvm",
+            "spec": "swr=avx",
+            "description": "None"
+        },
+        {
+            "name": "~llvm",
+            "spec": "swr=avx2",
+            "description": "None"
+        },
+        {
+            "name": "~llvm",
+            "spec": "swr=knl",
+            "description": "None"
+        },
+        {
+            "name": "~llvm",
+            "spec": "swr=skx",
+            "description": "None"
+        },
+        {
+            "name": "%gcc@10.1.0",
+            "spec": "",
+            "description": "GCC 10.1.0 has a bug"
+        },
+        {
             "name": "~osmesa ~glx",
+            "spec": "",
+            "description": "None"
+        },
+        {
+            "name": "~opengl ~opengles",
+            "spec": "",
+            "description": "None"
+        },
+        {
+            "name": "~opengl +opengles",
             "spec": "",
             "description": "None"
         }
     ],
     "variants": [
+        {
+            "name": "buildtype",
+            "default": "debugoptimized",
+            "description": "Meson build type"
+        },
+        {
+            "name": "default_library",
+            "default": "shared",
+            "description": "Build shared libs, static libs or both"
+        },
+        {
+            "name": "strip",
+            "default": false,
+            "description": "Strip targets on install"
+        },
         {
             "name": "llvm",
             "default": true,
@@ -36,7 +131,7 @@
         },
         {
             "name": "swr",
-            "default": "none",
+            "default": "auto",
             "description": "Enable the SWR driver."
         },
         {
@@ -50,6 +145,11 @@
             "description": "Enable the GLX frontend."
         },
         {
+            "name": "opengl",
+            "default": true,
+            "description": "Enable full OpenGL support."
+        },
+        {
             "name": "opengles",
             "default": false,
             "description": "Enable OpenGL ES support."
@@ -57,62 +157,49 @@
     ],
     "homepage": "https://www.mesa3d.org",
     "maintainers": [
-        "v-dobrev",
         "chuckatkins",
-        "ChristianTackeGSI"
+        "v-dobrev"
     ],
     "patches": [
         {
-            "owner": "builtin.mesa18",
-            "sha256": "55a5611ca9fcbe8324c4d68a07b338134954ff12c5b122dc78ff376f012a1414",
+            "owner": "builtin.mesa",
+            "sha256": "36096a178070e40217945e12d542dfe80016cb897284a01114d616656c577d73",
             "level": 1,
             "working_dir": ".",
-            "relative_path": "autotools-x11-nodri.patch",
-            "version": ""
+            "url": "https://cgit.freedesktop.org/mesa/mesa/patch/meson.build?id=054dd668a69acc70d47c73abe4646e96a1f23577",
+            "version": "@21.0.0:21.0.3"
         },
         {
-            "owner": "builtin.mesa18",
-            "sha256": "e0a94aa728c233968137ca1314f6541745228a98d66822ad518b102f5a31b487",
+            "owner": "builtin.mesa",
+            "sha256": "ada85be0f30bdd61a7c4eb24afec741da81bc411f7227e2d9014c862eef58b64",
             "level": 1,
             "working_dir": ".",
-            "relative_path": "multiple-symbols_hash.patch",
-            "version": "@:20.1.4%gcc@10:"
+            "relative_path": "mesa_check_llvm_version_suffix.patch",
+            "version": "@21.2.3:"
         }
     ],
     "resources": [],
     "description": "Mesa is an open-source implementation of the OpenGL specification - a\nsystem for rendering interactive 3D graphics.\n",
     "dependencies": [
         {
-            "name": "gnuconfig",
-            "description": "The GNU config.guess and config.sub scripts versioned by timestamp.\nThis package can be used as a build dependency for autotools packages\nthat ship a tarball with outdated config.guess and config.sub files."
+            "name": "meson",
+            "description": "Meson is a portable open source build system meant to be both extremely\nfast, and as user friendly as possible."
         },
         {
-            "name": "autoconf",
-            "description": "Autoconf -- system configuration part of autotools"
-        },
-        {
-            "name": "automake",
-            "description": "Automake -- make file builder part of autotools"
-        },
-        {
-            "name": "libtool",
-            "description": "libtool -- library building part of autotools."
-        },
-        {
-            "name": "m4",
-            "description": "GNU M4 is an implementation of the traditional Unix macro processor."
+            "name": "ninja",
+            "description": "Ninja is a small build system with a focus on speed. It differs from\nother build systems in two major respects: it is designed to have its\ninput files generated by a higher-level build system, and it is designed\nto run builds as fast as possible."
         },
         {
             "name": "pkgconfig",
             "description": "pkg-config is a helper tool used when compiling applications and\nlibraries"
         },
         {
-            "name": "binutils",
-            "description": "GNU binutils, which contain the linker, assembler, objdump and others"
-        },
-        {
             "name": "bison",
             "description": "Bison is a general-purpose parser generator that converts an annotated\ncontext-free grammar into a deterministic LR or generalized LR (GLR)\nparser employing LALR(1) parser tables."
+        },
+        {
+            "name": "cmake",
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
         },
         {
             "name": "flex",
@@ -131,24 +218,20 @@
             "description": "A super-fast templating language that borrows the best ideas from the\nexisting templating languages."
         },
         {
-            "name": "libxml2",
-            "description": "Libxml2 is the XML C parser and toolkit developed for the Gnome project\n(but usable outside of the Gnome platform), it is free software\navailable under the MIT License."
-        },
-        {
-            "name": "zlib",
-            "description": "A free, general-purpose, legally unencumbered lossless data-compression\nlibrary."
+            "name": "unwind",
+            "description": "Placeholder package for Apple's analogue to non-GNU libunwind"
         },
         {
             "name": "expat",
             "description": "Expat is an XML parser library written in C."
         },
         {
-            "name": "ncurses",
-            "description": "The ncurses (new curses) library is a free software emulation of curses\nin System V Release 4.0, and more. It uses terminfo format, supports\npads and color and multiple highlights and forms characters and\nfunction-key mapping, and has all the other SYSV-curses enhancements\nover BSD curses."
+            "name": "zlib",
+            "description": "A free, general-purpose, legally unencumbered lossless data-compression\nlibrary."
         },
         {
             "name": "libllvm",
-            "description": "The LLVM Project is a collection of modular and reusable compiler and\ntoolchain technologies. Despite its name, LLVM has little to do with\ntraditional virtual machines, though it does provide helpful libraries\nthat can be used to build them. The name \"LLVM\" itself is not an\nacronym; it is the full name of the project."
+            "description": "Toolkit for the construction of highly optimized compilers, optimizers,\nand run-time environments."
         },
         {
             "name": "libx11",
@@ -163,18 +246,106 @@
             "description": "libXext - library for common extensions to the X11 protocol."
         },
         {
+            "name": "libxt",
+            "description": "libXt - X Toolkit Intrinsics library."
+        },
+        {
+            "name": "xrandr",
+            "description": "xrandr - primitive command line interface to X11 Resize, Rotate, and\nReflect (RandR) extension."
+        },
+        {
             "name": "glproto",
             "description": "OpenGL Extension to the X Window System. This extension defines a\nprotocol for the client to send 3D rendering commands to the X server."
         }
     ],
     "dependent_to": [
         {
-            "name": "mesa-glu",
-            "description": "This package provides the Mesa OpenGL Utility library."
+            "name": "vtk",
+            "description": "The Visualization Toolkit (VTK) is an open-source, freely available\nsoftware system for 3D computer graphics, image processing and\nvisualization."
+        },
+        {
+            "name": "qt",
+            "description": "Qt is a comprehensive cross-platform C++ application framework."
+        },
+        {
+            "name": "rodinia",
+            "description": "Rodinia: Accelerating Compute-Intensive Applications with Accelerators"
+        },
+        {
+            "name": "opencascade",
+            "description": "Open CASCADE Technology is a software development kit (SDK) intended for\ndevelopment of applications dealing with 3D CAD data, freely available\nin open source. It includes a set of C++ class libraries providing\nservices for 3D surface and solid modeling, visualization, data exchange\nand rapid application development."
+        },
+        {
+            "name": "ftgl",
+            "description": "Library to use arbitrary fonts in OpenGL applications."
+        },
+        {
+            "name": "r-rgl",
+            "description": "3D Visualization Using OpenGL Provides medium to high level functions\nfor 3D interactive graphics, including functions modelled on base\ngraphics (plot3d(), etc.) as well as functions for constructing\nrepresentations of geometric objects (cube3d(), etc.). Output may be on\nscreen using OpenGL, or to various standard 3D file formats including\nWebGL, PLY, OBJ, STL as well as 2D image formats, including PNG,\nPostscript, SVG, PGF."
+        },
+        {
+            "name": "catalyst",
+            "description": "Catalyst is an in situ library, with an adaptable application\nprogramming interface (API), that orchestrates the alliance between\nsimulation and analysis and/or visualization tasks. For versions 5.7 and\ngreater use the paraview package."
+        },
+        {
+            "name": "freeglut",
+            "description": "FreeGLUT is a free-software/open-source alternative to the OpenGL\nUtility Toolkit (GLUT) library"
+        },
+        {
+            "name": "hwloc",
+            "description": "The Hardware Locality (hwloc) software project. The Portable Hardware\nLocality (hwloc) software package provides a portable abstraction\n(across OS, versions, architectures, ...) of the hierarchical topology\nof modern architectures, including NUMA memory nodes, sockets, shared\ncaches, cores and simultaneous multithreading. It also gathers various\nsystem attributes such as cache and memory information as well as the\nlocality of I/O devices such as network interfaces, InfiniBand HCAs or\nGPUs. It primarily aims at helping applications with gathering\ninformation about modern computing hardware so as to exploit it\naccordingly and efficiently."
+        },
+        {
+            "name": "libepoxy",
+            "description": "Epoxy is a library for handling OpenGL function pointer management for\nyou."
+        },
+        {
+            "name": "opendx",
+            "description": "Open Visualization Data Explorer."
+        },
+        {
+            "name": "grass",
+            "description": "GRASS GIS (Geographic Resources Analysis Support System), is a free and\nopen source Geographic Information System (GIS) software suite used for\ngeospatial data management and analysis, image processing, graphics and\nmaps production, spatial modeling, and visualization."
+        },
+        {
+            "name": "vapor",
+            "description": "VAPOR is the Visualization and Analysis Platform for Ocean, Atmosphere,\nand Solar Researchers. VAPOR provides an interactive 3D visualization\nenvironment that can also produce animations and still frame images."
+        },
+        {
+            "name": "gaussian-view",
+            "description": "GaussView 6 is the latest iteration of a graphical interface used with\nGaussian. It aids in the creation of Gaussian input files, enables the\nuser to run Gaussian calculations from a graphical interface without the\nneed for using a command line instruction, and helps in the\ninterpretation of Gaussian output. Needs post-install steps to make it\nrun! See package installation logs for details."
         },
         {
             "name": "geant4",
             "description": "Geant4 is a toolkit for the simulation of the passage of particles\nthrough matter. Its areas of application include high energy, nuclear\nand accelerator physics, as well as studies in medical and space\nscience."
+        },
+        {
+            "name": "dislin",
+            "description": "DISLIN is a high level and easy to use graphics library for displaying\ndata as curves, bar graphs, pie charts, 3D-colour plots, surfaces,\ncontours and maps."
+        },
+        {
+            "name": "fltk",
+            "description": "FLTK (pronounced \"fulltick\") is a cross-platform C++ GUI toolkit for\nUNIX/Linux (X11), Microsoft Windows, and MacOS X. FLTK provides modern\nGUI functionality without the bloat and supports 3D graphics via OpenGL\nand its built-in GLUT emulation. FLTK is designed to be small and\nmodular enough to be statically linked, but works fine as a shared\nlibrary. FLTK also includes an excellent UI builder called FLUID that\ncan be used to create applications in minutes."
+        },
+        {
+            "name": "jasper",
+            "description": "Library for manipulating JPEG-2000 images"
+        },
+        {
+            "name": "molden",
+            "description": "A package for displaying Molecular Density from various Ab Initio\npackages"
+        },
+        {
+            "name": "coin3d",
+            "description": "Coin is an OpenGL-based, 3D graphics library that has its roots in the\nOpen Inventor 2.1 API, which Coin still is compatible with."
+        },
+        {
+            "name": "opencv",
+            "description": "OpenCV (Open Source Computer Vision Library) is an open source computer\nvision and machine learning software library."
+        },
+        {
+            "name": "vmd",
+            "description": "VMD provides user-editable materials which can be applied to molecular\ngeometry. These material properties control the details of how VMD\nshades the molecular geometry, and how transparent or opaque the\ndisplayed molecular geometry is. With this feature, one can easily\ncreate nice looking transparent surfaces which allow inner structural\ndetails to be seen within a large molecular structure. The material\ncontrols can be particularly helpful when rendering molecular scenes\nusing external ray tracers, each of which typically differ slightly."
         },
         {
             "name": "opensubdiv",
@@ -185,140 +356,60 @@
             "description": "GLVis: an OpenGL tool for visualization of FEM meshes and functions"
         },
         {
-            "name": "catalyst",
-            "description": "Catalyst is an in situ library, with an adaptable application\nprogramming interface (API), that orchestrates the alliance between\nsimulation and analysis and/or visualization tasks. For versions 5.7 and\ngreater use the paraview package."
-        },
-        {
-            "name": "kitty",
-            "description": "fast, featureful, cross-platform, GPU-based terminal emulator"
-        },
-        {
-            "name": "pangolin",
-            "description": "Pangolin is a lightweight portable rapid development library for\nmanaging OpenGL display / interaction and abstracting video input."
-        },
-        {
-            "name": "hwloc",
-            "description": "The Hardware Locality (hwloc) software project. The Portable Hardware\nLocality (hwloc) software package provides a portable abstraction\n(across OS, versions, architectures, ...) of the hierarchical topology\nof modern architectures, including NUMA memory nodes, sockets, shared\ncaches, cores and simultaneous multithreading. It also gathers various\nsystem attributes such as cache and memory information as well as the\nlocality of I/O devices such as network interfaces, InfiniBand HCAs or\nGPUs. It primarily aims at helping applications with gathering\ninformation about modern computing hardware so as to exploit it\naccordingly and efficiently."
-        },
-        {
-            "name": "opendx",
-            "description": "Open Visualization Data Explorer."
-        },
-        {
-            "name": "r-rgl",
-            "description": "3D Visualization Using OpenGL Provides medium to high level functions\nfor 3D interactive graphics, including functions modelled on base\ngraphics (plot3d(), etc.) as well as functions for constructing\nrepresentations of geometric objects (cube3d(), etc.). Output may be on\nscreen using OpenGL, or to various standard 3D file formats including\nWebGL, PLY, OBJ, STL as well as 2D image formats, including PNG,\nPostscript, SVG, PGF."
-        },
-        {
-            "name": "grass",
-            "description": "GRASS GIS (Geographic Resources Analysis Support System), is a free and\nopen source Geographic Information System (GIS) software suite used for\ngeospatial data management and analysis, image processing, graphics and\nmaps production, spatial modeling, and visualization."
-        },
-        {
-            "name": "vtk",
-            "description": "The Visualization Toolkit (VTK) is an open-source, freely available\nsoftware system for 3D computer graphics, image processing and\nvisualization."
-        },
-        {
-            "name": "ftgl",
-            "description": "Library to use arbitrary fonts in OpenGL applications."
-        },
-        {
-            "name": "root",
-            "description": "ROOT is a data analysis framework."
-        },
-        {
-            "name": "py-pymol",
-            "description": "PyMOL is a Python-enhanced molecular graphics tool. It excels at 3D\nvisualization of proteins, small molecules, density, surfaces, and\ntrajectories. It also includes molecular editing, ray tracing, and\nmovies. Open Source PyMOL is free to everyone!"
-        },
-        {
-            "name": "xdriinfo",
-            "description": "xdriinfo - query configuration information of X11 DRI drivers."
-        },
-        {
-            "name": "rodinia",
-            "description": "Rodinia: Accelerating Compute-Intensive Applications with Accelerators"
-        },
-        {
-            "name": "molden",
-            "description": "A package for displaying Molecular Density from various Ab Initio\npackages"
-        },
-        {
-            "name": "gl2ps",
-            "description": "GL2PS is a C library providing high quality vector output for any OpenGL\napplication."
-        },
-        {
-            "name": "paraview",
-            "description": "ParaView is an open-source, multi-platform data analysis and\nvisualization application. This package includes the Catalyst in-situ\nlibrary for versions 5.7 and greater, othewise use the catalyst package."
-        },
-        {
-            "name": "kicad",
-            "description": "KiCad is an open source software suite for Electronic Design Automation\n(EDA). The programs handle Schematic Capture, and PCB Layout with Gerber\noutput."
-        },
-        {
-            "name": "vapor",
-            "description": "VAPOR is the Visualization and Analysis Platform for Ocean, Atmosphere,\nand Solar Researchers. VAPOR provides an interactive 3D visualization\nenvironment that can also produce animations and still frame images."
-        },
-        {
-            "name": "3dtk",
-            "description": "The 3D Toolkit provides algorithms and methods to process 3D point\nclouds. It includes automatic high-accurate registration (6D\nsimultaneous localization and mapping, 6D SLAM) and other tools, e.g., a\nfast 3D viewer, plane extraction software, etc. Several file formats for\nthe point clouds are natively supported, new formats can be implemented\neasily."
-        },
-        {
             "name": "openscenegraph",
             "description": "OpenSceneGraph is an open source, high performance 3D graphics toolkit\nthat's used in a variety of visual simulation applications."
-        },
-        {
-            "name": "opencv",
-            "description": "OpenCV (Open Source Computer Vision Library) is an open source computer\nvision and machine learning software library."
-        },
-        {
-            "name": "opencascade",
-            "description": "Open CASCADE Technology is a software development kit (SDK) intended for\ndevelopment of applications dealing with 3D CAD data, freely available\nin open source. It includes a set of C++ class libraries providing\nservices for 3D surface and solid modeling, visualization, data exchange\nand rapid application development."
-        },
-        {
-            "name": "libepoxy",
-            "description": "Epoxy is a library for handling OpenGL function pointer management for\nyou."
-        },
-        {
-            "name": "gaussian-view",
-            "description": "GaussView 6 is the latest iteration of a graphical interface used with\nGaussian. It aids in the creation of Gaussian input files, enables the\nuser to run Gaussian calculations from a graphical interface without the\nneed for using a command line instruction, and helps in the\ninterpretation of Gaussian output. Needs post-install steps to make it\nrun! See package installation logs for details."
-        },
-        {
-            "name": "gmsh",
-            "description": "Gmsh is a free 3D finite element grid generator with a built-in CAD\nengine and post-processor. Its design goal is to provide a fast, light\nand user-friendly meshing tool with parametric input and advanced\nvisualization capabilities. Gmsh is built around four modules: geometry,\nmesh, solver and post-processing. The specification of any input to\nthese modules is done either interactively using the graphical user\ninterface or in ASCII text files using Gmsh's own scripting language."
-        },
-        {
-            "name": "fltk",
-            "description": "FLTK (pronounced \"fulltick\") is a cross-platform C++ GUI toolkit for\nUNIX/Linux (X11), Microsoft Windows, and MacOS X. FLTK provides modern\nGUI functionality without the bloat and supports 3D graphics via OpenGL\nand its built-in GLUT emulation. FLTK is designed to be small and\nmodular enough to be statically linked, but works fine as a shared\nlibrary. FLTK also includes an excellent UI builder called FLUID that\ncan be used to create applications in minutes."
-        },
-        {
-            "name": "coin3d",
-            "description": "Coin is an OpenGL-based, 3D graphics library that has its roots in the\nOpen Inventor 2.1 API, which Coin still is compatible with."
-        },
-        {
-            "name": "dislin",
-            "description": "DISLIN is a high level and easy to use graphics library for displaying\ndata as curves, bar graphs, pie charts, 3D-colour plots, surfaces,\ncontours and maps."
-        },
-        {
-            "name": "vmd",
-            "description": "VMD provides user-editable materials which can be applied to molecular\ngeometry. These material properties control the details of how VMD\nshades the molecular geometry, and how transparent or opaque the\ndisplayed molecular geometry is. With this feature, one can easily\ncreate nice looking transparent surfaces which allow inner structural\ndetails to be seen within a large molecular structure. The material\ncontrols can be particularly helpful when rendering molecular scenes\nusing external ray tracers, each of which typically differ slightly."
         },
         {
             "name": "fox",
             "description": "FOX is a C++ based Toolkit for developing Graphical User Interfaces\neasily and effectively. It offers a wide, and growing, collection of\nControls, and provides state of the art facilities such as drag and\ndrop, selection, as well as OpenGL widgets for 3D graphical\nmanipulation. FOX also implements icons, images, and user-convenience\nfeatures such as status line help, and tooltips. Tooltips may even be\nused for 3D objects!"
         },
         {
-            "name": "freeglut",
-            "description": "FreeGLUT is a free-software/open-source alternative to the OpenGL\nUtility Toolkit (GLUT) library"
-        },
-        {
-            "name": "qt",
-            "description": "Qt is a comprehensive cross-platform C++ application framework."
-        },
-        {
             "name": "octave",
             "description": "GNU Octave is a high-level language, primarily intended for numerical\ncomputations. It provides a convenient command line interface for\nsolving linear and nonlinear problems numerically, and for performing\nother numerical experiments using a language that is mostly compatible\nwith Matlab. It may also be used as a batch-oriented language."
         },
         {
-            "name": "jasper",
-            "description": "Library for manipulating JPEG-2000 images"
+            "name": "mesa-glu",
+            "description": "This package provides the Mesa OpenGL Utility library."
+        },
+        {
+            "name": "root",
+            "description": "ROOT is a data analysis framework."
+        },
+        {
+            "name": "xdriinfo",
+            "description": "xdriinfo - query configuration information of X11 DRI drivers."
+        },
+        {
+            "name": "3dtk",
+            "description": "The 3D Toolkit provides algorithms and methods to process 3D point\nclouds. It includes automatic high-accurate registration (6D\nsimultaneous localization and mapping, 6D SLAM) and other tools, e.g., a\nfast 3D viewer, plane extraction software, etc. Several file formats for\nthe point clouds are natively supported, new formats can be implemented\neasily."
+        },
+        {
+            "name": "py-pymol",
+            "description": "PyMOL is a Python-enhanced molecular graphics tool. It excels at 3D\nvisualization of proteins, small molecules, density, surfaces, and\ntrajectories. It also includes molecular editing, ray tracing, and\nmovies. Open Source PyMOL is free to everyone!"
+        },
+        {
+            "name": "paraview",
+            "description": "ParaView is an open-source, multi-platform data analysis and\nvisualization application. This package includes the Catalyst in-situ\nlibrary for versions 5.7 and greater, othewise use the catalyst package."
+        },
+        {
+            "name": "pangolin",
+            "description": "Pangolin is a lightweight portable rapid development library for\nmanaging OpenGL display / interaction and abstracting video input."
+        },
+        {
+            "name": "kicad",
+            "description": "KiCad is an open source software suite for Electronic Design Automation\n(EDA). The programs handle Schematic Capture, and PCB Layout with Gerber\noutput."
+        },
+        {
+            "name": "kitty",
+            "description": "fast, featureful, cross-platform, GPU-based terminal emulator"
+        },
+        {
+            "name": "gmsh",
+            "description": "Gmsh is a free 3D finite element grid generator with a built-in CAD\nengine and post-processor. Its design goal is to provide a fast, light\nand user-friendly meshing tool with parametric input and advanced\nvisualization capabilities. Gmsh is built around four modules: geometry,\nmesh, solver and post-processing. The specification of any input to\nthese modules is done either interactively using the graphical user\ninterface or in ASCII text files using Gmsh's own scripting language."
+        },
+        {
+            "name": "gl2ps",
+            "description": "GL2PS is a C library providing high quality vector output for any OpenGL\napplication."
         }
     ]
 }
