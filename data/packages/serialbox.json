@@ -1,0 +1,190 @@
+{
+    "name": "serialbox",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "2.6.1",
+            "sha256": "b795ce576e8c4fd137e48e502b07b136079c595c82c660cfa2e284b0ef873342"
+        },
+        {
+            "name": "2.6.0",
+            "sha256": "9199f8637afbd7f2b3c5ba932d1c63e9e14d553a0cafe6c29107df0e04ee9fae"
+        },
+        {
+            "name": "2.5.4",
+            "sha256": "f4aee8ef284f58e6847968fe4620e222ac7019d805bbbb26c199e4b6a5094fee"
+        },
+        {
+            "name": "2.5.3",
+            "sha256": "696499b3f43978238c3bcc8f9de50bce2630c07971c47c9e03af0324652b2d5d"
+        }
+    ],
+    "build_system": "CMakePackage",
+    "conflicts": [
+        {
+            "name": "+ipo",
+            "spec": "^cmake@:3.8",
+            "description": "+ipo is not supported by CMake < 3.9"
+        },
+        {
+            "name": "+ftg",
+            "spec": "~fortran",
+            "description": "the FortranTestGenerator frontend requires the Fortran interface"
+        },
+        {
+            "name": "+ftg",
+            "spec": "@:2.2.999",
+            "description": "the FortranTestGenerator frontend is supported only starting version 2.3.0"
+        },
+        {
+            "name": "+sdb",
+            "spec": "~python",
+            "description": "the stencil debugger requires the Python interface"
+        },
+        {
+            "name": "+fortran",
+            "spec": "~c",
+            "description": "the Fortran interface requires the C interface"
+        },
+        {
+            "name": "+python",
+            "spec": "~c",
+            "description": "the Python interface requires the C interface"
+        },
+        {
+            "name": "+python",
+            "spec": "~shared",
+            "description": "the Python interface requires the shared libraries"
+        }
+    ],
+    "variants": [
+        {
+            "name": "build_type",
+            "default": "RelWithDebInfo",
+            "description": "CMake build type"
+        },
+        {
+            "name": "ipo",
+            "default": false,
+            "description": "CMake interprocedural optimization"
+        },
+        {
+            "name": "c",
+            "default": true,
+            "description": "enable C interface"
+        },
+        {
+            "name": "python",
+            "default": false,
+            "description": "enable Python interface"
+        },
+        {
+            "name": "fortran",
+            "default": false,
+            "description": "enable Fortran interface"
+        },
+        {
+            "name": "ftg",
+            "default": false,
+            "description": "enable FortranTestGenerator frontend"
+        },
+        {
+            "name": "sdb",
+            "default": false,
+            "description": "enable stencil debugger"
+        },
+        {
+            "name": "shared",
+            "default": true,
+            "description": "build shared libraries"
+        },
+        {
+            "name": "examples",
+            "default": false,
+            "description": "build the examples"
+        },
+        {
+            "name": "logging",
+            "default": true,
+            "description": "enable the logging infrastructure"
+        },
+        {
+            "name": "async-api",
+            "default": true,
+            "description": "enable the asynchronous API"
+        },
+        {
+            "name": "netcdf",
+            "default": false,
+            "description": "build the NetCDF archive backend"
+        },
+        {
+            "name": "std-filesystem",
+            "default": true,
+            "description": "use std::experimental::filesystem (no dependency on compiled boost libs)"
+        }
+    ],
+    "homepage": "https://github.com/GridTools/serialbox",
+    "maintainers": [
+        "skosukhin"
+    ],
+    "patches": [
+        {
+            "owner": "builtin.serialbox",
+            "sha256": "1c53e9a2e7e23a9a0c55887183afe1fc3c202ecac2460ac2b0254d313eeb4614",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "ppser_py3.patch",
+            "version": "@2.2.1:"
+        },
+        {
+            "owner": "builtin.serialbox",
+            "sha256": "d119b8ec999f26d2eeb97ba80cda03b385c30a96231cc1567bf03499886db04f",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "nag/interface.patch",
+            "version": "@2.0.1:%nag+fortran"
+        },
+        {
+            "owner": "builtin.serialbox",
+            "sha256": "207005840d4163e5d8fb7ac2e4795781d3079787024bc95431a44bbc7dc1e177",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "nag/examples.patch",
+            "version": "@2.3.1:%nag+examples+fortran"
+        },
+        {
+            "owner": "builtin.serialbox",
+            "sha256": "c6da630b1fe96f79f70f7460593165f2d15d9a38a8144bbcfdfae790f133a407",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "nag/ftg.patch",
+            "version": "@2.3.1:%nag+ftg"
+        }
+    ],
+    "resources": [],
+    "description": "Serialbox is a serialization library and tools for C/C++, Python3 and\nFortran. Serialbox is used in several projects for building validation\nframeworks against reference runs.\n",
+    "dependencies": [
+        {
+            "name": "cmake",
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
+        },
+        {
+            "name": "boost",
+            "description": "Boost provides free peer-reviewed portable C++ source libraries,\nemphasizing libraries that work well with the C++ Standard Library.\nBoost libraries are intended to be widely useful, and usable across a\nbroad spectrum of applications. The Boost license encourages both\ncommercial and non-commercial use."
+        },
+        {
+            "name": "netcdf-c",
+            "description": "NetCDF (network Common Data Form) is a set of software libraries and\nmachine-independent data formats that support the creation, access, and\nsharing of array-oriented scientific data. This is the C distribution."
+        },
+        {
+            "name": "python",
+            "description": "The Python programming language."
+        },
+        {
+            "name": "py-numpy",
+            "description": "NumPy is the fundamental package for scientific computing with Python.\nIt contains among other things: a powerful N-dimensional array object,\nsophisticated (broadcasting) functions, tools for integrating C/C++ and\nFortran code, and useful linear algebra, Fourier transform, and random\nnumber capabilities"
+        }
+    ],
+    "dependent_to": []
+}

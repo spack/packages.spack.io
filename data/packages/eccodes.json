@@ -54,6 +54,21 @@
             "name": "+openmp",
             "spec": "+pthreads",
             "description": "Cannot enable both POSIX threads and OMP"
+        },
+        {
+            "name": "+netcdf",
+            "spec": "~tools",
+            "description": "Cannot enable the NetCDF conversion tool when the command line tools are disabled"
+        },
+        {
+            "name": "~tools",
+            "spec": "@:2.18.0",
+            "description": "The command line tools can be disabled only starting version 2.19.0"
+        },
+        {
+            "name": "definitions=edzw",
+            "spec": "@:2.19.1,2.22.0,2.24.0:",
+            "description": "None"
         }
     ],
     "variants": [
@@ -66,6 +81,11 @@
             "name": "ipo",
             "default": false,
             "description": "CMake interprocedural optimization"
+        },
+        {
+            "name": "tools",
+            "default": false,
+            "description": "Build the command line tools"
         },
         {
             "name": "netcdf",
@@ -111,6 +131,21 @@
             "name": "fortran",
             "default": false,
             "description": "Enable the Fortran support"
+        },
+        {
+            "name": "shared",
+            "default": true,
+            "description": "Build shared versions of the libraries"
+        },
+        {
+            "name": "definitions",
+            "default": "auto",
+            "description": "List of definitions to install"
+        },
+        {
+            "name": "samples",
+            "default": "auto",
+            "description": "List of samples to install"
         }
     ],
     "homepage": "https://software.ecmwf.int/wiki/display/ECC/ecCodes+Home",
@@ -133,9 +168,42 @@
             "working_dir": ".",
             "relative_path": "cmake_install_rpath.patch",
             "version": "@:2.10"
+        },
+        {
+            "owner": "builtin.eccodes",
+            "sha256": "857454528b666c52eb36ef3aa5d40ae018981b44e129bb8df3c2d3d560e3fa03",
+            "level": 1,
+            "working_dir": ".",
+            "url": "https://github.com/ecmwf/ecbuild/commit/3916c7d22575c45166fcc89edcbe02a6e9b81aa2.patch",
+            "version": "@:2.4.0+netcdf"
         }
     ],
-    "resources": [],
+    "resources": [
+        {
+            "version": "@2.20.0",
+            "name": "edzw",
+            "destination": "spack-definitions",
+            "placement": "definitions.edzw"
+        },
+        {
+            "version": "@2.21.0",
+            "name": "edzw",
+            "destination": "spack-definitions",
+            "placement": "definitions.edzw"
+        },
+        {
+            "version": "@2.22.1",
+            "name": "edzw",
+            "destination": "spack-definitions",
+            "placement": "definitions.edzw"
+        },
+        {
+            "version": "@2.23.0",
+            "name": "edzw",
+            "destination": "spack-definitions",
+            "placement": "definitions.edzw"
+        }
+    ],
     "description": "ecCodes is a package developed by ECMWF for processing meteorological\ndata in GRIB (1/2), BUFR (3/4) and GTS header formats.\n",
     "dependencies": [
         {
@@ -173,10 +241,6 @@
     ],
     "dependent_to": [
         {
-            "name": "magics",
-            "description": "Magics is the latest generation of the ECMWF's Meteorological plotting\nsoftware MAGICS. Although completely redesigned in C++, it is intended\nto be as backwards-compatible as possible with the Fortran interface."
-        },
-        {
             "name": "metkit",
             "description": "Toolkit for manipulating and describing meteorological objects,\nimplementing the MARS language and associated processing and semantics."
         },
@@ -185,12 +249,16 @@
             "description": "CDO is a collection of command line Operators to manipulate and analyse\nClimate and NWP model Data."
         },
         {
-            "name": "py-eccodes",
-            "description": "Python interface to the ecCodes GRIB and BUFR decoder/encoder."
+            "name": "magics",
+            "description": "Magics is the latest generation of the ECMWF's Meteorological plotting\nsoftware MAGICS. Although completely redesigned in C++, it is intended\nto be as backwards-compatible as possible with the Fortran interface."
         },
         {
             "name": "fdb",
             "description": "FDB (Fields DataBase) is a domain-specific object store developed at\nECMWF for storing, indexing and retrieving GRIB data."
+        },
+        {
+            "name": "py-eccodes",
+            "description": "Python interface to the ecCodes GRIB and BUFR decoder/encoder."
         },
         {
             "name": "libemos",
