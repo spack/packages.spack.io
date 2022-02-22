@@ -3,6 +3,10 @@
     "aliases": [],
     "versions": [
         {
+            "name": "1.0-5",
+            "sha256": "290c28fa5ea777d555e70962c59079c134f02f7bdf60259a72eea79a064a1ac4"
+        },
+        {
             "name": "0.9-7",
             "sha256": "4acac2f78badf9d252da5bf377975f984927c14a56a72d9f83d285c0adadae9c"
         },
@@ -22,13 +26,13 @@
     "build_system": "RPackage",
     "conflicts": [],
     "variants": [],
-    "homepage": "https://github.com/r-spatial/sf/",
+    "homepage": "https://cloud.r-project.org/package=sf",
     "maintainers": [
         "glennpj"
     ],
     "patches": [],
     "resources": [],
-    "description": "Simple Features for R Support for simple features, a standardized way to\nencode spatial vector data. Binds to 'GDAL' for reading and writing\ndata, to 'GEOS' for geometrical operations, and to 'PROJ' for projection\nconversions and datum transformations. Optionally uses the 's2' package\nfor spherical geometry operations on geographic coordinates.\n",
+    "description": "Simple Features for R. Support for simple features, a standardized way\nto encode spatial vector data. Binds to 'GDAL' for reading and writing\ndata, to 'GEOS' for geometrical operations, and to 'PROJ' for projection\nconversions and datum transformations. Optionally uses the 's2' package\nfor spherical geometry operations on geographic coordinates.\n",
     "dependencies": [
         {
             "name": "r",
@@ -36,7 +40,7 @@
         },
         {
             "name": "r-classint",
-            "description": "Choose Univariate Class Intervals Selected commonly used methods for\nchoosing univariate class intervals for mapping or other graphics\npurposes."
+            "description": "Choose Univariate Class Intervals. Selected commonly used methods for\nchoosing univariate class intervals for mapping or other graphics\npurposes."
         },
         {
             "name": "r-dbi",
@@ -44,15 +48,19 @@
         },
         {
             "name": "r-magrittr",
-            "description": "A Forward-Pipe Operator for R Provides a mechanism for chaining commands\nwith a new forward-pipe operator, %>%. This operator will forward a\nvalue, or the result of an expression, into the next function\ncall/expression. There is flexible support for the type of right-hand\nside expressions. For more information, see package vignette."
-        },
-        {
-            "name": "r-units",
-            "description": "Measurement Units for R Vectors Support for measurement units in R\nvectors, matrices and arrays: automatic propagation, conversion,\nderivation and simplification of units; raising errors in case of unit\nincompatibility. Compatible with the POSIXct, Date and difftime classes.\nUses the UNIDATA udunits library and unit database for unit\ncompatibility checking and conversion. Documentation about 'units' is\nprovided in the paper by Pebesma, Mailund & Hiebert (2016,\n<doi:10.32614/RJ-2016-061>), included in this package as a vignette; see\n'citation(\"units\")' for details."
+            "description": "A Forward-Pipe Operator for R. Provides a mechanism for chaining\ncommands with a new forward-pipe operator, %>%. This operator will\nforward a value, or the result of an expression, into the next function\ncall/expression. There is flexible support for the type of right-hand\nside expressions. For more information, see package vignette."
         },
         {
             "name": "r-rcpp",
-            "description": "Seamless R and C++ Integration The 'Rcpp' package provides R functions\nas well as C++ classes which; offer a seamless integration of R and C++.\nMany R data types and objects can be; mapped back and forth to C++\nequivalents which facilitates both writing of new; code as well as\neasier integration of third-party libraries. Documentation; about 'Rcpp'\nis provided by several vignettes included in this package, via the;\n'Rcpp Gallery' site at <https://gallery.rcpp.org>, the paper by\nEddelbuettel and; Francois (2011, <doi:10.18637/jss.v040.i08>), the book\nby Eddelbuettel (2013,; <doi:10.1007/978-1-4614-6868-4>) and the paper\nby Eddelbuettel and Balamuta (2018,;\n<doi:10.1080/00031305.2017.1375990>); see 'citation(\"Rcpp\")' for\ndetails."
+            "description": "Seamless R and C++ Integration. The 'Rcpp' package provides R functions\nas well as C++ classes which; offer a seamless integration of R and C++.\nMany R data types and objects can be; mapped back and forth to C++\nequivalents which facilitates both writing of new; code as well as\neasier integration of third-party libraries. Documentation; about 'Rcpp'\nis provided by several vignettes included in this package, via the;\n'Rcpp Gallery' site at <https://gallery.rcpp.org>, the paper by\nEddelbuettel and; Francois (2011, <doi:10.18637/jss.v040.i08>), the book\nby Eddelbuettel (2013,; <doi:10.1007/978-1-4614-6868-4>) and the paper\nby Eddelbuettel and Balamuta (2018,;\n<doi:10.1080/00031305.2017.1375990>); see 'citation(\"Rcpp\")' for\ndetails."
+        },
+        {
+            "name": "r-s2",
+            "description": "Spherical Geometry Operators Using the S2 Geometry Library. Provides R\nbindings for Google's s2 library for geometric calculations on the\nsphere. High-performance constructors and exporters provide high\ncompatibility with existing spatial packages, transformers construct new\ngeometries from existing geometries, predicates provide a means to\nselect geometries based on spatial relationships, and accessors extract\ninformation about geometries."
+        },
+        {
+            "name": "r-units",
+            "description": "Measurement Units for R Vectors. Support for measurement units in R\nvectors, matrices and arrays: automatic propagation, conversion,\nderivation and simplification of units; raising errors in case of unit\nincompatibility. Compatible with the POSIXct, Date and difftime classes.\nUses the UNIDATA udunits library and unit database for unit\ncompatibility checking and conversion. Documentation about 'units' is\nprovided in the paper by Pebesma, Mailund & Hiebert (2016,\n<doi:10.32614/RJ-2016-061>), included in this package as a vignette; see\n'citation(\"units\")' for details."
         },
         {
             "name": "gdal",
@@ -73,44 +81,52 @@
     ],
     "dependent_to": [
         {
-            "name": "r-leafpop",
-            "description": "Include Tables, Images and Graphs in Leaflet Pop-Ups Creates 'HTML'\nstrings to embed tables, images or graphs in pop-ups of interactive maps\ncreated with packages like 'leaflet' or 'mapview'. Handles local images\nlocated on the file system or via remote URL. Handles graphs created\nwith 'lattice' or 'ggplot2' as well as interactive plots created with\n'htmlwidgets'."
+            "name": "r-spatialeco",
+            "description": "Spatial Analysis and Modelling Utilities. Utilities to support spatial\ndata manipulation, query, sampling and modelling. Functions include\nmodels for species population density, download utilities for climate\nand global deforestation spatial products, spatial smoothing,\nmultivariate separability, point process model for creating pseudo-\nabsences and sub-sampling, polygon and point-distance landscape metrics,\nauto-logistic model, sampling models, cluster optimization, statistical\nexploratory tools and raster-based metrics."
         },
         {
-            "name": "r-cdcfluview",
-            "description": "Retrieve Flu Season Data from the United States Centers for Disease\nControl and Prevention ('CDC') 'FluView' Portal The 'U.S.' Centers for\nDisease Control ('CDC') maintains a portal\n<https://gis.cdc.gov/grasp/fluview/fluportaldashboard.html> for\naccessing state, regional and national influenza statistics as well as\nMortality Surveillance Data. The web interface makes it difficult and\ntime-consuming to select and retrieve influenza data. Tools are provided\nto access the data provided by the portal's underlying 'API'."
-        },
-        {
-            "name": "r-leafem",
-            "description": "'leaflet' Extensions for 'mapview' Provides extensions for packages\n'leaflet' & 'mapdeck', many of which are used by package 'mapview'.\nFocus is on functionality readily available in Geographic Information\nSystems such as 'Quantum GIS'. Includes functions to display coordinates\nof mouse pointer position, query image values via mouse pointer and\nzoom-to-layer buttons. Additionally, provides a feature type agnostic\nfunction to add points, lines, polygons to a map."
+            "name": "r-gdalutilities",
+            "description": "Wrappers for 'GDAL' Utilities Executables. R's 'sf' package ships with\nself-contained 'GDAL' executables, including a bare bones interface to\nseveral 'GDAL'-related utility programs collectively known as the 'GDAL\nutilities'. For each of those utilities, this package provides an R\nwrapper whose formal arguments closely mirror those of the 'GDAL'\ncommand line interface. The utilities operate on data stored in files\nand typically write their output to other files. Therefore, to process\ndata stored in any of R's more common spatial formats (i.e. those\nsupported by the 'sp', 'sf', and 'raster' packages), first write them to\ndisk, then process them with the package's wrapper functions before\nreading the outputted results back into R. GDAL function arguments\nintroduced in GDAL version 3.2.1 or earlier are supported."
         },
         {
             "name": "r-tidycensus",
-            "description": "Load US Census Boundary and Attribute Data as 'tidyverse' and 'sf'-Ready\nData Frames An integrated R interface to the decennial US Census and\nAmerican Community Survey APIs and the US Census Bureau's geographic\nboundary files. Allows R users to return Census and ACS data as\ntidyverse-ready data frames, and optionally returns a list-column with\nfeature geometry for all Census geographies."
+            "description": "Load US Census Boundary and Attribute Data as 'tidyverse' and 'sf'-Ready\nData Frames. An integrated R interface to the decennial US Census and\nAmerican Community Survey APIs and the US Census Bureau's geographic\nboundary files. Allows R users to return Census and ACS data as\ntidyverse-ready data frames, and optionally returns a list-column with\nfeature geometry for all Census geographies."
         },
         {
-            "name": "r-tigris",
-            "description": "Load Census TIGER/Line Shapefiles Download TIGER/Line shapefiles from\nthe United States Census Bureau and load into R as 'SpatialDataFrame' or\n'sf' objects."
-        },
-        {
-            "name": "r-spdep",
-            "description": "Spatial Dependence: Weighting Schemes, Statistics A collection of\nfunctions to create spatial weights matrix objects from polygon\n'contiguities', from point patterns by distance and tessellations, for\nsummarizing these objects, and for permitting their use in spatial data\nanalysis, including regional aggregation by minimum spanning tree; a\ncollection of tests for spatial 'autocorrelation', including global\n'Morans I' and 'Gearys C' proposed by 'Cliff' and 'Ord' (1973, ISBN:\n0850860369) and (1981, ISBN: 0850860814), 'Hubert/Mantel' general cross\nproduct statistic, Empirical Bayes estimates and 'Assuncao/Reis' (1999)\n<doi:10.1002/(SICI)1097-0258(19990830)18:16%3C2147::AID-SIM179%3E3.0.CO"
-        },
-        {
-            "name": "r-spatialeco",
-            "description": "Spatial Analysis and Modelling Utilities Utilities to support spatial\ndata manipulation, query, sampling and modelling. Functions include\nmodels for species population density, download utilities for climate\nand global deforestation spatial products, spatial smoothing,\nmultivariate separability, point process model for creating pseudo-\nabsences and sub-sampling, polygon and point-distance landscape metrics,\nauto-logistic model, sampling models, cluster optimization, statistical\nexploratory tools and raster-based metrics."
+            "name": "r-leafem",
+            "description": "'leaflet' Extensions for 'mapview'. Provides extensions for packages\n'leaflet' & 'mapdeck', many of which are used by package 'mapview'.\nFocus is on functionality readily available in Geographic Information\nSystems such as 'Quantum GIS'. Includes functions to display coordinates\nof mouse pointer position, query image values via mouse pointer and\nzoom-to-layer buttons. Additionally, provides a feature type agnostic\nfunction to add points, lines, polygons to a map."
         },
         {
             "name": "r-mapview",
-            "description": "Interactive Viewing of Spatial Data in R Quickly and conveniently create\ninteractive visualisations of spatial data with or without background\nmaps. Attributes of displayed features are fully queryable via pop-up\nwindows. Additional functionality includes methods to visualise true-\nand false-color raster images and bounding boxes."
+            "description": "Interactive Viewing of Spatial Data in R. Quickly and conveniently\ncreate interactive visualisations of spatial data with or without\nbackground maps. Attributes of displayed features are fully queryable\nvia pop-up windows. Additional functionality includes methods to\nvisualise true- and false-color raster images and bounding boxes."
         },
         {
-            "name": "r-exactextractr",
-            "description": "Fast Extraction from Raster Datasets using Polygons Provides a\nreplacement for the 'extract' function from the 'raster' package that is\nsuitable for extracting raster values using 'sf' polygons."
+            "name": "r-cdcfluview",
+            "description": "Retrieve Flu Season Data from the United States Centers for Disease\nControl and Prevention ('CDC') 'FluView' Portal. The 'U.S.' Centers for\nDisease Control ('CDC') maintains a portal\n<https://gis.cdc.gov/grasp/fluview/fluportaldashboard.html> for\naccessing state, regional and national influenza statistics as well as\nMortality Surveillance Data. The web interface makes it difficult and\ntime-consuming to select and retrieve influenza data. Tools are provided\nto access the data provided by the portal's underlying 'API'."
         },
         {
             "name": "r-lwgeom",
-            "description": "Bindings to Selected 'liblwgeom' Functions for Simple Features Access to\nselected functions found in 'liblwgeom'\n<https://github.com/postgis/postgis/tree/master/liblwgeom>, the light-\nweight geometry library used by 'PostGIS' <https://postgis.net/>."
+            "description": "Bindings to Selected 'liblwgeom' Functions for Simple Features. Access\nto selected functions found in 'liblwgeom'\n<https://github.com/postgis/postgis/tree/master/liblwgeom>, the light-\nweight geometry library used by 'PostGIS' <https://postgis.net/>."
+        },
+        {
+            "name": "r-tigris",
+            "description": "Load Census TIGER/Line Shapefiles. Download TIGER/Line shapefiles from\nthe United States Census Bureau and load into R as 'SpatialDataFrame' or\n'sf' objects."
+        },
+        {
+            "name": "r-spdep",
+            "description": "Spatial Dependence: Weighting Schemes, Statistics. A collection of\nfunctions to create spatial weights matrix objects from polygon\n'contiguities', from point patterns by distance and tessellations, for\nsummarizing these objects, and for permitting their use in spatial data\nanalysis, including regional aggregation by minimum spanning tree; a\ncollection of tests for spatial 'autocorrelation', including global\n'Morans I' and 'Gearys C' proposed by 'Cliff' and 'Ord' (1973, ISBN:\n0850860369) and (1981, ISBN: 0850860814), 'Hubert/Mantel' general cross\nproduct statistic, Empirical Bayes estimates and 'Assuncao/Reis' (1999)\n<doi:10.1002/(SICI)1097-0258(19990830)18:16%3C2147::AID-SIM179%3E3.0.CO"
+        },
+        {
+            "name": "r-spatialreg",
+            "description": "Spatial Regression Analysis. A collection of all the estimation\nfunctions for spatial cross-sectional models (on lattice/areal data\nusing spatial weights matrices) contained up to now in 'spdep', 'sphet'\nand 'spse'. These model fitting functions include maximum likelihood\nmethods for cross-sectional models proposed by 'Cliff' and 'Ord' (1973,\nISBN:0850860369) and (1981, ISBN:0850860814), fitting methods initially\ndescribed by 'Ord' (1975) <doi:10.1080/01621459.1975.10480272>. The\nmodels are further described by 'Anselin' (1988)\n<doi:10.1007/978-94-015-7799-1>. Spatial two stage least squares and\nspatial general method of moment models initially proposed by 'Kelejian'\nand 'Prucha' (1998) <doi:10.1023/A:1007707430416> and (1999)\n<doi:10.1111/1468-2354.00027> are provided. Impact methods and MCMC\nfitting methods proposed by 'LeSage' and 'Pace' (2009)\n<doi:10.1201/9781420064254> are implemented for the family of cross-\nsectional spatial regression models. Methods for fitting the log\ndeterminant term in maximum likelihood and MCMC fitting are compared by\n'Bivand et al.' (2013) <doi:10.1111/gean.12008>, and model fitting\nmethods by 'Bivand' and 'Piras' (2015) <doi:10.18637/jss.v063.i18>; both\nof these articles include extensive lists of references. 'spatialreg' >=\n1.1-* correspond to 'spdep' >= 1.1-1, in which the model fitting\nfunctions are deprecated and pass through to 'spatialreg', but will mask\nthose in 'spatialreg'. From versions 1.2-*, the functions will be made\ndefunct in 'spdep'."
+        },
+        {
+            "name": "r-exactextractr",
+            "description": "Fast Extraction from Raster Datasets using Polygons. Provides a\nreplacement for the 'extract' function from the 'raster' package that is\nsuitable for extracting raster values using 'sf' polygons."
+        },
+        {
+            "name": "r-leafpop",
+            "description": "Include Tables, Images and Graphs in Leaflet Pop-Ups. Creates 'HTML'\nstrings to embed tables, images or graphs in pop-ups of interactive maps\ncreated with packages like 'leaflet' or 'mapview'. Handles local images\nlocated on the file system or via remote URL. Handles graphs created\nwith 'lattice' or 'ggplot2' as well as interactive plots created with\n'htmlwidgets'."
         }
     ]
 }

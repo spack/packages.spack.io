@@ -3,6 +3,10 @@
     "aliases": [],
     "versions": [
         {
+            "name": "1.9-16",
+            "sha256": "7e87c34b9eeaeabe3bfb937162e6cda4dd48d6bd6a97b9db8bb8303d131caa66"
+        },
+        {
             "name": "1.9-15",
             "sha256": "22fa003f280bc000f46bca88d69bf332b29bc68435115ba8044533b70bfb7b46"
         },
@@ -24,7 +28,7 @@
     ],
     "patches": [],
     "resources": [],
-    "description": "Parametric Time Warping Parametric Time Warping aligns patterns, i.e. it\naims to put corresponding features at the same locations. The algorithm\nsearches for an optimal polynomial describing the warping. It is\npossible to align one sample to a reference, several samples to the same\nreference, or several samples to several references. One can choose\nbetween calculating individual warpings, or one global warping for a set\nof samples and one reference. Two optimization criteria are implemented:\nRMS (Root Mean Square error) and WCC (Weighted Cross Correlation). Both\nwarping of peak profiles and of peak lists are supported. A vignette for\nthe latter is contained in the inst/doc directory of the source package\n- the vignette source can be found on the package github site.\n",
+    "description": "Parametric Time Warping. Parametric Time Warping aligns patterns, i.e.\nit aims to put corresponding features at the same locations. The\nalgorithm searches for an optimal polynomial describing the warping. It\nis possible to align one sample to a reference, several samples to the\nsame reference, or several samples to several references. One can choose\nbetween calculating individual warpings, or one global warping for a set\nof samples and one reference. Two optimization criteria are implemented:\nRMS (Root Mean Square error) and WCC (Weighted Cross Correlation). Both\nwarping of peak profiles and of peak lists are supported. A vignette for\nthe latter is contained in the inst/doc directory of the source package\n- the vignette source can be found on the package github site.\n",
     "dependencies": [
         {
             "name": "r",
@@ -32,13 +36,17 @@
         },
         {
             "name": "r-nloptr",
-            "description": "R Interface to NLopt Solve optimization problems using an R interface to\nNLopt. NLopt is a free/open-source library for nonlinear optimization,\nproviding a common interface for a number of different free optimization\nroutines available online as well as original implementations of various\nother algorithms. See <http://ab-\ninitio.mit.edu/wiki/index.php/NLopt_Introduction> for more information\non the available algorithms. During installation of nloptr on Unix-based\nsystems, the installer checks whether the NLopt library is installed on\nthe system. If the NLopt library cannot be found, the code is compiled\nusing the NLopt source included in the nloptr package."
+            "description": "R Interface to NLopt. Solve optimization problems using an R interface\nto NLopt. NLopt is a free/open-source library for nonlinear\noptimization, providing a common interface for a number of different\nfree optimization routines available online as well as original\nimplementations of various other algorithms. See\n<https://nlopt.readthedocs.io/en/latest/NLopt_Algorithms/> for more\ninformation on the available algorithms. Building from included sources\nrequires 'CMake'. On Linux and 'macOS', if a suitable system build of\nNLopt (2.7.0 or later) is found, it is used; otherwise, it is built from\nincluded sources via 'CMake'. On Windows, NLopt is obtained through\n'rwinlib' for 'R <= 4.1.x' or grabbed from the 'Rtools42 toolchain' for\n'R >= 4.2.0'."
+        },
+        {
+            "name": "r-rcppde",
+            "description": "Global Optimization by Differential Evolution in C++. An efficient C++\nbased implementation of the 'DEoptim' function which performs global\noptimization by differential evolution. Its creation was motivated by\ntrying to see if the old approximation \"easier, shorter, faster: pick\nany two\" could in fact be extended to achieving all three goals while\nmoving the code from plain old C to modern C++. The initial version did\nin fact do so, but a good part of the gain was due to an implicit code\nreview which eliminated a few inefficiencies which have since been\neliminated in 'DEoptim'."
         }
     ],
     "dependent_to": [
         {
             "name": "r-alsace",
-            "description": "ALS for the Automatic Chemical Exploration of mixtures Alternating Least\nSquares (or Multivariate Curve Resolution) for analytical chemical data,\nin particular hyphenated data where the first direction is a retention\ntime axis, and the second a spectral axis. Package builds on the basic\nals function from the ALS package and adds functionality for high-\nthroughput analysis, including definition of time windows, clustering of\nprofiles, retention time correction, etcetera."
+            "description": "ALS for the Automatic Chemical Exploration of mixtures. Alternating\nLeast Squares (or Multivariate Curve Resolution) for analytical chemical\ndata, in particular hyphenated data where the first direction is a\nretention time axis, and the second a spectral axis. Package builds on\nthe basic als function from the ALS package and adds functionality for\nhigh-throughput analysis, including definition of time windows,\nclustering of profiles, retention time correction, etcetera."
         }
     ]
 }
