@@ -529,6 +529,11 @@
             "description": "None"
         },
         {
+            "name": "+cuda",
+            "spec": "@5.8:5.10",
+            "description": "None"
+        },
+        {
             "name": "~opengl2",
             "spec": "@5.5:",
             "description": "None"
@@ -551,6 +556,11 @@
         {
             "name": "build_edition=core",
             "spec": "@:5.7",
+            "description": "None"
+        },
+        {
+            "name": "use_vtkm=on",
+            "spec": "@:5.3",
             "description": "None"
         },
         {
@@ -2769,6 +2779,11 @@
             "name": "build_edition",
             "default": "canonical",
             "description": "Build editions include only certain modules. Editions are listed in decreasing order of size."
+        },
+        {
+            "name": "use_vtkm",
+            "default": "default",
+            "description": "Build VTK-m with ParaView by setting PARAVIEW_USE_VTKM=ON,OFF. \"default\" lets the build_edition make the decision. \"on\" or \"off\" will always override the build_edition."
         }
     ],
     "homepage": "https://www.paraview.org",
@@ -2844,7 +2859,7 @@
         }
     ],
     "resources": [],
-    "description": "ParaView is an open-source, multi-platform data analysis and\nvisualization application. This package includes the Catalyst in-situ\nlibrary for versions 5.7 and greater, othewise use the catalyst package.\n",
+    "description": "ParaView is an open-source, multi-platform data analysis and\nvisualization application. This package includes the Catalyst in-situ\nlibrary for versions 5.7 and greater, otherwise use the catalyst\npackage.\n",
     "dependencies": [
         {
             "name": "cuda",
@@ -2876,7 +2891,7 @@
         },
         {
             "name": "mpi",
-            "description": "MPICH is a high performance and widely portable implementation of the\nMessage Passing Interface (MPI) standard."
+            "description": "Cray's MPICH is a high performance and widely portable implementation of\nthe Message Passing Interface (MPI) standard."
         },
         {
             "name": "qt",
@@ -2924,7 +2939,7 @@
         },
         {
             "name": "jpeg",
-            "description": "libjpeg-turbo is a fork of the original IJG libjpeg which uses SIMD to\naccelerate baseline JPEG compression and decompression. libjpeg is a\nlibrary that implements JPEG image encoding, decoding and transcoding."
+            "description": "libjpeg is a widely used free library with functions for handling the\nJPEG image data format. It implements a JPEG codec (encoding and\ndecoding) alongside various utilities for handling JPEG data."
         },
         {
             "name": "jsoncpp",
@@ -2984,7 +2999,7 @@
         },
         {
             "name": "pil",
-            "description": "Pillow-SIMD is a SIMD-enabled fork of Pillow. It is usually 4-6x faster\nthan the original Pillow in image processing benchmarks."
+            "description": "Pillow is a fork of the Python Imaging Library (PIL). It adds image\nprocessing capabilities to your Python interpreter. This library\nsupports many file formats, and provides powerful image processing and\ngraphics capabilities."
         },
         {
             "name": "cli11",
@@ -3001,20 +3016,12 @@
     ],
     "dependent_to": [
         {
-            "name": "foam-extend",
-            "description": "The Extend Project is a fork of the OpenFOAM opensource library for\nComputational Fluid Dynamics (CFD). This offering is not approved or\nendorsed by OpenCFD Ltd, producer and distributor of the OpenFOAM\nsoftware via www.openfoam.com, and owner of the OPENFOAM trademark."
-        },
-        {
             "name": "openfoam",
             "description": "OpenFOAM is a GPL-opensource C++ CFD-toolbox. This offering is supported\nby OpenCFD Ltd, producer and distributor of the OpenFOAM software via\nwww.openfoam.com, and owner of the OPENFOAM trademark. OpenCFD Ltd has\nbeen developing and releasing OpenFOAM since its debut in 2004."
         },
         {
             "name": "elmerfem",
             "description": "Elmer is an open source multiphysical simulation software. It includes\nphysical models of fluid dynamics, structural mechanics,\nelectromagnetics, heat transfer and acoustics."
-        },
-        {
-            "name": "ecp-data-vis-sdk",
-            "description": "ECP Data & Vis SDK"
         },
         {
             "name": "libristra",
@@ -3025,12 +3032,20 @@
             "description": "SENSEI is a platform for scalable in-situ analysis and visualization.\nIts design motto is 'Write once, run everywhere', this means that once\nthe application is instrumented with SENSEI it can use existing and\nfuture analysis backends. Existing backends include: Paraview/Catalyst,\nVisit/Libsim, ADIOS, Python scripts, and so on."
         },
         {
-            "name": "trilinos-catalyst-ioss-adapter",
-            "description": "Adapter for Trilinos Seacas Ioss and Paraview Catalyst"
+            "name": "ecp-data-vis-sdk",
+            "description": "ECP Data & Vis SDK"
+        },
+        {
+            "name": "foam-extend",
+            "description": "The Extend Project is a fork of the OpenFOAM opensource library for\nComputational Fluid Dynamics (CFD). This offering is not approved or\nendorsed by OpenCFD Ltd, producer and distributor of the OpenFOAM\nsoftware via www.openfoam.com, and owner of the OPENFOAM trademark."
         },
         {
             "name": "of-catalyst",
             "description": "Of-catalyst is a library for OpenFOAM that provides a runtime-selectable\nfunction object for embedding ParaView Catalyst in-situ visualization\ninto arbitrary OpenFOAM simulations. Supports in-situ conversion of the\nfollowing types: 1) finite volume meshes and fields, single or multi-\nregion; 2) finite area meshes and fields, single region; 3) lagrangian\n(clouds), single or multiple clouds. This offering is part of the\ncommunity repository supported by OpenCFD Ltd, producer and distributor\nof the OpenFOAM software via www.openfoam.com, and owner of the OPENFOAM\ntrademark. OpenCFD Ltd has been developing and releasing OpenFOAM since\nits debut in 2004."
+        },
+        {
+            "name": "trilinos-catalyst-ioss-adapter",
+            "description": "Adapter for Trilinos Seacas Ioss and Paraview Catalyst"
         },
         {
             "name": "damaris",
