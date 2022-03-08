@@ -1,0 +1,59 @@
+{
+    "name": "starlight",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "313",
+            "sha256": "afff1ac01bc312cb443931eb425808a85ac7e349ed3df228405a4ba87d780f23",
+            "url": "https://starlight.hepforge.org/downloads?f=starlight_r313.tar"
+        },
+        {
+            "name": "300",
+            "sha256": "e754212f173fb42a96611b3519cb386c772429e690f3e088396bd103c2cf9348",
+            "url": "https://starlight.hepforge.org/downloads?f=starlight_r300.tar"
+        }
+    ],
+    "build_system": "CMakePackage",
+    "conflicts": [
+        {
+            "name": "+ipo",
+            "spec": "^cmake@:3.8",
+            "description": "+ipo is not supported by CMake < 3.9"
+        }
+    ],
+    "variants": [
+        {
+            "name": "build_type",
+            "default": "RelWithDebInfo",
+            "description": "CMake build type"
+        },
+        {
+            "name": "ipo",
+            "default": false,
+            "description": "CMake interprocedural optimization"
+        }
+    ],
+    "homepage": "https://starlight.hepforge.org",
+    "maintainers": [
+        "vvolkl"
+    ],
+    "patches": [
+        {
+            "owner": "builtin.starlight",
+            "sha256": "c70f70fd7c96dc0417f9254d25b584222abcb2c452e1e6dd4b8cfb0b64bf10e0",
+            "level": 0,
+            "working_dir": ".",
+            "url": "https://gitlab.cern.ch/sft/lcgcmake/-/raw/master/generators/patches/starlight-r313.patch",
+            "version": "@300:"
+        }
+    ],
+    "resources": [],
+    "description": "STARlight is a Monte Carlo that simulates two-photon and photon-Pomeron\ninteractions between relativistic nuclei and protons.\n",
+    "dependencies": [
+        {
+            "name": "cmake",
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
+        }
+    ],
+    "dependent_to": []
+}
