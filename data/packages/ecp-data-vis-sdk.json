@@ -9,6 +9,71 @@
     "build_system": "BundlePackage",
     "conflicts": [
         {
+            "name": "^blt@:0.3.6",
+            "spec": "+rocm",
+            "description": "None"
+        },
+        {
+            "name": "amdgpu_target=none",
+            "spec": "+rocm",
+            "description": "None"
+        },
+        {
+            "name": "~rocm",
+            "spec": "amdgpu_target=gfx701",
+            "description": "None"
+        },
+        {
+            "name": "~rocm",
+            "spec": "amdgpu_target=gfx801",
+            "description": "None"
+        },
+        {
+            "name": "~rocm",
+            "spec": "amdgpu_target=gfx802",
+            "description": "None"
+        },
+        {
+            "name": "~rocm",
+            "spec": "amdgpu_target=gfx803",
+            "description": "None"
+        },
+        {
+            "name": "~rocm",
+            "spec": "amdgpu_target=gfx900",
+            "description": "None"
+        },
+        {
+            "name": "~rocm",
+            "spec": "amdgpu_target=gfx906",
+            "description": "None"
+        },
+        {
+            "name": "~rocm",
+            "spec": "amdgpu_target=gfx908",
+            "description": "None"
+        },
+        {
+            "name": "~rocm",
+            "spec": "amdgpu_target=gfx90a",
+            "description": "None"
+        },
+        {
+            "name": "~rocm",
+            "spec": "amdgpu_target=gfx1010",
+            "description": "None"
+        },
+        {
+            "name": "~rocm",
+            "spec": "amdgpu_target=gfx1011",
+            "description": "None"
+        },
+        {
+            "name": "~rocm",
+            "spec": "amdgpu_target=gfx1012",
+            "description": "None"
+        },
+        {
             "name": "%gcc@:4",
             "spec": "+cuda ^cuda@11.0:~allow-unsupported-compilers",
             "description": "None"
@@ -521,6 +586,16 @@
     ],
     "variants": [
         {
+            "name": "rocm",
+            "default": false,
+            "description": "Enable ROCm support"
+        },
+        {
+            "name": "amdgpu_target",
+            "default": "none",
+            "description": "AMD GPU architecture"
+        },
+        {
             "name": "cuda",
             "default": false,
             "description": "Build with CUDA"
@@ -615,6 +690,18 @@
     "resources": [],
     "description": "ECP Data & Vis SDK\n",
     "dependencies": [
+        {
+            "name": "llvm-amdgpu",
+            "description": "Toolkit for the construction of highly optimized compilers, optimizers,\nand run-time environments."
+        },
+        {
+            "name": "hsa-rocr-dev",
+            "description": "This repository includes the user mode API nterfaces and libraries\nnecessary for host applications to launch computer kernels to available\nHSA ROCm kernel agents.AMD Heterogeneous System Architecture HSA - Linux\nHSA Runtime for Boltzmann (ROCm) platforms."
+        },
+        {
+            "name": "hip",
+            "description": "HIP is a C++ Runtime API and Kernel Language that allows developers to\ncreate portable applications for AMD and NVIDIA GPUs from single source\ncode."
+        },
         {
             "name": "cuda",
             "description": "CUDA is a parallel computing platform and programming model invented by\nNVIDIA. It enables dramatic increases in computing performance by\nharnessing the power of the graphics processing unit (GPU). Note: This\npackage does not currently install the drivers necessary to run CUDA.\nThese will need to be installed manually. See:\nhttps://docs.nvidia.com/cuda/ for details."

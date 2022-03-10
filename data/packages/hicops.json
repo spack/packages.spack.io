@@ -1,0 +1,221 @@
+{
+    "name": "hicops",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "release",
+            "branch": "release"
+        },
+        {
+            "name": "develop",
+            "branch": "develop"
+        }
+    ],
+    "build_system": "CMakePackage",
+    "conflicts": [
+        {
+            "name": "+ipo",
+            "spec": "^cmake@:3.8",
+            "description": "+ipo is not supported by CMake < 3.9"
+        },
+        {
+            "name": "+timemory",
+            "spec": "",
+            "description": "None"
+        },
+        {
+            "name": "%gcc@:7.2.0",
+            "spec": "",
+            "description": "None"
+        },
+        {
+            "name": "+mpip -timemory",
+            "spec": "",
+            "description": "None"
+        },
+        {
+            "name": "+mpip -mpi",
+            "spec": "",
+            "description": "None"
+        }
+    ],
+    "variants": [
+        {
+            "name": "build_type",
+            "default": "RelWithDebInfo",
+            "description": "CMake build type"
+        },
+        {
+            "name": "ipo",
+            "default": false,
+            "description": "CMake interprocedural optimization"
+        },
+        {
+            "name": "mpi",
+            "default": true,
+            "description": "Enable MPI support."
+        },
+        {
+            "name": "timemory",
+            "default": false,
+            "description": "Enable timemory interface. Requires timemory installation."
+        },
+        {
+            "name": "mpip",
+            "default": false,
+            "description": "Enables the MPIP data_tracker via Timemory. Requires timemory installation."
+        },
+        {
+            "name": "tailfit",
+            "default": true,
+            "description": "Use the tailfit method instead of Gumbelfit for e-value computation."
+        },
+        {
+            "name": "progress",
+            "default": true,
+            "description": "Display HiCOPS progress marks."
+        },
+        {
+            "name": "seqlen",
+            "default": "60",
+            "description": "Allowed maximum peptide sequence length."
+        },
+        {
+            "name": "qalen",
+            "default": "100",
+            "description": "Maximum number of top K peaks to keep when spectrum preprocess."
+        },
+        {
+            "name": "qchunk",
+            "default": "10000",
+            "description": "Max size of each batch extracted from the dataset."
+        },
+        {
+            "name": "hyperscore",
+            "default": "100",
+            "description": "Maximum allowed hyperscore computed."
+        },
+        {
+            "name": "shdpeaks",
+            "default": "80",
+            "description": "Maximum shared b- or y-ions allowed."
+        },
+        {
+            "name": "cxx_std",
+            "default": "14",
+            "description": "C++ standard"
+        }
+    ],
+    "homepage": "https://hicops.github.io/index",
+    "maintainers": [
+        "pcdslab",
+        "mhaseeb123",
+        "nessiecancode"
+    ],
+    "patches": [],
+    "resources": [],
+    "description": "HiCOPS is a software framework for accelerating database peptide search\nworkflows on supercomputers. HiCOPS provided algorithm-independent\nparallelizations and optimizations can be extended into new HPC database\nsearch algorithms or scalably accelerate the existing ones.\n",
+    "dependencies": [
+        {
+            "name": "cmake",
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
+        },
+        {
+            "name": "py-numpy",
+            "description": "NumPy is the fundamental package for scientific computing with Python.\nIt contains among other things: a powerful N-dimensional array object,\nsophisticated (broadcasting) functions, tools for integrating C/C++ and\nFortran code, and useful linear algebra, Fourier transform, and random\nnumber capabilities"
+        },
+        {
+            "name": "py-python-dateutil",
+            "description": "Extensions to the standard Python datetime module."
+        },
+        {
+            "name": "py-setuptools",
+            "description": "A Python utility that aids in the process of downloading, building,\nupgrading, installing, and uninstalling Python packages."
+        },
+        {
+            "name": "py-bottleneck",
+            "description": "A collection of fast NumPy array functions written in Cython."
+        },
+        {
+            "name": "py-pyparsing",
+            "description": "A Python Parsing Module."
+        },
+        {
+            "name": "py-subprocess32",
+            "description": "A backport of the subprocess module from Python 3.2/3.3 for 2.x."
+        },
+        {
+            "name": "py-six",
+            "description": "Python 2 and 3 compatibility utilities."
+        },
+        {
+            "name": "py-setuptools-scm",
+            "description": "The blessed package to manage your versions by scm tags."
+        },
+        {
+            "name": "py-et-xmlfile",
+            "description": "An implementation of lxml.xmlfile for the standard library."
+        },
+        {
+            "name": "py-argparse",
+            "description": "Python command-line parsing library."
+        },
+        {
+            "name": "py-cython",
+            "description": "The Cython compiler for writing C extensions for the Python language."
+        },
+        {
+            "name": "py-cycler",
+            "description": "Composable style cycles."
+        },
+        {
+            "name": "py-pytz",
+            "description": "World timezone definitions, modern and historical."
+        },
+        {
+            "name": "py-kiwisolver",
+            "description": "A fast implementation of the Cassowary constraint solver"
+        },
+        {
+            "name": "py-numexpr",
+            "description": "Fast numerical expression evaluator for NumPy"
+        },
+        {
+            "name": "py-matplotlib",
+            "description": "Matplotlib is a comprehensive library for creating static, animated, and\ninteractive visualizations in Python."
+        },
+        {
+            "name": "py-jdcal",
+            "description": "Julian dates from proleptic Gregorian and Julian calendars"
+        },
+        {
+            "name": "py-pandas",
+            "description": "pandas is a fast, powerful, flexible and easy to use open source data\nanalysis and manipulation tool, built on top of the Python programming\nlanguage."
+        },
+        {
+            "name": "py-openpyxl",
+            "description": "A Python library to read/write Excel 2010 xlsx/xlsm files"
+        },
+        {
+            "name": "python",
+            "description": "The Python programming language."
+        },
+        {
+            "name": "boost",
+            "description": "Boost provides free peer-reviewed portable C++ source libraries,\nemphasizing libraries that work well with the C++ Standard Library.\nBoost libraries are intended to be widely useful, and usable across a\nbroad spectrum of applications. The Boost license encourages both\ncommercial and non-commercial use."
+        },
+        {
+            "name": "mpich",
+            "description": "MPICH is a high performance and widely portable implementation of the\nMessage Passing Interface (MPI) standard."
+        },
+        {
+            "name": "git",
+            "description": "Git is a free and open source distributed version control system\ndesigned to handle everything from small to very large projects with\nspeed and efficiency."
+        },
+        {
+            "name": "pkgconf",
+            "description": "pkgconf is a program which helps to configure compiler and linker flags\nfor development frameworks. It is similar to pkg-config from\nfreedesktop.org, providing additional functionality while also\nmaintaining compatibility."
+        }
+    ],
+    "dependent_to": []
+}
