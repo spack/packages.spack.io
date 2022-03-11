@@ -11,6 +11,71 @@
     "build_system": "CMakePackage",
     "conflicts": [
         {
+            "name": "^blt@:0.3.6",
+            "spec": "+rocm",
+            "description": "None"
+        },
+        {
+            "name": "amdgpu_target=none",
+            "spec": "+rocm",
+            "description": "None"
+        },
+        {
+            "name": "~rocm",
+            "spec": "amdgpu_target=gfx701",
+            "description": "None"
+        },
+        {
+            "name": "~rocm",
+            "spec": "amdgpu_target=gfx801",
+            "description": "None"
+        },
+        {
+            "name": "~rocm",
+            "spec": "amdgpu_target=gfx802",
+            "description": "None"
+        },
+        {
+            "name": "~rocm",
+            "spec": "amdgpu_target=gfx803",
+            "description": "None"
+        },
+        {
+            "name": "~rocm",
+            "spec": "amdgpu_target=gfx900",
+            "description": "None"
+        },
+        {
+            "name": "~rocm",
+            "spec": "amdgpu_target=gfx906",
+            "description": "None"
+        },
+        {
+            "name": "~rocm",
+            "spec": "amdgpu_target=gfx908",
+            "description": "None"
+        },
+        {
+            "name": "~rocm",
+            "spec": "amdgpu_target=gfx90a",
+            "description": "None"
+        },
+        {
+            "name": "~rocm",
+            "spec": "amdgpu_target=gfx1010",
+            "description": "None"
+        },
+        {
+            "name": "~rocm",
+            "spec": "amdgpu_target=gfx1011",
+            "description": "None"
+        },
+        {
+            "name": "~rocm",
+            "spec": "amdgpu_target=gfx1012",
+            "description": "None"
+        },
+        {
             "name": "%gcc@:4",
             "spec": "+cuda ^cuda@11.0:~allow-unsupported-compilers",
             "description": "None"
@@ -434,9 +499,24 @@
             "name": "+openmp",
             "spec": "+cuda",
             "description": "None"
+        },
+        {
+            "name": "+shared",
+            "spec": "+cuda",
+            "description": "None"
         }
     ],
     "variants": [
+        {
+            "name": "rocm",
+            "default": false,
+            "description": "Enable ROCm support"
+        },
+        {
+            "name": "amdgpu_target",
+            "default": "none",
+            "description": "AMD GPU architecture"
+        },
         {
             "name": "cuda",
             "default": false,
@@ -458,36 +538,6 @@
             "description": "CMake interprocedural optimization"
         },
         {
-            "name": "shared",
-            "default": true,
-            "description": "Build shared libraries"
-        },
-        {
-            "name": "unit",
-            "default": true,
-            "description": "Build unit tests"
-        },
-        {
-            "name": "tests",
-            "default": true,
-            "description": "Activate regression tests"
-        },
-        {
-            "name": "mpi",
-            "default": true,
-            "description": "Enable MPI support"
-        },
-        {
-            "name": "openmp",
-            "default": false,
-            "description": "Enable OpenMP for CPU builds"
-        },
-        {
-            "name": "netcdf",
-            "default": true,
-            "description": "Enable NetCDF support"
-        },
-        {
             "name": "hypre",
             "default": true,
             "description": "Enable Hypre integration"
@@ -498,25 +548,56 @@
             "description": "Enable MASA integration"
         },
         {
+            "name": "mpi",
+            "default": true,
+            "description": "Enable MPI support"
+        },
+        {
+            "name": "netcdf",
+            "default": true,
+            "description": "Enable NetCDF support"
+        },
+        {
             "name": "openfast",
             "default": false,
             "description": "Enable OpenFAST integration"
         },
         {
-            "name": "internal-amrex",
+            "name": "openmp",
+            "default": false,
+            "description": "Enable OpenMP for CPU builds"
+        },
+        {
+            "name": "shared",
             "default": true,
-            "description": "Use AMRex submodule to build"
+            "description": "Build shared libraries"
+        },
+        {
+            "name": "tests",
+            "default": true,
+            "description": "Activate regression tests"
         }
     ],
     "homepage": "https://github.com/Exawind/amr-wind",
     "maintainers": [
-        "jrood-nrel",
-        "michaeljbrazell"
+        "jrood-nrel"
     ],
     "patches": [],
     "resources": [],
     "description": "AMR-Wind is a massively parallel, block-structured adaptive-mesh,\nincompressible flow sover for wind turbine and wind farm simulations.\n",
     "dependencies": [
+        {
+            "name": "llvm-amdgpu",
+            "description": "Toolkit for the construction of highly optimized compilers, optimizers,\nand run-time environments."
+        },
+        {
+            "name": "hsa-rocr-dev",
+            "description": "This repository includes the user mode API nterfaces and libraries\nnecessary for host applications to launch computer kernels to available\nHSA ROCm kernel agents.AMD Heterogeneous System Architecture HSA - Linux\nHSA Runtime for Boltzmann (ROCm) platforms."
+        },
+        {
+            "name": "hip",
+            "description": "HIP is a C++ Runtime API and Kernel Language that allows developers to\ncreate portable applications for AMD and NVIDIA GPUs from single source\ncode."
+        },
         {
             "name": "cuda",
             "description": "CUDA is a parallel computing platform and programming model invented by\nNVIDIA. It enables dramatic increases in computing performance by\nharnessing the power of the graphics processing unit (GPU). Note: This\npackage does not currently install the drivers necessary to run CUDA.\nThese will need to be installed manually. See:\nhttps://docs.nvidia.com/cuda/ for details."
@@ -526,28 +607,32 @@
             "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
         },
         {
-            "name": "mpi",
-            "description": "Intel oneAPI MPI."
-        },
-        {
-            "name": "amrex",
-            "description": "AMReX is a publicly available software framework designed for building\nmassively parallel block- structured adaptive mesh refinement (AMR)\napplications."
-        },
-        {
             "name": "hypre",
             "description": "Hypre is a library of high performance preconditioners that features\nparallel multigrid methods for both structured and unstructured grid\nproblems."
-        },
-        {
-            "name": "netcdf-c",
-            "description": "NetCDF (network Common Data Form) is a set of software libraries and\nmachine-independent data formats that support the creation, access, and\nsharing of array-oriented scientific data. This is the C distribution."
         },
         {
             "name": "masa",
             "description": "MASA (Manufactured Analytical Solution Abstraction) is a library written\nin C++ (with C, python and Fortran90 interfaces) which provides a suite\nof manufactured solutions for the software verification of partial\ndifferential equation solvers in multiple dimensions."
         },
         {
+            "name": "mpi",
+            "description": "An open source Message Passing Interface implementation. The Open MPI\nProject is an open source Message Passing Interface implementation that\nis developed and maintained by a consortium of academic, research, and\nindustry partners. Open MPI is therefore able to combine the expertise,\ntechnologies, and resources from all across the High Performance\nComputing community in order to build the best MPI library available.\nOpen MPI offers advantages for system and software vendors, application\ndevelopers and computer science researchers."
+        },
+        {
+            "name": "netcdf-c",
+            "description": "NetCDF (network Common Data Form) is a set of software libraries and\nmachine-independent data formats that support the creation, access, and\nsharing of array-oriented scientific data. This is the C distribution."
+        },
+        {
             "name": "openfast",
             "description": "Wind turbine simulation package from NREL"
+        },
+        {
+            "name": "py-matplotlib",
+            "description": "Matplotlib is a comprehensive library for creating static, animated, and\ninteractive visualizations in Python."
+        },
+        {
+            "name": "py-pandas",
+            "description": "pandas is a fast, powerful, flexible and easy to use open source data\nanalysis and manipulation tool, built on top of the Python programming\nlanguage."
         }
     ],
     "dependent_to": [
