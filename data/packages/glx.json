@@ -1,109 +1,259 @@
 {
-    "name": "opengl",
+    "name": "mesa",
     "aliases": [
         {
-            "name": "gl",
-            "alias_for": "{opengl}"
-        },
-        {
-            "name": "gl@:4.5",
-            "alias_for": "{opengl@4.5:}"
-        },
-        {
-            "name": "gl@:4.4",
-            "alias_for": "{opengl@4.4:}"
-        },
-        {
-            "name": "gl@:4.3",
-            "alias_for": "{opengl@4.3:}"
-        },
-        {
-            "name": "gl@:4.2",
-            "alias_for": "{opengl@4.2:}"
-        },
-        {
-            "name": "gl@:4.1",
-            "alias_for": "{opengl@4.1:}"
-        },
-        {
-            "name": "gl@:3.3",
-            "alias_for": "{opengl@3.3:}"
-        },
-        {
-            "name": "gl@:3.2",
-            "alias_for": "{opengl@3.2:}"
-        },
-        {
-            "name": "gl@:3.1",
-            "alias_for": "{opengl@3.1:}"
-        },
-        {
-            "name": "gl@:3.0",
-            "alias_for": "{opengl@3.0:}"
-        },
-        {
-            "name": "gl@:2.1",
-            "alias_for": "{opengl@2.1:}"
-        },
-        {
-            "name": "gl@:2.0",
-            "alias_for": "{opengl@2.0:}"
-        },
-        {
-            "name": "gl@:1.5",
-            "alias_for": "{opengl@1.5:}"
-        },
-        {
-            "name": "gl@:1.4",
-            "alias_for": "{opengl@1.4:}"
-        },
-        {
-            "name": "gl@:1.3",
-            "alias_for": "{opengl@1.3:}"
-        },
-        {
-            "name": "gl@:1.2",
-            "alias_for": "{opengl@1.2:}"
-        },
-        {
-            "name": "gl@:1.1",
-            "alias_for": "{opengl@1.1:}"
-        },
-        {
-            "name": "gl@:1.0",
-            "alias_for": "{opengl@1.0:}"
+            "name": "gl@4.5",
+            "alias_for": "{mesa+opengl}"
         },
         {
             "name": "glx@1.4",
-            "alias_for": "{opengl}"
+            "alias_for": "{mesa+glx}"
+        },
+        {
+            "name": "osmesa",
+            "alias_for": "{mesa+osmesa}"
         }
     ],
-    "versions": [],
-    "build_system": "Package",
-    "conflicts": [],
-    "variants": [],
-    "homepage": "https://www.opengl.org/",
-    "maintainers": [],
-    "patches": [],
+    "versions": [
+        {
+            "name": "master",
+            "tag": "master"
+        },
+        {
+            "name": "21.3.1",
+            "sha256": "2b0dc2540cb192525741d00f706dbc4586349185dafc65729c7fda0800cc474d"
+        },
+        {
+            "name": "21.2.6",
+            "sha256": "1e7e22d93c6e8859fa044b1121119d26b2e67e4184b92ebb81c66497dc80c954"
+        },
+        {
+            "name": "21.2.5",
+            "sha256": "8e49585fb760d973723dab6435d0c86f7849b8305b1e6d99f475138d896bacbb"
+        },
+        {
+            "name": "21.2.4",
+            "sha256": "fe6ede82d1ac02339da3c2ec1820a379641902fd351a52cc01153f76eff85b44"
+        },
+        {
+            "name": "21.2.3",
+            "sha256": "7245284a159d2484770e1835a673e79e4322a9ddf43b17859668244946db7174"
+        },
+        {
+            "name": "21.2.1",
+            "sha256": "2c65e6710b419b67456a48beefd0be827b32db416772e0e363d5f7d54dc01787"
+        },
+        {
+            "name": "21.0.3",
+            "sha256": "565c6f4bd2d5747b919454fc1d439963024fc78ca56fd05158c3b2cde2f6912b"
+        },
+        {
+            "name": "21.0.0",
+            "sha256": "e6204e98e6a8d77cf9dc5d34f99dd8e3ef7144f3601c808ca0dd26ba522e0d84"
+        },
+        {
+            "name": "20.3.4",
+            "sha256": "dc21a987ec1ff45b278fe4b1419b1719f1968debbb80221480e44180849b4084"
+        },
+        {
+            "name": "20.2.1",
+            "sha256": "d1a46d9a3f291bc0e0374600bdcb59844fa3eafaa50398e472a36fc65fd0244a"
+        }
+    ],
+    "build_system": "MesonPackage",
+    "conflicts": [
+        {
+            "name": "%gcc@10.1.0",
+            "spec": "",
+            "description": "GCC 10.1.0 has a bug"
+        },
+        {
+            "name": "~osmesa ~glx",
+            "spec": "",
+            "description": "None"
+        },
+        {
+            "name": "~opengl ~opengles",
+            "spec": "",
+            "description": "None"
+        },
+        {
+            "name": "~opengl +opengles",
+            "spec": "",
+            "description": "None"
+        },
+        {
+            "name": "llvm@13.0.0:",
+            "spec": "@:21.3.1+llvm",
+            "description": "None"
+        }
+    ],
+    "variants": [
+        {
+            "name": "buildtype",
+            "default": "debugoptimized",
+            "description": "Meson build type"
+        },
+        {
+            "name": "default_library",
+            "default": "shared",
+            "description": "Build shared libs, static libs or both"
+        },
+        {
+            "name": "strip",
+            "default": false,
+            "description": "Strip targets on install"
+        },
+        {
+            "name": "llvm",
+            "default": false,
+            "description": "Enable LLVM."
+        },
+        {
+            "name": "swr",
+            "default": "auto",
+            "description": "Enable the SWR driver."
+        },
+        {
+            "name": "osmesa",
+            "default": true,
+            "description": "Enable the OSMesa frontend."
+        },
+        {
+            "name": "glx",
+            "default": true,
+            "description": "Enable the GLX frontend."
+        },
+        {
+            "name": "opengl",
+            "default": true,
+            "description": "Enable full OpenGL support."
+        },
+        {
+            "name": "opengles",
+            "default": false,
+            "description": "Enable OpenGL ES support."
+        }
+    ],
+    "homepage": "https://www.mesa3d.org",
+    "maintainers": [
+        "chuckatkins",
+        "v-dobrev"
+    ],
+    "patches": [
+        {
+            "owner": "builtin.mesa",
+            "sha256": "36096a178070e40217945e12d542dfe80016cb897284a01114d616656c577d73",
+            "level": 1,
+            "working_dir": ".",
+            "url": "https://cgit.freedesktop.org/mesa/mesa/patch/meson.build?id=054dd668a69acc70d47c73abe4646e96a1f23577",
+            "version": "@21.0.0:21.0.3"
+        },
+        {
+            "owner": "builtin.mesa",
+            "sha256": "ada85be0f30bdd61a7c4eb24afec741da81bc411f7227e2d9014c862eef58b64",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "mesa_check_llvm_version_suffix.patch",
+            "version": "@21.2.3:"
+        }
+    ],
     "resources": [],
-    "description": "Placeholder for external OpenGL libraries from hardware vendors\n",
-    "dependencies": [],
+    "description": "Mesa is an open-source implementation of the OpenGL specification - a\nsystem for rendering interactive 3D graphics.\n",
+    "dependencies": [
+        {
+            "name": "meson",
+            "description": "Meson is a portable open source build system meant to be both extremely\nfast, and as user friendly as possible."
+        },
+        {
+            "name": "ninja",
+            "description": "Ninja is a small build system with a focus on speed. It differs from\nother build systems in two major respects: it is designed to have its\ninput files generated by a higher-level build system, and it is designed\nto run builds as fast as possible."
+        },
+        {
+            "name": "pkgconfig",
+            "description": "pkgconf is a program which helps to configure compiler and linker flags\nfor development frameworks. It is similar to pkg-config from\nfreedesktop.org, providing additional functionality while also\nmaintaining compatibility."
+        },
+        {
+            "name": "bison",
+            "description": "Bison is a general-purpose parser generator that converts an annotated\ncontext-free grammar into a deterministic LR or generalized LR (GLR)\nparser employing LALR(1) parser tables."
+        },
+        {
+            "name": "cmake",
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
+        },
+        {
+            "name": "flex",
+            "description": "Flex is a tool for generating scanners."
+        },
+        {
+            "name": "gettext",
+            "description": "GNU internationalization (i18n) and localization (l10n) library."
+        },
+        {
+            "name": "python",
+            "description": "The Python programming language."
+        },
+        {
+            "name": "py-mako",
+            "description": "A super-fast templating language that borrows the best ideas from the\nexisting templating languages."
+        },
+        {
+            "name": "unwind",
+            "description": "A portable and efficient C programming interface (API) to determine the\ncall-chain of a program."
+        },
+        {
+            "name": "expat",
+            "description": "Expat is an XML parser library written in C."
+        },
+        {
+            "name": "zlib",
+            "description": "A free, general-purpose, legally unencumbered lossless data-compression\nlibrary."
+        },
+        {
+            "name": "libllvm",
+            "description": "The LLVM Project is a collection of modular and reusable compiler and\ntoolchain technologies. Despite its name, LLVM has little to do with\ntraditional virtual machines, though it does provide helpful libraries\nthat can be used to build them. The name \"LLVM\" itself is not an\nacronym; it is the full name of the project."
+        },
+        {
+            "name": "libx11",
+            "description": "libX11 - Core X11 protocol client library."
+        },
+        {
+            "name": "libxcb",
+            "description": "The X protocol C-language Binding (XCB) is a replacement for Xlib\nfeaturing a small footprint, latency hiding, direct access to the\nprotocol, improved threading support, and extensibility."
+        },
+        {
+            "name": "libxext",
+            "description": "libXext - library for common extensions to the X11 protocol."
+        },
+        {
+            "name": "libxt",
+            "description": "libXt - X Toolkit Intrinsics library."
+        },
+        {
+            "name": "xrandr",
+            "description": "xrandr - primitive command line interface to X11 Resize, Rotate, and\nReflect (RandR) extension."
+        },
+        {
+            "name": "glproto",
+            "description": "OpenGL Extension to the X Window System. This extension defines a\nprotocol for the client to send 3D rendering commands to the X server."
+        }
+    ],
     "dependent_to": [
-        {
-            "name": "vtk",
-            "description": "The Visualization Toolkit (VTK) is an open-source, freely available\nsoftware system for 3D computer graphics, image processing and\nvisualization."
-        },
-        {
-            "name": "catalyst",
-            "description": "Catalyst is an in situ library, with an adaptable application\nprogramming interface (API), that orchestrates the alliance between\nsimulation and analysis and/or visualization tasks. For versions 5.7 and\ngreater use the paraview package."
-        },
         {
             "name": "dislin",
             "description": "DISLIN is a high level and easy to use graphics library for displaying\ndata as curves, bar graphs, pie charts, 3D-colour plots, surfaces,\ncontours and maps."
         },
         {
+            "name": "vtk",
+            "description": "The Visualization Toolkit (VTK) is an open-source, freely available\nsoftware system for 3D computer graphics, image processing and\nvisualization."
+        },
+        {
             "name": "geant4",
             "description": "Geant4 is a toolkit for the simulation of the passage of particles\nthrough matter. Its areas of application include high energy, nuclear\nand accelerator physics, as well as studies in medical and space\nscience."
+        },
+        {
+            "name": "catalyst",
+            "description": "Catalyst is an in situ library, with an adaptable application\nprogramming interface (API), that orchestrates the alliance between\nsimulation and analysis and/or visualization tasks. For versions 5.7 and\ngreater use the paraview package."
         }
     ]
 }
