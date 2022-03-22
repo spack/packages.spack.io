@@ -1,0 +1,79 @@
+{
+    "name": "crmc",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "1.6.0",
+            "sha256": "ae2ba5aa2a483d20aa60bef35080f555b365715d1a8fae54b473c275813345c1"
+        },
+        {
+            "name": "1.5.7",
+            "sha256": "ec7456c08b60a40665e9ff31d6029e0151b0cdf2ca98bd09a8b570b1e33f6053"
+        },
+        {
+            "name": "1.5.6",
+            "sha256": "a546a9352dcbdb8a1df3d63530eacf16f8b64a190e224b72afd434f78388a8a0"
+        }
+    ],
+    "build_system": "CMakePackage",
+    "conflicts": [
+        {
+            "name": "+ipo",
+            "spec": "^cmake@:3.8",
+            "description": "+ipo is not supported by CMake < 3.9"
+        }
+    ],
+    "variants": [
+        {
+            "name": "build_type",
+            "default": "RelWithDebInfo",
+            "description": "CMake build type"
+        },
+        {
+            "name": "ipo",
+            "default": false,
+            "description": "CMake interprocedural optimization"
+        }
+    ],
+    "homepage": "https://web.ikp.kit.edu/rulrich/crmc.html",
+    "maintainers": [],
+    "patches": [
+        {
+            "owner": "builtin.crmc",
+            "sha256": "af07d9abbf8883dfbf54959f0e971e1429c5a1c43a602afa25dc790ba9758f15",
+            "level": 0,
+            "working_dir": ".",
+            "url": "https://gitlab.cern.ch/sft/lcgcmake/-/raw/master/generators/patches/crmc-1.6.0.patch",
+            "version": "@1.6.0"
+        },
+        {
+            "owner": "builtin.crmc",
+            "sha256": "fcf767b821cca404569d558f748acb83f692d5b4aca6fd6c8473fcf06c734cf6",
+            "level": 0,
+            "working_dir": ".",
+            "url": "https://gitlab.cern.ch/sft/lcgcmake/-/raw/master/generators/patches/crmc-1.5.6.patch",
+            "version": "@1.5.6:1.5.7"
+        }
+    ],
+    "resources": [],
+    "description": "CRMC (Cosmic Ray Monte Carlo package). CRMC is a package providing a\ncommon interface to access the output from event generators used to\nmodel the secondary particle production in hadronic collisons.\n",
+    "dependencies": [
+        {
+            "name": "cmake",
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
+        },
+        {
+            "name": "hepmc",
+            "description": "The HepMC package is an object oriented, C++ event record for High\nEnergy Physics Monte Carlo generators and simulation."
+        },
+        {
+            "name": "boost",
+            "description": "Boost provides free peer-reviewed portable C++ source libraries,\nemphasizing libraries that work well with the C++ Standard Library.\nBoost libraries are intended to be widely useful, and usable across a\nbroad spectrum of applications. The Boost license encourages both\ncommercial and non-commercial use."
+        },
+        {
+            "name": "root",
+            "description": "ROOT is a data analysis framework."
+        }
+    ],
+    "dependent_to": []
+}
