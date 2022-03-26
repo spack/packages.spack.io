@@ -3,6 +3,14 @@
     "aliases": [],
     "versions": [
         {
+            "name": "5.0.2",
+            "sha256": "30d4bd5fa85185ddafc69fa6d284edd8033c9d77d1e351fa328267242995eb0a"
+        },
+        {
+            "name": "5.0.0",
+            "sha256": "c16374dac2f85fbaf145511653e93f6db3151425ce39b282187745c716b67405"
+        },
+        {
             "name": "4.5.2",
             "sha256": "2724118ca00b9e97ac9578fe0b7e64a82d86c4fb0246d0da88d8ddd9c608b1e1"
         },
@@ -94,13 +102,30 @@
         "arjun-raj-kuppala",
         "haampie"
     ],
-    "patches": [],
+    "patches": [
+        {
+            "owner": "builtin.rocfft",
+            "sha256": "2bac7b579a3fe80b34d3cc4020eba5ad4155084950e95febc21460171ffeb13c",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "0001-Improve-compilation-by-using-sqlite-recipe-for-rocfft.patch",
+            "version": "@5.0.0:5.0.2"
+        }
+    ],
     "resources": [],
     "description": "Radeon Open Compute FFT library\n",
     "dependencies": [
         {
             "name": "cmake",
             "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
+        },
+        {
+            "name": "python",
+            "description": "The Python programming language."
+        },
+        {
+            "name": "sqlite",
+            "description": "SQLite is a C-language library that implements a small, fast, self-\ncontained, high-reliability, full-featured, SQL database engine."
         },
         {
             "name": "hip",
@@ -117,24 +142,24 @@
             "description": "hipFFT is an FFT marshalling library. Currently, hipFFT supports either\nrocFFT or cuFFT as backends.hipFFT exports an interface that does not\nrequire the client to change, regardless of the chosen backend. It sits\nbetween the application and the backend FFT library, marshalling inputs\ninto the backend and results back to the application."
         },
         {
-            "name": "hipace",
-            "description": "Highly efficient Plasma Accelerator Emulation, quasistatic particle-in-\ncell code"
+            "name": "warpx",
+            "description": "WarpX is an advanced electromagnetic Particle-In-Cell code. It supports\nmany features including Perfectly-Matched Layers (PML) and mesh\nrefinement. In addition, WarpX is a highly-parallel and highly-optimized\ncode and features hybrid OpenMP/MPI parallelization, advanced\nvectorization techniques and load balancing capabilities. For WarpX'\nPython bindings and PICMI input support, see the 'py-warpx' package."
+        },
+        {
+            "name": "heffte",
+            "description": "Highly Efficient FFT for Exascale"
         },
         {
             "name": "spfft",
             "description": "Sparse 3D FFT library with MPI, OpenMP, CUDA and ROCm support."
         },
         {
-            "name": "warpx",
-            "description": "WarpX is an advanced electromagnetic Particle-In-Cell code. It supports\nmany features including Perfectly-Matched Layers (PML) and mesh\nrefinement. In addition, WarpX is a highly-parallel and highly-optimized\ncode and features hybrid OpenMP/MPI parallelization, advanced\nvectorization techniques and load balancing capabilities. For WarpX'\nPython bindings and PICMI input support, see the 'py-warpx' package."
-        },
-        {
             "name": "gearshifft",
             "description": "Benchmark Suite for Heterogenuous FFT Implementations"
         },
         {
-            "name": "heffte",
-            "description": "Highly Efficient FFT for Exascale"
+            "name": "hipace",
+            "description": "Highly efficient Plasma Accelerator Emulation, quasistatic particle-in-\ncell code"
         }
     ]
 }
