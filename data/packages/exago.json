@@ -3,10 +3,20 @@
     "aliases": [],
     "versions": [
         {
-            "name": "1.3.0",
-            "commit": "58b039d746a6eac8e84b0afc01354cd58caec485",
+            "name": "1.4.1",
+            "commit": "ea607c685444b5f345bfdc9a59c345f0f30adde2",
             "submodules": true,
             "preferred": true
+        },
+        {
+            "name": "1.4.0",
+            "commit": "4f4c3fdb40b52ace2d6ba000e7f24b340ec8e886",
+            "submodules": true
+        },
+        {
+            "name": "1.3.0",
+            "commit": "58b039d746a6eac8e84b0afc01354cd58caec485",
+            "submodules": true
         },
         {
             "name": "1.2.0",
@@ -52,6 +62,16 @@
     ],
     "build_system": "CMakePackage",
     "conflicts": [
+        {
+            "name": "^blt@:0.3.6",
+            "spec": "+rocm",
+            "description": "None"
+        },
+        {
+            "name": "amdgpu_target=none",
+            "spec": "+rocm",
+            "description": "None"
+        },
         {
             "name": "%gcc@:4",
             "spec": "+cuda ^cuda@11.0:~allow-unsupported-compilers",
@@ -368,12 +388,27 @@
             "description": "+ipo is not supported by CMake < 3.9"
         },
         {
+            "name": "+python",
+            "spec": "@:1.3.0",
+            "description": "Python bindings require ExaGO 1.4"
+        },
+        {
             "name": "~hiop~ipopt",
             "spec": "",
             "description": "ExaGO needs at least one solver enabled"
         }
     ],
     "variants": [
+        {
+            "name": "rocm",
+            "default": false,
+            "description": "Enable ROCm support"
+        },
+        {
+            "name": "amdgpu_target",
+            "default": "none",
+            "description": "AMD GPU architecture"
+        },
         {
             "name": "cuda",
             "default": false,
@@ -430,6 +465,18 @@
     "description": "ExaGO is a package for solving large-scale power grid optimization\nproblems on parallel and distributed architectures, particularly\ntargeted for exascale machines.\n",
     "dependencies": [
         {
+            "name": "llvm-amdgpu",
+            "description": "Toolkit for the construction of highly optimized compilers, optimizers,\nand run-time environments."
+        },
+        {
+            "name": "hsa-rocr-dev",
+            "description": "This repository includes the user mode API nterfaces and libraries\nnecessary for host applications to launch computer kernels to available\nHSA ROCm kernel agents.AMD Heterogeneous System Architecture HSA - Linux\nHSA Runtime for Boltzmann (ROCm) platforms."
+        },
+        {
+            "name": "hip",
+            "description": "HIP is a C++ Runtime API and Kernel Language that allows developers to\ncreate portable applications for AMD and NVIDIA GPUs from single source\ncode."
+        },
+        {
             "name": "cuda",
             "description": "CUDA is a parallel computing platform and programming model invented by\nNVIDIA. It enables dramatic increases in computing performance by\nharnessing the power of the graphics processing unit (GPU). Note: This\npackage does not currently install the drivers necessary to run CUDA.\nThese will need to be installed manually. See:\nhttps://docs.nvidia.com/cuda/ for details."
         },
@@ -439,11 +486,11 @@
         },
         {
             "name": "mpi",
-            "description": "Mvapich2 is a High-Performance MPI Library for clusters with diverse\nnetworks (InfiniBand, Omni-Path, Ethernet/iWARP, and RoCE) and computing\nplatforms (x86 (Intel and AMD), ARM and OpenPOWER)"
+            "description": "Virtual package for the Message Passing Interface."
         },
         {
             "name": "blas",
-            "description": "XBLAS is a reference implementation for extra precision BLAS. XBLAS is a\nreference implementation for the dense and banded BLAS routines, along\nwith extended and mixed precision version. Extended precision is only\nused internally; input and output arguments remain the same as in the\nexisting BLAS. Extra precisions is implemented as double-double (i.e.,\n128-bit total, 106-bit significand). Mixed precision permits some\ninput/output arguments of different types (mixing real and complex) or\nprecisions (mixing single and double). This implementation is proof of\nconcept, and no attempt was made to optimize performance; performance\nshould be as good as straightforward but careful code written by hand."
+            "description": "OpenBLAS: An optimized BLAS library"
         },
         {
             "name": "raja",
@@ -468,6 +515,10 @@
         {
             "name": "ipopt",
             "description": "Ipopt (Interior Point OPTimizer, pronounced eye-pea-Opt) is a software\npackage for large-scale nonlinear optimization."
+        },
+        {
+            "name": "py-mpi4py",
+            "description": "This package provides Python bindings for the Message Passing Interface\n(MPI) standard. It is implemented on top of the MPI-1/MPI-2\nspecification and exposes an API which grounds on the standard MPI-2 C++\nbindings."
         }
     ],
     "dependent_to": []
