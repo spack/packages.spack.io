@@ -3,7 +3,7 @@
     "aliases": [
         {
             "name": "blas",
-            "alias_for": "{blis+blas, blis+cblas}"
+            "alias_for": "{blis+cblas, blis+blas}"
         }
     ],
     "versions": [
@@ -57,7 +57,18 @@
         }
     ],
     "build_system": "Package",
-    "conflicts": [],
+    "conflicts": [
+        {
+            "name": "%nvhpc",
+            "spec": "",
+            "description": "None"
+        },
+        {
+            "name": "%pgi",
+            "spec": "",
+            "description": "None"
+        }
+    ],
     "variants": [
         {
             "name": "threads",
@@ -107,12 +118,12 @@
     ],
     "dependent_to": [
         {
-            "name": "elk",
-            "description": "An all-electron full-potential linearised augmented-plane wave (FP-LAPW)\ncode with many advanced features."
-        },
-        {
             "name": "sirius",
             "description": "Domain specific library for electronic structure calculations"
+        },
+        {
+            "name": "elk",
+            "description": "An all-electron full-potential linearised augmented-plane wave (FP-LAPW)\ncode with many advanced features."
         },
         {
             "name": "spla",
