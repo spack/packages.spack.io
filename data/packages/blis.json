@@ -3,13 +3,17 @@
     "aliases": [
         {
             "name": "blas",
-            "alias_for": "{blis+cblas, blis+blas}"
+            "alias_for": "{blis+blas, blis+cblas}"
         }
     ],
     "versions": [
         {
             "name": "master",
             "branch": "master"
+        },
+        {
+            "name": "0.9.0",
+            "sha256": "1135f664be7355427b91025075562805cdc6cc730d3173f83533b2c5dcc2f308"
         },
         {
             "name": "0.8.1",
@@ -56,7 +60,7 @@
             "sha256": "4a7ecb56034fb20e9d1d8b16e2ef587abbc3d30cb728e70629ca7e795a7998e8"
         }
     ],
-    "build_system": "Package",
+    "build_system": "MakefilePackage",
     "conflicts": [
         {
             "name": "%nvhpc",
@@ -86,14 +90,9 @@
             "description": "CBLAS compatibility"
         },
         {
-            "name": "shared",
-            "default": true,
-            "description": "Build shared library"
-        },
-        {
-            "name": "static",
-            "default": true,
-            "description": "Build static library"
+            "name": "libs",
+            "default": "shared,static",
+            "description": "Build shared libs, static libs or both"
         }
     ],
     "homepage": "https://github.com/flame/blis",

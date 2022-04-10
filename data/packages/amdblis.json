@@ -24,7 +24,7 @@
             "sha256": "e1feb60ac919cf6d233c43c424f6a8a11eab2c62c2c6e3f2652c15ee9063c0c9"
         }
     ],
-    "build_system": "Package",
+    "build_system": "MakefilePackage",
     "conflicts": [
         {
             "name": "%nvhpc",
@@ -35,11 +35,6 @@
             "name": "%pgi",
             "spec": "",
             "description": "None"
-        },
-        {
-            "name": "+ilp64",
-            "spec": "@:3.0.0",
-            "description": "ilp64 is supported from amdblis 3.0.1 version onwards"
         }
     ],
     "variants": [
@@ -59,19 +54,14 @@
             "description": "CBLAS compatibility"
         },
         {
-            "name": "shared",
-            "default": true,
-            "description": "Build shared library"
-        },
-        {
-            "name": "static",
-            "default": true,
-            "description": "Build static library"
+            "name": "libs",
+            "default": "shared,static",
+            "description": "Build shared libs, static libs or both"
         },
         {
             "name": "ilp64",
             "default": false,
-            "description": "Build with ILP64 support"
+            "description": "ILP64 support"
         }
     ],
     "homepage": "https://developer.amd.com/amd-aocl/blas-library/",
@@ -89,16 +79,16 @@
     ],
     "dependent_to": [
         {
-            "name": "spla",
-            "description": "Specialized Parallel Linear Algebra, providing distributed GEMM\nfunctionality for specific matrix distributions with optional GPU\nacceleration."
+            "name": "sirius",
+            "description": "Domain specific library for electronic structure calculations"
         },
         {
             "name": "berkeleygw",
             "description": "BerkeleyGW is a many-body perturbation theory code for excited states,\nusing the GW method and the GW plus Bethe-Salpeter equation (GW-BSE)\nmethod to solve respectively for quasiparticle excitations and optical\nproperties of materials."
         },
         {
-            "name": "sirius",
-            "description": "Domain specific library for electronic structure calculations"
+            "name": "spla",
+            "description": "Specialized Parallel Linear Algebra, providing distributed GEMM\nfunctionality for specific matrix distributions with optional GPU\nacceleration."
         }
     ]
 }
