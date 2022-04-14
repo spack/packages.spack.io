@@ -3,21 +3,28 @@
     "aliases": [],
     "versions": [
         {
-            "name": "master",
-            "submodules": true
+            "name": "master"
+        },
+        {
+            "name": "3.8.1",
+            "commit": "823e8e399fe8c120c6ec7ec75f09e6106b3074ca",
+            "tag": "v3.8.1"
         },
         {
             "name": "3.7.3",
+            "commit": "59ac7b980d1ae124aae914fb29cbf086c948954d",
             "submodules": true,
             "tag": "v3.7.3"
         },
         {
             "name": "3.7.2",
+            "commit": "218dd2c99300e77496239ade76e94b0def65d032",
             "submodules": true,
             "tag": "v3.7.2"
         },
         {
             "name": "3.7.0",
+            "commit": "fbea2aeb6f7f2d277dcb0ab425a77bb18ed22291",
             "submodules": true,
             "tag": "v3.7.0"
         }
@@ -338,13 +345,18 @@
             "name": "+ipo",
             "spec": "^cmake@:3.8",
             "description": "+ipo is not supported by CMake < 3.9"
+        },
+        {
+            "name": "cuda_arch=none",
+            "spec": "+cuda",
+            "description": "CUDA architecture is required"
         }
     ],
     "variants": [
         {
             "name": "cuda",
             "default": false,
-            "description": "Enable Cuda backend"
+            "description": "Build with CUDA"
         },
         {
             "name": "cuda_arch",
@@ -373,7 +385,9 @@
         }
     ],
     "homepage": "https://arrayfire.org/docs/index.htm",
-    "maintainers": [],
+    "maintainers": [
+        "umar456"
+    ],
     "patches": [],
     "resources": [],
     "description": "ArrayFire is a high performance software library for parallel computing\nwith an easy-to-use API. Its array based function set makes parallel\nprogramming more accessible.\n",
@@ -392,11 +406,11 @@
         },
         {
             "name": "fftw-api",
-            "description": "Intel Parallel Studio."
+            "description": "Intel oneAPI MKL."
         },
         {
             "name": "blas",
-            "description": "Lightweight but flexible shim designed to rectify the incompatibilities\nbetween the Accelerate/vecLib BLAS and LAPACK libraries shipped with\nmacOS and FORTRAN code compiled with modern compilers such as GNU\nFortran."
+            "description": "XBLAS is a reference implementation for extra precision BLAS. XBLAS is a\nreference implementation for the dense and banded BLAS routines, along\nwith extended and mixed precision version. Extended precision is only\nused internally; input and output arguments remain the same as in the\nexisting BLAS. Extra precisions is implemented as double-double (i.e.,\n128-bit total, 106-bit significand). Mixed precision permits some\ninput/output arguments of different types (mixing real and complex) or\nprecisions (mixing single and double). This implementation is proof of\nconcept, and no attempt was made to optimize performance; performance\nshould be as good as straightforward but careful code written by hand."
         },
         {
             "name": "cudnn",
