@@ -1,0 +1,66 @@
+{
+    "name": "music",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "2021-12-01",
+            "commit": "6747c54f3b73ec36719c265fd96362849a83cb45"
+        }
+    ],
+    "build_system": "CMakePackage",
+    "conflicts": [
+        {
+            "name": "+ipo",
+            "spec": "^cmake@:3.8",
+            "description": "+ipo is not supported by CMake < 3.9"
+        }
+    ],
+    "variants": [
+        {
+            "name": "build_type",
+            "default": "RelWithDebInfo",
+            "description": "CMake build type"
+        },
+        {
+            "name": "ipo",
+            "default": false,
+            "description": "CMake interprocedural optimization"
+        },
+        {
+            "name": "hdf5",
+            "default": false,
+            "description": "Compile with HDF5. Some MUSIC output plug-ins---such as ENZO, Arepo and the MUSIC generic format---require HDF5."
+        },
+        {
+            "name": "single_prec",
+            "default": false,
+            "description": "Enable single-precision"
+        }
+    ],
+    "homepage": "https://www-n.oca.eu/ohahn/MUSIC/",
+    "maintainers": [
+        "charmoniumQ"
+    ],
+    "patches": [],
+    "resources": [],
+    "description": "MUSIC (Multi-Scale Initial Conditions for Cosmological Simulations)\nintroduced in [Hahn and Abel][1] [1]: https://arxiv.org/abs/1103.6031\n",
+    "dependencies": [
+        {
+            "name": "cmake",
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
+        },
+        {
+            "name": "fftw",
+            "description": "FFTW is a C subroutine library for computing the discrete Fourier\ntransform (DFT) in one or more dimensions, of arbitrary input size, and\nof both real and complex data (as well as of even/odd data, i.e. the\ndiscrete cosine/sine transforms or DCT/DST). We believe that FFTW, which\nis free software, should become the FFT library of choice for most\napplications."
+        },
+        {
+            "name": "gsl",
+            "description": "The GNU Scientific Library (GSL) is a numerical library for C and C++\nprogrammers. It is free software under the GNU General Public License.\nThe library provides a wide range of mathematical routines such as\nrandom number generators, special functions and least-squares fitting.\nThere are over 1000 functions in total with an extensive test suite."
+        },
+        {
+            "name": "hdf5",
+            "description": "HDF5 is a data model, library, and file format for storing and managing\ndata. It supports an unlimited variety of datatypes, and is designed for\nflexible and efficient I/O and for high volume and complex data."
+        }
+    ],
+    "dependent_to": []
+}
