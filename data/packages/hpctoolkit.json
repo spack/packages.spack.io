@@ -11,6 +11,10 @@
             "branch": "master"
         },
         {
+            "name": "2022.04.15",
+            "commit": "a92fdad29fc180cc522a9087bba9554a829ee002"
+        },
+        {
             "name": "2022.01.15",
             "commit": "0238e9a052a696707e4e65b2269f342baad728ae"
         },
@@ -48,15 +52,18 @@
         },
         {
             "name": "2019.08.14",
-            "commit": "6ea44ed3f93ede2d0a48937f288a2d41188a277c"
+            "commit": "6ea44ed3f93ede2d0a48937f288a2d41188a277c",
+            "deprecated": true
         },
         {
             "name": "2018.12.28",
-            "commit": "8dbf0d543171ffa9885344f32f23cc6f7f6e39bc"
+            "commit": "8dbf0d543171ffa9885344f32f23cc6f7f6e39bc",
+            "deprecated": true
         },
         {
             "name": "2018.11.05",
-            "commit": "d0c43e39020e67095b1f1d8bb89b75f22b12aee9"
+            "commit": "d0c43e39020e67095b1f1d8bb89b75f22b12aee9",
+            "deprecated": true
         }
     ],
     "build_system": "AutotoolsPackage",
@@ -88,8 +95,8 @@
         },
         {
             "name": "+rocm",
-            "spec": "@:2020",
-            "description": "rocm requires 2021.03.01 or later"
+            "spec": "@:2022.03",
+            "description": "rocm requires 2022.04.15 or later"
         },
         {
             "name": "^binutils@2.35:2.35.1",
@@ -126,7 +133,7 @@
         {
             "name": "rocm",
             "default": false,
-            "description": "Support ROCM on AMD GPUs, requires ROCM as external packages (2021.03.01 or later)."
+            "description": "Support ROCM on AMD GPUs (2022.04.15 or later)."
         },
         {
             "name": "debug",
@@ -159,6 +166,14 @@
             "working_dir": ".",
             "url": "https://github.com/HPCToolkit/hpctoolkit/commit/511afd95b01d743edc5940c84e0079f462b2c23e.patch?full_index=1",
             "version": "@2019.08.01:2021.03%gcc@11.0:"
+        },
+        {
+            "owner": "builtin.hpctoolkit",
+            "sha256": "bb1b19ca762b1e2aa135f41ad410018c62cd9a5fdbcc79b413e5dd0a8f943361",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "python3.patch",
+            "version": "@2020.03:2020.08"
         }
     ],
     "resources": [],
@@ -246,7 +261,7 @@
         },
         {
             "name": "mpi",
-            "description": "MVAPICH2-X is the advanced version of the MVAPICH2 MPI library with\nenhanced features (UMR, ODP, DC, Core-Direct, SHARP, XPMEM), OSU INAM\n(InifniBand Network Monitoring and Analysis),PGAS (OpenSHMEM, UPC,\nUPC++, and CAF), and MPI+PGAS programming models with unified\ncommunication runtime. MVAPICH2-X is not installable from source and is\nonly available through a binary mirror. If you do not find the binary\nyou're looking for, send us an email at mvapich@cse.ohio-state.edu. The\nbinary mirror url is: http://mvapich.cse.ohio-\nstate.edu/download/mvapich/spack-mirror/mvapich2x/"
+            "description": "An open source Message Passing Interface implementation. The Open MPI\nProject is an open source Message Passing Interface implementation that\nis developed and maintained by a consortium of academic, research, and\nindustry partners. Open MPI is therefore able to combine the expertise,\ntechnologies, and resources from all across the High Performance\nComputing community in order to build the best MPI library available.\nOpen MPI offers advantages for system and software vendors, application\ndevelopers and computer science researchers."
         },
         {
             "name": "hpcviewer",
@@ -257,12 +272,20 @@
             "description": "HIP is a C++ Runtime API and Kernel Language that allows developers to\ncreate portable applications for AMD and NVIDIA GPUs from single source\ncode."
         },
         {
-            "name": "rocm-dbgapi",
-            "description": "The AMD Debugger API is a library that provides all the support\nnecessary for a debugger and other tools to perform low level control of\nthe execution and inspection of execution state of AMD's commercially\navailable GPU architectures."
+            "name": "hsa-rocr-dev",
+            "description": "This repository includes the user mode API nterfaces and libraries\nnecessary for host applications to launch computer kernels to available\nHSA ROCm kernel agents.AMD Heterogeneous System Architecture HSA - Linux\nHSA Runtime for Boltzmann (ROCm) platforms."
         },
         {
             "name": "roctracer-dev",
             "description": "ROC-tracer library: Runtimes Generic Callback/Activity APIs. The goal of\nthe implementation is to provide a generic independent from specific\nruntime profiler to trace API and asyncronous activity."
+        },
+        {
+            "name": "rocprofiler-dev",
+            "description": "ROCPROFILER library for AMD HSA runtime API extension support"
+        },
+        {
+            "name": "python",
+            "description": "The Python programming language."
         }
     ],
     "dependent_to": []
