@@ -1,0 +1,103 @@
+{
+    "name": "armpl",
+    "aliases": [
+        {
+            "name": "blas",
+            "alias_for": "{armpl}"
+        },
+        {
+            "name": "lapack",
+            "alias_for": "{armpl}"
+        },
+        {
+            "name": "fftw-api@3",
+            "alias_for": "{armpl}"
+        }
+    ],
+    "versions": [
+        {
+            "name": "22.0.1_gcc-11.2",
+            "sha256": "13e9b98afc01c5444799c7f2ef84716f8a7be11df93b71fe9cfdc7fc6162f6d5",
+            "url": "https://developer.arm.com/-/media/Files/downloads/hpc/arm-performance-libraries/22-0-1/Ubuntu20.04/arm-performance-libraries_22.0.1_Ubuntu-20.04_gcc-11.2.tar"
+        },
+        {
+            "name": "22.0.1_gcc-10.2",
+            "sha256": "5da7450196d94b0aea613cf8e7c4083ae3eb2e905d049db3b300059a9fbf169b",
+            "url": "https://developer.arm.com/-/media/Files/downloads/hpc/arm-performance-libraries/22-0-1/Ubuntu20.04/arm-performance-libraries_22.0.1_Ubuntu-20.04_gcc-10.2.tar"
+        },
+        {
+            "name": "22.0.1_gcc-9.3",
+            "sha256": "8e78bef6517f42efd878579aee2cae4e439e3cd5c8a28e3f3fa83254f7189a2f",
+            "url": "https://developer.arm.com/-/media/Files/downloads/hpc/arm-performance-libraries/22-0-1/Ubuntu20.04/arm-performance-libraries_22.0.1_Ubuntu-20.04_gcc-9.3.tar"
+        }
+    ],
+    "build_system": "Package",
+    "conflicts": [
+        {
+            "name": "target=x86:",
+            "spec": "",
+            "description": "Only available on Aarch64"
+        },
+        {
+            "name": "target=ppc64:",
+            "spec": "",
+            "description": "Only available on Aarch64"
+        },
+        {
+            "name": "target=ppc64le:",
+            "spec": "",
+            "description": "Only available on Aarch64"
+        },
+        {
+            "name": "%gcc@:11.0",
+            "spec": "@22.0.1_gcc-11.2",
+            "description": "None"
+        },
+        {
+            "name": "%gcc@:10.0",
+            "spec": "@22.0.1_gcc-10.2",
+            "description": "None"
+        },
+        {
+            "name": "%gcc@:9.0",
+            "spec": "@22.0.1_gcc-9.3",
+            "description": "None"
+        },
+        {
+            "name": "%gcc@:8.0",
+            "spec": "@22.0.1_gcc-8.2",
+            "description": "None"
+        },
+        {
+            "name": "%gcc@:7.0",
+            "spec": "@22.0.1_gcc-7.5",
+            "description": "None"
+        }
+    ],
+    "variants": [
+        {
+            "name": "ilp64",
+            "default": false,
+            "description": "use ilp64 specific Armpl library"
+        },
+        {
+            "name": "shared",
+            "default": true,
+            "description": "enable shared libs"
+        },
+        {
+            "name": "threads",
+            "default": "none",
+            "description": "Multithreading support"
+        }
+    ],
+    "homepage": "https://developer.arm.com/tools-and-software/server-and-hpc/downloads/arm-performance-libraries",
+    "maintainers": [
+        "annop-w"
+    ],
+    "patches": [],
+    "resources": [],
+    "description": "Arm Performance Libraries provides optimized standard core math\nlibraries for high-performance computing applications on Arm processors.\n",
+    "dependencies": [],
+    "dependent_to": []
+}

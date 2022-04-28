@@ -3,34 +3,88 @@
     "aliases": [],
     "versions": [
         {
-            "name": "1.91.2beta_mac",
-            "checksum": "ce0882ad35dd9474ffe40911da369274700af1ecb9916c0a355b7bad14850234"
+            "name": "1.94.0beta",
+            "commit": "746e3975ddb463fc7bd15b03c6cc64b023eca497",
+            "submodules": true
         },
         {
-            "name": "1.91.2beta",
-            "preferred": true,
-            "checksum": "192efb767be1c7ca9c2dac5d2c2317a97c7a9db1f801168d19ad2a51b98d9b10"
+            "name": "1.91.2",
+            "sha256": "0609d0fba856599a2acc66adefe87725304117acc226360ec2aabf8a0ac64e85"
         }
     ],
-    "build_system": "Package",
+    "build_system": "CMakePackage",
     "conflicts": [
         {
-            "name": "@1.91.2beta",
-            "spec": "arch=darwin-None-None",
-            "description": "None"
+            "name": "+ipo",
+            "spec": "^cmake@:3.8",
+            "description": "+ipo is not supported by CMake < 3.9"
         },
         {
-            "name": "@1.91.2beta_mac",
-            "spec": "arch=linux-None-None",
-            "description": "None"
+            "name": "target=aarch64:",
+            "spec": "@:1.91.2",
+            "description": "aarch64 support added in 1.94.0"
         }
     ],
-    "variants": [],
-    "homepage": "https://cnsgenomics.com/software/gcta/#Overview",
-    "maintainers": [],
+    "variants": [
+        {
+            "name": "build_type",
+            "default": "RelWithDebInfo",
+            "description": "CMake build type"
+        },
+        {
+            "name": "ipo",
+            "default": false,
+            "description": "CMake interprocedural optimization"
+        }
+    ],
+    "homepage": "https://github.com/jianyangqt/gcta",
+    "maintainers": [
+        "snehring"
+    ],
     "patches": [],
     "resources": [],
     "description": "GCTA (Genome-wide Complex Trait Analysis) was originally designed to\nestimate the proportion of phenotypic variance explained by all genome-\nwide SNPs for complex traits (the GREML method), and has subsequently\nextended for many other analyses to better understand the genetic\narchitecture of complex traits. GCTA currently supports the following\nanalyses.\n",
-    "dependencies": [],
+    "dependencies": [
+        {
+            "name": "cmake",
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
+        },
+        {
+            "name": "intel-mkl",
+            "description": "Intel Math Kernel Library."
+        },
+        {
+            "name": "openblas",
+            "description": "OpenBLAS: An optimized BLAS library"
+        },
+        {
+            "name": "eigen",
+            "description": "Eigen is a C++ template library for linear algebra matrices, vectors,\nnumerical solvers, and related algorithms."
+        },
+        {
+            "name": "boost",
+            "description": "Boost provides free peer-reviewed portable C++ source libraries,\nemphasizing libraries that work well with the C++ Standard Library.\nBoost libraries are intended to be widely useful, and usable across a\nbroad spectrum of applications. The Boost license encourages both\ncommercial and non-commercial use."
+        },
+        {
+            "name": "zlib",
+            "description": "A free, general-purpose, legally unencumbered lossless data-compression\nlibrary."
+        },
+        {
+            "name": "sqlite",
+            "description": "SQLite is a C-language library that implements a small, fast, self-\ncontained, high-reliability, full-featured, SQL database engine."
+        },
+        {
+            "name": "zstd",
+            "description": "Zstandard, or zstd as short version, is a fast lossless compression\nalgorithm, targeting real-time compression scenarios at zlib-level and\nbetter compression ratios."
+        },
+        {
+            "name": "spectra",
+            "description": "Spectra stands for Sparse Eigenvalue Computation Toolkit as a\nRedesigned ARPACK. It is a C++ library for large scale eigenvalue\nproblems, built on top of Eigen, an open source linear algebra library.\nSpectra is implemented as a header-only C++ library, whose only\ndependency, Eigen, is also header-only. Hence Spectra can be easily\nembedded in C++ projects that require calculating eigenvalues of large\nmatrices."
+        },
+        {
+            "name": "gsl",
+            "description": "The GNU Scientific Library (GSL) is a numerical library for C and C++\nprogrammers. It is free software under the GNU General Public License.\nThe library provides a wide range of mathematical routines such as\nrandom number generators, special functions and least-squares fitting.\nThere are over 1000 functions in total with an extensive test suite."
+        }
+    ],
     "dependent_to": []
 }
