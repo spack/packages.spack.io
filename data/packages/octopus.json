@@ -3,8 +3,36 @@
     "aliases": [],
     "versions": [
         {
+            "name": "11.4",
+            "sha256": "73bb872bff8165ddd8efc5b891f767cb3fe575b5a4b518416c834450a4492da7"
+        },
+        {
+            "name": "11.3",
+            "sha256": "0c98417071b5e38ba6cbdd409adf917837c387a010e321c0a7f94d9bd9478930"
+        },
+        {
+            "name": "11.1",
+            "sha256": "d943cc2419ca409dda7459b7622987029f2af89984d0d5f39a6b464c3fc266da"
+        },
+        {
             "name": "10.5",
             "sha256": "deb92e3491b0c6ac5736960d075b44cab466f528b69715ed44968ecfe2953ec4"
+        },
+        {
+            "name": "10.4",
+            "sha256": "4de9dc6f5815a45e43320e4abc7ef3e501e34bc327441376ea20ca1a992bdb72"
+        },
+        {
+            "name": "10.3",
+            "sha256": "4633490e21593b51b60a8391b8aa0ed17fa52a3a0030630de123b67a41f88b33"
+        },
+        {
+            "name": "10.2",
+            "sha256": "393e2ba7b18af1b736ad6deb339ba0cef18c6417671da7a6f1fcc3a5d8f7586b"
+        },
+        {
+            "name": "10.1",
+            "sha256": "b6a660a99ed593c1d491e2d11cfff9ce87f0d80d527d9ff47fd983533d45adc6"
         },
         {
             "name": "10.0",
@@ -21,6 +49,10 @@
         {
             "name": "5.0.1",
             "sha256": "3423049729e03f25512b1b315d9d62691cd0a6bd2722c7373a61d51bfbee14e0"
+        },
+        {
+            "name": "develop",
+            "branch": "develop"
         }
     ],
     "build_system": "Package",
@@ -371,10 +403,58 @@
             "name": "arpack",
             "default": false,
             "description": "Compile with ARPACK"
+        },
+        {
+            "name": "cgal",
+            "default": false,
+            "description": "Compile with CGAL library support"
+        },
+        {
+            "name": "pfft",
+            "default": false,
+            "description": "Compile with PFFT"
+        },
+        {
+            "name": "python",
+            "default": false,
+            "description": "Activates Python support"
+        },
+        {
+            "name": "likwid",
+            "default": false,
+            "description": "Compile with likwid"
+        },
+        {
+            "name": "libvdwxc",
+            "default": false,
+            "description": "Compile with libvdwxc"
+        },
+        {
+            "name": "libyaml",
+            "default": false,
+            "description": "Compile with libyaml"
+        },
+        {
+            "name": "elpa",
+            "default": false,
+            "description": "Compile with ELPA"
+        },
+        {
+            "name": "nlopt",
+            "default": false,
+            "description": "Compile with nlopt"
+        },
+        {
+            "name": "debug",
+            "default": false,
+            "description": "Compile with debug flags"
         }
     ],
     "homepage": "https://octopus-code.org/",
-    "maintainers": [],
+    "maintainers": [
+        "fangohr",
+        "RemiLacroix-IDRIS"
+    ],
     "patches": [],
     "resources": [],
     "description": "A real-space finite-difference (time-dependent) density-functional\ntheory code.\n",
@@ -384,8 +464,24 @@
             "description": "CUDA is a parallel computing platform and programming model invented by\nNVIDIA. It enables dramatic increases in computing performance by\nharnessing the power of the graphics processing unit (GPU). Note: This\npackage does not currently install the drivers necessary to run CUDA.\nThese will need to be installed manually. See:\nhttps://docs.nvidia.com/cuda/ for details."
         },
         {
+            "name": "autoconf",
+            "description": "Autoconf -- system configuration part of autotools"
+        },
+        {
+            "name": "automake",
+            "description": "Automake -- make file builder part of autotools"
+        },
+        {
+            "name": "libtool",
+            "description": "libtool -- library building part of autotools."
+        },
+        {
+            "name": "m4",
+            "description": "GNU M4 is an implementation of the traditional Unix macro processor."
+        },
+        {
             "name": "blas",
-            "description": "XBLAS is a reference implementation for extra precision BLAS. XBLAS is a\nreference implementation for the dense and banded BLAS routines, along\nwith extended and mixed precision version. Extended precision is only\nused internally; input and output arguments remain the same as in the\nexisting BLAS. Extra precisions is implemented as double-double (i.e.,\n128-bit total, 106-bit significand). Mixed precision permits some\ninput/output arguments of different types (mixing real and complex) or\nprecisions (mixing single and double). This implementation is proof of\nconcept, and no attempt was made to optimize performance; performance\nshould be as good as straightforward but careful code written by hand."
+            "description": "OpenBLAS: An optimized BLAS library"
         },
         {
             "name": "gsl",
@@ -393,7 +489,7 @@
         },
         {
             "name": "lapack",
-            "description": "LAPACK version 3.X is a comprehensive FORTRAN library that does linear\nalgebra operations including matrix inversions, least squared solutions\nto linear sets of equations, eigenvector analysis, singular value\ndecomposition, etc. It is a very comprehensive and reputable package\nthat has found extensive use in the scientific community."
+            "description": "OpenBLAS: An optimized BLAS library"
         },
         {
             "name": "libxc",
@@ -401,7 +497,7 @@
         },
         {
             "name": "mpi",
-            "description": "IBM MPI implementation from Spectrum MPI."
+            "description": "HPE MPI is HPE's implementation of the Message Passing Interface (MPI)\nstandard. Note: HPE MPI is proprietry software. Spack will search your\ncurrent directory for the download file. Alternatively, add this file to\na mirror so that Spack can find it. For instructions on how to set up a\nmirror, see https://spack.readthedocs.io/en/latest/mirrors.html"
         },
         {
             "name": "fftw",
@@ -409,7 +505,15 @@
         },
         {
             "name": "fftw-api",
-            "description": "Intel oneAPI MKL."
+            "description": "Arm Performance Libraries provides optimized standard core math\nlibraries for high-performance computing applications on Arm processors."
+        },
+        {
+            "name": "py-numpy",
+            "description": "NumPy is the fundamental package for scientific computing with Python.\nIt contains among other things: a powerful N-dimensional array object,\nsophisticated (broadcasting) functions, tools for integrating C/C++ and\nFortran code, and useful linear algebra, Fourier transform, and random\nnumber capabilities"
+        },
+        {
+            "name": "py-mpi4py",
+            "description": "This package provides Python bindings for the Message Passing Interface\n(MPI) standard. It is implemented on top of the MPI-1/MPI-2\nspecification and exposes an API which grounds on the standard MPI-2 C++\nbindings."
         },
         {
             "name": "metis",
@@ -421,7 +525,7 @@
         },
         {
             "name": "scalapack",
-            "description": "Intel oneAPI MKL."
+            "description": "ScaLAPACK is a library of high-performance linear algebra routines for\nparallel distributed memory machines. It depends on external libraries\nincluding BLAS and LAPACK for Linear Algebra computations. AMD's\noptimized version of ScaLAPACK enables using BLIS and LibFLAME library\nthat have optimized dense matrix functions and solvers for AMD EPYC\nprocessor family CPUs."
         },
         {
             "name": "netcdf-fortran",
@@ -430,6 +534,34 @@
         {
             "name": "arpack-ng",
             "description": "ARPACK-NG is a collection of Fortran77 subroutines designed to solve\nlarge scale eigenvalue problems. Important Features: * Reverse\nCommunication Interface. * Single and Double Precision Real Arithmetic\nVersions for Symmetric, Non-symmetric, Standard or Generalized Problems.\n* Single and Double Precision Complex Arithmetic Versions for Standard\nor Generalized Problems. * Routines for Banded Matrices - Standard or\nGeneralized Problems. * Routines for The Singular Value Decomposition. *\nExample driver routines that may be used as templates to implement\nnumerous Shift-Invert strategies for all problem types, data types and\nprecision. This project is a joint project between Debian, Octave and\nScilab in order to provide a common and maintained version of arpack.\nIndeed, no single release has been published by Rice university for the\nlast few years and since many software (Octave, Scilab, R, Matlab...)\nforked it and implemented their own modifications, arpack-ng aims to\ntackle this by providing a common repository and maintained versions.\narpack-ng is replacing arpack almost everywhere."
+        },
+        {
+            "name": "cgal",
+            "description": "The Computational Geometry Algorithms Library (CGAL) is a C++ library\nthat aims to provide easy access to efficient and reliable algorithms in\ncomputational geometry. CGAL is used in various areas needing geometric\ncomputation, such as geographic information systems, computer aided\ndesign, molecular biology, medical imaging, computer graphics, and\nrobotics."
+        },
+        {
+            "name": "pfft",
+            "description": "PFFT is a software library for computing massively parallel, fast\nFourier transformations on distributed memory architectures. PFFT can be\nunderstood as a generalization of FFTW-MPI to multidimensional data\ndecomposition."
+        },
+        {
+            "name": "likwid",
+            "description": "Likwid is a simple to install and use toolsuite of command line\napplications for performance oriented programmers. It works for Intel\nand AMD processors on the Linux operating system. This version uses the\nperf_event backend which reduces the feature set but allows user\ninstalls. See https://github.com/RRZE-\nHPC/likwid/wiki/TutorialLikwidPerf#feature-limitations for information."
+        },
+        {
+            "name": "libvdwxc",
+            "description": "Portable C library of density functionals with van der Waals\ninteractions for density functional theory"
+        },
+        {
+            "name": "libyaml",
+            "description": "A C library for parsing and emitting YAML."
+        },
+        {
+            "name": "elpa",
+            "description": "Eigenvalue solvers for Petaflop-Applications (ELPA)"
+        },
+        {
+            "name": "nlopt",
+            "description": "NLopt is a free/open-source library for nonlinear optimization,\nproviding a common interface for a number of different free optimization\nroutines available online as well as original implementations of various\nother algorithms."
         }
     ],
     "dependent_to": []

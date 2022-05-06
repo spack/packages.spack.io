@@ -107,6 +107,16 @@
     "build_system": "AutotoolsPackage",
     "conflicts": [
         {
+            "name": "^blt@:0.3.6",
+            "spec": "+rocm",
+            "description": "None"
+        },
+        {
+            "name": "amdgpu_target=none",
+            "spec": "+rocm",
+            "description": "None"
+        },
+        {
             "name": "%gcc@:4",
             "spec": "+cuda ^cuda@11.0:~allow-unsupported-compilers",
             "description": "None"
@@ -437,6 +447,21 @@
             "description": "None"
         },
         {
+            "name": "+cuda",
+            "spec": "+rocm",
+            "description": "CUDA must be disabled to support ROCm"
+        },
+        {
+            "name": "+rocm",
+            "spec": "@:4.0",
+            "description": "None"
+        },
+        {
+            "name": "+rocm",
+            "spec": "device=ch3",
+            "description": "None"
+        },
+        {
             "name": "device=ch4",
             "spec": "@:3.2",
             "description": "None"
@@ -503,6 +528,16 @@
         }
     ],
     "variants": [
+        {
+            "name": "rocm",
+            "default": false,
+            "description": "Enable ROCm support"
+        },
+        {
+            "name": "amdgpu_target",
+            "default": "none",
+            "description": "AMD GPU architecture"
+        },
         {
             "name": "cuda",
             "default": false,
@@ -669,6 +704,18 @@
     "description": "MPICH is a high performance and widely portable implementation of the\nMessage Passing Interface (MPI) standard.\n",
     "dependencies": [
         {
+            "name": "llvm-amdgpu",
+            "description": "Toolkit for the construction of highly optimized compilers, optimizers,\nand run-time environments."
+        },
+        {
+            "name": "hsa-rocr-dev",
+            "description": "This repository includes the user mode API nterfaces and libraries\nnecessary for host applications to launch computer kernels to available\nHSA ROCm kernel agents.AMD Heterogeneous System Architecture HSA - Linux\nHSA Runtime for Boltzmann (ROCm) platforms."
+        },
+        {
+            "name": "hip",
+            "description": "HIP is a C++ Runtime API and Kernel Language that allows developers to\ncreate portable applications for AMD and NVIDIA GPUs from single source\ncode."
+        },
+        {
             "name": "cuda",
             "description": "CUDA is a parallel computing platform and programming model invented by\nNVIDIA. It enables dramatic increases in computing performance by\nharnessing the power of the graphics processing unit (GPU). Note: This\npackage does not currently install the drivers necessary to run CUDA.\nThese will need to be installed manually. See:\nhttps://docs.nvidia.com/cuda/ for details."
         },
@@ -686,7 +733,7 @@
         },
         {
             "name": "pkgconfig",
-            "description": "pkg-config is a helper tool used when compiling applications and\nlibraries"
+            "description": "pkgconf is a program which helps to configure compiler and linker flags\nfor development frameworks. It is similar to pkg-config from\nfreedesktop.org, providing additional functionality while also\nmaintaining compatibility."
         },
         {
             "name": "hwloc",
@@ -747,8 +794,24 @@
     ],
     "dependent_to": [
         {
+            "name": "flecsi",
+            "description": "FleCSI is a compile-time configurable framework designed to support\nmulti-physics application development. As such, FleCSI attempts to\nprovide a very general set of infrastructure design patterns that can be\nspecialized and extended to suit the needs of a broad variety of solver\nand data requirements. Current support includes multi-dimensional mesh\ntopology, mesh geometry, and mesh adjacency information, n-dimensional\nhashed-tree data structures, graph partitioning interfaces,and\ndependency closures."
+        },
+        {
+            "name": "libnrm",
+            "description": "Libnrm, the application instrumentation library for the Node Resource\nManager(NRM)."
+        },
+        {
+            "name": "cbtf-krell",
+            "description": "CBTF Krell project contains collector and runtime contributions to the\nCBTF project. These contributions include many performance data\ncollectors and support libraries as well as some example tools that\ndrive the data collection at HPC levels of scale."
+        },
+        {
             "name": "pythia8",
             "description": "The Pythia program is a standard tool for the generation of events in\nhigh-energy collisions, comprising a coherent set of physics models for\nthe evolution from a few-body hard process to a complex multiparticle\nfinal state."
+        },
+        {
+            "name": "hicops",
+            "description": "HiCOPS is a software framework for accelerating database peptide search\nworkflows on supercomputers. HiCOPS provided algorithm-independent\nparallelizations and optimizations can be extended into new HPC database\nsearch algorithms or scalably accelerate the existing ones."
         },
         {
             "name": "flux-core",
@@ -757,22 +820,6 @@
         {
             "name": "swap-assembler",
             "description": "A scalable and fully parallelized genome assembler."
-        },
-        {
-            "name": "cbtf-krell",
-            "description": "CBTF Krell project contains collector and runtime contributions to the\nCBTF project. These contributions include many performance data\ncollectors and support libraries as well as some example tools that\ndrive the data collection at HPC levels of scale."
-        },
-        {
-            "name": "hicops",
-            "description": "HiCOPS is a software framework for accelerating database peptide search\nworkflows on supercomputers. HiCOPS provided algorithm-independent\nparallelizations and optimizations can be extended into new HPC database\nsearch algorithms or scalably accelerate the existing ones."
-        },
-        {
-            "name": "flecsi",
-            "description": "FleCSI is a compile-time configurable framework designed to support\nmulti-physics application development. As such, FleCSI attempts to\nprovide a very general set of infrastructure design patterns that can be\nspecialized and extended to suit the needs of a broad variety of solver\nand data requirements. Current support includes multi-dimensional mesh\ntopology, mesh geometry, and mesh adjacency information, n-dimensional\nhashed-tree data structures, graph partitioning interfaces,and\ndependency closures."
-        },
-        {
-            "name": "libnrm",
-            "description": "Libnrm, the application instrumentation library for the Node Resource\nManager(NRM)."
         }
     ]
 }
