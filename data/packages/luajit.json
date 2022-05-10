@@ -1,0 +1,96 @@
+{
+    "name": "lua-luajit-openresty",
+    "aliases": [
+        {
+            "name": "lua-lang@5.1",
+            "alias_for": "{lua-luajit-openresty+lualinks}"
+        },
+        {
+            "name": "luajit",
+            "alias_for": "{lua-luajit-openresty}"
+        }
+    ],
+    "versions": [
+        {
+            "name": "2.1-20220111",
+            "sha256": "1ad2e34b111c802f9d0cdf019e986909123237a28c746b21295b63c9e785d9c3"
+        }
+    ],
+    "build_system": "LuaImplPackage",
+    "conflicts": [
+        {
+            "name": "platform=windows",
+            "spec": "",
+            "description": "None"
+        },
+        {
+            "name": "lua",
+            "spec": "+lualinks",
+            "description": "None"
+        }
+    ],
+    "variants": [
+        {
+            "name": "fetcher",
+            "default": "curl",
+            "description": "Fetcher to use in the LuaRocks package manager"
+        },
+        {
+            "name": "lualinks",
+            "default": true,
+            "description": "add symlinks to make lua-luajit a drop-in lua replacement"
+        }
+    ],
+    "homepage": "https://openresty.org/en/luajit.html",
+    "maintainers": [],
+    "patches": [],
+    "resources": [
+        {
+            "version": "",
+            "name": "luarocks",
+            "destination": "luarocks",
+            "placement": "luarocks"
+        }
+    ],
+    "description": "Flast flexible JITed lua - OpenResty maintained fork\n",
+    "dependencies": [
+        {
+            "name": "unzip",
+            "description": "Unzip is a compression and file packaging/archive utility."
+        },
+        {
+            "name": "curl",
+            "description": "cURL is an open source command line tool and library for transferring\ndata with URL syntax"
+        },
+        {
+            "name": "wget",
+            "description": "GNU Wget is a free software package for retrieving files using HTTP,\nHTTPS and FTP, the most widely-used Internet protocols. It is a non-\ninteractive commandline tool, so it may easily be called from scripts,\ncron jobs, terminals without X-Windows support, etc."
+        }
+    ],
+    "dependent_to": [
+        {
+            "name": "lua-bit32",
+            "description": "Lua 5.2 bit operations for Lua 5.1"
+        },
+        {
+            "name": "lua-luaposix",
+            "description": "Lua posix bindings, including ncurses"
+        },
+        {
+            "name": "lua-mpack",
+            "description": "lua bindings to libmpack"
+        },
+        {
+            "name": "lua-luafilesystem",
+            "description": "LuaFileSystem is a Lua library developed to complement the set of\nfunctions related to file systems offered by the standard Lua\ndistribution. LuaFileSystem offers a portable way to access the\nunderlying directory structure and file attributes. LuaFileSystem is\nfree software and uses the same license as Lua 5.1"
+        },
+        {
+            "name": "lua-lpeg",
+            "description": "pattern-matching for lua"
+        },
+        {
+            "name": "lua-bitlib",
+            "description": "Lua-jit-like bitwise operations for lua"
+        }
+    ]
+}
