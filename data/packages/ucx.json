@@ -95,6 +95,7 @@
             "sha256": "1e1a62d6d0f89ce59e384b0b5b30b416b8fd8d7cedec4182a5319d0dfddf649c"
         }
     ],
+    "latest_version": "1.12.1",
     "build_system": "AutotoolsPackage",
     "conflicts": [
         {
@@ -421,6 +422,11 @@
             "name": "+rocm",
             "spec": "+gdrcopy",
             "description": "gdrcopy > 2.0 does not support rocm"
+        },
+        {
+            "name": "~shared",
+            "spec": "~static",
+            "description": "Please select at least one of +static or +shared"
         }
     ],
     "variants": [
@@ -435,34 +441,14 @@
             "description": "CUDA architecture"
         },
         {
-            "name": "assertions",
+            "name": "thread_multiple",
             "default": false,
-            "description": "Enable assertions"
+            "description": "Enable thread support in UCP and UCT"
         },
         {
-            "name": "backtrace_detail",
-            "default": false,
-            "description": "Enable using BFD support for detailed backtrace. Note: this adds a dependency on binutils, you may want to mark binutils as external or depend on binutils~ld to avoid changing the linker during the build of ucx."
-        },
-        {
-            "name": "debug",
-            "default": false,
-            "description": "Enable debugging"
-        },
-        {
-            "name": "examples",
+            "name": "optimizations",
             "default": true,
-            "description": "Keep examples"
-        },
-        {
-            "name": "java",
-            "default": false,
-            "description": "Builds with Java bindings"
-        },
-        {
-            "name": "libs",
-            "default": "shared,static",
-            "description": "Build shared libs, static libs or both"
+            "description": "Enable optimizations"
         },
         {
             "name": "logging",
@@ -470,9 +456,9 @@
             "description": "Enable logging"
         },
         {
-            "name": "openmp",
-            "default": true,
-            "description": "Use OpenMP"
+            "name": "debug",
+            "default": false,
+            "description": "Enable debugging"
         },
         {
             "name": "opt",
@@ -480,9 +466,9 @@
             "description": "Set optimization level"
         },
         {
-            "name": "optimizations",
-            "default": true,
-            "description": "Enable optimizations"
+            "name": "assertions",
+            "default": false,
+            "description": "Enable assertions"
         },
         {
             "name": "parameter_checking",
@@ -495,49 +481,9 @@
             "description": "Builds with PIC support"
         },
         {
-            "name": "rocm",
+            "name": "java",
             "default": false,
-            "description": "Enable ROCm support"
-        },
-        {
-            "name": "simd",
-            "default": "auto",
-            "description": ""
-        },
-        {
-            "name": "thread_multiple",
-            "default": false,
-            "description": "Enable thread support in UCP and UCT"
-        },
-        {
-            "name": "ucg",
-            "default": false,
-            "description": "Enable the group collective operations (experimental component)"
-        },
-        {
-            "name": "vfs",
-            "default": false,
-            "description": "UCX Virtual Filesystem support"
-        },
-        {
-            "name": "cm",
-            "default": false,
-            "description": "Compile with IB Connection Manager support"
-        },
-        {
-            "name": "cma",
-            "default": false,
-            "description": "Enable Cross Memory Attach"
-        },
-        {
-            "name": "dc",
-            "default": false,
-            "description": "Compile with IB Dynamic Connection support"
-        },
-        {
-            "name": "dm",
-            "default": false,
-            "description": "Compile with Device Memory support"
+            "description": "Builds with Java bindings"
         },
         {
             "name": "gdrcopy",
@@ -545,19 +491,24 @@
             "description": "Enable gdrcopy support"
         },
         {
-            "name": "ib_hw_tm",
-            "default": false,
-            "description": "Compile with IB Tag Matching support"
-        },
-        {
             "name": "knem",
             "default": false,
             "description": "Enable KNEM support"
         },
         {
-            "name": "mlx5_dv",
+            "name": "xpmem",
             "default": false,
-            "description": "Compile with mlx5 Direct Verbs support"
+            "description": "Enable XPMEM support"
+        },
+        {
+            "name": "cma",
+            "default": false,
+            "description": "Enable Cross Memory Attach"
+        },
+        {
+            "name": "rocm",
+            "default": false,
+            "description": "Enable ROCm support"
         },
         {
             "name": "rc",
@@ -565,9 +516,9 @@
             "description": "Compile with IB Reliable Connection support"
         },
         {
-            "name": "rdmacm",
+            "name": "dc",
             "default": false,
-            "description": "Enable the use of RDMACM"
+            "description": "Compile with IB Dynamic Connection support"
         },
         {
             "name": "ud",
@@ -575,14 +526,74 @@
             "description": "Compile with IB Unreliable Datagram support"
         },
         {
+            "name": "mlx5-dv",
+            "default": false,
+            "description": "Compile with mlx5 Direct Verbs support"
+        },
+        {
+            "name": "ib-hw-tm",
+            "default": false,
+            "description": "Compile with IB Tag Matching support"
+        },
+        {
+            "name": "dm",
+            "default": false,
+            "description": "Compile with Device Memory support"
+        },
+        {
+            "name": "cm",
+            "default": false,
+            "description": "Compile with IB Connection Manager support"
+        },
+        {
+            "name": "backtrace-detail",
+            "default": false,
+            "description": "Enable using BFD support for detailed backtrace"
+        },
+        {
+            "name": "openmp",
+            "default": true,
+            "description": "Use OpenMP"
+        },
+        {
+            "name": "shared",
+            "default": true,
+            "description": "Build shared libraries"
+        },
+        {
+            "name": "static",
+            "default": false,
+            "description": "Build static libraries"
+        },
+        {
+            "name": "ucg",
+            "default": false,
+            "description": "Enable the group collective operations (experimental component)"
+        },
+        {
+            "name": "doc",
+            "default": true,
+            "description": "Generate doxygen documentation"
+        },
+        {
+            "name": "simd",
+            "default": "auto",
+            "description": ""
+        },
+        {
             "name": "verbs",
             "default": false,
             "description": "Build OpenFabrics support"
         },
         {
-            "name": "xpmem",
+            "name": "rdmacm",
             "default": false,
-            "description": "Enable XPMEM support"
+            "description": "Enable the use of RDMACM"
+        },
+        {
+            "name": "examples",
+            "default": true,
+            "description": "Keep examples"
         }
     ],
     "homepage": "http://www.openucx.org",
@@ -602,47 +613,55 @@
             "description": "The GNU config.guess and config.sub scripts versioned by timestamp.\nThis package can be used as a build dependency for autotools packages\nthat ship a tarball with outdated config.guess and config.sub files."
         },
         {
-            "name": "binutils",
-            "description": "GNU binutils, which contain the linker, assembler, objdump and others"
-        },
-        {
-            "name": "gdrcopy",
-            "description": "A fast GPU memory copy library based on NVIDIA GPUDirect RDMA\ntechnology."
-        },
-        {
-            "name": "java",
-            "description": "The free and opensource java implementation"
-        },
-        {
-            "name": "knem",
-            "description": "KNEM is a Linux kernel module enabling high-performance intra-node MPI\ncommunication for large messages."
-        },
-        {
-            "name": "libfuse",
-            "description": "The reference implementation of the Linux FUSE (Filesystem in Userspace)\ninterface"
-        },
-        {
-            "name": "maven",
-            "description": "Apache Maven is a software project management and comprehension tool."
-        },
-        {
             "name": "numactl",
             "description": "NUMA support for Linux"
-        },
-        {
-            "name": "pkgconfig",
-            "description": "pkgconf is a program which helps to configure compiler and linker flags\nfor development frameworks. It is similar to pkg-config from\nfreedesktop.org, providing additional functionality while also\nmaintaining compatibility."
         },
         {
             "name": "rdma-core",
             "description": "RDMA core userspace libraries and daemons"
         },
         {
+            "name": "pkgconfig",
+            "description": "pkg-config is a helper tool used when compiling applications and\nlibraries"
+        },
+        {
+            "name": "java",
+            "description": "The free and opensource java implementation"
+        },
+        {
+            "name": "maven",
+            "description": "Apache Maven is a software project management and comprehension tool."
+        },
+        {
+            "name": "gdrcopy",
+            "description": "A fast GPU memory copy library based on NVIDIA GPUDirect RDMA\ntechnology."
+        },
+        {
             "name": "xpmem",
             "description": "XPMEM is a Linux kernel module that enables a process to map the memory\nof another process into its virtual address space."
+        },
+        {
+            "name": "knem",
+            "description": "KNEM is a Linux kernel module enabling high-performance intra-node MPI\ncommunication for large messages."
+        },
+        {
+            "name": "binutils",
+            "description": "GNU binutils, which contain the linker, assembler, objdump and others"
         }
     ],
     "dependent_to": [
+        {
+            "name": "py-ucx-py",
+            "description": "UCX-Py is the Python interface for UCX, a low-level high-performance\nnetworking library. UCX and UCX-Py supports several transport methods\nincluding InfiniBand and NVLink while still using traditional networking\nprotocols like TCP."
+        },
+        {
+            "name": "charmpp",
+            "description": "Charm++ is a parallel programming framework in C++ supported by an\nadaptive runtime system, which enhances user productivity and allows\nprograms to run portably from small multicore computers (your laptop) to\nthe largest supercomputers."
+        },
+        {
+            "name": "mercury",
+            "description": "Mercury is a C library for implementing RPC, optimized for HPC"
+        },
         {
             "name": "openmpi",
             "description": "An open source Message Passing Interface implementation. The Open MPI\nProject is an open source Message Passing Interface implementation that\nis developed and maintained by a consortium of academic, research, and\nindustry partners. Open MPI is therefore able to combine the expertise,\ntechnologies, and resources from all across the High Performance\nComputing community in order to build the best MPI library available.\nOpen MPI offers advantages for system and software vendors, application\ndevelopers and computer science researchers."
@@ -652,32 +671,20 @@
             "description": "Legion is a data-centric parallel programming system for writing\nportable high performance programs targeted at distributed heterogeneous\narchitectures. Legion presents abstractions which allow programmers to\ndescribe properties of program data (e.g. independence, locality). By\nmaking the Legion programming system aware of the structure of program\ndata, it can automate many of the tedious tasks programmers currently\nface, including correctly extracting task- and data-level parallelism\nand moving data around complex memory hierarchies. A novel mapping\ninterface provides explicit programmer controlled placement of data in\nthe memory hierarchy and assignment of tasks to processors in a way that\nis orthogonal to correctness, thereby enabling easy porting and tuning\nof Legion applications to new architectures."
         },
         {
-            "name": "mpich",
-            "description": "MPICH is a high performance and widely portable implementation of the\nMessage Passing Interface (MPI) standard."
-        },
-        {
-            "name": "mercury",
-            "description": "Mercury is a C library for implementing RPC, optimized for HPC"
-        },
-        {
             "name": "libcuml",
             "description": "cuML is a suite of libraries that implement machine learning algorithms\nand mathematical primitives functions that share compatible APIs with\nother RAPIDS projects."
-        },
-        {
-            "name": "libfabric",
-            "description": "The Open Fabrics Interfaces (OFI) is a framework focused on exporting\nfabric communication services to applications."
-        },
-        {
-            "name": "py-ucx-py",
-            "description": "UCX-Py is the Python interface for UCX, a low-level high-performance\nnetworking library. UCX and UCX-Py supports several transport methods\nincluding InfiniBand and NVLink while still using traditional networking\nprotocols like TCP."
         },
         {
             "name": "nvshmem",
             "description": "NVSHMEM is a parallel programming interface based on OpenSHMEM that\nprovides efficient and scalable communication for NVIDIA GPU clusters.\nNVSHMEM creates a global address space for data that spans the memory of\nmultiple GPUs and can be accessed with fine-grained GPU-initiated\noperations, CPU-initiated operations, and operations on CUDA streams."
         },
         {
-            "name": "charmpp",
-            "description": "Charm++ is a parallel programming framework in C++ supported by an\nadaptive runtime system, which enhances user productivity and allows\nprograms to run portably from small multicore computers (your laptop) to\nthe largest supercomputers."
+            "name": "mpich",
+            "description": "MPICH is a high performance and widely portable implementation of the\nMessage Passing Interface (MPI) standard."
+        },
+        {
+            "name": "libfabric",
+            "description": "The Open Fabrics Interfaces (OFI) is a framework focused on exporting\nfabric communication services to applications."
         }
     ]
 }

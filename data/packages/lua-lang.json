@@ -2,12 +2,8 @@
     "name": "lua-luajit",
     "aliases": [
         {
-            "name": "lua-lang@5.1",
+            "name": "lua-lang",
             "alias_for": "{lua-luajit+lualinks}"
-        },
-        {
-            "name": "luajit",
-            "alias_for": "{lua-luajit}"
         }
     ],
     "versions": [
@@ -25,7 +21,8 @@
             "sha256": "620fa4eb12375021bef6e4f237cbd2dd5d49e56beb414bee052c746beef1807d"
         }
     ],
-    "build_system": "LuaImplPackage",
+    "latest_version": "2.1.0-beta3",
+    "build_system": "MakefilePackage",
     "conflicts": [
         {
             "name": "platform=windows",
@@ -36,91 +33,25 @@
             "name": "@:2.0.5",
             "spec": "arch=linux-None-aarch64:",
             "description": "None"
-        },
-        {
-            "name": "lua",
-            "spec": "+lualinks",
-            "description": "None"
         }
     ],
     "variants": [
         {
-            "name": "fetcher",
-            "default": "curl",
-            "description": "Fetcher to use in the LuaRocks package manager"
-        },
-        {
             "name": "lualinks",
-            "default": true,
+            "default": false,
             "description": "add symlinks to make lua-luajit a drop-in lua replacement"
         }
     ],
     "homepage": "https://www.luajit.org",
     "maintainers": [],
     "patches": [],
-    "resources": [
-        {
-            "version": "",
-            "name": "luarocks",
-            "destination": "luarocks",
-            "placement": "luarocks"
-        }
-    ],
+    "resources": [],
     "description": "Flast flexible JITed lua\n",
-    "dependencies": [
-        {
-            "name": "unzip",
-            "description": "Unzip is a compression and file packaging/archive utility."
-        },
-        {
-            "name": "curl",
-            "description": "cURL is an open source command line tool and library for transferring\ndata with URL syntax"
-        },
-        {
-            "name": "wget",
-            "description": "GNU Wget is a free software package for retrieving files using HTTP,\nHTTPS and FTP, the most widely-used Internet protocols. It is a non-\ninteractive commandline tool, so it may easily be called from scripts,\ncron jobs, terminals without X-Windows support, etc."
-        }
-    ],
+    "dependencies": [],
     "dependent_to": [
         {
             "name": "irep",
             "description": "IREP is a tool that enables mixed-language simulation codes to use a\ncommon, Lua-based format for their input decks. Essentially, the input\nformat is a set of tables -- Lua's one (and only?) data structure."
-        },
-        {
-            "name": "lua-bit32",
-            "description": "Lua 5.2 bit operations for Lua 5.1"
-        },
-        {
-            "name": "neovim",
-            "description": "Neovim: Vim-fork focused on extensibility and usability"
-        },
-        {
-            "name": "lua-bitlib",
-            "description": "Lua-jit-like bitwise operations for lua"
-        },
-        {
-            "name": "lua-ffi",
-            "description": "luajit FFI for interpreted lua"
-        },
-        {
-            "name": "lua-luafilesystem",
-            "description": "LuaFileSystem is a Lua library developed to complement the set of\nfunctions related to file systems offered by the standard Lua\ndistribution. LuaFileSystem offers a portable way to access the\nunderlying directory structure and file attributes. LuaFileSystem is\nfree software and uses the same license as Lua 5.1"
-        },
-        {
-            "name": "libluv",
-            "description": "This library makes libuv available to lua scripts. It was made for the\nluvit project but should usable from nearly any lua project."
-        },
-        {
-            "name": "lua-luaposix",
-            "description": "Lua posix bindings, including ncurses"
-        },
-        {
-            "name": "lua-lpeg",
-            "description": "pattern-matching for lua"
-        },
-        {
-            "name": "lua-mpack",
-            "description": "lua bindings to libmpack"
         }
     ]
 }

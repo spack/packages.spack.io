@@ -7,10 +7,6 @@
             "branch": "develop"
         },
         {
-            "name": "6.2.0",
-            "sha256": "195d5593772fc483f63f08794d79e4bab30c2ec58e6ce4b0fb6bcc0e0c48f31d"
-        },
-        {
             "name": "6.1.1",
             "sha256": "cfaf637b792c330396a25ef787eb59d58726c35918ebbc08e33466e45d50470c"
         },
@@ -103,6 +99,7 @@
             "sha256": "d8ed0151509dd2b0f317b318a4175f8b95a174340fc3080b8c20617da8aa4d2f"
         }
     ],
+    "latest_version": "6.1.1",
     "build_system": "CMakePackage",
     "conflicts": [
         {
@@ -431,33 +428,8 @@
             "description": "+ipo is not supported by CMake < 3.9"
         },
         {
-            "name": "+cuda",
-            "spec": "@:2.7.0",
-            "description": "None"
-        },
-        {
-            "name": "+rocm",
-            "spec": "@:5.6.0",
-            "description": "None"
-        },
-        {
-            "name": "~int64",
-            "spec": "@:2.7.0",
-            "description": "None"
-        },
-        {
-            "name": "+f2003",
-            "spec": "@:4.1.0",
-            "description": "None"
-        },
-        {
-            "name": "+lapack",
-            "spec": "@3.0.0:+int64",
-            "description": "None"
-        },
-        {
-            "name": "+lapack",
-            "spec": "precision=extended",
+            "name": "+hypre",
+            "spec": "@:2.6.2",
             "description": "None"
         },
         {
@@ -476,22 +448,77 @@
             "description": "None"
         },
         {
-            "name": "+klu",
+            "name": "+petsc",
+            "spec": "@:2.6.2",
+            "description": "None"
+        },
+        {
+            "name": "+cuda",
+            "spec": "@:2.7.0",
+            "description": "None"
+        },
+        {
+            "name": "+raja",
+            "spec": "@:2.7.0",
+            "description": "None"
+        },
+        {
+            "name": "+sycl",
+            "spec": "@:5.6.0",
+            "description": "None"
+        },
+        {
+            "name": "~int64",
+            "spec": "@:2.7.0",
+            "description": "None"
+        },
+        {
+            "name": "+superlu-dist",
+            "spec": "@:4.1.0",
+            "description": "None"
+        },
+        {
+            "name": "+superlu-dist",
             "spec": "precision=single",
             "description": "None"
         },
         {
-            "name": "+klu",
+            "name": "+superlu-dist",
             "spec": "precision=extended",
             "description": "None"
         },
         {
-            "name": "+superlu-dist",
+            "name": "+f2003",
+            "spec": "@:4.1.0",
+            "description": "None"
+        },
+        {
+            "name": "+trilinos",
+            "spec": "@:4.1.0",
+            "description": "None"
+        },
+        {
+            "name": "+rocm",
+            "spec": "@:5.6.0",
+            "description": "None"
+        },
+        {
+            "name": "+lapack",
+            "spec": "@3.0.0:+int64",
+            "description": "None"
+        },
+        {
+            "name": "+lapack",
+            "spec": "precision=extended",
+            "description": "None"
+        },
+        {
+            "name": "+klu",
             "spec": "precision=single",
             "description": "None"
         },
         {
-            "name": "+superlu-dist",
+            "name": "+klu",
             "spec": "precision=extended",
             "description": "None"
         },
@@ -581,11 +608,6 @@
             "name": "cxxstd",
             "default": "14",
             "description": "C++ language standard"
-        },
-        {
-            "name": "logging-level",
-            "default": "0",
-            "description": "logging level\n 0 = no logging,\n 1 = errors,\n 2 = errors + warnings,\n 3 = errors + warnings + info,\n 4 = errors + warnings + info + debugging, \n 5 = all of the above + more"
         },
         {
             "name": "precision",
@@ -786,7 +808,7 @@
         },
         {
             "name": "mpi",
-            "description": "Intel MPI"
+            "description": "IBM MPI implementation from Spectrum MPI."
         },
         {
             "name": "raja",
@@ -798,7 +820,7 @@
         },
         {
             "name": "lapack",
-            "description": "OpenBLAS: An optimized BLAS library"
+            "description": "The Cray Scientific Libraries package, LibSci, is a collection of\nnumerical routines optimized for best performance on Cray systems."
         },
         {
             "name": "hypre",
@@ -831,36 +853,36 @@
     ],
     "dependent_to": [
         {
+            "name": "mfem",
+            "description": "Free, lightweight, scalable C++ library for finite element methods."
+        },
+        {
             "name": "fastmath",
             "description": "FASTMath is a suite of ~15 numerical libraries frequently used together\nin various SciDAC and CSE applications. The suite includes\ndiscretization libraries for structured, AMR and unstructured grids as\nwell as solver libraries for ODE's, Time Integrators, Iterative, Non-\nLinear, and Direct Solvers."
         },
         {
-            "name": "dealii",
-            "description": "C++ software library providing well-documented tools to build finite\nelement codes for a broad variety of PDEs."
-        },
-        {
-            "name": "cantera",
-            "description": "Cantera is a suite of object-oriented software tools for problems\ninvolving chemical kinetics, thermodynamics, and/or transport processes."
-        },
-        {
-            "name": "mfem",
-            "description": "Free, lightweight, scalable C++ library for finite element methods."
+            "name": "uqtk",
+            "description": "Sandia Uncertainty Quantification Toolkit. The UQ Toolkit (UQTk) is a\ncollection of libraries and tools for the quantification of uncertainty\nin numerical model predictions"
         },
         {
             "name": "amrex",
             "description": "AMReX is a publicly available software framework designed for building\nmassively parallel block- structured adaptive mesh refinement (AMR)\napplications."
         },
         {
+            "name": "cantera",
+            "description": "Cantera is a suite of object-oriented software tools for problems\ninvolving chemical kinetics, thermodynamics, and/or transport processes."
+        },
+        {
             "name": "amp",
             "description": "The Advanced Multi-Physics (AMP) package. The Advanced Multi-Physics\n(AMP) package is an open source parallel object-oriented computational\nframework that is designed with single and multi-domain multi-physics\napplications in mind."
         },
         {
-            "name": "xsdk",
-            "description": "Xsdk is a suite of Department of Energy (DOE) packages for numerical\nsimulation. This is a Spack bundle package that installs the xSDK\npackages"
+            "name": "dealii",
+            "description": "C++ software library providing well-documented tools to build finite\nelement codes for a broad variety of PDEs."
         },
         {
-            "name": "uqtk",
-            "description": "Sandia Uncertainty Quantification Toolkit. The UQ Toolkit (UQTk) is a\ncollection of libraries and tools for the quantification of uncertainty\nin numerical model predictions"
+            "name": "xsdk",
+            "description": "Xsdk is a suite of Department of Energy (DOE) packages for numerical\nsimulation. This is a Spack bundle package that installs the xSDK\npackages"
         }
     ]
 }

@@ -7,18 +7,9 @@
             "sha256": "9401cb6153dc8c34ddb9781bbabd418fd26b0a27b5da3294ecc21af7be9c86f2"
         }
     ],
+    "latest_version": "0.2",
     "build_system": "AutotoolsPackage",
     "conflicts": [
-        {
-            "name": "^blt@:0.3.6",
-            "spec": "+rocm",
-            "description": "None"
-        },
-        {
-            "name": "amdgpu_target=none",
-            "spec": "+rocm",
-            "description": "None"
-        },
         {
             "name": "%gcc@:4",
             "spec": "+cuda ^cuda@11.0:~allow-unsupported-compilers",
@@ -337,16 +328,6 @@
     ],
     "variants": [
         {
-            "name": "rocm",
-            "default": false,
-            "description": "Enable ROCm support"
-        },
-        {
-            "name": "amdgpu_target",
-            "default": "none",
-            "description": "AMD GPU architecture"
-        },
-        {
             "name": "cuda",
             "default": false,
             "description": "Build with CUDA"
@@ -367,18 +348,6 @@
     "resources": [],
     "description": "Yaksa is a high-performance datatype engine for expressing, managing and\nmanipulating data present in noncontiguous memory regions. It provides\nportable abstractions for structured noncontiguous data layouts that are\nmuch more comprehensive compared with traditional I/O vectors. Yaksa\nimitates parts of the MPI Datatype system, but adds additional\nfunctionality that would allow it to be used independent of MPI. It\nprovides routines for packing/unpacking, creating I/O vectors (array of\ncontiguous segments) and flattening/unflattening datatypes into process-\nportable formats. Yaksa's backend includes support for CPUs as well as\ndifferent GPUs.\n",
     "dependencies": [
-        {
-            "name": "llvm-amdgpu",
-            "description": "Toolkit for the construction of highly optimized compilers, optimizers,\nand run-time environments."
-        },
-        {
-            "name": "hsa-rocr-dev",
-            "description": "This repository includes the user mode API nterfaces and libraries\nnecessary for host applications to launch computer kernels to available\nHSA ROCm kernel agents.AMD Heterogeneous System Architecture HSA - Linux\nHSA Runtime for Boltzmann (ROCm) platforms."
-        },
-        {
-            "name": "hip",
-            "description": "HIP is a C++ Runtime API and Kernel Language that allows developers to\ncreate portable applications for AMD and NVIDIA GPUs from single source\ncode."
-        },
         {
             "name": "cuda",
             "description": "CUDA is a parallel computing platform and programming model invented by\nNVIDIA. It enables dramatic increases in computing performance by\nharnessing the power of the graphics processing unit (GPU). Note: This\npackage does not currently install the drivers necessary to run CUDA.\nThese will need to be installed manually. See:\nhttps://docs.nvidia.com/cuda/ for details."
@@ -408,10 +377,5 @@
             "description": "The Python programming language."
         }
     ],
-    "dependent_to": [
-        {
-            "name": "mpich",
-            "description": "MPICH is a high performance and widely portable implementation of the\nMessage Passing Interface (MPI) standard."
-        }
-    ]
+    "dependent_to": []
 }
