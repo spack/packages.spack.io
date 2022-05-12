@@ -17,6 +17,7 @@ from datetime import datetime
 
 import spack.repo
 import spack.spec
+import spack.version
 
 here = os.getcwd()
 
@@ -212,11 +213,13 @@ def main():
                 aliases.append({"name": str(name), "alias_for": str(alias)})
                 raw_aliases.append(splitup)
 
-        # We don't include any fields that would require concretization
+        # Get latest version!
+        latest_version = spack.version.VersionList(pkg.versions).preferred()
         meta = {
             "name": pkg.name,
             "aliases": aliases,
             "versions": versions,
+            "latest_version": str(latest_version),
             "build_system": pkg.build_system_class,
             "conflicts": conflicts,
             "variants": variants,
