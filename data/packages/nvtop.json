@@ -3,11 +3,23 @@
     "aliases": [],
     "versions": [
         {
-            "name": "1.1.0",
-            "sha256": "00470cde8fc48d5a5ed7c96402607e474414d94b562b21189bdde1dbe6b1d1f3"
+            "name": "2.0.1",
+            "sha256": "ef18ce85d632eb1c22d3a3653976b2c088260039702df39fd0181f7cd3ae277d"
+        },
+        {
+            "name": "2.0.0",
+            "sha256": "1651f34274c334a682f280dcb2f28d9642d44c7b22afe8c431cab91345b50f31"
+        },
+        {
+            "name": "1.2.2",
+            "sha256": "543cbfdae3241fab1ea022402734c12e69d5988583193adaab69fdfae6e14c84"
+        },
+        {
+            "name": "1.2.1",
+            "sha256": "197992cdd0e2e151fce91a7ba56f717e4d85b317c396001e8dbd84dc2ba363cd"
         }
     ],
-    "latest_version": "1.1.0",
+    "latest_version": "2.0.1",
     "build_system": "CMakePackage",
     "conflicts": [
         {
@@ -32,7 +44,7 @@
         },
         {
             "name": "%gcc@12:",
-            "spec": "+cuda ^cuda@:11.6~allow-unsupported-compilers",
+            "spec": "+cuda ^cuda@:11.7~allow-unsupported-compilers",
             "description": "None"
         },
         {
@@ -47,7 +59,7 @@
         },
         {
             "name": "%clang@14:",
-            "spec": "+cuda ^cuda@:11.6~allow-unsupported-compilers",
+            "spec": "+cuda ^cuda@:11.7~allow-unsupported-compilers",
             "description": "None"
         },
         {
@@ -346,13 +358,20 @@
             "name": "ipo",
             "default": false,
             "description": "CMake interprocedural optimization"
+        },
+        {
+            "name": "support",
+            "default": "nvidia,amd",
+            "description": "Which GPU vendors to build support for"
         }
     ],
     "homepage": "https://github.com/Syllo/nvtop",
-    "maintainers": [],
+    "maintainers": [
+        "marcost2"
+    ],
     "patches": [],
     "resources": [],
-    "description": "Nvtop stands for NVidia TOP, a (h)top like task monitor for NVIDIA GPUs.\nIt can handle multiple GPUs and print information about them in a htop\nfamiliar way.\n",
+    "description": "Nvtop stands for Neat Videocard TOP, a (h)top like task monitor for AMD\nand NVIDIA GPUS. It can handle multiple GPUs and print information about\nthem in a htop familiar way\n",
     "dependencies": [
         {
             "name": "cuda",
@@ -365,6 +384,10 @@
         {
             "name": "ncurses",
             "description": "The ncurses (new curses) library is a free software emulation of curses\nin System V Release 4.0, and more. It uses terminfo format, supports\npads and color and multiple highlights and forms characters and\nfunction-key mapping, and has all the other SYSV-curses enhancements\nover BSD curses."
+        },
+        {
+            "name": "libdrm",
+            "description": "A userspace library for accessing the DRM, direct rendering manager, on\nLinux, BSD and other systems supporting the ioctl interface."
         }
     ],
     "dependent_to": []

@@ -11,6 +11,10 @@
             "branch": "master"
         },
         {
+            "name": "2022.04.15",
+            "commit": "a92fdad29fc180cc522a9087bba9554a829ee002"
+        },
+        {
             "name": "2022.01.15",
             "commit": "0238e9a052a696707e4e65b2269f342baad728ae"
         },
@@ -48,18 +52,21 @@
         },
         {
             "name": "2019.08.14",
-            "commit": "6ea44ed3f93ede2d0a48937f288a2d41188a277c"
+            "commit": "6ea44ed3f93ede2d0a48937f288a2d41188a277c",
+            "deprecated": true
         },
         {
             "name": "2018.12.28",
-            "commit": "8dbf0d543171ffa9885344f32f23cc6f7f6e39bc"
+            "commit": "8dbf0d543171ffa9885344f32f23cc6f7f6e39bc",
+            "deprecated": true
         },
         {
             "name": "2018.11.05",
-            "commit": "d0c43e39020e67095b1f1d8bb89b75f22b12aee9"
+            "commit": "d0c43e39020e67095b1f1d8bb89b75f22b12aee9",
+            "deprecated": true
         }
     ],
-    "latest_version": "2022.01.15",
+    "latest_version": "2022.04.15",
     "build_system": "AutotoolsPackage",
     "conflicts": [
         {
@@ -89,8 +96,8 @@
         },
         {
             "name": "+rocm",
-            "spec": "@:2020",
-            "description": "rocm requires 2021.03.01 or later"
+            "spec": "@:2022.03",
+            "description": "rocm requires 2022.04.15 or later"
         },
         {
             "name": "^binutils@2.35:2.35.1",
@@ -120,6 +127,11 @@
             "description": "Needed when MPICXX builds static binaries for the compute nodes."
         },
         {
+            "name": "level_zero",
+            "default": false,
+            "description": "Support Level Zero on Intel GPUs (2022.04.15 or later)."
+        },
+        {
             "name": "cuda",
             "default": false,
             "description": "Support CUDA on NVIDIA GPUs (2020.03.01 or later)."
@@ -127,7 +139,7 @@
         {
             "name": "rocm",
             "default": false,
-            "description": "Support ROCM on AMD GPUs, requires ROCM as external packages (2021.03.01 or later)."
+            "description": "Support ROCM on AMD GPUs (2022.04.15 or later)."
         },
         {
             "name": "debug",
@@ -160,6 +172,14 @@
             "working_dir": ".",
             "url": "https://github.com/HPCToolkit/hpctoolkit/commit/511afd95b01d743edc5940c84e0079f462b2c23e.patch?full_index=1",
             "version": "@2019.08.01:2021.03%gcc@11.0:"
+        },
+        {
+            "owner": "builtin.hpctoolkit",
+            "sha256": "bb1b19ca762b1e2aa135f41ad410018c62cd9a5fdbcc79b413e5dd0a8f943361",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "python3.patch",
+            "version": "@2020.03:2020.08"
         }
     ],
     "resources": [],
@@ -230,6 +250,10 @@
             "description": "CUDA is a parallel computing platform and programming model invented by\nNVIDIA. It enables dramatic increases in computing performance by\nharnessing the power of the graphics processing unit (GPU). Note: This\npackage does not currently install the drivers necessary to run CUDA.\nThese will need to be installed manually. See:\nhttps://docs.nvidia.com/cuda/ for details."
         },
         {
+            "name": "oneapi-level-zero",
+            "description": "oneAPI Level Zero Loader. Applications that need low-level control of a\noneAPI level zero device link against the loader. The loader depends on\na separately installed level zero driver. See https://dgpu-\ndocs.intel.com/technologies/level-zero.html for information on how to\ninstall the driver."
+        },
+        {
             "name": "intel-xed",
             "description": "The Intel X86 Encoder Decoder library for encoding and decoding x86\nmachine instructions (64- and 32-bit). Also includes libxed-ild, a\nlightweight library for decoding the length of an instruction."
         },
@@ -247,7 +271,7 @@
         },
         {
             "name": "mpi",
-            "description": "IBM MPI implementation from Spectrum MPI."
+            "description": "Intel oneAPI MPI. LICENSE INFORMATION: By downloading and using this\nsoftware, you agree to the terms and conditions of the software license\nagreements at https://intel.ly/393CijO."
         },
         {
             "name": "hpcviewer",
@@ -258,12 +282,20 @@
             "description": "HIP is a C++ Runtime API and Kernel Language that allows developers to\ncreate portable applications for AMD and NVIDIA GPUs from single source\ncode."
         },
         {
-            "name": "rocm-dbgapi",
-            "description": "The AMD Debugger API is a library that provides all the support\nnecessary for a debugger and other tools to perform low level control of\nthe execution and inspection of execution state of AMD's commercially\navailable GPU architectures."
+            "name": "hsa-rocr-dev",
+            "description": "This repository includes the user mode API nterfaces and libraries\nnecessary for host applications to launch computer kernels to available\nHSA ROCm kernel agents.AMD Heterogeneous System Architecture HSA - Linux\nHSA Runtime for Boltzmann (ROCm) platforms."
         },
         {
             "name": "roctracer-dev",
             "description": "ROC-tracer library: Runtimes Generic Callback/Activity APIs. The goal of\nthe implementation is to provide a generic independent from specific\nruntime profiler to trace API and asyncronous activity."
+        },
+        {
+            "name": "rocprofiler-dev",
+            "description": "ROCPROFILER library for AMD HSA runtime API extension support"
+        },
+        {
+            "name": "python",
+            "description": "The Python programming language."
         }
     ],
     "dependent_to": []

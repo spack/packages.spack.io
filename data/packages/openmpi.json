@@ -458,7 +458,7 @@
         },
         {
             "name": "%gcc@12:",
-            "spec": "+cuda ^cuda@:11.6~allow-unsupported-compilers",
+            "spec": "+cuda ^cuda@:11.7~allow-unsupported-compilers",
             "description": "None"
         },
         {
@@ -473,7 +473,7 @@
         },
         {
             "name": "%clang@14:",
-            "spec": "+cuda ^cuda@:11.6~allow-unsupported-compilers",
+            "spec": "+cuda ^cuda@:11.7~allow-unsupported-compilers",
             "description": "None"
         },
         {
@@ -752,39 +752,14 @@
             "description": "None"
         },
         {
-            "name": "+cuda",
-            "spec": "@:1.6",
-            "description": "None"
-        },
-        {
-            "name": "+pmi",
-            "spec": "@:1.5.4",
-            "description": "None"
-        },
-        {
-            "name": "+pmix",
-            "spec": "@:1",
-            "description": "None"
-        },
-        {
-            "name": "+wrapper-rpath",
-            "spec": "@:1.7.3",
-            "description": "None"
-        },
-        {
-            "name": "+cxx",
-            "spec": "@5:",
-            "description": "C++ MPI bindings are removed in 5.0.X release"
-        },
-        {
-            "name": "+cxx_exceptions",
-            "spec": "@5:",
-            "description": "C++ exceptions are removed in 5.0.X release"
-        },
-        {
             "name": "+cxx_exceptions",
             "spec": "%nvhpc",
             "description": "nvc does not ignore -fexceptions, but errors"
+        },
+        {
+            "name": "+cuda",
+            "spec": "@:1.6",
+            "description": "None"
         },
         {
             "name": "fabrics=psm2",
@@ -828,18 +803,28 @@
         },
         {
             "name": "schedulers=slurm ~pmi",
-            "spec": "@1.5.4:",
-            "description": "+pmi is required for openmpi(>=1.5.5) to work with SLURM."
+            "spec": "@1.5.4:2",
+            "description": "+pmi is required for openmpi to work with SLURM."
+        },
+        {
+            "name": "schedulers=slurm ~pmi ~pmix",
+            "spec": "@3:",
+            "description": "+pmi or +pmix is required for openmpi to work with SLURM."
         },
         {
             "name": "schedulers=loadleveler",
-            "spec": "@3.0.0:",
-            "description": "The loadleveler scheduler is not supported with openmpi(>=3.0.0)."
+            "spec": "@3:",
+            "description": "The loadleveler scheduler is not supported with openmpi(>=3)."
         },
         {
-            "name": "+singularity",
-            "spec": "@5:",
-            "description": "singularity support has been dropped in OpenMPI 5"
+            "name": "~pmi",
+            "spec": "@4.0:4~pmix",
+            "description": "None"
+        },
+        {
+            "name": "+static",
+            "spec": "@:3.0.2,3.1:3.1.2,4.0.0 schedulers=slurm",
+            "description": "None"
         }
     ],
     "variants": [
@@ -900,7 +885,7 @@
         },
         {
             "name": "pmix",
-            "default": false,
+            "default": true,
             "description": "Enable PMIx support"
         },
         {
@@ -911,12 +896,12 @@
         {
             "name": "cxx",
             "default": false,
-            "description": "Enable C++ MPI bindings"
+            "description": "Enable deprecated C++ MPI bindings"
         },
         {
             "name": "cxx_exceptions",
             "default": false,
-            "description": "Enable C++ Exception support"
+            "description": "Enable deprecated C++ exception support"
         },
         {
             "name": "gpfs",
@@ -926,7 +911,7 @@
         {
             "name": "singularity",
             "default": false,
-            "description": "Build support for the Singularity container"
+            "description": "Build deprecated support for the Singularity container"
         },
         {
             "name": "lustre",
@@ -937,6 +922,11 @@
             "name": "romio",
             "default": true,
             "description": "Enable ROMIO support"
+        },
+        {
+            "name": "rsh",
+            "default": true,
+            "description": "Enable rsh (openssh) process lifecycle management"
         },
         {
             "name": "memchecker",
@@ -1134,7 +1124,7 @@
         },
         {
             "name": "pkgconfig",
-            "description": "pkg-config is a helper tool used when compiling applications and\nlibraries"
+            "description": "pkgconf is a program which helps to configure compiler and linker flags\nfor development frameworks. It is similar to pkg-config from\nfreedesktop.org, providing additional functionality while also\nmaintaining compatibility."
         },
         {
             "name": "libevent",
@@ -1146,7 +1136,7 @@
         },
         {
             "name": "java",
-            "description": "The free and opensource java implementation"
+            "description": "The IcedTea project provides a harness to build the source code from\nhttps://openjdk.java.net/ using Free Software build tools and adds a\nnumber of key features to the upstream OpenJDK codebase. IcedTea\nrequires an existing IcedTea or OpenJDK install to build."
         },
         {
             "name": "sqlite",
@@ -1214,7 +1204,7 @@
         },
         {
             "name": "pbs",
-            "description": "TORQUE (Terascale Open-source Resource and QUEue Manager) is an open\nsource project based on the original PBS resource manager developed by\nNASA, LLNL, and MRJ."
+            "description": "OpenPBS software optimizes job scheduling and workload management in\nhigh-performance computing (HPC) environments - clusters, clouds, and\nsupercomputers - improving system efficiency and people's productivity."
         },
         {
             "name": "slurm",
@@ -1231,64 +1221,64 @@
     ],
     "dependent_to": [
         {
-            "name": "orca",
-            "description": "An ab initio, DFT and semiempirical SCF-MO package Note: Orca is\nlicensed software. You will need to create an account on the Orca\nhomepage and download Orca yourself. Spack will search your current\ndirectory for the download file. Alternatively, add this file to a\nmirror so that Spack can find it. For instructions on how to set up a\nmirror, see https://spack.readthedocs.io/en/latest/mirrors.html"
+            "name": "scale",
+            "description": "SCALE (Scalable Computing for Advanced Library and Environment) is a\nbasic library for weather and climate model of the earth and planets\naimed to be widely used in various models. The SCALE library is\ndeveloped with co-design by researchers of computational science and\ncomputer science."
         },
         {
             "name": "charmpp",
             "description": "Charm++ is a parallel programming framework in C++ supported by an\nadaptive runtime system, which enhances user productivity and allows\nprograms to run portably from small multicore computers (your laptop) to\nthe largest supercomputers."
         },
         {
-            "name": "flux-pmix",
-            "description": "A flux shell plugin to bootstrap openmpi v5+"
-        },
-        {
-            "name": "scale",
-            "description": "SCALE (Scalable Computing for Advanced Library and Environment) is a\nbasic library for weather and climate model of the earth and planets\naimed to be widely used in various models. The SCALE library is\ndeveloped with co-design by researchers of computational science and\ncomputer science."
-        },
-        {
-            "name": "modeltest-ng",
-            "description": "Best-fit model selection"
-        },
-        {
-            "name": "migrate",
-            "description": "Migrate estimates effective population sizes and past migration rates\nbetween n population assuming a migration matrix model with asymmetric\nmigration rates and different subpopulation sizes"
-        },
-        {
             "name": "converge",
             "description": "CONVERGE is a revolutionary computational fluid dynamics (CFD) program\nthat eliminates the grid generation bottleneck from the simulation\nprocess. CONVERGE was developed by engine simulation experts and is\nstraightforward to use for both engine and non-engine simulations.\nUnlike many CFD programs, CONVERGE automatically generates a perfectly\northogonal, structured grid at runtime based on simple, user-defined\ngrid control parameters. This grid generation method completely\neliminates the need to manually generate a grid. In addition, CONVERGE\noffers many other features to expedite the setup process and to ensure\nthat your simulations are as computationally efficient as possible."
+        },
+        {
+            "name": "flux-pmix",
+            "description": "A flux shell plugin to bootstrap openmpi v5+"
         },
         {
             "name": "gengeo",
             "description": "GenGeo is a library of tools for creating complex particle geometries\nfor use in ESyS-Particle simulations. GenGeo is a standalone application\nwith a Python API that creates geometry files suitable for importing\ninto ESyS-Particle simulations. The functionality of GenGeo far exceeds\nthe in-simulation geometry creation utilities provided by ESyS-Particle\nitself."
         },
         {
-            "name": "everytrace-example",
-            "description": "Get stack trace EVERY time a program exits."
-        },
-        {
-            "name": "molcas",
-            "description": "Molcas is an ab initio quantum chemistry software package developed by\nscientists to be used by scientists. Please set the path to licence file\nwith the following command export\nMOLCAS_LICENSE=/path/to/molcas/license/"
-        },
-        {
-            "name": "pythia8",
-            "description": "The Pythia program is a standard tool for the generation of events in\nhigh-energy collisions, comprising a coherent set of physics models for\nthe evolution from a few-body hard process to a complex multiparticle\nfinal state."
-        },
-        {
-            "name": "erne",
-            "description": "The Extended Randomized Numerical alignEr using BWT"
+            "name": "modeltest-ng",
+            "description": "Best-fit model selection"
         },
         {
             "name": "flecsi",
             "description": "FleCSI is a compile-time configurable framework designed to support\nmulti-physics application development. As such, FleCSI attempts to\nprovide a very general set of infrastructure design patterns that can be\nspecialized and extended to suit the needs of a broad variety of solver\nand data requirements. Current support includes multi-dimensional mesh\ntopology, mesh geometry, and mesh adjacency information, n-dimensional\nhashed-tree data structures, graph partitioning interfaces,and\ndependency closures."
         },
         {
-            "name": "gptune",
-            "description": "GPTune is an autotuning framework that relies on multitask and transfer\nlearnings to help solve the underlying black-box optimization problem\nusing Bayesian optimization methodologies."
+            "name": "orca",
+            "description": "An ab initio, DFT and semiempirical SCF-MO package Note: Orca is\nlicensed software. You will need to create an account on the Orca\nhomepage and download Orca yourself. Spack will search your current\ndirectory for the download file. Alternatively, add this file to a\nmirror so that Spack can find it. For instructions on how to set up a\nmirror, see https://spack.readthedocs.io/en/latest/mirrors.html"
+        },
+        {
+            "name": "migrate",
+            "description": "Migrate estimates effective population sizes and past migration rates\nbetween n population assuming a migration matrix model with asymmetric\nmigration rates and different subpopulation sizes"
+        },
+        {
+            "name": "pythia8",
+            "description": "The Pythia program is a standard tool for the generation of events in\nhigh-energy collisions, comprising a coherent set of physics models for\nthe evolution from a few-body hard process to a complex multiparticle\nfinal state."
+        },
+        {
+            "name": "everytrace-example",
+            "description": "Get stack trace EVERY time a program exits."
+        },
+        {
+            "name": "erne",
+            "description": "The Extended Randomized Numerical alignEr using BWT"
         },
         {
             "name": "cbtf-krell",
             "description": "CBTF Krell project contains collector and runtime contributions to the\nCBTF project. These contributions include many performance data\ncollectors and support libraries as well as some example tools that\ndrive the data collection at HPC levels of scale."
+        },
+        {
+            "name": "molcas",
+            "description": "Molcas is an ab initio quantum chemistry software package developed by\nscientists to be used by scientists. Please set the path to licence file\nwith the following command export\nMOLCAS_LICENSE=/path/to/molcas/license/"
+        },
+        {
+            "name": "gptune",
+            "description": "GPTune is an autotuning framework that relies on multitask and transfer\nlearnings to help solve the underlying black-box optimization problem\nusing Bayesian optimization methodologies."
         }
     ]
 }
