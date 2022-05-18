@@ -1,22 +1,30 @@
 {
-    "name": "mawk",
+    "name": "gawk",
     "aliases": [
         {
             "name": "awk",
-            "alias_for": "{mawk}"
+            "alias_for": "{gawk}"
         }
     ],
     "versions": [
         {
-            "name": "1.3.4-20171017",
-            "sha256": "db17115d1ed18ed1607c8b93291db9ccd4fe5e0f30d2928c3c5d127b23ec9e5b"
+            "name": "5.1.1",
+            "sha256": "d87629386e894bbea11a5e00515fc909dc9b7249529dad9e6a3a2c77085f7ea2"
         },
         {
-            "name": "1.3.4",
-            "sha256": "2f2ab8831c441a5793ad333193c888c9ba29c900f009aa23c9fffc100c405925"
+            "name": "5.1.0",
+            "sha256": "cf5fea4ac5665fd5171af4716baab2effc76306a9572988d5ba1078f196382bd"
+        },
+        {
+            "name": "5.0.1",
+            "sha256": "8e4e86f04ed789648b66f757329743a0d6dfb5294c3b91b756a474f1ce05a794"
+        },
+        {
+            "name": "4.1.4",
+            "sha256": "53e184e2d0f90def9207860531802456322be091c7b48f23fdc79cda65adc266"
         }
     ],
-    "latest_version": "1.3.4",
+    "latest_version": "5.1.1",
     "build_system": "AutotoolsPackage",
     "conflicts": [
         {
@@ -25,46 +33,72 @@
             "description": "None"
         }
     ],
-    "variants": [],
-    "homepage": "https://invisible-island.net/mawk/mawk.html",
+    "variants": [
+        {
+            "name": "nls",
+            "default": false,
+            "description": "Enable Native Language Support"
+        }
+    ],
+    "homepage": "https://www.gnu.org/software/gawk/",
     "maintainers": [],
     "patches": [],
     "resources": [],
-    "description": "mawk is an interpreter for the AWK Programming Language.\n",
+    "description": "If you are like many computer users, you would frequently like to make\nchanges in various text files wherever certain patterns appear, or\nextract data from parts of certain lines while discarding the rest. To\nwrite a program to do this in a language such as C or Pascal is a time-\nconsuming inconvenience that may take many lines of code. The job is\neasy with awk, especially the GNU implementation: gawk. The awk utility\ninterprets a special-purpose programming language that makes it possible\nto handle simple data-reformatting jobs with just a few lines of code.\n",
     "dependencies": [
         {
             "name": "gnuconfig",
             "description": "The GNU config.guess and config.sub scripts versioned by timestamp.\nThis package can be used as a build dependency for autotools packages\nthat ship a tarball with outdated config.guess and config.sub files."
+        },
+        {
+            "name": "gettext",
+            "description": "GNU internationalization (i18n) and localization (l10n) library."
+        },
+        {
+            "name": "libsigsegv",
+            "description": "GNU libsigsegv is a library for handling page faults in user mode."
+        },
+        {
+            "name": "readline",
+            "description": "The GNU Readline library provides a set of functions for use by\napplications that allow users to edit command lines as they are typed\nin. Both Emacs and vi editing modes are available. The Readline library\nincludes additional functions to maintain a list of previously-entered\ncommand lines, to recall and perhaps reedit those lines, and perform\ncsh-like history expansion on previous commands."
+        },
+        {
+            "name": "mpfr",
+            "description": "The MPFR library is a C library for multiple-precision floating-point\ncomputations with correct rounding."
+        },
+        {
+            "name": "gmp",
+            "description": "GMP is a free library for arbitrary precision arithmetic, operating on\nsigned integers, rational numbers, and floating-point numbers."
         }
     ],
     "dependent_to": [
-        {
-            "name": "phantompeakqualtools",
-            "description": "This package computes informative enrichment and quality measures for\nChIP-seq/DNase-seq/FAIRE-seq/MNase-seq data."
-        },
-        {
-            "name": "libgpg-error",
-            "description": "Common error values for all GnuPG components."
-        },
-        {
-            "name": "rocm-openmp-extras",
-            "description": "OpenMP support for ROCm LLVM."
-        },
         {
             "name": "targetp",
             "description": "TargetP predicts the subcellular location of eukaryotic protein\nsequences. Note: A manual download is required for TargetP. Spack will\nsearch your current directory for the download file. Alternatively, add\nthis file to a mirror so that Spack can find it. For instructions on how\nto set up a mirror, see\nhttps://spack.readthedocs.io/en/latest/mirrors.html"
         },
         {
-            "name": "aomp",
-            "description": "llvm openmp compiler from AMD."
+            "name": "phantompeakqualtools",
+            "description": "This package computes informative enrichment and quality measures for\nChIP-seq/DNase-seq/FAIRE-seq/MNase-seq data."
         },
         {
             "name": "mummer4",
             "description": "MUMmer is a versatil alignment tool for DNA and protein sequences."
         },
         {
+            "name": "aomp",
+            "description": "llvm openmp compiler from AMD."
+        },
+        {
+            "name": "libgpg-error",
+            "description": "Common error values for all GnuPG components."
+        },
+        {
             "name": "chlorop",
             "description": "Chlorop predicts the presence of chloroplast transit peptides in protein\nsequences and the location of potential cTP cleavage sites. You will\nneed to obtain the tarball by visiting the URL and completing the form.\nYou can then either run spack install with the tarball in the directory,\nor add it to a mirror. You will need to set the CHLOROTMP environment\nvariable to the full path of the directory you want chlorop to use as a\ntemporary directory."
+        },
+        {
+            "name": "rocm-openmp-extras",
+            "description": "OpenMP support for ROCm LLVM."
         }
     ]
 }
