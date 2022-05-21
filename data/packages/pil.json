@@ -1,115 +1,33 @@
 {
-    "name": "py-pillow-simd",
+    "name": "py-pil",
     "aliases": [
         {
             "name": "pil",
-            "alias_for": "{py-pillow-simd}"
+            "alias_for": "{py-pil}"
         },
         {
-            "name": "pil@6.2.2.post1",
-            "alias_for": "{py-pillow-simd@6.2.2.post1}"
-        },
-        {
-            "name": "pil@7.0.0.post3",
-            "alias_for": "{py-pillow-simd@7.0.0.post3}"
-        },
-        {
-            "name": "pil@9.0.0.post1",
-            "alias_for": "{py-pillow-simd@9.0.0.post1}"
+            "name": "pil@1.1.7",
+            "alias_for": "{py-pil@1.1.7}"
         }
     ],
     "versions": [
         {
-            "name": "9.0.0.post1",
-            "sha256": "918541cfaa90ba3c0e1bae5da31ba1b1f52b09c0009bd90183b787af4e018263"
-        },
-        {
-            "name": "7.0.0.post3",
-            "sha256": "c27907af0e7ede1ceed281719e722e7dbf3e1dbfe561373978654a6b64896cb7"
-        },
-        {
-            "name": "6.2.2.post1",
-            "sha256": "d29b673ac80091797f1e8334458be307e4ac4ab871b0e495cfe56cb7b1d7704e"
+            "name": "1.1.7",
+            "sha256": "895bc7c2498c8e1f9b99938f1a40dc86b3f149741f105cf7c7bd2e0725405211",
+            "deprecated": true
         }
     ],
-    "latest_version": "9.0.0.post1",
+    "latest_version": "1.1.7",
     "build_system": "PythonPackage",
-    "conflicts": [
-        {
-            "name": "+webpmux",
-            "spec": "~webp",
-            "description": "Webpmux relies on WebP support"
-        },
-        {
-            "name": "+imagequant",
-            "spec": "@:3.2",
-            "description": "imagequant support was added in 3.3"
-        },
-        {
-            "name": "+xcb",
-            "spec": "@:7.0",
-            "description": "XCB support was added in 7.1"
-        }
-    ],
-    "variants": [
-        {
-            "name": "zlib",
-            "default": true,
-            "description": "Compressed PNG functionality"
-        },
-        {
-            "name": "jpeg",
-            "default": true,
-            "description": "JPEG functionality"
-        },
-        {
-            "name": "tiff",
-            "default": false,
-            "description": "Compressed TIFF functionality"
-        },
-        {
-            "name": "freetype",
-            "default": false,
-            "description": "Type related services"
-        },
-        {
-            "name": "lcms",
-            "default": false,
-            "description": "Color management"
-        },
-        {
-            "name": "webp",
-            "default": false,
-            "description": "WebP format"
-        },
-        {
-            "name": "webpmux",
-            "default": false,
-            "description": "WebP metadata"
-        },
-        {
-            "name": "jpeg2000",
-            "default": false,
-            "description": "JPEG 2000 functionality"
-        },
-        {
-            "name": "imagequant",
-            "default": false,
-            "description": "Improved color quantization"
-        },
-        {
-            "name": "xcb",
-            "default": false,
-            "description": "X11 screengrab support"
-        }
-    ],
-    "homepage": "https://github.com/uploadcare/pillow-simd",
+    "conflicts": [],
+    "variants": [],
+    "homepage": "https://pillow.readthedocs.io/en/stable/",
     "maintainers": [
         "adamjstewart"
     ],
     "patches": [],
     "resources": [],
-    "description": "Pillow-SIMD is a SIMD-enabled fork of Pillow. It is usually 4-6x faster\nthan the original Pillow in image processing benchmarks.\n",
+    "description": "The Python Imaging Library (PIL) adds image processing capabilities to\nyour Python interpreter. This library supports many file formats, and\nprovides powerful image processing and graphics capabilities.\n",
     "dependencies": [
         {
             "name": "python",
@@ -122,84 +40,104 @@
         {
             "name": "py-wheel",
             "description": "A built-package format for Python."
-        },
-        {
-            "name": "py-setuptools",
-            "description": "A Python utility that aids in the process of downloading, building,\nupgrading, installing, and uninstalling Python packages."
-        },
-        {
-            "name": "zlib",
-            "description": "A free, general-purpose, legally unencumbered lossless data-compression\nlibrary."
-        },
-        {
-            "name": "jpeg",
-            "description": "libjpeg-turbo is a fork of the original IJG libjpeg which uses SIMD to\naccelerate baseline JPEG compression and decompression. libjpeg is a\nlibrary that implements JPEG image encoding, decoding and transcoding."
-        },
-        {
-            "name": "libtiff",
-            "description": "LibTIFF - Tag Image File Format (TIFF) Library and Utilities."
-        },
-        {
-            "name": "freetype",
-            "description": "FreeType is a freely available software library to render fonts. It is\nwritten in C, designed to be small, efficient, highly customizable, and\nportable while capable of producing high-quality output (glyph images)\nof most vector and bitmap font formats."
-        },
-        {
-            "name": "lcms",
-            "description": "Little cms is a color management library. Implements fast transforms\nbetween ICC profiles. It is focused on speed, and is portable across\nseveral platforms (MIT license)."
-        },
-        {
-            "name": "libwebp",
-            "description": "WebP is a modern image format that provides superior lossless and lossy\ncompression for images on the web. Using WebP, webmasters and web\ndevelopers can create smaller, richer images that make the web faster."
-        },
-        {
-            "name": "openjpeg",
-            "description": "OpenJPEG is an open-source JPEG 2000 codec written in C language. It has\nbeen developed in order to promote the use of JPEG 2000, a still-image\ncompression standard from the Joint Photographic Experts Group (JPEG).\nSince April 2015, it is officially recognized by ISO/IEC and ITU-T as a\nJPEG 2000 Reference Software."
-        },
-        {
-            "name": "libimagequant",
-            "description": "Small, portable C library for high-quality conversion of RGBA images to\n8-bit indexed-color (palette) images."
-        },
-        {
-            "name": "libxcb",
-            "description": "The X protocol C-language Binding (XCB) is a replacement for Xlib\nfeaturing a small footprint, latency hiding, direct access to the\nprotocol, improved threading support, and extensibility."
         }
     ],
     "dependent_to": [
         {
-            "name": "py-imageio",
-            "description": "Python library for reading and writing image data. Imageio is a Python\nlibrary that provides an easy interface to read and write a wide range\nof image data, including animated images, video, volumetric data, and\nscientific formats. It is cross-platform, runs on Python 2.7 and 3.4+,\nand is easy to install."
+            "name": "py-openslide-python",
+            "description": "OpenSlide Python is a Python interface to the OpenSlide library."
         },
         {
-            "name": "py-pycbc",
-            "description": "PyCBC is a software package used to explore astrophysical sources of\ngravitational waves. It contains algorithms to analyze gravitational-\nwave data from the LIGO and Virgo detectors, detect coalescing compact\nbinaries, and measure the astrophysical parameters of detected sources.\nPyCBC was used in the first direct detection of gravitational waves and\nis used in the flagship analysis of LIGO and Virgo data."
-        },
-        {
-            "name": "py-guiqwt",
-            "description": "guiqwt is a set of tools for curve and image plotting (extension to\nPythonQwt)"
-        },
-        {
-            "name": "py-matplotlib",
-            "description": "Matplotlib is a comprehensive library for creating static, animated, and\ninteractive visualizations in Python."
-        },
-        {
-            "name": "py-pauvre",
-            "description": "pauvre: plotting package designed for nanopore and PacBio long reads"
-        },
-        {
-            "name": "py-scikit-image",
-            "description": "Image processing algorithms for SciPy, including IO, morphology,\nfiltering, warping, color manipulation, object detection, etc."
+            "name": "py-pyvista",
+            "description": "Easier Pythonic interface to VTK."
         },
         {
             "name": "py-contextily",
             "description": "Context geo-tiles in Python."
         },
         {
-            "name": "py-gym",
-            "description": "OpenAI Gym is a toolkit for developing and comparing reinforcement\nlearning algorithms. This is the gym open-source library, which gives\nyou access to a standardized set of environments."
+            "name": "py-mouseinfo",
+            "description": "An application to display XY position and RGB color information for the\npixel currently under the mouse. Works on Python 2 and 3. This is useful\nfor GUI automation planning."
         },
         {
-            "name": "py-wordcloud",
-            "description": "A little word cloud generator in Python."
+            "name": "py-fastai",
+            "description": "You can use fastai without any installation by using Google Colab. In\nfact, every page of this documentation is also available as an\ninteractive notebook - click \"Open in colab\" at the top of any page to\nopen it (be sure to change the Colab runtime to \"GPU\" to have it run\nfast!) See the fast.ai documentation on Using Colab for more\ninformation."
+        },
+        {
+            "name": "py-cartopy",
+            "description": "Cartopy - a cartographic python library with matplotlib support."
+        },
+        {
+            "name": "py-pauvre",
+            "description": "pauvre: plotting package designed for nanopore and PacBio long reads"
+        },
+        {
+            "name": "py-bokeh",
+            "description": "Statistical and novel interactive HTML plots for Python"
+        },
+        {
+            "name": "py-imgaug",
+            "description": "A library for image augmentation in machine learning experiments,\nparticularly convolutional neural networks. Supports the augmentation of\nimages, keypoints/landmarks, bounding boxes, heatmaps and segmentation\nmaps in a variety of different ways."
+        },
+        {
+            "name": "timemory",
+            "description": "Modular profiling toolkit and suite of libraries and tools for\nC/C++/Fortran/CUDA/Python"
+        },
+        {
+            "name": "py-scikit-image",
+            "description": "Image processing algorithms for SciPy, including IO, morphology,\nfiltering, warping, color manipulation, object detection, etc."
+        },
+        {
+            "name": "py-guiqwt",
+            "description": "guiqwt is a set of tools for curve and image plotting (extension to\nPythonQwt)"
+        },
+        {
+            "name": "py-visdom",
+            "description": "Visdom aims to facilitate visualization of (remote) data with an\nemphasis on supporting scientific experimentation."
+        },
+        {
+            "name": "py-torchvision",
+            "description": "The torchvision package consists of popular datasets, model\narchitectures, and common image transformations for computer vision."
+        },
+        {
+            "name": "py-torchgeo",
+            "description": "TorchGeo: datasets, transforms, and models for geospatial data. TorchGeo\nis a PyTorch domain library, similar to torchvision, that provides\ndatasets, transforms, samplers, and pre-trained models specific to\ngeospatial data."
+        },
+        {
+            "name": "py-reportlab",
+            "description": "The ReportLab Toolkit. An Open Source Python library for generating PDFs\nand graphics."
+        },
+        {
+            "name": "py-imageio",
+            "description": "Python library for reading and writing image data. Imageio is a Python\nlibrary that provides an easy interface to read and write a wide range\nof image data, including animated images, video, volumetric data, and\nscientific formats. It is cross-platform, runs on Python 2.7 and 3.4+,\nand is easy to install."
+        },
+        {
+            "name": "paraview",
+            "description": "ParaView is an open-source, multi-platform data analysis and\nvisualization application. This package includes the Catalyst in-situ\nlibrary for versions 5.7 and greater, otherwise use the catalyst\npackage."
+        },
+        {
+            "name": "py-wxpython",
+            "description": "Cross platform GUI toolkit for Python."
+        },
+        {
+            "name": "py-pyscreeze",
+            "description": "PyScreeze can take screenshots, save them to files, and locate images\nwithin the screen. This is useful if you have a small image of, say, a\nbutton that needs to be clicked and want to locate it on the screen."
+        },
+        {
+            "name": "py-matplotlib",
+            "description": "Matplotlib is a comprehensive library for creating static, animated, and\ninteractive visualizations in Python."
+        },
+        {
+            "name": "py-ipympl",
+            "description": "Matplotlib Jupyter Extension."
+        },
+        {
+            "name": "py-torchmeta",
+            "description": "A collection of extensions and data-loaders for few-shot learning &\nmeta-learning in PyTorch. Torchmeta contains popular meta-learning\nbenchmarks, fully compatible with both torchvision and PyTorch's\nDataLoader."
+        },
+        {
+            "name": "py-pycbc",
+            "description": "PyCBC is a software package used to explore astrophysical sources of\ngravitational waves. It contains algorithms to analyze gravitational-\nwave data from the LIGO and Virgo detectors, detect coalescing compact\nbinaries, and measure the astrophysical parameters of detected sources.\nPyCBC was used in the first direct detection of gravitational waves and\nis used in the flagship analysis of LIGO and Virgo data."
         },
         {
             "name": "py-datalad",
@@ -210,40 +148,16 @@
             "description": "A `Sphinx` extension that builds an HTML version of any Python script\nand puts it into an examples gallery."
         },
         {
-            "name": "py-pyscreeze",
-            "description": "PyScreeze can take screenshots, save them to files, and locate images\nwithin the screen. This is useful if you have a small image of, say, a\nbutton that needs to be clicked and want to locate it on the screen."
-        },
-        {
-            "name": "py-fracridge",
-            "description": "Fractional Ridge Regression."
-        },
-        {
-            "name": "py-reportlab",
-            "description": "The ReportLab Toolkit. An Open Source Python library for generating PDFs\nand graphics."
+            "name": "py-fury",
+            "description": "Free Unified Rendering in Python."
         },
         {
             "name": "py-cinemasci",
             "description": "A set of python tools for reading, writing and viewing Cinema databases"
         },
         {
-            "name": "py-torchgeo",
-            "description": "TorchGeo: datasets, transforms, and models for geospatial data. TorchGeo\nis a PyTorch domain library, similar to torchvision, that provides\ndatasets, transforms, samplers, and pre-trained models specific to\ngeospatial data."
-        },
-        {
-            "name": "py-pyvista",
-            "description": "Easier Pythonic interface to VTK."
-        },
-        {
-            "name": "py-wxpython",
-            "description": "Cross platform GUI toolkit for Python."
-        },
-        {
-            "name": "py-torchmeta",
-            "description": "A collection of extensions and data-loaders for few-shot learning &\nmeta-learning in PyTorch. Torchmeta contains popular meta-learning\nbenchmarks, fully compatible with both torchvision and PyTorch's\nDataLoader."
-        },
-        {
-            "name": "py-bokeh",
-            "description": "Statistical and novel interactive HTML plots for Python"
+            "name": "py-gluoncv",
+            "description": "GluonCV provides implementations of state-of-the-art (SOTA) deep\nlearning algorithms in computer vision. It aims to help engineers,\nresearchers, and students quickly prototype products, validate new ideas\nand learn computer vision."
         },
         {
             "name": "py-ipycanvas",
@@ -254,56 +168,24 @@
             "description": "PyTorch Lightning is the lightweight PyTorch wrapper for ML researchers."
         },
         {
-            "name": "py-gluoncv",
-            "description": "GluonCV provides implementations of state-of-the-art (SOTA) deep\nlearning algorithms in computer vision. It aims to help engineers,\nresearchers, and students quickly prototype products, validate new ideas\nand learn computer vision."
-        },
-        {
-            "name": "py-cartopy",
-            "description": "Cartopy - a cartographic python library with matplotlib support."
-        },
-        {
-            "name": "py-mouseinfo",
-            "description": "An application to display XY position and RGB color information for the\npixel currently under the mouse. Works on Python 2 and 3. This is useful\nfor GUI automation planning."
-        },
-        {
-            "name": "py-torchvision",
-            "description": "The torchvision package consists of popular datasets, model\narchitectures, and common image transformations for computer vision."
-        },
-        {
-            "name": "py-fastai",
-            "description": "You can use fastai without any installation by using Google Colab. In\nfact, every page of this documentation is also available as an\ninteractive notebook - click \"Open in colab\" at the top of any page to\nopen it (be sure to change the Colab runtime to \"GPU\" to have it run\nfast!) See the fast.ai documentation on Using Colab for more\ninformation."
-        },
-        {
-            "name": "py-ipympl",
-            "description": "Matplotlib Jupyter Extension."
-        },
-        {
-            "name": "timemory",
-            "description": "Modular profiling toolkit and suite of libraries and tools for\nC/C++/Fortran/CUDA/Python"
-        },
-        {
-            "name": "py-imgaug",
-            "description": "A library for image augmentation in machine learning experiments,\nparticularly convolutional neural networks. Supports the augmentation of\nimages, keypoints/landmarks, bounding boxes, heatmaps and segmentation\nmaps in a variety of different ways."
-        },
-        {
-            "name": "py-fury",
-            "description": "Free Unified Rendering in Python."
-        },
-        {
-            "name": "py-visdom",
-            "description": "Visdom aims to facilitate visualization of (remote) data with an\nemphasis on supporting scientific experimentation."
-        },
-        {
-            "name": "paraview",
-            "description": "ParaView is an open-source, multi-platform data analysis and\nvisualization application. This package includes the Catalyst in-situ\nlibrary for versions 5.7 and greater, otherwise use the catalyst\npackage."
+            "name": "py-basemap",
+            "description": "The matplotlib basemap toolkit is a library for plotting 2D data on maps\nin Python."
         },
         {
             "name": "py-pycortex",
             "description": "Python Cortical mapping software for fMRI data."
         },
         {
-            "name": "py-basemap",
-            "description": "The matplotlib basemap toolkit is a library for plotting 2D data on maps\nin Python."
+            "name": "py-wordcloud",
+            "description": "A little word cloud generator in Python."
+        },
+        {
+            "name": "py-gym",
+            "description": "OpenAI Gym is a toolkit for developing and comparing reinforcement\nlearning algorithms. This is the gym open-source library, which gives\nyou access to a standardized set of environments."
+        },
+        {
+            "name": "py-fracridge",
+            "description": "Fractional Ridge Regression."
         }
     ]
 }
