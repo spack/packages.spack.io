@@ -803,23 +803,13 @@
         },
         {
             "name": "schedulers=slurm ~pmi",
-            "spec": "@1.5.4:2",
+            "spec": "@1.5.4",
             "description": "+pmi is required for openmpi to work with SLURM."
-        },
-        {
-            "name": "schedulers=slurm ~pmi ~pmix",
-            "spec": "@3:",
-            "description": "+pmi or +pmix is required for openmpi to work with SLURM."
         },
         {
             "name": "schedulers=loadleveler",
             "spec": "@3:",
             "description": "The loadleveler scheduler is not supported with openmpi(>=3)."
-        },
-        {
-            "name": "~pmi",
-            "spec": "@4.0:4~pmix",
-            "description": "None"
         },
         {
             "name": "+static",
@@ -882,11 +872,6 @@
             "name": "pmi",
             "default": false,
             "description": "Enable PMI support"
-        },
-        {
-            "name": "pmix",
-            "default": true,
-            "description": "Enable PMIx support"
         },
         {
             "name": "wrapper-rpath",
@@ -1127,16 +1112,12 @@
             "description": "pkgconf is a program which helps to configure compiler and linker flags\nfor development frameworks. It is similar to pkg-config from\nfreedesktop.org, providing additional functionality while also\nmaintaining compatibility."
         },
         {
-            "name": "libevent",
-            "description": "The libevent API provides a mechanism to execute a callback function\nwhen a specific event occurs on a file descriptor or after a timeout has\nbeen reached. Furthermore, libevent also support callbacks due to\nsignals or regular timeouts."
-        },
-        {
             "name": "hwloc",
             "description": "The Hardware Locality (hwloc) software project. The Portable Hardware\nLocality (hwloc) software package provides a portable abstraction\n(across OS, versions, architectures, ...) of the hierarchical topology\nof modern architectures, including NUMA memory nodes, sockets, shared\ncaches, cores and simultaneous multithreading. It also gathers various\nsystem attributes such as cache and memory information as well as the\nlocality of I/O devices such as network interfaces, InfiniBand HCAs or\nGPUs. It primarily aims at helping applications with gathering\ninformation about modern computing hardware so as to exploit it\naccordingly and efficiently."
         },
         {
             "name": "java",
-            "description": "The Java Development Kit (JDK) released by Oracle Corporation in the\nform of a binary product aimed at Java developers. Includes a complete\nJRE plus tools for developing, debugging, and monitoring Java\napplications."
+            "description": "The IcedTea project provides a harness to build the source code from\nhttps://openjdk.java.net/ using Free Software build tools and adds a\nnumber of key features to the upstream OpenJDK codebase. IcedTea\nrequires an existing IcedTea or OpenJDK install to build."
         },
         {
             "name": "sqlite",
@@ -1204,7 +1185,7 @@
         },
         {
             "name": "pbs",
-            "description": "OpenPBS software optimizes job scheduling and workload management in\nhigh-performance computing (HPC) environments - clusters, clouds, and\nsupercomputers - improving system efficiency and people's productivity."
+            "description": "TORQUE (Terascale Open-source Resource and QUEue Manager) is an open\nsource project based on the original PBS resource manager developed by\nNASA, LLNL, and MRJ."
         },
         {
             "name": "slurm",
@@ -1215,15 +1196,15 @@
             "description": "The Process Management Interface (PMI) has been used for quite some time\nas a means of exchanging wireup information needed for interprocess\ncommunication. However, meeting the significant orchestration challenges\npresented by exascale systems requires that the process-to-system\ninterface evolve to permit a tighter integration between the different\ncomponents of the parallel application and existing and future SMS\nsolutions. PMI Exascale (PMIx) addresses these needs by providing an\nextended version of the PMI definitions specifically designed to support\nexascale and beyond environments by: (a) adding flexibility to the\nfunctionality expressed in the existing APIs, (b) augmenting the\ninterfaces with new APIs that provide extended capabilities, (c) forging\na collaboration between subsystem providers including resource manager,\nfabric, file system, and programming library developers, (d)\nestablishing a standards-like body for maintaining the definitions, and\n(e) providing a reference implementation of the PMIx standard that\ndemonstrates the desired level of scalability while maintaining strict\nseparation between it and the standard itself."
         },
         {
+            "name": "libevent",
+            "description": "The libevent API provides a mechanism to execute a callback function\nwhen a specific event occurs on a file descriptor or after a timeout has\nbeen reached. Furthermore, libevent also support callbacks due to\nsignals or regular timeouts."
+        },
+        {
             "name": "openssh",
             "description": "OpenSSH is the premier connectivity tool for remote login with the SSH\nprotocol. It encrypts all traffic to eliminate eavesdropping, connection\nhijacking, and other attacks. In addition, OpenSSH provides a large\nsuite of secure tunneling capabilities, several authentication methods,\nand sophisticated configuration options."
         }
     ],
     "dependent_to": [
-        {
-            "name": "flux-pmix",
-            "description": "A flux shell plugin to bootstrap openmpi v5+"
-        },
         {
             "name": "migrate",
             "description": "Migrate estimates effective population sizes and past migration rates\nbetween n population assuming a migration matrix model with asymmetric\nmigration rates and different subpopulation sizes"
@@ -1237,28 +1218,44 @@
             "description": "An ab initio, DFT and semiempirical SCF-MO package Note: Orca is\nlicensed software. You will need to create an account on the Orca\nhomepage and download Orca yourself. Spack will search your current\ndirectory for the download file. Alternatively, add this file to a\nmirror so that Spack can find it. For instructions on how to set up a\nmirror, see https://spack.readthedocs.io/en/latest/mirrors.html"
         },
         {
-            "name": "cbtf-krell",
-            "description": "CBTF Krell project contains collector and runtime contributions to the\nCBTF project. These contributions include many performance data\ncollectors and support libraries as well as some example tools that\ndrive the data collection at HPC levels of scale."
-        },
-        {
             "name": "pythia8",
             "description": "The Pythia program is a standard tool for the generation of events in\nhigh-energy collisions, comprising a coherent set of physics models for\nthe evolution from a few-body hard process to a complex multiparticle\nfinal state."
-        },
-        {
-            "name": "everytrace-example",
-            "description": "Get stack trace EVERY time a program exits."
         },
         {
             "name": "gengeo",
             "description": "GenGeo is a library of tools for creating complex particle geometries\nfor use in ESyS-Particle simulations. GenGeo is a standalone application\nwith a Python API that creates geometry files suitable for importing\ninto ESyS-Particle simulations. The functionality of GenGeo far exceeds\nthe in-simulation geometry creation utilities provided by ESyS-Particle\nitself."
         },
         {
+            "name": "scale",
+            "description": "SCALE (Scalable Computing for Advanced Library and Environment) is a\nbasic library for weather and climate model of the earth and planets\naimed to be widely used in various models. The SCALE library is\ndeveloped with co-design by researchers of computational science and\ncomputer science."
+        },
+        {
+            "name": "everytrace-example",
+            "description": "Get stack trace EVERY time a program exits."
+        },
+        {
             "name": "converge",
             "description": "CONVERGE is a revolutionary computational fluid dynamics (CFD) program\nthat eliminates the grid generation bottleneck from the simulation\nprocess. CONVERGE was developed by engine simulation experts and is\nstraightforward to use for both engine and non-engine simulations.\nUnlike many CFD programs, CONVERGE automatically generates a perfectly\northogonal, structured grid at runtime based on simple, user-defined\ngrid control parameters. This grid generation method completely\neliminates the need to manually generate a grid. In addition, CONVERGE\noffers many other features to expedite the setup process and to ensure\nthat your simulations are as computationally efficient as possible."
         },
         {
+            "name": "flecsi",
+            "description": "FleCSI is a compile-time configurable framework designed to support\nmulti-physics application development. As such, FleCSI attempts to\nprovide a very general set of infrastructure design patterns that can be\nspecialized and extended to suit the needs of a broad variety of solver\nand data requirements. Current support includes multi-dimensional mesh\ntopology, mesh geometry, and mesh adjacency information, n-dimensional\nhashed-tree data structures, graph partitioning interfaces,and\ndependency closures."
+        },
+        {
+            "name": "flux-pmix",
+            "description": "A flux shell plugin to bootstrap openmpi v5+"
+        },
+        {
+            "name": "gptune",
+            "description": "GPTune is an autotuning framework that relies on multitask and transfer\nlearnings to help solve the underlying black-box optimization problem\nusing Bayesian optimization methodologies."
+        },
+        {
             "name": "charmpp",
             "description": "Charm++ is a parallel programming framework in C++ supported by an\nadaptive runtime system, which enhances user productivity and allows\nprograms to run portably from small multicore computers (your laptop) to\nthe largest supercomputers."
+        },
+        {
+            "name": "cbtf-krell",
+            "description": "CBTF Krell project contains collector and runtime contributions to the\nCBTF project. These contributions include many performance data\ncollectors and support libraries as well as some example tools that\ndrive the data collection at HPC levels of scale."
         },
         {
             "name": "erne",
@@ -1267,18 +1264,6 @@
         {
             "name": "modeltest-ng",
             "description": "Best-fit model selection"
-        },
-        {
-            "name": "gptune",
-            "description": "GPTune is an autotuning framework that relies on multitask and transfer\nlearnings to help solve the underlying black-box optimization problem\nusing Bayesian optimization methodologies."
-        },
-        {
-            "name": "scale",
-            "description": "SCALE (Scalable Computing for Advanced Library and Environment) is a\nbasic library for weather and climate model of the earth and planets\naimed to be widely used in various models. The SCALE library is\ndeveloped with co-design by researchers of computational science and\ncomputer science."
-        },
-        {
-            "name": "flecsi",
-            "description": "FleCSI is a compile-time configurable framework designed to support\nmulti-physics application development. As such, FleCSI attempts to\nprovide a very general set of infrastructure design patterns that can be\nspecialized and extended to suit the needs of a broad variety of solver\nand data requirements. Current support includes multi-dimensional mesh\ntopology, mesh geometry, and mesh adjacency information, n-dimensional\nhashed-tree data structures, graph partitioning interfaces,and\ndependency closures."
         }
     ]
 }
