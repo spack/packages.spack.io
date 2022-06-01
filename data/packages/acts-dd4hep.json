@@ -1,0 +1,55 @@
+{
+    "name": "acts-dd4hep",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "1.0.0",
+            "sha256": "991f996944c88efa837880f919239e50d12c5c9361e220bc9422438dd608308c"
+        }
+    ],
+    "latest_version": "1.0.0",
+    "build_system": "CMakePackage",
+    "conflicts": [
+        {
+            "name": "+ipo",
+            "spec": "^cmake@:3.8",
+            "description": "+ipo is not supported by CMake < 3.9"
+        }
+    ],
+    "variants": [
+        {
+            "name": "build_type",
+            "default": "RelWithDebInfo",
+            "description": "CMake build type"
+        },
+        {
+            "name": "ipo",
+            "default": false,
+            "description": "CMake interprocedural optimization"
+        }
+    ],
+    "homepage": "https://github.com/acts-project/acts-dd4hep",
+    "maintainers": [
+        "HadrianG2",
+        "wdconinc"
+    ],
+    "patches": [],
+    "resources": [],
+    "description": "Glue library to connect Acts to DD4hep\n",
+    "dependencies": [
+        {
+            "name": "cmake",
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
+        },
+        {
+            "name": "dd4hep",
+            "description": "DD4hep is a software framework for providing a complete solution for\nfull detector description (geometry, materials, visualization, readout,\nalignment, calibration, etc.) for the full experiment life cycle\n(detector concept development, detector optimization, construction,\noperation). It offers a consistent description through a single source\nof detector information for simulation, reconstruction, analysis, etc.\nIt distributed under the LGPLv3 License."
+        }
+    ],
+    "dependent_to": [
+        {
+            "name": "acts",
+            "description": "A Common Tracking Software (Acts) This project contains an experiment-\nindependent set of track reconstruction tools. The main philosophy is to\nprovide high-level track reconstruction modules that can be used for any\ntracking detector. The description of the tracking detector's geometry\nis optimized for efficient navigation and quick extrapolation of tracks.\nConverters for several common geometry description languages exist.\nHaving a highly performant, yet largely customizable implementation of\ntrack reconstruction algorithms was a primary objective for the design\nof this toolset. Additionally, the applicability to real-life HEP\nexperiments plays major role in the development process. Apart from\nalgorithmic code, this project also provides an event data model for the\ndescription of track parameters and measurements. Key features of this\nproject include: tracking geometry description which can be constructed\nfrom TGeo, DD4Hep, or GDML input, simple and efficient event data model,\nperformant and highly flexible algorithms for track propagation and\nfitting, basic seed finding algorithms."
+        }
+    ]
+}
