@@ -3,53 +3,37 @@
     "aliases": [],
     "versions": [
         {
+            "name": "22.3.0",
+            "sha256": "35020b8886c022ced9282b51b5a875b6d1ab0c387b31a065b84db7c33085ca79"
+        },
+        {
             "name": "22.1.0",
             "sha256": "a7c0192d35635f6fc1174be575cb7915e92e5dd629ee79fdaf0dcfa41a80afb5"
-        },
-        {
-            "name": "21.7b0",
-            "sha256": "c8373c6491de9362e39271630b65b964607bc5c79c83783547d76c839b3aa219",
-            "deprecated": true
-        },
-        {
-            "name": "21.6b0",
-            "sha256": "dc132348a88d103016726fe360cb9ede02cecf99b76e3660ce6c596be132ce04",
-            "deprecated": true
-        },
-        {
-            "name": "21.4b0",
-            "sha256": "915d916c48646dbe8040d5265cff7111421a60a3dfe7f7e07273176a57c24a34",
-            "deprecated": true
-        },
-        {
-            "name": "20.8b1",
-            "sha256": "1c02557aa099101b9d21496f8a914e9ed2222ef70336404eeeac8edba836fbea",
-            "deprecated": true
-        },
-        {
-            "name": "19.3b0",
-            "sha256": "68950ffd4d9169716bcb8719a56c07a2f4485354fec061cdd5910aa07369731c",
-            "deprecated": true
-        },
-        {
-            "name": "18.9b0",
-            "sha256": "e030a9a28f542debc08acceb273f228ac422798e5215ba2a791a6ddeaaca22a5",
-            "deprecated": true
         }
     ],
-    "latest_version": "22.1.0",
+    "latest_version": "22.3.0",
     "build_system": "PythonPackage",
     "conflicts": [],
     "variants": [
+        {
+            "name": "d",
+            "default": false,
+            "description": "enable blackd HTTP server"
+        },
         {
             "name": "colorama",
             "default": false,
             "description": "enable colorama support"
         },
         {
-            "name": "d",
+            "name": "uvloop",
             "default": false,
-            "description": "enable blackd HTTP server"
+            "description": "enable uvloop support"
+        },
+        {
+            "name": "jupyter",
+            "default": false,
+            "description": "enable Jupyter support"
         }
     ],
     "homepage": "https://github.com/psf/black",
@@ -85,20 +69,8 @@
             "description": "Python composable command line interface toolkit."
         },
         {
-            "name": "py-attrs",
-            "description": "Classes Without Boilerplate"
-        },
-        {
             "name": "py-platformdirs",
             "description": "A small Python module for determining appropriate platform-specific\ndirs, e.g. a \"user data dir\""
-        },
-        {
-            "name": "py-appdirs",
-            "description": "A small Python module for determining appropriate platform-specific\ndirs, e.g. a \"user data dir\"."
-        },
-        {
-            "name": "py-toml",
-            "description": "A Python library for parsing and creating TOML configuration files. For\nmore information on the TOML standard, see https://github.com/toml-\nlang/toml.git"
         },
         {
             "name": "py-tomli",
@@ -107,10 +79,6 @@
         {
             "name": "py-typed-ast",
             "description": "A fork of Python 2 and 3 ast modules with type comment support."
-        },
-        {
-            "name": "py-regex",
-            "description": "Alternative regular expression module, to replace re."
         },
         {
             "name": "py-pathspec",
@@ -137,8 +105,16 @@
             "description": "Supports both client and server side of HTTP protocol. Supports both\nclient and server Web-Sockets out-of-the-box and avoids Callbacks.\nProvides Web-server with middlewares and plugable routing."
         },
         {
-            "name": "py-aiohttp-cors",
-            "description": "aiohttp_cors library implements Cross Origin Resource Sharing (CORS)\nsupport for aiohttp asyncio-powered asynchronous HTTP server."
+            "name": "py-uvloop",
+            "description": "uvloop is a fast, drop-in replacement of the built-in asyncio event"
+        },
+        {
+            "name": "py-ipython",
+            "description": "IPython provides a rich toolkit to help you make the most out of using\nPython interactively."
+        },
+        {
+            "name": "py-tokenize-rt",
+            "description": "A wrapper around the stdlib `tokenize` which roundtrips."
         }
     ],
     "dependent_to": [
@@ -147,12 +123,12 @@
             "description": "Spack is a multi-platform package manager that builds and installs\nmultiple versions and configurations of software. It works on Linux,\nmacOS, and many supercomputers. Spack is non-destructive: installing a\nnew version of a package does not break existing installations, so many\nconfigurations of the same package can coexist."
         },
         {
-            "name": "py-setuptools-cpp",
-            "description": "Simplified packaging for pybind11-based C++ extensions"
-        },
-        {
             "name": "py-torchgeo",
             "description": "TorchGeo: datasets, transforms, and models for geospatial data. TorchGeo\nis a PyTorch domain library, similar to torchvision, that provides\ndatasets, transforms, samplers, and pre-trained models specific to\ngeospatial data."
+        },
+        {
+            "name": "py-setuptools-cpp",
+            "description": "Simplified packaging for pybind11-based C++ extensions"
         },
         {
             "name": "py-ipython",
