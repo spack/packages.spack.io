@@ -1,221 +1,224 @@
 {
-    "name": "armpl",
+    "name": "intel-oneapi-mkl",
     "aliases": [
         {
-            "name": "blas",
-            "alias_for": "{armpl}"
+            "name": "fftw-api@3",
+            "alias_for": "{intel-oneapi-mkl}"
+        },
+        {
+            "name": "scalapack",
+            "alias_for": "{intel-oneapi-mkl+cluster}"
+        },
+        {
+            "name": "mkl",
+            "alias_for": "{intel-oneapi-mkl}"
         },
         {
             "name": "lapack",
-            "alias_for": "{armpl}"
+            "alias_for": "{intel-oneapi-mkl}"
         },
         {
-            "name": "fftw-api@3",
-            "alias_for": "{armpl}"
+            "name": "blas",
+            "alias_for": "{intel-oneapi-mkl}"
         }
     ],
     "versions": [
         {
-            "name": "22.0.1_gcc-11.2",
-            "sha256": "13e9b98afc01c5444799c7f2ef84716f8a7be11df93b71fe9cfdc7fc6162f6d5",
-            "url": "https://developer.arm.com/-/media/Files/downloads/hpc/arm-performance-libraries/22-0-1/Ubuntu20.04/arm-performance-libraries_22.0.1_Ubuntu-20.04_gcc-11.2.tar"
+            "name": "2022.1.0",
+            "url": "https://registrationcenter-download.intel.com/akdlm/irc_nas/18721/l_onemkl_p_2022.1.0.223_offline.sh",
+            "sha256": "4b325a3c4c56e52f4ce6c8fbb55d7684adc16425000afc860464c0f29ea4563e",
+            "expand": false
         },
         {
-            "name": "22.0.1_gcc-10.2",
-            "sha256": "5da7450196d94b0aea613cf8e7c4083ae3eb2e905d049db3b300059a9fbf169b",
-            "url": "https://developer.arm.com/-/media/Files/downloads/hpc/arm-performance-libraries/22-0-1/Ubuntu20.04/arm-performance-libraries_22.0.1_Ubuntu-20.04_gcc-10.2.tar"
+            "name": "2022.0.2",
+            "url": "https://registrationcenter-download.intel.com/akdlm/irc_nas/18483/l_onemkl_p_2022.0.2.136_offline.sh",
+            "sha256": "134b748825a474acc862bb4a7fada99741a15b7627cfaa6ba0fb05ec0b902b5e",
+            "expand": false
         },
         {
-            "name": "22.0.1_gcc-9.3",
-            "sha256": "8e78bef6517f42efd878579aee2cae4e439e3cd5c8a28e3f3fa83254f7189a2f",
-            "url": "https://developer.arm.com/-/media/Files/downloads/hpc/arm-performance-libraries/22-0-1/Ubuntu20.04/arm-performance-libraries_22.0.1_Ubuntu-20.04_gcc-9.3.tar"
+            "name": "2022.0.1",
+            "url": "https://registrationcenter-download.intel.com/akdlm/irc_nas/18444/l_onemkl_p_2022.0.1.117_offline.sh",
+            "sha256": "22afafbe2f3762eca052ac21ec40b845ff2f3646077295c88c2f37f80a0cc160",
+            "expand": false
+        },
+        {
+            "name": "2021.4.0",
+            "url": "https://registrationcenter-download.intel.com/akdlm/irc_nas/18222/l_onemkl_p_2021.4.0.640_offline.sh",
+            "sha256": "9ad546f05a421b4f439e8557fd0f2d83d5e299b0d9bd84bdd86be6feba0c3915",
+            "expand": false
+        },
+        {
+            "name": "2021.3.0",
+            "url": "https://registrationcenter-download.intel.com/akdlm/irc_nas/17901/l_onemkl_p_2021.3.0.520_offline.sh",
+            "sha256": "a06e1cdbfd8becc63440b473b153659885f25a6e3c4dcb2907ad9cd0c3ad59ce",
+            "expand": false
+        },
+        {
+            "name": "2021.2.0",
+            "url": "https://registrationcenter-download.intel.com/akdlm/irc_nas/17757/l_onemkl_p_2021.2.0.296_offline.sh",
+            "sha256": "816e9df26ff331d6c0751b86ed5f7d243f9f172e76f14e83b32bf4d1d619dbae",
+            "expand": false
+        },
+        {
+            "name": "2021.1.1",
+            "url": "https://registrationcenter-download.intel.com/akdlm/irc_nas/17402/l_onemkl_p_2021.1.1.52_offline.sh",
+            "sha256": "818b6bd9a6c116f4578cda3151da0612ec9c3ce8b2c8a64730d625ce5b13cc0c",
+            "expand": false
         }
     ],
-    "latest_version": "22.0.1_gcc-11.2",
+    "latest_version": "2022.1.0",
     "build_system": "Package",
-    "conflicts": [
-        {
-            "name": "target=x86:",
-            "spec": "",
-            "description": "Only available on Aarch64"
-        },
-        {
-            "name": "target=ppc64:",
-            "spec": "",
-            "description": "Only available on Aarch64"
-        },
-        {
-            "name": "target=ppc64le:",
-            "spec": "",
-            "description": "Only available on Aarch64"
-        },
-        {
-            "name": "%gcc@:11.0",
-            "spec": "@22.0.1_gcc-11.2",
-            "description": "None"
-        },
-        {
-            "name": "%gcc@:10.0",
-            "spec": "@22.0.1_gcc-10.2",
-            "description": "None"
-        },
-        {
-            "name": "%gcc@:9.0",
-            "spec": "@22.0.1_gcc-9.3",
-            "description": "None"
-        },
-        {
-            "name": "%gcc@:8.0",
-            "spec": "@22.0.1_gcc-8.2",
-            "description": "None"
-        },
-        {
-            "name": "%gcc@:7.0",
-            "spec": "@22.0.1_gcc-7.5",
-            "description": "None"
-        }
-    ],
+    "conflicts": [],
     "variants": [
-        {
-            "name": "ilp64",
-            "default": false,
-            "description": "use ilp64 specific Armpl library"
-        },
         {
             "name": "shared",
             "default": true,
-            "description": "enable shared libs"
+            "description": "Builds shared library"
         },
         {
-            "name": "threads",
-            "default": "none",
-            "description": "Multithreading support"
+            "name": "ilp64",
+            "default": false,
+            "description": "Build with ILP64 support"
+        },
+        {
+            "name": "cluster",
+            "default": false,
+            "description": "Build with cluster support: scalapack, blacs, etc"
         }
     ],
-    "homepage": "https://developer.arm.com/tools-and-software/server-and-hpc/downloads/arm-performance-libraries",
+    "homepage": "https://software.intel.com/content/www/us/en/develop/tools/oneapi/components/onemkl.html",
     "maintainers": [
-        "annop-w"
+        "rscohn2"
     ],
     "patches": [],
     "resources": [],
-    "description": "Arm Performance Libraries provides optimized standard core math\nlibraries for high-performance computing applications on Arm processors.\n",
-    "dependencies": [],
+    "description": "Intel oneAPI MKL. LICENSE INFORMATION: By downloading and using this\nsoftware, you agree to the terms and conditions of the software license\nagreements at https://intel.ly/393CijO.\n",
+    "dependencies": [
+        {
+            "name": "intel-oneapi-tbb",
+            "description": "Intel oneAPI TBB. LICENSE INFORMATION: By downloading and using this\nsoftware, you agree to the terms and conditions of the software license\nagreements at https://intel.ly/393CijO."
+        },
+        {
+            "name": "mpi",
+            "description": "An open source Message Passing Interface implementation. The Open MPI\nProject is an open source Message Passing Interface implementation that\nis developed and maintained by a consortium of academic, research, and\nindustry partners. Open MPI is therefore able to combine the expertise,\ntechnologies, and resources from all across the High Performance\nComputing community in order to build the best MPI library available.\nOpen MPI offers advantages for system and software vendors, application\ndevelopers and computer science researchers."
+        }
+    ],
     "dependent_to": [
         {
-            "name": "tamaas",
-            "description": "Tamaas is a C++ library with a Python interface that efficiently solves\ncontact mechanics problems with periodic rough surfaces, plasticity,\nadhesion and friction."
-        },
-        {
-            "name": "rmgdft",
-            "description": "RMGDFT is a high performance real-space density functional code designed\nfor large scale electronic structure calculations."
-        },
-        {
-            "name": "gromacs-swaxs",
-            "description": "Modified Gromacs for small-angle scattering calculations\n(SAXS/WAXS/SANS)"
-        },
-        {
-            "name": "gromacs-chain-coordinate",
-            "description": "A modification of GROMACS that implements the \"chain coordinate\", a\nreaction coordinate for pore formation in membranes and stalk formation\nbetween membranes."
-        },
-        {
-            "name": "ctffind",
-            "description": "Fast and accurate defocus estimation from electron micrographs."
-        },
-        {
-            "name": "gromacs",
-            "description": "GROMACS (GROningen MAchine for Chemical Simulations) is a molecular\ndynamics package primarily designed for simulations of proteins, lipids\nand nucleic acids. It was originally developed in the Biophysical\nChemistry department of University of Groningen, and is now maintained\nby contributors in universities and research centers across the world.\nGROMACS is one of the fastest and most popular software packages\navailable and can run on CPUs as well as GPUs. It is free, open source\nreleased under the GNU General Public License. Starting from version\n4.6, GROMACS is released under the GNU Lesser General Public License."
-        },
-        {
-            "name": "ngspice",
-            "description": "ngspice is the open source spice simulator for electric and electronic\ncircuits."
-        },
-        {
-            "name": "itk",
-            "description": "The Insight Toolkit (ITK) is an open-source, cross-platform toolkit for\nN-dimensional scientific image processing, segmentation, and\nregistration. The Insight Toolkit (ITK) is an open-source, cross-\nplatform toolkit for N-dimensional scientific image processing,\nsegmentation, and registration. Segmentation is the process of\nidentifying and classifying data found in a digitally sampled\nrepresentation. Typically the sampled representation is an image\nacquired from such medical instrumentation as CT or MRI scanners.\nRegistration is the task of aligning or developing correspondences\nbetween data. For example, in the medical environment, a CT scan may be\naligned with a MRI scan in order to combine the information contained in\nboth."
-        },
-        {
-            "name": "sirius",
-            "description": "Domain specific library for electronic structure calculations"
-        },
-        {
-            "name": "votca",
-            "description": "VOTCA is a software package which focuses on the analysis of molecular\ndynamics data, the development of systematic coarse-graining techniques\nas well as methods used for simulating microscopic charge (and exciton)\ntransport in disordered semiconductors."
-        },
-        {
-            "name": "hpcc",
-            "description": "HPC Challenge is a benchmark suite that measures a range memory access\npatterns. The HPC Challenge benchmark consists of basically 7 tests: 1)\nHPL - the Linpack TPP benchmark which measures the floating point rate\nof execution for solving a linear system of equations. 2) DGEMM -\nmeasures the floating point rate of execution of double precision real\nmatrix-matrix multiplication. 3) STREAM - a simple synthetic benchmark\nprogram that measures sustainable memory bandwidth (in GB/s) and the\ncorresponding computation rate for simple vector kernel. 4) PTRANS\n(parallel matrix transpose) - exercises the communications where pairs\nof processors communicate with each other simultaneously. It is a useful\ntest of the total communications capacity of the network. 5)\nRandomAccess - measures the rate of integer random updates of memory\n(GUPS). 6) FFT - measures the floating point rate of execution of double\nprecision complex one-dimensional Discrete Fourier Transform (DFT). 7)\nCommunication bandwidth and latency - a set of tests to measure latency\nand bandwidth of a number of simultaneous communication patterns; based\non b_eff (effective bandwidth benchmark)."
-        },
-        {
-            "name": "berkeleygw",
-            "description": "BerkeleyGW is a many-body perturbation theory code for excited states,\nusing the GW method and the GW plus Bethe-Salpeter equation (GW-BSE)\nmethod to solve respectively for quasiparticle excitations and optical\nproperties of materials."
-        },
-        {
-            "name": "octopus",
-            "description": "A real-space finite-difference (time-dependent) density-functional\ntheory code."
-        },
-        {
-            "name": "fleur",
-            "description": "FLEUR (Full-potential Linearised augmented plane wave in EURope) is a\ncode family for calculating groundstate as well as excited-state\nproperties of solids within the context of density functional theory\n(DFT)."
-        },
-        {
-            "name": "nwchem",
-            "description": "High-performance computational chemistry software"
-        },
-        {
-            "name": "votca-tools",
-            "description": "Versatile Object-oriented Toolkit for Coarse-graining Applications\n(VOTCA) is a package intended to reduce the amount of routine work when\ndoing systematic coarse-graining of various systems. The core is written\nin C++. This package contains the basic tools library of VOTCA."
-        },
-        {
-            "name": "vasp",
-            "description": "The Vienna Ab initio Simulation Package (VASP) is a computer program\nfor atomic scale materials modelling, e.g. electronic structure\ncalculations and quantum-mechanical molecular dynamics, from first\nprinciples."
-        },
-        {
-            "name": "qmcpack",
-            "description": "QMCPACK, is a modern high-performance open-source Quantum Monte Carlo\n(QMC) simulation code."
+            "name": "lammps",
+            "description": "LAMMPS stands for Large-scale Atomic/Molecular Massively Parallel\nSimulator. This package uses patch releases, not stable release. See\nhttps://github.com/spack/spack/pull/5342 for a detailed discussion."
         },
         {
             "name": "kadath",
             "description": "KADATH SPECTRAL SOLVER. The Frankfurt University/Kadath (FUKA) Initial\nData solver branch is a collection of ID solvers aimed at delivering\nconsistent initial data (ID) solutions to the eXtended Conformal Thin-\nSandwich (XCTS) formulation of Einstein's field equations for a variety\nof compact object configurations to include extremely compact,\nasymmetric, and mixed spin binaries."
         },
         {
-            "name": "openfoam",
-            "description": "OpenFOAM is a GPL-opensource C++ CFD-toolbox. This offering is supported\nby OpenCFD Ltd, producer and distributor of the OpenFOAM software via\nwww.openfoam.com, and owner of the OPENFOAM trademark. OpenCFD Ltd has\nbeen developing and releasing OpenFOAM since its debut in 2004."
-        },
-        {
-            "name": "lammps",
-            "description": "LAMMPS stands for Large-scale Atomic/Molecular Massively Parallel\nSimulator. This package uses patch releases, not stable release. See\nhttps://github.com/spack/spack/pull/5342 for a detailed discussion."
-        },
-        {
-            "name": "arrayfire",
-            "description": "ArrayFire is a high performance software library for parallel computing\nwith an easy-to-use API. Its array based function set makes parallel\nprogramming more accessible."
-        },
-        {
             "name": "cdo",
             "description": "CDO is a collection of command line Operators to manipulate and analyse\nClimate and NWP model Data."
         },
         {
-            "name": "libvdwxc",
-            "description": "Portable C library of density functionals with van der Waals\ninteractions for density functional theory"
+            "name": "gromacs-swaxs",
+            "description": "Modified Gromacs for small-angle scattering calculations\n(SAXS/WAXS/SANS)"
         },
         {
-            "name": "spfft",
-            "description": "Sparse 3D FFT library with MPI, OpenMP, CUDA and ROCm support."
+            "name": "openfoam",
+            "description": "OpenFOAM is a GPL-opensource C++ CFD-toolbox. This offering is supported\nby OpenCFD Ltd, producer and distributor of the OpenFOAM software via\nwww.openfoam.com, and owner of the OPENFOAM trademark. OpenCFD Ltd has\nbeen developing and releasing OpenFOAM since its debut in 2004."
         },
         {
-            "name": "abinit",
-            "description": "ABINIT is a package whose main program allows one to find the total\nenergy, charge density and electronic structure of systems made of\nelectrons and nuclei (molecules and periodic solids) within Density\nFunctional Theory (DFT), using pseudopotentials and a planewave or\nwavelet basis. ABINIT also includes options to optimize the geometry\naccording to the DFT forces and stresses, or to perform molecular\ndynamics simulations using these forces, or to generate dynamical\nmatrices, Born effective charges, and dielectric tensors, based on\nDensity-Functional Perturbation Theory, and many more properties.\nExcited states can be computed within the Many-Body Perturbation Theory\n(the GW approximation and the Bethe-Salpeter equation), and Time-\nDependent Density Functional Theory (for molecules). In addition to the\nmain ABINIT code, different utility programs are provided."
-        },
-        {
-            "name": "cp2k",
-            "description": "CP2K is a quantum chemistry and solid state physics software package\nthat can perform atomistic simulations of solid state, liquid,\nmolecular, periodic, material, crystal, and biological systems"
+            "name": "votca-tools",
+            "description": "Versatile Object-oriented Toolkit for Coarse-graining Applications\n(VOTCA) is a package intended to reduce the amount of routine work when\ndoing systematic coarse-graining of various systems. The core is written\nin C++. This package contains the basic tools library of VOTCA."
         },
         {
             "name": "speexdsp",
             "description": "SpeexDSP is a patent-free, Open Source/Free Software DSP library."
         },
         {
+            "name": "hpcc",
+            "description": "HPC Challenge is a benchmark suite that measures a range memory access\npatterns. The HPC Challenge benchmark consists of basically 7 tests: 1)\nHPL - the Linpack TPP benchmark which measures the floating point rate\nof execution for solving a linear system of equations. 2) DGEMM -\nmeasures the floating point rate of execution of double precision real\nmatrix-matrix multiplication. 3) STREAM - a simple synthetic benchmark\nprogram that measures sustainable memory bandwidth (in GB/s) and the\ncorresponding computation rate for simple vector kernel. 4) PTRANS\n(parallel matrix transpose) - exercises the communications where pairs\nof processors communicate with each other simultaneously. It is a useful\ntest of the total communications capacity of the network. 5)\nRandomAccess - measures the rate of integer random updates of memory\n(GUPS). 6) FFT - measures the floating point rate of execution of double\nprecision complex one-dimensional Discrete Fourier Transform (DFT). 7)\nCommunication bandwidth and latency - a set of tests to measure latency\nand bandwidth of a number of simultaneous communication patterns; based\non b_eff (effective bandwidth benchmark)."
+        },
+        {
+            "name": "tamaas",
+            "description": "Tamaas is a C++ library with a Python interface that efficiently solves\ncontact mechanics problems with periodic rough surfaces, plasticity,\nadhesion and friction."
+        },
+        {
+            "name": "abinit",
+            "description": "ABINIT is a package whose main program allows one to find the total\nenergy, charge density and electronic structure of systems made of\nelectrons and nuclei (molecules and periodic solids) within Density\nFunctional Theory (DFT), using pseudopotentials and a planewave or\nwavelet basis. ABINIT also includes options to optimize the geometry\naccording to the DFT forces and stresses, or to perform molecular\ndynamics simulations using these forces, or to generate dynamical\nmatrices, Born effective charges, and dielectric tensors, based on\nDensity-Functional Perturbation Theory, and many more properties.\nExcited states can be computed within the Many-Body Perturbation Theory\n(the GW approximation and the Bethe-Salpeter equation), and Time-\nDependent Density Functional Theory (for molecules). In addition to the\nmain ABINIT code, different utility programs are provided."
+        },
+        {
+            "name": "gromacs-chain-coordinate",
+            "description": "A modification of GROMACS that implements the \"chain coordinate\", a\nreaction coordinate for pore formation in membranes and stalk formation\nbetween membranes."
+        },
+        {
+            "name": "cp2k",
+            "description": "CP2K is a quantum chemistry and solid state physics software package\nthat can perform atomistic simulations of solid state, liquid,\nmolecular, periodic, material, crystal, and biological systems"
+        },
+        {
+            "name": "vasp",
+            "description": "The Vienna Ab initio Simulation Package (VASP) is a computer program\nfor atomic scale materials modelling, e.g. electronic structure\ncalculations and quantum-mechanical molecular dynamics, from first\nprinciples."
+        },
+        {
+            "name": "nwchem",
+            "description": "High-performance computational chemistry software"
+        },
+        {
+            "name": "itk",
+            "description": "The Insight Toolkit (ITK) is an open-source, cross-platform toolkit for\nN-dimensional scientific image processing, segmentation, and\nregistration. The Insight Toolkit (ITK) is an open-source, cross-\nplatform toolkit for N-dimensional scientific image processing,\nsegmentation, and registration. Segmentation is the process of\nidentifying and classifying data found in a digitally sampled\nrepresentation. Typically the sampled representation is an image\nacquired from such medical instrumentation as CT or MRI scanners.\nRegistration is the task of aligning or developing correspondences\nbetween data. For example, in the medical environment, a CT scan may be\naligned with a MRI scan in order to combine the information contained in\nboth."
+        },
+        {
+            "name": "votca",
+            "description": "VOTCA is a software package which focuses on the analysis of molecular\ndynamics data, the development of systematic coarse-graining techniques\nas well as methods used for simulating microscopic charge (and exciton)\ntransport in disordered semiconductors."
+        },
+        {
+            "name": "spfft",
+            "description": "Sparse 3D FFT library with MPI, OpenMP, CUDA and ROCm support."
+        },
+        {
+            "name": "rmgdft",
+            "description": "RMGDFT is a high performance real-space density functional code designed\nfor large scale electronic structure calculations."
+        },
+        {
+            "name": "arrayfire",
+            "description": "ArrayFire is a high performance software library for parallel computing\nwith an easy-to-use API. Its array based function set makes parallel\nprogramming more accessible."
+        },
+        {
+            "name": "octopus",
+            "description": "A real-space finite-difference (time-dependent) density-functional\ntheory code."
+        },
+        {
+            "name": "libvdwxc",
+            "description": "Portable C library of density functionals with van der Waals\ninteractions for density functional theory"
+        },
+        {
+            "name": "ngspice",
+            "description": "ngspice is the open source spice simulator for electric and electronic\ncircuits."
+        },
+        {
             "name": "quantum-espresso",
             "description": "Quantum ESPRESSO is an integrated suite of Open-Source computer codes\nfor electronic-structure calculations and materials modeling at the\nnanoscale. It is based on density-functional theory, plane waves, and\npseudopotentials."
+        },
+        {
+            "name": "berkeleygw",
+            "description": "BerkeleyGW is a many-body perturbation theory code for excited states,\nusing the GW method and the GW plus Bethe-Salpeter equation (GW-BSE)\nmethod to solve respectively for quasiparticle excitations and optical\nproperties of materials."
+        },
+        {
+            "name": "gromacs",
+            "description": "GROMACS (GROningen MAchine for Chemical Simulations) is a molecular\ndynamics package primarily designed for simulations of proteins, lipids\nand nucleic acids. It was originally developed in the Biophysical\nChemistry department of University of Groningen, and is now maintained\nby contributors in universities and research centers across the world.\nGROMACS is one of the fastest and most popular software packages\navailable and can run on CPUs as well as GPUs. It is free, open source\nreleased under the GNU General Public License. Starting from version\n4.6, GROMACS is released under the GNU Lesser General Public License."
+        },
+        {
+            "name": "fleur",
+            "description": "FLEUR (Full-potential Linearised augmented plane wave in EURope) is a\ncode family for calculating groundstate as well as excited-state\nproperties of solids within the context of density functional theory\n(DFT)."
+        },
+        {
+            "name": "ctffind",
+            "description": "Fast and accurate defocus estimation from electron micrographs."
+        },
+        {
+            "name": "sirius",
+            "description": "Domain specific library for electronic structure calculations"
+        },
+        {
+            "name": "qmcpack",
+            "description": "QMCPACK, is a modern high-performance open-source Quantum Monte Carlo\n(QMC) simulation code."
         }
     ]
 }
