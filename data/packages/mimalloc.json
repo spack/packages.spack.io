@@ -42,6 +42,86 @@
             "name": "ipo",
             "default": false,
             "description": "CMake interprocedural optimization"
+        },
+        {
+            "name": "libs",
+            "default": "shared,static,object",
+            "description": "Build shared, static, or object libraries"
+        },
+        {
+            "name": "secure",
+            "default": false,
+            "description": "Use full security mitigations (like guard pages, allocation randomization, double-free mitigation, and free-list corruption detection)"
+        },
+        {
+            "name": "debug_full",
+            "default": false,
+            "description": "Use full internal heap invariant checking in DEBUG mode (expensive)"
+        },
+        {
+            "name": "padding",
+            "default": true,
+            "description": "Enable padding to detect heap block overflow (used only in DEBUG mode)"
+        },
+        {
+            "name": "override",
+            "default": true,
+            "description": "Override the standard malloc interface (e.g. define entry points for malloc() etc)"
+        },
+        {
+            "name": "xmalloc",
+            "default": false,
+            "description": "Enable abort() call on memory allocation failure by default"
+        },
+        {
+            "name": "show_errors",
+            "default": false,
+            "description": "Show error and warning messages by default (only enabled by default in DEBUG mode)"
+        },
+        {
+            "name": "use_cxx",
+            "default": false,
+            "description": "Use the C++ compiler to compile the library (instead of the C compiler)"
+        },
+        {
+            "name": "see_asm",
+            "default": false,
+            "description": "Generate assembly files"
+        },
+        {
+            "name": "osx_interpose",
+            "default": true,
+            "description": "Use interpose to override standard malloc on macOS"
+        },
+        {
+            "name": "osx_zone",
+            "default": true,
+            "description": "Use malloc zone to override standard malloc on macOS"
+        },
+        {
+            "name": "local_dynamic_tls",
+            "default": false,
+            "description": "Use slightly slower, dlopen-compatible TLS mechanism (Unix)"
+        },
+        {
+            "name": "build_tests",
+            "default": false,
+            "description": "Build test executables"
+        },
+        {
+            "name": "debug_tsan",
+            "default": false,
+            "description": "Build with thread sanitizer (needs clang)"
+        },
+        {
+            "name": "debug_ubsan",
+            "default": false,
+            "description": "Build with undefined-behavior sanitizer (needs clang++)"
+        },
+        {
+            "name": "skip_collect_on_exit",
+            "default": false,
+            "description": "Skip collecting memory on program exit"
         }
     ],
     "homepage": "https://microsoft.github.io/mimalloc",
@@ -59,12 +139,12 @@
     ],
     "dependent_to": [
         {
-            "name": "hpx",
-            "description": "C++ runtime system for parallel and distributed applications."
-        },
-        {
             "name": "pika",
             "description": "C++ runtime system for parallellism and concurrency."
+        },
+        {
+            "name": "hpx",
+            "description": "C++ runtime system for parallel and distributed applications."
         }
     ]
 }
