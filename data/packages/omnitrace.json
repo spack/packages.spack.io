@@ -1,0 +1,141 @@
+{
+    "name": "omnitrace",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "main",
+            "branch": "main",
+            "submodules": true
+        },
+        {
+            "name": "1.2.0",
+            "commit": "f82845388aab108ed1d1fc404f433a0def391bb3",
+            "submodules": true
+        }
+    ],
+    "latest_version": "1.2.0",
+    "build_system": "CMakePackage",
+    "conflicts": [
+        {
+            "name": "+ipo",
+            "spec": "^cmake@:3.8",
+            "description": "+ipo is not supported by CMake < 3.9"
+        }
+    ],
+    "variants": [
+        {
+            "name": "build_type",
+            "default": "Release",
+            "description": "CMake build type"
+        },
+        {
+            "name": "ipo",
+            "default": false,
+            "description": "CMake interprocedural optimization"
+        },
+        {
+            "name": "rocm",
+            "default": true,
+            "description": "Enable ROCm API and kernel tracing support"
+        },
+        {
+            "name": "strip",
+            "default": false,
+            "description": "Faster binary instrumentation, worse debugging"
+        },
+        {
+            "name": "python",
+            "default": false,
+            "description": "Enable Python support"
+        },
+        {
+            "name": "papi",
+            "default": true,
+            "description": "Enable PAPI support"
+        },
+        {
+            "name": "ompt",
+            "default": true,
+            "description": "Enable OpenMP Tools support"
+        },
+        {
+            "name": "tau",
+            "default": false,
+            "description": "Enable TAU support"
+        },
+        {
+            "name": "caliper",
+            "default": false,
+            "description": "Enable Caliper support"
+        },
+        {
+            "name": "perfetto_tools",
+            "default": false,
+            "description": "Install perfetto tools (e.g. traced, perfetto)"
+        },
+        {
+            "name": "mpi",
+            "default": false,
+            "description": "Enable intercepting MPI functions and aggregating output during finalization (requires target application to use same MPI installation)"
+        },
+        {
+            "name": "mpi_headers",
+            "default": true,
+            "description": "Enable intercepting MPI functions but w/o support for aggregating output (target application can use any MPI installation)"
+        }
+    ],
+    "homepage": "https://amdresearch.github.io/omnitrace",
+    "maintainers": [
+        "jrmadsen"
+    ],
+    "patches": [],
+    "resources": [],
+    "description": "Application Profiling, Tracing, and Analysis\n",
+    "dependencies": [
+        {
+            "name": "cmake",
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
+        },
+        {
+            "name": "python",
+            "description": "The Python programming language."
+        },
+        {
+            "name": "dyninst",
+            "description": "API for dynamic binary instrumentation. Modify programs while they are\nexecuting without recompiling, re-linking, or re-executing."
+        },
+        {
+            "name": "libunwind",
+            "description": "A portable and efficient C programming interface (API) to determine the\ncall-chain of a program."
+        },
+        {
+            "name": "hip",
+            "description": "HIP is a C++ Runtime API and Kernel Language that allows developers to\ncreate portable applications for AMD and NVIDIA GPUs from single source\ncode."
+        },
+        {
+            "name": "rocm-smi-lib",
+            "description": "It is a C library for Linux that provides a user space interface for\napplications to monitor and control GPU applications."
+        },
+        {
+            "name": "roctracer-dev",
+            "description": "ROC-tracer library: Runtimes Generic Callback/Activity APIs. The goal of\nthe implementation is to provide a generic independent from specific\nruntime profiler to trace API and asyncronous activity."
+        },
+        {
+            "name": "papi",
+            "description": "PAPI provides the tool designer and application engineer with a\nconsistent interface and methodology for use of the performance counter\nhardware found in most major microprocessors. PAPI enables software\nengineers to see, in near real time, the relation between software\nperformance and processor events. In addition Component PAPI provides\naccess to a collection of components that expose performance measurement\nopportunities across the hardware and software stack."
+        },
+        {
+            "name": "mpi",
+            "description": "HPE MPI is HPE's implementation of the Message Passing Interface (MPI)\nstandard. Note: HPE MPI is proprietry software. Spack will search your\ncurrent directory for the download file. Alternatively, add this file to\na mirror so that Spack can find it. For instructions on how to set up a\nmirror, see https://spack.readthedocs.io/en/latest/mirrors.html"
+        },
+        {
+            "name": "tau",
+            "description": "A portable profiling and tracing toolkit for performance analysis of\nparallel programs written in Fortran, C, C++, UPC, Java, Python."
+        },
+        {
+            "name": "caliper",
+            "description": "Caliper is a program instrumentation and performance measurement\nframework. It is designed as a performance analysis toolbox in a\nlibrary, allowing one to bake performance analysis capabilities directly\ninto applications and activate them at runtime."
+        }
+    ],
+    "dependent_to": []
+}
