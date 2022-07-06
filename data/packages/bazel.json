@@ -3,6 +3,38 @@
     "aliases": [],
     "versions": [
         {
+            "name": "5.2.0",
+            "sha256": "820a94dbb14071ed6d8c266cf0c080ecb265a5eea65307579489c4662c2d582a"
+        },
+        {
+            "name": "5.1.1",
+            "sha256": "7f5d3bc1d344692b2400f3765fd4b5c0b636eb4e7a8a7b17923095c7b56a4f78"
+        },
+        {
+            "name": "5.1.0",
+            "sha256": "4de301f509fc6d0cbc697b2017384ecdc94df8f36245bbcbedc7ea6780acc9f5"
+        },
+        {
+            "name": "5.0.0",
+            "sha256": "072dd62d237dbc11e0bac02e118d8c2db4d0ba3ba09f1a0eb1e2a460fb8419db"
+        },
+        {
+            "name": "4.2.2",
+            "sha256": "9981d0d53a356c4e87962847750a97c9e8054e460854748006c80f0d7e2b2d33"
+        },
+        {
+            "name": "4.2.1",
+            "sha256": "12ea7aa11e2bdb12de1dceb9939a22e96f5a480437cb17c123379d8e0fdf5e82"
+        },
+        {
+            "name": "4.2.0",
+            "sha256": "74814b63920aaee47dbbbee7082e5c4317e4eebaf07e03c5fb5626e1716f1034"
+        },
+        {
+            "name": "4.1.0",
+            "sha256": "f377d755c96a50f6bd2f423562598d822f43356783330a0b780ad442864d6eeb"
+        },
+        {
             "name": "4.0.0",
             "sha256": "d350f80e70654932db252db380d2ec0144a00e86f8d9f2b4c799ffdb48e9cdd1"
         },
@@ -359,13 +391,18 @@
             "sha256": "c6ae19610b936a0aa940b44a3626d6e660fc457a8187d295cdf0b21169453d20"
         }
     ],
-    "latest_version": "4.0.0",
+    "latest_version": "5.2.0",
     "build_system": "Package",
     "conflicts": [
         {
             "name": "%fj",
             "spec": "@:0.24.1",
             "description": "Fujitsu Compiler cannot build 0.24.1 or less, please use a newer release."
+        },
+        {
+            "name": "platform=darwin target=aarch64:",
+            "spec": "@:4.0",
+            "description": "None"
         }
     ],
     "variants": [
@@ -378,14 +415,6 @@
     "homepage": "https://bazel.build/",
     "maintainers": [],
     "patches": [
-        {
-            "owner": "builtin.bazel",
-            "sha256": "e6fc35c52c4d58860045194d0afae8278d52f6488b17340b62416af88a9c4e96",
-            "level": 1,
-            "working_dir": ".",
-            "relative_path": "linux_ppc-0.29.1.patch",
-            "version": "@0.29.1"
-        },
         {
             "owner": "builtin.bazel",
             "sha256": "3e6448a0dde42bbd72568d29c5646d370dd62ca300cdd10a630908c086844167",
@@ -524,26 +553,10 @@
         },
         {
             "owner": "builtin.bazel",
-            "sha256": "aeb0cb4b8db3d9f5bc7b87329b8069c9d16b77cab748b9971bf4804ba2bc0f6c",
-            "level": 1,
-            "working_dir": ".",
-            "relative_path": "patch_for_fcc.patch",
-            "version": "@0.29.1:%fj"
-        },
-        {
-            "owner": "builtin.bazel",
-            "sha256": "d12f2488ed00fa765d476447fb77bd30a1a08e097732e679934edee9ac4c9bd5",
-            "level": 1,
-            "working_dir": ".",
-            "relative_path": "patch_for_fcc2.patch",
-            "version": "@0.25:%fj"
-        },
-        {
-            "owner": "builtin.bazel",
             "sha256": "604423c717a5e58cdd76ba8a9ce1d313faf13885be838f4e33dd37845b3940cb",
             "level": 1,
             "working_dir": ".",
-            "relative_path": "disabledepcheck.patch",
+            "relative_path": "cppcompileaction-0.3.2.patch",
             "version": "@0.3.2:+nodepfail"
         },
         {
@@ -551,8 +564,56 @@
             "sha256": "f50a5d9bf1fc6d41c005c83ff272b1ef630b2623903e91cadeefb6a11aa02ea4",
             "level": 1,
             "working_dir": ".",
-            "relative_path": "disabledepcheck_old.patch",
+            "relative_path": "cppcompileaction-0.3.0.patch",
             "version": "@0.3.0:0.3.1+nodepfail"
+        },
+        {
+            "owner": "builtin.bazel",
+            "sha256": "e6fc35c52c4d58860045194d0afae8278d52f6488b17340b62416af88a9c4e96",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "build-0.29.1.patch",
+            "version": "@0.29.1"
+        },
+        {
+            "owner": "builtin.bazel",
+            "sha256": "1745411998c9c7fe728c0e7ad7b43ff468c11921da5f61f1623176dd17a7bbef",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "blaze_util_posix-0.29.1.patch",
+            "version": "@0.29.1:%fj"
+        },
+        {
+            "owner": "builtin.bazel",
+            "sha256": "49729fd5c6fd7d3782f6cffaa797582bb9738bbbfc97bb8d4e2807298ea2024a",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "unix_cc_configure_fj-5.2.patch",
+            "version": "@5.2:%fj"
+        },
+        {
+            "owner": "builtin.bazel",
+            "sha256": "5d19055e321c3e9a9d53edd2379f2778f70ef48c28e45d744204bca91e613a91",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "unix_cc_configure_fj-5.0.patch",
+            "version": "@5.0:5.1%fj"
+        },
+        {
+            "owner": "builtin.bazel",
+            "sha256": "047043a29d8b1a094337a52d0066b10aa6c306c9ca80094ac81a6c398343df67",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "unix_cc_configure_fj-0.29.1.patch",
+            "version": "@0.29.1:4%fj"
+        },
+        {
+            "owner": "builtin.bazel",
+            "sha256": "d12f2488ed00fa765d476447fb77bd30a1a08e097732e679934edee9ac4c9bd5",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "bazelruleclassprovider_fj-0.25.patch",
+            "version": "@0.25:%fj"
         }
     ],
     "resources": [],
@@ -560,7 +621,7 @@
     "dependencies": [
         {
             "name": "java",
-            "description": "The Java Development Kit (JDK) released by Oracle Corporation in the\nform of a binary product aimed at Java developers. Includes a complete\nJRE plus tools for developing, debugging, and monitoring Java\napplications."
+            "description": "The free and opensource java implementation"
         },
         {
             "name": "python",
@@ -573,8 +634,28 @@
     ],
     "dependent_to": [
         {
+            "name": "py-ray",
+            "description": "A system for parallel and distributed Python that unifies the ML\necosystem."
+        },
+        {
+            "name": "py-tensorflow-estimator",
+            "description": "TensorFlow Estimator is a high-level TensorFlow API that greatly\nsimplifies machine learning programming."
+        },
+        {
+            "name": "py-dm-tree",
+            "description": "tree is a library for working with nested data structures. In a way,\ntree generalizes the builtin map() function which only supports flat\nsequences, and allows to apply a function to each leaf preserving the\noverall structure."
+        },
+        {
+            "name": "py-tensorflow-metadata",
+            "description": "Library and standards for schema and statistics. TensorFlow Metadata\nprovides standard representations for metadata that are useful when\ntraining machine learning models with TensorFlow."
+        },
+        {
             "name": "py-tensorboard",
             "description": "TensorBoard is a suite of web applications for inspecting and\nunderstanding your TensorFlow runs and graphs."
+        },
+        {
+            "name": "py-tensorflow",
+            "description": "TensorFlow is an Open Source Software Library for Machine Intelligence"
         },
         {
             "name": "py-keras",
@@ -585,28 +666,8 @@
             "description": "TensorFlow Hub is a library to foster the publication, discovery, and\nconsumption of reusable parts of machine learning models."
         },
         {
-            "name": "py-ray",
-            "description": "A system for parallel and distributed Python that unifies the ML\necosystem."
-        },
-        {
-            "name": "py-tensorflow-metadata",
-            "description": "Library and standards for schema and statistics. TensorFlow Metadata\nprovides standard representations for metadata that are useful when\ntraining machine learning models with TensorFlow."
-        },
-        {
-            "name": "py-tensorflow-estimator",
-            "description": "TensorFlow Estimator is a high-level TensorFlow API that greatly\nsimplifies machine learning programming."
-        },
-        {
-            "name": "py-tensorflow",
-            "description": "TensorFlow is an Open Source Software Library for Machine Intelligence"
-        },
-        {
             "name": "py-tensorflow-probability",
             "description": "TensorFlow Probability (TFP) is a Python library built on TensorFlow\nthat makes it easy to combine probabilistic models and deep learning on\nmodern hardware (TPU, GPU). It's for data scientists, statisticians, ML\nresearchers, and practitioners who want to encode domain knowledge to\nunderstand data and make predictions."
-        },
-        {
-            "name": "py-dm-tree",
-            "description": "tree is a library for working with nested data structures. In a way,\ntree generalizes the builtin map() function which only supports flat\nsequences, and allows to apply a function to each leaf preserving the\noverall structure."
         }
     ]
 }
