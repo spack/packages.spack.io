@@ -56,10 +56,6 @@
             "sha256": "4c4a6fb8a8396059241c2e674b85b351c26a5d678274007f076957afa1cc9ddf"
         },
         {
-            "name": "10.4.0",
-            "sha256": "c9297d5bcd7cb43f3dfc2fed5389e948c9312fd962ef6a4ce455cff963ebe4f1"
-        },
-        {
             "name": "10.3.0",
             "sha256": "64f404c1a650f27fc33da242e1f2df54952e3963a49e06e73f6940f3223ac344"
         },
@@ -70,10 +66,6 @@
         {
             "name": "10.1.0",
             "sha256": "b6898a23844b656f1b68691c5c012036c2e694ac4b53a8918d4712ad876e7ea2"
-        },
-        {
-            "name": "9.5.0",
-            "sha256": "27769f64ef1d4cd5e2be8682c0c93f9887983e6cfd1a927ce5a0a2915a95cf8f"
         },
         {
             "name": "9.4.0",
@@ -307,13 +299,13 @@
             "description": "None"
         },
         {
-            "name": "@:11.2,11.3.1:",
+            "name": "@:11",
             "spec": "arch=darwin-None-aarch64:",
-            "description": "Only GCC 11.3.0 supports macOS M1 (aarch64)"
+            "description": "Only GCC 12 and newer support macOS M1 (aarch64)"
         },
         {
             "name": "~binutils",
-            "spec": "@7: arch=linux-rhel6-None",
+            "spec": "@7: arch=darwin-rhel6-None",
             "description": "New GCC cannot use system assembler on RHEL6"
         },
         {
@@ -375,6 +367,86 @@
         "alalazo"
     ],
     "patches": [
+        {
+            "owner": "builtin.gcc",
+            "sha256": "f7772a6ba73f44a6b378e4fe3548e0284f48ae2d02c701df1be93780c1607074",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "darwin/apfs.patch",
+            "version": "@5.5.0,6.1:6.4,7.1:7.3"
+        },
+        {
+            "owner": "builtin.gcc",
+            "sha256": "399e55a071852ebe5f2a56dd603431cc6c78f212d6a02955ad077a44b3530b20",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "darwin/headers-10.13-fix.patch",
+            "version": "@5.5.0"
+        },
+        {
+            "owner": "builtin.gcc",
+            "sha256": "33ee92bf678586357ee8ab9d2faddf807e671ad37b97afdd102d5d153d03ca84",
+            "level": 1,
+            "working_dir": ".",
+            "url": "https://raw.githubusercontent.com/Homebrew/formula-patches/b8b8e65e/gcc/8.3.0-xcode-bug-_Atomic-fix.patch",
+            "version": "@6:8.3"
+        },
+        {
+            "owner": "builtin.gcc",
+            "sha256": "0b8d14a7f3c6a2f0d2498526e86e088926671b5da50a554ffa6b7f73ac4f132b",
+            "level": 1,
+            "working_dir": ".",
+            "url": "https://raw.githubusercontent.com/Homebrew/formula-patches/b8b8e65e/gcc/9.2.0-catalina.patch",
+            "version": "@9.2.0"
+        },
+        {
+            "owner": "builtin.gcc",
+            "sha256": "c0605179a856ca046d093c13cea4d2e024809ec2ad4bf3708543fc3d2e60504b",
+            "level": 1,
+            "working_dir": ".",
+            "url": "https://github.com/iains/gcc-darwin-arm64/commit/20f61faaed3b335d792e38892d826054d2ac9f15.patch?full_index=1",
+            "version": "@11.2.0"
+        },
+        {
+            "owner": "builtin.gcc",
+            "sha256": "ecc5ac43951b34cbc5db15f585b4e704c42e2e487f9ed4c24fadef3f3857930b",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "darwin/gcc-7.1.0-headerpad.patch",
+            "version": "@5:11.2"
+        },
+        {
+            "owner": "builtin.gcc",
+            "sha256": "d72db78262ecde2d471c83f7c6f440838bd362b29f4f1115d6f339a79b110715",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "darwin/gcc-6.1.0-jit.patch",
+            "version": "@5:7"
+        },
+        {
+            "owner": "builtin.gcc",
+            "sha256": "636b65a160ccb7417cc4ffc263fc815382f8bb895e32262205cd10d65ea7804a",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "darwin/gcc-4.9.patch1",
+            "version": "@4.9.0:4.9.3"
+        },
+        {
+            "owner": "builtin.gcc",
+            "sha256": "db4966ade190fff4ed39976be8d13e84839098711713eff1d08920d37a58f5ec",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "darwin/gcc-4.9.patch2",
+            "version": "@4.9.0:4.9.3"
+        },
+        {
+            "owner": "builtin.gcc",
+            "sha256": "73481a8f1dca0653aa5dab88b1a83239260305b55f59401aaeb9cf1c8f73bb90",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "darwin/clang13.patch",
+            "version": "@:11.1%apple-clang@13"
+        },
         {
             "owner": "builtin.gcc",
             "sha256": "de02757db510055a149390f95c3e06f62992ff61ff65e74642f8b4d4a4438320",
@@ -445,7 +517,7 @@
             "level": 1,
             "working_dir": ".",
             "url": "https://gcc.gnu.org/git/?p=gcc.git;a=patch;h=745dae5923aba02982563481d75a21595df22ff8",
-            "version": "@10.1.0:10.3.0,11.1.0"
+            "version": "@10.1.0:11.1.0"
         },
         {
             "owner": "builtin.gcc",

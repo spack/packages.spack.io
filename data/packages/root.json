@@ -7,10 +7,6 @@
             "branch": "master"
         },
         {
-            "name": "6.26.04",
-            "sha256": "a271cf82782d6ed2c87ea5eef6681803f2e69e17b3036df9d863636e9358421e"
-        },
-        {
             "name": "6.26.02",
             "sha256": "7ba96772271a726079506c5bf629c3ceb21bf0682567ed6145be30606d7cd9bb"
         },
@@ -131,7 +127,7 @@
             "sha256": "18a4ce42ee19e1a810d5351f74ec9550e6e422b13b5c58e0c3db740cdbc569d1"
         }
     ],
-    "latest_version": "6.26.04",
+    "latest_version": "6.26.02",
     "build_system": "CMakePackage",
     "conflicts": [
         {
@@ -511,6 +507,22 @@
             "working_dir": ".",
             "relative_path": "root7-webgui.patch",
             "version": "@6.16.00"
+        },
+        {
+            "owner": "builtin.root",
+            "sha256": "9821956d5423d20e08ab36d44043ef03fc3a7dc07a67602be8c0fd6737c43491",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "math_uint.patch",
+            "version": "@6.06.02"
+        },
+        {
+            "owner": "builtin.root",
+            "sha256": "dd464eeed7ffc341c2ce6f1fe2593dd251f1b939a859561b97065282562814d4",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "root6-60606-mathmore.patch",
+            "version": "@6.06.06"
         }
     ],
     "resources": [],
@@ -526,7 +538,7 @@
         },
         {
             "name": "blas",
-            "description": "CLBlast is a modern, lightweight, performant and tunable OpenCL BLAS\nlibrary written in C++11. It is designed to leverage the full\nperformance potential of a wide variety of OpenCL devices from different\nvendors, including desktop and laptop GPUs, embedded GPUs, and other\naccelerators. CLBlast implements BLAS routines: basic linear algebra\nsubprograms operating on vectors and matrices."
+            "description": "Intel Math Kernel Library."
         },
         {
             "name": "freetype",
@@ -534,7 +546,7 @@
         },
         {
             "name": "jpeg",
-            "description": "libjpeg is a widely used free library with functions for handling the\nJPEG image data format. It implements a JPEG codec (encoding and\ndecoding) alongside various utilities for handling JPEG data."
+            "description": "libjpeg-turbo is a fork of the original IJG libjpeg which uses SIMD to\naccelerate baseline JPEG compression and decompression. libjpeg is a\nlibrary that implements JPEG image encoding, decoding and transcoding."
         },
         {
             "name": "libice",
@@ -606,7 +618,7 @@
         },
         {
             "name": "gl",
-            "description": "Mesa is an open-source implementation of the OpenGL specification - a\nsystem for rendering interactive 3D graphics."
+            "description": "Placeholder for external OpenGL libraries from hardware vendors"
         },
         {
             "name": "glu",
@@ -710,7 +722,7 @@
         },
         {
             "name": "tbb",
-            "description": "Intel oneAPI Threading Building Blocks (oneTBB) is a flexible\nperformance library that simplifies the work of adding parallelism to\ncomplex applications across accelerated architectures, even if you are\nnot a threading expert. LICENSE INFORMATION: By downloading and using\nthis software, you agree to the terms and conditions of the software\nlicense agreements at https://intel.ly/393CijO."
+            "description": "Intel oneAPI TBB. LICENSE INFORMATION: By downloading and using this\nsoftware, you agree to the terms and conditions of the software license\nagreements at https://intel.ly/393CijO."
         },
         {
             "name": "unuran",
@@ -739,6 +751,114 @@
     ],
     "dependent_to": [
         {
+            "name": "cutlang",
+            "description": "CutLang is a domain specific language that aims to provide a clear,\nhuman readable way to define analyses in high energy particle physics\n(HEP) along with an interpretation framework of that language."
+        },
+        {
+            "name": "edm4hep",
+            "description": "Event data model of Key4hep."
+        },
+        {
+            "name": "vgm",
+            "description": "Virtual Geometry Model (VGM) is a geometry conversion tool, actually\nproviding conversion between Geant4 and ROOT TGeo geometry models."
+        },
+        {
+            "name": "vmc",
+            "description": "The Virtual Monte Carlo (VMC) library"
+        },
+        {
+            "name": "gatepet2stir",
+            "description": "A QT/C++ application to convert GATE geometries to STIR format."
+        },
+        {
+            "name": "cnvnator",
+            "description": "A tool for CNV discovery and genotyping from depth-of-coverage by mapped\nreads."
+        },
+        {
+            "name": "yoda",
+            "description": "YODA - Yet more Objects for Data Analysis"
+        },
+        {
+            "name": "relax",
+            "description": "A set of Reflex libraries for the most common used general data types in\nthe LHC Computing Grid"
+        },
+        {
+            "name": "kassiopeia",
+            "description": "Simulation of electric and magnetic fields and particle tracking."
+        },
+        {
+            "name": "unigen",
+            "description": "The United Generators project was launched by the Virtual Institute 146\nVI-SIM in September 2005 following a proposal of Herbert Strobele. The\ngoal was to facilitate comparison between various models (see below)\nand/or various experiments (HADES, FOPI, CERES, NA49, CBM). The package\nat present allows to convert output of various event generators to a\ngeneric root format."
+        },
+        {
+            "name": "dd4hep",
+            "description": "DD4hep is a software framework for providing a complete solution for\nfull detector description (geometry, materials, visualization, readout,\nalignment, calibration, etc.) for the full experiment life cycle\n(detector concept development, detector optimization, construction,\noperation). It offers a consistent description through a single source\nof detector information for simulation, reconstruction, analysis, etc.\nIt distributed under the LGPLv3 License."
+        },
+        {
+            "name": "crmc",
+            "description": "CRMC (Cosmic Ray Monte Carlo package). CRMC is a package providing a\ncommon interface to access the output from event generators used to\nmodel the secondary particle production in hadronic collisons."
+        },
+        {
+            "name": "acts",
+            "description": "A Common Tracking Software (Acts) This project contains an experiment-\nindependent set of track reconstruction tools. The main philosophy is to\nprovide high-level track reconstruction modules that can be used for any\ntracking detector. The description of the tracking detector's geometry\nis optimized for efficient navigation and quick extrapolation of tracks.\nConverters for several common geometry description languages exist.\nHaving a highly performant, yet largely customizable implementation of\ntrack reconstruction algorithms was a primary objective for the design\nof this toolset. Additionally, the applicability to real-life HEP\nexperiments plays major role in the development process. Apart from\nalgorithmic code, this project also provides an event data model for the\ndescription of track parameters and measurements. Key features of this\nproject include: tracking geometry description which can be constructed\nfrom TGeo, DD4Hep, or GDML input, simple and efficient event data model,\nperformant and highly flexible algorithms for track propagation and\nfitting, basic seed finding algorithms."
+        },
+        {
+            "name": "gaudi",
+            "description": "An experiment-independent HEP event data processing framework"
+        },
+        {
+            "name": "genie",
+            "description": "Genie is a neutrino Monte Carlo Generator."
+        },
+        {
+            "name": "genfit",
+            "description": "GenFit is an experiment-independent framework for track reconstruction\nin particle and nuclear physics"
+        },
+        {
+            "name": "lcio",
+            "description": "HEP Library for Linear Collider Input/Output"
+        },
+        {
+            "name": "opendatadetector",
+            "description": "Open Data Detector for High Energy Physics."
+        },
+        {
+            "name": "podio",
+            "description": "PODIO, or plain-old-data I/O, is a C++ library to support the creation\nand handling of data models in particle physics."
+        },
+        {
+            "name": "garfieldpp",
+            "description": "Garfield++ is a toolkit for the detailed simulation of particle\ndetectors based on ionisation measurement in gases and semiconductors."
+        },
+        {
+            "name": "pythia8",
+            "description": "The Pythia program is a standard tool for the generation of events in\nhigh-energy collisions, comprising a coherent set of physics models for\nthe evolution from a few-body hard process to a complex multiparticle\nfinal state."
+        },
+        {
+            "name": "sherpa",
+            "description": "Sherpa is a Monte Carlo event generator for the Simulation of High-\nEnergy Reactions of PArticles in lepton-lepton, lepton-photon, photon-\nphoton, lepton-hadron and hadron-hadron collisions."
+        },
+        {
+            "name": "professor",
+            "description": "Professor Monte-Carlo tuning package"
+        },
+        {
+            "name": "hepmc3",
+            "description": "The HepMC package is an object oriented, C++ event record for High\nEnergy Physics Monte Carlo generators and simulation."
+        },
+        {
+            "name": "gbl",
+            "description": "General Broken Lines: Advanced track fitting library"
+        },
+        {
+            "name": "cool",
+            "description": "COOL provides specific software components and tools for the handling of\nthe time variation and versioning of the experiment conditions data."
+        },
+        {
+            "name": "vecgeom",
+            "description": "The vectorized geometry library for particle-detector simulation\n(toolkits)."
+        },
+        {
             "name": "gate",
             "description": "Simulations of Preclinical and Clinical Scans in Emission Tomography,\nTransmission Tomography and Radiation Therapy GATE is an advanced\nopensource software developed by the international OpenGATE\ncollaboration and dedicated to numerical simulations in medical imaging\nand radiotherapy. It currently supports simulations of Emission\nTomography (Positron Emission Tomography - PET and Single Photon\nEmission Computed Tomography - SPECT), Computed Tomography (CT), Optical\nImaging (Bioluminescence and Fluorescence) and Radiotherapy experiments.\nUsing an easy-to-learn macro mechanism to configurate simple or highly\nsophisticated experimental settings, GATE now plays a key role in the\ndesign of new medical imaging devices, in the optimization of\nacquisition protocols and in the development and assessment of image\nreconstruction algorithms and correction techniques. It can also be used\nfor dose calculation in radiotherapy experiments."
         },
@@ -747,124 +867,12 @@
             "description": "The HepMCAnalysis Tool is a tool for generator validation and\ncomparisons."
         },
         {
-            "name": "relax",
-            "description": "A set of Reflex libraries for the most common used general data types in\nthe LHC Computing Grid"
-        },
-        {
-            "name": "garfieldpp",
-            "description": "Garfield++ is a toolkit for the detailed simulation of particle\ndetectors based on ionisation measurement in gases and semiconductors."
-        },
-        {
-            "name": "yoda",
-            "description": "YODA - Yet more Objects for Data Analysis"
-        },
-        {
-            "name": "lcio",
-            "description": "HEP Library for Linear Collider Input/Output"
-        },
-        {
             "name": "delphes",
             "description": "A high energy physics framework for fast simulation of a generic\ncollider experiment."
         },
         {
-            "name": "vmc",
-            "description": "The Virtual Monte Carlo (VMC) library"
-        },
-        {
-            "name": "gaudi",
-            "description": "An experiment-independent HEP event data processing framework"
-        },
-        {
-            "name": "podio",
-            "description": "PODIO, or plain-old-data I/O, is a C++ library to support the creation\nand handling of data models in particle physics."
-        },
-        {
-            "name": "vgm",
-            "description": "Virtual Geometry Model (VGM) is a geometry conversion tool, actually\nproviding conversion between Geant4 and ROOT TGeo geometry models."
-        },
-        {
-            "name": "unigen",
-            "description": "The United Generators project was launched by the Virtual Institute 146\nVI-SIM in September 2005 following a proposal of Herbert Strobele. The\ngoal was to facilitate comparison between various models (see below)\nand/or various experiments (HADES, FOPI, CERES, NA49, CBM). The package\nat present allows to convert output of various event generators to a\ngeneric root format."
-        },
-        {
-            "name": "cutlang",
-            "description": "CutLang is a domain specific language that aims to provide a clear,\nhuman readable way to define analyses in high energy particle physics\n(HEP) along with an interpretation framework of that language."
-        },
-        {
-            "name": "genie",
-            "description": "Genie is a neutrino Monte Carlo Generator."
-        },
-        {
-            "name": "hepmc3",
-            "description": "The HepMC package is an object oriented, C++ event record for High\nEnergy Physics Monte Carlo generators and simulation."
-        },
-        {
-            "name": "cool",
-            "description": "COOL provides specific software components and tools for the handling of\nthe time variation and versioning of the experiment conditions data."
-        },
-        {
-            "name": "edm4hep",
-            "description": "Event data model of Key4hep."
-        },
-        {
-            "name": "genfit",
-            "description": "GenFit is an experiment-independent framework for track reconstruction\nin particle and nuclear physics"
-        },
-        {
-            "name": "pythia8",
-            "description": "The Pythia program is a standard tool for the generation of events in\nhigh-energy collisions, comprising a coherent set of physics models for\nthe evolution from a few-body hard process to a complex multiparticle\nfinal state."
-        },
-        {
-            "name": "crmc",
-            "description": "CRMC (Cosmic Ray Monte Carlo package). CRMC is a package providing a\ncommon interface to access the output from event generators used to\nmodel the secondary particle production in hadronic collisons."
-        },
-        {
-            "name": "cnvnator",
-            "description": "A tool for CNV discovery and genotyping from depth-of-coverage by mapped\nreads."
-        },
-        {
-            "name": "sherpa",
-            "description": "Sherpa is a Monte Carlo event generator for the Simulation of High-\nEnergy Reactions of PArticles in lepton-lepton, lepton-photon, photon-\nphoton, lepton-hadron and hadron-hadron collisions."
-        },
-        {
-            "name": "gatepet2stir",
-            "description": "A QT/C++ application to convert GATE geometries to STIR format."
-        },
-        {
-            "name": "kassiopeia",
-            "description": "Simulation of electric and magnetic fields and particle tracking."
-        },
-        {
-            "name": "professor",
-            "description": "Professor Monte-Carlo tuning package"
-        },
-        {
-            "name": "gbl",
-            "description": "General Broken Lines: Advanced track fitting library"
-        },
-        {
             "name": "py-hepdata-lib",
             "description": "Library for getting your data into HEPData"
-        },
-        {
-            "name": "opendatadetector",
-            "description": "Open Data Detector for High Energy Physics."
-        },
-        {
-            "name": "acts",
-            "description": "A Common Tracking Software (Acts) This project contains an experiment-\nindependent set of track reconstruction tools. The main philosophy is to\nprovide high-level track reconstruction modules that can be used for any\ntracking detector. The description of the tracking detector's geometry\nis optimized for efficient navigation and quick extrapolation of tracks.\nConverters for several common geometry description languages exist.\nHaving a highly performant, yet largely customizable implementation of\ntrack reconstruction algorithms was a primary objective for the design\nof this toolset. Additionally, the applicability to real-life HEP\nexperiments plays major role in the development process. Apart from\nalgorithmic code, this project also provides an event data model for the\ndescription of track parameters and measurements. Key features of this\nproject include: tracking geometry description which can be constructed\nfrom TGeo, DD4Hep, or GDML input, simple and efficient event data model,\nperformant and highly flexible algorithms for track propagation and\nfitting, basic seed finding algorithms."
-        },
-        {
-            "name": "bdsim",
-            "description": "Beam Delivery Simulation (BDSIM) is a C++ program that utilises the\nGeant4 toolkit to simulate both the transport of particles in an\naccelerator and their interaction with the accelerator material"
-        },
-        {
-            "name": "dd4hep",
-            "description": "DD4hep is a software framework for providing a complete solution for\nfull detector description (geometry, materials, visualization, readout,\nalignment, calibration, etc.) for the full experiment life cycle\n(detector concept development, detector optimization, construction,\noperation). It offers a consistent description through a single source\nof detector information for simulation, reconstruction, analysis, etc.\nIt distributed under the LGPLv3 License."
-        },
-        {
-            "name": "vecgeom",
-            "description": "The vectorized geometry library for particle-detector simulation\n(toolkits)."
         }
     ]
 }
