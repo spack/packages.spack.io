@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/env spack-python
 
 # This script will generate package metadata files for
 # each package in the latest version of spack
@@ -56,7 +56,9 @@ def main():
     for i, package in enumerate(pkgs):
 
         print("Parsing %s, %s of %s" % (package, i, len(pkgs)))
-        pkg = spack.spec.Spec(package).package
+        pkg_class = spack.repo.path.get_pkg_class(package)
+        # this should be refactored later to just use the pkg_class
+        pkg = pkg_class(spack.spec.Spec(package))
         descriptions[pkg.name] = pkg.format_doc().strip()
 
         patches = []
@@ -93,6 +95,11 @@ def main():
                         }
                     )
 
+        # this will miss ibm-java, which only adds versions for ppc64le, but we can fix
+        # that in the package later.
+        if not pkg.versions:
+            continue
+
         versions = []
         seen_versions = set()
         for version, hashes in pkg.versions.items():
@@ -106,75 +113,28 @@ def main():
                 meta[key] = h
             versions.append(meta)
 
-        # Some packages also have a version list
-        if hasattr(pkg, "version_list"):
-            for version in pkg.version_list:
-
-                if isinstance(version, dict):
-                    if str(version["version"]) in seen_versions:
-                        continue
-                    seen_versions.add(str(version["version"]))
-                    meta = {"name": str(version["version"]), "hash": version["sha256"]}
-                    versions.append(meta)
-
-                else:
-                    # Skip a version we have already seen
-                    if str(version[0]) in seen_versions:
-                        continue
-                    seen_versions.add(str(version[0]))
-                    meta = {"name": str(version[0]), "hash": version[2]}
-                    versions.append(meta)
-
         # Repology wants a completely different format for versions
         repology_versions = []
-        if hasattr(pkg, "version_list"):
+        for version, version_meta in pkg.versions.items():
+            try:
+                url = pkg.url_for_version(version)
+            except BaseException as e:
+                url = pkg.all_urls
+            meta = {"version": str(version), "downloads": [url]}
 
-            # We can't determine if something is a branch from the list
-            for version in pkg.version_list:
-                try:
-                    url = pkg.url_for_version(version)
-                except:
-                    url = pkg.all_urls
+            # Is there a develop branch?
+            if version.isdevelop():
+                meta["branch"] = str(version)
 
-                if isinstance(version, dict):
-                    version_str = str(version["version"])
-                else:
-                    version_str = str(version[0])
-
-                meta = {"version": version_str, "downloads": [url]}
-                # We can only get specific deps with concretization, which doesn't always work
-                # This is currently commented out / disabled because it means that
-                # processing likely takes many hours, more than we have for GHA.
-                # try:
-                #    spec = spack.spec.Spec("%s@%s" %(pkg.name, version_str))
-                #    spec.concretize()
-                #    deps = list(spec.dependencies_dict().keys())
-                # except:
-                #    deps = []
-                # meta['dependencies'] = deps
-                repology_versions.append(meta)
-
-        elif pkg.versions:
-            for version, version_meta in pkg.versions.items():
-                try:
-                    url = pkg.url_for_version(version)
-                except:
-                    url = pkg.all_urls
-                meta = {"version": str(version), "downloads": [url]}
-
-                # Is there a develop branch?
-                if version.isdevelop():
-                    meta["branch"] = str(version)
-
-                # We can only get specific deps with concretization, which doesn't always work
-                # try:
-                #    spec = spack.spec.Spec("%s@%s" %(pkg.name, version))
-                #    spec.concretize()
-                #    deps = list(spec.dependencies_dict().keys())
-                # except:
-                #    deps = []
-                # meta['dependencies'] = deps
-                repology_versions.append(meta)
+            # We can only get specific deps with concretization, which doesn't always work
+            # try:
+            #    spec = spack.spec.Spec("%s@%s" %(pkg.name, version))
+            #    spec.concretize()
+            #    deps = list(spec.dependencies_dict().keys())
+            # except:
+            #    deps = []
+            # meta['dependencies'] = deps
+            repology_versions.append(meta)
 
         variants = []
         if pkg.variants:
@@ -245,24 +205,9 @@ def main():
 
         # Best effort to get urls for versions
         try:
-
-            # These packages seem to have a bug that isn't caught
-            if pkg.name in ["hdf-eos5", "hdf-eos2"]:
-                urls = pkg.all_urls
-            else:
-                # This is the typical way - just filling in the version in the string
-                urls = [pkg.url_for_version(x["name"]) for x in versions]
+            urls = [pkg.url_for_version(x["name"]) for x in versions]
         except:
-
-            # Fall back to trying to parse the version list
-            if hasattr(pkg, "version_list"):
-                urls = []
-                for version in pkg.version_list:
-                    urls.append(pkg.url_for_version(version))
-
-            # And if all else fails, just present the raw URL
-            else:
-                urls = pkg.all_urls
+            urls = pkg.all_urls
 
         # Add to repology
         repology_pkg = {
