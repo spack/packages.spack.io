@@ -3,6 +3,10 @@
     "aliases": [],
     "versions": [
         {
+            "name": "1.0.4",
+            "sha256": "f5d869c18f030202eb412f08b28d2afeea553d6613aee89e200d7aca7ef01f5f"
+        },
+        {
             "name": "1.0.3",
             "sha256": "51fdc7fb93615286428ee7758cecc2f374d5ff363bdd884c7ea622a7a327a81e"
         },
@@ -31,13 +35,20 @@
             "sha256": "4478a5f68142414084cd43af8f21cef9619ad08bb3c242ea505330dade6ca9ea"
         }
     ],
-    "latest_version": "1.0.3",
+    "latest_version": "1.0.4",
     "build_system": "PythonPackage",
     "conflicts": [],
-    "variants": [],
+    "variants": [
+        {
+            "name": "build_system",
+            "default": "python_pip",
+            "description": "Build systems supported by the package"
+        }
+    ],
     "homepage": "https://msgpack.org/",
     "maintainers": [
-        "adamjstewart"
+        "adamjstewart",
+        "pradyunsg"
     ],
     "patches": [],
     "resources": [],
@@ -58,44 +69,28 @@
         {
             "name": "py-setuptools",
             "description": "A Python utility that aids in the process of downloading, building,\nupgrading, installing, and uninstalling Python packages."
+        },
+        {
+            "name": "py-cython",
+            "description": "The Cython compiler for writing C extensions for the Python language."
         }
     ],
     "dependent_to": [
         {
-            "name": "py-oslo-serialization",
-            "description": "The oslo.serialization library provides support for representing\nobjects in transmittable and storable formats, such as Base64, JSON and\nMessagePack."
-        },
-        {
-            "name": "py-numcodecs",
-            "description": "Numcodecs is a Python package providing buffer compression and\ntransformation codecs for use in data storage and communication\napplications."
-        },
-        {
-            "name": "py-radical-utils",
-            "description": "RADICAL-Utils contains shared code and tools for various RADICAL-\nCybertools packages."
+            "name": "py-datalad",
+            "description": "data distribution geared toward scientific datasets. DataLad makes data\nmanagement and data distribution more accessible. To do that, it stands\non the shoulders of Git and Git-annex to deliver a decentralized system\nfor data exchange. This includes automated ingestion of data from online\nportals and exposing it in readily usable form as Git(-annex)\nrepositories, so-called datasets. The actual data storage and permission\nmanagement, however, remains with the original data providers."
         },
         {
             "name": "py-python-box",
             "description": "Advanced Python dictionaries with dot notation access Box will\nautomatically make otherwise inaccessible keys safe to access as an\nattribute. You can always pass conversion_box=False to Box to disable\nthat behavior. Also, all new dict and lists added to a Box or BoxList\nobject are converted automatically."
         },
         {
-            "name": "py-mmtf-python",
-            "description": "The macromolecular transmission format (MMTF) is a binary encoding of\nbiological structures."
-        },
-        {
-            "name": "py-cachecontrol",
-            "description": "CacheControl is a port of the caching algorithms in httplib2 for use\nwith requests session object."
+            "name": "py-numcodecs",
+            "description": "Numcodecs is a Python package providing buffer compression and\ntransformation codecs for use in data storage and communication\napplications."
         },
         {
             "name": "rocblas",
             "description": "Radeon Open Compute BLAS library"
-        },
-        {
-            "name": "py-distributed",
-            "description": "Distributed scheduler for Dask"
-        },
-        {
-            "name": "py-ray",
-            "description": "A system for parallel and distributed Python that unifies the ML\necosystem."
         },
         {
             "name": "py-pymol",
@@ -106,20 +101,40 @@
             "description": "Zarr is a Python package providing an implementation of chunked,\ncompressed, N-dimensional arrays."
         },
         {
-            "name": "miopen-tensile",
-            "description": "MIOpenTensile provides host-callable interfaces to Tensile library.\nMIOpenTensile supports one programming model: HIP"
+            "name": "py-cachecontrol",
+            "description": "CacheControl is a port of the caching algorithms in httplib2 for use\nwith requests session object."
+        },
+        {
+            "name": "py-oslo-serialization",
+            "description": "The oslo.serialization library provides support for representing\nobjects in transmittable and storable formats, such as Base64, JSON and\nMessagePack."
+        },
+        {
+            "name": "py-radical-utils",
+            "description": "RADICAL-Utils contains shared code and tools for various RADICAL-\nCybertools packages."
+        },
+        {
+            "name": "py-ray",
+            "description": "Ray provides a simple, universal API for building distributed\napplications."
         },
         {
             "name": "py-msgpack-numpy",
             "description": "This package provides encoding and decoding routines that enable the\nserialization and deserialization of numerical and array data types\nprovided by numpy using the highly efficient msgpack format.\nSerialization of Python's native complex data types is also supported."
         },
         {
-            "name": "py-datalad",
-            "description": "data distribution geared toward scientific datasets. DataLad makes data\nmanagement and data distribution more accessible. To do that, it stands\non the shoulders of Git and Git-annex to deliver a decentralized system\nfor data exchange. This includes automated ingestion of data from online\nportals and exposing it in readily usable form as Git(-annex)\nrepositories, so-called datasets. The actual data storage and permission\nmanagement, however, remains with the original data providers."
-        },
-        {
             "name": "py-pynvim",
             "description": "Neovim python client"
+        },
+        {
+            "name": "py-distributed",
+            "description": "Distributed scheduler for Dask"
+        },
+        {
+            "name": "py-mmtf-python",
+            "description": "The macromolecular transmission format (MMTF) is a binary encoding of\nbiological structures."
+        },
+        {
+            "name": "miopen-tensile",
+            "description": "MIOpenTensile provides host-callable interfaces to Tensile library.\nMIOpenTensile supports one programming model: HIP"
         }
     ]
 }

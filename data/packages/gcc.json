@@ -32,12 +32,44 @@
         {
             "name": "golang@:1.8",
             "alias_for": "{gcc@7: languages=go}"
+        },
+        {
+            "name": "golang@:1.10",
+            "alias_for": "{gcc@8: languages=go}"
+        },
+        {
+            "name": "golang@:1.12",
+            "alias_for": "{gcc@9: languages=go}"
+        },
+        {
+            "name": "golang@:1.14",
+            "alias_for": "{gcc@10: languages=go}"
+        },
+        {
+            "name": "golang@:1.16",
+            "alias_for": "{gcc@11: languages=go}"
+        },
+        {
+            "name": "golang@:1.18",
+            "alias_for": "{gcc@11: languages=go}"
+        },
+        {
+            "name": "go-external-or-gccgo-bootstrap",
+            "alias_for": "{gcc@10.4.0:10,11.3.0: languages=go arch=None-None-aarch64:}"
+        },
+        {
+            "name": "D@2",
+            "alias_for": "{gcc languages=d}"
         }
     ],
     "versions": [
         {
             "name": "master",
             "branch": "master"
+        },
+        {
+            "name": "12.2.0",
+            "sha256": "e549cf9cf3594a00e27b6589d4322d70e0720cdd213f39beb4181e06926230ff"
         },
         {
             "name": "12.1.0",
@@ -208,12 +240,12 @@
             "sha256": "eef3f0456db8c3d992cbb51d5d32558190bc14f3bc19383dd93acc27acc6befc"
         }
     ],
-    "latest_version": "12.1.0",
+    "latest_version": "12.2.0",
     "build_system": "AutotoolsPackage",
     "conflicts": [
         {
             "name": "platform=windows",
-            "spec": "",
+            "spec": "build_system=autotools",
             "description": "None"
         },
         {
@@ -267,6 +299,106 @@
             "description": "None"
         },
         {
+            "name": "@:8",
+            "spec": "languages=d",
+            "description": "support for D has been added in GCC 9.1"
+        },
+        {
+            "name": "%aocc",
+            "spec": "@12: languages=d",
+            "description": "None"
+        },
+        {
+            "name": "%apple-clang",
+            "spec": "@12: languages=d",
+            "description": "None"
+        },
+        {
+            "name": "%arm",
+            "spec": "@12: languages=d",
+            "description": "None"
+        },
+        {
+            "name": "%cce",
+            "spec": "@12: languages=d",
+            "description": "None"
+        },
+        {
+            "name": "%clang",
+            "spec": "@12: languages=d",
+            "description": "None"
+        },
+        {
+            "name": "%dpcpp",
+            "spec": "@12: languages=d",
+            "description": "None"
+        },
+        {
+            "name": "%fj",
+            "spec": "@12: languages=d",
+            "description": "None"
+        },
+        {
+            "name": "%intel",
+            "spec": "@12: languages=d",
+            "description": "None"
+        },
+        {
+            "name": "%msvc",
+            "spec": "@12: languages=d",
+            "description": "None"
+        },
+        {
+            "name": "%nag",
+            "spec": "@12: languages=d",
+            "description": "None"
+        },
+        {
+            "name": "%nvhpc",
+            "spec": "@12: languages=d",
+            "description": "None"
+        },
+        {
+            "name": "%oneapi",
+            "spec": "@12: languages=d",
+            "description": "None"
+        },
+        {
+            "name": "%pgi",
+            "spec": "@12: languages=d",
+            "description": "None"
+        },
+        {
+            "name": "%rocmcc",
+            "spec": "@12: languages=d",
+            "description": "None"
+        },
+        {
+            "name": "%xl",
+            "spec": "@12: languages=d",
+            "description": "None"
+        },
+        {
+            "name": "%xl_r",
+            "spec": "@12: languages=d",
+            "description": "None"
+        },
+        {
+            "name": "%gcc@12.1.0:",
+            "spec": "@12.1.0 languages=d",
+            "description": "'gcc@12.1.0 languages=d' requires '%gcc@:11' with the D language support"
+        },
+        {
+            "name": "%gcc@12.2.0:",
+            "spec": "@12.2.0 languages=d",
+            "description": "'gcc@12.2.0 languages=d' requires '%gcc@:12.1.0' with the D language support"
+        },
+        {
+            "name": "%gcc@:8",
+            "spec": "@12: languages=d",
+            "description": "'gcc@12: languages=d' requires '%gcc@9:' with the D language support"
+        },
+        {
             "name": "@:6",
             "spec": "+nvptx",
             "description": "NVPTX only supported in gcc 7 and above"
@@ -292,6 +424,11 @@
             "description": "None"
         },
         {
+            "name": "languages=d",
+            "spec": "+nvptx",
+            "description": "None"
+        },
+        {
             "name": "+bootstrap",
             "spec": "+nvptx",
             "description": "None"
@@ -307,22 +444,32 @@
             "description": "None"
         },
         {
-            "name": "@:11.2,11.3.1:",
+            "name": "@:11.2,12.3:",
             "spec": "arch=darwin-None-aarch64:",
-            "description": "Only GCC 11.3.0 supports macOS M1 (aarch64)"
+            "description": "Only GCC 11.3-12.2 support macOS M1 (aarch64)"
         },
         {
             "name": "~binutils",
-            "spec": "@7: arch=linux-rhel6-None",
+            "spec": "@7: arch=None-rhel6-None",
             "description": "New GCC cannot use system assembler on RHEL6"
         },
         {
             "name": "%gcc@:4.7",
             "spec": "@11:",
             "description": "None"
+        },
+        {
+            "name": "%apple-clang@14.0",
+            "spec": "",
+            "description": "None"
         }
     ],
     "variants": [
+        {
+            "name": "build_system",
+            "default": "autotools",
+            "description": "Build systems supported by the package"
+        },
         {
             "name": "languages",
             "default": "c,c++,fortran",
@@ -433,18 +580,18 @@
         },
         {
             "owner": "builtin.gcc",
-            "sha256": "b48e48736062e64a6da7cbe7e21a6c1c89422d1f49ef547c73b479a3f3f4935f",
+            "sha256": "98a9c96f66ff0264a49bd5e76fd2ba177ceca7c7236f486058a8469c2bcd1b76",
             "level": 1,
             "working_dir": ".",
-            "url": "https://gcc.gnu.org/git/?p=gcc.git;a=patch;h=2b40941d23b1570cdd90083b58fa0f66aa58c86e",
+            "relative_path": "patch-2b40941d23b1570cdd90083b58fa0f66aa58c86e.patch",
             "version": "@6.5.0,7.4.0:7.5.0,8.2.0:9.3.0"
         },
         {
             "owner": "builtin.gcc",
-            "sha256": "eaa00c91e08a5e767f023911a49bc1b2d1a3eea38703b745ab260f90e8da41aa",
+            "sha256": "bd4828c272d3d34643c908ab9c2bf613c5ec3e66906e807ccd993c7cf0ed56bd",
             "level": 1,
             "working_dir": ".",
-            "url": "https://gcc.gnu.org/git/?p=gcc.git;a=patch;h=745dae5923aba02982563481d75a21595df22ff8",
+            "relative_path": "patch-745dae5923aba02982563481d75a21595df22ff8.patch",
             "version": "@10.1.0:10.3.0,11.1.0"
         },
         {
@@ -521,18 +668,18 @@
         },
         {
             "owner": "builtin.gcc",
-            "sha256": "28c5ab3b564d83dd7e6e35b9c683141a4cb57ee886c5367e54a0828538b3c789",
+            "sha256": "b5e049d97f110af57041d2638662df395864f8d425af8034965c1ec851f881cf",
             "level": 1,
             "working_dir": ".",
-            "url": "https://gcc.gnu.org/git/?p=gcc.git;a=patch;h=fc930b3010bd0de899a3da3209eab20664ddb703",
+            "relative_path": "patch-fc930b3010bd0de899a3da3209eab20664ddb703.patch",
             "version": "@10.1:10.3"
         },
         {
             "owner": "builtin.gcc",
-            "sha256": "3e5029489b79fc0d47fd6719f3d5c9d3bbc727a4a0cbff161a5517e8a3c98cb6",
+            "sha256": "9f3d37332ffb25372c82fb994531eddbcbc4c0b0906190b9438d31a8c55c6d0b",
             "level": 1,
             "working_dir": ".",
-            "url": "https://gcc.gnu.org/git/?p=gcc.git;a=patch;h=f1feb74046e0feb0596b93bbb822fae02940a90e",
+            "relative_path": "patch-f1feb74046e0feb0596b93bbb822fae02940a90e.patch",
             "version": "@11.1"
         }
     ],

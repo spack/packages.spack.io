@@ -3,6 +3,10 @@
     "aliases": [],
     "versions": [
         {
+            "name": "1.26.12",
+            "sha256": "3fa96cf423e6987997fc326ae8df396db2a8b7c667747d47ddd8ecba91f4a74e"
+        },
+        {
             "name": "1.26.6",
             "sha256": "f57b4c16c62fa2760b7e3d97c35b255512fb6b59a259730f36ba32ce9f8e342f"
         },
@@ -35,10 +39,15 @@
             "sha256": "dd4fb13a4ce50b18338c7e4d665b21fd38632c5d4b1d9f1a1379276bd3c08d37"
         }
     ],
-    "latest_version": "1.26.6",
+    "latest_version": "1.26.12",
     "build_system": "PythonPackage",
     "conflicts": [],
     "variants": [
+        {
+            "name": "build_system",
+            "default": "python_pip",
+            "description": "Build systems supported by the package"
+        },
         {
             "name": "socks",
             "default": false,
@@ -57,7 +66,8 @@
     ],
     "homepage": "https://urllib3.readthedocs.io/",
     "maintainers": [
-        "adamjstewart"
+        "adamjstewart",
+        "pradyunsg"
     ],
     "patches": [],
     "resources": [],
@@ -100,6 +110,10 @@
             "description": "Python 3.3's ipaddress for older Python versions"
         },
         {
+            "name": "py-urllib3-secure-extra",
+            "description": "Marker library to detect whether urllib3 was installed with the\ndeprecated [secure] extra"
+        },
+        {
             "name": "py-pysocks",
             "description": "A Python SOCKS client module."
         },
@@ -110,76 +124,88 @@
     ],
     "dependent_to": [
         {
-            "name": "py-sentry-sdk",
-            "description": "The new Python SDK for Sentry.io"
-        },
-        {
-            "name": "py-httpx",
-            "description": "HTTPX is a fully featured HTTP client for Python 3, which provides sync\nand async APIs, and support for both HTTP/1.1 and HTTP/2."
-        },
-        {
-            "name": "py-responses",
-            "description": "A utility library for mocking out the `requests` Python library."
-        },
-        {
-            "name": "py-sierrapy",
-            "description": "A Client of HIVdb Sierra GraphQL Webservice"
-        },
-        {
             "name": "py-minio",
             "description": "MinIO Python SDK is Simple Storage Service (aka S3) client to perform\nbucket and object operations to any Amazon S3 compatible object storage\nservice."
+        },
+        {
+            "name": "py-py2neo",
+            "description": "Py2neo is a client library and toolkit for working with Neo4j from\nwithin Python applications and from the command line."
         },
         {
             "name": "py-requests",
             "description": "Python HTTP for Humans."
         },
         {
-            "name": "py-botocore",
-            "description": "Low-level, data-driven core of boto 3."
-        },
-        {
-            "name": "py-dulwich",
-            "description": "Dulwich aims to provide an interface to Git repos (both local and\nremote) that doesn't call out to Git directory, but instead uses pure\nPython."
-        },
-        {
             "name": "py-azure-cli",
             "description": "Microsoft Azure Command-Line Tools."
-        },
-        {
-            "name": "py-kaggle",
-            "description": "Official API for https://www.kaggle.com, accessible using a command line\ntool implemented in Python. Beta release - Kaggle reserves the right to\nmodify the API functionality currently offered."
-        },
-        {
-            "name": "py-requests-unixsocket",
-            "description": "Use requests to talk HTTP via a UNIX domain socket."
-        },
-        {
-            "name": "py-azureml-core",
-            "description": "The azureml-core contains functionality for creating and managing: *\nAzure Machine Learning workspaces, experiments and runs; * Machine\nlearning compute respources; * Models, images and web services."
-        },
-        {
-            "name": "py-elasticsearch",
-            "description": "Python client for Elasticsearch"
-        },
-        {
-            "name": "py-selenium",
-            "description": "Python language bindings for Selenium WebDriver. The selenium package is\nused to automate web browser interaction from Python."
-        },
-        {
-            "name": "py-sanic",
-            "description": "Sanic is a Flask-like Python 3.5+ web server that is written to go fast.\nIt is based on the work done by the amazing folks at magicstack"
-        },
-        {
-            "name": "openturns",
-            "description": "OpenTURNS is a scientific C++ and Python library featuring an internal\ndata model and algorithms dedicated to the treatment of uncertainties.\nThe main goal of this library is to provide all functionalities needed\nto treat uncertainties in studies with industrial applications. Targeted\nusers are all engineers who want to introduce the probabilistic\ndimension in their so far deterministic studies."
         },
         {
             "name": "py-kubernetes",
             "description": "Official Python client library for kubernetes."
         },
         {
-            "name": "py-py2neo",
-            "description": "Py2neo is a client library and toolkit for working with Neo4j from\nwithin Python applications and from the command line."
+            "name": "py-poetry",
+            "description": "Python dependency management and packaging made easy."
+        },
+        {
+            "name": "py-sanic",
+            "description": "Sanic is a Flask-like Python 3.5+ web server that is written to go fast.\nIt is based on the work done by the amazing folks at magicstack"
+        },
+        {
+            "name": "py-conan",
+            "description": "Conan C/C++ package manager"
+        },
+        {
+            "name": "openturns",
+            "description": "OpenTURNS is a scientific C++ and Python library featuring an internal\ndata model and algorithms dedicated to the treatment of uncertainties.\nThe main goal of this library is to provide all functionalities needed\nto treat uncertainties in studies with industrial applications. Targeted\nusers are all engineers who want to introduce the probabilistic\ndimension in their so far deterministic studies."
+        },
+        {
+            "name": "py-selenium",
+            "description": "Python language bindings for Selenium WebDriver. The selenium package is\nused to automate web browser interaction from Python."
+        },
+        {
+            "name": "py-dulwich",
+            "description": "Dulwich aims to provide an interface to Git repos (both local and\nremote) that doesn't call out to Git directory, but instead uses pure\nPython."
+        },
+        {
+            "name": "py-elasticsearch",
+            "description": "Python client for Elasticsearch"
+        },
+        {
+            "name": "py-requests-unixsocket",
+            "description": "Use requests to talk HTTP via a UNIX domain socket."
+        },
+        {
+            "name": "py-httpx",
+            "description": "HTTPX is a fully featured HTTP client for Python 3, which provides sync\nand async APIs, and support for both HTTP/1.1 and HTTP/2."
+        },
+        {
+            "name": "py-azureml-core",
+            "description": "The azureml-core contains functionality for creating and managing: *\nAzure Machine Learning workspaces, experiments and runs; * Machine\nlearning compute respources; * Models, images and web services."
+        },
+        {
+            "name": "py-botocore",
+            "description": "Low-level, data-driven core of boto 3."
+        },
+        {
+            "name": "py-sierrapy",
+            "description": "A Client of HIVdb Sierra GraphQL Webservice"
+        },
+        {
+            "name": "py-kaggle",
+            "description": "Official API for https://www.kaggle.com, accessible using a command line\ntool implemented in Python. Beta release - Kaggle reserves the right to\nmodify the API functionality currently offered."
+        },
+        {
+            "name": "py-responses",
+            "description": "A utility library for mocking out the `requests` Python library."
+        },
+        {
+            "name": "py-torchdata",
+            "description": "Composable data loading modules for PyTorch."
+        },
+        {
+            "name": "py-sentry-sdk",
+            "description": "The new Python SDK for Sentry.io"
         }
     ]
 }

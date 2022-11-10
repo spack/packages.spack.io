@@ -3,6 +3,10 @@
     "aliases": [],
     "versions": [
         {
+            "name": "1.11.1",
+            "sha256": "f123623ecc648d0e20ce14f8ed85162140c13cc4b108865d1b2529fbfa06c008"
+        },
+        {
             "name": "1.11.0",
             "sha256": "1206365cc30ad561493f735329857dd078533459cee4e928aec2505f341ce445"
         },
@@ -15,13 +19,20 @@
             "sha256": "8f9ee40830b70b5fb52a419711c9c4ad0336443a6fba7335060805f961b04b59"
         }
     ],
-    "latest_version": "1.11.0",
+    "latest_version": "1.11.1",
     "build_system": "PythonPackage",
     "conflicts": [],
-    "variants": [],
+    "variants": [
+        {
+            "name": "build_system",
+            "default": "python_pip",
+            "description": "Build systems supported by the package"
+        }
+    ],
     "homepage": "https://avro.apache.org/docs/current/",
     "maintainers": [
-        "adamjstewart"
+        "adamjstewart",
+        "pradyunsg"
     ],
     "patches": [],
     "resources": [],
@@ -42,16 +53,20 @@
         {
             "name": "py-setuptools",
             "description": "A Python utility that aids in the process of downloading, building,\nupgrading, installing, and uninstalling Python packages."
+        },
+        {
+            "name": "py-typing-extensions",
+            "description": "The typing_extensions module contains both backports of these changes as\nwell as experimental types that will eventually be added to the typing\nmodule, such as Protocol (see PEP 544 for details about protocols and\nstatic duck typing)."
         }
     ],
     "dependent_to": [
         {
-            "name": "py-apache-beam",
-            "description": "Apache Beam is a unified programming model for Batch and Streaming."
-        },
-        {
             "name": "py-avro-json-serializer",
             "description": "Serializes data into a JSON format using AVRO schema."
+        },
+        {
+            "name": "py-apache-beam",
+            "description": "Apache Beam is a unified programming model for Batch and Streaming."
         }
     ]
 }

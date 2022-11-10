@@ -3,69 +3,156 @@
     "aliases": [],
     "versions": [
         {
-            "name": "2.0.8-cmake-v6",
-            "sha256": "745cd008b4ce0245ea44247733e57e2b9ec6c5205d171d457e18d0ff8f87172d"
+            "name": "3.1.1",
+            "sha256": "9236f6afddad76d868c2cfdf5c4227f5bdda5e85ae40c18bafb37218e49bc04a",
+            "extension": "tar.gz"
+        },
+        {
+            "name": "3.1.0",
+            "sha256": "5757ef9016b19ae87491918e0853dce2d3616b14f8c42efe3b2f41219c16b78f",
+            "extension": "tar.gz"
+        },
+        {
+            "name": "2.0.8",
+            "sha256": "5e6a0d6807591aa2a190d35401606f7e903d5485719655aea1c4866cc2828160",
+            "extension": "tar.gz"
+        },
+        {
+            "name": "2.0.7",
+            "sha256": "d7f1a4f9872922c62b3c7818c022465532cca1f5666b75d3ac5735f0b2747793",
+            "extension": "tar.gz"
         }
     ],
-    "latest_version": "2.0.8-cmake-v6",
-    "build_system": "CMakePackage",
+    "latest_version": "3.1.1",
+    "build_system": "MakefilePackage",
     "conflicts": [
         {
-            "name": "+ipo",
-            "spec": "^cmake@:3.8",
-            "description": "+ipo is not supported by CMake < 3.9"
+            "name": "platform=windows",
+            "spec": "build_system=makefile",
+            "description": "None"
+        },
+        {
+            "name": "+netcdf3",
+            "spec": "+netcdf4",
+            "description": "None"
+        },
+        {
+            "name": "+openmp",
+            "spec": "%apple-clang",
+            "description": "None"
         }
     ],
     "variants": [
         {
-            "name": "build_type",
-            "default": "RelWithDebInfo",
-            "description": "CMake build type"
+            "name": "build_system",
+            "default": "makefile",
+            "description": "Build systems supported by the package"
         },
         {
-            "name": "ipo",
+            "name": "netcdf3",
+            "default": true,
+            "description": "Link in netcdf3 library to write netcdf3 files"
+        },
+        {
+            "name": "netcdf4",
             "default": false,
-            "description": "CMake interprocedural optimization"
+            "description": "Link in netcdf4 library to write netcdf3/4 files"
+        },
+        {
+            "name": "ipolates",
+            "default": "3",
+            "description": "Use to interpolate to new grids (0 = OFF, 1 = ip, 3 = ip2)"
+        },
+        {
+            "name": "spectral",
+            "default": false,
+            "description": "Spectral interpolation in -new_grid"
+        },
+        {
+            "name": "fortran_api",
+            "default": true,
+            "description": "Make wgrib2api which allows fortran code to read/write grib2"
+        },
+        {
+            "name": "mysql",
+            "default": false,
+            "description": "Link in interface to MySQL to write to mysql database"
+        },
+        {
+            "name": "udf",
+            "default": false,
+            "description": "Add commands for user-defined functions and shell commands"
+        },
+        {
+            "name": "regex",
+            "default": true,
+            "description": "Use regular expression library (POSIX-2)"
+        },
+        {
+            "name": "tigge",
+            "default": true,
+            "description": "Ability for TIGGE-like variable names"
+        },
+        {
+            "name": "proj4",
+            "default": false,
+            "description": "The proj4 library is used to verify gctpc."
+        },
+        {
+            "name": "aec",
+            "default": true,
+            "description": "Use the libaec library for packing with GRIB2 template"
+        },
+        {
+            "name": "g2c",
+            "default": false,
+            "description": "Include NCEP g2clib (mainly for testing purposes)"
+        },
+        {
+            "name": "disable_timezone",
+            "default": false,
+            "description": "Some machines do not support timezones"
+        },
+        {
+            "name": "disable_alarm",
+            "default": false,
+            "description": "Some machines do not support the alarm to terminate wgrib2"
+        },
+        {
+            "name": "png",
+            "default": true,
+            "description": "PNG encoding"
+        },
+        {
+            "name": "jasper",
+            "default": true,
+            "description": "JPEG compression using Jasper"
+        },
+        {
+            "name": "openmp",
+            "default": true,
+            "description": "OpenMP parallelization"
+        },
+        {
+            "name": "wmo_validation",
+            "default": false,
+            "description": "WMO validation"
         }
     ],
     "homepage": "https://www.cpc.ncep.noaa.gov/products/wesley/wgrib2",
     "maintainers": [
         "t-brown",
-        "kgerheiser",
+        "AlexanderRichert-NOAA",
         "Hang-Lei-NOAA",
         "edwardhartnett"
     ],
     "patches": [],
     "resources": [],
-    "description": "The wgrib2 package functionality for interacting with, reading, writing,\nand manipulating GRIB2 files.\n",
+    "description": "Utility for interacting with GRIB2 files\n",
     "dependencies": [
         {
-            "name": "cmake",
-            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
-        },
-        {
-            "name": "ip2",
-            "description": "The NCEP general interpolation library 2 (ip2lib) contains Fortran 90\nsubprograms to be used for interpolating between nearly all grids used\nat NCEP. This library is deprecated; all functionality has been moved to\nthe ip library. This is part of the NCEPLIBS project."
-        },
-        {
-            "name": "jasper",
-            "description": "Library for manipulating JPEG-2000 images"
-        },
-        {
-            "name": "libpng",
-            "description": "libpng is the official PNG reference library."
-        },
-        {
-            "name": "netcdf-c",
-            "description": "NetCDF (network Common Data Form) is a set of software libraries and\nmachine-independent data formats that support the creation, access, and\nsharing of array-oriented scientific data. This is the C distribution."
-        },
-        {
-            "name": "netcdf-fortran",
-            "description": "NetCDF (network Common Data Form) is a set of software libraries and\nmachine-independent data formats that support the creation, access, and\nsharing of array-oriented scientific data. This is the Fortran\ndistribution."
-        },
-        {
-            "name": "sp",
-            "description": "The spectral transform library splib contains FORTRAN subprograms to be\nused for a variety of spectral transform functions. This is part of the\nNCEPLIBS project."
+            "name": "wget",
+            "description": "GNU Wget is a free software package for retrieving files using HTTP,\nHTTPS and FTP, the most widely-used Internet protocols. It is a non-\ninteractive commandline tool, so it may easily be called from scripts,\ncron jobs, terminals without X-Windows support, etc."
         }
     ],
     "dependent_to": [

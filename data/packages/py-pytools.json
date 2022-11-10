@@ -3,6 +3,10 @@
     "aliases": [],
     "versions": [
         {
+            "name": "2022.1.12",
+            "sha256": "4d62875e9a2ab2a24e393a9a8b799492f1a721bffa840af3807bfd42871dd1f4"
+        },
+        {
             "name": "2021.2.9",
             "sha256": "db6cf83c9ba0a165d545029e2301621486d1e9ef295684072e5cd75316a13755"
         },
@@ -15,13 +19,25 @@
             "sha256": "6dd49932b8f81a8b622685cff3dd515e351a9290aef0fd5d020e4df00c06aa95"
         }
     ],
-    "latest_version": "2021.2.9",
+    "latest_version": "2022.1.12",
     "build_system": "PythonPackage",
     "conflicts": [],
-    "variants": [],
-    "homepage": "https://pypi.org/project/pytools/",
+    "variants": [
+        {
+            "name": "build_system",
+            "default": "python_pip",
+            "description": "Build systems supported by the package"
+        },
+        {
+            "name": "numpy",
+            "default": false,
+            "description": "Add numpy dependency"
+        }
+    ],
+    "homepage": "https://github.com/inducer/pytools",
     "maintainers": [
-        "adamjstewart"
+        "adamjstewart",
+        "pradyunsg"
     ],
     "patches": [],
     "resources": [],
@@ -52,6 +68,10 @@
             "description": "A small Python module for determining appropriate platform-specific\ndirs, e.g. a \"user data dir\"."
         },
         {
+            "name": "py-platformdirs",
+            "description": "A small Python module for determining appropriate platform-specific\ndirs, e.g. a \"user data dir\""
+        },
+        {
             "name": "py-six",
             "description": "Python 2 and 3 compatibility utilities."
         },
@@ -62,20 +82,32 @@
         {
             "name": "py-dataclasses",
             "description": "A backport of the dataclasses module for Python 3.6"
+        },
+        {
+            "name": "py-typing-extensions",
+            "description": "The typing_extensions module contains both backports of these changes as\nwell as experimental types that will eventually be added to the typing\nmodule, such as Protocol (see PEP 544 for details about protocols and\nstatic duck typing)."
         }
     ],
     "dependent_to": [
-        {
-            "name": "py-pycuda",
-            "description": "PyCUDA gives you easy, Pythonic access to Nvidia's CUDA parallel\ncomputation API"
-        },
         {
             "name": "py-pyopencl",
             "description": "Python wrapper for OpenCL."
         },
         {
+            "name": "py-codepy",
+            "description": "CodePy is a C metaprogramming toolkit for Python. It handles two aspects\nof metaprogramming: - Generating C source code. - Compiling this source\ncode and dynamically loading it into the Python interpreter."
+        },
+        {
             "name": "py-pyfr",
             "description": "PyFR is an open-source Python based framework for solving advection-\ndiffusion type problems on streaming architectures using the Flux\nReconstruction approach of Huynh."
+        },
+        {
+            "name": "py-cgen",
+            "description": "cgen offers a simple abstract syntax tree for C and related languages\n(C++/CUDA/OpenCL) to allow structured code generation from Python."
+        },
+        {
+            "name": "py-pycuda",
+            "description": "PyCUDA gives you easy, Pythonic access to Nvidia's CUDA parallel\ncomputation API"
         }
     ]
 }

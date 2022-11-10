@@ -3,6 +3,18 @@
     "aliases": [],
     "versions": [
         {
+            "name": "2021.3",
+            "sha256": "9b58a4a7eef7c0c877513152340948402fd87cb06270d2d81308dc2ef740f4c7"
+        },
+        {
+            "name": "2021.2",
+            "sha256": "ade3bfe18b4313a31fc09f0bf038e0a6c169c4145089bfc6f1f827687b81be6a"
+        },
+        {
+            "name": "2021.1",
+            "sha256": "9089bb81e3091af3481e03b898b339fb2d9fb6574d4ef059adb1f5410112b23a"
+        },
+        {
             "name": "2019.6",
             "sha256": "1cd0bab9e947228fced4666d907f77c51336291533919896a923cff5fcad62e9"
         },
@@ -21,22 +33,78 @@
         {
             "name": "2019.2",
             "sha256": "0bc2224a913073aaa5958f6ae08341e5fcd39cedc6722a09bfd4a3d7591a340b"
+        },
+        {
+            "name": "2019.1",
+            "sha256": "fe0d065b9936b6943ea83cb3d00aede43b17565285c6b1791fee8e340853ef79"
+        },
+        {
+            "name": "2019.0",
+            "sha256": "1c7d44aa7fd86ca84ac7cae1a69a8426243048d6294582337f1de7b4ffe68d37"
+        },
+        {
+            "name": "2018.1",
+            "sha256": "718a4eb155f18cf15a736f6496332407b5837cf1f19831723d4cfe5266c43507"
+        },
+        {
+            "name": "2018.0",
+            "sha256": "2e60a9894a686a95791be2227bc569bf81ca3875421b5307df7d83f885b1de88"
         }
     ],
-    "latest_version": "2019.6",
+    "latest_version": "2021.3",
     "build_system": "MakefilePackage",
     "conflicts": [
         {
             "name": "platform=windows",
-            "spec": "",
+            "spec": "build_system=makefile",
             "description": "None"
+        },
+        {
+            "name": "^openmpi",
+            "spec": "@:2019.0",
+            "description": "intel-mpi-benchmarks <= v2019.0 cannot be built with OpenMPI, please specify a different MPI implementation"
         }
     ],
     "variants": [
         {
-            "name": "benchmark",
-            "default": "all",
-            "description": "Specify which benchmark to build"
+            "name": "build_system",
+            "default": "makefile",
+            "description": "Build systems supported by the package"
+        },
+        {
+            "name": "mpi1",
+            "default": true,
+            "description": "Build MPI1 benchmark"
+        },
+        {
+            "name": "ext",
+            "default": true,
+            "description": "Build MPI1 benchmark"
+        },
+        {
+            "name": "io",
+            "default": true,
+            "description": "Build MPI1 benchmark"
+        },
+        {
+            "name": "nbc",
+            "default": true,
+            "description": "Build MPI1 benchmark"
+        },
+        {
+            "name": "p2p",
+            "default": true,
+            "description": "Build MPI1 benchmark"
+        },
+        {
+            "name": "rma",
+            "default": true,
+            "description": "Build MPI1 benchmark"
+        },
+        {
+            "name": "mt",
+            "default": true,
+            "description": "Build MPI1 benchmark"
         }
     ],
     "homepage": "https://software.intel.com/en-us/articles/intel-mpi-benchmarks",
@@ -50,7 +118,7 @@
             "level": 1,
             "working_dir": ".",
             "relative_path": "add_const.patch",
-            "version": "@:2019.6"
+            "version": "@2019"
         },
         {
             "owner": "builtin.intel-mpi-benchmarks",
@@ -58,7 +126,7 @@
             "level": 1,
             "working_dir": ".",
             "relative_path": "reorder_benchmark_macros.patch",
-            "version": "@:2019.6"
+            "version": "@2019.1:2019.6"
         }
     ],
     "resources": [],
@@ -66,7 +134,15 @@
     "dependencies": [
         {
             "name": "mpi",
-            "description": "MVAPICH2-GDR is an optimized version of the MVAPICH2 MPI library for\nGPU-enabled HPC and Deep Learning Applications. MVAPICH2-GDR is not\ninstallable from source and is only available through a binary mirror.\nIf you do not find the binary you're looking for, send us an email at\nmvapich@cse.ohio-state.edu. The binary mirror url is:\nhttp://mvapich.cse.ohio-state.edu/download/mvapich/spack-\nmirror/mvapich2-gdr/"
+            "description": "MPICH is a high performance and widely portable implementation of the\nMessage Passing Interface (MPI) standard."
+        },
+        {
+            "name": "intel-mpi",
+            "description": "Intel MPI. This package has been replaced by intel-oneapi-mpi. LICENSE\nINFORMATION: By downloading and using this software, you agree to the\nterms and conditions of the software license agreements at\nhttps://intel.ly/393CijO."
+        },
+        {
+            "name": "gmake",
+            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files."
         }
     ],
     "dependent_to": []

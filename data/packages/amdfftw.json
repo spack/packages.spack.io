@@ -8,6 +8,10 @@
     ],
     "versions": [
         {
+            "name": "3.2",
+            "sha256": "31cab17a93e03b5b606e88dd6116a1055b8f49542d7d0890dbfcca057087b8d0"
+        },
+        {
             "name": "3.1",
             "sha256": "3e777f3acef13fa1910db097e818b1d0d03a6a36ef41186247c6ab1ab0afc132"
         },
@@ -24,12 +28,12 @@
             "sha256": "de9d777236fb290c335860b458131678f75aa0799c641490c644c843f0e246f8"
         }
     ],
-    "latest_version": "3.1",
+    "latest_version": "3.2",
     "build_system": "AutotoolsPackage",
     "conflicts": [
         {
             "name": "platform=windows",
-            "spec": "",
+            "spec": "build_system=autotools",
             "description": "None"
         },
         {
@@ -66,11 +70,6 @@
             "name": "%gcc@:7.2",
             "spec": "@2.2:",
             "description": "GCC version above 7.2 is required for AMDFFTW"
-        },
-        {
-            "name": "+amd-fast-planner ",
-            "spec": "+mpi",
-            "description": "mpi thread is not supported with amd-fast-planner"
         },
         {
             "name": "+amd-fast-planner",
@@ -176,9 +175,19 @@
             "name": "+amd-app-opt",
             "spec": "precision=quad",
             "description": "Quad precision is not supported with amd-app-opt"
+        },
+        {
+            "name": "+amd-dynamic-dispatcher",
+            "spec": "%aocc",
+            "description": "dynamic-dispatcher is not supported by AOCC clang compiler"
         }
     ],
     "variants": [
+        {
+            "name": "build_system",
+            "default": "autotools",
+            "description": "Build systems supported by the package"
+        },
         {
             "name": "precision",
             "default": "float,double",
@@ -238,6 +247,11 @@
             "name": "amd-app-opt",
             "default": false,
             "description": "Build with amd-app-opt suppport"
+        },
+        {
+            "name": "amd-dynamic-dispatcher",
+            "default": false,
+            "description": "Single portable optimized library to execute on different x86 CPU architectures"
         }
     ],
     "homepage": "https://developer.amd.com/amd-aocl/fftw/",
@@ -254,7 +268,7 @@
         },
         {
             "name": "mpi",
-            "description": "MVAPICH2-GDR is an optimized version of the MVAPICH2 MPI library for\nGPU-enabled HPC and Deep Learning Applications. MVAPICH2-GDR is not\ninstallable from source and is only available through a binary mirror.\nIf you do not find the binary you're looking for, send us an email at\nmvapich@cse.ohio-state.edu. The binary mirror url is:\nhttp://mvapich.cse.ohio-state.edu/download/mvapich/spack-\nmirror/mvapich2-gdr/"
+            "description": "MPICH is a high performance and widely portable implementation of the\nMessage Passing Interface (MPI) standard."
         },
         {
             "name": "llvm-openmp",
@@ -267,16 +281,24 @@
     ],
     "dependent_to": [
         {
+            "name": "quantum-espresso",
+            "description": "Quantum ESPRESSO is an integrated suite of Open-Source computer codes\nfor electronic-structure calculations and materials modeling at the\nnanoscale. It is based on density-functional theory, plane waves, and\npseudopotentials."
+        },
+        {
+            "name": "berkeleygw",
+            "description": "BerkeleyGW is a many-body perturbation theory code for excited states,\nusing the GW method and the GW plus Bethe-Salpeter equation (GW-BSE)\nmethod to solve respectively for quasiparticle excitations and optical\nproperties of materials."
+        },
+        {
+            "name": "amd-aocl",
+            "description": "AMD Optimizing CPU Libraries (AOCL) - AOCL is a set of numerical\nlibraries tuned specifically for AMD EPYC processor family. They have a\nsimple interface to take advantage of the latest hardware innovations.\nThe tuned implementations of industry standard math libraries enable\nfast development of scientific and high performance computing projects"
+        },
+        {
             "name": "cp2k",
             "description": "CP2K is a quantum chemistry and solid state physics software package\nthat can perform atomistic simulations of solid state, liquid,\nmolecular, periodic, material, crystal, and biological systems"
         },
         {
             "name": "namd",
             "description": "NAMD is a parallel molecular dynamics code designed for high-performance\nsimulation of large biomolecular systems."
-        },
-        {
-            "name": "berkeleygw",
-            "description": "BerkeleyGW is a many-body perturbation theory code for excited states,\nusing the GW method and the GW plus Bethe-Salpeter equation (GW-BSE)\nmethod to solve respectively for quasiparticle excitations and optical\nproperties of materials."
         }
     ]
 }

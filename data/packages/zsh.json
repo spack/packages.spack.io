@@ -32,15 +32,35 @@
     "conflicts": [
         {
             "name": "platform=windows",
-            "spec": "",
+            "spec": "build_system=autotools",
             "description": "None"
+        },
+        {
+            "name": "+lmod",
+            "spec": "~etcdir",
+            "description": "local etc required to setup env for lmod"
         }
     ],
     "variants": [
         {
+            "name": "build_system",
+            "default": "autotools",
+            "description": "Build systems supported by the package"
+        },
+        {
             "name": "skip-tcsetpgrp-test",
             "default": true,
             "description": "Skip configure's tcsetpgrp test"
+        },
+        {
+            "name": "etcdir",
+            "default": false,
+            "description": "enable etc dir local to install, for global zsh scripts"
+        },
+        {
+            "name": "lmod",
+            "default": false,
+            "description": "setup zshrc env for lmod support"
         }
     ],
     "homepage": "https://www.zsh.org",
@@ -64,12 +84,12 @@
     ],
     "dependent_to": [
         {
-            "name": "turbine",
-            "description": "Turbine: The Swift/T runtime"
-        },
-        {
             "name": "stc",
             "description": "STC: The Swift-Turbine Compiler"
+        },
+        {
+            "name": "turbine",
+            "description": "Turbine: The Swift/T runtime"
         }
     ]
 }

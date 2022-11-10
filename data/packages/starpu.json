@@ -104,16 +104,26 @@
     "conflicts": [
         {
             "name": "platform=windows",
-            "spec": "",
+            "spec": "build_system=autotools",
             "description": "None"
         },
         {
             "name": "+shared",
             "spec": "+mpi+simgrid",
             "description": "Simgrid MPI cannot be built with a shared library"
+        },
+        {
+            "name": "+papi",
+            "spec": "+simgrid",
+            "description": "None"
         }
     ],
     "variants": [
+        {
+            "name": "build_system",
+            "default": "autotools",
+            "description": "Build systems supported by the package"
+        },
         {
             "name": "shared",
             "default": true,
@@ -178,6 +188,16 @@
             "name": "examples",
             "default": true,
             "description": "Enable Examples"
+        },
+        {
+            "name": "papi",
+            "default": false,
+            "description": "Enable PAPI support"
+        },
+        {
+            "name": "blocking",
+            "default": false,
+            "description": "Enable blocking drivers support"
         }
     ],
     "homepage": "https://starpu.gitlabpages.inria.fr/",
@@ -219,7 +239,7 @@
         },
         {
             "name": "mpi",
-            "description": "MVAPICH2-GDR is an optimized version of the MVAPICH2 MPI library for\nGPU-enabled HPC and Deep Learning Applications. MVAPICH2-GDR is not\ninstallable from source and is only available through a binary mirror.\nIf you do not find the binary you're looking for, send us an email at\nmvapich@cse.ohio-state.edu. The binary mirror url is:\nhttp://mvapich.cse.ohio-state.edu/download/mvapich/spack-\nmirror/mvapich2-gdr/"
+            "description": "MPICH is a high performance and widely portable implementation of the\nMessage Passing Interface (MPI) standard."
         },
         {
             "name": "cuda",
@@ -232,6 +252,10 @@
         {
             "name": "simgrid",
             "description": "SimGrid is a framework for developing simulators of distributed\napplications targetting distributed platforms, which can in turn be used\nto prototype, evaluate and compare relevant platform configurations,\nsystem designs, and algorithmic approaches."
+        },
+        {
+            "name": "papi",
+            "description": "PAPI provides the tool designer and application engineer with a\nconsistent interface and methodology for use of the performance counter\nhardware found in most major microprocessors. PAPI enables software\nengineers to see, in near real time, the relation between software\nperformance and processor events. In addition Component PAPI provides\naccess to a collection of components that expose performance measurement\nopportunities across the hardware and software stack."
         }
     ],
     "dependent_to": [

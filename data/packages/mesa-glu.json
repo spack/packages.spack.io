@@ -3,7 +3,7 @@
     "aliases": [
         {
             "name": "glu@1.3",
-            "alias_for": "{mesa-glu~osmesa}"
+            "alias_for": "{mesa-glu}"
         }
     ],
     "versions": [
@@ -25,15 +25,40 @@
     "conflicts": [
         {
             "name": "platform=windows",
-            "spec": "",
+            "spec": "build_system=autotools",
+            "description": "None"
+        },
+        {
+            "name": "osmesa",
+            "spec": "gl=glx",
+            "description": "None"
+        },
+        {
+            "name": "osmesa",
+            "spec": "gl=other",
+            "description": "None"
+        },
+        {
+            "name": "glx",
+            "spec": "gl=osmesa",
+            "description": "None"
+        },
+        {
+            "name": "glx",
+            "spec": "gl=other",
             "description": "None"
         }
     ],
     "variants": [
         {
-            "name": "osmesa",
-            "default": false,
-            "description": "Enable OSMesa instead of libGL"
+            "name": "build_system",
+            "default": "autotools",
+            "description": "Build systems supported by the package"
+        },
+        {
+            "name": "gl",
+            "default": "glx",
+            "description": "The OpenGL provider to use"
         }
     ],
     "homepage": "https://www.mesa3d.org",
@@ -48,21 +73,21 @@
         },
         {
             "name": "gl",
-            "description": "Mesa is an open-source implementation of the OpenGL specification - a\nsystem for rendering interactive 3D graphics."
+            "description": "Shim package for the GLX library."
         },
         {
             "name": "osmesa",
-            "description": "Mesa is an open-source implementation of the OpenGL specification - a\nsystem for rendering interactive 3D graphics."
+            "description": "Shim package for the OSMesa OpenGL library."
+        },
+        {
+            "name": "glx",
+            "description": "Shim package for the GLX library."
         }
     ],
     "dependent_to": [
         {
-            "name": "visit",
-            "description": "VisIt is an Open Source, interactive, scalable, visualization, animation\nand analysis tool. See comments in VisIt's package.py for tips about\nbuilding VisIt with spack. Building VisIt with Spack is still\nexperimental and many standard features are likely disabled\nLINUX-------------------------------------------------------------------\nspack install visit ^python+shared ^glib@2.56.3 ^py-setuptools@44.1.0\nLINUX-W/O-OPENGL--------------------------------------------------------\nspack install visit ^python+shared ^glib@2.56.3 ^py-setuptools@44.1.0 \\\n^mesa+opengl\nMACOS-------------------------------------------------------------------\nspack install visit ^python+shared ^glib@2.56.3 ^py-setuptools@44.1.0 \\\n^qt~framework"
-        },
-        {
-            "name": "mesa-demos",
-            "description": "This package provides some demo applications for testing Mesa."
+            "name": "freesurfer",
+            "description": "Freesurfer is an open source software suite for processing and analyzing\n(human) brain MRI images."
         }
     ]
 }

@@ -24,6 +24,10 @@
             "branch": "develop"
         },
         {
+            "name": "0.3.21",
+            "sha256": "f36ba3d7a60e7c8bcc54cd9aaa9b1223dd42eaf02c811791c37e8ca707c241ca"
+        },
+        {
             "name": "0.3.20",
             "sha256": "8495c9affc536253648e942908e88e097f2ec7753ede55aca52e5dead3029e3c"
         },
@@ -132,12 +136,12 @@
             "sha256": "73c40ace5978282224e5e122a41c8388c5a19e65a6f2329c2b7c0b61bacc9044"
         }
     ],
-    "latest_version": "0.3.20",
+    "latest_version": "0.3.21",
     "build_system": "MakefilePackage",
     "conflicts": [
         {
             "name": "platform=windows",
-            "spec": "",
+            "spec": "build_system=makefile",
             "description": "None"
         },
         {
@@ -147,7 +151,7 @@
         },
         {
             "name": "%gcc@:10.1",
-            "spec": "@0.3.13 arch=linux-None-ppc64le:",
+            "spec": "@0.3.13 arch=None-None-ppc64le:",
             "description": "None"
         },
         {
@@ -177,6 +181,16 @@
         }
     ],
     "variants": [
+        {
+            "name": "build_system",
+            "default": "makefile",
+            "description": "Build systems supported by the package"
+        },
+        {
+            "name": "fortran",
+            "default": "True",
+            "description": "w/o a Fortran compiler, OpenBLAS will build an f2c-converted LAPACK"
+        },
         {
             "name": "ilp64",
             "default": false,
@@ -221,6 +235,30 @@
     "homepage": "https://www.openblas.net",
     "maintainers": [],
     "patches": [
+        {
+            "owner": "builtin.openblas",
+            "sha256": "f432226a282b9700dfe15b593ecb2df53561eaf685953539f2a72f1aeda2ac62",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "cce.patch",
+            "version": "@0.3.20%cce"
+        },
+        {
+            "owner": "builtin.openblas",
+            "sha256": "d3d9b15fa39e18cdf972e1e5c78b320e36a24a481abd44e440eaf81bad227edd",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "fix-cray-fortran-detection-pr3778.patch",
+            "version": "@0.3.21"
+        },
+        {
+            "owner": "builtin.openblas",
+            "sha256": "41b0a3baa5408a2bcd01ed1799ed17b4b2faae02af008583bba84df4b74b3e4a",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "f_check-oneapi.patch",
+            "version": "@0.3.20%oneapi"
+        },
         {
             "owner": "builtin.openblas",
             "sha256": "47cfa7a952ac7b2e4632c73ae199d69fb54490627b66a62c681e21019c4ddc9d",
@@ -275,7 +313,7 @@
             "level": 1,
             "working_dir": ".",
             "relative_path": "power8.patch",
-            "version": "@0.2.18:0.2.19%gcc@7.1.0: arch=linux-None-power8"
+            "version": "@0.2.18:0.2.19%gcc@7.1.0: arch=None-None-power8"
         },
         {
             "owner": "builtin.openblas",
@@ -364,6 +402,14 @@
             "working_dir": ".",
             "relative_path": "0001-use-usr-bin-env-perl.patch",
             "version": "@:0.3.13"
+        },
+        {
+            "owner": "builtin.openblas",
+            "sha256": "9f129031c27b99b27b283dee281d41559f513ea5e9eddb2ff3f4976669376952",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "linktest.patch",
+            "version": "@0.3.20"
         }
     ],
     "resources": [],
@@ -376,24 +422,36 @@
     ],
     "dependent_to": [
         {
-            "name": "rmats",
-            "description": "MATS is a computational tool to detect differential alternative splicing\nevents from RNA-Seq data."
+            "name": "elemental",
+            "description": "Elemental: Distributed-memory dense and sparse-direct linear algebra and\noptimization library."
         },
         {
-            "name": "cntk",
-            "description": "The Microsoft Cognitive Toolkit is a unified deep-learning toolkit that\ndescribes neural networks as a series of computational steps via a\ndirected graph."
+            "name": "dihydrogen",
+            "description": "DiHydrogen is the second version of the Hydrogen fork of the well-known\ndistributed linear algebra library, Elemental. DiHydrogen aims to be a\nbasic distributed multilinear algebra interface with a particular\nemphasis on the needs of the distributed machine learning effort, LBANN."
+        },
+        {
+            "name": "molcas",
+            "description": "Molcas is an ab initio quantum chemistry software package developed by\nscientists to be used by scientists. Please set the path to licence file\nwith the following command export\nMOLCAS_LICENSE=/path/to/molcas/license/"
         },
         {
             "name": "julia",
             "description": "The Julia Language: A fresh approach to technical computing"
         },
         {
-            "name": "fsl",
-            "description": "FSL is a comprehensive library of analysis tools for FMRI, MRI and DTI\nbrain imaging data."
+            "name": "hydrogen",
+            "description": "Hydrogen: Distributed-memory dense and sparse-direct linear algebra and\noptimization library. Based on the Elemental library."
         },
         {
-            "name": "dihydrogen",
-            "description": "DiHydrogen is the second version of the Hydrogen fork of the well-known\ndistributed linear algebra library, Elemental. DiHydrogen aims to be a\nbasic distributed multilinear algebra interface with a particular\nemphasis on the needs of the distributed machine learning effort, LBANN."
+            "name": "rmats",
+            "description": "MATS is a computational tool to detect differential alternative splicing\nevents from RNA-Seq data."
+        },
+        {
+            "name": "quantum-espresso",
+            "description": "Quantum ESPRESSO is an integrated suite of Open-Source computer codes\nfor electronic-structure calculations and materials modeling at the\nnanoscale. It is based on density-functional theory, plane waves, and\npseudopotentials."
+        },
+        {
+            "name": "openmolcas",
+            "description": "OpenMolcas is a quantum chemistry software package. The key feature of\nOpenMolcas is the multiconfigurational approach to the electronic\nstructure."
         },
         {
             "name": "strumpack",
@@ -404,48 +462,48 @@
             "description": "a high performance parallel solver for very large sparse linear systems\nbased on direct methods"
         },
         {
-            "name": "cp2k",
-            "description": "CP2K is a quantum chemistry and solid state physics software package\nthat can perform atomistic simulations of solid state, liquid,\nmolecular, periodic, material, crystal, and biological systems"
+            "name": "sirius",
+            "description": "Domain specific library for electronic structure calculations"
         },
         {
-            "name": "hydrogen",
-            "description": "Hydrogen: Distributed-memory dense and sparse-direct linear algebra and\noptimization library. Based on the Elemental library."
-        },
-        {
-            "name": "spla",
-            "description": "Specialized Parallel Linear Algebra, providing distributed GEMM\nfunctionality for specific matrix distributions with optional GPU\nacceleration."
-        },
-        {
-            "name": "gemma",
-            "description": "GEMMA is a software toolkit for fast application of linear mixed models\n(LMMs) and related models to genome-wide association studies (GWAS) and\nother large-scale data sets."
-        },
-        {
-            "name": "openmolcas",
-            "description": "OpenMolcas is a quantum chemistry software package. The key feature of\nOpenMolcas is the multiconfigurational approach to the electronic\nstructure."
+            "name": "cepgen",
+            "description": "A generic central exclusive processes event generator"
         },
         {
             "name": "berkeleygw",
             "description": "BerkeleyGW is a many-body perturbation theory code for excited states,\nusing the GW method and the GW plus Bethe-Salpeter equation (GW-BSE)\nmethod to solve respectively for quasiparticle excitations and optical\nproperties of materials."
         },
         {
-            "name": "elemental",
-            "description": "Elemental: Distributed-memory dense and sparse-direct linear algebra and\noptimization library."
+            "name": "spla",
+            "description": "Specialized Parallel Linear Algebra, providing distributed GEMM\nfunctionality for specific matrix distributions with optional GPU\nacceleration."
         },
         {
-            "name": "sirius",
-            "description": "Domain specific library for electronic structure calculations"
+            "name": "cntk",
+            "description": "The Microsoft Cognitive Toolkit is a unified deep-learning toolkit that\ndescribes neural networks as a series of computational steps via a\ndirected graph."
         },
         {
-            "name": "elk",
-            "description": "An all-electron full-potential linearised augmented-plane wave (FP-LAPW)\ncode with many advanced features."
-        },
-        {
-            "name": "molcas",
-            "description": "Molcas is an ab initio quantum chemistry software package developed by\nscientists to be used by scientists. Please set the path to licence file\nwith the following command export\nMOLCAS_LICENSE=/path/to/molcas/license/"
+            "name": "xyce",
+            "description": "Xyce (rhymes with 'spice') is an open source, SPICE-compatible, high-\nperformance analog circuit simulator, capable of solving extremely large\ncircuit problems by supporting large-scale parallel computing platforms.\nXyce also supports serial execution on all common desktop platforms, and\nsmall-scale parallel runs on Unix-like systems. In addition to analog\nelectronic simulation, Xyce has also been used to investigate more\ngeneral network systems, such as neural networks and power grids."
         },
         {
             "name": "gcta",
             "description": "GCTA (Genome-wide Complex Trait Analysis) was originally designed to\nestimate the proportion of phenotypic variance explained by all genome-\nwide SNPs for complex traits (the GREML method), and has subsequently\nextended for many other analyses to better understand the genetic\narchitecture of complex traits. GCTA currently supports the following\nanalyses."
+        },
+        {
+            "name": "gemma",
+            "description": "GEMMA is a software toolkit for fast application of linear mixed models\n(LMMs) and related models to genome-wide association studies (GWAS) and\nother large-scale data sets."
+        },
+        {
+            "name": "cp2k",
+            "description": "CP2K is a quantum chemistry and solid state physics software package\nthat can perform atomistic simulations of solid state, liquid,\nmolecular, periodic, material, crystal, and biological systems"
+        },
+        {
+            "name": "fsl",
+            "description": "FSL is a comprehensive library of analysis tools for FMRI, MRI and DTI\nbrain imaging data."
+        },
+        {
+            "name": "elk",
+            "description": "An all-electron full-potential linearised augmented-plane wave (FP-LAPW)\ncode with many advanced features."
         }
     ]
 }

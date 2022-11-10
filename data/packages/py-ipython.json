@@ -3,8 +3,16 @@
     "aliases": [],
     "versions": [
         {
+            "name": "8.5.0",
+            "sha256": "097bdf5cd87576fd066179c9f7f208004f7a6864ee1b20f37d346c0bcb099f84"
+        },
+        {
             "name": "8.0.1",
             "sha256": "ab564d4521ea8ceaac26c3a2c6e5ddbca15c8848fd5a5cc325f960da88d42974"
+        },
+        {
+            "name": "7.31.1",
+            "sha256": "b5548ec5329a4bcf054a5deed5099b0f9622eb9ea51aaa7104d215fece201d8c"
         },
         {
             "name": "7.28.0",
@@ -44,20 +52,29 @@
         },
         {
             "name": "3.1.0",
-            "sha256": "532092d3f06f82b1d8d1e5c37097eae19fcf025f8f6a4b670dd49c3c338d5624"
+            "sha256": "532092d3f06f82b1d8d1e5c37097eae19fcf025f8f6a4b670dd49c3c338d5624",
+            "deprecated": true
         },
         {
             "name": "2.3.1",
-            "sha256": "3e98466aa2fe54540bcba9aa6e01a39f40110d67668c297340c4b9514b7cc49c"
+            "sha256": "3e98466aa2fe54540bcba9aa6e01a39f40110d67668c297340c4b9514b7cc49c",
+            "deprecated": true
         }
     ],
-    "latest_version": "8.0.1",
+    "latest_version": "8.5.0",
     "build_system": "PythonPackage",
     "conflicts": [],
-    "variants": [],
+    "variants": [
+        {
+            "name": "build_system",
+            "default": "python_pip",
+            "description": "Build systems supported by the package"
+        }
+    ],
     "homepage": "https://ipython.readthedocs.org/",
     "maintainers": [
-        "adamjstewart"
+        "adamjstewart",
+        "pradyunsg"
     ],
     "patches": [],
     "resources": [],
@@ -80,40 +97,24 @@
             "description": "A Python utility that aids in the process of downloading, building,\nupgrading, installing, and uninstalling Python packages."
         },
         {
-            "name": "py-jedi",
-            "description": "An autocompletion tool for Python that can be used for text editors."
-        },
-        {
-            "name": "py-black",
-            "description": "Black is the uncompromising Python code formatter. By using it, you\nagree to cede control over minutiae of hand-formatting. In return, Black\ngives you speed, determinism, and freedom from pycodestyle nagging about\nformatting."
-        },
-        {
-            "name": "py-decorator",
-            "description": "The aim of the decorator module it to simplify the usage of decorators\nfor the average programmer, and to popularize decorators by showing\nvarious non-trivial examples."
-        },
-        {
-            "name": "py-pickleshare",
-            "description": "Tiny 'shelve'-like database with concurrency support"
-        },
-        {
-            "name": "py-traitlets",
-            "description": "Traitlets Python config system"
-        },
-        {
-            "name": "py-prompt-toolkit",
-            "description": "Library for building powerful interactive command lines in Python"
-        },
-        {
-            "name": "py-pygments",
-            "description": "Pygments is a syntax highlighting package written in Python."
+            "name": "py-appnope",
+            "description": "Disable App Nap on OS X 10.9"
         },
         {
             "name": "py-backcall",
             "description": "Specifications for callback functions passed in to an API"
         },
         {
-            "name": "py-stack-data",
-            "description": "Extract data from python stack frames and tracebacks for informative\ndisplays."
+            "name": "py-colorama",
+            "description": "Cross-platform colored terminal text."
+        },
+        {
+            "name": "py-decorator",
+            "description": "The aim of the decorator module it to simplify the usage of decorators\nfor the average programmer, and to popularize decorators by showing\nvarious non-trivial examples."
+        },
+        {
+            "name": "py-jedi",
+            "description": "An autocompletion tool for Python that can be used for text editors."
         },
         {
             "name": "py-matplotlib-inline",
@@ -124,16 +125,32 @@
             "description": "Pexpect allows easy control of interactive console applications."
         },
         {
-            "name": "py-appnope",
-            "description": "Disable App Nap on OS X 10.9"
+            "name": "py-pickleshare",
+            "description": "Tiny 'shelve'-like database with concurrency support"
         },
         {
-            "name": "py-colorama",
-            "description": "Cross-platform colored terminal text."
+            "name": "py-prompt-toolkit",
+            "description": "Library for building powerful interactive command lines in Python"
+        },
+        {
+            "name": "py-pygments",
+            "description": "Pygments is a syntax highlighting package written in Python."
+        },
+        {
+            "name": "py-stack-data",
+            "description": "Extract data from python stack frames and tracebacks for informative\ndisplays."
+        },
+        {
+            "name": "py-traitlets",
+            "description": "Traitlets Python config system"
         },
         {
             "name": "py-backports-shutil-get-terminal-size",
             "description": "A backport of the get_terminal_size function from Python 3.3's shutil."
+        },
+        {
+            "name": "py-black",
+            "description": "Black is the uncompromising Python code formatter. By using it, you\nagree to cede control over minutiae of hand-formatting. In return, Black\ngives you speed, determinism, and freedom from pycodestyle nagging about\nformatting."
         },
         {
             "name": "py-pathlib2",
@@ -142,48 +159,24 @@
         {
             "name": "py-simplegeneric",
             "description": "Simple generic functions (similar to Python's own len(), pickle.dump(),\netc.)"
+        },
+        {
+            "name": "py-win-unicode-console",
+            "description": "Enable Unicode input and display when running Python from Windows\nconsole."
         }
     ],
     "dependent_to": [
         {
-            "name": "py-jupyterlab",
-            "description": "JupyterLab is the next-generation web-based user interface for Project\nJupyter."
-        },
-        {
-            "name": "py-ipyparallel",
-            "description": "IPython's architecture for parallel and distributed computing."
-        },
-        {
-            "name": "py-ipdb",
-            "description": "ipdb is the iPython debugger and has many additional features, including\na better interactive debugging experience via colorized output."
-        },
-        {
             "name": "py-jupyter-console",
             "description": "Jupyter Terminal Console"
-        },
-        {
-            "name": "callflow",
-            "description": "CallFlow is an interactive visual analysis tool that provides a high-\nlevel overview of CCTs together with semantic refinement operations to\nprogressively explore the CCTs."
-        },
-        {
-            "name": "py-ipywidgets",
-            "description": "IPython widgets for the Jupyter Notebook"
-        },
-        {
-            "name": "py-openmc",
-            "description": "OpenMC is a community-developed Monte Carlo neutron and photon transport\nsimulation code. It is capable of performing fixed source, k-eigenvalue,\nand subcritical multiplication calculations on models built using either\na constructive solid geometry or CAD representation. OpenMC supports\nboth continuous-energy and multigroup transport. The continuous-energy\nparticle interaction data is based on a native HDF5 format that can be\ngenerated from ACE files produced by NJOY. Parallelism is enabled via a\nhybrid MPI and OpenMP programming model."
-        },
-        {
-            "name": "py-abipy",
-            "description": "Python package to automate ABINIT calculations and analyze the results."
         },
         {
             "name": "py-ipykernel",
             "description": "IPython Kernel for Jupyter"
         },
         {
-            "name": "py-dask-ml",
-            "description": "Scalable Machine Learning with Dask."
+            "name": "spack",
+            "description": "Spack is a multi-platform package manager that builds and installs\nmultiple versions and configurations of software. It works on Linux,\nmacOS, and many supercomputers. Spack is non-destructive: installing a\nnew version of a package does not break existing installations, so many\nconfigurations of the same package can coexist."
         },
         {
             "name": "py-black",
@@ -194,32 +187,60 @@
             "description": "This package offers functionalities for user-friendly geo data\nprocessing using GDAL and OGR."
         },
         {
-            "name": "py-mixedhtseq",
-            "description": "HTSeq for mixed single and paired end reads"
+            "name": "py-jupyterlab",
+            "description": "JupyterLab is the next-generation web-based user interface for Project\nJupyter."
         },
         {
-            "name": "py-ipympl",
-            "description": "Matplotlib Jupyter Extension."
+            "name": "py-ipdb",
+            "description": "ipdb is the iPython debugger and has many additional features, including\na better interactive debugging experience via colorized output."
+        },
+        {
+            "name": "py-dask-ml",
+            "description": "Scalable Machine Learning with Dask."
         },
         {
             "name": "py-pytecplot",
             "description": "The pytecplot library is a high level API that connects your Python\nscript to the power of the Tecplot 360 visualization engine. It offers\nline plotting, 2D and 3D surface plots in a variety of formats, and 3D\nvolumetric visualization. Familiarity with Tecplot 360 and the Tecplot\n360 macro language is helpful, but not required."
         },
         {
-            "name": "py-yt",
-            "description": "Volumetric Data Analysis yt is a python package for analyzing and\nvisualizing volumetric, multi-resolution data from astrophysical\nsimulations, radio telescopes, and a burgeoning interdisciplinary\ncommunity."
-        },
-        {
             "name": "py-line-profiler",
             "description": "Line-by-line profiler."
+        },
+        {
+            "name": "py-ipywidgets",
+            "description": "IPython widgets for the Jupyter Notebook"
+        },
+        {
+            "name": "py-ipyparallel",
+            "description": "IPython's architecture for parallel and distributed computing."
+        },
+        {
+            "name": "callflow",
+            "description": "CallFlow is an interactive visual analysis tool that provides a high-\nlevel overview of CCTs together with semantic refinement operations to\nprogressively explore the CCTs."
         },
         {
             "name": "py-ipython-cluster-helper",
             "description": "Quickly and easily parallelize Python functions using IPython on a\ncluster, supporting multiple schedulers. Optimizes IPython defaults to\nhandle larger clusters and simultaneous processes."
         },
         {
-            "name": "spack",
-            "description": "Spack is a multi-platform package manager that builds and installs\nmultiple versions and configurations of software. It works on Linux,\nmacOS, and many supercomputers. Spack is non-destructive: installing a\nnew version of a package does not break existing installations, so many\nconfigurations of the same package can coexist."
+            "name": "py-ipympl",
+            "description": "Matplotlib Jupyter Extension."
+        },
+        {
+            "name": "py-abipy",
+            "description": "Python package to automate ABINIT calculations and analyze the results."
+        },
+        {
+            "name": "py-mixedhtseq",
+            "description": "HTSeq for mixed single and paired end reads"
+        },
+        {
+            "name": "py-yt",
+            "description": "Volumetric Data Analysis yt is a python package for analyzing and\nvisualizing volumetric, multi-resolution data from astrophysical\nsimulations, radio telescopes, and a burgeoning interdisciplinary\ncommunity."
+        },
+        {
+            "name": "py-openmc",
+            "description": "OpenMC is a community-developed Monte Carlo neutron and photon transport\nsimulation code. It is capable of performing fixed source, k-eigenvalue,\nand subcritical multiplication calculations on models built using either\na constructive solid geometry or CAD representation. OpenMC supports\nboth continuous-energy and multigroup transport. The continuous-energy\nparticle interaction data is based on a native HDF5 format that can be\ngenerated from ACE files produced by NJOY. Parallelism is enabled via a\nhybrid MPI and OpenMP programming model."
         }
     ]
 }

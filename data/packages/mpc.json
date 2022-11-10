@@ -24,11 +24,16 @@
     "conflicts": [
         {
             "name": "platform=windows",
-            "spec": "",
+            "spec": "build_system=autotools",
             "description": "None"
         }
     ],
     "variants": [
+        {
+            "name": "build_system",
+            "default": "autotools",
+            "description": "Build systems supported by the package"
+        },
         {
             "name": "libs",
             "default": "shared,static",
@@ -56,16 +61,20 @@
     ],
     "dependent_to": [
         {
+            "name": "riscv-gnu-toolchain",
+            "description": "A cross-compilation tool for RISC-V."
+        },
+        {
             "name": "elemental",
             "description": "Elemental: Distributed-memory dense and sparse-direct linear algebra and\noptimization library."
         },
         {
-            "name": "hydrogen",
-            "description": "Hydrogen: Distributed-memory dense and sparse-direct linear algebra and\noptimization library. Based on the Elemental library."
-        },
-        {
             "name": "symengine",
             "description": "SymEngine is a fast symbolic manipulation library, written in C++."
+        },
+        {
+            "name": "hydrogen",
+            "description": "Hydrogen: Distributed-memory dense and sparse-direct linear algebra and\noptimization library. Based on the Elemental library."
         },
         {
             "name": "gcc",

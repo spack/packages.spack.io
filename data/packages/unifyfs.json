@@ -7,19 +7,30 @@
             "branch": "dev"
         },
         {
+            "name": "1.0",
+            "sha256": "c9ad0d15d382773841a3dab89c661fbdcfd686ec37fa263eb22713f6404258f5"
+        },
+        {
             "name": "0.9.2",
-            "sha256": "7046625dc0677535f5d960187cb2e2d58a6f8cfb4dc6a3604f825257eb0891aa"
+            "sha256": "7046625dc0677535f5d960187cb2e2d58a6f8cfb4dc6a3604f825257eb0891aa",
+            "deprecated": true
         },
         {
             "name": "0.9.1",
-            "sha256": "2498a859cfa4961356fdf5c4c17e3afc3de7e034ad013b8c7145a622ef6199a0"
+            "sha256": "2498a859cfa4961356fdf5c4c17e3afc3de7e034ad013b8c7145a622ef6199a0",
+            "deprecated": true
         }
     ],
-    "latest_version": "0.9.2",
+    "latest_version": "1.0",
     "build_system": "AutotoolsPackage",
     "conflicts": [
         {
             "name": "platform=windows",
+            "spec": "build_system=autotools",
+            "description": "None"
+        },
+        {
+            "name": "^libfabric@1.13",
             "spec": "",
             "description": "None"
         },
@@ -46,13 +57,23 @@
     ],
     "variants": [
         {
+            "name": "build_system",
+            "default": "autotools",
+            "description": "Build systems supported by the package"
+        },
+        {
             "name": "auto-mount",
             "default": "True",
             "description": "Enable automatic mount/unmount in MPI_Init/Finalize"
         },
         {
-            "name": "fortran",
+            "name": "boostsys",
             "default": "False",
+            "description": "Have Mercury use preprocessor headers from boost dependency"
+        },
+        {
+            "name": "fortran",
+            "default": "True",
             "description": "Build with gfortran support"
         },
         {
@@ -125,20 +146,20 @@
             "description": "C software library for shared library function wrapping, enables tools\nto intercept calls into shared libraries"
         },
         {
-            "name": "mercury",
-            "description": "Mercury is a C library for implementing RPC, optimized for HPC"
-        },
-        {
             "name": "mochi-margo",
             "description": "A library that provides Argobots bindings to the Mercury RPC\nimplementation."
         },
         {
             "name": "mpi",
-            "description": "MVAPICH2-GDR is an optimized version of the MVAPICH2 MPI library for\nGPU-enabled HPC and Deep Learning Applications. MVAPICH2-GDR is not\ninstallable from source and is only available through a binary mirror.\nIf you do not find the binary you're looking for, send us an email at\nmvapich@cse.ohio-state.edu. The binary mirror url is:\nhttp://mvapich.cse.ohio-state.edu/download/mvapich/spack-\nmirror/mvapich2-gdr/"
+            "description": "MPICH is a high performance and widely portable implementation of the\nMessage Passing Interface (MPI) standard."
         },
         {
             "name": "openssl",
             "description": "OpenSSL is an open source project that provides a robust, commercial-\ngrade, and full-featured toolkit for the Transport Layer Security (TLS)\nand Secure Sockets Layer (SSL) protocols. It is also a general-purpose\ncryptography library."
+        },
+        {
+            "name": "mercury",
+            "description": "Mercury is a C library for implementing RPC, optimized for HPC"
         },
         {
             "name": "libfabric",

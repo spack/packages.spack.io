@@ -3,6 +3,10 @@
     "aliases": [],
     "versions": [
         {
+            "name": "2.15.0",
+            "sha256": "4f3f7e869646b0bd63b3dfb79f3c0f28fc3d2d923ea220d52620fd625aed92b0"
+        },
+        {
             "name": "2.14.4",
             "sha256": "47705453aa9dce520e123a7d51843d5f0032cbfa06870f89f00927aa1f735a4a"
         },
@@ -43,13 +47,20 @@
             "sha256": "3e383060edd432cbbd0e8bd686f5facfe918047ffe1bb401ab5897cb6ee0f030"
         }
     ],
-    "latest_version": "2.14.4",
+    "latest_version": "2.15.0",
     "build_system": "PythonPackage",
     "conflicts": [],
-    "variants": [],
+    "variants": [
+        {
+            "name": "build_system",
+            "default": "python_pip",
+            "description": "Build systems supported by the package"
+        }
+    ],
     "homepage": "https://pypi.org/project/pylint/",
     "maintainers": [
-        "adamjstewart"
+        "adamjstewart",
+        "pradyunsg"
     ],
     "patches": [],
     "resources": [],
@@ -68,24 +79,24 @@
             "description": "A built-package format for Python."
         },
         {
-            "name": "py-astroid",
-            "description": "A common base representation of python source code for pylint and other\nprojects."
+            "name": "py-setuptools-scm",
+            "description": "The blessed package to manage your versions by scm tags."
         },
         {
-            "name": "py-backports-functools-lru-cache",
-            "description": "Backport of functools.lru_cache from Python 3.3"
-        },
-        {
-            "name": "py-configparser",
-            "description": "This library brings the updated configparser from Python 3.5 to Python\n2.6-3.5."
+            "name": "py-setuptools",
+            "description": "A Python utility that aids in the process of downloading, building,\nupgrading, installing, and uninstalling Python packages."
         },
         {
             "name": "py-dill",
             "description": "Serialize all of python"
         },
         {
-            "name": "py-editdistance",
-            "description": "Fast implementation of the edit distance (Levenshtein distance)."
+            "name": "py-platformdirs",
+            "description": "A small Python module for determining appropriate platform-specific\ndirs, e.g. a \"user data dir\""
+        },
+        {
+            "name": "py-astroid",
+            "description": "A common base representation of python source code for pylint and other\nprojects."
         },
         {
             "name": "py-isort",
@@ -96,12 +107,32 @@
             "description": "Ned's script to check McCabe complexity."
         },
         {
-            "name": "py-setuptools-scm",
-            "description": "The blessed package to manage your versions by scm tags."
+            "name": "py-tomli",
+            "description": "Tomli is a Python library for parsing TOML. Tomli is fully compatible\nwith TOML v1.0.0."
         },
         {
-            "name": "py-setuptools",
-            "description": "A Python utility that aids in the process of downloading, building,\nupgrading, installing, and uninstalling Python packages."
+            "name": "py-tomlkit",
+            "description": "Style preserving TOML library"
+        },
+        {
+            "name": "py-colorama",
+            "description": "Cross-platform colored terminal text."
+        },
+        {
+            "name": "py-typing-extensions",
+            "description": "The typing_extensions module contains both backports of these changes as\nwell as experimental types that will eventually be added to the typing\nmodule, such as Protocol (see PEP 544 for details about protocols and\nstatic duck typing)."
+        },
+        {
+            "name": "py-backports-functools-lru-cache",
+            "description": "Backport of functools.lru_cache from Python 3.3"
+        },
+        {
+            "name": "py-configparser",
+            "description": "This library brings the updated configparser from Python 3.5 to Python\n2.6-3.5."
+        },
+        {
+            "name": "py-editdistance",
+            "description": "Fast implementation of the edit distance (Levenshtein distance)."
         },
         {
             "name": "py-singledispatch",
@@ -114,32 +145,16 @@
         {
             "name": "py-toml",
             "description": "A Python library for parsing and creating TOML configuration files. For\nmore information on the TOML standard, see https://github.com/toml-\nlang/toml.git"
-        },
-        {
-            "name": "py-tomli",
-            "description": "Tomli is a Python library for parsing TOML. Tomli is fully compatible\nwith TOML v1.0.0."
-        },
-        {
-            "name": "py-tomlkit",
-            "description": "Style preserving TOML library"
-        },
-        {
-            "name": "py-platformdirs",
-            "description": "A small Python module for determining appropriate platform-specific\ndirs, e.g. a \"user data dir\""
-        },
-        {
-            "name": "py-typing-extensions",
-            "description": "The typing_extensions module contains both backports of these changes as\nwell as experimental types that will eventually be added to the typing\nmodule, such as Protocol (see PEP 544 for details about protocols and\nstatic duck typing)."
         }
     ],
     "dependent_to": [
         {
-            "name": "geopm",
-            "description": "GEOPM is an extensible power management framework targeting HPC. The\nGEOPM package provides libgeopm, libgeopmpolicy and applications\ngeopmctl and geopmpolicy, as well as tools for postprocessing. GEOPM is\ndesigned to be extended for new control algorithms and new hardware\npower management features via its plugin infrastructure. Note: GEOPM\ninterfaces with hardware using Model Specific Registers (MSRs). For\npropper usage make sure MSRs are made available directly or via the msr-\nsafe kernel module by your administrator."
-        },
-        {
             "name": "py-spyder",
             "description": "Scientific PYthon Development EnviRonment"
+        },
+        {
+            "name": "geopm",
+            "description": "GEOPM is an extensible power management framework targeting HPC. The\nGEOPM package provides libgeopm, libgeopmpolicy and applications\ngeopmctl and geopmpolicy, as well as tools for postprocessing. GEOPM is\ndesigned to be extended for new control algorithms and new hardware\npower management features via its plugin infrastructure. Note: GEOPM\ninterfaces with hardware using Model Specific Registers (MSRs). For\npropper usage make sure MSRs are made available directly or via the msr-\nsafe kernel module by your administrator."
         }
     ]
 }

@@ -3,6 +3,16 @@
     "aliases": [],
     "versions": [
         {
+            "name": "26_0_1",
+            "sha256": "aba79da5c8d0407ffc92b7831f4f8f8a8096a15e47a016ada81b6568f9d280cc",
+            "url": "https://github.com/ncbi/ncbi-cxx-toolkit-public/archive/refs/tags/release-26.0.1.tar.gz"
+        },
+        {
+            "name": "25_2_0",
+            "sha256": "9f824a92750e64e7b9be98d82b84414ab4f7e5d73392dadbb87c94ff5ccf9111",
+            "url": "https://ftp.ncbi.nih.gov/toolbox/ncbi_tools++/CURRENT/ncbi_cxx--25_2_0.tar.gz"
+        },
+        {
             "name": "22_0_0",
             "sha256": "ef39429bbc7f13c44c0d327432d9cfb430f9f20d10d825e6b2c4ddd7ccce457f",
             "url": "ftp://ftp.ncbi.nih.gov/toolbox/ncbi_tools++/ARCHIVE/2019/Mar_28_2019/ncbi_cxx--22_0_0.tar.gz"
@@ -13,16 +23,21 @@
             "url": "ftp://ftp.ncbi.nih.gov/toolbox/ncbi_tools++/ARCHIVE/2018/Apr_2_2018/ncbi_cxx--21_0_0.tar.gz"
         }
     ],
-    "latest_version": "22_0_0",
+    "latest_version": "26_0_1",
     "build_system": "AutotoolsPackage",
     "conflicts": [
         {
             "name": "platform=windows",
-            "spec": "",
+            "spec": "build_system=autotools",
             "description": "None"
         }
     ],
     "variants": [
+        {
+            "name": "build_system",
+            "default": "autotools",
+            "description": "Build systems supported by the package"
+        },
         {
             "name": "debug",
             "default": false,
@@ -48,8 +63,16 @@
             "description": "bzip2 is a freely available, patent free high-quality data compressor.\nIt typically compresses files to within 10% to 15% of the best available\ntechniques (the PPM family of statistical compressors), whilst being\naround twice as fast at compression and six times faster at\ndecompression."
         },
         {
+            "name": "cpio",
+            "description": "GNU cpio copies files into or out of a cpio or tar archive and the file\nsystem. The archive can be another file on the disk, a magnetic tape, or\na pipe."
+        },
+        {
+            "name": "diffutils",
+            "description": "GNU Diffutils is a package of several programs related to finding\ndifferences between files."
+        },
+        {
             "name": "jpeg",
-            "description": "libjpeg is a widely used free library with functions for handling the\nJPEG image data format. It implements a JPEG codec (encoding and\ndecoding) alongside various utilities for handling JPEG data."
+            "description": "libjpeg-turbo is a fork of the original IJG libjpeg which uses SIMD to\naccelerate baseline JPEG compression and decompression. libjpeg is a\nlibrary that implements JPEG image encoding, decoding and transcoding."
         },
         {
             "name": "libpng",
@@ -94,6 +117,10 @@
         {
             "name": "bamtools",
             "description": "C++ API & command-line toolkit for working with BAM data."
+        },
+        {
+            "name": "berkeley-db",
+            "description": "Oracle Berkeley DB"
         }
     ],
     "dependent_to": []

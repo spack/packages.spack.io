@@ -3,20 +3,33 @@
     "aliases": [],
     "versions": [
         {
+            "name": "1.1.4",
+            "sha256": "f9493c7dee9fbf25f6405706818883d24b9f5e455121a0662c96c8f0307f95fc"
+        },
+        {
+            "name": "1.1.3",
+            "sha256": "3b98a6a3a0e7b01aa077a0caf1e958223c4d8f80a69a4eb602ca59a3475da85e"
+        },
+        {
             "name": "1.1.2",
             "sha256": "ac8c24f484205cfb7124c38d6dc638a28f2b9035b9433efec5dc753c7e84226b"
         }
     ],
-    "latest_version": "1.1.2",
+    "latest_version": "1.1.4",
     "build_system": "AutotoolsPackage",
     "conflicts": [
         {
             "name": "platform=windows",
-            "spec": "",
+            "spec": "build_system=autotools",
             "description": "None"
         }
     ],
     "variants": [
+        {
+            "name": "build_system",
+            "default": "autotools",
+            "description": "Build systems supported by the package"
+        },
         {
             "name": "mpi",
             "default": false,
@@ -35,10 +48,14 @@
         },
         {
             "name": "mpi",
-            "description": "MVAPICH2-GDR is an optimized version of the MVAPICH2 MPI library for\nGPU-enabled HPC and Deep Learning Applications. MVAPICH2-GDR is not\ninstallable from source and is only available through a binary mirror.\nIf you do not find the binary you're looking for, send us an email at\nmvapich@cse.ohio-state.edu. The binary mirror url is:\nhttp://mvapich.cse.ohio-state.edu/download/mvapich/spack-\nmirror/mvapich2-gdr/"
+            "description": "MPICH is a high performance and widely portable implementation of the\nMessage Passing Interface (MPI) standard."
         }
     ],
     "dependent_to": [
+        {
+            "name": "py-bakta",
+            "description": "Bakta: rapid & standardized annotation of bacterial genomes, MAGs &\nplasmids"
+        },
         {
             "name": "trnascan-se",
             "description": "Seaching for tRNA genes in genomic sequence"

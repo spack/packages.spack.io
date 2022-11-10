@@ -2,27 +2,27 @@
     "name": "mesa",
     "aliases": [
         {
-            "name": "gl@4.5",
-            "alias_for": "{mesa+opengl}"
-        },
-        {
-            "name": "glx@1.4",
+            "name": "libglx",
             "alias_for": "{mesa+glx}"
         },
         {
-            "name": "osmesa",
+            "name": "libosmesa",
             "alias_for": "{mesa+osmesa}"
         }
     ],
     "versions": [
         {
-            "name": "master",
-            "tag": "master"
+            "name": "main",
+            "tag": "main"
+        },
+        {
+            "name": "22.1.2",
+            "sha256": "df4fa560dcce6680133067cd15b0505fc424ca703244ce9ab247c74d2fab6885",
+            "preferred": true
         },
         {
             "name": "22.0.2",
-            "sha256": "df4fa560dcce6680133067cd15b0505fc424ca703244ce9ab247c74d2fab6885",
-            "preferred": true
+            "sha256": "df4fa560dcce6680133067cd15b0505fc424ca703244ce9ab247c74d2fab6885"
         },
         {
             "name": "21.3.8",
@@ -73,7 +73,7 @@
             "sha256": "d1a46d9a3f291bc0e0374600bdcb59844fa3eafaa50398e472a36fc65fd0244a"
         }
     ],
-    "latest_version": "22.0.2",
+    "latest_version": "22.1.2",
     "build_system": "MesonPackage",
     "conflicts": [
         {
@@ -95,14 +95,14 @@
             "name": "~opengl +opengles",
             "spec": "",
             "description": "None"
-        },
-        {
-            "name": "llvm@13.0.0:",
-            "spec": "@:21.3.1+llvm",
-            "description": "None"
         }
     ],
     "variants": [
+        {
+            "name": "build_system",
+            "default": "meson",
+            "description": "Build systems supported by the package"
+        },
         {
             "name": "buildtype",
             "default": "release",
@@ -165,10 +165,10 @@
         },
         {
             "owner": "builtin.mesa",
-            "sha256": "ada85be0f30bdd61a7c4eb24afec741da81bc411f7227e2d9014c862eef58b64",
+            "sha256": "ee737d105aac4a9eacbbd504aee44c58b05978e0f2a42f2de088550878219ea3",
             "level": 1,
             "working_dir": ".",
-            "relative_path": "mesa_check_llvm_version_suffix.patch",
+            "relative_path": "handle_missing_set_override_stack_alignment.patch",
             "version": "@21.2.3:"
         }
     ],
@@ -254,12 +254,12 @@
     ],
     "dependent_to": [
         {
-            "name": "vesta",
-            "description": "VESTA is a 3D visualization program for structural models, volumetric\ndata such as electron/nuclear densities, and crystal morphologies."
-        },
-        {
             "name": "ethminer",
             "description": "The ethminer is an Ethereum GPU mining worker."
+        },
+        {
+            "name": "vesta",
+            "description": "VESTA is a 3D visualization program for structural models, volumetric\ndata such as electron/nuclear densities, and crystal morphologies."
         }
     ]
 }

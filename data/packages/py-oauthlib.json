@@ -3,6 +3,10 @@
     "aliases": [],
     "versions": [
         {
+            "name": "3.2.1",
+            "sha256": "1565237372795bf6ee3e5aba5e2a85bd5a65d0e2aa5c628b9a97b7d7a0da3721"
+        },
+        {
             "name": "3.1.1",
             "sha256": "8f0215fcc533dd8dd1bee6f4c412d4f0cd7297307d43ac61666389e3bc3198a3"
         },
@@ -19,19 +23,40 @@
             "sha256": "b3b9b47f2a263fe249b5b48c4e25a5bce882ff20a0ac34d553ce43cff55b53ac"
         }
     ],
-    "latest_version": "3.1.1",
+    "latest_version": "3.2.1",
     "build_system": "PythonPackage",
     "conflicts": [],
     "variants": [
         {
+            "name": "build_system",
+            "default": "python_pip",
+            "description": "Build systems supported by the package"
+        },
+        {
             "name": "extras",
             "default": true,
             "description": "Build with pyjwt, blinker, cryptography"
+        },
+        {
+            "name": "rsa",
+            "default": false,
+            "description": "Build with cryptography"
+        },
+        {
+            "name": "signedtoken",
+            "default": false,
+            "description": "Build with cryptography and pyjwt"
+        },
+        {
+            "name": "signals",
+            "default": false,
+            "description": "Build with blinker"
         }
     ],
     "homepage": "https://github.com/oauthlib/oauthlib",
     "maintainers": [
-        "adamjstewart"
+        "adamjstewart",
+        "pradyunsg"
     ],
     "patches": [],
     "resources": [],
@@ -68,12 +93,12 @@
     ],
     "dependent_to": [
         {
-            "name": "py-jupyterhub",
-            "description": "Multi-user server for Jupyter notebooks."
-        },
-        {
             "name": "py-requests-oauthlib",
             "description": "This project provides first-class OAuth library support for Requests."
+        },
+        {
+            "name": "py-jupyterhub",
+            "description": "Multi-user server for Jupyter notebooks."
         }
     ]
 }

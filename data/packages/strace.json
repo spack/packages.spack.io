@@ -3,6 +3,10 @@
     "aliases": [],
     "versions": [
         {
+            "name": "5.19",
+            "sha256": "aa3dc1c8e60e4f6ff3d396514aa247f3c7bf719d8a8dc4dd4fa793be786beca3"
+        },
+        {
             "name": "5.17",
             "sha256": "5fb298dbd1331fd1e1bc94c5c32395860d376101b87c6cd3d1ba9f9aa15c161f"
         },
@@ -63,12 +67,12 @@
             "sha256": "5c7688db44073e94c59a5627744e5699454419824cc8166e8bcfd7ec58375c37"
         }
     ],
-    "latest_version": "5.17",
+    "latest_version": "5.19",
     "build_system": "AutotoolsPackage",
     "conflicts": [
         {
             "name": "platform=windows",
-            "spec": "",
+            "spec": "build_system=autotools",
             "description": "None"
         },
         {
@@ -77,9 +81,17 @@
             "description": "strace runs only on Linux."
         }
     ],
-    "variants": [],
+    "variants": [
+        {
+            "name": "build_system",
+            "default": "autotools",
+            "description": "Build systems supported by the package"
+        }
+    ],
     "homepage": "https://strace.io",
-    "maintainers": [],
+    "maintainers": [
+        "michaelkuhn"
+    ],
     "patches": [],
     "resources": [],
     "description": "Strace is a diagnostic, debugging and instructional userspace utility\nfor Linux. It is used to monitor and tamper with interactions between\nprocesses and the Linux kernel, which include system calls, signal\ndeliveries, and changes of process state.\n",

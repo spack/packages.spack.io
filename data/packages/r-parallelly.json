@@ -3,6 +3,10 @@
     "aliases": [],
     "versions": [
         {
+            "name": "1.32.1",
+            "sha256": "31c685f59ac7ff702fe2720910780378113adf0df0baf048a62eef94524cca90"
+        },
+        {
             "name": "1.31.1",
             "sha256": "40c7fc3d842fa928448e574091a521bead2367bf97545c744ca78ea9af3117da"
         },
@@ -19,10 +23,16 @@
             "sha256": "376ce2381587380a4da60f9563710d63084a605f93aa364e9349f2523e83bc08"
         }
     ],
-    "latest_version": "1.31.1",
+    "latest_version": "1.32.1",
     "build_system": "RPackage",
     "conflicts": [],
-    "variants": [],
+    "variants": [
+        {
+            "name": "build_system",
+            "default": "generic",
+            "description": "Build systems supported by the package"
+        }
+    ],
     "homepage": "https://cloud.r-project.org/package=parallelly",
     "maintainers": [
         "glennpj"
@@ -37,6 +47,10 @@
         }
     ],
     "dependent_to": [
+        {
+            "name": "r-deoptim",
+            "description": "Global Optimization by Differential Evolution. Implements the\ndifferential evolution algorithm for global optimization of a real-\nvalued function of a real-valued parameter vector."
+        },
         {
             "name": "r-future",
             "description": "Unified Parallel and Distributed Processing in R for Everyone. The\npurpose of this package is to provide a lightweight and unified Future\nAPI for sequential and parallel processing of R expression via futures.\nThe simplest way to evaluate an expression in parallel is to use 'x %<-%\n{ expression }' with 'plan(multiprocess)'. This package implements\nsequential, multicore, multisession, and cluster futures. With these, R\nexpressions can be evaluated on the local machine, in parallel a set of\nlocal machines, or distributed on a mix of local and remote machines.\nExtensions to this package implement additional backends for processing\nfutures via compute cluster schedulers etc. Because of its unified API,\nthere is no need to modify any code in order switch from sequential on\nthe local machine to, say, distributed processing on a remote compute\ncluster. Another strength of this package is that global variables and\nfunctions are automatically identified and exported as needed, making it\nstraightforward to tweak existing code to make use of futures."

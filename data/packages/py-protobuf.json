@@ -3,8 +3,17 @@
     "aliases": [],
     "versions": [
         {
+            "name": "4.21.7",
+            "sha256": "71d9dba03ed3432c878a801e2ea51e034b0ea01cf3a4344fb60166cb5f6c8757"
+        },
+        {
+            "name": "4.21.5",
+            "sha256": "eb1106e87e095628e96884a877a51cdb90087106ee693925ec0a300468a9be3a"
+        },
+        {
             "name": "3.20.1",
-            "sha256": "adc31566d027f45efe3f44eeb5b1f329da43891634d61c75a5944e9be6dd42c9"
+            "sha256": "adc31566d027f45efe3f44eeb5b1f329da43891634d61c75a5944e9be6dd42c9",
+            "preferred": true
         },
         {
             "name": "3.20.0",
@@ -142,33 +151,24 @@
         },
         {
             "name": "3.0.0b2",
-            "sha256": "d5b560bbc4b7d97cc2455c05cad9299d9db02d7bd11193b05684e3a86303c229"
+            "sha256": "d5b560bbc4b7d97cc2455c05cad9299d9db02d7bd11193b05684e3a86303c229",
+            "deprecated": true
         },
         {
             "name": "3.0.0a3",
-            "sha256": "b61622de5048415bfd3f2d812ad64606438ac9e25009ae84191405fe58e522c1"
-        },
-        {
-            "name": "2.6.1",
-            "sha256": "8faca1fb462ee1be58d00f5efb4ca4f64bde92187fe61fde32615bbee7b3e745"
-        },
-        {
-            "name": "2.5.0",
-            "sha256": "58292c459598c9297258bf57acc055f701c727f0154a86af8c0947dde37d8172"
-        },
-        {
-            "name": "2.4.1",
-            "sha256": "df30b98acb6ef892da8b4776175510cff2131908fd0526b6bad960c55a830a1b"
-        },
-        {
-            "name": "2.3.0",
-            "sha256": "374bb047874a506507912c3717d0ce62affbaa9a22bcb494d63d60326a0867b5"
+            "sha256": "b61622de5048415bfd3f2d812ad64606438ac9e25009ae84191405fe58e522c1",
+            "deprecated": true
         }
     ],
-    "latest_version": "3.20.1",
+    "latest_version": "4.21.7",
     "build_system": "PythonPackage",
     "conflicts": [],
     "variants": [
+        {
+            "name": "build_system",
+            "default": "python_pip",
+            "description": "Build systems supported by the package"
+        },
         {
             "name": "cpp",
             "default": false,
@@ -177,7 +177,8 @@
     ],
     "homepage": "https://developers.google.com/protocol-buffers/",
     "maintainers": [
-        "adamjstewart"
+        "adamjstewart",
+        "pradyunsg"
     ],
     "patches": [],
     "resources": [],
@@ -218,52 +219,60 @@
     ],
     "dependent_to": [
         {
-            "name": "py-grpcio-tools",
-            "description": "Protobuf code generator for gRPC"
+            "name": "py-tensorboardx",
+            "description": "The purpose of this package is to let researchers use a simple interface\nto log events within PyTorch (and then show visualization in\ntensorboard). This package currently supports logging scalar, image,\naudio, histogram, text, embedding, and the route of back-propagation."
         },
         {
-            "name": "py-tensorflow",
-            "description": "TensorFlow is an Open Source Software Library for Machine Intelligence"
+            "name": "py-or-tools",
+            "description": "This project hosts operations research tools developed at Google and\nmade available as open source under the Apache 2.0 License."
         },
         {
-            "name": "py-tensorflow-hub",
-            "description": "TensorFlow Hub is a library to foster the publication, discovery, and\nconsumption of reusable parts of machine learning models."
+            "name": "py-tensorboard",
+            "description": "TensorBoard is a suite of web applications for inspecting and\nunderstanding your TensorFlow runs and graphs."
         },
         {
-            "name": "py-onnx",
-            "description": "Open Neural Network Exchange (ONNX) is an open ecosystem that empowers\nAI developers to choose the right tools as their project evolves. ONNX\nprovides an open source format for AI models, both deep learning and\ntraditional ML. It defines an extensible computation graph model, as\nwell as definitions of built-in operators and standard data types.\nCurrently we focus on the capabilities needed for inferencing (scoring)."
+            "name": "py-ray",
+            "description": "Ray provides a simple, universal API for building distributed\napplications."
         },
         {
             "name": "py-tensorflow-metadata",
             "description": "Library and standards for schema and statistics. TensorFlow Metadata\nprovides standard representations for metadata that are useful when\ntraining machine learning models with TensorFlow."
         },
         {
-            "name": "nanopb",
-            "description": "Nanopb is a small code-size Protocol Buffers implementation in ansi C."
-        },
-        {
-            "name": "py-chainer",
-            "description": "Chainer is a Python-based deep learning framework aiming at\nflexibility. It provides automatic differentiation APIs based on the\ndefine-by-run approach (a.k.a. dynamic computational graphs) as well as\nobject-oriented high-level APIs to build and train neural networks. It\nalso supports CUDA/cuDNN using CuPy for high performance training and\ninference."
-        },
-        {
-            "name": "py-tensorflow-datasets",
-            "description": "tensorflow/datasets is a library of datasets ready to use with\nTensorFlow."
-        },
-        {
-            "name": "lbann",
-            "description": "LBANN: Livermore Big Artificial Neural Network Toolkit. A distributed\nmemory, HPC-optimized, model and data parallel training toolkit for deep\nneural networks."
-        },
-        {
-            "name": "py-keras2onnx",
-            "description": "Converts Machine Learning models to ONNX for use in Windows ML"
+            "name": "py-onnx-runtime",
+            "description": "ONNX Runtime is a performance-focused complete scoring engine for Open\nNeural Network Exchange (ONNX) models, with an open extensible\narchitecture to continually address the latest developments in AI and\nDeep Learning. ONNX Runtime stays up to date with the ONNX standard with\ncomplete implementation of all ONNX operators, and supports all ONNX\nreleases (1.2+) with both future and backwards compatibility."
         },
         {
             "name": "py-onnxconverter-common",
             "description": "ONNX Converter and Optimization Tools"
         },
         {
-            "name": "py-google-api-core",
-            "description": "Google API client core library."
+            "name": "py-torch",
+            "description": "Tensors and Dynamic neural networks in Python with strong GPU\nacceleration."
+        },
+        {
+            "name": "lbann",
+            "description": "LBANN: Livermore Big Artificial Neural Network Toolkit. A distributed\nmemory, HPC-optimized, model and data parallel training toolkit for deep\nneural networks."
+        },
+        {
+            "name": "py-chainer",
+            "description": "Chainer is a Python-based deep learning framework aiming at\nflexibility. It provides automatic differentiation APIs based on the\ndefine-by-run approach (a.k.a. dynamic computational graphs) as well as\nobject-oriented high-level APIs to build and train neural networks. It\nalso supports CUDA/cuDNN using CuPy for high performance training and\ninference."
+        },
+        {
+            "name": "py-onnx",
+            "description": "Open Neural Network Exchange (ONNX) is an open ecosystem that empowers\nAI developers to choose the right tools as their project evolves. ONNX\nprovides an open source format for AI models, both deep learning and\ntraditional ML. It defines an extensible computation graph model, as\nwell as definitions of built-in operators and standard data types.\nCurrently we focus on the capabilities needed for inferencing (scoring)."
+        },
+        {
+            "name": "py-googleapis-common-protos",
+            "description": "Common protobufs used in Google APIs."
+        },
+        {
+            "name": "py-grpcio-tools",
+            "description": "Protobuf code generator for gRPC"
+        },
+        {
+            "name": "py-apache-beam",
+            "description": "Apache Beam is a unified programming model for Batch and Streaming."
         },
         {
             "name": "py-mysql-connector-python",
@@ -274,48 +283,40 @@
             "description": "The pytecplot library is a high level API that connects your Python\nscript to the power of the Tecplot 360 visualization engine. It offers\nline plotting, 2D and 3D surface plots in a variety of formats, and 3D\nvolumetric visualization. Familiarity with Tecplot 360 and the Tecplot\n360 macro language is helpful, but not required."
         },
         {
-            "name": "py-labours",
-            "description": "Python module dependency visualization."
-        },
-        {
-            "name": "py-torch",
-            "description": "Tensors and Dynamic neural networks in Python with strong GPU\nacceleration."
-        },
-        {
-            "name": "py-skl2onnx",
-            "description": "Convert scikit-learn models to ONNX"
+            "name": "py-tensorflow-datasets",
+            "description": "tensorflow/datasets is a library of datasets ready to use with\nTensorFlow."
         },
         {
             "name": "py-pytorch-lightning",
             "description": "PyTorch Lightning is the lightweight PyTorch wrapper for ML researchers."
         },
         {
-            "name": "py-onnx-runtime",
-            "description": "ONNX Runtime is a performance-focused complete scoring engine for Open\nNeural Network Exchange (ONNX) models, with an open extensible\narchitecture to continually address the latest developments in AI and\nDeep Learning. ONNX Runtime stays up to date with the ONNX standard with\ncomplete implementation of all ONNX operators, and supports all ONNX\nreleases (1.2+) with both future and backwards compatibility."
+            "name": "py-tensorflow-hub",
+            "description": "TensorFlow Hub is a library to foster the publication, discovery, and\nconsumption of reusable parts of machine learning models."
         },
         {
-            "name": "py-tensorboardx",
-            "description": "The purpose of this package is to let researchers use a simple interface\nto log events within PyTorch (and then show visualization in\ntensorboard). This package currently supports logging scalar, image,\naudio, histogram, text, embedding, and the route of back-propagation."
+            "name": "py-google-api-core",
+            "description": "Google API client core library."
         },
         {
-            "name": "py-tensorboard",
-            "description": "TensorBoard is a suite of web applications for inspecting and\nunderstanding your TensorFlow runs and graphs."
+            "name": "py-labours",
+            "description": "Python module dependency visualization."
         },
         {
-            "name": "py-googleapis-common-protos",
-            "description": "Common protobufs used in Google APIs."
+            "name": "py-keras2onnx",
+            "description": "Converts Machine Learning models to ONNX for use in Windows ML"
         },
         {
-            "name": "py-apache-beam",
-            "description": "Apache Beam is a unified programming model for Batch and Streaming."
+            "name": "py-tensorflow",
+            "description": "An Open Source Machine Learning Framework for Everyone. TensorFlow is an\nend-to-end open source platform for machine learning. It has a\ncomprehensive, flexible ecosystem of tools, libraries, and community\nresources that lets researchers push the state-of-the-art in ML and\ndevelopers easily build and deploy ML-powered applications. TensorFlow\nwas originally developed by researchers and engineers working on the\nGoogle Brain team within Google's Machine Intelligence Research\norganization to conduct machine learning and deep neural networks\nresearch. The system is general enough to be applicable in a wide\nvariety of other domains, as well."
         },
         {
-            "name": "py-ray",
-            "description": "A system for parallel and distributed Python that unifies the ML\necosystem."
+            "name": "py-skl2onnx",
+            "description": "Convert scikit-learn models to ONNX"
         },
         {
-            "name": "py-or-tools",
-            "description": "This project hosts operations research tools developed at Google and\nmade available as open source under the Apache 2.0 License."
+            "name": "nanopb",
+            "description": "Nanopb is a small code-size Protocol Buffers implementation in ansi C."
         }
     ]
 }

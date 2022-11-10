@@ -40,7 +40,7 @@
     "conflicts": [
         {
             "name": "platform=windows",
-            "spec": "",
+            "spec": "build_system=autotools",
             "description": "None"
         },
         {
@@ -65,6 +65,11 @@
         }
     ],
     "variants": [
+        {
+            "name": "build_system",
+            "default": "autotools",
+            "description": "Build systems supported by the package"
+        },
         {
             "name": "shared",
             "default": true,
@@ -203,7 +208,7 @@
         },
         {
             "name": "mpi",
-            "description": "MVAPICH2-GDR is an optimized version of the MVAPICH2 MPI library for\nGPU-enabled HPC and Deep Learning Applications. MVAPICH2-GDR is not\ninstallable from source and is only available through a binary mirror.\nIf you do not find the binary you're looking for, send us an email at\nmvapich@cse.ohio-state.edu. The binary mirror url is:\nhttp://mvapich.cse.ohio-state.edu/download/mvapich/spack-\nmirror/mvapich2-gdr/"
+            "description": "MPICH is a high performance and widely portable implementation of the\nMessage Passing Interface (MPI) standard."
         },
         {
             "name": "zlib",
@@ -252,16 +257,16 @@
     ],
     "dependent_to": [
         {
-            "name": "savanna",
-            "description": "CODARcode Savanna runtime framework for high performance, workflow\nmanagement using Swift/T and ADIOS."
+            "name": "py-adios",
+            "description": "NumPy bindings of ADIOS1"
         },
         {
             "name": "conduit",
             "description": "Conduit is an open source project from Lawrence Livermore National\nLaboratory that provides an intuitive model for describing hierarchical\nscientific data in C++, C, Fortran, and Python. It is used for data\ncoupling between packages in-core, serialization, and I/O tasks."
         },
         {
-            "name": "py-adios",
-            "description": "NumPy bindings of ADIOS1"
+            "name": "savanna",
+            "description": "CODARcode Savanna runtime framework for high performance, workflow\nmanagement using Swift/T and ADIOS."
         },
         {
             "name": "openpmd-api",

@@ -3,6 +3,11 @@
     "aliases": [],
     "versions": [
         {
+            "name": "2.2",
+            "sha256": "e4d0c7b82149114f442ccd39e18f7fe2061c63b28d53700ad896e022b73b7404",
+            "url": "https://github.com/marbl/canu/releases/download/v2.2/canu-2.2.tar.xz"
+        },
+        {
             "name": "2.0",
             "sha256": "e2e6e8b5ec4dd4cfba5e372f4a64b2c01fbd544d4b5867746021f10771a6f4ef"
         },
@@ -23,22 +28,37 @@
             "sha256": "06e2c6d7b9f6d325b3b468e9c1a5de65e4689aed41154f2cee5ccd2cef0d5cf6"
         }
     ],
-    "latest_version": "2.0",
+    "latest_version": "2.2",
     "build_system": "MakefilePackage",
     "conflicts": [
         {
             "name": "platform=windows",
-            "spec": "",
+            "spec": "build_system=makefile",
+            "description": "None"
+        },
+        {
+            "name": "boost@1.70.1:",
+            "spec": "@:2.0",
             "description": "None"
         }
     ],
-    "variants": [],
+    "variants": [
+        {
+            "name": "build_system",
+            "default": "makefile",
+            "description": "Build systems supported by the package"
+        }
+    ],
     "homepage": "https://canu.readthedocs.io/",
     "maintainers": [],
     "patches": [],
     "resources": [],
     "description": "A single molecule sequence assembler for genomes large and small.\n",
     "dependencies": [
+        {
+            "name": "git",
+            "description": "Git is a free and open source distributed version control system\ndesigned to handle everything from small to very large projects with\nspeed and efficiency."
+        },
         {
             "name": "gnuplot",
             "description": "Gnuplot is a portable command-line driven graphing utility for Linux,\nOS/2, MS Windows, OSX, VMS, and many other platforms. The source code is\ncopyrighted but freely distributed (i.e., you don't have to pay for it).\nIt was originally created to allow scientists and students to visualize\nmathematical functions and data interactively, but has grown to support\nmany non-interactive uses such as web scripting. It is also used as a\nplotting engine by third-party applications like Octave. Gnuplot has\nbeen supported and under active development since 1986"

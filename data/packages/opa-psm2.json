@@ -3,6 +3,10 @@
     "aliases": [],
     "versions": [
         {
+            "name": "11.2.230",
+            "sha256": "e56262ed9ced4a8b53540cc6370d7ec9733bd5c791a9c05251010c1bbb60c75c"
+        },
+        {
             "name": "11.2.228",
             "sha256": "e302afc8cd054409616d59b69e4d7f140278dc3815ae07f0fc14080fd860bd5c"
         },
@@ -51,16 +55,21 @@
             "sha256": "61b694191eca66e15e7ae1659bfacb10813e569d4e27182a88fb00b5661fb365"
         }
     ],
-    "latest_version": "11.2.228",
+    "latest_version": "11.2.230",
     "build_system": "MakefilePackage",
     "conflicts": [
         {
             "name": "platform=windows",
-            "spec": "",
+            "spec": "build_system=makefile",
             "description": "None"
         }
     ],
     "variants": [
+        {
+            "name": "build_system",
+            "default": "makefile",
+            "description": "Build systems supported by the package"
+        },
         {
             "name": "avx2",
             "default": true,
@@ -82,7 +91,7 @@
         }
     ],
     "resources": [],
-    "description": " Omni-Path Performance Scaled Messaging 2 (PSM2) library\n",
+    "description": "Omni-Path Performance Scaled Messaging 2 (PSM2) library\n",
     "dependencies": [
         {
             "name": "numactl",
@@ -91,16 +100,16 @@
     ],
     "dependent_to": [
         {
+            "name": "openmpi",
+            "description": "An open source Message Passing Interface implementation. The Open MPI\nProject is an open source Message Passing Interface implementation that\nis developed and maintained by a consortium of academic, research, and\nindustry partners. Open MPI is therefore able to combine the expertise,\ntechnologies, and resources from all across the High Performance\nComputing community in order to build the best MPI library available.\nOpen MPI offers advantages for system and software vendors, application\ndevelopers and computer science researchers."
+        },
+        {
             "name": "libfabric",
             "description": "The Open Fabrics Interfaces (OFI) is a framework focused on exporting\nfabric communication services to applications."
         },
         {
             "name": "mvapich2",
             "description": "Mvapich2 is a High-Performance MPI Library for clusters with diverse\nnetworks (InfiniBand, Omni-Path, Ethernet/iWARP, and RoCE) and computing\nplatforms (x86 (Intel and AMD), ARM and OpenPOWER)"
-        },
-        {
-            "name": "openmpi",
-            "description": "An open source Message Passing Interface implementation. The Open MPI\nProject is an open source Message Passing Interface implementation that\nis developed and maintained by a consortium of academic, research, and\nindustry partners. Open MPI is therefore able to combine the expertise,\ntechnologies, and resources from all across the High Performance\nComputing community in order to build the best MPI library available.\nOpen MPI offers advantages for system and software vendors, application\ndevelopers and computer science researchers."
         }
     ]
 }

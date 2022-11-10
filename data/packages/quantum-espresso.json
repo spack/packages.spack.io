@@ -72,34 +72,24 @@
     "build_system": "CMakePackage",
     "conflicts": [
         {
-            "name": "+ipo",
-            "spec": "^cmake@:3.8",
-            "description": "+ipo is not supported by CMake < 3.9"
-        },
-        {
-            "name": "@:6.7",
-            "spec": "+cmake",
-            "description": "+cmake works since QE v6.8"
-        },
-        {
-            "name": "^fftw~openmp",
-            "spec": "+openmp",
+            "name": "@:6.5",
+            "spec": "%nvhpc+cuda",
             "description": "None"
         },
         {
-            "name": "^amdfftw~openmp",
-            "spec": "+openmp",
-            "description": "None"
+            "name": "%nvhpc@21.11:22.3",
+            "spec": "%nvhpc+cuda+openmp",
+            "description": "bugs with NVHPCSDK from v21.11 to v22.3, OpenMP and GPU"
         },
         {
-            "name": "^openblas threads=none",
-            "spec": "+openmp",
-            "description": "None"
+            "name": "build_system=generic",
+            "spec": "%nvhpc+cuda",
+            "description": "Only CMake supported for GPU-enabled version"
         },
         {
-            "name": "^openblas threads=pthreads",
-            "spec": "+openmp",
-            "description": "None"
+            "name": "build_system=generic",
+            "spec": "@7.0.1:+qmcpack",
+            "description": "QE-to-QMCPACK wave function converter requires cmake"
         },
         {
             "name": "@:5.4.0",
@@ -137,13 +127,8 @@
             "description": "QE-to-QMCPACK wave function converter requires HDF5"
         },
         {
-            "name": "~cmake",
-            "spec": "@7.0.1:+qmcpack",
-            "description": "QE-to-QMCPACK wave function converter requires cmake"
-        },
-        {
             "name": "~epw",
-            "spec": "+cmake",
+            "spec": "build_system=cmake",
             "description": "epw cannot be turned off when using CMake"
         },
         {
@@ -153,8 +138,8 @@
         },
         {
             "name": "~mpi",
-            "spec": "~cmake+epw",
-            "description": "EPW needs MPI when ~cmake"
+            "spec": "+epw build_system=generic",
+            "description": "EPW needs MPI when build_system=generic"
         },
         {
             "name": "^openmpi@2.0.0:2",
@@ -165,16 +150,6 @@
             "name": "^openmpi@1.10.7%pgi@17.0:17.12",
             "spec": "+epw",
             "description": "PGI+OpenMPI version combo incompatible with EPW"
-        },
-        {
-            "name": "+environ",
-            "spec": "+cmake",
-            "description": "environ doesn't work with CMake"
-        },
-        {
-            "name": "+cmake",
-            "spec": "+gipaw",
-            "description": "gipaw doesn't work with CMake"
         },
         {
             "name": "@:6.3",
@@ -188,7 +163,7 @@
         },
         {
             "name": "@5.3:",
-            "spec": "%gcc@8 arch=linux-None-a64fx",
+            "spec": "%gcc@8 arch=None-None-a64fx",
             "description": "Internal compiler error with gcc8 and a64fx"
         },
         {
@@ -198,6 +173,11 @@
         }
     ],
     "variants": [
+        {
+            "name": "build_system",
+            "default": "cmake",
+            "description": "Build systems supported by the package"
+        },
         {
             "name": "build_type",
             "default": "RelWithDebInfo",
@@ -209,19 +189,24 @@
             "description": "CMake interprocedural optimization"
         },
         {
-            "name": "cmake",
-            "default": true,
-            "description": "Builds via CMake"
-        },
-        {
             "name": "libxc",
             "default": false,
             "description": "Uses libxc"
         },
         {
             "name": "openmp",
+            "default": true,
+            "description": "Enables OpenMP support"
+        },
+        {
+            "name": "cuda",
             "default": false,
-            "description": "Enables openMP support"
+            "description": "Build with CUDA Fortran"
+        },
+        {
+            "name": "nvtx",
+            "default": false,
+            "description": "Enables NVTX markers for profiling"
         },
         {
             "name": "patch",
@@ -237,6 +222,11 @@
             "name": "scalapack",
             "default": true,
             "description": "Enables scalapack support"
+        },
+        {
+            "name": "mpigpu",
+            "default": false,
+            "description": "Enables GPU-aware MPI operations"
         },
         {
             "name": "elpa",
@@ -255,7 +245,7 @@
         },
         {
             "name": "epw",
-            "default": false,
+            "default": true,
             "description": "Builds Electron-phonon Wannier executable"
         },
         {
@@ -272,7 +262,8 @@
     "homepage": "http://quantum-espresso.org",
     "maintainers": [
         "ye-luo",
-        "danielecesarini"
+        "danielecesarini",
+        "bellenlau"
     ],
     "patches": [
         {
@@ -473,16 +464,44 @@
             "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
         },
         {
+            "name": "ninja",
+            "description": "Ninja is a small build system with a focus on speed. It differs from\nother build systems in two major respects: it is designed to have its\ninput files generated by a higher-level build system, and it is designed\nto run builds as fast as possible."
+        },
+        {
             "name": "libxc",
             "description": "Libxc is a library of exchange-correlation functionals for density-\nfunctional theory."
         },
         {
+            "name": "fftw",
+            "description": "FFTW is a C subroutine library for computing the discrete Fourier\ntransform (DFT) in one or more dimensions, of arbitrary input size, and\nof both real and complex data (as well as of even/odd data, i.e. the\ndiscrete cosine/sine transforms or DCT/DST). We believe that FFTW, which\nis free software, should become the FFT library of choice for most\napplications."
+        },
+        {
+            "name": "amdfftw",
+            "description": "FFTW (AMD Optimized version) is a comprehensive collection of fast C\nroutines for computing the Discrete Fourier Transform (DFT) and various\nspecial cases thereof. It is an open-source implementation of the Fast\nFourier transform algorithm. It can compute transforms of real and\ncomplex-values arrays of arbitrary size and dimension. AMD Optimized\nFFTW is the optimized FFTW implementation targeted for AMD CPUs. For\nsingle precision build, please use precision value as float. Example :\nspack install amdfftw precision=float"
+        },
+        {
+            "name": "openblas",
+            "description": "OpenBLAS: An optimized BLAS library"
+        },
+        {
+            "name": "amdblis",
+            "description": "AMD Optimized BLIS. BLIS is a portable software framework for\ninstantiating high-performance BLAS-like dense linear algebra libraries.\nThe framework was designed to isolate essential kernels of computation\nthat, when optimized, immediately enable optimized implementations of\nmost of its commonly used and computationally intensive operations."
+        },
+        {
+            "name": "intel-mkl",
+            "description": "Intel Math Kernel Library. This package has been replaced by intel-\noneapi-mkl. LICENSE INFORMATION: By downloading and using this software,\nyou agree to the terms and conditions of the software license agreements\nat https://intel.ly/393CijO."
+        },
+        {
+            "name": "cuda",
+            "description": "CUDA is a parallel computing platform and programming model invented by\nNVIDIA. It enables dramatic increases in computing performance by\nharnessing the power of the graphics processing unit (GPU). Note: This\npackage does not currently install the drivers necessary to run CUDA.\nThese will need to be installed manually. See:\nhttps://docs.nvidia.com/cuda/ for details."
+        },
+        {
             "name": "mpi",
-            "description": "MVAPICH2-GDR is an optimized version of the MVAPICH2 MPI library for\nGPU-enabled HPC and Deep Learning Applications. MVAPICH2-GDR is not\ninstallable from source and is only available through a binary mirror.\nIf you do not find the binary you're looking for, send us an email at\nmvapich@cse.ohio-state.edu. The binary mirror url is:\nhttp://mvapich.cse.ohio-state.edu/download/mvapich/spack-\nmirror/mvapich2-gdr/"
+            "description": "MPICH is a high performance and widely portable implementation of the\nMessage Passing Interface (MPI) standard."
         },
         {
             "name": "scalapack",
-            "description": "ScaLAPACK is a library of high-performance linear algebra routines for\nparallel distributed memory machines"
+            "description": "Intel oneAPI Math Kernel Library (Intel oneMKL; formerly Intel Math\nKernel Library or Intel MKL), is a library of optimized math routines\nfor science, engineering, and financial applications. Core math\nfunctions include BLAS, LAPACK, ScaLAPACK, sparse solvers, fast Fourier\ntransforms, and vector math. LICENSE INFORMATION: By downloading and\nusing this software, you agree to the terms and conditions of the\nsoftware license agreements at https://intel.ly/393CijO."
         },
         {
             "name": "elpa",
@@ -494,15 +513,23 @@
         },
         {
             "name": "blas",
-            "description": "CLBlast is a modern, lightweight, performant and tunable OpenCL BLAS\nlibrary written in C++11. It is designed to leverage the full\nperformance potential of a wide variety of OpenCL devices from different\nvendors, including desktop and laptop GPUs, embedded GPUs, and other\naccelerators. CLBlast implements BLAS routines: basic linear algebra\nsubprograms operating on vectors and matrices."
+            "description": "Intel oneAPI Math Kernel Library (Intel oneMKL; formerly Intel Math\nKernel Library or Intel MKL), is a library of optimized math routines\nfor science, engineering, and financial applications. Core math\nfunctions include BLAS, LAPACK, ScaLAPACK, sparse solvers, fast Fourier\ntransforms, and vector math. LICENSE INFORMATION: By downloading and\nusing this software, you agree to the terms and conditions of the\nsoftware license agreements at https://intel.ly/393CijO."
         },
         {
             "name": "lapack",
-            "description": "Arm Performance Libraries provides optimized standard core math\nlibraries for high-performance computing applications on Arm processors."
+            "description": "Intel oneAPI Math Kernel Library (Intel oneMKL; formerly Intel Math\nKernel Library or Intel MKL), is a library of optimized math routines\nfor science, engineering, and financial applications. Core math\nfunctions include BLAS, LAPACK, ScaLAPACK, sparse solvers, fast Fourier\ntransforms, and vector math. LICENSE INFORMATION: By downloading and\nusing this software, you agree to the terms and conditions of the\nsoftware license agreements at https://intel.ly/393CijO."
         },
         {
             "name": "fftw-api",
-            "description": "Arm Performance Libraries provides optimized standard core math\nlibraries for high-performance computing applications on Arm processors."
+            "description": "FFTW (Fujitsu Optimized version) is a comprehensive collection of fast C\nroutines for computing the Discrete Fourier Transform (DFT) and various\nspecial cases thereof. It is an open-source implementation of the Fast\nFourier transform algorithm. It can compute transforms of real and\ncomplex-values arrays of arbitrary size and dimension. Fujitsu Optimized\nFFTW is the optimized FFTW implementation targeted for A64FX CPUs. For\nsingle precision build, please use precision value as float. Example :\nspack install fujitsufftw precision=float"
+        },
+        {
+            "name": "git",
+            "description": "Git is a free and open source distributed version control system\ndesigned to handle everything from small to very large projects with\nspeed and efficiency."
+        },
+        {
+            "name": "m4",
+            "description": "GNU M4 is an implementation of the traditional Unix macro processor."
         }
     ],
     "dependent_to": []

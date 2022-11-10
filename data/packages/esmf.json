@@ -3,6 +3,22 @@
     "aliases": [],
     "versions": [
         {
+            "name": "develop",
+            "branch": "develop"
+        },
+        {
+            "name": "8.3.1",
+            "sha256": "6c39261e55dcdf9781cdfa344417b9606f7f961889d5ec626150f992f04f146d"
+        },
+        {
+            "name": "8.3.0",
+            "sha256": "0ff43ede83d1ac6beabd3d5e2a646f7574174b28a48d1b9f2c318a054ba268fd"
+        },
+        {
+            "name": "8.3.0b09",
+            "commit": "5b7e546c4b"
+        },
+        {
             "name": "8.2.0",
             "sha256": "3693987aba2c8ae8af67a0e222bea4099a48afe09b8d3d334106f9d7fc311485"
         },
@@ -23,16 +39,21 @@
             "sha256": "ae9a5edb8d40ae97a35cbd4bd00b77061f995c77c43d36334dbb95c18b00a889"
         }
     ],
-    "latest_version": "8.2.0",
+    "latest_version": "8.3.1",
     "build_system": "MakefilePackage",
     "conflicts": [
         {
             "name": "platform=windows",
-            "spec": "",
+            "spec": "build_system=makefile",
             "description": "None"
         }
     ],
     "variants": [
+        {
+            "name": "build_system",
+            "default": "makefile",
+            "description": "Build systems supported by the package"
+        },
         {
             "name": "mpi",
             "default": true,
@@ -59,9 +80,14 @@
             "description": "Build with Xerces support"
         },
         {
+            "name": "parallelio",
+            "default": false,
+            "description": "Build with external parallelio library"
+        },
+        {
             "name": "pio",
             "default": true,
-            "description": "Enable ParallelIO support"
+            "description": "Enable Internal ParallelIO support"
         },
         {
             "name": "debug",
@@ -71,7 +97,8 @@
     ],
     "homepage": "https://www.earthsystemcog.org/projects/esmf/",
     "maintainers": [
-        "climbfuji"
+        "climbfuji",
+        "jedwards4b"
     ],
     "patches": [
         {
@@ -97,6 +124,22 @@
             "working_dir": ".",
             "relative_path": "mvapich2.patch",
             "version": "@:7.0"
+        },
+        {
+            "owner": "builtin.esmf",
+            "sha256": "e931f6d3b94e6b76bfa682f158daa7291461afe0de7752e2229deca385c7aea1",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "longtoint.patch",
+            "version": "@:8.3.2%cce@14:"
+        },
+        {
+            "owner": "builtin.esmf",
+            "sha256": "e931f6d3b94e6b76bfa682f158daa7291461afe0de7752e2229deca385c7aea1",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "longtoint.patch",
+            "version": "@:8.3.2%oneapi@2022:"
         },
         {
             "owner": "builtin.esmf",
@@ -128,11 +171,11 @@
         },
         {
             "name": "mpi",
-            "description": "MVAPICH2-GDR is an optimized version of the MVAPICH2 MPI library for\nGPU-enabled HPC and Deep Learning Applications. MVAPICH2-GDR is not\ninstallable from source and is only available through a binary mirror.\nIf you do not find the binary you're looking for, send us an email at\nmvapich@cse.ohio-state.edu. The binary mirror url is:\nhttp://mvapich.cse.ohio-state.edu/download/mvapich/spack-\nmirror/mvapich2-gdr/"
+            "description": "MPICH is a high performance and widely portable implementation of the\nMessage Passing Interface (MPI) standard."
         },
         {
             "name": "lapack",
-            "description": "Arm Performance Libraries provides optimized standard core math\nlibraries for high-performance computing applications on Arm processors."
+            "description": "Intel oneAPI Math Kernel Library (Intel oneMKL; formerly Intel Math\nKernel Library or Intel MKL), is a library of optimized math routines\nfor science, engineering, and financial applications. Core math\nfunctions include BLAS, LAPACK, ScaLAPACK, sparse solvers, fast Fourier\ntransforms, and vector math. LICENSE INFORMATION: By downloading and\nusing this software, you agree to the terms and conditions of the\nsoftware license agreements at https://intel.ly/393CijO."
         },
         {
             "name": "netcdf-c",
@@ -151,26 +194,30 @@
             "description": "Xerces-C++ is a validating XML parser written in a portable subset of\nC++. Xerces-C++ makes it easy to give your application the ability to\nread and write XML data. A shared library is provided for parsing,\ngenerating, manipulating, and validating XML documents using the DOM,\nSAX, and SAX2 APIs."
         },
         {
+            "name": "parallelio",
+            "description": "The Parallel IO libraries (PIO) are high-level parallel I/O C and\nFortran libraries for applications that need to do netCDF I/O from large\nnumbers of processors on a HPC system."
+        },
+        {
             "name": "perl",
             "description": "Perl 5 is a highly capable, feature-rich programming language with over\n27 years of development."
         }
     ],
     "dependent_to": [
         {
-            "name": "gchp",
-            "description": "GEOS-Chem High Performance model of atmospheric chemistry"
-        },
-        {
-            "name": "ufs-weather-model",
-            "description": "The Unified Forecast System (UFS) Weather Model (WM) is a prognostic\nmodel that can be used for short- and medium-range research and\noperational forecasts, as exemplified by its use in the operational\nGlobal Forecast System (GFS) of the National Oceanic and Atmospheric\nAdministration (NOAA)."
-        },
-        {
             "name": "ncl",
             "description": "NCL is an interpreted language designed specifically for scientific data\nanalysis and visualization. Supports NetCDF 3/4, GRIB 1/2, HDF 4/5, HDF-\nEOD 2/5, shapefile, ASCII, binary. Numerous analysis functions are\nbuilt-in."
         },
         {
+            "name": "gchp",
+            "description": "GEOS-Chem High Performance model of atmospheric chemistry"
+        },
+        {
             "name": "ufs-utils",
             "description": "The UFS Utilities package contains programs set up the model grid and\ncreate coldstart initial conditions. This is related to NOAA's NCEPLIBS\nproject."
+        },
+        {
+            "name": "ufs-weather-model",
+            "description": "The Unified Forecast System (UFS) Weather Model (WM) is a prognostic\nmodel that can be used for short- and medium-range research and\noperational forecasts, as exemplified by its use in the operational\nGlobal Forecast System (GFS) of the National Oceanic and Atmospheric\nAdministration (NOAA)."
         }
     ]
 }

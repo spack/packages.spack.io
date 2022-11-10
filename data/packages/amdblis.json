@@ -3,10 +3,14 @@
     "aliases": [
         {
             "name": "blas",
-            "alias_for": "{amdblis+blas, amdblis+cblas}"
+            "alias_for": "{amdblis+cblas, amdblis+blas}"
         }
     ],
     "versions": [
+        {
+            "name": "3.2",
+            "sha256": "5a400ee4fc324e224e12f73cc37b915a00f92b400443b15ce3350278ad46fff6"
+        },
         {
             "name": "3.1",
             "sha256": "2891948925b9db99eec02a1917d9887a7bee9ad2afc5421c9ba58602a620f2bf"
@@ -24,12 +28,12 @@
             "sha256": "e1feb60ac919cf6d233c43c424f6a8a11eab2c62c2c6e3f2652c15ee9063c0c9"
         }
     ],
-    "latest_version": "3.1",
+    "latest_version": "3.2",
     "build_system": "MakefilePackage",
     "conflicts": [
         {
             "name": "platform=windows",
-            "spec": "",
+            "spec": "build_system=makefile",
             "description": "None"
         },
         {
@@ -44,6 +48,11 @@
         }
     ],
     "variants": [
+        {
+            "name": "build_system",
+            "default": "makefile",
+            "description": "Build systems supported by the package"
+        },
         {
             "name": "threads",
             "default": "none",
@@ -89,12 +98,20 @@
             "description": "Domain specific library for electronic structure calculations"
         },
         {
+            "name": "berkeleygw",
+            "description": "BerkeleyGW is a many-body perturbation theory code for excited states,\nusing the GW method and the GW plus Bethe-Salpeter equation (GW-BSE)\nmethod to solve respectively for quasiparticle excitations and optical\nproperties of materials."
+        },
+        {
             "name": "spla",
             "description": "Specialized Parallel Linear Algebra, providing distributed GEMM\nfunctionality for specific matrix distributions with optional GPU\nacceleration."
         },
         {
-            "name": "berkeleygw",
-            "description": "BerkeleyGW is a many-body perturbation theory code for excited states,\nusing the GW method and the GW plus Bethe-Salpeter equation (GW-BSE)\nmethod to solve respectively for quasiparticle excitations and optical\nproperties of materials."
+            "name": "amd-aocl",
+            "description": "AMD Optimizing CPU Libraries (AOCL) - AOCL is a set of numerical\nlibraries tuned specifically for AMD EPYC processor family. They have a\nsimple interface to take advantage of the latest hardware innovations.\nThe tuned implementations of industry standard math libraries enable\nfast development of scientific and high performance computing projects"
+        },
+        {
+            "name": "quantum-espresso",
+            "description": "Quantum ESPRESSO is an integrated suite of Open-Source computer codes\nfor electronic-structure calculations and materials modeling at the\nnanoscale. It is based on density-functional theory, plane waves, and\npseudopotentials."
         }
     ]
 }

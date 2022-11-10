@@ -3,6 +3,14 @@
     "aliases": [],
     "versions": [
         {
+            "name": "7.3.0",
+            "sha256": "6e14a4649d70af45ab660f8cbbf645aaf1ec33f25f88bfda4697cb17e440c4f5"
+        },
+        {
+            "name": "7.2.0",
+            "sha256": "b12cb652587d31c5c382b39ed73463c22a5259ecb2fa6b323a27da409222dacc"
+        },
+        {
             "name": "7.1.0",
             "sha256": "d4a9d81f3f67b4a6e07cb7a80dcb10ad5e9176fcc30762c70a81580a64b8b0b6"
         },
@@ -59,16 +67,21 @@
             "sha256": "4c7ee0957f5dd877e3feb9dfe07ad5f39b311f9373932f0d2a289dc97cca3280"
         }
     ],
-    "latest_version": "7.1.0",
+    "latest_version": "7.3.0",
     "build_system": "AutotoolsPackage",
     "conflicts": [
         {
             "name": "platform=windows",
-            "spec": "",
+            "spec": "build_system=autotools",
             "description": "None"
         }
     ],
     "variants": [
+        {
+            "name": "build_system",
+            "default": "autotools",
+            "description": "Build systems supported by the package"
+        },
         {
             "name": "readline",
             "default": true,
@@ -204,11 +217,11 @@
         },
         {
             "name": "blas",
-            "description": "CLBlast is a modern, lightweight, performant and tunable OpenCL BLAS\nlibrary written in C++11. It is designed to leverage the full\nperformance potential of a wide variety of OpenCL devices from different\nvendors, including desktop and laptop GPUs, embedded GPUs, and other\naccelerators. CLBlast implements BLAS routines: basic linear algebra\nsubprograms operating on vectors and matrices."
+            "description": "Intel oneAPI Math Kernel Library (Intel oneMKL; formerly Intel Math\nKernel Library or Intel MKL), is a library of optimized math routines\nfor science, engineering, and financial applications. Core math\nfunctions include BLAS, LAPACK, ScaLAPACK, sparse solvers, fast Fourier\ntransforms, and vector math. LICENSE INFORMATION: By downloading and\nusing this software, you agree to the terms and conditions of the\nsoftware license agreements at https://intel.ly/393CijO."
         },
         {
             "name": "lapack",
-            "description": "Arm Performance Libraries provides optimized standard core math\nlibraries for high-performance computing applications on Arm processors."
+            "description": "Intel oneAPI Math Kernel Library (Intel oneMKL; formerly Intel Math\nKernel Library or Intel MKL), is a library of optimized math routines\nfor science, engineering, and financial applications. Core math\nfunctions include BLAS, LAPACK, ScaLAPACK, sparse solvers, fast Fourier\ntransforms, and vector math. LICENSE INFORMATION: By downloading and\nusing this software, you agree to the terms and conditions of the\nsoftware license agreements at https://intel.ly/393CijO."
         },
         {
             "name": "pcre",
@@ -284,7 +297,7 @@
         },
         {
             "name": "gl",
-            "description": "Mesa is an open-source implementation of the OpenGL specification - a\nsystem for rendering interactive 3D graphics."
+            "description": "Shim package for the GLX library."
         },
         {
             "name": "qhull",
@@ -313,6 +326,30 @@
     ],
     "dependent_to": [
         {
+            "name": "octave-optim",
+            "description": "Non-linear optimization toolkit for Octave."
+        },
+        {
+            "name": "octave-arduino",
+            "description": "Provides an Octave look-alike implementation of the Arduino extension\nfor Matlab."
+        },
+        {
+            "name": "octave-io",
+            "description": "The IO package is part of the Octave Forge project and provides\ninput/output from/in external formats."
+        },
+        {
+            "name": "octave-splines",
+            "description": "Additional spline functions."
+        },
+        {
+            "name": "nlopt",
+            "description": "NLopt is a free/open-source library for nonlinear optimization,\nproviding a common interface for a number of different free optimization\nroutines available online as well as original implementations of various\nother algorithms."
+        },
+        {
+            "name": "octave-quaternion",
+            "description": "Quaternion package for GNU Octave, includes a quaternion class with\noverloaded operators."
+        },
+        {
             "name": "h5utils",
             "description": "h5utils is a set of utilities for visualization and conversion of\nscientific data in the free, portable HDF5 format."
         },
@@ -321,56 +358,32 @@
             "description": "Signal processing tools, including filtering, windowing and display\nfunctions."
         },
         {
-            "name": "octave-arduino",
-            "description": "Provides an Octave look-alike implementation of the Arduino extension\nfor Matlab."
-        },
-        {
-            "name": "octave-control",
-            "description": "Computer-Aided Control System Design (CACSD) Tools for GNU Octave, based\non the proven SLICOT Library"
-        },
-        {
-            "name": "octave-symbolic",
-            "description": "Adds symbolic calculation features to GNU Octave. These include common\nComputer Algebra System tools such as algebraic operations, calculus,\nequation solving, Fourier and Laplace transforms, variable precision\narithmetic and other features. Compatibility with other symbolic\ntoolboxes is intended."
-        },
-        {
-            "name": "octave-instrctl",
-            "description": "Instrument-Control is a package for interfacing the outside world of\nhardware via Serial, i2c or Parallel interfaces."
-        },
-        {
-            "name": "octave-optim",
-            "description": "Non-linear optimization toolkit for Octave."
-        },
-        {
-            "name": "octave-splines",
-            "description": "Additional spline functions."
-        },
-        {
-            "name": "octave-gsl",
-            "description": "Octave bindings to the GNU Scientific Library"
-        },
-        {
             "name": "octave-struct",
             "description": "Additional structure manipulation functions for Octave."
-        },
-        {
-            "name": "octave-quaternion",
-            "description": "Quaternion package for GNU Octave, includes a quaternion class with\noverloaded operators."
         },
         {
             "name": "sbml",
             "description": "Library for the Systems Biology Markup Language"
         },
         {
-            "name": "octave-io",
-            "description": "The IO package is part of the Octave Forge project and provides\ninput/output from/in external formats."
+            "name": "octave-symbolic",
+            "description": "Adds symbolic calculation features to GNU Octave. These include common\nComputer Algebra System tools such as algebraic operations, calculus,\nequation solving, Fourier and Laplace transforms, variable precision\narithmetic and other features. Compatibility with other symbolic\ntoolboxes is intended."
+        },
+        {
+            "name": "octave-control",
+            "description": "Computer-Aided Control System Design (CACSD) Tools for GNU Octave, based\non the proven SLICOT Library"
+        },
+        {
+            "name": "octave-gsl",
+            "description": "Octave bindings to the GNU Scientific Library"
+        },
+        {
+            "name": "octave-instrctl",
+            "description": "Instrument-Control is a package for interfacing the outside world of\nhardware via Serial, i2c or Parallel interfaces."
         },
         {
             "name": "octave-statistics",
             "description": "Additional statistics functions for Octave."
-        },
-        {
-            "name": "nlopt",
-            "description": "NLopt is a free/open-source library for nonlinear optimization,\nproviding a common interface for a number of different free optimization\nroutines available online as well as original implementations of various\nother algorithms."
         }
     ]
 }

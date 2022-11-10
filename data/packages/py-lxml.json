@@ -3,6 +3,14 @@
     "aliases": [],
     "versions": [
         {
+            "name": "4.9.1",
+            "sha256": "fe749b052bb7233fe5d072fcb549221a8cb1a16725c47c37e42b0b9cb3ff2c3f"
+        },
+        {
+            "name": "4.9.0",
+            "sha256": "520461c36727268a989790aef08884347cd41f2d8ae855489ccf40b50321d8d7"
+        },
+        {
             "name": "4.8.0",
             "sha256": "f63f62fc60e6228a4ca9abae28228f35e1bd3ce675013d1dfb828688d50c6e23"
         },
@@ -43,10 +51,15 @@
             "sha256": "eea1b8d29532739c1383cb4794c5eacd6176f0972b59e8d29348335b87ff2e66"
         }
     ],
-    "latest_version": "4.8.0",
+    "latest_version": "4.9.1",
     "build_system": "PythonPackage",
     "conflicts": [],
     "variants": [
+        {
+            "name": "build_system",
+            "default": "python_pip",
+            "description": "Build systems supported by the package"
+        },
         {
             "name": "html5",
             "default": false,
@@ -65,7 +78,8 @@
     ],
     "homepage": "https://lxml.de/",
     "maintainers": [
-        "adamjstewart"
+        "adamjstewart",
+        "pradyunsg"
     ],
     "patches": [],
     "resources": [],
@@ -110,48 +124,60 @@
     ],
     "dependent_to": [
         {
-            "name": "py-pypeg2",
-            "description": "A PEG Parser-Interpreter in Python"
+            "name": "py-nbconvert",
+            "description": "Jupyter Notebook Conversion"
         },
         {
-            "name": "py-pykml",
-            "description": "pyKML is a Python package for parsing and authoring KML documents. It is\nbased on the lxml.objectify API which provides Pythonic access to XML\ndocuments."
-        },
-        {
-            "name": "votca",
-            "description": "VOTCA is a software package which focuses on the analysis of molecular\ndynamics data, the development of systematic coarse-graining techniques\nas well as methods used for simulating microscopic charge (and exciton)\ntransport in disordered semiconductors."
-        },
-        {
-            "name": "py-beautifulsoup4",
-            "description": "Beautiful Soup is a Python library for pulling data out of HTML and XML\nfiles. It works with your favorite parser to provide idiomatic ways of\nnavigating, searching, and modifying the parse tree."
-        },
-        {
-            "name": "py-geeup",
-            "description": "Simple Client for Earth Engine Uploads with Selenium Support."
-        },
-        {
-            "name": "py-prov",
-            "description": "A Python library for W3C Provenance Data Model (PROV). A library for W3C\nProvenance Data Model supporting PROV-JSON, PROV-XML and PROV-O (RDF)"
-        },
-        {
-            "name": "py-gcovr",
-            "description": "Gcovr provides a utility for managing the use of the GNU gcov utility\nand generating summarized code coverage results. This command is\ninspired by the Python coverage.py package, which provides a similar\nutility for Python."
-        },
-        {
-            "name": "py-pycortex",
-            "description": "Python Cortical mapping software for fMRI data."
+            "name": "py-glymur",
+            "description": "glymur contains a Python interface to the OpenJPEG library which allows\none to read and write JPEG 2000 files. glymur works on Python 3.7, 3.8,\n3.9, and 3.10."
         },
         {
             "name": "reframe",
             "description": "ReFrame is a framework for writing regression tests for HPC systems. The\ngoal of this framework is to abstract away the complexity of the\ninteractions with the system, separating the logic of a regression test\nfrom the low-level details, which pertain to the system configuration\nand setup. This allows users to write easily portable regression tests,\nfocusing only on the functionality."
         },
         {
-            "name": "gtk-doc",
-            "description": "GtkDoc is a tool used to extract API documentation from C-code like\nDoxygen, but handles documentation of GObject (including signals and\nproperties) that makes it very suitable for GTK+ apps and libraries. It\nuses docbook for intermediate files and can produce html by default and\npdf/man-pages with some extra work."
+            "name": "py-prov",
+            "description": "A Python library for W3C Provenance Data Model (PROV). A library for W3C\nProvenance Data Model supporting PROV-JSON, PROV-XML and PROV-O (RDF)"
+        },
+        {
+            "name": "py-networkx",
+            "description": "NetworkX is a Python package for the creation, manipulation, and study\nof the structure, dynamics, and functions of complex networks."
+        },
+        {
+            "name": "py-dryscrape",
+            "description": "a lightweight Javascript-aware, headless web scraping library for Python"
+        },
+        {
+            "name": "py-darshan",
+            "description": "Python utilities to interact with Darshan log records of HPC\napplications."
         },
         {
             "name": "py-citeproc-py",
             "description": "Citations and bibliography formatter."
+        },
+        {
+            "name": "py-beancount",
+            "description": "A double-entry bookkeeping computer language that lets you define\nfinancial transaction records in a text file, read them in memory,\ngenerate a variety of reports from them, and provides a web interface.."
+        },
+        {
+            "name": "py-exhale",
+            "description": "Automatic C++ library api documentation generation: breathe doxygen in\nand exhale it out."
+        },
+        {
+            "name": "py-geeup",
+            "description": "Simple Client for Earth Engine Uploads with Selenium Support."
+        },
+        {
+            "name": "py-pycortex",
+            "description": "Python Cortical mapping software for fMRI data."
+        },
+        {
+            "name": "py-beautifulsoup4",
+            "description": "Beautiful Soup is a Python library for pulling data out of HTML and XML\nfiles. It works with your favorite parser to provide idiomatic ways of\nnavigating, searching, and modifying the parse tree."
+        },
+        {
+            "name": "py-pypeg2",
+            "description": "A PEG Parser-Interpreter in Python"
         },
         {
             "name": "py-svgutils",
@@ -162,12 +188,24 @@
             "description": "OpenMC is a community-developed Monte Carlo neutron and photon transport\nsimulation code. It is capable of performing fixed source, k-eigenvalue,\nand subcritical multiplication calculations on models built using either\na constructive solid geometry or CAD representation. OpenMC supports\nboth continuous-energy and multigroup transport. The continuous-energy\nparticle interaction data is based on a native HDF5 format that can be\ngenerated from ACE files produced by NJOY. Parallelism is enabled via a\nhybrid MPI and OpenMP programming model."
         },
         {
-            "name": "py-dryscrape",
-            "description": "a lightweight Javascript-aware, headless web scraping library for Python"
+            "name": "py-nilearn",
+            "description": "Statistical learning for neuroimaging in Python."
         },
         {
-            "name": "py-beancount",
-            "description": "A double-entry bookkeeping computer language that lets you define\nfinancial transaction records in a text file, read them in memory,\ngenerate a variety of reports from them, and provides a web interface.."
+            "name": "votca",
+            "description": "VOTCA is a software package which focuses on the analysis of molecular\ndynamics data, the development of systematic coarse-graining techniques\nas well as methods used for simulating microscopic charge (and exciton)\ntransport in disordered semiconductors."
+        },
+        {
+            "name": "py-gcovr",
+            "description": "Gcovr provides a utility for managing the use of the GNU gcov utility\nand generating summarized code coverage results. This command is\ninspired by the Python coverage.py package, which provides a similar\nutility for Python."
+        },
+        {
+            "name": "gtk-doc",
+            "description": "GtkDoc is a tool used to extract API documentation from C-code like\nDoxygen, but handles documentation of GObject (including signals and\nproperties) that makes it very suitable for GTK+ apps and libraries. It\nuses docbook for intermediate files and can produce html by default and\npdf/man-pages with some extra work."
+        },
+        {
+            "name": "py-pykml",
+            "description": "pyKML is a Python package for parsing and authoring KML documents. It is\nbased on the lxml.objectify API which provides Pythonic access to XML\ndocuments."
         }
     ]
 }

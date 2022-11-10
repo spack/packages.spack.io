@@ -7,13 +7,20 @@
             "branch": "master"
         },
         {
-            "name": "1.8.0-rc1",
-            "sha256": "ed0395880c32c48a284b115279d27d79ab1ca6fb53a4b97a8d25eba54ec97306"
+            "name": "1.8.2",
+            "sha256": "3e2cea35bf5df963ed7b75a83e8febfc000acf1e664ecd657a0772508eb1fb5d"
+        },
+        {
+            "name": "1.8.1",
+            "sha256": "066f4ca7a2ad39b003e2af77dbecfbfb9b0a1cb1664033f657ffdbe2f374d956"
+        },
+        {
+            "name": "1.8.0",
+            "sha256": "0fa980286d6d912f24ed9f90a02930560d985e0ada8233a4ae5610884feb2438"
         },
         {
             "name": "1.7.3",
-            "sha256": "06df2a81e6a18d0333ffa58d36f6eb84934c38984898f9e0c3072c8facaa7306",
-            "preferred": true
+            "sha256": "06df2a81e6a18d0333ffa58d36f6eb84934c38984898f9e0c3072c8facaa7306"
         },
         {
             "name": "1.7.2",
@@ -28,9 +35,12 @@
             "sha256": "8e870dbef71bc72469933317a1a18214fd1b4b12f1080784af7b2c56177efcb4"
         },
         {
+            "name": "1.6.7",
+            "sha256": "74af1dc7b5841757a06a899923a62cac04665c09829324e8bf53cfb66f7b3d61"
+        },
+        {
             "name": "1.6.6",
-            "sha256": "a8023708cadb2649395769810e6cec8afc8e352aa6d407189b6c88b86d7f5090",
-            "preferred": true
+            "sha256": "a8023708cadb2649395769810e6cec8afc8e352aa6d407189b6c88b86d7f5090"
         },
         {
             "name": "1.6.5",
@@ -39,114 +49,23 @@
         {
             "name": "1.6.4",
             "sha256": "a4aa921030250f58015201e28204bff604a007defc5a379a608723e6bb1808d4"
-        },
-        {
-            "name": "1.6.3",
-            "deprecated": true
-        },
-        {
-            "name": "1.6.2",
-            "deprecated": true
-        },
-        {
-            "name": "1.6.1",
-            "deprecated": true
-        },
-        {
-            "name": "1.6.0",
-            "deprecated": true
-        },
-        {
-            "name": "1.5.4",
-            "deprecated": true
-        },
-        {
-            "name": "1.5.3",
-            "deprecated": true
-        },
-        {
-            "name": "1.5.2",
-            "deprecated": true
-        },
-        {
-            "name": "1.5.1",
-            "deprecated": true
-        },
-        {
-            "name": "1.5.0",
-            "deprecated": true
-        },
-        {
-            "name": "1.4.2",
-            "deprecated": true
-        },
-        {
-            "name": "1.4.1",
-            "deprecated": true
-        },
-        {
-            "name": "1.4.0",
-            "deprecated": true
-        },
-        {
-            "name": "1.3.1",
-            "deprecated": true
-        },
-        {
-            "name": "1.2.0",
-            "deprecated": true
-        },
-        {
-            "name": "1.1.1",
-            "deprecated": true
-        },
-        {
-            "name": "1.0.0",
-            "deprecated": true
-        },
-        {
-            "name": "0.6.2",
-            "deprecated": true
-        },
-        {
-            "name": "0.5.2",
-            "deprecated": true
-        },
-        {
-            "name": "0.5.1",
-            "deprecated": true
-        },
-        {
-            "name": "0.5.0",
-            "deprecated": true
-        },
-        {
-            "name": "0.4.7",
-            "deprecated": true
-        },
-        {
-            "name": "0.4.6",
-            "deprecated": true
-        },
-        {
-            "name": "0.4.5",
-            "deprecated": true
-        },
-        {
-            "name": "0.4.3",
-            "deprecated": true
         }
     ],
-    "latest_version": "1.8.0-rc1",
+    "latest_version": "1.8.2",
     "build_system": "MakefilePackage",
     "conflicts": [
         {
             "name": "platform=windows",
-            "spec": "",
+            "spec": "build_system=makefile",
             "description": "None"
         }
     ],
     "variants": [
+        {
+            "name": "build_system",
+            "default": "makefile",
+            "description": "Build systems supported by the package"
+        },
         {
             "name": "precompile",
             "default": true,
@@ -179,7 +98,15 @@
             "level": 1,
             "working_dir": ".",
             "relative_path": "use-add-rpath.patch",
-            "version": ""
+            "version": "@:1.8.0"
+        },
+        {
+            "owner": "builtin.julia",
+            "sha256": "12e8f412416951ce3320cd3b3425e1a9fd3ae30f56fd486721561ecfdca03456",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "use-add-rpath-2.patch",
+            "version": "@1.8.1:"
         },
         {
             "owner": "builtin.julia",
@@ -212,14 +139,6 @@
             "working_dir": ".",
             "relative_path": "llvm-NDEBUG.patch",
             "version": "@1.7.0:1.7"
-        },
-        {
-            "owner": "builtin.julia",
-            "sha256": "a4cc840fb808984ff9da47d3e6d99f041f79f9fa9afac1bd96bbd064cccbd835",
-            "level": 1,
-            "working_dir": ".",
-            "relative_path": "llvm-NDEBUG-1.8.patch",
-            "version": "@1.8.0:1.8"
         }
     ],
     "resources": [],
@@ -275,7 +194,7 @@
         },
         {
             "name": "blas",
-            "description": "CLBlast is a modern, lightweight, performant and tunable OpenCL BLAS\nlibrary written in C++11. It is designed to leverage the full\nperformance potential of a wide variety of OpenCL devices from different\nvendors, including desktop and laptop GPUs, embedded GPUs, and other\naccelerators. CLBlast implements BLAS routines: basic linear algebra\nsubprograms operating on vectors and matrices."
+            "description": "Intel oneAPI Math Kernel Library (Intel oneMKL; formerly Intel Math\nKernel Library or Intel MKL), is a library of optimized math routines\nfor science, engineering, and financial applications. Core math\nfunctions include BLAS, LAPACK, ScaLAPACK, sparse solvers, fast Fourier\ntransforms, and vector math. LICENSE INFORMATION: By downloading and\nusing this software, you agree to the terms and conditions of the\nsoftware license agreements at https://intel.ly/393CijO."
         },
         {
             "name": "curl",
@@ -291,7 +210,7 @@
         },
         {
             "name": "lapack",
-            "description": "Arm Performance Libraries provides optimized standard core math\nlibraries for high-performance computing applications on Arm processors."
+            "description": "Intel oneAPI Math Kernel Library (Intel oneMKL; formerly Intel Math\nKernel Library or Intel MKL), is a library of optimized math routines\nfor science, engineering, and financial applications. Core math\nfunctions include BLAS, LAPACK, ScaLAPACK, sparse solvers, fast Fourier\ntransforms, and vector math. LICENSE INFORMATION: By downloading and\nusing this software, you agree to the terms and conditions of the\nsoftware license agreements at https://intel.ly/393CijO."
         },
         {
             "name": "mpfr",
@@ -328,12 +247,12 @@
     ],
     "dependent_to": [
         {
-            "name": "simulationio",
-            "description": "SimulationIO: Efficient and convenient I/O for large PDE simulations"
-        },
-        {
             "name": "libcxxwrap-julia",
             "description": "This is the C++ library component of the CxxWrap.jl package, distributed\nas a regular CMake library for use in other C++ projects."
+        },
+        {
+            "name": "simulationio",
+            "description": "SimulationIO: Efficient and convenient I/O for large PDE simulations"
         }
     ]
 }

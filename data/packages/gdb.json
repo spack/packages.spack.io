@@ -3,6 +3,10 @@
     "aliases": [],
     "versions": [
         {
+            "name": "12.1",
+            "sha256": "87296a3a9727356b56712c793704082d5df0ff36a34ca9ec9734fc9a8bdfdaab"
+        },
+        {
             "name": "11.2",
             "sha256": "b558b66084835e43b6361f60d60d314c487447419cdf53adf83a87020c367290"
         },
@@ -67,16 +71,21 @@
             "sha256": "ff14f8050e6484508c73cbfa63731e57901478490ca1672dc0b5e2b03f6af622"
         }
     ],
-    "latest_version": "11.2",
+    "latest_version": "12.1",
     "build_system": "AutotoolsPackage",
     "conflicts": [
         {
             "name": "platform=windows",
-            "spec": "",
+            "spec": "build_system=autotools",
             "description": "None"
         }
     ],
     "variants": [
+        {
+            "name": "build_system",
+            "default": "autotools",
+            "description": "Build systems supported by the package"
+        },
         {
             "name": "python",
             "default": true,
@@ -198,12 +207,8 @@
     ],
     "dependent_to": [
         {
-            "name": "cgdb",
-            "description": "A curses front-end to GDB"
-        },
-        {
-            "name": "py-cython",
-            "description": "The Cython compiler for writing C extensions for the Python language."
+            "name": "gaudi",
+            "description": "An experiment-independent HEP event data processing framework"
         },
         {
             "name": "ddd",
@@ -214,12 +219,16 @@
             "description": "gdbgui is a modern, free, browser-based frontend to gdb"
         },
         {
-            "name": "gaudi",
-            "description": "An experiment-independent HEP event data processing framework"
-        },
-        {
             "name": "rr",
             "description": "Application execution recorder, player and debugger"
+        },
+        {
+            "name": "cgdb",
+            "description": "A curses front-end to GDB"
+        },
+        {
+            "name": "py-cython",
+            "description": "The Cython compiler for writing C extensions for the Python language."
         }
     ]
 }

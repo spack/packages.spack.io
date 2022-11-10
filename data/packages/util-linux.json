@@ -3,6 +3,10 @@
     "aliases": [],
     "versions": [
         {
+            "name": "2.38.1",
+            "sha256": "0820eb8eea90408047e3715424bc6be771417047f683950fecb4bdd2e2cbbc6e"
+        },
+        {
             "name": "2.38",
             "sha256": "c31d4e54f30b56b0f7ec8b342658c07de81378f2c067941c2b886da356f8ad42"
         },
@@ -68,11 +72,16 @@
     "conflicts": [
         {
             "name": "platform=windows",
-            "spec": "",
+            "spec": "build_system=autotools",
             "description": "None"
         }
     ],
     "variants": [
+        {
+            "name": "build_system",
+            "default": "autotools",
+            "description": "Build systems supported by the package"
+        },
         {
             "name": "bash",
             "default": false,
@@ -108,12 +117,12 @@
     ],
     "dependent_to": [
         {
-            "name": "oci-systemd-hook",
-            "description": "OCI systemd hook enables users to run systemd in docker and OCI\ncompatible runtimes such as runc without requiring --privileged flag."
+            "name": "squashfs-mount",
+            "description": "Allows non-root users to mount squashfs files without the overhead of\nsquashfuse."
         },
         {
-            "name": "xfsdump",
-            "description": "XFS Dump Tools."
+            "name": "nfs-utils",
+            "description": "The NFS Utilities package contains the userspace server and client tools\nnecessary to use the kernel's NFS abilities. NFS is a protocol that\nallows sharing file systems over the network."
         },
         {
             "name": "zfs",
@@ -124,28 +133,28 @@
             "description": "XFS User Tools."
         },
         {
-            "name": "bcache",
-            "description": "Bcache is a patch for the Linux kernel to use SSDs to cache other block\ndevices."
-        },
-        {
-            "name": "squashfs-mount",
-            "description": "Allows non-root users to mount squashfs files without the overhead of\nsquashfuse."
-        },
-        {
-            "name": "cryptsetup",
-            "description": "Cryptsetup and LUKS - open-source disk encryption."
+            "name": "xfsdump",
+            "description": "XFS Dump Tools."
         },
         {
             "name": "glib",
             "description": "GLib provides the core application building blocks for libraries and\napplications written in C. The GLib package contains a low-level\nlibraries useful for providing data structure handling for C,\nportability wrappers and interfaces for such runtime functionality as an\nevent loop, threads, dynamic loading and an object system."
         },
         {
-            "name": "nfs-utils",
-            "description": "The NFS Utilities package contains the userspace server and client tools\nnecessary to use the kernel's NFS abilities. NFS is a protocol that\nallows sharing file systems over the network."
+            "name": "bcache",
+            "description": "Bcache is a patch for the Linux kernel to use SSDs to cache other block\ndevices."
+        },
+        {
+            "name": "cryptsetup",
+            "description": "Cryptsetup and LUKS - open-source disk encryption."
         },
         {
             "name": "open-iscsi",
             "description": "The Open-iSCSI project is a high-performance, transport independent,\nmulti-platform implementation of RFC3720 iSCSI."
+        },
+        {
+            "name": "oci-systemd-hook",
+            "description": "OCI systemd hook enables users to run systemd in docker and OCI\ncompatible runtimes such as runc without requiring --privileged flag."
         }
     ]
 }

@@ -26,16 +26,16 @@
         }
     ],
     "latest_version": "2.1.0-beta3",
-    "build_system": "LuaImplPackage",
+    "build_system": "MakefilePackage",
     "conflicts": [
         {
             "name": "platform=windows",
-            "spec": "",
+            "spec": "build_system=makefile",
             "description": "None"
         },
         {
             "name": "@:2.0.5",
-            "spec": "arch=linux-None-aarch64:",
+            "spec": "arch=None-None-aarch64:",
             "description": "None"
         },
         {
@@ -50,6 +50,11 @@
         }
     ],
     "variants": [
+        {
+            "name": "build_system",
+            "default": "makefile",
+            "description": "Build systems supported by the package"
+        },
         {
             "name": "fetcher",
             "default": "curl",
@@ -89,8 +94,24 @@
     ],
     "dependent_to": [
         {
+            "name": "neovim",
+            "description": "Neovim: Vim-fork focused on extensibility and usability"
+        },
+        {
+            "name": "lua-luaposix",
+            "description": "Lua posix bindings, including ncurses"
+        },
+        {
             "name": "lua-luafilesystem",
             "description": "LuaFileSystem is a Lua library developed to complement the set of\nfunctions related to file systems offered by the standard Lua\ndistribution. LuaFileSystem offers a portable way to access the\nunderlying directory structure and file attributes. LuaFileSystem is\nfree software and uses the same license as Lua 5.1"
+        },
+        {
+            "name": "lua-bit32",
+            "description": "Lua 5.2 bit operations for Lua 5.1"
+        },
+        {
+            "name": "lua-lpeg",
+            "description": "pattern-matching for lua"
         },
         {
             "name": "lua-ffi",
@@ -101,24 +122,8 @@
             "description": "lua bindings to libmpack"
         },
         {
-            "name": "neovim",
-            "description": "Neovim: Vim-fork focused on extensibility and usability"
-        },
-        {
-            "name": "lua-lpeg",
-            "description": "pattern-matching for lua"
-        },
-        {
-            "name": "lua-luaposix",
-            "description": "Lua posix bindings, including ncurses"
-        },
-        {
             "name": "lua-bitlib",
             "description": "Lua-jit-like bitwise operations for lua"
-        },
-        {
-            "name": "lua-bit32",
-            "description": "Lua 5.2 bit operations for Lua 5.1"
         }
     ]
 }

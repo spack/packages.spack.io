@@ -24,6 +24,18 @@
     ],
     "versions": [
         {
+            "name": "2022.2.1",
+            "url": "https://registrationcenter-download.intel.com/akdlm/irc_nas/19038/l_onemkl_p_2022.2.1.16993_offline.sh",
+            "sha256": "eedd4b795720de776b1fc5f542ae0fac37ec235cdb567f7c2ee3182e73e3e59d",
+            "expand": false
+        },
+        {
+            "name": "2022.2.0",
+            "url": "https://registrationcenter-download.intel.com/akdlm/irc_nas/18898/l_onemkl_p_2022.2.0.8748_offline.sh",
+            "sha256": "07d7caedd4b9f025c6fd439a0d2c2f279b18ecbbb63cadb864f6c63c1ed942db",
+            "expand": false
+        },
+        {
             "name": "2022.1.0",
             "url": "https://registrationcenter-download.intel.com/akdlm/irc_nas/18721/l_onemkl_p_2022.1.0.223_offline.sh",
             "sha256": "4b325a3c4c56e52f4ce6c8fbb55d7684adc16425000afc860464c0f29ea4563e",
@@ -66,10 +78,15 @@
             "expand": false
         }
     ],
-    "latest_version": "2022.1.0",
+    "latest_version": "2022.2.1",
     "build_system": "Package",
     "conflicts": [],
     "variants": [
+        {
+            "name": "build_system",
+            "default": "generic",
+            "description": "Build systems supported by the package"
+        },
         {
             "name": "shared",
             "default": true,
@@ -100,13 +117,21 @@
         },
         {
             "name": "mpi",
-            "description": "MVAPICH2-GDR is an optimized version of the MVAPICH2 MPI library for\nGPU-enabled HPC and Deep Learning Applications. MVAPICH2-GDR is not\ninstallable from source and is only available through a binary mirror.\nIf you do not find the binary you're looking for, send us an email at\nmvapich@cse.ohio-state.edu. The binary mirror url is:\nhttp://mvapich.cse.ohio-state.edu/download/mvapich/spack-\nmirror/mvapich2-gdr/"
+            "description": "MPICH is a high performance and widely portable implementation of the\nMessage Passing Interface (MPI) standard."
         }
     ],
     "dependent_to": [
         {
+            "name": "xyce",
+            "description": "Xyce (rhymes with 'spice') is an open source, SPICE-compatible, high-\nperformance analog circuit simulator, capable of solving extremely large\ncircuit problems by supporting large-scale parallel computing platforms.\nXyce also supports serial execution on all common desktop platforms, and\nsmall-scale parallel runs on Unix-like systems. In addition to analog\nelectronic simulation, Xyce has also been used to investigate more\ngeneral network systems, such as neural networks and power grids."
+        },
+        {
             "name": "ginkgo",
             "description": "High-performance linear algebra library for manycore systems, with a\nfocus on sparse solution of linear systems."
+        },
+        {
+            "name": "amrex",
+            "description": "AMReX is a publicly available software framework designed for building\nmassively parallel block- structured adaptive mesh refinement (AMR)\napplications."
         }
     ]
 }

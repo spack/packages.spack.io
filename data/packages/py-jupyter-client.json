@@ -3,6 +3,10 @@
     "aliases": [],
     "versions": [
         {
+            "name": "7.3.5",
+            "sha256": "3c58466a1b8d55dba0bf3ce0834e4f5b7760baf98d1d73db0add6f19de9ecd1d"
+        },
+        {
             "name": "7.1.2",
             "sha256": "4ea61033726c8e579edb55626d8ee2e6bf0a83158ddf3751b8dd46b2c5cd1e96"
         },
@@ -59,13 +63,20 @@
             "sha256": "a39a4181ea2021daf6e821acae836999ef6e0fefe603813a7a7d4658d2ffa2ac"
         }
     ],
-    "latest_version": "7.1.2",
+    "latest_version": "7.3.5",
     "build_system": "PythonPackage",
     "conflicts": [],
-    "variants": [],
+    "variants": [
+        {
+            "name": "build_system",
+            "default": "python_pip",
+            "description": "Build systems supported by the package"
+        }
+    ],
     "homepage": "https://github.com/jupyter/jupyter_client",
     "maintainers": [
-        "adamjstewart"
+        "adamjstewart",
+        "pradyunsg"
     ],
     "patches": [],
     "resources": [],
@@ -86,6 +97,10 @@
         {
             "name": "py-setuptools",
             "description": "A Python utility that aids in the process of downloading, building,\nupgrading, installing, and uninstalling Python packages."
+        },
+        {
+            "name": "py-hatchling",
+            "description": "Modern, extensible Python build backend."
         },
         {
             "name": "py-entrypoints",
@@ -118,8 +133,16 @@
     ],
     "dependent_to": [
         {
-            "name": "py-ipyparallel",
-            "description": "IPython's architecture for parallel and distributed computing."
+            "name": "py-jupyter-server",
+            "description": "The Jupyter Server provides the backend (i.e. the core services, APIs,\nand REST endpoints) for Jupyter web applications like Jupyter notebook,\nJupyterLab, and Voila."
+        },
+        {
+            "name": "py-qtconsole",
+            "description": "Jupyter Qt console"
+        },
+        {
+            "name": "py-jupyter-console",
+            "description": "Jupyter Terminal Console"
         },
         {
             "name": "py-ipykernel",
@@ -134,16 +157,12 @@
             "description": "A client library for executing notebooks. Formally nbconvert's\nExecutePreprocessor."
         },
         {
-            "name": "py-jupyter-console",
-            "description": "Jupyter Terminal Console"
+            "name": "py-ipyparallel",
+            "description": "IPython's architecture for parallel and distributed computing."
         },
         {
-            "name": "py-qtconsole",
-            "description": "Jupyter Qt console"
-        },
-        {
-            "name": "py-jupyter-server",
-            "description": "The Jupyter Server provides the backend (i.e. the core services, APIs,\nand REST endpoints) for Jupyter web applications like Jupyter notebook,\nJupyterLab, and Voila."
+            "name": "py-nbval",
+            "description": "Py.test plugin for validating Jupyter notebooks. The plugin adds\nfunctionality to py.test to recognise and collect Jupyter notebooks. The\nintended purpose of the tests is to determine whether execution of the\nstored inputs match the stored outputs of the .ipynb file. Whilst also\nensuring that the notebooks are running without errors."
         }
     ]
 }

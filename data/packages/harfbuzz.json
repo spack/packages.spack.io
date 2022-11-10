@@ -3,6 +3,10 @@
     "aliases": [],
     "versions": [
         {
+            "name": "5.1.0",
+            "sha256": "2edb95db668781aaa8d60959d21be2ff80085f31b12053cdd660d9a50ce84f05"
+        },
+        {
             "name": "4.2.1",
             "sha256": "bd17916513829aeff961359a5ccebba6de2f4bf37a91faee3ac29c120e3d7ee1"
         },
@@ -66,9 +70,14 @@
             "deprecated": true
         }
     ],
-    "latest_version": "4.2.1",
+    "latest_version": "5.1.0",
     "build_system": "MesonPackage",
     "conflicts": [
+        {
+            "name": "platform=windows",
+            "spec": "build_system=autotools",
+            "description": "None"
+        },
         {
             "name": "%intel",
             "spec": "@2.3.1:",
@@ -76,6 +85,11 @@
         }
     ],
     "variants": [
+        {
+            "name": "build_system",
+            "default": "meson",
+            "description": "Build systems supported by the package"
+        },
         {
             "name": "buildtype",
             "default": "debugoptimized",
@@ -95,6 +109,11 @@
             "name": "graphite2",
             "default": false,
             "description": "enable support for graphite2 font engine"
+        },
+        {
+            "name": "coretext",
+            "default": false,
+            "description": "Enable CoreText shaper backend on macOS"
         }
     ],
     "homepage": "https://github.com/harfbuzz/harfbuzz",
@@ -103,6 +122,10 @@
     "resources": [],
     "description": "The Harfbuzz package contains an OpenType text shaping engine.\n",
     "dependencies": [
+        {
+            "name": "gnuconfig",
+            "description": "The GNU config.guess and config.sub scripts versioned by timestamp.\nThis package can be used as a build dependency for autotools packages\nthat ship a tarball with outdated config.guess and config.sub files."
+        },
         {
             "name": "meson",
             "description": "Meson is a portable open source build system meant to be both extremely\nfast, and as user friendly as possible."
@@ -146,24 +169,12 @@
     ],
     "dependent_to": [
         {
-            "name": "py-xdot",
-            "description": "xdot.py is an interactive viewer for graphs written in Graphviz's dot\nlanguage."
-        },
-        {
-            "name": "texlive",
-            "description": "TeX Live is an easy (we hope) way to get up and running with the TeX\ndocument production system. It provides a comprehensive TeX system with\nbinaries for most flavors of Unix, including GNU/Linux, macOS, and also\nWindows. It includes all the major TeX-related programs, macro packages,\nand fonts that are free software, including support for many languages\naround the world."
-        },
-        {
-            "name": "kitty",
-            "description": "fast, featureful, cross-platform, GPU-based terminal emulator"
-        },
-        {
             "name": "pango",
             "description": "Pango is a library for laying out and rendering of text, with an\nemphasis on internationalization. It can be used anywhere that text\nlayout is needed, though most of the work on Pango so far has been done\nin the context of the GTK+ widget toolkit."
         },
         {
-            "name": "qt",
-            "description": "Qt is a comprehensive cross-platform C++ application framework."
+            "name": "kitty",
+            "description": "fast, featureful, cross-platform, GPU-based terminal emulator"
         },
         {
             "name": "py-dask-glm",
@@ -174,12 +185,32 @@
             "description": "mapnik combines pixel-perfect image output with lightning-fast\ncartographic algorithms, and exposes interfaces in C++, Python, and Node"
         },
         {
-            "name": "opencv",
-            "description": "OpenCV (Open Source Computer Vision Library) is an open source computer\nvision and machine learning software library."
+            "name": "qt",
+            "description": "Qt is a comprehensive cross-platform C++ application framework."
+        },
+        {
+            "name": "py-xdot",
+            "description": "xdot.py is an interactive viewer for graphs written in Graphviz's dot\nlanguage."
+        },
+        {
+            "name": "texlive",
+            "description": "TeX Live is an easy (we hope) way to get up and running with the TeX\ndocument production system. It provides a comprehensive TeX system with\nbinaries for most flavors of Unix, including GNU/Linux, macOS, and also\nWindows. It includes all the major TeX-related programs, macro packages,\nand fonts that are free software, including support for many languages\naround the world."
+        },
+        {
+            "name": "libraqm",
+            "description": "Raqm provides a convenient API for the logic of complex text layout."
+        },
+        {
+            "name": "r-textshaping",
+            "description": "Bindings to the 'HarfBuzz' and 'Fribidi' Libraries for Text Shaping.\nProvides access to the text shaping functionality in the 'HarfBuzz'\nlibrary and the bidirectional algorithm in the 'Fribidi' library.\n'textshaping' is a low-level utility package mainly for graphic devices\nthat expands upon the font tool-set provided by the 'systemfonts'\npackage."
         },
         {
             "name": "r",
             "description": "R is 'GNU S', a freely available language and environment for\nstatistical computing and graphics which provides a wide variety of\nstatistical and graphical techniques: linear and nonlinear modelling,\nstatistical tests, time series analysis, classification, clustering,\netc. Please consult the R project homepage for further information."
+        },
+        {
+            "name": "opencv",
+            "description": "OpenCV (Open Source Computer Vision Library) is an open source computer\nvision and machine learning software library."
         }
     ]
 }

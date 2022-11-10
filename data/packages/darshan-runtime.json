@@ -8,13 +8,17 @@
             "submodules": true
         },
         {
+            "name": "3.4.0",
+            "sha256": "7cc88b7c130ec3b574f6b73c63c3c05deec67b1350245de6d39ca91d4cff0842",
+            "preferred": true
+        },
+        {
             "name": "3.4.0-pre1",
             "sha256": "57d0fd40329b9f8a51bdc9d7635b646692b341d80339115ab203357321706c09"
         },
         {
             "name": "3.3.1",
-            "sha256": "281d871335977d0592a49d053df93d68ce1840f6fdec27fea7a59586a84395f7",
-            "preferred": true
+            "sha256": "281d871335977d0592a49d053df93d68ce1840f6fdec27fea7a59586a84395f7"
         },
         {
             "name": "3.3.0",
@@ -57,36 +61,21 @@
             "sha256": "95232710f5631bbf665964c0650df729c48104494e887442596128d189da43e0"
         }
     ],
-    "latest_version": "3.4.0-pre1",
+    "latest_version": "3.4.0",
     "build_system": "AutotoolsPackage",
     "conflicts": [
         {
             "name": "platform=windows",
-            "spec": "",
+            "spec": "build_system=autotools",
             "description": "None"
-        },
-        {
-            "name": "+hdf5",
-            "spec": "@:3.1.8",
-            "description": "+hdf5 variant only available starting from version 3.2.0"
-        },
-        {
-            "name": "+apmpi",
-            "spec": "@:3.2.1",
-            "description": "+apmpi variant only available starting from version 3.3.0"
-        },
-        {
-            "name": "+apmpi_sync",
-            "spec": "@:3.2.1",
-            "description": "+apmpi variant only available starting from version 3.3.0"
-        },
-        {
-            "name": "+apxc",
-            "spec": "@:3.2.1",
-            "description": "+apxc variant only available starting from version 3.3.0"
         }
     ],
     "variants": [
+        {
+            "name": "build_system",
+            "default": "autotools",
+            "description": "Build systems supported by the package"
+        },
         {
             "name": "mpi",
             "default": true,
@@ -133,7 +122,7 @@
         },
         {
             "name": "mpi",
-            "description": "MVAPICH2-GDR is an optimized version of the MVAPICH2 MPI library for\nGPU-enabled HPC and Deep Learning Applications. MVAPICH2-GDR is not\ninstallable from source and is only available through a binary mirror.\nIf you do not find the binary you're looking for, send us an email at\nmvapich@cse.ohio-state.edu. The binary mirror url is:\nhttp://mvapich.cse.ohio-state.edu/download/mvapich/spack-\nmirror/mvapich2-gdr/"
+            "description": "MPICH is a high performance and widely portable implementation of the\nMessage Passing Interface (MPI) standard."
         },
         {
             "name": "zlib",

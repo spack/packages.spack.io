@@ -380,7 +380,7 @@
         },
         {
             "name": "0.2.0",
-            "sha256": "54669662f7751d9fc9959207e13d9a171bda15be9087703d3dbd3968fed12b27"
+            "sha256": "e9ba2740d9727ae6d0f9b1ac0c5df331814fd03518fe4b511396ed10780d5272"
         },
         {
             "name": "0.1.4",
@@ -403,9 +403,19 @@
             "name": "platform=darwin target=aarch64:",
             "spec": "@:4.0",
             "description": "None"
+        },
+        {
+            "name": "@:0.2,4.0.0",
+            "spec": "%gcc@11:",
+            "description": "None"
         }
     ],
     "variants": [
+        {
+            "name": "build_system",
+            "default": "generic",
+            "description": "Build systems supported by the package"
+        },
         {
             "name": "nodepfail",
             "default": true,
@@ -485,7 +495,7 @@
             "level": 1,
             "working_dir": ".",
             "relative_path": "cc_configure-0.3.0.patch",
-            "version": "@:0.4"
+            "version": "@0.3:0.4"
         },
         {
             "owner": "builtin.bazel",
@@ -549,7 +559,7 @@
             "level": 1,
             "working_dir": ".",
             "relative_path": "compile-0.3.patch",
-            "version": "@:0.3"
+            "version": "@0.2:0.3"
         },
         {
             "owner": "builtin.bazel",
@@ -614,6 +624,38 @@
             "working_dir": ".",
             "relative_path": "bazelruleclassprovider_fj-0.25.patch",
             "version": "@0.25:%fj"
+        },
+        {
+            "owner": "builtin.bazel",
+            "sha256": "86735e5e53d7635d0e71f5233640b3da8d78582f1d351b59a839e7fe4198e3b5",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "gcc11_1.patch",
+            "version": "@0.3.2:4%gcc@11:"
+        },
+        {
+            "owner": "builtin.bazel",
+            "sha256": "becacefcb55bb8bbeb05cbd5296cb91411a9baea71657fc2a13981d1f3f063b1",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "gcc11_2.patch",
+            "version": "@0.3.2:4%gcc@11:"
+        },
+        {
+            "owner": "builtin.bazel",
+            "sha256": "ae01da12d1b5c59b847999b1cab8d4325b1e38c65964ec8d8325c4863efae108",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "gcc11_3.patch",
+            "version": "@0.3:4%gcc@11:"
+        },
+        {
+            "owner": "builtin.bazel",
+            "sha256": "b4dfb118697d4e7fa5edcef2fa7d9ab36ef32bc3779eaf8d70cd7a0f751d83ec",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "gcc11_4.patch",
+            "version": "@4.1:4%gcc@11:"
         }
     ],
     "resources": [],
@@ -634,36 +676,44 @@
     ],
     "dependent_to": [
         {
-            "name": "py-tensorflow",
-            "description": "TensorFlow is an Open Source Software Library for Machine Intelligence"
-        },
-        {
-            "name": "py-keras",
-            "description": "Deep Learning library for Python. Convnets, recurrent neural networks,\nand more. Runs on Theano or TensorFlow."
-        },
-        {
-            "name": "py-tensorflow-hub",
-            "description": "TensorFlow Hub is a library to foster the publication, discovery, and\nconsumption of reusable parts of machine learning models."
-        },
-        {
-            "name": "py-tensorflow-estimator",
-            "description": "TensorFlow Estimator is a high-level TensorFlow API that greatly\nsimplifies machine learning programming."
-        },
-        {
             "name": "py-dm-tree",
             "description": "tree is a library for working with nested data structures. In a way,\ntree generalizes the builtin map() function which only supports flat\nsequences, and allows to apply a function to each leaf preserving the\noverall structure."
         },
         {
+            "name": "py-jaxlib",
+            "description": "XLA library for Jax"
+        },
+        {
             "name": "py-ray",
-            "description": "A system for parallel and distributed Python that unifies the ML\necosystem."
+            "description": "Ray provides a simple, universal API for building distributed\napplications."
+        },
+        {
+            "name": "py-keras",
+            "description": "Deep Learning for humans. Keras is a deep learning API written in\nPython, running on top of the machine learning platform TensorFlow. It\nwas developed with a focus on enabling fast experimentation. Being able\nto go from idea to result as fast as possible is key to doing good\nresearch."
+        },
+        {
+            "name": "py-tensorflow",
+            "description": "An Open Source Machine Learning Framework for Everyone. TensorFlow is an\nend-to-end open source platform for machine learning. It has a\ncomprehensive, flexible ecosystem of tools, libraries, and community\nresources that lets researchers push the state-of-the-art in ML and\ndevelopers easily build and deploy ML-powered applications. TensorFlow\nwas originally developed by researchers and engineers working on the\nGoogle Brain team within Google's Machine Intelligence Research\norganization to conduct machine learning and deep neural networks\nresearch. The system is general enough to be applicable in a wide\nvariety of other domains, as well."
+        },
+        {
+            "name": "py-tensorflow-metadata",
+            "description": "Library and standards for schema and statistics. TensorFlow Metadata\nprovides standard representations for metadata that are useful when\ntraining machine learning models with TensorFlow."
         },
         {
             "name": "py-tensorflow-probability",
             "description": "TensorFlow Probability (TFP) is a Python library built on TensorFlow\nthat makes it easy to combine probabilistic models and deep learning on\nmodern hardware (TPU, GPU). It's for data scientists, statisticians, ML\nresearchers, and practitioners who want to encode domain knowledge to\nunderstand data and make predictions."
         },
         {
-            "name": "py-tensorflow-metadata",
-            "description": "Library and standards for schema and statistics. TensorFlow Metadata\nprovides standard representations for metadata that are useful when\ntraining machine learning models with TensorFlow."
+            "name": "distbench",
+            "description": "Distbench is a tool for synthesizing a variety of network traffic\npatterns used in distributed systems, and evaluating their performance\nacross multiple networking stacks."
+        },
+        {
+            "name": "py-tensorflow-estimator",
+            "description": "TensorFlow Estimator is a high-level TensorFlow API that greatly\nsimplifies machine learning programming."
+        },
+        {
+            "name": "py-tensorflow-hub",
+            "description": "TensorFlow Hub is a library to foster the publication, discovery, and\nconsumption of reusable parts of machine learning models."
         }
     ]
 }

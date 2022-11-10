@@ -3,6 +3,14 @@
     "aliases": [],
     "versions": [
         {
+            "name": "38.0.1",
+            "sha256": "1db3d807a14931fa317f96435695d9ec386be7b84b618cc61cfa5d08b0ae33d7"
+        },
+        {
+            "name": "37.0.4",
+            "sha256": "63f9c17c0e2474ccbebc9302ce2f07b55b3b3fcb211ded18a42d5764f5c10a82"
+        },
+        {
             "name": "36.0.1",
             "sha256": "53e5c1dc3d7a953de055d77bef2ff607ceef7a2aac0353b5d630ab67f7423638"
         },
@@ -35,10 +43,15 @@
             "sha256": "323524312bb467565ebca7e50c8ae5e9674e544951d28a2904a50012a8828190"
         }
     ],
-    "latest_version": "36.0.1",
+    "latest_version": "38.0.1",
     "build_system": "PythonPackage",
     "conflicts": [],
     "variants": [
+        {
+            "name": "build_system",
+            "default": "python_pip",
+            "description": "Build systems supported by the package"
+        },
         {
             "name": "idna",
             "default": false,
@@ -47,7 +60,8 @@
     ],
     "homepage": "https://github.com/pyca/cryptography",
     "maintainers": [
-        "adamjstewart"
+        "adamjstewart",
+        "pradyunsg"
     ],
     "patches": [],
     "resources": [],
@@ -72,6 +86,10 @@
         {
             "name": "py-setuptools-rust",
             "description": "Setuptools rust extension plugin."
+        },
+        {
+            "name": "rust",
+            "description": "The Rust programming language toolchain This package can bootstrap any\nversion of the Rust compiler since Rust 1.23. It does this by\ndownloading the platform-appropriate binary distribution of the desired\nversion of the rust compiler, and then building that compiler from\nsource."
         },
         {
             "name": "py-cffi",
@@ -108,36 +126,8 @@
     ],
     "dependent_to": [
         {
-            "name": "py-urllib3",
-            "description": "HTTP library with thread-safe connection pooling, file post, and more."
-        },
-        {
-            "name": "py-azure-keyvault-keys",
-            "description": "Microsoft Azure Key Vault Keys Client Library for Python."
-        },
-        {
-            "name": "py-maestrowf",
-            "description": "A general purpose workflow conductor for running multi-step simulation\nstudies."
-        },
-        {
-            "name": "py-merlin",
-            "description": "Merlin Workflow for HPC."
-        },
-        {
-            "name": "py-oauthlib",
-            "description": "A generic, spec-compliant, thorough implementation of the OAuth\nrequest-signing logic"
-        },
-        {
-            "name": "py-azureml-core",
-            "description": "The azureml-core contains functionality for creating and managing: *\nAzure Machine Learning workspaces, experiments and runs; * Machine\nlearning compute respources; * Models, images and web services."
-        },
-        {
-            "name": "py-paramiko",
-            "description": "SSH2 protocol library"
-        },
-        {
-            "name": "py-azure-storage-common",
-            "description": "Microsoft Azure Storage Common Client Library for Python."
+            "name": "py-pyjwt",
+            "description": "JSON Web Token implementation in Python"
         },
         {
             "name": "py-secretstorage",
@@ -148,20 +138,16 @@
             "description": "Microsoft Azure Command-Line Tools."
         },
         {
-            "name": "py-adal",
-            "description": "The ADAL for Python library makes it easy for python application to\nauthenticate to Azure Active Directory (AAD) in order to access AAD\nprotected web resources. DEPRECATED: replaced by MSAL Python."
+            "name": "py-azure-keyvault-keys",
+            "description": "Microsoft Azure Key Vault Keys Client Library for Python."
         },
         {
-            "name": "py-globus-sdk",
-            "description": "Globus SDK for Python"
+            "name": "py-urllib3",
+            "description": "HTTP library with thread-safe connection pooling, file post, and more."
         },
         {
-            "name": "py-requests-ntlm",
-            "description": "This package allows for HTTP NTLM authentication using the requests\nlibrary."
-        },
-        {
-            "name": "py-azure-keyvault",
-            "description": "Microsoft Azure Key Vault Client Libraries for Python."
+            "name": "py-maestrowf",
+            "description": "A general purpose workflow conductor for running multi-step simulation\nstudies."
         },
         {
             "name": "py-azure-multiapi-storage",
@@ -172,16 +158,40 @@
             "description": "Pure-Python MySQL client library"
         },
         {
+            "name": "py-merlin",
+            "description": "Merlin Workflow for HPC."
+        },
+        {
+            "name": "py-paramiko",
+            "description": "SSH2 protocol library"
+        },
+        {
+            "name": "py-azure-storage-common",
+            "description": "Microsoft Azure Storage Common Client Library for Python."
+        },
+        {
+            "name": "py-oauthlib",
+            "description": "A generic, spec-compliant, thorough implementation of the OAuth\nrequest-signing logic"
+        },
+        {
+            "name": "py-requests-ntlm",
+            "description": "This package allows for HTTP NTLM authentication using the requests\nlibrary."
+        },
+        {
             "name": "py-azure-identity",
             "description": "Microsoft Azure Identity Library for Python."
         },
         {
-            "name": "py-pyjwt",
-            "description": "JSON Web Token implementation in Python"
+            "name": "py-azureml-core",
+            "description": "The azureml-core contains functionality for creating and managing: *\nAzure Machine Learning workspaces, experiments and runs; * Machine\nlearning compute respources; * Models, images and web services."
         },
         {
-            "name": "py-azure-storage-blob",
-            "description": "Microsoft Azure Blob Storage Client Library for Python"
+            "name": "py-azure-keyvault",
+            "description": "Microsoft Azure Key Vault Client Libraries for Python."
+        },
+        {
+            "name": "py-globus-sdk",
+            "description": "Globus SDK for Python"
         },
         {
             "name": "py-ansible",
@@ -190,6 +200,14 @@
         {
             "name": "py-pyopenssl",
             "description": "High-level wrapper around a subset of the OpenSSL library. Note: The\nPython Cryptographic Authority strongly suggests the use of\npyca/cryptography where possible. If you are using pyOpenSSL for\nanything other than making a TLS connection you should move to\ncryptography and drop your pyOpenSSL dependency."
+        },
+        {
+            "name": "py-adal",
+            "description": "The ADAL for Python library makes it easy for python application to\nauthenticate to Azure Active Directory (AAD) in order to access AAD\nprotected web resources. DEPRECATED: replaced by MSAL Python."
+        },
+        {
+            "name": "py-azure-storage-blob",
+            "description": "Microsoft Azure Blob Storage Client Library for Python"
         }
     ]
 }

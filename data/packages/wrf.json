@@ -3,6 +3,11 @@
     "aliases": [],
     "versions": [
         {
+            "name": "4.4",
+            "sha256": "6b649e5ac5532f74d74ab913950b632777ce349d26ebfb7f0042b80f9f4ee83e",
+            "url": "https://github.com/wrf-model/WRF/releases/download/v4.4/v4.4.tar.gz"
+        },
+        {
             "name": "4.3.3",
             "sha256": "1b98b8673513f95716c7fc54e950dfebdb582516e22758cd94bc442bccfc0b86"
         },
@@ -28,10 +33,15 @@
             "url": "https://github.com/wrf-model/WRF/archive/V3.9.1.1.tar.gz"
         }
     ],
-    "latest_version": "4.3.3",
+    "latest_version": "4.4",
     "build_system": "Package",
     "conflicts": [],
     "variants": [
+        {
+            "name": "build_system",
+            "default": "generic",
+            "description": "Build systems supported by the package"
+        },
         {
             "name": "build_type",
             "default": "dmpar",
@@ -210,14 +220,6 @@
         },
         {
             "owner": "builtin.wrf",
-            "sha256": "b3f063c60c61ac6655f91cbb266e3a0dafc06449ebb701cb56541c5e9bff65e9",
-            "level": 1,
-            "working_dir": ".",
-            "relative_path": "patches/4.2/configure.patch",
-            "version": "@4.2:"
-        },
-        {
-            "owner": "builtin.wrf",
             "sha256": "e07c39c644dab0cad373e4ff3809db22128b376c139416d9e774b96e1f86e7e7",
             "level": 1,
             "working_dir": ".",
@@ -274,6 +276,14 @@
         },
         {
             "owner": "builtin.wrf",
+            "sha256": "b3f063c60c61ac6655f91cbb266e3a0dafc06449ebb701cb56541c5e9bff65e9",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "patches/4.2/configure.patch",
+            "version": "@4.2:4.3.3"
+        },
+        {
+            "owner": "builtin.wrf",
             "sha256": "51af077b9686b242389185faad1abea4e0121dc5a530da93b2bb50bf014e8a6d",
             "level": 1,
             "working_dir": ".",
@@ -306,6 +316,22 @@
         },
         {
             "owner": "builtin.wrf",
+            "sha256": "29af725c8c38b3afe1eb3547190876dc692a52fc293cbc13c067a389900ca242",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "patches/4.4/arch.postamble.patch",
+            "version": "@4.4:"
+        },
+        {
+            "owner": "builtin.wrf",
+            "sha256": "65f0bd1b9e0584db12c2e335705c206f03b26b0a173eeeb62472651059911b66",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "patches/4.4/configure.patch",
+            "version": "@4.4:"
+        },
+        {
+            "owner": "builtin.wrf",
             "sha256": "c5162c23a132b377132924f8f1545313861c6cee5a627e9ebbdcf7b7b9d5726f",
             "level": 1,
             "working_dir": ".",
@@ -334,7 +360,7 @@
             "level": 1,
             "working_dir": ".",
             "relative_path": "patches/4.3/arch.postamble.patch",
-            "version": "@4.3:"
+            "version": "@4.3:4.3.3"
         },
         {
             "owner": "builtin.wrf",
@@ -374,7 +400,7 @@
         },
         {
             "name": "mpi",
-            "description": "MVAPICH2-GDR is an optimized version of the MVAPICH2 MPI library for\nGPU-enabled HPC and Deep Learning Applications. MVAPICH2-GDR is not\ninstallable from source and is only available through a binary mirror.\nIf you do not find the binary you're looking for, send us an email at\nmvapich@cse.ohio-state.edu. The binary mirror url is:\nhttp://mvapich.cse.ohio-state.edu/download/mvapich/spack-\nmirror/mvapich2-gdr/"
+            "description": "MPICH is a high performance and widely portable implementation of the\nMessage Passing Interface (MPI) standard."
         },
         {
             "name": "parallel-netcdf",

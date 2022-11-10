@@ -3,6 +3,18 @@
     "aliases": [],
     "versions": [
         {
+            "name": "5.13.0",
+            "sha256": "59c6ca2959623f0c69226cf9afb9a018d12a37fab3a8869db5f6d7f83b6b147d"
+        },
+        {
+            "name": "5.12.0",
+            "sha256": "5fb0064a3398111976f30c5908a8c0b40df44c6dd8f0cc4bfa7b9e45d8c647de"
+        },
+        {
+            "name": "5.11.0",
+            "sha256": "fdd957ed06019465f7de73ce931afaf5d40e96e14ae57d91f60868b8c123c4c8"
+        },
+        {
             "name": "5.10.1",
             "sha256": "acb4d1045f48a237e70294b950153e48dce5b5f9ca8190e86c2b8c54ce00a7ee"
         },
@@ -75,30 +87,25 @@
             "sha256": "b6965f9198446a502cde48fb0e02236e75fa5700b94c7306fc36599d57b563f4"
         }
     ],
-    "latest_version": "5.10.1",
+    "latest_version": "5.13.0",
     "build_system": "Package",
     "conflicts": [
+        {
+            "name": "^intel-oneapi-tbb@2021:",
+            "spec": "+tbb",
+            "description": "suite-sparse needs task_scheduler_init.h dropped in recent tbb libs"
+        },
         {
             "name": "%gcc@:4.8",
             "spec": "@5.2.0:",
             "description": "gcc version must be at least 4.9 for suite-sparse@5.2.0:"
-        },
-        {
-            "name": "+tbb",
-            "spec": "^intel-oneapi-tbb@2021:",
-            "description": "suite-sparse needs task_scheduler_init.h dropped in recent tbb libs"
-        },
-        {
-            "name": "+tbb",
-            "spec": "^intel-tbb@2021:",
-            "description": "suite-sparse needs task_scheduler_init.h dropped in recent tbb libs"
         }
     ],
     "variants": [
         {
-            "name": "tbb",
-            "default": false,
-            "description": "Build with Intel TBB"
+            "name": "build_system",
+            "default": "generic",
+            "description": "Build systems supported by the package"
         },
         {
             "name": "pic",
@@ -119,6 +126,11 @@
             "name": "graphblas",
             "default": false,
             "description": "Build with GraphBLAS (takes a long time to compile)"
+        },
+        {
+            "name": "tbb",
+            "default": false,
+            "description": "Build with Intel TBB"
         }
     ],
     "homepage": "https://people.engr.tamu.edu/davis/suitesparse.html",
@@ -169,20 +181,24 @@
     "description": " SuiteSparse is a suite of sparse matrix algorithms\n",
     "dependencies": [
         {
+            "name": "blas",
+            "description": "Intel oneAPI Math Kernel Library (Intel oneMKL; formerly Intel Math\nKernel Library or Intel MKL), is a library of optimized math routines\nfor science, engineering, and financial applications. Core math\nfunctions include BLAS, LAPACK, ScaLAPACK, sparse solvers, fast Fourier\ntransforms, and vector math. LICENSE INFORMATION: By downloading and\nusing this software, you agree to the terms and conditions of the\nsoftware license agreements at https://intel.ly/393CijO."
+        },
+        {
+            "name": "lapack",
+            "description": "Intel oneAPI Math Kernel Library (Intel oneMKL; formerly Intel Math\nKernel Library or Intel MKL), is a library of optimized math routines\nfor science, engineering, and financial applications. Core math\nfunctions include BLAS, LAPACK, ScaLAPACK, sparse solvers, fast Fourier\ntransforms, and vector math. LICENSE INFORMATION: By downloading and\nusing this software, you agree to the terms and conditions of the\nsoftware license agreements at https://intel.ly/393CijO."
+        },
+        {
+            "name": "cuda",
+            "description": "CUDA is a parallel computing platform and programming model invented by\nNVIDIA. It enables dramatic increases in computing performance by\nharnessing the power of the graphics processing unit (GPU). Note: This\npackage does not currently install the drivers necessary to run CUDA.\nThese will need to be installed manually. See:\nhttps://docs.nvidia.com/cuda/ for details."
+        },
+        {
             "name": "mpfr",
             "description": "The MPFR library is a C library for multiple-precision floating-point\ncomputations with correct rounding."
         },
         {
             "name": "gmp",
             "description": "GMP is a free library for arbitrary precision arithmetic, operating on\nsigned integers, rational numbers, and floating-point numbers."
-        },
-        {
-            "name": "blas",
-            "description": "CLBlast is a modern, lightweight, performant and tunable OpenCL BLAS\nlibrary written in C++11. It is designed to leverage the full\nperformance potential of a wide variety of OpenCL devices from different\nvendors, including desktop and laptop GPUs, embedded GPUs, and other\naccelerators. CLBlast implements BLAS routines: basic linear algebra\nsubprograms operating on vectors and matrices."
-        },
-        {
-            "name": "lapack",
-            "description": "Arm Performance Libraries provides optimized standard core math\nlibraries for high-performance computing applications on Arm processors."
         },
         {
             "name": "m4",
@@ -201,46 +217,34 @@
             "description": "Intel oneAPI Threading Building Blocks (oneTBB) is a flexible\nperformance library that simplifies the work of adding parallelism to\ncomplex applications across accelerated architectures, even if you are\nnot a threading expert. LICENSE INFORMATION: By downloading and using\nthis software, you agree to the terms and conditions of the software\nlicense agreements at https://intel.ly/393CijO."
         },
         {
-            "name": "cuda",
-            "description": "CUDA is a parallel computing platform and programming model invented by\nNVIDIA. It enables dramatic increases in computing performance by\nharnessing the power of the graphics processing unit (GPU). Note: This\npackage does not currently install the drivers necessary to run CUDA.\nThese will need to be installed manually. See:\nhttps://docs.nvidia.com/cuda/ for details."
+            "name": "intel-tbb",
+            "description": "Widely used C++ template library for task parallelism. Intel Threading\nBuilding Blocks (Intel TBB) lets you easily write parallel C++ programs\nthat take full advantage of multicore performance, that are portable and\ncomposable, and that have future-proof scalability."
         }
     ],
     "dependent_to": [
         {
-            "name": "trilinos",
-            "description": "The Trilinos Project is an effort to develop algorithms and enabling\ntechnologies within an object-oriented software framework for the\nsolution of large-scale, complex multi-physics engineering and\nscientific problems. A unique design feature of Trilinos is its focus on\npackages."
+            "name": "3dtk",
+            "description": "The 3D Toolkit provides algorithms and methods to process 3D point\nclouds. It includes automatic high-accurate registration (6D\nsimultaneous localization and mapping, 6D SLAM) and other tools, e.g., a\nfast 3D viewer, plane extraction software, etc. Several file formats for\nthe point clouds are natively supported, new formats can be implemented\neasily."
         },
         {
             "name": "fenics",
             "description": "FEniCS is organized as a collection of interoperable components that\ntogether form the FEniCS Project. These components include the problem-\nsolving environment DOLFIN, the form compiler FFC, the finite element\ntabulator FIAT, the just-in-time compiler Instant / Dijitso, the code\ngeneration interface UFC, the form language UFL and a range of\nadditional components."
         },
         {
-            "name": "julia",
-            "description": "The Julia Language: A fresh approach to technical computing"
+            "name": "hiop",
+            "description": "HiOp is an optimization solver for solving certain mathematical\noptimization problems expressed as nonlinear programming problems. HiOp\nis a lightweight HPC solver that leverages application\"s existing data\nparallelism to parallelize the optimization iterations by using\nspecialized linear algebra kernels."
         },
         {
-            "name": "octave",
-            "description": "GNU Octave is a high-level language, primarily intended for numerical\ncomputations. It provides a convenient command line interface for\nsolving linear and nonlinear problems numerically, and for performing\nother numerical experiments using a language that is mostly compatible\nwith Matlab. It may also be used as a batch-oriented language."
+            "name": "julia",
+            "description": "The Julia Language: A fresh approach to technical computing"
         },
         {
             "name": "goma",
             "description": "A Full-Newton Finite Element Program for Free and Moving Boundary\nProblems with Coupled Fluid/Solid Momentum, Energy, Mass, and Chemical\nSpecies Transport"
         },
         {
-            "name": "mfem",
-            "description": "Free, lightweight, scalable C++ library for finite element methods."
-        },
-        {
-            "name": "petsc",
-            "description": "PETSc is a suite of data structures and routines for the scalable\n(parallel) solution of scientific applications modeled by partial\ndifferential equations."
-        },
-        {
             "name": "ceed",
             "description": "Ceed is a collection of benchmarks, miniapps, software libraries and\nAPIs for efficient high-order finite element and spectral element\ndiscretizations for exascale applications developed in the Department of\nEnergy (DOE) and partially supported by the Exascale Computing Project\n(ECP). This is a Spack bundle package that installs the CEED software\ncomponents."
-        },
-        {
-            "name": "py-cvxopt",
-            "description": "CVXOPT is a free software package for convex optimization based on the\nPython programming language."
         },
         {
             "name": "sundials",
@@ -251,6 +255,14 @@
             "description": "C++ software library providing well-documented tools to build finite\nelement codes for a broad variety of PDEs."
         },
         {
+            "name": "mfem",
+            "description": "Free, lightweight, scalable C++ library for finite element methods."
+        },
+        {
+            "name": "petsc",
+            "description": "PETSc is a suite of data structures and routines for the scalable\n(parallel) solution of scientific applications modeled by partial\ndifferential equations."
+        },
+        {
             "name": "g2o",
             "description": "g2o is an open-source C++ framework for optimizing graph-based nonlinear\nerror functions. g2o has been designed to be easily extensible to a wide\nrange of problems and a new problem typically can be specified in a few\nlines of code. The current implementation provides solutions to several\nvariants of SLAM and BA."
         },
@@ -259,12 +271,16 @@
             "description": "AUGUSTUS is a program that predicts genes in eukaryotic genomic\nsequences"
         },
         {
-            "name": "hiop",
-            "description": "HiOp is an optimization solver for solving certain mathematical\noptimization problems expressed as nonlinear programming problems. HiOp\nis a lightweight HPC solver that leverages application\"s existing data\nparallelism to parallelize the optimization iterations by using\nspecialized linear algebra kernels."
+            "name": "octave",
+            "description": "GNU Octave is a high-level language, primarily intended for numerical\ncomputations. It provides a convenient command line interface for\nsolving linear and nonlinear problems numerically, and for performing\nother numerical experiments using a language that is mostly compatible\nwith Matlab. It may also be used as a batch-oriented language."
         },
         {
-            "name": "3dtk",
-            "description": "The 3D Toolkit provides algorithms and methods to process 3D point\nclouds. It includes automatic high-accurate registration (6D\nsimultaneous localization and mapping, 6D SLAM) and other tools, e.g., a\nfast 3D viewer, plane extraction software, etc. Several file formats for\nthe point clouds are natively supported, new formats can be implemented\neasily."
+            "name": "trilinos",
+            "description": "The Trilinos Project is an effort to develop algorithms and enabling\ntechnologies within an object-oriented software framework for the\nsolution of large-scale, complex multi-physics engineering and\nscientific problems. A unique design feature of Trilinos is its focus on\npackages."
+        },
+        {
+            "name": "py-cvxopt",
+            "description": "CVXOPT is a free software package for convex optimization based on the\nPython programming language."
         }
     ]
 }

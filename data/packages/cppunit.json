@@ -3,61 +3,101 @@
     "aliases": [],
     "versions": [
         {
+            "name": "master",
+            "branch": "master"
+        },
+        {
+            "name": "1.15_20220904",
+            "commit": "78e64f0edb4f3271a6ddbcdf9cba05138597bfca"
+        },
+        {
             "name": "1.14.0",
-            "sha256": "3d569869d27b48860210c758c4f313082103a5e58219a7669b52bfd29d674780"
+            "sha256": "3d569869d27b48860210c758c4f313082103a5e58219a7669b52bfd29d674780",
+            "preferred": true
         },
         {
             "name": "1.13.2",
             "sha256": "3f47d246e3346f2ba4d7c9e882db3ad9ebd3fcbd2e8b732f946e0e3eeb9f429f"
         }
     ],
-    "latest_version": "1.14.0",
+    "latest_version": "1.15_20220904",
     "build_system": "AutotoolsPackage",
     "conflicts": [
         {
             "name": "platform=windows",
-            "spec": "",
+            "spec": "build_system=autotools",
             "description": "None"
         }
     ],
     "variants": [
         {
+            "name": "build_system",
+            "default": "autotools",
+            "description": "Build systems supported by the package"
+        },
+        {
             "name": "cxxstd",
             "default": "default",
             "description": "Use the specified C++ standard when building."
+        },
+        {
+            "name": "libs",
+            "default": "shared,static",
+            "description": "Build shared libs, static libs or both"
         }
     ],
     "homepage": "https://wiki.freedesktop.org/www/Software/cppunit/",
     "maintainers": [],
-    "patches": [],
+    "patches": [
+        {
+            "owner": "builtin.cppunit",
+            "sha256": "629c0af2dcd4e09696a3a84fbe6dcda6e4e215cec21567f39a4da635270fbbd8",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "cppunit-1.14-defaulted-function-deleted.patch",
+            "version": "@1.15:"
+        }
+    ],
     "resources": [],
     "description": "Obsolete Unit testing framework for C++\n",
     "dependencies": [
         {
             "name": "gnuconfig",
             "description": "The GNU config.guess and config.sub scripts versioned by timestamp.\nThis package can be used as a build dependency for autotools packages\nthat ship a tarball with outdated config.guess and config.sub files."
+        },
+        {
+            "name": "autoconf",
+            "description": "Autoconf -- system configuration part of autotools"
+        },
+        {
+            "name": "automake",
+            "description": "Automake -- make file builder part of autotools"
+        },
+        {
+            "name": "libtool",
+            "description": "libtool -- library building part of autotools."
         }
     ],
     "dependent_to": [
         {
-            "name": "gaudi",
-            "description": "An experiment-independent HEP event data processing framework"
+            "name": "coral",
+            "description": "CORAL is an abstraction layer with an SQL-free API to access data stored\nusing relational database technologies. It is used directly by\nexperiment-specific applications and internally by COOL."
         },
         {
-            "name": "improved-rdock",
-            "description": "Improved version of rDock. rDock is a fast and versatile Open Source\ndocking program that can be used to dock small molecules against\nproteins and nucleic acids. The original version is found at the\nfollowing URL:\nhttps://sourceforge.net/projects/rdock/files/rDock_2013.1_src.tar.gz"
+            "name": "gaudi",
+            "description": "An experiment-independent HEP event data processing framework"
         },
         {
             "name": "hybrid-lambda",
             "description": "Hybrid-Lambda is a software package that can simulate gene trees within\na rooted species network or a rooted species tree under the coalescent\nprocess. The main feature of this program is that users can choose to\nuse the standard Kingman coalescent process, which produces bifurcating\ngenealogies, or two other Lambda coalescent processes, which produce\nmultifurcating genealogies. The other feature is that hybrid sim uses\nextended Newick formatted strings to make it easier to represent\nhybridization events between species."
         },
         {
-            "name": "coral",
-            "description": "CORAL is an abstraction layer with an SQL-free API to access data stored\nusing relational database technologies. It is used directly by\nexperiment-specific applications and internally by COOL."
-        },
-        {
             "name": "salome-medcoupling",
             "description": "salome-medcoupling is a part of SALOME platform to manipulate meshes and\nfields in memory, and use salome-med format for files."
+        },
+        {
+            "name": "improved-rdock",
+            "description": "Improved version of rDock. rDock is a fast and versatile Open Source\ndocking program that can be used to dock small molecules against\nproteins and nucleic acids. The original version is found at the\nfollowing URL:\nhttps://sourceforge.net/projects/rdock/files/rDock_2013.1_src.tar.gz"
         }
     ]
 }

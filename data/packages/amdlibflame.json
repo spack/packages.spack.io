@@ -12,6 +12,10 @@
     ],
     "versions": [
         {
+            "name": "3.2",
+            "sha256": "6b5337fb668b82d0ed0a4ab4b5af4e2f72e4cedbeeb4a8b6eb9a3ef057fb749a"
+        },
+        {
             "name": "3.1",
             "sha256": "4520fb93fcc89161f65a40810cae0fa1f87cecb242da4a69655f502545a53426"
         },
@@ -28,12 +32,12 @@
             "sha256": "12b9c1f92d2c2fa637305aaa15cf706652406f210eaa5cbc17aaea9fcfa576dc"
         }
     ],
-    "latest_version": "3.1",
+    "latest_version": "3.2",
     "build_system": "AutotoolsPackage",
     "conflicts": [
         {
             "name": "platform=windows",
-            "spec": "",
+            "spec": "build_system=autotools",
             "description": "None"
         },
         {
@@ -53,6 +57,11 @@
         }
     ],
     "variants": [
+        {
+            "name": "build_system",
+            "default": "autotools",
+            "description": "Build systems supported by the package"
+        },
         {
             "name": "lapack2flame",
             "default": true,
@@ -139,12 +148,17 @@
         },
         {
             "name": "blas",
-            "description": "CLBlast is a modern, lightweight, performant and tunable OpenCL BLAS\nlibrary written in C++11. It is designed to leverage the full\nperformance potential of a wide variety of OpenCL devices from different\nvendors, including desktop and laptop GPUs, embedded GPUs, and other\naccelerators. CLBlast implements BLAS routines: basic linear algebra\nsubprograms operating on vectors and matrices."
+            "description": "Intel oneAPI Math Kernel Library (Intel oneMKL; formerly Intel Math\nKernel Library or Intel MKL), is a library of optimized math routines\nfor science, engineering, and financial applications. Core math\nfunctions include BLAS, LAPACK, ScaLAPACK, sparse solvers, fast Fourier\ntransforms, and vector math. LICENSE INFORMATION: By downloading and\nusing this software, you agree to the terms and conditions of the\nsoftware license agreements at https://intel.ly/393CijO."
         },
         {
             "name": "python",
             "description": "The Python programming language."
         }
     ],
-    "dependent_to": []
+    "dependent_to": [
+        {
+            "name": "amd-aocl",
+            "description": "AMD Optimizing CPU Libraries (AOCL) - AOCL is a set of numerical\nlibraries tuned specifically for AMD EPYC processor family. They have a\nsimple interface to take advantage of the latest hardware innovations.\nThe tuned implementations of industry standard math libraries enable\nfast development of scientific and high performance computing projects"
+        }
+    ]
 }

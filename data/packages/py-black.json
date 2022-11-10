@@ -3,6 +3,14 @@
     "aliases": [],
     "versions": [
         {
+            "name": "22.10.0",
+            "sha256": "f513588da599943e0cde4e32cc9879e825d58720d6557062d1098c5ad80080e1"
+        },
+        {
+            "name": "22.8.0",
+            "sha256": "792f7eb540ba9a17e8656538701d3eb1afcb134e3b45b71f20b25c77a8db7e6e"
+        },
+        {
             "name": "22.6.0",
             "sha256": "6c6d39e28aed379aec40da1c65434c77d75e65bb59a1e1c283de545fb4e7c6c9"
         },
@@ -13,16 +21,20 @@
         {
             "name": "22.1.0",
             "sha256": "a7c0192d35635f6fc1174be575cb7915e92e5dd629ee79fdaf0dcfa41a80afb5"
+        },
+        {
+            "name": "21.12b0",
+            "sha256": "77b80f693a569e2e527958459634f18df9b0ba2625ba4e0c2d5da5be42e6f2b3"
         }
     ],
-    "latest_version": "22.6.0",
+    "latest_version": "22.10.0",
     "build_system": "PythonPackage",
     "conflicts": [],
     "variants": [
         {
-            "name": "d",
-            "default": false,
-            "description": "enable blackd HTTP server"
+            "name": "build_system",
+            "default": "python_pip",
+            "description": "Build systems supported by the package"
         },
         {
             "name": "colorama",
@@ -33,6 +45,11 @@
             "name": "uvloop",
             "default": false,
             "description": "enable uvloop support"
+        },
+        {
+            "name": "d",
+            "default": false,
+            "description": "enable blackd HTTP server"
         },
         {
             "name": "jupyter",
@@ -61,6 +78,18 @@
             "description": "A built-package format for Python."
         },
         {
+            "name": "py-hatchling",
+            "description": "Modern, extensible Python build backend."
+        },
+        {
+            "name": "py-hatch-vcs",
+            "description": "Hatch plugin for versioning with your preferred VCS"
+        },
+        {
+            "name": "py-hatch-fancy-pypi-readme",
+            "description": "Fancy PyPI READMEs with Hatch."
+        },
+        {
             "name": "py-setuptools",
             "description": "A Python utility that aids in the process of downloading, building,\nupgrading, installing, and uninstalling Python packages."
         },
@@ -71,6 +100,14 @@
         {
             "name": "py-click",
             "description": "Python composable command line interface toolkit."
+        },
+        {
+            "name": "py-mypy-extensions",
+            "description": "Experimental type system extensions for programs checked with the mypy\ntypechecker."
+        },
+        {
+            "name": "py-pathspec",
+            "description": "pathspec extends the test loading and running features of unittest,\nmaking it easier to write, find and run tests."
         },
         {
             "name": "py-platformdirs",
@@ -85,24 +122,12 @@
             "description": "A fork of Python 2 and 3 ast modules with type comment support."
         },
         {
-            "name": "py-pathspec",
-            "description": "pathspec extends the test loading and running features of unittest,\nmaking it easier to write, find and run tests."
-        },
-        {
-            "name": "py-dataclasses",
-            "description": "A backport of the dataclasses module for Python 3.6"
-        },
-        {
             "name": "py-typing-extensions",
             "description": "The typing_extensions module contains both backports of these changes as\nwell as experimental types that will eventually be added to the typing\nmodule, such as Protocol (see PEP 544 for details about protocols and\nstatic duck typing)."
         },
         {
-            "name": "py-mypy-extensions",
-            "description": "Experimental type system extensions for programs checked with the mypy\ntypechecker."
-        },
-        {
-            "name": "py-aiohttp",
-            "description": "Supports both client and server side of HTTP protocol. Supports both\nclient and server Web-Sockets out-of-the-box and avoids Callbacks.\nProvides Web-server with middlewares and plugable routing."
+            "name": "py-dataclasses",
+            "description": "A backport of the dataclasses module for Python 3.6"
         },
         {
             "name": "py-colorama",
@@ -111,6 +136,10 @@
         {
             "name": "py-uvloop",
             "description": "uvloop is a fast, drop-in replacement of the built-in asyncio event"
+        },
+        {
+            "name": "py-aiohttp",
+            "description": "Supports both client and server side of HTTP protocol. Supports both\nclient and server Web-Sockets out-of-the-box and avoids Callbacks.\nProvides Web-server with middlewares and plugable routing."
         },
         {
             "name": "py-ipython",
@@ -123,20 +152,28 @@
     ],
     "dependent_to": [
         {
-            "name": "py-ipython",
-            "description": "IPython provides a rich toolkit to help you make the most out of using\nPython interactively."
+            "name": "py-setuptools-cpp",
+            "description": "Simplified packaging for pybind11-based C++ extensions"
         },
         {
-            "name": "py-torchgeo",
-            "description": "TorchGeo: datasets, transforms, and models for geospatial data. TorchGeo\nis a PyTorch domain library, similar to torchvision, that provides\ndatasets, transforms, samplers, and pre-trained models specific to\ngeospatial data."
+            "name": "py-ipython",
+            "description": "IPython provides a rich toolkit to help you make the most out of using\nPython interactively."
         },
         {
             "name": "spack",
             "description": "Spack is a multi-platform package manager that builds and installs\nmultiple versions and configurations of software. It works on Linux,\nmacOS, and many supercomputers. Spack is non-destructive: installing a\nnew version of a package does not break existing installations, so many\nconfigurations of the same package can coexist."
         },
         {
-            "name": "py-setuptools-cpp",
-            "description": "Simplified packaging for pybind11-based C++ extensions"
+            "name": "py-ocp-models",
+            "description": "Reference implementation for the MLPerf HPC OpenCatalyst DimeNet++\nbenchmark"
+        },
+        {
+            "name": "py-torchgeo",
+            "description": "TorchGeo: datasets, samplers, transforms, and pre-trained models for\ngeospatial data. TorchGeo is a PyTorch domain library, similar to\ntorchvision, providing datasets, samplers, transforms, and pre-trained\nmodels specific to geospatial data."
+        },
+        {
+            "name": "py-blight",
+            "description": "A catch-all compile-tool wrapper."
         }
     ]
 }

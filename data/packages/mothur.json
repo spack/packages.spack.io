@@ -3,6 +3,10 @@
     "aliases": [],
     "versions": [
         {
+            "name": "1.48.0",
+            "sha256": "9494406abd8d14b821782ab9db811f045ded9424f28f01234ee6764d4e78941d"
+        },
+        {
             "name": "1.46.1",
             "sha256": "29b500b3c92d726cde34922f697f2e47f0b7127d76d9a6fb167cc2b8ba3d00fd"
         },
@@ -23,24 +27,41 @@
             "sha256": "9f1cd691e9631a2ab7647b19eb59cd21ea643f29b22cde73d7f343372dfee342"
         }
     ],
-    "latest_version": "1.46.1",
+    "latest_version": "1.48.0",
     "build_system": "MakefilePackage",
     "conflicts": [
         {
             "name": "platform=windows",
-            "spec": "",
+            "spec": "build_system=makefile",
             "description": "None"
         }
     ],
     "variants": [
         {
-            "name": "vsearch",
+            "name": "build_system",
+            "default": "makefile",
+            "description": "Build systems supported by the package"
+        },
+        {
+            "name": "boost",
+            "default": true,
+            "description": "Build with boost support (allow make.contigs to read gz files)."
+        },
+        {
+            "name": "hdf5",
             "default": false,
-            "description": "Use vsearch"
+            "description": "Build with hdf5 support"
+        },
+        {
+            "name": "gsl",
+            "default": false,
+            "description": "Build with the gnu scientific libaries"
         }
     ],
     "homepage": "https://github.com/mothur/mothur",
-    "maintainers": [],
+    "maintainers": [
+        "snehring"
+    ],
     "patches": [],
     "resources": [],
     "description": "This project seeks to develop a single piece of open-source, expandable\nsoftware to fill the bioinformatics needs of the microbial ecology\ncommunity.\n",
@@ -50,12 +71,28 @@
             "description": "Boost provides free peer-reviewed portable C++ source libraries,\nemphasizing libraries that work well with the C++ Standard Library.\nBoost libraries are intended to be widely useful, and usable across a\nbroad spectrum of applications. The Boost license encourages both\ncommercial and non-commercial use."
         },
         {
+            "name": "gsl",
+            "description": "The GNU Scientific Library (GSL) is a numerical library for C and C++\nprogrammers. It is free software under the GNU General Public License.\nThe library provides a wide range of mathematical routines such as\nrandom number generators, special functions and least-squares fitting.\nThere are over 1000 functions in total with an extensive test suite."
+        },
+        {
+            "name": "hdf5",
+            "description": "HDF5 is a data model, library, and file format for storing and managing\ndata. It supports an unlimited variety of datatypes, and is designed for\nflexible and efficient I/O and for high volume and complex data."
+        },
+        {
             "name": "readline",
             "description": "The GNU Readline library provides a set of functions for use by\napplications that allow users to edit command lines as they are typed\nin. Both Emacs and vi editing modes are available. The Readline library\nincludes additional functions to maintain a list of previously-entered\ncommand lines, to recall and perhaps reedit those lines, and perform\ncsh-like history expansion on previous commands."
         },
         {
             "name": "vsearch",
             "description": "VSEARCH is a versatile open-source tool for metagenomics."
+        },
+        {
+            "name": "usearch",
+            "description": "USEARCH is a unique sequence analysis tool with thousands of users\nworld-wide. Note: A manual download is required for USEARCH. Spack will\nsearch your current directory for the download file. Alternatively, add\nthis file to a mirror so that Spack can find it. For instructions on how\nto set up a mirror, see\nhttps://spack.readthedocs.io/en/latest/mirrors.html"
+        },
+        {
+            "name": "zlib",
+            "description": "A free, general-purpose, legally unencumbered lossless data-compression\nlibrary."
         }
     ],
     "dependent_to": []

@@ -56,7 +56,7 @@
     "conflicts": [
         {
             "name": "platform=windows",
-            "spec": "",
+            "spec": "build_system=autotools",
             "description": "None"
         },
         {
@@ -65,7 +65,13 @@
             "description": "libuv does not compile with GCC on macOS yet, use clang. See: https://github.com/libuv/libuv/issues/2805"
         }
     ],
-    "variants": [],
+    "variants": [
+        {
+            "name": "build_system",
+            "default": "autotools",
+            "description": "Build systems supported by the package"
+        }
+    ],
     "homepage": "https://libuv.org",
     "maintainers": [],
     "patches": [],
@@ -95,16 +101,12 @@
     ],
     "dependent_to": [
         {
+            "name": "neovim",
+            "description": "Neovim: Vim-fork focused on extensibility and usability"
+        },
+        {
             "name": "uvw",
             "description": "uvw is a header-only, event based, tiny and easy to use libuv wrapper in\nmodern C++."
-        },
-        {
-            "name": "py-horovod",
-            "description": "Horovod is a distributed deep learning training framework for\nTensorFlow, Keras, PyTorch, and Apache MXNet."
-        },
-        {
-            "name": "cmake",
-            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
         },
         {
             "name": "julia",
@@ -115,8 +117,16 @@
             "description": "This library makes libuv available to lua scripts. It was made for the\nluvit project but should usable from nearly any lua project."
         },
         {
-            "name": "neovim",
-            "description": "Neovim: Vim-fork focused on extensibility and usability"
+            "name": "py-horovod",
+            "description": "Horovod is a distributed deep learning training framework for\nTensorFlow, Keras, PyTorch, and Apache MXNet."
+        },
+        {
+            "name": "cmake",
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
+        },
+        {
+            "name": "bind9",
+            "description": "BIND 9 has evolved to be a very flexible, full-featured DNS system."
         },
         {
             "name": "netdata",
@@ -125,10 +135,6 @@
         {
             "name": "tensorpipe",
             "description": "A tensor-aware point-to-point communication primitive for machine\nlearning."
-        },
-        {
-            "name": "bind9",
-            "description": "BIND 9 has evolved to be a very flexible, full-featured DNS system."
         }
     ]
 }

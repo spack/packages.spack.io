@@ -36,12 +36,22 @@
     "build_system": "PythonPackage",
     "conflicts": [
         {
+            "name": "+raqm",
+            "spec": "~freetype",
+            "description": "None"
+        },
+        {
             "name": "target=aarch64:",
             "spec": "",
             "description": "None"
         }
     ],
     "variants": [
+        {
+            "name": "build_system",
+            "default": "python_pip",
+            "description": "Build systems supported by the package"
+        },
         {
             "name": "zlib",
             "default": true,
@@ -91,6 +101,11 @@
             "name": "xcb",
             "default": false,
             "description": "X11 screengrab support"
+        },
+        {
+            "name": "raqm",
+            "default": false,
+            "description": "RAQM support"
         }
     ],
     "homepage": "https://github.com/uploadcare/pillow-simd",
@@ -123,7 +138,7 @@
         },
         {
             "name": "jpeg",
-            "description": "libjpeg is a widely used free library with functions for handling the\nJPEG image data format. It implements a JPEG codec (encoding and\ndecoding) alongside various utilities for handling JPEG data."
+            "description": "libjpeg-turbo is a fork of the original IJG libjpeg which uses SIMD to\naccelerate baseline JPEG compression and decompression. libjpeg is a\nlibrary that implements JPEG image encoding, decoding and transcoding."
         },
         {
             "name": "libtiff",
@@ -152,6 +167,10 @@
         {
             "name": "libxcb",
             "description": "The X protocol C-language Binding (XCB) is a replacement for Xlib\nfeaturing a small footprint, latency hiding, direct access to the\nprotocol, improved threading support, and extensibility."
+        },
+        {
+            "name": "libraqm",
+            "description": "Raqm provides a convenient API for the logic of complex text layout."
         }
     ],
     "dependent_to": []

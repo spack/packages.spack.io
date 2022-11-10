@@ -3,6 +3,18 @@
     "aliases": [],
     "versions": [
         {
+            "name": "2.10.0",
+            "sha256": "b1d8d9358700f4a585455854a142d88cc987419c1638ef935b440842d593ad04"
+        },
+        {
+            "name": "2.9.0",
+            "sha256": "90226eaa0337573304f3e5ab44d4d9e3a65fe002776c5cbd0f65b738152c1084"
+        },
+        {
+            "name": "2.8.0",
+            "sha256": "5e777b0101d8385d3a90fc9056f1b2f6313f2c830d2e8181828b300c9229ec0c"
+        },
+        {
             "name": "2.7.0",
             "sha256": "7502746467ab15184e2e267f13fbb2c3f33ba24f8e02a097d229ba376dabaa04"
         },
@@ -12,11 +24,36 @@
         },
         {
             "name": "2.5.0",
-            "commit": "9c266106163390f173625c4e7b1ccb03ae145ffc"
+            "commit": "9c266106163390f173625c4e7b1ccb03ae145ffc",
+            "deprecated": true
         },
         {
             "name": "2.4.3",
             "sha256": "fedd729b52572fb108a98e3d97e1bac10a81d3917d2103cc20ab2a5f03beb973"
+        },
+        {
+            "name": "2.4.2",
+            "sha256": "e26bc51b7b8fb7add452cdf6fba77d6509e6c78b9d9ef5fd32fe132c6d9182d2"
+        },
+        {
+            "name": "2.4.1",
+            "sha256": "e282cc9c5c996043b21d045765c0c5bf541c1879232a97a574c51af0ce132cb1"
+        },
+        {
+            "name": "2.4.0",
+            "sha256": "e31c6d2910767ab72f630309286fb7bf5476810dd64fde3e254054478442e9b0"
+        },
+        {
+            "name": "2.3.1",
+            "sha256": "321d43772006a25a1d58eea17401ef2a34d388b588c9f7646c34796151ebc8cc"
+        },
+        {
+            "name": "2.3.0",
+            "sha256": "a0d6ecf1d71cd0b85ea1da27ea7314a9d4723f5b468b7cedd87dcad0a491b354"
+        },
+        {
+            "name": "2.2.5",
+            "sha256": "0fb448b95643a708d25d2394183a2f3a84eefb55fb64917152a46826990113ea"
         },
         {
             "name": "2.2.4",
@@ -95,6 +132,18 @@
             "sha256": "398dbd4a95e9d3ab2b2941d3e0c19362d397a2a6c3a667ab89d3d6aad30997f4"
         },
         {
+            "name": "2.0.2",
+            "sha256": "53fd0a6e9eaca2563e13d2266eac2da478fa25092de3c665aa26e380a8126841"
+        },
+        {
+            "name": "2.0.1",
+            "sha256": "c5c2727518f76606794363c01430f4992e482b4ab0dc6a8fa137c896855c09a8"
+        },
+        {
+            "name": "2.0.0",
+            "sha256": "02846dceb36e98368f47ca090d0f5fe6828e22ece10668a07047bea4c92b157f"
+        },
+        {
             "name": "1.2.2",
             "sha256": "d2b18c4336eb9c4f0d03469870257efa7980a9b036c9d46dcf4d49e7f4487e2d"
         },
@@ -119,17 +168,24 @@
             "sha256": "36d83b027ba9d2c9da8e1eefc28f600ca93dc03423e033b633cbac9061af8a5d"
         }
     ],
-    "latest_version": "2.7.0",
+    "latest_version": "2.10.0",
     "build_system": "PythonPackage",
     "conflicts": [],
-    "variants": [],
+    "variants": [
+        {
+            "name": "build_system",
+            "default": "python_pip",
+            "description": "Build systems supported by the package"
+        }
+    ],
     "homepage": "https://keras.io",
     "maintainers": [
-        "adamjstewart"
+        "adamjstewart",
+        "pradyunsg"
     ],
     "patches": [],
     "resources": [],
-    "description": "Deep Learning library for Python. Convnets, recurrent neural networks,\nand more. Runs on Theano or TensorFlow.\n",
+    "description": "Deep Learning for humans. Keras is a deep learning API written in\nPython, running on top of the machine learning platform TensorFlow. It\nwas developed with a focus on enabling fast experimentation. Being able\nto go from idea to result as fast as possible is key to doing good\nresearch.\n",
     "dependencies": [
         {
             "name": "python",
@@ -144,36 +200,40 @@
             "description": "A built-package format for Python."
         },
         {
-            "name": "py-numpy",
-            "description": "NumPy is the fundamental package for scientific computing with Python.\nIt contains among other things: a powerful N-dimensional array object,\nsophisticated (broadcasting) functions, tools for integrating C/C++ and\nFortran code, and useful linear algebra, Fourier transform, and random\nnumber capabilities"
+            "name": "py-setuptools",
+            "description": "A Python utility that aids in the process of downloading, building,\nupgrading, installing, and uninstalling Python packages."
         },
         {
-            "name": "py-scipy",
-            "description": "SciPy (pronounced \"Sigh Pie\") is a Scientific Library for Python. It\nprovides many user-friendly and efficient numerical routines such as\nroutines for numerical integration and optimization."
+            "name": "pil",
+            "description": "Pillow-SIMD is a SIMD-enabled fork of Pillow. It is usually 4-6x faster\nthan the original Pillow in image processing benchmarks."
+        },
+        {
+            "name": "py-absl-py",
+            "description": "This repository is a collection of Python library code for building\nPython applications. The code is collected from Google's own Python code\nbase, and has been extensively tested and used in production."
         },
         {
             "name": "py-h5py",
             "description": "The h5py package provides both a high- and low-level interface to the\nHDF5 library from Python."
         },
         {
-            "name": "py-keras-applications",
-            "description": "Sample Deep Learning application in Keras. Keras depends on this package\nto run properly."
+            "name": "py-numpy",
+            "description": "NumPy is the fundamental package for scientific computing with Python.\nIt contains among other things: a powerful N-dimensional array object,\nsophisticated (broadcasting) functions, tools for integrating C/C++ and\nFortran code, and useful linear algebra, Fourier transform, and random\nnumber capabilities"
         },
         {
-            "name": "py-keras-preprocessing",
-            "description": "Utilities for working with image data, text data, and sequence data."
+            "name": "py-pandas",
+            "description": "pandas is a fast, powerful, flexible and easy to use open source data\nanalysis and manipulation tool, built on top of the Python programming\nlanguage."
         },
         {
-            "name": "py-setuptools",
-            "description": "A Python utility that aids in the process of downloading, building,\nupgrading, installing, and uninstalling Python packages."
-        },
-        {
-            "name": "py-theano",
-            "description": "Optimizing compiler for evaluating mathematical expressions on CPUs and\nGPUs."
+            "name": "py-pydot",
+            "description": "Python interface to Graphviz's Dot language"
         },
         {
             "name": "py-pyyaml",
             "description": "PyYAML is a YAML parser and emitter for Python."
+        },
+        {
+            "name": "py-scipy",
+            "description": "SciPy (pronounced \"Sigh Pie\") is a Scientific Library for Python. It\nprovides many user-friendly and efficient numerical routines such as\nroutines for numerical integration and optimization."
         },
         {
             "name": "py-six",
@@ -181,7 +241,15 @@
         },
         {
             "name": "py-tensorflow",
-            "description": "TensorFlow is an Open Source Software Library for Machine Intelligence"
+            "description": "An Open Source Machine Learning Framework for Everyone. TensorFlow is an\nend-to-end open source platform for machine learning. It has a\ncomprehensive, flexible ecosystem of tools, libraries, and community\nresources that lets researchers push the state-of-the-art in ML and\ndevelopers easily build and deploy ML-powered applications. TensorFlow\nwas originally developed by researchers and engineers working on the\nGoogle Brain team within Google's Machine Intelligence Research\norganization to conduct machine learning and deep neural networks\nresearch. The system is general enough to be applicable in a wide\nvariety of other domains, as well."
+        },
+        {
+            "name": "py-tensorboard",
+            "description": "TensorBoard is a suite of web applications for inspecting and\nunderstanding your TensorFlow runs and graphs."
+        },
+        {
+            "name": "py-theano",
+            "description": "Optimizing compiler for evaluating mathematical expressions on CPUs and\nGPUs."
         },
         {
             "name": "bazel",
@@ -194,16 +262,20 @@
     ],
     "dependent_to": [
         {
-            "name": "py-horovod",
-            "description": "Horovod is a distributed deep learning training framework for\nTensorFlow, Keras, PyTorch, and Apache MXNet."
-        },
-        {
             "name": "py-tensorflow-estimator",
             "description": "TensorFlow Estimator is a high-level TensorFlow API that greatly\nsimplifies machine learning programming."
         },
         {
+            "name": "py-deepsig-biocomp",
+            "description": "DeepSig - Predictor of signal peptides in proteins based on deep\nlearning"
+        },
+        {
             "name": "candle-benchmarks",
             "description": "ECP-CANDLE Benchmarks"
+        },
+        {
+            "name": "py-horovod",
+            "description": "Horovod is a distributed deep learning training framework for\nTensorFlow, Keras, PyTorch, and Apache MXNet."
         }
     ]
 }
