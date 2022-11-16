@@ -7,6 +7,10 @@
             "branch": "develop"
         },
         {
+            "name": "1.0.0",
+            "sha256": "0ea08ae3e50e3c92f8b8cf41ba5b6e2de8892bc4a4ca0c59b8945b6c2ab617c4"
+        },
+        {
             "name": "0.5.5",
             "sha256": "fdf7b948bab1f4e5dccfe2c2048fd98c24e417ad8fb8a51ed3463d04147393c5"
         },
@@ -29,7 +33,7 @@
             "url": "https://github.com/LLNL/zfp/archive/0.5.1/zfp-0.5.1.tar.gz"
         }
     ],
-    "latest_version": "0.5.5",
+    "latest_version": "1.0.0",
     "build_system": "CMakePackage",
     "conflicts": [
         {
@@ -353,39 +357,9 @@
             "description": "None"
         },
         {
-            "name": "+c",
-            "spec": "@:0.5.3",
-            "description": "+c requires zfp 0.5.4 or later"
-        },
-        {
-            "name": "+python",
-            "spec": "@:0.5.4",
-            "description": "+python requires zfp 0.5.5 or later"
-        },
-        {
-            "name": "+fortran",
-            "spec": "@:0.5.4",
-            "description": "+fortran requires zfp 0.5.5 or later"
-        },
-        {
-            "name": "+openmp",
-            "spec": "@:0.5.2",
-            "description": "+openmp requires zfp 0.5.3 or later"
-        },
-        {
-            "name": "+cuda",
-            "spec": "@:0.5.3",
-            "description": "+cuda requires zfp 0.5.4 or later"
-        },
-        {
-            "name": "+fasthash",
-            "spec": "@:0.5.1",
-            "description": "+fasthash requires zfp 0.5.2 or later"
-        },
-        {
-            "name": "+profile",
-            "spec": "@:0.5.1",
-            "description": "+profile requires zfp 0.5.2 or later"
+            "name": "+tight-error",
+            "spec": "round=never",
+            "description": "Using zfp with tight error requires a rounding mode other than never"
         }
     ],
     "variants": [
@@ -420,9 +394,14 @@
             "description": "Build shared libraries"
         },
         {
+            "name": "utilities",
+            "default": true,
+            "description": "Build zfp utilities"
+        },
+        {
             "name": "c",
             "default": false,
-            "description": "Enable C bindings"
+            "description": "Enable compressed array C bindings"
         },
         {
             "name": "python",
@@ -440,24 +419,19 @@
             "description": "Enable OpenMP execution"
         },
         {
-            "name": "bsws",
-            "default": "64",
-            "description": "Bit stream word size: use smaller for finer rate granularity. Use 8 for H5Z-ZFP filter."
-        },
-        {
-            "name": "strided",
-            "default": false,
-            "description": "Enable strided access for progressive zfp streams"
-        },
-        {
             "name": "aligned",
             "default": false,
             "description": "Enable aligned memory allocation"
         },
         {
-            "name": "twoway",
+            "name": "bsws",
+            "default": "64",
+            "description": "Bit stream word size: use smaller for finer rate granularity. Use 8 for H5Z-ZFP filter."
+        },
+        {
+            "name": "daz",
             "default": false,
-            "description": "Use two-way skew-associative cache"
+            "description": "Denormals are zero: Treat denormal-only blocks as containing all zeroes"
         },
         {
             "name": "fasthash",
@@ -468,6 +442,26 @@
             "name": "profile",
             "default": false,
             "description": "Count cache misses"
+        },
+        {
+            "name": "round",
+            "default": "never",
+            "description": "EXPERIMENTAL: Set coefficient rounding method"
+        },
+        {
+            "name": "strided",
+            "default": false,
+            "description": "Enable strided access for progressive zfp streams"
+        },
+        {
+            "name": "tight-error",
+            "default": false,
+            "description": "EXPERIMENTAL: Use tighter error bound when rounding is enabled"
+        },
+        {
+            "name": "twoway",
+            "default": false,
+            "description": "Use two-way skew-associative cache"
         }
     ],
     "homepage": "https://zfp.llnl.gov",
@@ -506,32 +500,32 @@
     ],
     "dependent_to": [
         {
+            "name": "h5z-zfp",
+            "description": "A highly flexible floating point and integer compression plugin for the\nHDF5 library using ZFP compression."
+        },
+        {
             "name": "adios2",
             "description": "The Adaptable Input Output System version 2, developed in the Exascale\nComputing Program"
+        },
+        {
+            "name": "adios",
+            "description": "The Adaptable IO System (ADIOS) provides a simple, flexible way for\nscientists to describe the data in their code that may need to be\nwritten, read, or processed outside of the running simulation."
         },
         {
             "name": "libpressio",
             "description": "A generic abstraction for the compression of dense tensors"
         },
         {
-            "name": "conduit",
-            "description": "Conduit is an open source project from Lawrence Livermore National\nLaboratory that provides an intuitive model for describing hierarchical\nscientific data in C++, C, Fortran, and Python. It is used for data\ncoupling between packages in-core, serialization, and I/O tasks."
-        },
-        {
-            "name": "h5z-zfp",
-            "description": "A highly flexible floating point and integer compression plugin for the\nHDF5 library using ZFP compression."
+            "name": "ecp-data-vis-sdk",
+            "description": "ECP Data & Vis SDK"
         },
         {
             "name": "strumpack",
             "description": "STRUMPACK -- STRUctured Matrix PACKage - provides linear solvers for\nsparse matrices and for dense rank-structured matrices, i.e., matrices\nthat exhibit some kind of low-rank property. It provides a distributed\nmemory fully algebraic sparse solver and preconditioner. The\npreconditioner is mostly aimed at large sparse linear systems which\nresult from the discretization of a partial differential equation, but\nis not limited to any particular type of problem. STRUMPACK also\nprovides preconditioned GMRES and BiCGStab iterative solvers."
         },
         {
-            "name": "ecp-data-vis-sdk",
-            "description": "ECP Data & Vis SDK"
-        },
-        {
-            "name": "adios",
-            "description": "The Adaptable IO System (ADIOS) provides a simple, flexible way for\nscientists to describe the data in their code that may need to be\nwritten, read, or processed outside of the running simulation."
+            "name": "conduit",
+            "description": "Conduit is an open source project from Lawrence Livermore National\nLaboratory that provides an intuitive model for describing hierarchical\nscientific data in C++, C, Fortran, and Python. It is used for data\ncoupling between packages in-core, serialization, and I/O tasks."
         }
     ]
 }
