@@ -8,6 +8,10 @@
             "submodules": true
         },
         {
+            "name": "2.2.0",
+            "sha256": "e66490cf63907c3959bbb2932b5aaf51d96a481b17f0935f409f3a862eff97f6"
+        },
+        {
             "name": "2.1.0",
             "sha256": "9a58437161e9273b1b1c484d2f1a477a89eea9afe84575415025d47656f3761b"
         },
@@ -32,7 +36,7 @@
             "sha256": "40868e141cac035213fe79400f8926823fb1f5a0651fd7027cbe162b063843ef"
         }
     ],
-    "latest_version": "2.1.0",
+    "latest_version": "2.2.0",
     "build_system": "CMakePackage",
     "conflicts": [],
     "variants": [
@@ -67,6 +71,16 @@
             "description": "Use OFI libfabric plugin"
         },
         {
+            "name": "psm",
+            "default": false,
+            "description": "Use PSM plugin"
+        },
+        {
+            "name": "psm2",
+            "default": false,
+            "description": "Use PSM2 plugin"
+        },
+        {
             "name": "sm",
             "default": true,
             "description": "Use shared-memory plugin"
@@ -89,7 +103,7 @@
         {
             "name": "udreg",
             "default": false,
-            "description": "Enable udreg on supported Cray platforms"
+            "description": "Enable udreg on supported Cray Aries platforms"
         },
         {
             "name": "debug",
@@ -100,6 +114,11 @@
             "name": "checksum",
             "default": true,
             "description": "Checksum verify all request/response messages"
+        },
+        {
+            "name": "hwloc",
+            "default": false,
+            "description": "Use hwloc to retrieve NIC information"
         }
     ],
     "homepage": "https://mercury-hpc.github.io/",
@@ -133,7 +152,7 @@
         },
         {
             "name": "mpi",
-            "description": "MPICH is a high performance and widely portable implementation of the\nMessage Passing Interface (MPI) standard."
+            "description": "MPItrampoline: A forwarding MPI implementation that can use any other\nMPI implementation via an MPI ABI."
         },
         {
             "name": "libfabric",
@@ -154,16 +173,16 @@
     ],
     "dependent_to": [
         {
-            "name": "pdc",
-            "description": "Proactive Data Containers (PDC) software provides an object-centric API\nand a runtime system with a set of data object management services.\nThese services allow placing data in the memory and storage hierarchy,\nperforming data movement asynchronously, and providing scalable metadata\noperations to find data objects."
-        },
-        {
             "name": "mochi-margo",
             "description": "A library that provides Argobots bindings to the Mercury RPC\nimplementation."
         },
         {
             "name": "margo",
             "description": "A library that provides Argobots bindings to the Mercury RPC\nimplementation. This name will be deprecated soon; please use the mochi-\nmargo package instead."
+        },
+        {
+            "name": "pdc",
+            "description": "Proactive Data Containers (PDC) software provides an object-centric API\nand a runtime system with a set of data object management services.\nThese services allow placing data in the memory and storage hierarchy,\nperforming data movement asynchronously, and providing scalable metadata\noperations to find data objects."
         },
         {
             "name": "unifyfs",
