@@ -8,31 +8,17 @@
     ],
     "versions": [
         {
-            "name": "10.0",
-            "sha256": "7dae13797627726f67fab9c1d251aec2df9ecd25939984645ec05748bdffd396",
-            "extension": "exe",
-            "expand": false
+            "name": "10.1.1",
+            "sha256": "63c7da941fc4ffb05a0f97bd54a67968c71f63389a0d162d3182eabba1beab3d"
+        },
+        {
+            "name": "10.0.0",
+            "sha256": "cfb53cf53c3cf0d4935ab58be13f013a0f7ccb1189109a5b8eea0fcfdcaef8c1"
         }
     ],
-    "latest_version": "10.0",
+    "latest_version": "10.1.1",
     "build_system": "Package",
-    "conflicts": [
-        {
-            "name": "platform=linux",
-            "spec": "",
-            "description": "None"
-        },
-        {
-            "name": "platform=darwin",
-            "spec": "",
-            "description": "None"
-        },
-        {
-            "name": "platform=cray",
-            "spec": "",
-            "description": "None"
-        }
-    ],
+    "conflicts": [],
     "variants": [
         {
             "name": "build_system",
@@ -40,14 +26,26 @@
             "description": "Build systems supported by the package"
         }
     ],
-    "homepage": "https://www.microsoft.com/en-us/download/default.aspx",
-    "maintainers": [
-        "jpopelar"
+    "homepage": "https://docs.microsoft.com/en-us/message-passing-interface/microsoft-mpi",
+    "maintainers": [],
+    "patches": [
+        {
+            "owner": "builtin.msmpi",
+            "sha256": "8bd25938b00d9908b248d97c92d3548153c8d032e52731c00d34c66b460ec848",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "ifort_compat.patch",
+            "version": ""
+        }
     ],
-    "patches": [],
     "resources": [],
-    "description": "A Windows-specced build of MPICH provided directly by Microsoft Support\nTeam\n",
-    "dependencies": [],
+    "description": "MSMPI is a Windows port of MPICH provided by the Windows team\n",
+    "dependencies": [
+        {
+            "name": "win-wdk",
+            "description": "Windows Driver Kit development package"
+        }
+    ],
     "dependent_to": [
         {
             "name": "hdf5",
