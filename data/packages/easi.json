@@ -7,13 +7,22 @@
             "branch": "master"
         },
         {
+            "name": "1.2.0",
+            "tag": "v1.2.0"
+        },
+        {
             "name": "1.1.2",
             "tag": "v1.1.2"
         }
     ],
-    "latest_version": "1.1.2",
+    "latest_version": "1.2.0",
     "build_system": "CMakePackage",
     "conflicts": [
+        {
+            "name": "jit=impalajit",
+            "spec": "jit=impalajit-llvm",
+            "description": "None"
+        },
         {
             "name": "jit=impalajit",
             "spec": "arch=None-None-aarch64:",
@@ -32,6 +41,11 @@
         {
             "name": "jit=impalajit",
             "spec": "arch=None-None-riscv64:",
+            "description": "None"
+        },
+        {
+            "name": "jit=impalajit-llvm",
+            "spec": "jit=impalajit",
             "description": "None"
         }
     ],
@@ -58,15 +72,16 @@
         },
         {
             "name": "jit",
-            "default": "impalajit",
+            "default": "impalajit,lua",
             "description": "build with JIT support"
         }
     ],
     "homepage": "https://easyinit.readthedocs.io",
     "maintainers": [
-        "ThrudPrimrose",
         "ravil-mobile",
-        "krenzland"
+        "Thomas-Ulrich",
+        "krenzland",
+        "ThrudPrimrose"
     ],
     "patches": [],
     "resources": [],
@@ -89,16 +104,12 @@
             "description": "A YAML parser and emitter in C++"
         },
         {
-            "name": "impalajit-llvm",
-            "description": "Impala is a calculator-like language. This is a fork of the original\nImpalaJIT project and was enhanced with LLVM JIT. Impala acts as a\nbackend for `easi` project."
+            "name": "impalajit",
+            "description": "A lightweight JIT compiler for flexible data access in simulation\napplications. impalajit@llvm is enhanced with LLVM JIT. This means that\nimpalajit@llvm is supposed to work on any architecture supported by\nllvm, contrary to the impalajit@main package which is restricted to x86\narchitectures.This comes at the price of extra dependencies. Impala acts\nas a backend for `easi` project."
         },
         {
             "name": "lua",
             "description": "The Lua programming language interpreter and library."
-        },
-        {
-            "name": "git",
-            "description": "Git is a free and open source distributed version control system\ndesigned to handle everything from small to very large projects with\nspeed and efficiency."
         }
     ],
     "dependent_to": []
