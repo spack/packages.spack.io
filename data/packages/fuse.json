@@ -1,189 +1,44 @@
 {
-    "name": "libfuse",
+    "name": "macfuse",
     "aliases": [
         {
             "name": "fuse",
-            "alias_for": "{libfuse}"
+            "alias_for": "{macfuse}"
         }
     ],
     "versions": [
         {
-            "name": "3.11.0",
-            "sha256": "25a00226d2d449c15b2f08467d6d5ebbb2a428260c4ab773721c32adbc6da072"
-        },
-        {
-            "name": "3.10.5",
-            "sha256": "e73f75e58da59a0e333d337c105093c496c0fd7356ef3a5a540f560697c9c4e6"
-        },
-        {
-            "name": "3.10.4",
-            "sha256": "bfcb2520fd83db29e9fefd57d3abd5285f38ad484739aeee8e03fbec9b2d984a"
-        },
-        {
-            "name": "3.10.3",
-            "sha256": "c32527782cef620df58b162aa29901d1fb13253b029375d5860a2253a810344e"
-        },
-        {
-            "name": "3.10.2",
-            "sha256": "a16f93cc083264afd0d2958a0dc88f24c6c5d40a9f3842c645b1909e13edb75f"
-        },
-        {
-            "name": "3.10.1",
-            "sha256": "d8954e7b4c022c651aa80db3bb4a161437dd285cd5f1a23d0e25f055dcebe00d"
-        },
-        {
-            "name": "3.10.0",
-            "sha256": "52bbb52035f7eeaa54d139e21805d357f848f6e02ac956831d04988165a92c7b"
-        },
-        {
-            "name": "3.9.4",
-            "sha256": "9e076ae757a09cac9ce1beb50b3361ae83a831e5abc0f1bf5cdf771cd1320338"
-        },
-        {
-            "name": "3.9.3",
-            "sha256": "0f8f7ad9cc6667c6751efa425dd0a665dcc9d75f0b7fc0cb5b85141a514110e9"
-        },
-        {
-            "name": "3.9.2",
-            "sha256": "b4409255cbda6f6975ca330f5b04cb335b823a95ddd8c812c3d224ec53478fc0"
-        },
-        {
-            "name": "2.9.9",
-            "sha256": "d0e69d5d608cc22ff4843791ad097f554dd32540ddc9bed7638cc6fea7c1b4b5"
+            "name": "4.1.2"
         }
     ],
-    "latest_version": "3.11.0",
-    "build_system": "MesonPackage",
+    "latest_version": "4.1.2",
+    "build_system": "Package",
     "conflicts": [
         {
-            "name": "+useroot",
-            "spec": "~system_install",
-            "description": "useroot requires system_install"
+            "name": "platform=linux",
+            "spec": "",
+            "description": "macfuse does not support linux, use libfuse instead"
         },
         {
-            "name": "platform=darwin",
+            "name": "platform=cray",
             "spec": "",
-            "description": "libfuse does not support OS-X, use macfuse instead"
+            "description": "macfuse does not support cray, use libfuse instead"
         }
     ],
     "variants": [
         {
             "name": "build_system",
-            "default": "meson",
+            "default": "generic",
             "description": "Build systems supported by the package"
-        },
-        {
-            "name": "buildtype",
-            "default": "debugoptimized",
-            "description": "Meson build type"
-        },
-        {
-            "name": "default_library",
-            "default": "shared",
-            "description": "Build shared libs, static libs or both"
-        },
-        {
-            "name": "strip",
-            "default": false,
-            "description": "Strip targets on install"
-        },
-        {
-            "name": "useroot",
-            "default": false,
-            "description": "Use root privileges to make fusermount a setuid binary after installation"
-        },
-        {
-            "name": "system_install",
-            "default": false,
-            "description": "Do not run the post-install script which typically sets up udev rules and and init script in /etc/init.d"
-        },
-        {
-            "name": "utils",
-            "default": true,
-            "description": "Build and install helper and example programs."
         }
     ],
-    "homepage": "https://github.com/libfuse/libfuse",
+    "homepage": "https://osxfuse.github.io/",
     "maintainers": [],
-    "patches": [
-        {
-            "owner": "builtin.libfuse",
-            "sha256": "fa7a3a5a96a16d044cce2da4f8b86e13427d14631a4df001bf5beb11d0ae514f",
-            "level": 1,
-            "working_dir": ".",
-            "relative_path": "0001-Do-not-run-install-script.patch",
-            "version": "@3:~system_install"
-        },
-        {
-            "owner": "builtin.libfuse",
-            "sha256": "3ad6719d2393b46615b5787e71778917a7a6aaa189ba3c3e0fc16d110a8414ec",
-            "level": 1,
-            "working_dir": ".",
-            "url": "https://src.fedoraproject.org/rpms/fuse3/raw/0519b7bf17c4dd1b31ee704d49f8ed94aa5ba6ab/f/fuse3-gcc11.patch",
-            "version": "@3:%gcc@11:"
-        },
-        {
-            "owner": "builtin.libfuse",
-            "sha256": "2e265d31628175ce9dcea1ca2e423fdbed9469e2ace6b24a7fe7a72cb54b1da9",
-            "level": 1,
-            "working_dir": ".",
-            "url": "https://github.com/libfuse/libfuse/commit/6d55007027dfe7b75a74899f497f075046cc5404.patch?full_index=1",
-            "version": "@:2"
-        },
-        {
-            "owner": "builtin.libfuse",
-            "sha256": "6b7ea8451d29944adb2fdc1bd119c93e74fe54431b1315f148a071015343ec1a",
-            "level": 1,
-            "working_dir": ".",
-            "url": "https://github.com/libfuse/libfuse/commit/5d38afc8a5b4a2a6e27aad7a1840046e99cd826d.patch?full_index=1",
-            "version": "@:2"
-        },
-        {
-            "owner": "builtin.libfuse",
-            "sha256": "94d5c6d9785471147506851b023cb111ef2081d1c0e695728037bbf4f64ce30a",
-            "level": 1,
-            "working_dir": ".",
-            "url": "https://github.com/libfuse/libfuse/commit/5a43d0f724c56f8836f3f92411e0de1b5f82db32.patch?full_index=1",
-            "version": "@:2"
-        }
-    ],
+    "patches": [],
     "resources": [],
-    "description": "The reference implementation of the Linux FUSE (Filesystem in Userspace)\ninterface\n",
-    "dependencies": [
-        {
-            "name": "meson",
-            "description": "Meson is a portable open source build system meant to be both extremely\nfast, and as user friendly as possible."
-        },
-        {
-            "name": "ninja",
-            "description": "Ninja is a small build system with a focus on speed. It differs from\nother build systems in two major respects: it is designed to have its\ninput files generated by a higher-level build system, and it is designed\nto run builds as fast as possible."
-        },
-        {
-            "name": "autoconf",
-            "description": "Autoconf -- system configuration part of autotools"
-        },
-        {
-            "name": "automake",
-            "description": "Automake -- make file builder part of autotools"
-        },
-        {
-            "name": "libtool",
-            "description": "libtool -- library building part of autotools."
-        },
-        {
-            "name": "gettext",
-            "description": "GNU internationalization (i18n) and localization (l10n) library."
-        }
-    ],
+    "description": "FUSE for macOS allows you to extend macOS via third party file systems.\n",
+    "dependencies": [],
     "dependent_to": [
-        {
-            "name": "squashfuse",
-            "description": "squashfuse - Mount SquashFS archives using FUSE"
-        },
-        {
-            "name": "fuse-overlayfs",
-            "description": "An implementation of overlay+shiftfs in FUSE for rootless containers."
-        },
         {
             "name": "py-fusepy",
             "description": "Fusepy is a Python module that provides a simple interface to FUSE and\nMacFUSE. It's just one file and is implemented using ctypes."
@@ -191,6 +46,14 @@
         {
             "name": "sshfs",
             "description": "SSHFS allows you to mount a remote filesystem using SFTP."
+        },
+        {
+            "name": "squashfuse",
+            "description": "squashfuse - Mount SquashFS archives using FUSE"
+        },
+        {
+            "name": "fuse-overlayfs",
+            "description": "An implementation of overlay+shiftfs in FUSE for rootless containers."
         }
     ]
 }
