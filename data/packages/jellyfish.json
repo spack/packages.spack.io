@@ -3,8 +3,13 @@
     "aliases": [],
     "versions": [
         {
+            "name": "2.3.0",
+            "sha256": "e195b7cf7ba42a90e5e112c0ed27894cd7ac864476dc5fb45ab169f5b930ea5a"
+        },
+        {
             "name": "2.2.7",
-            "sha256": "d80420b4924aa0119353a5b704f923863abc802e94efeb531593147c13e631a8"
+            "sha256": "d80420b4924aa0119353a5b704f923863abc802e94efeb531593147c13e631a8",
+            "preferred": true
         },
         {
             "name": "1.1.11",
@@ -12,12 +17,17 @@
             "url": "https://www.cbcb.umd.edu/software/jellyfish/jellyfish-1.1.11.tar.gz"
         }
     ],
-    "latest_version": "2.2.7",
+    "latest_version": "2.3.0",
     "build_system": "AutotoolsPackage",
     "conflicts": [
         {
             "name": "platform=windows",
             "spec": "build_system=autotools",
+            "description": "None"
+        },
+        {
+            "name": "+ruby",
+            "spec": "@1.1.11",
             "description": "None"
         }
     ],
@@ -26,6 +36,11 @@
             "name": "build_system",
             "default": "autotools",
             "description": "Build systems supported by the package"
+        },
+        {
+            "name": "ruby",
+            "default": false,
+            "description": "Enable ruby bindings"
         }
     ],
     "homepage": "https://www.cbcb.umd.edu/software/jellyfish/",
@@ -52,11 +67,19 @@
             "description": "Perl 5 is a highly capable, feature-rich programming language with over\n27 years of development."
         },
         {
-            "name": "python",
-            "description": "The Python programming language."
+            "name": "ruby",
+            "description": "A dynamic, open source programming language with a focus on simplicity\nand productivity."
         }
     ],
     "dependent_to": [
+        {
+            "name": "kraken",
+            "description": "Kraken is a system for assigning taxonomic labels to short DNA\nsequences, usually obtained through metagenomic studies."
+        },
+        {
+            "name": "trinity",
+            "description": "Trinity, developed at the Broad Institute and the Hebrew University of\nJerusalem, represents a novel method for the efficient and robust de\nnovo reconstruction of transcriptomes from RNA-seq data. Trinity\ncombines three independent software modules: Inchworm, Chrysalis, and\nButterfly, applied sequentially to process large volumes of RNA-seq\nreads. Trinity partitions the sequence data into many individual de\nBruijn graphs, each representing the transcriptional complexity at a\ngiven gene or locus, and then processes each graph independently to\nextract full-length splicing isoforms and to tease apart transcripts\nderived from paralogous genes."
+        },
         {
             "name": "casper",
             "description": "CASPER (Context-Aware Scheme for Paired-End Read) is state-of-the art\nmerging tool in terms of accuracy and robustness. Using this\nsophisticated merging method, we could get elongated reads from the\nforward and reverse reads."
@@ -64,14 +87,6 @@
         {
             "name": "mefit",
             "description": "This pipeline will merge overlapping paired-end reads, calculate merge\nstatistics, and filter reads for quality."
-        },
-        {
-            "name": "trinity",
-            "description": "Trinity, developed at the Broad Institute and the Hebrew University of\nJerusalem, represents a novel method for the efficient and robust de\nnovo reconstruction of transcriptomes from RNA-seq data. Trinity\ncombines three independent software modules: Inchworm, Chrysalis, and\nButterfly, applied sequentially to process large volumes of RNA-seq\nreads. Trinity partitions the sequence data into many individual de\nBruijn graphs, each representing the transcriptional complexity at a\ngiven gene or locus, and then processes each graph independently to\nextract full-length splicing isoforms and to tease apart transcripts\nderived from paralogous genes."
-        },
-        {
-            "name": "kraken",
-            "description": "Kraken is a system for assigning taxonomic labels to short DNA\nsequences, usually obtained through metagenomic studies."
         }
     ]
 }
