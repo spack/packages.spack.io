@@ -3,6 +3,46 @@
     "aliases": [],
     "versions": [
         {
+            "name": "3.11.1",
+            "sha256": "6d0eb3cfa9f92d947731cc75f1750356b3bdfc07ea020553daf6af1c768e0be2"
+        },
+        {
+            "name": "3.11.0",
+            "sha256": "79ab8cabf4aa8604d161557b52e3e4d84575acdc0d08cb09ab3f7aaefa4d858a"
+        },
+        {
+            "name": "3.10.4",
+            "sha256": "d6fc11bcfd265cbf2714199174e4c3392d657551e5fd84c74c07c863b29357e3"
+        },
+        {
+            "name": "3.10.3",
+            "sha256": "3c141b07d61958a758345d5f54e3c735834b2f4303edb9f67fb26914f0d44770"
+        },
+        {
+            "name": "3.10.2",
+            "sha256": "50bbc599ac386b4c2b3962dcc411f0040a61f204aaef4eba7225ecdd0cf45715"
+        },
+        {
+            "name": "3.10.1",
+            "sha256": "a8148eec9636814c8ab0f8f5266ce6f9b914ed65b0d083fc43bb0bbb01f83648"
+        },
+        {
+            "name": "3.10.0",
+            "sha256": "097d70e3c8f688e59633ceb8d38ad5c9b0d7ead5729adeb925dbc489437abe13"
+        },
+        {
+            "name": "3.9.4",
+            "sha256": "70dff2530d8cd2dfaeeb91a5014bd17afb1baee8f0e3eb18e44d5b4dbea47b14"
+        },
+        {
+            "name": "3.9.3",
+            "sha256": "f8b2314e311456f7a449144efb5e3188c2a28774752bc50fc882a3cd5c89ee35"
+        },
+        {
+            "name": "3.9.2",
+            "sha256": "44a5a9be21d7d473436bf621c2ddcc3cf5a8bbe3c786e13229618a3b9d861297"
+        },
+        {
             "name": "3.9.1",
             "sha256": "7e630507dcac9dc07565d249a26f06a15c9f5b0c52dd29129a0e3d381d7e382a"
         },
@@ -79,7 +119,7 @@
             "sha256": "dfcf4bd70ab212a5b7bad21d01b84748f101a545092b56dafdc3882ef3bddec9"
         }
     ],
-    "latest_version": "3.9.1",
+    "latest_version": "3.11.1",
     "build_system": "CMakePackage",
     "conflicts": [],
     "variants": [
@@ -99,7 +139,7 @@
             "description": "CMake interprocedural optimization"
         }
     ],
-    "homepage": "https://trac.osgeo.org/geos/",
+    "homepage": "https://libgeos.org/",
     "maintainers": [
         "adamjstewart"
     ],
@@ -110,11 +150,11 @@
             "level": 1,
             "working_dir": ".",
             "url": "https://github.com/libgeos/geos/pull/461.patch?full_index=1",
-            "version": "@3.8:"
+            "version": "@3.8:3.9"
         }
     ],
     "resources": [],
-    "description": "GEOS (Geometry Engine - Open Source) is a C++ port of the Java Topology\nSuite (JTS). As such, it aims to contain the complete functionality of\nJTS in C++. This includes all the OpenGIS Simple Features for SQL\nspatial predicate functions and spatial operators, as well as specific\nJTS enhanced topology functions.\n",
+    "description": "GEOS (Geometry Engine, Open Source). GEOS is a C/C++ library for\ncomputational geometry with a focus on algorithms used in geographic\ninformation systems (GIS) software. It implements the OGC Simple\nFeatures geometry model and provides all the spatial functions in that\nstandard as well as many others. GEOS is a core dependency of PostGIS,\nQGIS, GDAL, and Shapely.\n",
     "dependencies": [
         {
             "name": "cmake",
@@ -127,12 +167,56 @@
     ],
     "dependent_to": [
         {
-            "name": "r-lwgeom",
-            "description": "Bindings to Selected 'liblwgeom' Functions for Simple Features. Access\nto selected functions found in 'liblwgeom'\n<https://github.com/postgis/postgis/tree/master/liblwgeom>, the light-\nweight geometry library used by 'PostGIS' <https://postgis.net/>."
+            "name": "py-pygeos",
+            "description": "PyGEOS is a C/Python library with vectorized geometry functions. The\ngeometry operations are done in the open-source geometry library GEOS.\nPyGEOS wraps these operations in NumPy ufuncs providing a performance\nimprovement when operating on arrays of geometries."
+        },
+        {
+            "name": "r-terra",
+            "description": "Spatial Data Analysis. Methods for spatial data analysis with raster and\nvector data. Raster methods allow for low-level data manipulation as\nwell as high-level global, local, zonal, and focal computation. The\npredict and interpolate methods facilitate the use of regression type\n(interpolation, machine learning) models for spatial prediction,\nincluding with satellite remote sensing data. Processing of very large\nfiles is supported. See the manual and tutorials on\n<https://rspatial.org/terra/> to get started. 'terra' is very similar to\nthe 'raster' package; but 'terra' can do more, is easier to use, and it\nis faster."
+        },
+        {
+            "name": "r-exactextractr",
+            "description": "Fast Extraction from Raster Datasets using Polygons. Provides a\nreplacement for the 'extract' function from the 'raster' package that is\nsuitable for extracting raster values using 'sf' polygons."
+        },
+        {
+            "name": "r-rgeos",
+            "description": "Interface to Geometry Engine - Open Source ('GEOS'). Interface to\nGeometry Engine - Open Source ('GEOS') using the C 'API' for topology\noperations on geometries. The 'GEOS' library is external to the package,\nand, when installing the package from source, must be correctly\ninstalled first. Windows and Mac Intel OS X binaries are provided on\n'CRAN'. ('rgeos' >= 0.5-1): Up to and including 'GEOS' 3.7.1,\ntopological operations succeeded with some invalid geometries for which\nthe same operations fail from and including 'GEOS' 3.7.2. The\n'checkValidity=' argument defaults and structure have been changed, from\ndefault FALSE to integer default '0L' for 'GEOS' < 3.7.2 (no check),\n'1L' 'GEOS' >= 3.7.2 (check and warn). A value of '2L' is also provided\nthat may be used, assigned globally using 'set_RGEOS_CheckValidity(2L)',\nor locally using the 'checkValidity=2L' argument, to attempt zero-width\nbuffer repair if invalid geometries are found. The previous default\n(FALSE, now '0L') is fastest and used for 'GEOS' < 3.7.2, but will not\nwarn users of possible problems before the failure of topological\noperations that previously succeeded. From 'GEOS' 3.8.0, repair of\ngeometries may also be attempted using 'gMakeValid()', which may,\nhowever, return a collection of geometries of different types."
+        },
+        {
+            "name": "qgis",
+            "description": "QGIS is a free and open-source cross-platform desktop geographic\ninformation system application that supports viewing, editing, and\nanalysis of geospatial data."
+        },
+        {
+            "name": "postgis",
+            "description": "PostGIS is a spatial database extender for PostgreSQL object-relational\ndatabase. It adds support for geographic objects allowing location\nqueries to be run in SQL"
+        },
+        {
+            "name": "r-sf",
+            "description": "Simple Features for R. Support for simple features, a standardized way\nto encode spatial vector data. Binds to 'GDAL' for reading and writing\ndata, to 'GEOS' for geometrical operations, and to 'PROJ' for projection\nconversions and datum transformations. Optionally uses the 's2' package\nfor spherical geometry operations on geographic coordinates."
+        },
+        {
+            "name": "py-shapely",
+            "description": "Manipulation and analysis of geometric objects in the Cartesian plane."
         },
         {
             "name": "mapserver",
             "description": "MapServer is an Open Source geographic data rendering engine written in\nC. Beyond browsing GIS data, MapServer allows you create \"geographic\nimage maps\", that is, maps that can direct users to content"
+        },
+        {
+            "name": "gdal",
+            "description": "GDAL: Geospatial Data Abstraction Library. GDAL is a translator library\nfor raster and vector geospatial data formats that is released under an\nMIT style Open Source License by the Open Source Geospatial Foundation.\nAs a library, it presents a single raster abstract data model and single\nvector abstract data model to the calling application for all supported\nformats. It also comes with a variety of useful command line utilities\nfor data translation and processing."
+        },
+        {
+            "name": "py-cartopy",
+            "description": "Cartopy - a cartographic python library with matplotlib support."
+        },
+        {
+            "name": "r-lwgeom",
+            "description": "Bindings to Selected 'liblwgeom' Functions for Simple Features. Access\nto selected functions found in 'liblwgeom'\n<https://github.com/postgis/postgis/tree/master/liblwgeom>, the light-\nweight geometry library used by 'PostGIS' <https://postgis.net/>."
+        },
+        {
+            "name": "librttopo",
+            "description": "The RT Topology Library exposes an API to create and manage standard\n(ISO 13249 aka SQL/MM) topologies using user-provided data stores."
         },
         {
             "name": "py-basemap",
@@ -143,52 +227,8 @@
             "description": "SpatiaLite is an open source library intended to extend the SQLite core\nto support fully fledged Spatial SQL capabilities."
         },
         {
-            "name": "r-terra",
-            "description": "Spatial Data Analysis. Methods for spatial data analysis with raster and\nvector data. Raster methods allow for low-level data manipulation as\nwell as high-level global, local, zonal, and focal computation. The\npredict and interpolate methods facilitate the use of regression type\n(interpolation, machine learning) models for spatial prediction,\nincluding with satellite remote sensing data. Processing of very large\nfiles is supported. See the manual and tutorials on\n<https://rspatial.org/terra/> to get started. 'terra' is very similar to\nthe 'raster' package; but 'terra' can do more, is easier to use, and it\nis faster."
-        },
-        {
-            "name": "gdal",
-            "description": "GDAL: Geospatial Data Abstraction Library. GDAL is a translator library\nfor raster and vector geospatial data formats that is released under an\nMIT style Open Source License by the Open Source Geospatial Foundation.\nAs a library, it presents a single raster abstract data model and single\nvector abstract data model to the calling application for all supported\nformats. It also comes with a variety of useful command line utilities\nfor data translation and processing."
-        },
-        {
-            "name": "py-shapely",
-            "description": "Manipulation and analysis of geometric objects in the Cartesian plane."
-        },
-        {
-            "name": "py-cartopy",
-            "description": "Cartopy - a cartographic python library with matplotlib support."
-        },
-        {
-            "name": "librttopo",
-            "description": "The RT Topology Library exposes an API to create and manage standard\n(ISO 13249 aka SQL/MM) topologies using user-provided data stores."
-        },
-        {
-            "name": "qgis",
-            "description": "QGIS is a free and open-source cross-platform desktop geographic\ninformation system application that supports viewing, editing, and\nanalysis of geospatial data."
-        },
-        {
-            "name": "r-sf",
-            "description": "Simple Features for R. Support for simple features, a standardized way\nto encode spatial vector data. Binds to 'GDAL' for reading and writing\ndata, to 'GEOS' for geometrical operations, and to 'PROJ' for projection\nconversions and datum transformations. Optionally uses the 's2' package\nfor spherical geometry operations on geographic coordinates."
-        },
-        {
-            "name": "py-pygeos",
-            "description": "PyGEOS is a C/Python library with vectorized geometry functions. The\ngeometry operations are done in the open-source geometry library GEOS.\nPyGEOS wraps these operations in NumPy ufuncs providing a performance\nimprovement when operating on arrays of geometries."
-        },
-        {
             "name": "grass",
             "description": "GRASS GIS (Geographic Resources Analysis Support System), is a free and\nopen source Geographic Information System (GIS) software suite used for\ngeospatial data management and analysis, image processing, graphics and\nmaps production, spatial modeling, and visualization."
-        },
-        {
-            "name": "r-exactextractr",
-            "description": "Fast Extraction from Raster Datasets using Polygons. Provides a\nreplacement for the 'extract' function from the 'raster' package that is\nsuitable for extracting raster values using 'sf' polygons."
-        },
-        {
-            "name": "postgis",
-            "description": "PostGIS is a spatial database extender for PostgreSQL object-relational\ndatabase. It adds support for geographic objects allowing location\nqueries to be run in SQL"
-        },
-        {
-            "name": "r-rgeos",
-            "description": "Interface to Geometry Engine - Open Source ('GEOS'). Interface to\nGeometry Engine - Open Source ('GEOS') using the C 'API' for topology\noperations on geometries. The 'GEOS' library is external to the package,\nand, when installing the package from source, must be correctly\ninstalled first. Windows and Mac Intel OS X binaries are provided on\n'CRAN'. ('rgeos' >= 0.5-1): Up to and including 'GEOS' 3.7.1,\ntopological operations succeeded with some invalid geometries for which\nthe same operations fail from and including 'GEOS' 3.7.2. The\n'checkValidity=' argument defaults and structure have been changed, from\ndefault FALSE to integer default '0L' for 'GEOS' < 3.7.2 (no check),\n'1L' 'GEOS' >= 3.7.2 (check and warn). A value of '2L' is also provided\nthat may be used, assigned globally using 'set_RGEOS_CheckValidity(2L)',\nor locally using the 'checkValidity=2L' argument, to attempt zero-width\nbuffer repair if invalid geometries are found. The previous default\n(FALSE, now '0L') is fastest and used for 'GEOS' < 3.7.2, but will not\nwarn users of possible problems before the failure of topological\noperations that previously succeeded. From 'GEOS' 3.8.0, repair of\ngeometries may also be attempted using 'gMakeValid()', which may,\nhowever, return a collection of geometries of different types."
         }
     ]
 }

@@ -7,6 +7,10 @@
             "branch": "master"
         },
         {
+            "name": "5.3.0",
+            "sha256": "c150be3958fd46e57bfc9db187819ec34b1db8f0cf9b69f8c3f8915001800ab8"
+        },
+        {
             "name": "5.2.3",
             "sha256": "8d313b8fd945a8d7248c00a2de9a2ee896fe77e464430a91b63400a986ec0bf0"
         },
@@ -97,7 +101,7 @@
             "deprecated": true
         }
     ],
-    "latest_version": "5.2.3",
+    "latest_version": "5.3.0",
     "build_system": "CMakePackage",
     "conflicts": [],
     "variants": [
@@ -135,7 +139,15 @@
             "level": 1,
             "working_dir": ".",
             "relative_path": "0001-Remove-compiler-support-libraries-and-libudev-as-req.patch",
-            "version": "@4.5.0:"
+            "version": "@4.5.0:5.2"
+        },
+        {
+            "owner": "builtin.hsakmt-roct",
+            "sha256": "114b05a6fbb666036c1375c394ac75ddbb4a0cfae8aa1a33b26f447da3bacda5",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "0002-Remove-compiler-support-libraries-and-libudev-as-req-5.3.patch",
+            "version": "@5.3.0:"
         }
     ],
     "resources": [],
@@ -164,32 +176,16 @@
     ],
     "dependent_to": [
         {
+            "name": "rocm-openmp-extras",
+            "description": "OpenMP support for ROCm LLVM."
+        },
+        {
             "name": "rocm-bandwidth-test",
             "description": "Test to measure PciE bandwidth on ROCm platforms"
         },
         {
             "name": "rocminfo",
             "description": "Radeon Open Compute (ROCm) Runtime rocminfo tool"
-        },
-        {
-            "name": "hsa-rocr-dev",
-            "description": "This repository includes the user mode API nterfaces and libraries\nnecessary for host applications to launch computer kernels to available\nHSA ROCm kernel agents.AMD Heterogeneous System Architecture HSA - Linux\nHSA Runtime for Boltzmann (ROCm) platforms."
-        },
-        {
-            "name": "rocm-debug-agent",
-            "description": "Radeon Open Compute (ROCm) debug agent"
-        },
-        {
-            "name": "hip",
-            "description": "HIP is a C++ Runtime API and Kernel Language that allows developers to\ncreate portable applications for AMD and NVIDIA GPUs from single source\ncode."
-        },
-        {
-            "name": "rocprofiler-dev",
-            "description": "ROCPROFILER library for AMD HSA runtime API extension support"
-        },
-        {
-            "name": "aomp",
-            "description": "llvm openmp compiler from AMD."
         },
         {
             "name": "roctracer-dev",
@@ -200,8 +196,24 @@
             "description": "Hip-ROCclr is a virtual device interface that compute runtimes interact\nwith to different backends such as ROCr or PAL This abstraction allows\nruntimes to work on Windows as well as on Linux without much effort."
         },
         {
-            "name": "rocm-openmp-extras",
-            "description": "OpenMP support for ROCm LLVM."
+            "name": "aomp",
+            "description": "llvm openmp compiler from AMD."
+        },
+        {
+            "name": "rocm-debug-agent",
+            "description": "Radeon Open Compute (ROCm) debug agent"
+        },
+        {
+            "name": "hsa-rocr-dev",
+            "description": "This repository includes the user mode API nterfaces and libraries\nnecessary for host applications to launch computer kernels to available\nHSA ROCm kernel agents.AMD Heterogeneous System Architecture HSA - Linux\nHSA Runtime for Boltzmann (ROCm) platforms."
+        },
+        {
+            "name": "hip",
+            "description": "HIP is a C++ Runtime API and Kernel Language that allows developers to\ncreate portable applications for AMD and NVIDIA GPUs from single source\ncode."
+        },
+        {
+            "name": "rocprofiler-dev",
+            "description": "ROCPROFILER library for AMD HSA runtime API extension support"
         }
     ]
 }
