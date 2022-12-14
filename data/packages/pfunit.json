@@ -3,6 +3,58 @@
     "aliases": [],
     "versions": [
         {
+            "name": "4.6.1",
+            "sha256": "19de22ff0542ca900aaf2957407f24d7dadaccd993ea210beaf22032d3095add"
+        },
+        {
+            "name": "4.6.0",
+            "sha256": "7c768ea3a2d16d8ef6229b25bd7756721c24a18db779c7422afde0e3e2248d72"
+        },
+        {
+            "name": "4.5.0",
+            "sha256": "ae0ed4541f2f4ec7b1d06eed532a49cb4c666394ab92b233911f92ce50f76743"
+        },
+        {
+            "name": "4.4.1",
+            "sha256": "6b5d5e19201f56e1ebc984f1cb30dffa0e9e1f14810aab601bd43e85fd3f18ab"
+        },
+        {
+            "name": "4.4.0",
+            "sha256": "e51e09b272e0f2598eb94cd1367158049deed1ac3a8779a7b30931e36f8c9752"
+        },
+        {
+            "name": "4.3.0",
+            "sha256": "a63d3ccda4a5e44b2afecbf3cc01275f80047602bd8587343a19f17db3e64b1d"
+        },
+        {
+            "name": "4.2.7",
+            "sha256": "1412134f812322b0aa5471007c9b7281fbe962e15b9efc9700cac24c9054bd84"
+        },
+        {
+            "name": "4.2.6",
+            "sha256": "9604d4c010a56bbb495eafcc9a2061a49572204dd211750b6f7209712c7c4a8a"
+        },
+        {
+            "name": "4.2.5",
+            "sha256": "a1f8edece98d6ffc3475465022828ccc9e26e2ecbd0374f4883bef626e33e549"
+        },
+        {
+            "name": "4.2.3",
+            "sha256": "9469a945a41649fd136bd75b3c5bae9895fe2d5f36046c24525b73d3d444d32f"
+        },
+        {
+            "name": "4.2.2",
+            "sha256": "f837b99585780c065e32249741926c61c8bf8b5b0b170ffc0fbcde105afbbb6a"
+        },
+        {
+            "name": "4.2.1",
+            "sha256": "977ac9de453da26700b7d4660f783e2850b6d4c9bbf36a4ffb721dbdeb8eb58c"
+        },
+        {
+            "name": "4.2.0",
+            "sha256": "33df62f80cf03827455508b67d53f820ddffa2ec0f1ba999790ff1f87592ce16"
+        },
+        {
             "name": "4.1.14",
             "sha256": "bada2be8d7e69ca1f16209ba92293fa1c06748b78534d71b24b2c825450a495f"
         },
@@ -47,13 +99,13 @@
             "sha256": "403f9a150865700c8b4240fd033162b8d3e8aeefa265c50c5a6fe14c455fbabc"
         }
     ],
-    "latest_version": "4.1.14",
+    "latest_version": "4.6.1",
     "build_system": "CMakePackage",
     "conflicts": [
         {
             "name": "%gcc@:8.3.9",
             "spec": "@4.0.0:",
-            "description": "Older versions of GCC do not support the Fortran 2008 features required by new pFUnit."
+            "description": "pFUnit requires GCC 8.4.0 or newer"
         },
         {
             "name": "+shared",
@@ -74,8 +126,8 @@
         },
         {
             "name": "build_type",
-            "default": "RelWithDebInfo",
-            "description": "CMake build type"
+            "default": "Release",
+            "description": "The build type to build"
         },
         {
             "name": "ipo",
@@ -103,6 +155,16 @@
             "description": "Enable OpenMP"
         },
         {
+            "name": "fhamcrest",
+            "default": false,
+            "description": "Enable hamcrest support"
+        },
+        {
+            "name": "esmf",
+            "default": false,
+            "description": "Enable esmf support"
+        },
+        {
             "name": "docs",
             "default": false,
             "description": "Build docs"
@@ -113,9 +175,10 @@
             "description": "Max number of Fortran dimensions of array asserts"
         }
     ],
-    "homepage": "http://pfunit.sourceforge.net/",
+    "homepage": "https://github.com/Goddard-Fortran-Ecosystem/pFUnit",
     "maintainers": [
-        "citibeth"
+        "mathomp4",
+        "tclune"
     ],
     "patches": [
         {
@@ -128,7 +191,7 @@
         }
     ],
     "resources": [],
-    "description": "pFUnit is a unit testing framework enabling JUnit-like testing of serial\nand MPI-parallel software written in Fortran.\n",
+    "description": " pFUnit is a unit testing framework enabling JUnit-like testing of\nserial and MPI-parallel software written in Fortran.\n",
     "dependencies": [
         {
             "name": "cmake",
@@ -144,11 +207,19 @@
         },
         {
             "name": "mpi",
-            "description": "HPE MPI is HPE's implementation of the Message Passing Interface (MPI)\nstandard. Note: HPE MPI is proprietry software. Spack will search your\ncurrent directory for the download file. Alternatively, add this file to\na mirror so that Spack can find it. For instructions on how to set up a\nmirror, see https://spack.readthedocs.io/en/latest/mirrors.html"
+            "description": "MPItrampoline: A forwarding MPI implementation that can use any other\nMPI implementation via an MPI ABI."
+        },
+        {
+            "name": "esmf",
+            "description": "The Earth System Modeling Framework (ESMF) is high-performance, flexible\nsoftware infrastructure for building and coupling weather, climate, and\nrelated Earth science applications. The ESMF defines an architecture for\ncomposing complex, coupled modeling systems and includes data structures\nand utilities for developing individual models."
         },
         {
             "name": "m4",
             "description": "GNU M4 is an implementation of the traditional Unix macro processor."
+        },
+        {
+            "name": "fargparse",
+            "description": "Command line argument parsing for Fortran"
         }
     ],
     "dependent_to": [
