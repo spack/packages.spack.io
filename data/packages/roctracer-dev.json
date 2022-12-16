@@ -49,8 +49,29 @@
     ],
     "latest_version": "5.3.0",
     "build_system": "CMakePackage",
-    "conflicts": [],
+    "conflicts": [
+        {
+            "name": "^blt@:0.3.6",
+            "spec": "+rocm",
+            "description": "None"
+        },
+        {
+            "name": "amdgpu_target=none",
+            "spec": "+rocm",
+            "description": "None"
+        }
+    ],
     "variants": [
+        {
+            "name": "rocm",
+            "default": false,
+            "description": "Enable ROCm support"
+        },
+        {
+            "name": "amdgpu_target",
+            "default": "none",
+            "description": "AMD GPU architecture"
+        },
         {
             "name": "build_system",
             "default": "cmake",
@@ -86,6 +107,18 @@
     "description": "ROC-tracer library: Runtimes Generic Callback/Activity APIs. The goal of\nthe implementation is to provide a generic independent from specific\nruntime profiler to trace API and asyncronous activity.\n",
     "dependencies": [
         {
+            "name": "llvm-amdgpu",
+            "description": "Toolkit for the construction of highly optimized compilers, optimizers,\nand run-time environments."
+        },
+        {
+            "name": "hsa-rocr-dev",
+            "description": "This repository includes the user mode API nterfaces and libraries\nnecessary for host applications to launch computer kernels to available\nHSA ROCm kernel agents.AMD Heterogeneous System Architecture HSA - Linux\nHSA Runtime for Boltzmann (ROCm) platforms."
+        },
+        {
+            "name": "hip",
+            "description": "HIP is a C++ Runtime API and Kernel Language that allows developers to\ncreate portable applications for AMD and NVIDIA GPUs from single source\ncode."
+        },
+        {
             "name": "cmake",
             "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
         },
@@ -106,16 +139,8 @@
             "description": "This is a thunk python recipe to build and install Thunk Interface.\nThunk Interface is a user-mode API interfaces used to interact with the\nROCk driver."
         },
         {
-            "name": "hsa-rocr-dev",
-            "description": "This repository includes the user mode API nterfaces and libraries\nnecessary for host applications to launch computer kernels to available\nHSA ROCm kernel agents.AMD Heterogeneous System Architecture HSA - Linux\nHSA Runtime for Boltzmann (ROCm) platforms."
-        },
-        {
             "name": "rocminfo",
             "description": "Radeon Open Compute (ROCm) Runtime rocminfo tool"
-        },
-        {
-            "name": "hip",
-            "description": "HIP is a C++ Runtime API and Kernel Language that allows developers to\ncreate portable applications for AMD and NVIDIA GPUs from single source\ncode."
         },
         {
             "name": "rocprofiler-dev",
@@ -124,20 +149,20 @@
     ],
     "dependent_to": [
         {
-            "name": "lbann",
-            "description": "LBANN: Livermore Big Artificial Neural Network Toolkit. A distributed\nmemory, HPC-optimized, model and data parallel training toolkit for deep\nneural networks."
-        },
-        {
             "name": "hpctoolkit",
             "description": "HPCToolkit is an integrated suite of tools for measurement and analysis\nof program performance on computers ranging from multicore desktop\nsystems to the nation's largest supercomputers. By using statistical\nsampling of timers and hardware performance counters, HPCToolkit\ncollects accurate measurements of a program's work, resource\nconsumption, and inefficiency and attributes them to the full calling\ncontext in which they occur."
         },
         {
-            "name": "py-torch",
-            "description": "Tensors and Dynamic neural networks in Python with strong GPU\nacceleration."
-        },
-        {
             "name": "omnitrace",
             "description": "Application Profiling, Tracing, and Analysis"
+        },
+        {
+            "name": "lbann",
+            "description": "LBANN: Livermore Big Artificial Neural Network Toolkit. A distributed\nmemory, HPC-optimized, model and data parallel training toolkit for deep\nneural networks."
+        },
+        {
+            "name": "py-torch",
+            "description": "Tensors and Dynamic neural networks in Python with strong GPU\nacceleration."
         },
         {
             "name": "dihydrogen",
