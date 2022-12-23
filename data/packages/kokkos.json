@@ -11,6 +11,10 @@
             "branch": "develop"
         },
         {
+            "name": "3.7.01",
+            "sha256": "0481b24893d1bcc808ec68af1d56ef09b82a1138a1226d6be27c3b3c3da65ceb"
+        },
+        {
             "name": "3.7.00",
             "sha256": "62e3f9f51c798998f6493ed36463f66e49723966286ef70a9dcba329b8443040"
         },
@@ -63,7 +67,7 @@
             "sha256": "c00613d0194a4fbd0726719bbed8b0404ed06275f310189b3493f5739042a92b"
         }
     ],
-    "latest_version": "3.7.00",
+    "latest_version": "3.7.01",
     "build_system": "CMakePackage",
     "conflicts": [
         {
@@ -761,7 +765,7 @@
         {
             "name": "examples",
             "default": false,
-            "description": "Whether to build OpenMP  backend"
+            "description": "Whether to build examples"
         },
         {
             "name": "explicit_instantiation",
@@ -904,12 +908,16 @@
     ],
     "dependent_to": [
         {
-            "name": "arborx",
-            "description": "ArborX is a performance-portable library for geometric search"
+            "name": "cabana",
+            "description": "The Exascale Co-Design Center for Particle Applications Toolkit"
         },
         {
-            "name": "py-pykokkos-base",
-            "description": "Minimal set of bindings for Kokkos interoperability with Python\n(initialize, finalize, View, DynRankView, Kokkos-tools)"
+            "name": "wonton",
+            "description": "Wonton is a support package for the Portage\n(https://github.com/laristra/portage) and Tangram\n(https://github.com/laristra/tangram) libraries. It contains some\nmesh/state classes, wrappers for other mesh/state libraries and some\nutilities required by Portage and Tangram."
+        },
+        {
+            "name": "arborx",
+            "description": "ArborX is a performance-portable library for geometric search"
         },
         {
             "name": "kokkos-kernels",
@@ -920,24 +928,12 @@
             "description": "HACCabana: A proxy app for HACC short range forces. The Hardware/Hybrid\nAccelerated Cosmology Code (HACC), a cosmology N-body-code framework, is\ndesigned to run efficiently on diverse computing architectures and to\nscale to millions of cores and beyond."
         },
         {
-            "name": "petsc",
-            "description": "PETSc is a suite of data structures and routines for the scalable\n(parallel) solution of scientific applications modeled by partial\ndifferential equations."
+            "name": "exampm",
+            "description": "Exascale Material Point Method (MPM) Mini-App"
         },
         {
-            "name": "wonton",
-            "description": "Wonton is a support package for the Portage\n(https://github.com/laristra/portage) and Tangram\n(https://github.com/laristra/tangram) libraries. It contains some\nmesh/state classes, wrappers for other mesh/state libraries and some\nutilities required by Portage and Tangram."
-        },
-        {
-            "name": "portage",
-            "description": "Portage is a framework that computational physics applications can use\nto build a highly customized, hybrid parallel (MPI+X) conservative\nremapping library for transfer of field data between meshes."
-        },
-        {
-            "name": "flcl",
-            "description": "API for Fortran to C++ and C++ to Fortran multi-dimensional array\ninteroperability using Kokkos."
-        },
-        {
-            "name": "legion",
-            "description": "Legion is a data-centric parallel programming system for writing\nportable high performance programs targeted at distributed heterogeneous\narchitectures. Legion presents abstractions which allow programmers to\ndescribe properties of program data (e.g. independence, locality). By\nmaking the Legion programming system aware of the structure of program\ndata, it can automate many of the tedious tasks programmers currently\nface, including correctly extracting task- and data-level parallelism\nand moving data around complex memory hierarchies. A novel mapping\ninterface provides explicit programmer controlled placement of data in\nthe memory hierarchy and assignment of tasks to processors in a way that\nis orthogonal to correctness, thereby enabling easy porting and tuning\nof Legion applications to new architectures."
+            "name": "spiner",
+            "description": "Spiner: Performance portable routines for generic, tabulated, multi-\ndimensional data"
         },
         {
             "name": "sundials",
@@ -948,40 +944,48 @@
             "description": "FleCSI is a compile-time configurable framework designed to support\nmulti-physics application development. As such, FleCSI attempts to\nprovide a very general set of infrastructure design patterns that can be\nspecialized and extended to suit the needs of a broad variety of solver\nand data requirements. Current support includes multi-dimensional mesh\ntopology, mesh geometry, and mesh adjacency information, n-dimensional\nhashed-tree data structures, graph partitioning interfaces,and\ndependency closures."
         },
         {
-            "name": "lammps",
-            "description": "LAMMPS stands for Large-scale Atomic/Molecular Massively Parallel\nSimulator. This package uses patch releases, not stable release. See\nhttps://github.com/spack/spack/pull/5342 for a detailed discussion."
-        },
-        {
-            "name": "spiner",
-            "description": "Spiner: Performance portable routines for generic, tabulated, multi-\ndimensional data"
-        },
-        {
-            "name": "singularity-eos",
-            "description": "Singularity-EOS: A collection of closure models and tools useful for\nmultiphysics codes."
+            "name": "exaca",
+            "description": "ExaCA: an exascale cellular automata application for alloy\nsolidification modeling"
         },
         {
             "name": "nlcglib",
             "description": "Nonlinear CG methods for wave-function optimization in DFT."
         },
         {
-            "name": "hpx-kokkos",
-            "description": "HPXKokkos is an interoperability library for HPX and Kokkos"
+            "name": "lammps",
+            "description": "LAMMPS stands for Large-scale Atomic/Molecular Massively Parallel\nSimulator. This package uses patch releases, not stable release. See\nhttps://github.com/spack/spack/pull/5342 for a detailed discussion."
         },
         {
-            "name": "exaca",
-            "description": "ExaCA: an exascale cellular automata application for alloy\nsolidification modeling"
+            "name": "singularity-eos",
+            "description": "Singularity-EOS: A collection of closure models and tools useful for\nmultiphysics codes."
         },
         {
-            "name": "exampm",
-            "description": "Exascale Material Point Method (MPM) Mini-App"
+            "name": "py-pykokkos-base",
+            "description": "Minimal set of bindings for Kokkos interoperability with Python\n(initialize, finalize, View, DynRankView, Kokkos-tools)"
         },
         {
-            "name": "cabana",
-            "description": "The Exascale Co-Design Center for Particle Applications Toolkit"
+            "name": "petsc",
+            "description": "PETSc is a suite of data structures and routines for the scalable\n(parallel) solution of scientific applications modeled by partial\ndifferential equations."
         },
         {
             "name": "vtk-m",
             "description": "VTK-m is a toolkit of scientific visualization algorithms for emerging\nprocessor architectures. VTK-m supports the fine-grained concurrency for\ndata analysis and visualization algorithms required to drive extreme\nscale computing by providing abstract models for data and execution that\ncan be applied to a variety of algorithms across many different\nprocessor architectures."
+        },
+        {
+            "name": "portage",
+            "description": "Portage is a framework that computational physics applications can use\nto build a highly customized, hybrid parallel (MPI+X) conservative\nremapping library for transfer of field data between meshes."
+        },
+        {
+            "name": "legion",
+            "description": "Legion is a data-centric parallel programming system for writing\nportable high performance programs targeted at distributed heterogeneous\narchitectures. Legion presents abstractions which allow programmers to\ndescribe properties of program data (e.g. independence, locality). By\nmaking the Legion programming system aware of the structure of program\ndata, it can automate many of the tedious tasks programmers currently\nface, including correctly extracting task- and data-level parallelism\nand moving data around complex memory hierarchies. A novel mapping\ninterface provides explicit programmer controlled placement of data in\nthe memory hierarchy and assignment of tasks to processors in a way that\nis orthogonal to correctness, thereby enabling easy porting and tuning\nof Legion applications to new architectures."
+        },
+        {
+            "name": "flcl",
+            "description": "API for Fortran to C++ and C++ to Fortran multi-dimensional array\ninteroperability using Kokkos."
+        },
+        {
+            "name": "hpx-kokkos",
+            "description": "HPXKokkos is an interoperability library for HPX and Kokkos"
         }
     ]
 }
