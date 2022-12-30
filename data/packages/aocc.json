@@ -3,6 +3,11 @@
     "aliases": [],
     "versions": [
         {
+            "name": "4.0.0",
+            "sha256": "2729ec524cbc927618e479994330eeb72df5947e90cfcc49434009eee29bf7d4",
+            "url": "https://developer.amd.com/wordpress/media/files/aocc-compiler-4.0.0.tar"
+        },
+        {
             "name": "3.2.0",
             "sha256": "8493525b3df77f48ee16f3395a68ad4c42e18233a44b4d9282b25dbb95b113ec",
             "url": "https://developer.amd.com/wordpress/media/files/aocc-compiler-3.2.0.tar"
@@ -28,9 +33,15 @@
             "url": "https://developer.amd.com/wordpress/media/files/aocc-compiler-2.2.0.tar"
         }
     ],
-    "latest_version": "3.2.0",
+    "latest_version": "4.0.0",
     "build_system": "Package",
-    "conflicts": [],
+    "conflicts": [
+        {
+            "name": "~license-agreed",
+            "spec": "",
+            "description": "Installation of aocc requires acceptance of the EULA (found at https://developer.amd.com/wordpress/media/files/AOCC_EULA.pdf). Set the +license-agreed variant to confirm acceptance of the EULA"
+        }
+    ],
     "variants": [
         {
             "name": "build_system",
@@ -40,7 +51,7 @@
         {
             "name": "license-agreed",
             "default": false,
-            "description": "Agree to terms and conditions depicted under : https://developer.amd.com/wordpress/media/files/AOCC_EULA.pdf"
+            "description": "Confirm acceptance of the EULA (https://developer.amd.com/wordpress/media/files/AOCC_EULA.pdf)"
         }
     ],
     "homepage": "https://developer.amd.com/amd-aocc/",
@@ -49,7 +60,7 @@
     ],
     "patches": [],
     "resources": [],
-    "description": " The AOCC compiler system is a high performance, production quality code\ngeneration tool. The AOCC environment provides various options to\ndevelopers when building and optimizing C, C++, and Fortran applications\ntargeting 32-bit and 64-bit Linux platforms. The AOCC compiler system\noffers a high level of advanced optimizations, multi-threading and\nprocessor support that includes global optimization, vectorization,\ninter-procedural analyses, loop transformations, and code generation.\nAMD also provides highly optimized libraries, which extract the optimal\nperformance from each x86 processor core when utilized. The AOCC\nCompiler Suite simplifies and accelerates development and tuning for x86\napplications. Please install only if you agree to terms and conditions\ndepicted under :\nhttps://developer.amd.com/wordpress/media/files/AOCC_EULA.pdf Example\nfor installation: 'spack install aocc +license-agreed'\n",
+    "description": " The AOCC compiler system is a high performance, production quality code\ngeneration tool. The AOCC environment provides various options to\ndevelopers when building and optimizing C, C++, and Fortran applications\ntargeting 32-bit and 64-bit Linux platforms. The AOCC compiler system\noffers a high level of advanced optimizations, multi-threading and\nprocessor support that includes global optimization, vectorization,\ninter-procedural analyses, loop transformations, and code generation.\nAMD also provides highly optimized libraries, which extract the optimal\nperformance from each x86 processor core when utilized. The AOCC\nCompiler Suite simplifies and accelerates development and tuning for x86\napplications. Installation requires acceptance of the EULA by setting\nthe +license-agreed variant.\nhttps://developer.amd.com/wordpress/media/files/AOCC_EULA.pdf Example\nfor installation: 'spack install aocc +license-agreed'\n",
     "dependencies": [
         {
             "name": "libxml2",
