@@ -3,6 +3,11 @@
     "aliases": [],
     "versions": [
         {
+            "name": "1.9-beta6.27",
+            "commit": "a2ea957c893fbb0558358edef27f3ecbf3d360f8",
+            "git": "https://github.com/chrchang/plink-ng.git"
+        },
+        {
             "name": "1.9-beta6.10",
             "sha256": "f8438656996c55a5edd95c223cce96277de6efaab1b9b1d457bfee0c272058d8",
             "url": "https://s3.amazonaws.com/plink1-assets/plink_linux_x86_64_20190617.zip"
@@ -19,7 +24,7 @@
             "preferred": true
         }
     ],
-    "latest_version": "1.9-beta6.10",
+    "latest_version": "1.9-beta6.27",
     "build_system": "Package",
     "conflicts": [],
     "variants": [
@@ -31,7 +36,16 @@
     ],
     "homepage": "https://www.cog-genomics.org/plink/1.9/",
     "maintainers": [],
-    "patches": [],
+    "patches": [
+        {
+            "owner": "builtin.plink",
+            "sha256": "7fc0234cc6b84320b6f5a5c74a063b08fc825848a91ad862e02981b4ea0c2fd1",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "dynamic_zlib.patch",
+            "version": "@1.9-beta6.27:"
+        }
+    ],
     "resources": [],
     "description": "PLINK is a free, open-source whole genome association analysis toolset,\ndesigned to perform a range of basic, large-scale analyses in a\ncomputationally efficient manner.\n",
     "dependencies": [
@@ -42,6 +56,18 @@
         {
             "name": "netlib-lapack",
             "description": "LAPACK version 3.X is a comprehensive FORTRAN library that does linear\nalgebra operations including matrix inversions, least squared solutions\nto linear sets of equations, eigenvector analysis, singular value\ndecomposition, etc. It is a very comprehensive and reputable package\nthat has found extensive use in the scientific community."
+        },
+        {
+            "name": "zlib",
+            "description": "A free, general-purpose, legally unencumbered lossless data-compression\nlibrary."
+        },
+        {
+            "name": "blas",
+            "description": "A BLAS and LAPACK wrapper library with runtime exchangable backends"
+        },
+        {
+            "name": "lapack",
+            "description": "A BLAS and LAPACK wrapper library with runtime exchangable backends"
         }
     ],
     "dependent_to": [
