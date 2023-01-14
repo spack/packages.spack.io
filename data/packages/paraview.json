@@ -93,6 +93,16 @@
     "build_system": "CMakePackage",
     "conflicts": [
         {
+            "name": "^blt@:0.3.6",
+            "spec": "+rocm",
+            "description": "None"
+        },
+        {
+            "name": "amdgpu_target=none",
+            "spec": "+rocm",
+            "description": "None"
+        },
+        {
             "name": "%gcc@:4",
             "spec": "+cuda ^cuda@11.0:~allow-unsupported-compilers",
             "description": "None"
@@ -440,6 +450,21 @@
         {
             "name": "+cuda",
             "spec": "@5.8:5.10",
+            "description": "None"
+        },
+        {
+            "name": "+rocm",
+            "spec": "+cuda",
+            "description": "None"
+        },
+        {
+            "name": "+rocm",
+            "spec": "use_vtkm=off",
+            "description": "None"
+        },
+        {
+            "name": "paraview@:5.10",
+            "spec": "+rocm",
             "description": "None"
         },
         {
@@ -3265,6 +3290,16 @@
     ],
     "variants": [
         {
+            "name": "rocm",
+            "default": false,
+            "description": "Enable ROCm support"
+        },
+        {
+            "name": "amdgpu_target",
+            "default": "none",
+            "description": "AMD GPU architecture"
+        },
+        {
             "name": "cuda",
             "default": false,
             "description": "Build with CUDA"
@@ -3487,6 +3522,18 @@
     "description": "ParaView is an open-source, multi-platform data analysis and\nvisualization application. This package includes the Catalyst in-situ\nlibrary for versions 5.7 and greater, otherwise use the catalyst\npackage.\n",
     "dependencies": [
         {
+            "name": "llvm-amdgpu",
+            "description": "Toolkit for the construction of highly optimized compilers, optimizers,\nand run-time environments."
+        },
+        {
+            "name": "hsa-rocr-dev",
+            "description": "This repository includes the user mode API nterfaces and libraries\nnecessary for host applications to launch computer kernels to available\nHSA ROCm kernel agents.AMD Heterogeneous System Architecture HSA - Linux\nHSA Runtime for Boltzmann (ROCm) platforms."
+        },
+        {
+            "name": "hip",
+            "description": "HIP is a C++ Runtime API and Kernel Language that allows developers to\ncreate portable applications for AMD and NVIDIA GPUs from single source\ncode."
+        },
+        {
             "name": "cuda",
             "description": "CUDA is a parallel computing platform and programming model invented by\nNVIDIA. It enables dramatic increases in computing performance by\nharnessing the power of the graphics processing unit (GPU). Note: This\npackage does not currently install the drivers necessary to run CUDA.\nThese will need to be installed manually. See:\nhttps://docs.nvidia.com/cuda/ for details."
         },
@@ -3524,7 +3571,7 @@
         },
         {
             "name": "mpi",
-            "description": "MSMPI is a Windows port of MPICH provided by the Windows team"
+            "description": "HPE MPI is HPE's implementation of the Message Passing Interface (MPI)\nstandard. Note: HPE MPI is proprietry software. Spack will search your\ncurrent directory for the download file. Alternatively, add this file to\na mirror so that Spack can find it. For instructions on how to set up a\nmirror, see https://spack.readthedocs.io/en/latest/mirrors.html"
         },
         {
             "name": "qt",
@@ -3643,6 +3690,10 @@
             "description": "Catalyst is an API specification developed for simulations (and other\nscientific data producers) to analyze and visualize data in situ."
         },
         {
+            "name": "kokkos",
+            "description": "Kokkos implements a programming model in C++ for writing performance\nportable applications targeting all major HPC platforms."
+        },
+        {
             "name": "pugixml",
             "description": "Light-weight, simple, and fast XML parser for C++ with XPath support"
         },
@@ -3661,16 +3712,8 @@
     ],
     "dependent_to": [
         {
-            "name": "sensei",
-            "description": "SENSEI is a platform for scalable in-situ analysis and visualization.\nIts design motto is \"Write once, run everywhere\", this means that once\nthe application is instrumented with SENSEI it can use existing and\nfuture analysis backends. Existing backends include: Paraview/Catalyst,\nVisit/Libsim, ADIOS, Python scripts, and so on."
-        },
-        {
-            "name": "elmerfem",
-            "description": "Elmer is an open source multiphysical simulation software. It includes\nphysical models of fluid dynamics, structural mechanics,\nelectromagnetics, heat transfer and acoustics."
-        },
-        {
-            "name": "openfoam",
-            "description": "OpenFOAM is a GPL-opensource C++ CFD-toolbox. This offering is supported\nby OpenCFD Ltd, producer and distributor of the OpenFOAM software via\nwww.openfoam.com, and owner of the OPENFOAM trademark. OpenCFD Ltd has\nbeen developing and releasing OpenFOAM since its debut in 2004."
+            "name": "of-catalyst",
+            "description": "Of-catalyst is a library for OpenFOAM that provides a runtime-selectable\nfunction object for embedding ParaView Catalyst in-situ visualization\ninto arbitrary OpenFOAM simulations. Supports in-situ conversion of the\nfollowing types: 1) finite volume meshes and fields, single or multi-\nregion; 2) finite area meshes and fields, single region; 3) lagrangian\n(clouds), single or multiple clouds. This offering is part of the\ncommunity repository supported by OpenCFD Ltd, producer and distributor\nof the OpenFOAM software via www.openfoam.com, and owner of the OPENFOAM\ntrademark. OpenCFD Ltd has been developing and releasing OpenFOAM since\nits debut in 2004."
         },
         {
             "name": "damaris",
@@ -3681,12 +3724,20 @@
             "description": "ECP Data & Vis SDK"
         },
         {
+            "name": "sensei",
+            "description": "SENSEI is a platform for scalable in-situ analysis and visualization.\nIts design motto is \"Write once, run everywhere\", this means that once\nthe application is instrumented with SENSEI it can use existing and\nfuture analysis backends. Existing backends include: Paraview/Catalyst,\nVisit/Libsim, ADIOS, Python scripts, and so on."
+        },
+        {
             "name": "foam-extend",
             "description": "The Extend Project is a fork of the OpenFOAM opensource library for\nComputational Fluid Dynamics (CFD). This offering is not approved or\nendorsed by OpenCFD Ltd, producer and distributor of the OpenFOAM\nsoftware via www.openfoam.com, and owner of the OPENFOAM trademark."
         },
         {
-            "name": "of-catalyst",
-            "description": "Of-catalyst is a library for OpenFOAM that provides a runtime-selectable\nfunction object for embedding ParaView Catalyst in-situ visualization\ninto arbitrary OpenFOAM simulations. Supports in-situ conversion of the\nfollowing types: 1) finite volume meshes and fields, single or multi-\nregion; 2) finite area meshes and fields, single region; 3) lagrangian\n(clouds), single or multiple clouds. This offering is part of the\ncommunity repository supported by OpenCFD Ltd, producer and distributor\nof the OpenFOAM software via www.openfoam.com, and owner of the OPENFOAM\ntrademark. OpenCFD Ltd has been developing and releasing OpenFOAM since\nits debut in 2004."
+            "name": "elmerfem",
+            "description": "Elmer is an open source multiphysical simulation software. It includes\nphysical models of fluid dynamics, structural mechanics,\nelectromagnetics, heat transfer and acoustics."
+        },
+        {
+            "name": "openfoam",
+            "description": "OpenFOAM is a GPL-opensource C++ CFD-toolbox. This offering is supported\nby OpenCFD Ltd, producer and distributor of the OpenFOAM software via\nwww.openfoam.com, and owner of the OPENFOAM trademark. OpenCFD Ltd has\nbeen developing and releasing OpenFOAM since its debut in 2004."
         },
         {
             "name": "libristra",
