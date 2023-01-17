@@ -3,6 +3,12 @@
     "aliases": [],
     "versions": [
         {
+            "name": "2.2.1",
+            "sha256": "48e933330d4d8470d2b3dfe7ec3918f2e98a75f7381891e23b7df1fb4f135eb1",
+            "url": "https://cloud.biohpc.swmed.edu/index.php/s/fE9QCsX3NH4QwBi/download",
+            "extension": "zip"
+        },
+        {
             "name": "2.2.0",
             "sha256": "0dd55168853b82c1b085f79ed793dd029db163773f52272d7eb51b3b5e4a4cdd",
             "url": "https://cloud.biohpc.swmed.edu/index.php/s/hisat2-220-source/download",
@@ -13,7 +19,7 @@
             "sha256": "89a276eed1fc07414b1601947bc9466bdeb50e8f148ad42074186fe39a1ee781"
         }
     ],
-    "latest_version": "2.2.0",
+    "latest_version": "2.2.1",
     "build_system": "MakefilePackage",
     "conflicts": [
         {
@@ -27,13 +33,44 @@
             "name": "build_system",
             "default": "makefile",
             "description": "Build systems supported by the package"
+        },
+        {
+            "name": "sra",
+            "default": false,
+            "description": "Add SRA (Sequence Read Archive) support"
         }
     ],
     "homepage": "https://daehwankimlab.github.io/hisat2/",
     "maintainers": [],
-    "patches": [],
+    "patches": [
+        {
+            "owner": "builtin.hisat2",
+            "sha256": "6ff7df811aea3253c0664194eee9727f4af900e9dab3748c422be39f93ac8e66",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "sra.patch",
+            "version": "+sra"
+        }
+    ],
     "resources": [],
     "description": "HISAT2 is a fast and sensitive alignment program for mapping next-\ngeneration sequencing reads (whole-genome, transcriptome, and exome\nsequencing data) against the general human population (as well as\nagainst a single reference genome).\n",
-    "dependencies": [],
+    "dependencies": [
+        {
+            "name": "perl",
+            "description": "Perl 5 is a highly capable, feature-rich programming language with over\n27 years of development."
+        },
+        {
+            "name": "python",
+            "description": "The Python programming language."
+        },
+        {
+            "name": "sra-tools",
+            "description": "The SRA Toolkit and SDK from NCBI is a collection of tools and libraries\nfor using data in the INSDC Sequence Read Archives."
+        },
+        {
+            "name": "ncbi-vdb",
+            "description": "The SRA Toolkit and SDK from NCBI is a collection of tools and libraries\nfor using data in the INSDC Sequence Read Archives. This package\ncontains the interface to the VDB."
+        }
+    ],
     "dependent_to": []
 }

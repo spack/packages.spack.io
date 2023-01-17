@@ -3,39 +3,48 @@
     "aliases": [],
     "versions": [
         {
+            "name": "4.0",
+            "sha256": "038c1eab544be77598eccda791b26553d3b9e2ee4ab3f5ad85fdd2a77d015a7d"
+        },
+        {
             "name": "3.2",
-            "branch": "aocl-3.2"
+            "sha256": "c75b287c38a3ce997066af1f5c8d2b19fc460d5e56678ea81f3ac33eb79ec890"
         },
         {
             "name": "3.1",
-            "branch": "aocl-3.1"
+            "sha256": "dee487cc2d89c2dc93508be2c67592670ffc1d02776c017e8907317003f48845"
         },
         {
             "name": "3.0",
-            "branch": "aocl-3.0"
+            "sha256": "eb26b5e174f43ce083928d0d8748a6d6d74853333bba37d50057aac2bef7c7aa"
         },
         {
             "name": "2.2",
             "commit": "4033e022da428125747e118ccd6fdd9cee21c470"
         }
     ],
-    "latest_version": "3.2",
+    "latest_version": "4.0",
     "build_system": "SConsPackage",
     "conflicts": [
         {
             "name": "%gcc@:9.1.0",
             "spec": "",
-            "description": "Minimum required GCC version is 9.2.0"
+            "description": "Minimum supported GCC version is 9.2.0"
         },
         {
-            "name": "%gcc@11.2.0:",
+            "name": "%gcc@12.2.0:",
             "spec": "",
-            "description": "Maximum required GCC version is 11.1.0"
+            "description": "Maximum supported GCC version is 12.1.0"
+        },
+        {
+            "name": "%clang@9:",
+            "spec": "",
+            "description": "Minimum supported Clang version is 9.0.0"
         },
         {
             "name": "%aocc@3.2.0",
-            "spec": "@2.2:3.0",
-            "description": "amdlibm 2.2 and 3.0 versions are not supported with AOCC 3.2.0"
+            "spec": "",
+            "description": "dependency on python@3.6.2"
         }
     ],
     "variants": [
@@ -73,7 +82,7 @@
         }
     ],
     "resources": [],
-    "description": "AMD LibM is a software library containing a collection of basic math\nfunctions optimized for x86-64 processor-based machines. It provides\nmany routines from the list of standard C99 math functions. Applications\ncan link into AMD LibM library and invoke math functions instead of\ncompiler's math functions for better accuracy and performance.\n",
+    "description": "AMD LibM is a software library containing a collection of basic math\nfunctions optimized for x86-64 processor-based machines. It provides\nmany routines from the list of standard C99 math functions. Applications\ncan link into AMD LibM library and invoke math functions instead of\ncompiler's math functions for better accuracy and performance. LICENSING\nINFORMATION: By downloading, installing and using this software, you\nagree to the terms and conditions of the AMD AOCL-FFTW license\nagreement. You may obtain a copy of this license agreement from\nhttps://www.amd.com/en/developer/aocl/libm/libm-4-0-eula.html\nhttps://www.amd.com/en/developer/aocl/libm/libm-eula.html\n",
     "dependencies": [
         {
             "name": "scons",
@@ -90,12 +99,12 @@
     ],
     "dependent_to": [
         {
-            "name": "roms",
-            "description": "ROMS is a free-surface, terrain-following, primitive equations ocean\nmodel widely used by the scientific community for a diverse range of\napplications"
+            "name": "amd-aocl",
+            "description": "AMD Optimizing CPU Libraries (AOCL) - AOCL is a set of numerical\nlibraries tuned specifically for AMD EPYC processor family. They have a\nsimple interface to take advantage of the latest hardware innovations.\nThe tuned implementations of industry standard math libraries enable\nfast development of scientific and high performance computing projects\nLICENSING INFORMATION: By downloading, installing and using this\nsoftware, you agree to the terms and conditions of the AMD AOCL license\nagreement. You may obtain a copy of this license agreement from\nhttps://www.amd.com/en/developer/aocl/aocl-eula.html\nhttps://www.amd.com/en/developer/aocl/aocl-4-0-eula.html"
         },
         {
-            "name": "amd-aocl",
-            "description": "AMD Optimizing CPU Libraries (AOCL) - AOCL is a set of numerical\nlibraries tuned specifically for AMD EPYC processor family. They have a\nsimple interface to take advantage of the latest hardware innovations.\nThe tuned implementations of industry standard math libraries enable\nfast development of scientific and high performance computing projects"
+            "name": "roms",
+            "description": "ROMS is a free-surface, terrain-following, primitive equations ocean\nmodel widely used by the scientific community for a diverse range of\napplications"
         }
     ]
 }
