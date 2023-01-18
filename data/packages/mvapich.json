@@ -1,0 +1,141 @@
+{
+    "name": "mvapich",
+    "aliases": [
+        {
+            "name": "mpi",
+            "alias_for": "{mvapich}"
+        },
+        {
+            "name": "mpi@:3.1",
+            "alias_for": "{mvapich}"
+        }
+    ],
+    "versions": [
+        {
+            "name": "3.0a",
+            "checksum": "71f6593bfbfe9a9f6f5c750904461f007bf74bec479544e4da375b7d4a56b2ac"
+        }
+    ],
+    "latest_version": "3.0a",
+    "build_system": "AutotoolsPackage",
+    "conflicts": [
+        {
+            "name": "platform=windows",
+            "spec": "build_system=autotools",
+            "description": "None"
+        }
+    ],
+    "variants": [
+        {
+            "name": "build_system",
+            "default": "autotools",
+            "description": "Build systems supported by the package"
+        },
+        {
+            "name": "wrapperrpath",
+            "default": true,
+            "description": "Enable wrapper rpath"
+        },
+        {
+            "name": "debug",
+            "default": false,
+            "description": "Enable debug info and error messages at run-time"
+        },
+        {
+            "name": "cuda",
+            "default": false,
+            "description": "Enable CUDA extension"
+        },
+        {
+            "name": "regcache",
+            "default": true,
+            "description": "Enable memory registration cache"
+        },
+        {
+            "name": "threads",
+            "default": "multiple",
+            "description": "Control the level of thread support"
+        },
+        {
+            "name": "ch3_rank_bits",
+            "default": "32",
+            "description": "Number of bits allocated to the rank field (16 or 32)"
+        },
+        {
+            "name": "process_managers",
+            "default": "auto",
+            "description": "List of the process managers to activate"
+        },
+        {
+            "name": "netmod",
+            "default": "ofi",
+            "description": "Select the netmod to be enabled for this build.For IB/RoCE systems, use the ucx netmod, for interconnects supported by libfabrics, use the ofi netmod. For more info, visit the homepage url."
+        },
+        {
+            "name": "alloca",
+            "default": false,
+            "description": "Use alloca to allocate temporary memory if available"
+        },
+        {
+            "name": "file_systems",
+            "default": "auto",
+            "description": "List of the ROMIO file systems to activate"
+        }
+    ],
+    "homepage": "https://mvapich.cse.ohio-state.edu/userguide/userguide_spack/",
+    "maintainers": [
+        "natshineman",
+        "harisubramoni",
+        "ndcontini"
+    ],
+    "patches": [],
+    "resources": [],
+    "description": "Mvapich is a High-Performance MPI Library for clusters with diverse\nnetworks (InfiniBand, Omni-Path, Ethernet/iWARP, and RoCE) and computing\nplatforms (x86 (Intel and AMD), ARM and OpenPOWER)\n",
+    "dependencies": [
+        {
+            "name": "gnuconfig",
+            "description": "The GNU config.guess and config.sub scripts versioned by timestamp.\nThis package can be used as a build dependency for autotools packages\nthat ship a tarball with outdated config.guess and config.sub files."
+        },
+        {
+            "name": "findutils",
+            "description": "The GNU Find Utilities are the basic directory searching utilities of\nthe GNU operating system."
+        },
+        {
+            "name": "bison",
+            "description": "Bison is a general-purpose parser generator that converts an annotated\ncontext-free grammar into a deterministic LR or generalized LR (GLR)\nparser employing LALR(1) parser tables."
+        },
+        {
+            "name": "pkgconfig",
+            "description": "pkg-config is a helper tool used when compiling applications and\nlibraries"
+        },
+        {
+            "name": "zlib",
+            "description": "A free, general-purpose, legally unencumbered lossless data-compression\nlibrary."
+        },
+        {
+            "name": "libpciaccess",
+            "description": "Generic PCI access library."
+        },
+        {
+            "name": "libxml2",
+            "description": "Libxml2 is the XML C parser and toolkit developed for the Gnome project\n(but usable outside of the Gnome platform), it is free software\navailable under the MIT License."
+        },
+        {
+            "name": "cuda",
+            "description": "CUDA is a parallel computing platform and programming model invented by\nNVIDIA. It enables dramatic increases in computing performance by\nharnessing the power of the graphics processing unit (GPU). Note: This\npackage does not currently install the drivers necessary to run CUDA.\nThese will need to be installed manually. See:\nhttps://docs.nvidia.com/cuda/ for details."
+        },
+        {
+            "name": "libfabric",
+            "description": "The Open Fabrics Interfaces (OFI) is a framework focused on exporting\nfabric communication services to applications."
+        },
+        {
+            "name": "slurm",
+            "description": "Slurm is an open source, fault-tolerant, and highly scalable cluster\nmanagement and job scheduling system for large and small Linux clusters.\nSlurm requires no kernel modifications for its operation and is\nrelatively self-contained. As a cluster workload manager, Slurm has\nthree key functions. First, it allocates exclusive and/or non-exclusive\naccess to resources (compute nodes) to users for some duration of time\nso they can perform work. Second, it provides a framework for starting,\nexecuting, and monitoring work (normally a parallel job) on the set of\nallocated nodes. Finally, it arbitrates contention for resources by\nmanaging a queue of pending work."
+        },
+        {
+            "name": "ucx",
+            "description": "a communication library implementing high-performance messaging for\nMPI/PGAS frameworks"
+        }
+    ],
+    "dependent_to": []
+}
