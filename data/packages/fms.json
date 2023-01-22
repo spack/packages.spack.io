@@ -49,15 +49,17 @@
         {
             "name": "2020.04.01",
             "sha256": "2c409242de7dea0cf29f8dbf7495698b6bcac1eeb5c4599a728bdea172ffe37c"
-        },
-        {
-            "name": "2019.01.03",
-            "sha256": "60a5181e883e141f2fdd4a30c535a788d609bcbbbca4af7e1ec73f66f4e58dc0"
         }
     ],
     "latest_version": "2022.04",
     "build_system": "CMakePackage",
-    "conflicts": [],
+    "conflicts": [
+        {
+            "name": "precision=32,64",
+            "spec": "@:2022.03",
+            "description": "FMS versions prior to 2022.04 do not support both 32 and 64 bit precision"
+        }
+    ],
     "variants": [
         {
             "name": "build_system",
@@ -75,9 +77,9 @@
             "description": "CMake interprocedural optimization"
         },
         {
-            "name": "64bit",
-            "default": true,
-            "description": "Build a version of the library with default 64 bit reals"
+            "name": "precision",
+            "default": "32",
+            "description": "Build a version of the library with default 32 or 64 bit reals or both"
         },
         {
             "name": "gfs_phys",
@@ -139,7 +141,7 @@
         },
         {
             "name": "mpi",
-            "description": "MVAPICH2-X is the advanced version of the MVAPICH2 MPI library with\nenhanced features (UMR, ODP, DC, Core-Direct, SHARP, XPMEM), OSU INAM\n(InifniBand Network Monitoring and Analysis),PGAS (OpenSHMEM, UPC,\nUPC++, and CAF), and MPI+PGAS programming models with unified\ncommunication runtime. MVAPICH2-X is not installable from source and is\nonly available through a binary mirror. If you do not find the binary\nyou're looking for, send us an email at mvapich@cse.ohio-state.edu. The\nbinary mirror url is: http://mvapich.cse.ohio-\nstate.edu/download/mvapich/spack-mirror/mvapich2x/"
+            "description": "MSMPI is a Windows port of MPICH provided by the Windows team"
         },
         {
             "name": "libyaml",
