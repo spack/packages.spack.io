@@ -7,19 +7,23 @@
             "sha256": "e5dbc153d8637111de3a51a9655660bf15367d55842de78240dcfc024380553d"
         },
         {
-            "name": "2_5_8",
+            "name": "2.5.8",
             "sha256": "f2584fb4310ff7da39d51efbe3f334efd0ac53ae2995e5fc157decccc0570a89"
         },
         {
-            "name": "2_5_7",
+            "name": "2.5.7",
             "sha256": "af8af04e41af17f98f2c90b996ef0d8bcd980377e0b35e57b38938c7fdc87cbd"
         },
         {
-            "name": "2_5_4",
+            "name": "2.5.4",
             "sha256": "e51dc71683da808a714deddc1a80c2650ce847110383e42f1710f3ba567e7a65"
         },
         {
-            "name": "2_5_2",
+            "name": "2.5.3",
+            "sha256": "205a0a128fd5262700efc230b3380dc5ab10e74bc5d273ae05db76c9d95487ca"
+        },
+        {
+            "name": "2.5.2",
             "sha256": "935bc120ef3bf4fe09fb8bfdf788d05fb201a125d7346bf6b09e27ac3b5f345c"
         }
     ],
@@ -53,6 +57,11 @@
             "description": "enable GPTL timing"
         },
         {
+            "name": "shared",
+            "default": true,
+            "description": "Build shared libraries"
+        },
+        {
             "name": "logging",
             "default": false,
             "description": "enable verbose logging"
@@ -73,6 +82,14 @@
         "jedwards4b"
     ],
     "patches": [
+        {
+            "owner": "builtin.parallelio",
+            "sha256": "55a6d7aa1e99559e63feb2e6477ff847348655aba471a52a97764965067feb4d",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "remove_redefinition_of_mpi_offset.patch",
+            "version": "@:2.5.6"
+        },
         {
             "owner": "builtin.parallelio",
             "sha256": "55d424e1cdcffa9759bcf4a1c0dffd7167a4a98f336b00e180798b701c5faac8",
@@ -102,7 +119,7 @@
         },
         {
             "name": "mpi",
-            "description": "MVAPICH2-X is the advanced version of the MVAPICH2 MPI library with\nenhanced features (UMR, ODP, DC, Core-Direct, SHARP, XPMEM), OSU INAM\n(InifniBand Network Monitoring and Analysis),PGAS (OpenSHMEM, UPC,\nUPC++, and CAF), and MPI+PGAS programming models with unified\ncommunication runtime. MVAPICH2-X is not installable from source and is\nonly available through a binary mirror. If you do not find the binary\nyou're looking for, send us an email at mvapich@cse.ohio-state.edu. The\nbinary mirror url is: http://mvapich.cse.ohio-\nstate.edu/download/mvapich/spack-mirror/mvapich2x/"
+            "description": "The NVIDIA HPC SDK is a comprehensive suite of compilers, libraries and\ntools essential to maximizing developer productivity and the performance\nand portability of HPC applications. The NVIDIA HPC SDK C, C++, and\nFortran compilers support GPU acceleration of HPC modeling and\nsimulation applications with standard C++ and Fortran, OpenACC\ndirectives, and CUDA. GPU-accelerated math libraries maximize\nperformance on common HPC algorithms, and optimized communications\nlibraries enable standards-based multi-GPU and scalable systems\nprogramming. Performance profiling and debugging tools simplify porting\nand optimization of HPC applications."
         },
         {
             "name": "mpi-serial",
@@ -123,12 +140,12 @@
     ],
     "dependent_to": [
         {
-            "name": "esmf",
-            "description": "The Earth System Modeling Framework (ESMF) is high-performance, flexible\nsoftware infrastructure for building and coupling weather, climate, and\nrelated Earth science applications. The ESMF defines an architecture for\ncomposing complex, coupled modeling systems and includes data structures\nand utilities for developing individual models."
-        },
-        {
             "name": "mpas-model",
             "description": "The Model for Prediction Across Scales (MPAS) is a collaborative project\nfor developing atmosphere, ocean and other earth-system simulation\ncomponents for use in climate, regional climate and weather studies."
+        },
+        {
+            "name": "esmf",
+            "description": "The Earth System Modeling Framework (ESMF) is high-performance, flexible\nsoftware infrastructure for building and coupling weather, climate, and\nrelated Earth science applications. The ESMF defines an architecture for\ncomposing complex, coupled modeling systems and includes data structures\nand utilities for developing individual models."
         }
     ]
 }
