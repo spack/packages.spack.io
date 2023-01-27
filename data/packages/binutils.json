@@ -3,6 +3,14 @@
     "aliases": [],
     "versions": [
         {
+            "name": "2.40",
+            "sha256": "f8298eb153a4b37d112e945aa5cb2850040bcf26a3ea65b5a715c83afe05e48a"
+        },
+        {
+            "name": "2.39",
+            "sha256": "da24a84fef220102dd24042df06fdea851c2614a5377f86effa28f33b7b16148"
+        },
+        {
             "name": "2.38",
             "sha256": "070ec71cf077a6a58e0b959f05a09a35015378c2d8a51e90f3aeabfe30590ef8"
         },
@@ -43,6 +51,10 @@
             "sha256": "ffcc382695bf947da6135e7436b8ed52d991cf270db897190f19d6f9838564d0"
         },
         {
+            "name": "2.30",
+            "sha256": "efeade848067e9a03f1918b1da0d37aaffa0b0127a06b5e9236229851d9d0c09"
+        },
+        {
             "name": "2.29.1",
             "sha256": "1509dff41369fb70aed23682351b663b56db894034773e6dbf7d5d6071fc55cc"
         },
@@ -79,7 +91,7 @@
             "sha256": "71d37c96451333c5c0b84b170169fdcb138bbb27397dc06281905d9717c8ed64"
         }
     ],
-    "latest_version": "2.38",
+    "latest_version": "2.40",
     "build_system": "AutotoolsPackage",
     "conflicts": [
         {
@@ -91,6 +103,11 @@
             "name": "+gold",
             "spec": "arch=darwin-None-None",
             "description": "Binutils cannot build linkers on macOS"
+        },
+        {
+            "name": "~lto",
+            "spec": "+pgo",
+            "description": "Profile-guided optimization enables link-time optimization"
         }
     ],
     "variants": [
@@ -116,7 +133,7 @@
         },
         {
             "name": "nls",
-            "default": true,
+            "default": false,
             "description": "Enable Native Language Support"
         },
         {
@@ -128,6 +145,11 @@
             "name": "lto",
             "default": false,
             "description": "Enable lto."
+        },
+        {
+            "name": "pgo",
+            "default": false,
+            "description": "Build with profile-guided optimization (slow)"
         },
         {
             "name": "ld",
@@ -143,6 +165,11 @@
             "name": "interwork",
             "default": false,
             "description": "Enable interwork."
+        },
+        {
+            "name": "gprofng",
+            "default": false,
+            "description": "Enable gprofng."
         },
         {
             "name": "libs",
@@ -200,6 +227,10 @@
             "description": "GNU internationalization (i18n) and localization (l10n) library."
         },
         {
+            "name": "dejagnu",
+            "description": "DejaGnu is a framework for testing other programs. Its purpose is to\nprovide a single front end for all tests."
+        },
+        {
             "name": "m4",
             "description": "GNU M4 is an implementation of the traditional Unix macro processor."
         },
@@ -214,24 +245,8 @@
     ],
     "dependent_to": [
         {
-            "name": "extrae",
-            "description": "Extrae is the package devoted to generate tracefiles which can be\nanalyzed later by Paraver. Extrae is a tool that uses different\ninterposition mechanisms to inject probes into the target application so\nas to gather information regarding the application performance. The\nExtrae instrumentation package can instrument the MPI programin model,\nand the following parallel programming models either alone or in\nconjunction with MPI : OpenMP, CUDA, OpenCL, pthread, OmpSs"
-        },
-        {
-            "name": "cbtf-krell",
-            "description": "CBTF Krell project contains collector and runtime contributions to the\nCBTF project. These contributions include many performance data\ncollectors and support libraries as well as some example tools that\ndrive the data collection at HPC levels of scale."
-        },
-        {
-            "name": "opencarp",
-            "description": "The openCARP simulation software, an open cardiac electrophysiology\nsimulator for in-silico experiments."
-        },
-        {
-            "name": "abi-dumper",
-            "description": "ABI Dumper is a tool to dump ABI of an ELF object containing DWARF debug\ninfo."
-        },
-        {
-            "name": "mesa18",
-            "description": "Mesa is an open-source implementation of the OpenGL specification - a\nsystem for rendering interactive 3D graphics."
+            "name": "ldc-bootstrap",
+            "description": "The LDC project aims to provide a portable D programming language\ncompiler with modern optimization and code generation capabilities. LDC\nis fully Open Source; the parts of the code not taken/adapted from other\nprojects are BSD-licensed (see the LICENSE file for details). Consult\nthe D wiki for further information: https://wiki.dlang.org/LDC This old\nversion of the compiler is needed to bootstrap newer ones."
         },
         {
             "name": "sst-macro",
@@ -242,6 +257,46 @@
             "description": "A tool for checking backward compatibility of a C/C++ library API."
         },
         {
+            "name": "gcc",
+            "description": "The GNU Compiler Collection includes front ends for C, C++, Objective-C,\nFortran, Ada, and Go, as well as libraries for these languages."
+        },
+        {
+            "name": "llvm",
+            "description": "The LLVM Project is a collection of modular and reusable compiler and\ntoolchain technologies. Despite its name, LLVM has little to do with\ntraditional virtual machines, though it does provide helpful libraries\nthat can be used to build them. The name \"LLVM\" itself is not an\nacronym; it is the full name of the project."
+        },
+        {
+            "name": "extrae",
+            "description": "Extrae is the package devoted to generate tracefiles which can be\nanalyzed later by Paraver. Extrae is a tool that uses different\ninterposition mechanisms to inject probes into the target application so\nas to gather information regarding the application performance. The\nExtrae instrumentation package can instrument the MPI programin model,\nand the following parallel programming models either alone or in\nconjunction with MPI : OpenMP, CUDA, OpenCL, pthread, OmpSs"
+        },
+        {
+            "name": "nvptx-tools",
+            "description": "nvptx-tools: A collection of tools for use with nvptx-none GCC\ntoolchains. These tools are necessary when building a version of GCC\nthat enables offloading of OpenMP/OpenACC code to NVIDIA GPUs."
+        },
+        {
+            "name": "libtree",
+            "description": "ldd as a tree"
+        },
+        {
+            "name": "mesa18",
+            "description": "Mesa is an open-source implementation of the OpenGL specification - a\nsystem for rendering interactive 3D graphics."
+        },
+        {
+            "name": "spack",
+            "description": "Spack is a multi-platform package manager that builds and installs\nmultiple versions and configurations of software. It works on Linux,\nmacOS, and many supercomputers. Spack is non-destructive: installing a\nnew version of a package does not break existing installations, so many\nconfigurations of the same package can coexist."
+        },
+        {
+            "name": "py-llvmlite",
+            "description": "A lightweight LLVM python binding for writing JIT compilers"
+        },
+        {
+            "name": "pnmpi",
+            "description": "PnMPI is a dynamic MPI tool infrastructure that builds on top of the\nstandardized PMPI interface."
+        },
+        {
+            "name": "sollve",
+            "description": "The SOLLVE Project aims at scaling OpenMP by leveraging LLVM for\nexascale performance and portability of applications. This package\nprovides a collection of Clang/LLVM compilers and an OpenMP runtime\nlibrary."
+        },
+        {
             "name": "srilm",
             "description": "SRILM (SRI Language Modeling Toolkit) is a toolkit for building and\napplying statistical language models (LMs), primarily for use in speech\nrecognition, statistical tagging and segmentation, and machine\ntranslation."
         },
@@ -250,80 +305,56 @@
             "description": "This package provides a collection of the experimental LLVM projects\ndone by the US DOE research and development teams."
         },
         {
-            "name": "libtree",
-            "description": "ldd as a tree"
-        },
-        {
-            "name": "llvm",
-            "description": "The LLVM Project is a collection of modular and reusable compiler and\ntoolchain technologies. Despite its name, LLVM has little to do with\ntraditional virtual machines, though it does provide helpful libraries\nthat can be used to build them. The name \"LLVM\" itself is not an\nacronym; it is the full name of the project."
-        },
-        {
-            "name": "libxsmm",
-            "description": "Library for specialized dense and sparse matrix operations, and deep\nlearning primitives."
-        },
-        {
-            "name": "apex",
-            "description": "Autonomic Performance Environment for eXascale (APEX)."
-        },
-        {
-            "name": "openmpi",
-            "description": "An open source Message Passing Interface implementation. The Open MPI\nProject is an open source Message Passing Interface implementation that\nis developed and maintained by a consortium of academic, research, and\nindustry partners. Open MPI is therefore able to combine the expertise,\ntechnologies, and resources from all across the High Performance\nComputing community in order to build the best MPI library available.\nOpen MPI offers advantages for system and software vendors, application\ndevelopers and computer science researchers."
-        },
-        {
-            "name": "nvptx-tools",
-            "description": "nvptx-tools: A collection of tools for use with nvptx-none GCC\ntoolchains. These tools are necessary when building a version of GCC\nthat enables offloading of OpenMP/OpenACC code to NVIDIA GPUs."
-        },
-        {
-            "name": "gcc",
-            "description": "The GNU Compiler Collection includes front ends for C, C++, Objective-C,\nFortran, Ada, and Go, as well as libraries for these languages."
-        },
-        {
             "name": "ucx",
             "description": "a communication library implementing high-performance messaging for\nMPI/PGAS frameworks"
-        },
-        {
-            "name": "py-llvmlite",
-            "description": "A lightweight LLVM python binding for writing JIT compilers"
-        },
-        {
-            "name": "hpctoolkit",
-            "description": "HPCToolkit is an integrated suite of tools for measurement and analysis\nof program performance on computers ranging from multicore desktop\nsystems to the nation's largest supercomputers. By using statistical\nsampling of timers and hardware performance counters, HPCToolkit\ncollects accurate measurements of a program's work, resource\nconsumption, and inefficiency and attributes them to the full calling\ncontext in which they occur."
-        },
-        {
-            "name": "ldc-bootstrap",
-            "description": "The LDC project aims to provide a portable D programming language\ncompiler with modern optimization and code generation capabilities. LDC\nis fully Open Source; the parts of the code not taken/adapted from other\nprojects are BSD-licensed (see the LICENSE file for details). Consult\nthe D wiki for further information: https://wiki.dlang.org/LDC This old\nversion of the compiler is needed to bootstrap newer ones."
-        },
-        {
-            "name": "dropwatch",
-            "description": "Dropwatch is a project I started in an effort to improve the ability for\ndevelopers and system administrator to diagnose problems in the Linux\nNetworking stack, specifically in our ability to diagnose where packets\nare getting dropped."
-        },
-        {
-            "name": "spack",
-            "description": "Spack is a multi-platform package manager that builds and installs\nmultiple versions and configurations of software. It works on Linux,\nmacOS, and many supercomputers. Spack is non-destructive: installing a\nnew version of a package does not break existing installations, so many\nconfigurations of the same package can coexist."
-        },
-        {
-            "name": "ldc",
-            "description": "The LDC project aims to provide a portable D programming language\ncompiler with modern optimization and code generation capabilities. LDC\nis fully Open Source; the parts of the code not taken/adapted from other\nprojects are BSD-licensed (see the LICENSE file for details). Consult\nthe D wiki for further information: https://wiki.dlang.org/LDC"
         },
         {
             "name": "tau",
             "description": "A portable profiling and tracing toolkit for performance analysis of\nparallel programs written in Fortran, C, C++, UPC, Java, Python."
         },
         {
-            "name": "kcov",
-            "description": "Code coverage tool for compiled programs, Python and Bash which uses\ndebugging information to collect and report data without special\ncompilation options"
+            "name": "libxsmm",
+            "description": "Library for specialized dense and sparse matrix operations, and deep\nlearning primitives."
+        },
+        {
+            "name": "ldc",
+            "description": "The LDC project aims to provide a portable D programming language\ncompiler with modern optimization and code generation capabilities. LDC\nis fully Open Source; the parts of the code not taken/adapted from other\nprojects are BSD-licensed (see the LICENSE file for details). Consult\nthe D wiki for further information: https://wiki.dlang.org/LDC"
+        },
+        {
+            "name": "hpctoolkit",
+            "description": "HPCToolkit is an integrated suite of tools for measurement and analysis\nof program performance on computers ranging from multicore desktop\nsystems to the nation's largest supercomputers. By using statistical\nsampling of timers and hardware performance counters, HPCToolkit\ncollects accurate measurements of a program's work, resource\nconsumption, and inefficiency and attributes them to the full calling\ncontext in which they occur."
+        },
+        {
+            "name": "cbtf-krell",
+            "description": "CBTF Krell project contains collector and runtime contributions to the\nCBTF project. These contributions include many performance data\ncollectors and support libraries as well as some example tools that\ndrive the data collection at HPC levels of scale."
         },
         {
             "name": "eztrace",
             "description": "EZTrace is a tool to automatically generate execution traces of HPC\napplications."
         },
         {
-            "name": "sollve",
-            "description": "The SOLLVE Project aims at scaling OpenMP by leveraging LLVM for\nexascale performance and portability of applications. This package\nprovides a collection of Clang/LLVM compilers and an OpenMP runtime\nlibrary."
+            "name": "dropwatch",
+            "description": "Dropwatch is a project I started in an effort to improve the ability for\ndevelopers and system administrator to diagnose problems in the Linux\nNetworking stack, specifically in our ability to diagnose where packets\nare getting dropped."
         },
         {
-            "name": "pnmpi",
-            "description": "PnMPI is a dynamic MPI tool infrastructure that builds on top of the\nstandardized PMPI interface."
+            "name": "apex",
+            "description": "Autonomic Performance Environment for eXascale (APEX)."
+        },
+        {
+            "name": "abi-dumper",
+            "description": "ABI Dumper is a tool to dump ABI of an ELF object containing DWARF debug\ninfo."
+        },
+        {
+            "name": "kcov",
+            "description": "Code coverage tool for compiled programs, Python and Bash which uses\ndebugging information to collect and report data without special\ncompilation options"
+        },
+        {
+            "name": "opencarp",
+            "description": "The openCARP simulation software, an open cardiac electrophysiology\nsimulator for in-silico experiments."
+        },
+        {
+            "name": "openmpi",
+            "description": "An open source Message Passing Interface implementation. The Open MPI\nProject is an open source Message Passing Interface implementation that\nis developed and maintained by a consortium of academic, research, and\nindustry partners. Open MPI is therefore able to combine the expertise,\ntechnologies, and resources from all across the High Performance\nComputing community in order to build the best MPI library available.\nOpen MPI offers advantages for system and software vendors, application\ndevelopers and computer science researchers."
         }
     ]
 }
