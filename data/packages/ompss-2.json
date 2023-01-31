@@ -3,11 +3,15 @@
     "aliases": [],
     "versions": [
         {
+            "name": "2022.11",
+            "sha256": "2df1a5c0f01523ebee49596ca0939b3edeae50e6bd76680cc8777d92583e5a1e"
+        },
+        {
             "name": "2021.11.1",
             "sha256": "9e0ee0c9f75cd558882465efc3d521c2fe93f1a6b50d4d9c8e614ab4eb3a9e6c"
         }
     ],
-    "latest_version": "2021.11.1",
+    "latest_version": "2022.11",
     "build_system": "Package",
     "conflicts": [],
     "variants": [
@@ -15,11 +19,17 @@
             "name": "build_system",
             "default": "generic",
             "description": "Build systems supported by the package"
+        },
+        {
+            "name": "extrae",
+            "default": false,
+            "description": "Build with Extrae instrumentation support"
         }
     ],
     "homepage": "https://pm.bsc.es/ompss-2",
     "maintainers": [
-        "dave96"
+        "dave96",
+        "aleixrocks"
     ],
     "patches": [],
     "resources": [
@@ -32,10 +42,6 @@
     ],
     "description": "OmpSs-2 is a data-flow shared-memory programming model based on source\nannotations. It is developed by the Barcelona Supercomputing Center as a\nsuccessor to the StarSs and OmpSs programming models.\n",
     "dependencies": [
-        {
-            "name": "extrae",
-            "description": "Extrae is the package devoted to generate tracefiles which can be\nanalyzed later by Paraver. Extrae is a tool that uses different\ninterposition mechanisms to inject probes into the target application so\nas to gather information regarding the application performance. The\nExtrae instrumentation package can instrument the MPI programin model,\nand the following parallel programming models either alone or in\nconjunction with MPI : OpenMP, CUDA, OpenCL, pthread, OmpSs"
-        },
         {
             "name": "hwloc",
             "description": "The Hardware Locality (hwloc) software project. The Portable Hardware\nLocality (hwloc) software package provides a portable abstraction\n(across OS, versions, architectures, ...) of the hierarchical topology\nof modern architectures, including NUMA memory nodes, sockets, shared\ncaches, cores and simultaneous multithreading. It also gathers various\nsystem attributes such as cache and memory information as well as the\nlocality of I/O devices such as network interfaces, InfiniBand HCAs or\nGPUs. It primarily aims at helping applications with gathering\ninformation about modern computing hardware so as to exploit it\naccordingly and efficiently."
@@ -51,6 +57,10 @@
         {
             "name": "cmake",
             "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
+        },
+        {
+            "name": "extrae",
+            "description": "Extrae is the package devoted to generate tracefiles which can be\nanalyzed later by Paraver. Extrae is a tool that uses different\ninterposition mechanisms to inject probes into the target application so\nas to gather information regarding the application performance. The\nExtrae instrumentation package can instrument the MPI programin model,\nand the following parallel programming models either alone or in\nconjunction with MPI : OpenMP, CUDA, OpenCL, pthread, OmpSs"
         }
     ],
     "dependent_to": []
