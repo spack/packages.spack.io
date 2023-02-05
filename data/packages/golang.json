@@ -1,48 +1,37 @@
 {
-    "name": "go-bootstrap",
+    "name": "go",
     "aliases": [
         {
-            "name": "golang@:1.4-bootstrap-20171003",
-            "alias_for": "{go-bootstrap}"
-        },
-        {
-            "name": "go-external-or-gccgo-bootstrap",
-            "alias_for": "{go-bootstrap}"
+            "name": "golang",
+            "alias_for": "{go}"
         }
     ],
     "versions": [
         {
-            "name": "1.4-bootstrap-20171003",
-            "sha256": "f4ff5b5eb3a3cae1c993723f3eab519c5bae18866b5e5f96fe1102f0cb5c3e52",
-            "url": "https://dl.google.com/go/go1.4-bootstrap-20171003.tar.gz"
+            "name": "1.19.5",
+            "sha256": "8e486e8e85a281fc5ce3f0bedc5b9d2dbf6276d7db0b25d3ec034f313da0375f"
         },
         {
-            "name": "1.4-bootstrap-20170531",
-            "sha256": "49f806f66762077861b7de7081f586995940772d29d4c45068c134441a743fa2",
-            "url": "https://storage.googleapis.com/golang/go1.4-bootstrap-20170531.tar.gz"
+            "name": "1.19.4",
+            "sha256": "eda74db4ac494800a3e66ee784e495bfbb9b8e535df924a8b01b1a8028b7f368",
+            "deprecated": true
         },
         {
-            "name": "1.4-bootstrap-20161024",
-            "sha256": "398c70d9d10541ba9352974cc585c43220b6d8dbcd804ba2c9bd2fbf35fab286",
-            "url": "https://storage.googleapis.com/golang/go1.4-bootstrap-20161024.tar.gz"
+            "name": "1.18.10",
+            "sha256": "9cedcca58845df0c9474ae00274c44a95c9dfaefb132fc59921c28c7c106f8e6"
+        },
+        {
+            "name": "1.18.9",
+            "sha256": "fbe7f09b96aca3db6faeaf180da8bb632868ec049731e355ff61695197c0e3ea",
+            "deprecated": true
         }
     ],
-    "latest_version": "1.4-bootstrap-20171003",
+    "latest_version": "1.19.5",
     "build_system": "Package",
     "conflicts": [
         {
-            "name": "os=monterey",
-            "spec": "",
-            "description": "go-bootstrap won't build on MacOS Monterey: try `brew install go` and `spack external find go`"
-        },
-        {
-            "name": "target=aarch64:",
-            "spec": "",
-            "description": "Go bootstrap doesn't support aarch64 architectures"
-        },
-        {
-            "name": "@:1.4",
-            "spec": "arch=None-None-aarch64:",
+            "name": "%gcc@:4",
+            "spec": "@1.17:",
             "description": "None"
         }
     ],
@@ -54,14 +43,37 @@
         }
     ],
     "homepage": "https://golang.org",
-    "maintainers": [],
-    "patches": [],
+    "maintainers": [
+        "alecbcs"
+    ],
+    "patches": [
+        {
+            "owner": "builtin.go",
+            "sha256": "017fc194dadb260326eea1159e04379f845fb10fe13d3c311687d55756764ede",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "time_test.patch",
+            "version": "@1.6.4:1.7.4"
+        },
+        {
+            "owner": "builtin.go",
+            "sha256": "e37ee689900e26e7fe6fd60db78c8ba7f8f4da564852d741475c99ba7a8a354d",
+            "level": 0,
+            "working_dir": ".",
+            "relative_path": "misc-cgo-testcshared.patch",
+            "version": "@1.6.4:1.7.5"
+        }
+    ],
     "resources": [],
-    "description": "Old C-bootstrapped go to bootstrap real go\n",
+    "description": "The golang compiler and build environment\n",
     "dependencies": [
         {
             "name": "git",
             "description": "Git is a free and open source distributed version control system\ndesigned to handle everything from small to very large projects with\nspeed and efficiency."
+        },
+        {
+            "name": "go-bootstrap",
+            "description": "Old C-bootstrapped go to bootstrap real go"
         }
     ],
     "dependent_to": []
