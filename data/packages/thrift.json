@@ -3,6 +3,10 @@
     "aliases": [],
     "versions": [
         {
+            "name": "0.17.0",
+            "sha256": "b272c1788bb165d99521a2599b31b97fa69e5931d099015d91ae107a0b0cc58f"
+        },
+        {
             "name": "0.16.0",
             "sha256": "f460b5c1ca30d8918ff95ea3eb6291b3951cf518553566088f3f2be8981f6209"
         },
@@ -27,7 +31,7 @@
             "sha256": "b0740a070ac09adde04d43e852ce4c320564a292f26521c46b78e0641564969e"
         }
     ],
-    "latest_version": "0.16.0",
+    "latest_version": "0.17.0",
     "build_system": "Package",
     "conflicts": [],
     "variants": [
@@ -37,14 +41,19 @@
             "description": "Build systems supported by the package"
         },
         {
+            "name": "pic",
+            "default": true,
+            "description": "Build position independent code"
+        },
+        {
             "name": "c",
             "default": true,
             "description": "Build support for C-family languages"
         },
         {
-            "name": "pic",
-            "default": true,
-            "description": "Build position independent code"
+            "name": "java",
+            "default": false,
+            "description": "Build support for java"
         },
         {
             "name": "python",
@@ -53,7 +62,9 @@
         }
     ],
     "homepage": "https://thrift.apache.org",
-    "maintainers": [],
+    "maintainers": [
+        "thomas-bouvier"
+    ],
     "patches": [
         {
             "owner": "builtin.thrift",
@@ -69,11 +80,7 @@
     "dependencies": [
         {
             "name": "pkgconfig",
-            "description": "pkgconf is a program which helps to configure compiler and linker flags\nfor development frameworks. It is similar to pkg-config from\nfreedesktop.org, providing additional functionality while also\nmaintaining compatibility."
-        },
-        {
-            "name": "java",
-            "description": "The free and opensource java implementation"
+            "description": "pkg-config is a helper tool used when compiling applications and\nlibraries"
         },
         {
             "name": "autoconf",
@@ -102,6 +109,22 @@
         {
             "name": "openssl",
             "description": "OpenSSL is an open source project that provides a robust, commercial-\ngrade, and full-featured toolkit for the Transport Layer Security (TLS)\nand Secure Sockets Layer (SSL) protocols. It is also a general-purpose\ncryptography library."
+        },
+        {
+            "name": "zlib",
+            "description": "A free, general-purpose, legally unencumbered lossless data-compression\nlibrary."
+        },
+        {
+            "name": "libevent",
+            "description": "The libevent API provides a mechanism to execute a callback function\nwhen a specific event occurs on a file descriptor or after a timeout has\nbeen reached. Furthermore, libevent also support callbacks due to\nsignals or regular timeouts."
+        },
+        {
+            "name": "java",
+            "description": "The Java Development Kit (JDK) released by Oracle Corporation in the\nform of a binary product aimed at Java developers. Includes a complete\nJRE plus tools for developing, debugging, and monitoring Java\napplications."
+        },
+        {
+            "name": "ant",
+            "description": "Apache Ant is a Java library and command-line tool whose mission is to\ndrive processes described in build files as targets and extension points\ndependent upon each other"
         },
         {
             "name": "python",
@@ -134,28 +157,20 @@
         {
             "name": "scons",
             "description": "SCons is a software construction tool"
-        },
-        {
-            "name": "zlib",
-            "description": "A free, general-purpose, legally unencumbered lossless data-compression\nlibrary."
-        },
-        {
-            "name": "libevent",
-            "description": "The libevent API provides a mechanism to execute a callback function\nwhen a specific event occurs on a file descriptor or after a timeout has\nbeen reached. Furthermore, libevent also support callbacks due to\nsignals or regular timeouts."
         }
     ],
     "dependent_to": [
         {
-            "name": "parquet-cpp",
-            "description": "C++ bindings for the Apache Parquet columnar data format."
+            "name": "arrow",
+            "description": "A cross-language development platform for in-memory data. This package\ncontains the C++ bindings."
         },
         {
             "name": "parquet-format",
             "description": "ParquetFormat is a columnar storage format that supports nested data."
         },
         {
-            "name": "arrow",
-            "description": "A cross-language development platform for in-memory data. This package\ncontains the C++ bindings."
+            "name": "parquet-cpp",
+            "description": "C++ bindings for the Apache Parquet columnar data format."
         }
     ]
 }
