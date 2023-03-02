@@ -8,10 +8,15 @@
             "submodules": true
         },
         {
-            "name": "0.8.0",
-            "tag": "v0.8.0",
+            "name": "0.9.0",
+            "tag": "v0.9.0",
             "submodules": true,
             "preferred": true
+        },
+        {
+            "name": "0.8.0",
+            "tag": "v0.8.0",
+            "submodules": true
         },
         {
             "name": "0.7.1",
@@ -29,7 +34,7 @@
             "submodules": true
         }
     ],
-    "latest_version": "0.8.0",
+    "latest_version": "0.9.0",
     "build_system": "CMakePackage",
     "conflicts": [
         {
@@ -435,6 +440,16 @@
             "description": "build openmp support"
         },
         {
+            "name": "raja",
+            "default": true,
+            "description": "Build with RAJA support"
+        },
+        {
+            "name": "umpire",
+            "default": true,
+            "description": "Build with Umpire support"
+        },
+        {
             "name": "mfem",
             "default": false,
             "description": "Build MFEM filter support"
@@ -453,6 +468,11 @@
             "name": "fides",
             "default": false,
             "description": "Build Fides filter support"
+        },
+        {
+            "name": "caliper",
+            "default": false,
+            "description": "Build Caliper support"
         },
         {
             "name": "doc",
@@ -536,11 +556,19 @@
         },
         {
             "name": "mpi",
-            "description": "HPE MPI is HPE's implementation of the Message Passing Interface (MPI)\nstandard. Note: HPE MPI is proprietry software. Spack will search your\ncurrent directory for the download file. Alternatively, add this file to\na mirror so that Spack can find it. For instructions on how to set up a\nmirror, see https://spack.readthedocs.io/en/latest/mirrors.html"
+            "description": "A single processor implementation of the mpi library."
         },
         {
             "name": "py-mpi4py",
             "description": "This package provides Python bindings for the Message Passing Interface\n(MPI) standard. It is implemented on top of the MPI-1/MPI-2\nspecification and exposes an API which grounds on the standard MPI-2 C++\nbindings."
+        },
+        {
+            "name": "raja",
+            "description": "RAJA Parallel Framework."
+        },
+        {
+            "name": "umpire",
+            "description": "An application-focused API for memory management on NUMA & GPU\narchitectures"
         },
         {
             "name": "babelflow",
@@ -551,12 +579,12 @@
             "description": "A multi-runtime implementation of a distributed merge tree segmentation\nalgorithm. The implementation relies on the framework BabelFlow, which\nallows to execute the algorithm on different runtime systems."
         },
         {
-            "name": "vtk-h",
-            "description": "VTK-h is a toolkit of scientific visualization algorithms for emerging\nprocessor architectures. VTK-h brings together several projects like\nVTK-m and DIY2 to provide a toolkit with hybrid parallel capabilities."
-        },
-        {
             "name": "vtk-m",
             "description": "VTK-m is a toolkit of scientific visualization algorithms for emerging\nprocessor architectures. VTK-m supports the fine-grained concurrency for\ndata analysis and visualization algorithms required to drive extreme\nscale computing by providing abstract models for data and execution that\ncan be applied to a variety of algorithms across many different\nprocessor architectures."
+        },
+        {
+            "name": "vtk-h",
+            "description": "VTK-h is a toolkit of scientific visualization algorithms for emerging\nprocessor architectures. VTK-h brings together several projects like\nVTK-m and DIY2 to provide a toolkit with hybrid parallel capabilities."
         },
         {
             "name": "mfem",
@@ -575,6 +603,10 @@
             "description": "The Adaptable Input Output System version 2, developed in the Exascale\nComputing Program"
         },
         {
+            "name": "caliper",
+            "description": "Caliper is a program instrumentation and performance measurement\nframework. It is designed as a performance analysis toolbox in a\nlibrary, allowing one to bake performance analysis capabilities directly\ninto applications and activate them at runtime."
+        },
+        {
             "name": "py-sphinx",
             "description": "Sphinx Documentation Generator."
         },
@@ -585,24 +617,24 @@
     ],
     "dependent_to": [
         {
-            "name": "amr-wind",
-            "description": "AMR-Wind is a massively parallel, block-structured adaptive-mesh,\nincompressible flow sover for wind turbine and wind farm simulations."
-        },
-        {
-            "name": "ecp-data-vis-sdk",
-            "description": "ECP Data & Vis SDK"
-        },
-        {
             "name": "miniapp-ascent",
             "description": "Pantheon/E4S/Ascent in-situ miniapp example workflow"
+        },
+        {
+            "name": "warpx",
+            "description": "WarpX is an advanced electromagnetic Particle-In-Cell code. It supports\nmany features including Perfectly-Matched Layers (PML) and mesh\nrefinement. In addition, WarpX is a highly-parallel and highly-optimized\ncode and features hybrid OpenMP/MPI parallelization, advanced\nvectorization techniques and load balancing capabilities. For WarpX'\nPython bindings and PICMI input support, see the 'py-warpx' package."
+        },
+        {
+            "name": "amr-wind",
+            "description": "AMR-Wind is a massively parallel, block-structured adaptive-mesh,\nincompressible flow sover for wind turbine and wind farm simulations."
         },
         {
             "name": "sensei",
             "description": "SENSEI is a platform for scalable in-situ analysis and visualization.\nIts design motto is \"Write once, run everywhere\", this means that once\nthe application is instrumented with SENSEI it can use existing and\nfuture analysis backends. Existing backends include: Paraview/Catalyst,\nVisit/Libsim, ADIOS, Python scripts, and so on."
         },
         {
-            "name": "warpx",
-            "description": "WarpX is an advanced electromagnetic Particle-In-Cell code. It supports\nmany features including Perfectly-Matched Layers (PML) and mesh\nrefinement. In addition, WarpX is a highly-parallel and highly-optimized\ncode and features hybrid OpenMP/MPI parallelization, advanced\nvectorization techniques and load balancing capabilities. For WarpX'\nPython bindings and PICMI input support, see the 'py-warpx' package."
+            "name": "ecp-data-vis-sdk",
+            "description": "ECP Data & Vis SDK"
         }
     ]
 }
