@@ -1,115 +1,23 @@
 {
-    "name": "elfutils",
+    "name": "libelf",
     "aliases": [
         {
-            "name": "elf@1",
-            "alias_for": "{elfutils}"
+            "name": "elf@0",
+            "alias_for": "{libelf}"
         }
     ],
     "versions": [
         {
-            "name": "0.188",
-            "sha256": "fb8b0e8d0802005b9a309c60c1d8de32dd2951b56f0c3a3cb56d21ce01595dff"
-        },
-        {
-            "name": "0.187",
-            "sha256": "e70b0dfbe610f90c4d1fe0d71af142a4e25c3c4ef9ebab8d2d72b65159d454c8"
-        },
-        {
-            "name": "0.186",
-            "sha256": "7f6fb9149b1673d38d9178a0d3e0fb8a1ec4f53a9f4c2ff89469609879641177"
-        },
-        {
-            "name": "0.185",
-            "sha256": "dc8d3e74ab209465e7f568e1b3bb9a5a142f8656e2b57d10049a73da2ae6b5a6"
-        },
-        {
-            "name": "0.184",
-            "sha256": "87e7d1d7f0333815dd1f62135d047a4dc4082068f361452f357997c11360644b"
-        },
-        {
-            "name": "0.183",
-            "sha256": "c3637c208d309d58714a51e61e63f1958808fead882e9b607506a29e5474f2c5"
-        },
-        {
-            "name": "0.182",
-            "sha256": "ecc406914edf335f0b7fc084ebe6c460c4d6d5175bfdd6688c1c78d9146b8858"
-        },
-        {
-            "name": "0.181",
-            "sha256": "29a6ad7421ec2acfee489bb4a699908281ead2cb63a20a027ce8804a165f0eb3"
-        },
-        {
-            "name": "0.180",
-            "sha256": "b827b6e35c59d188ba97d7cf148fa8dc6f5c68eb6c5981888dfdbb758c0b569d"
-        },
-        {
-            "name": "0.179",
-            "sha256": "25a545566cbacaa37ae6222e58f1c48ea4570f53ba991886e2f5ce96e22a23a2"
-        },
-        {
-            "name": "0.178",
-            "sha256": "31e7a00e96d4e9c4bda452e1f2cdac4daf8abd24f5e154dee232131899f3a0f2"
-        },
-        {
-            "name": "0.177",
-            "sha256": "fa489deccbcae7d8c920f60d85906124c1989c591196d90e0fd668e3dc05042e"
-        },
-        {
-            "name": "0.176",
-            "sha256": "eb5747c371b0af0f71e86215a5ebb88728533c3a104a43d4231963f308cd1023"
-        },
-        {
-            "name": "0.175",
-            "sha256": "f7ef925541ee32c6d15ae5cb27da5f119e01a5ccdbe9fe57bf836730d7b7a65b"
-        },
-        {
-            "name": "0.174",
-            "sha256": "cdf27e70076e10a29539d89e367101d516bc4aa11b0d7777fe52139e3fcad08a"
-        },
-        {
-            "name": "0.173",
-            "sha256": "b76d8c133f68dad46250f5c223482c8299d454a69430d9aa5c19123345a000ff"
-        },
-        {
-            "name": "0.170",
-            "sha256": "1f844775576b79bdc9f9c717a50058d08620323c1e935458223a12f249c9e066"
-        },
-        {
-            "name": "0.168",
-            "sha256": "b88d07893ba1373c7dd69a7855974706d05377766568a7d9002706d5de72c276"
-        },
-        {
-            "name": "0.163",
-            "sha256": "7c774f1eef329309f3b05e730bdac50013155d437518a2ec0e24871d312f2e23"
+            "name": "0.8.13",
+            "sha256": "591a9b4ec81c1f2042a97aa60564e0cb79d041c52faa7416acb38bc95bd2c76d"
         }
     ],
-    "latest_version": "0.188",
+    "latest_version": "0.8.13",
     "build_system": "AutotoolsPackage",
     "conflicts": [
         {
             "name": "platform=windows",
             "spec": "build_system=autotools",
-            "description": "None"
-        },
-        {
-            "name": "%gcc@7.2.0:",
-            "spec": "@0.163",
-            "description": "None"
-        },
-        {
-            "name": "%apple-clang",
-            "spec": "",
-            "description": "None"
-        },
-        {
-            "name": "%clang",
-            "spec": "",
-            "description": "None"
-        },
-        {
-            "name": "%cce",
-            "spec": "",
             "description": "None"
         }
     ],
@@ -118,143 +26,83 @@
             "name": "build_system",
             "default": "autotools",
             "description": "Build systems supported by the package"
-        },
-        {
-            "name": "bzip2",
-            "default": false,
-            "description": "Support bzip2 compressed sections."
-        },
-        {
-            "name": "xz",
-            "default": false,
-            "description": "Support xz (lzma) compressed sections."
-        },
-        {
-            "name": "zstd",
-            "default": false,
-            "description": "Support zstd compressed sections."
-        },
-        {
-            "name": "nls",
-            "default": true,
-            "description": "Enable Native Language Support."
-        },
-        {
-            "name": "debuginfod",
-            "default": false,
-            "description": "Enable libdebuginfod support."
         }
     ],
-    "homepage": "https://fedorahosted.org/elfutils/",
-    "maintainers": [
-        "mwkrentel"
-    ],
-    "patches": [
-        {
-            "owner": "builtin.elfutils",
-            "sha256": "d786d49c28d7f0c8fc27bab39ca8714e5f4d128c7f09bb18533a8ec99b38dbf8",
-            "level": 1,
-            "working_dir": ".",
-            "url": "https://794601.bugs.gentoo.org/attachment.cgi?id=714030",
-            "version": "@0.185"
-        }
-    ],
+    "homepage": "https://directory.fsf.org/wiki/Libelf",
+    "maintainers": [],
+    "patches": [],
     "resources": [],
-    "description": "elfutils is a collection of various binary tools such as eu-objdump, eu-\nreadelf, and other utilities that allow you to inspect and manipulate\nELF files. Refer to Table 5.Tools Included in elfutils for Red Hat\nDeveloper for a complete list of binary tools that are distributed with\nthe Red Hat Developer Toolset version of elfutils.\n",
+    "description": "libelf lets you read, modify or create ELF object files in an\narchitecture-independent way. The library takes care of size and endian\nissues, e.g. you can process a file for SPARC processors on an Intel-\nbased system. Note: libelf is no longer maintained and packages that\ndepend on libelf should migrate to elfutils.\n",
     "dependencies": [
         {
             "name": "gnuconfig",
             "description": "The GNU config.guess and config.sub scripts versioned by timestamp.\nThis package can be used as a build dependency for autotools packages\nthat ship a tarball with outdated config.guess and config.sub files."
         },
         {
-            "name": "bzip2",
-            "description": "bzip2 is a freely available, patent free high-quality data compressor.\nIt typically compresses files to within 10% to 15% of the best available\ntechniques (the PPM family of statistical compressors), whilst being\naround twice as fast at compression and six times faster at\ndecompression."
+            "name": "automake",
+            "description": "Automake -- make file builder part of autotools"
         },
         {
-            "name": "xz",
-            "description": "XZ Utils is free general-purpose data compression software with high\ncompression ratio. XZ Utils were written for POSIX-like systems, but\nalso work on some not-so-POSIX systems. XZ Utils are the successor to\nLZMA Utils."
+            "name": "autoconf",
+            "description": "Autoconf -- system configuration part of autotools"
         },
         {
-            "name": "zstd",
-            "description": "Zstandard, or zstd as short version, is a fast lossless compression\nalgorithm, targeting real-time compression scenarios at zlib-level and\nbetter compression ratios."
-        },
-        {
-            "name": "zlib",
-            "description": "A free, general-purpose, legally unencumbered lossless data-compression\nlibrary."
-        },
-        {
-            "name": "gettext",
-            "description": "GNU internationalization (i18n) and localization (l10n) library."
+            "name": "libtool",
+            "description": "libtool -- library building part of autotools."
         },
         {
             "name": "m4",
             "description": "GNU M4 is an implementation of the traditional Unix macro processor."
-        },
-        {
-            "name": "libmicrohttpd",
-            "description": "GNU libmicrohttpd is a small C library that is supposed to make it easy\nto run an HTTP server as part of another application."
-        },
-        {
-            "name": "libarchive",
-            "description": "libarchive: C library and command-line tools for reading and writing\ntar, cpio, zip, ISO, and other archive formats."
-        },
-        {
-            "name": "sqlite",
-            "description": "SQLite is a C-language library that implements a small, fast, self-\ncontained, high-reliability, full-featured, SQL database engine."
-        },
-        {
-            "name": "curl",
-            "description": "cURL is an open source command line tool and library for transferring\ndata with URL syntax"
         }
     ],
     "dependent_to": [
         {
-            "name": "fast-global-file-status",
-            "description": "provides a scalable mechanism to retrieve such information of a file,\nincluding its degree of distribution or replication and consistency."
-        },
-        {
-            "name": "libdwarf",
-            "description": "The DWARF Debugging Information Format is of interest to programmers\nworking on compilers and debuggers (and any one interested in reading or\nwriting DWARF information). It was developed by a committee (known as\nthe PLSIG at the time) starting around 1991. Starting around 1991 SGI\ndeveloped the libdwarf and dwarfdump tools for internal use and as part\nof SGI IRIX developer tools. Since that time dwarfdump and libdwarf have\nbeen shipped (as an executable and archive respectively, not source)\nwith every release of the SGI MIPS/IRIX C compiler."
-        },
-        {
-            "name": "tau",
-            "description": "A portable profiling and tracing toolkit for performance analysis of\nparallel programs written in Fortran, C, C++, UPC, Java, Python."
+            "name": "extrae",
+            "description": "Extrae is the package devoted to generate tracefiles which can be\nanalyzed later by Paraver. Extrae is a tool that uses different\ninterposition mechanisms to inject probes into the target application so\nas to gather information regarding the application performance. The\nExtrae instrumentation package can instrument the MPI programin model,\nand the following parallel programming models either alone or in\nconjunction with MPI : OpenMP, CUDA, OpenCL, pthread, OmpSs"
         },
         {
             "name": "dwz",
             "description": "DWZ: A DWARF optimization and duplicate removal tool"
         },
         {
-            "name": "glib",
-            "description": "GLib provides the core application building blocks for libraries and\napplications written in C. The GLib package contains a low-level\nlibraries useful for providing data structure handling for C,\nportability wrappers and interfaces for such runtime functionality as an\nevent loop, threads, dynamic loading and an object system."
-        },
-        {
-            "name": "hsa-rocr-dev",
-            "description": "This repository includes the user mode API nterfaces and libraries\nnecessary for host applications to launch computer kernels to available\nHSA ROCm kernel agents.AMD Heterogeneous System Architecture HSA - Linux\nHSA Runtime for Boltzmann (ROCm) platforms."
-        },
-        {
-            "name": "extrae",
-            "description": "Extrae is the package devoted to generate tracefiles which can be\nanalyzed later by Paraver. Extrae is a tool that uses different\ninterposition mechanisms to inject probes into the target application so\nas to gather information regarding the application performance. The\nExtrae instrumentation package can instrument the MPI programin model,\nand the following parallel programming models either alone or in\nconjunction with MPI : OpenMP, CUDA, OpenCL, pthread, OmpSs"
+            "name": "launchmon",
+            "description": "Software infrastructure that enables HPC run-time tools to co-locate\ntool daemons with a parallel job."
         },
         {
             "name": "atmi",
             "description": "Asynchronous Task and Memory Interface, or ATMI, is a runtime framework\nand programming model for heterogeneous CPU-GPU systems. It provides a\nconsistent, declarative API to create task graphs on CPUs and GPUs\n(integrated and discrete)."
         },
         {
-            "name": "callpath",
-            "description": "Library for representing callpaths consistently in distributed-memory\nperformance tools."
-        },
-        {
-            "name": "launchmon",
-            "description": "Software infrastructure that enables HPC run-time tools to co-locate\ntool daemons with a parallel job."
-        },
-        {
-            "name": "llvm-amdgpu",
-            "description": "Toolkit for the construction of highly optimized compilers, optimizers,\nand run-time environments."
+            "name": "tau",
+            "description": "A portable profiling and tracing toolkit for performance analysis of\nparallel programs written in Fortran, C, C++, UPC, Java, Python."
         },
         {
             "name": "llvm-openmp-ompt",
             "description": "The OpenMP subproject provides an OpenMP runtime for use with the OpenMP\nimplementation in Clang. This branch includes experimental changes for\nOMPT, the OpenMP Tools interface"
+        },
+        {
+            "name": "glib",
+            "description": "GLib provides the core application building blocks for libraries and\napplications written in C. The GLib package contains a low-level\nlibraries useful for providing data structure handling for C,\nportability wrappers and interfaces for such runtime functionality as an\nevent loop, threads, dynamic loading and an object system."
+        },
+        {
+            "name": "callpath",
+            "description": "Library for representing callpaths consistently in distributed-memory\nperformance tools."
+        },
+        {
+            "name": "libdwarf",
+            "description": "The DWARF Debugging Information Format is of interest to programmers\nworking on compilers and debuggers (and any one interested in reading or\nwriting DWARF information). It was developed by a committee (known as\nthe PLSIG at the time) starting around 1991. Starting around 1991 SGI\ndeveloped the libdwarf and dwarfdump tools for internal use and as part\nof SGI IRIX developer tools. Since that time dwarfdump and libdwarf have\nbeen shipped (as an executable and archive respectively, not source)\nwith every release of the SGI MIPS/IRIX C compiler."
+        },
+        {
+            "name": "hsa-rocr-dev",
+            "description": "This repository includes the user mode API nterfaces and libraries\nnecessary for host applications to launch computer kernels to available\nHSA ROCm kernel agents.AMD Heterogeneous System Architecture HSA - Linux\nHSA Runtime for Boltzmann (ROCm) platforms."
+        },
+        {
+            "name": "fast-global-file-status",
+            "description": "provides a scalable mechanism to retrieve such information of a file,\nincluding its degree of distribution or replication and consistency."
+        },
+        {
+            "name": "llvm-amdgpu",
+            "description": "Toolkit for the construction of highly optimized compilers, optimizers,\nand run-time environments."
         },
         {
             "name": "llvm",
