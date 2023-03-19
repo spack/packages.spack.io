@@ -37,7 +37,13 @@
     ],
     "latest_version": "6.4.2",
     "build_system": "CMakePackage",
-    "conflicts": [],
+    "conflicts": [
+        {
+            "name": "generator=make",
+            "spec": "",
+            "description": "None"
+        }
+    ],
     "variants": [
         {
             "name": "build_system",
@@ -53,6 +59,11 @@
             "name": "ipo",
             "default": false,
             "description": "CMake interprocedural optimization"
+        },
+        {
+            "name": "generator",
+            "default": "ninja",
+            "description": "the build system generator to use"
         }
     ],
     "homepage": "https://www.qt.io",
@@ -67,6 +78,10 @@
         {
             "name": "cmake",
             "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
+        },
+        {
+            "name": "gmake",
+            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files."
         },
         {
             "name": "ninja",
@@ -91,12 +106,12 @@
     ],
     "dependent_to": [
         {
-            "name": "qt-quick3d",
-            "description": "A new module and API for defining 3D content in Qt Quick."
-        },
-        {
             "name": "qt-quicktimeline",
             "description": "Module for keyframe-based timeline construction."
+        },
+        {
+            "name": "qt-quick3d",
+            "description": "A new module and API for defining 3D content in Qt Quick."
         }
     ]
 }
