@@ -9,7 +9,7 @@ and one that updates itself nightly? This is the spack packages repository!
 ![img/portal.png](img/portal.png)
 
 
-⭐️ [See the Packages!](https://spack.github.io/packages/) ⭐️
+⭐️ [See the Packages!](https://packages.spack.io) ⭐️
 
 ## Usage
 
