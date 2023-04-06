@@ -1,23 +1,40 @@
 {
-    "name": "ossp-uuid",
+    "name": "util-linux-uuid",
     "aliases": [
         {
             "name": "uuid",
-            "alias_for": "{ossp-uuid}"
+            "alias_for": "{util-linux-uuid}"
         }
     ],
     "versions": [
         {
-            "name": "1.6.2",
-            "sha256": "11a615225baa5f8bb686824423f50e4427acd3f70d394765bdff32801f0fd5b0"
+            "name": "2.38.1",
+            "sha256": "0820eb8eea90408047e3715424bc6be771417047f683950fecb4bdd2e2cbbc6e"
+        },
+        {
+            "name": "2.37.4",
+            "sha256": "c8b7b4fa541f974cc32c1c6559d9bfca33651020a456ad6ee5fc9b0cacd00151"
+        },
+        {
+            "name": "2.36.2",
+            "sha256": "f5dbe79057e7d68e1a46fc04083fc558b26a49499b1b3f50e4f4893150970463"
+        },
+        {
+            "name": "2.36",
+            "sha256": "82942cd877a989f6d12d4ce2c757fb67ec53d8c5cd9af0537141ec5f84a2eea3"
         }
     ],
-    "latest_version": "1.6.2",
+    "latest_version": "2.38.1",
     "build_system": "AutotoolsPackage",
     "conflicts": [
         {
             "name": "platform=windows",
             "spec": "build_system=autotools",
+            "description": "None"
+        },
+        {
+            "name": "%gcc@:4",
+            "spec": "@2.37:",
             "description": "None"
         }
     ],
@@ -28,117 +45,109 @@
             "description": "Build systems supported by the package"
         }
     ],
-    "homepage": "http://www.ossp.org/pkg/lib/uuid",
+    "homepage": "https://github.com/util-linux/util-linux",
     "maintainers": [],
     "patches": [],
     "resources": [],
-    "description": "OSSP uuid is a ISO-C:1999 application programming interface (API) and\ncorresponding command line interface (CLI) for the generation of DCE\n1.1, ISO/IEC 11578:1996 and RFC 4122 compliant Universally Unique\nIdentifier (UUID).\n",
+    "description": "Util-linux is a suite of essential utilities for any Linux system.\n",
     "dependencies": [
         {
             "name": "gnuconfig",
             "description": "The GNU config.guess and config.sub scripts versioned by timestamp.\nThis package can be used as a build dependency for autotools packages\nthat ship a tarball with outdated config.guess and config.sub files."
+        },
+        {
+            "name": "pkgconfig",
+            "description": "pkgconf is a program which helps to configure compiler and linker flags\nfor development frameworks. It is similar to pkg-config from\nfreedesktop.org, providing additional functionality while also\nmaintaining compatibility."
         }
     ],
     "dependent_to": [
         {
-            "name": "libdap4",
-            "description": "libdap4 is is a c++ library to serve as a client for the OPeNDAP\nframework that simplifies all aspects of scientific data networking and\nprovides software which makes local data accessible to remote locations\nregardless of local storage format."
-        },
-        {
-            "name": "psm",
-            "description": "Intel Performance scaled messaging library"
-        },
-        {
-            "name": "davix",
-            "description": "High-performance file management over WebDAV/HTTP."
+            "name": "cdo",
+            "description": "CDO is a collection of command line Operators to manipulate and analyse\nClimate and NWP model Data."
         },
         {
             "name": "fontconfig",
             "description": "Fontconfig is a library for configuring/customizing font access"
         },
         {
-            "name": "singularity",
-            "description": "Singularity is a container technology focused on building portable\nencapsulated environments to support \"Mobility of Compute\" For older\nversions of Singularity (pre 3.0) you should use singularity-legacy,\nwhich has a different install base (Autotools). Needs post-install\nchmod/chown steps to enable full functionality. See package definition\nor `spack-build-out.txt` build log for details, e.g. tail -15 $(spack\nlocation -i singularity)/.spack/spack-build-out.txt"
+            "name": "xfsprogs",
+            "description": "XFS User Tools."
         },
         {
-            "name": "apr",
-            "description": "Apache portable runtime."
+            "name": "psm",
+            "description": "Intel Performance scaled messaging library"
         },
         {
-            "name": "scitokens-cpp",
-            "description": "A C++ implementation of the SciTokens library with a C library\ninterface. SciTokens provide a token format for distributed\nauthorization."
-        },
-        {
-            "name": "netdata",
-            "description": "Real-time performance monitoring, done right!"
-        },
-        {
-            "name": "open-iscsi",
-            "description": "The Open-iSCSI project is a high-performance, transport independent,\nmulti-platform implementation of RFC3720 iSCSI."
-        },
-        {
-            "name": "guacamole-server",
-            "description": "The guacamole-server package is a set of software which forms the basis\nof the Guacamole stack. It consists of guacd, libguac, and several\nprotocol support libraries."
+            "name": "serf",
+            "description": "Apache Serf - a high performance C-based HTTP client library built upon\nthe Apache Portable Runtime (APR) library"
         },
         {
             "name": "libsm",
             "description": "libSM - X Session Management Library."
         },
         {
-            "name": "openbabel",
-            "description": "Open Babel is a chemical toolbox designed to speak the many languages of\nchemical data. It's an open, collaborative project allowing anyone to\nsearch, convert, analyze, or store data from molecular modeling,\nchemistry, solid-state materials, biochemistry, or related areas."
-        },
-        {
-            "name": "libfabric",
-            "description": "The Open Fabrics Interfaces (OFI) is a framework focused on exporting\nfabric communication services to applications."
-        },
-        {
-            "name": "glusterfs",
-            "description": "Gluster is a software defined distributed storage that can scale to\nseveral petabytes. It provides interfaces for object, block and file\nstorage."
-        },
-        {
-            "name": "xeus",
-            "description": "QuantStack C++ implementation of Jupyter kernel protocol"
-        },
-        {
-            "name": "xfsprogs",
-            "description": "XFS User Tools."
-        },
-        {
-            "name": "flux-sched",
-            "description": "A scheduler for flux-core (pre-alpha)"
-        },
-        {
-            "name": "apptainer",
-            "description": "Apptainer is an open source container platform designed to be simple,\nfast, and secure. Many container platforms are available, but Apptainer\nis designed for ease-of-use on shared systems and in high performance\ncomputing (HPC) environments. Needs post-install chmod/chown steps to\nenable full functionality. See package definition or `spack-build-\nout.txt` build log for details, e.g.:: tail -15 $(spack location -i\napptainer)/.spack/spack-build-out.txt"
-        },
-        {
-            "name": "gaudi",
-            "description": "An experiment-independent HEP event data processing framework"
-        },
-        {
-            "name": "singularityce",
-            "description": "Singularity is a container technology focused on building portable\nencapsulated environments to support \"Mobility of Compute\" For older\nversions of Singularity (pre 3.0) you should use singularity-legacy,\nwhich has a different install base (Autotools). Needs post-install\nchmod/chown steps to enable full functionality. See package definition\nor `spack-build-out.txt` build log for details, e.g. tail -15 $(spack\nlocation -i singularity)/.spack/spack-build-out.txt"
-        },
-        {
-            "name": "taskd",
-            "description": "TaskWarrior task synchronization daemon"
-        },
-        {
-            "name": "bcache",
-            "description": "Bcache is a patch for the Linux kernel to use SSDs to cache other block\ndevices."
-        },
-        {
-            "name": "cryptsetup",
-            "description": "Cryptsetup and LUKS - open-source disk encryption."
+            "name": "glib",
+            "description": "GLib provides the core application building blocks for libraries and\napplications written in C. The GLib package contains a low-level\nlibraries useful for providing data structure handling for C,\nportability wrappers and interfaces for such runtime functionality as an\nevent loop, threads, dynamic loading and an object system."
         },
         {
             "name": "python",
             "description": "The Python programming language."
         },
         {
-            "name": "cdo",
-            "description": "CDO is a collection of command line Operators to manipulate and analyse\nClimate and NWP model Data."
+            "name": "netdata",
+            "description": "Real-time performance monitoring, done right!"
+        },
+        {
+            "name": "scitokens-cpp",
+            "description": "A C++ implementation of the SciTokens library with a C library\ninterface. SciTokens provide a token format for distributed\nauthorization."
+        },
+        {
+            "name": "openbabel",
+            "description": "Open Babel is a chemical toolbox designed to speak the many languages of\nchemical data. It's an open, collaborative project allowing anyone to\nsearch, convert, analyze, or store data from molecular modeling,\nchemistry, solid-state materials, biochemistry, or related areas."
+        },
+        {
+            "name": "rsyslog",
+            "description": "The rocket-fast Syslog Server."
+        },
+        {
+            "name": "libdap4",
+            "description": "libdap4 is is a c++ library to serve as a client for the OPeNDAP\nframework that simplifies all aspects of scientific data networking and\nprovides software which makes local data accessible to remote locations\nregardless of local storage format."
+        },
+        {
+            "name": "bcache",
+            "description": "Bcache is a patch for the Linux kernel to use SSDs to cache other block\ndevices."
+        },
+        {
+            "name": "coin3d",
+            "description": "Coin is an OpenGL-based, 3D graphics library that has its roots in the\nOpen Inventor 2.1 API, which Coin still is compatible with."
+        },
+        {
+            "name": "guacamole-server",
+            "description": "The guacamole-server package is a set of software which forms the basis\nof the Guacamole stack. It consists of guacd, libguac, and several\nprotocol support libraries."
+        },
+        {
+            "name": "glusterfs",
+            "description": "Gluster is a software defined distributed storage that can scale to\nseveral petabytes. It provides interfaces for object, block and file\nstorage."
+        },
+        {
+            "name": "task",
+            "description": "Feature-rich console based todo list manager"
+        },
+        {
+            "name": "xrootd",
+            "description": "The XROOTD project aims at giving high performance, scalable fault\ntolerant access to data repositories of many kinds."
+        },
+        {
+            "name": "babeltrace",
+            "description": "Babeltrace is a trace viewer and converter reading and writing the\nCommon Trace Format (CTF). Its main use is to pretty-print CTF traces\ninto a human-readable text output ordered by time."
+        },
+        {
+            "name": "gaudi",
+            "description": "An experiment-independent HEP event data processing framework"
+        },
+        {
+            "name": "nfs-utils",
+            "description": "The NFS Utilities package contains the userspace server and client tools\nnecessary to use the kernel's NFS abilities. NFS is a protocol that\nallows sharing file systems over the network."
         },
         {
             "name": "pulseaudio",
@@ -149,52 +158,64 @@
             "description": "OCI systemd hook enables users to run systemd in docker and OCI\ncompatible runtimes such as runc without requiring --privileged flag."
         },
         {
-            "name": "swipl",
-            "description": "SWI-Prolog is a versatile implementation of the Prolog language.\nAlthough SWI-Prolog gained its popularity primarily in education, its\ndevelopment is mostly driven by the needs for application development.\nThis is facilitated by a rich interface to other IT components by\nsupporting many document types and (network) protocols as well as a\ncomprehensive low-level interface to C that is the basis for high-level\ninterfaces to C++, Java (bundled), C#, Python, etc (externally\navailable). Data type extensions such as dicts and strings as well as\nfull support for Unicode and unbounded integers simplify smooth exchange\nof data with other components."
+            "name": "apptainer",
+            "description": "Apptainer is an open source container platform designed to be simple,\nfast, and secure. Many container platforms are available, but Apptainer\nis designed for ease-of-use on shared systems and in high performance\ncomputing (HPC) environments. Needs post-install chmod/chown steps to\nenable full functionality. See package definition or `spack-build-\nout.txt` build log for details, e.g.:: tail -15 $(spack location -i\napptainer)/.spack/spack-build-out.txt"
         },
         {
-            "name": "task",
-            "description": "Feature-rich console based todo list manager"
+            "name": "open-iscsi",
+            "description": "The Open-iSCSI project is a high-performance, transport independent,\nmulti-platform implementation of RFC3720 iSCSI."
         },
         {
-            "name": "rsyslog",
-            "description": "The rocket-fast Syslog Server."
-        },
-        {
-            "name": "nfs-utils",
-            "description": "The NFS Utilities package contains the userspace server and client tools\nnecessary to use the kernel's NFS abilities. NFS is a protocol that\nallows sharing file systems over the network."
-        },
-        {
-            "name": "zfs",
-            "description": "OpenZFS is an advanced file system and volume manager which was\noriginally developed for Solaris and is now maintained by the OpenZFS\ncommunity. This repository contains the code for running OpenZFS on\nLinux and FreeBSD."
+            "name": "cryptsetup",
+            "description": "Cryptsetup and LUKS - open-source disk encryption."
         },
         {
             "name": "czmq",
             "description": "A C interface to the ZMQ library"
         },
         {
-            "name": "babeltrace",
-            "description": "Babeltrace is a trace viewer and converter reading and writing the\nCommon Trace Format (CTF). Its main use is to pretty-print CTF traces\ninto a human-readable text output ordered by time."
+            "name": "swipl",
+            "description": "SWI-Prolog is a versatile implementation of the Prolog language.\nAlthough SWI-Prolog gained its popularity primarily in education, its\ndevelopment is mostly driven by the needs for application development.\nThis is facilitated by a rich interface to other IT components by\nsupporting many document types and (network) protocols as well as a\ncomprehensive low-level interface to C that is the basis for high-level\ninterfaces to C++, Java (bundled), C#, Python, etc (externally\navailable). Data type extensions such as dicts and strings as well as\nfull support for Unicode and unbounded integers simplify smooth exchange\nof data with other components."
         },
         {
-            "name": "glib",
-            "description": "GLib provides the core application building blocks for libraries and\napplications written in C. The GLib package contains a low-level\nlibraries useful for providing data structure handling for C,\nportability wrappers and interfaces for such runtime functionality as an\nevent loop, threads, dynamic loading and an object system."
+            "name": "xeus",
+            "description": "QuantStack C++ implementation of Jupyter kernel protocol"
+        },
+        {
+            "name": "singularityce",
+            "description": "Singularity is a container technology focused on building portable\nencapsulated environments to support \"Mobility of Compute\" For older\nversions of Singularity (pre 3.0) you should use singularity-legacy,\nwhich has a different install base (Autotools). Needs post-install\nchmod/chown steps to enable full functionality. See package definition\nor `spack-build-out.txt` build log for details, e.g. tail -15 $(spack\nlocation -i singularity)/.spack/spack-build-out.txt"
+        },
+        {
+            "name": "flux-sched",
+            "description": "A scheduler for flux-core (pre-alpha)"
+        },
+        {
+            "name": "singularity",
+            "description": "Singularity is a container technology focused on building portable\nencapsulated environments to support \"Mobility of Compute\" For older\nversions of Singularity (pre 3.0) you should use singularity-legacy,\nwhich has a different install base (Autotools). Needs post-install\nchmod/chown steps to enable full functionality. See package definition\nor `spack-build-out.txt` build log for details, e.g. tail -15 $(spack\nlocation -i singularity)/.spack/spack-build-out.txt"
+        },
+        {
+            "name": "zfs",
+            "description": "OpenZFS is an advanced file system and volume manager which was\noriginally developed for Solaris and is now maintained by the OpenZFS\ncommunity. This repository contains the code for running OpenZFS on\nLinux and FreeBSD."
+        },
+        {
+            "name": "libfabric",
+            "description": "The Open Fabrics Interfaces (OFI) is a framework focused on exporting\nfabric communication services to applications."
+        },
+        {
+            "name": "taskd",
+            "description": "TaskWarrior task synchronization daemon"
+        },
+        {
+            "name": "davix",
+            "description": "High-performance file management over WebDAV/HTTP."
         },
         {
             "name": "dia",
             "description": "Dia is a program for drawing structured diagrams."
         },
         {
-            "name": "serf",
-            "description": "Apache Serf - a high performance C-based HTTP client library built upon\nthe Apache Portable Runtime (APR) library"
-        },
-        {
-            "name": "xrootd",
-            "description": "The XROOTD project aims at giving high performance, scalable fault\ntolerant access to data repositories of many kinds."
-        },
-        {
-            "name": "coin3d",
-            "description": "Coin is an OpenGL-based, 3D graphics library that has its roots in the\nOpen Inventor 2.1 API, which Coin still is compatible with."
+            "name": "apr",
+            "description": "Apache portable runtime."
         }
     ]
 }
