@@ -1,63 +1,40 @@
 {
-    "name": "amdlibflame",
+    "name": "libflame",
     "aliases": [
         {
             "name": "lapack",
-            "alias_for": "{amdlibflame+lapack2flame}"
+            "alias_for": "{libflame+lapack2flame}"
         },
         {
             "name": "flame@5.2",
-            "alias_for": "{amdlibflame@2:}"
+            "alias_for": "{libflame@5.2.0}"
+        },
+        {
+            "name": "flame@5.1",
+            "alias_for": "{libflame@5.1.0}"
         }
     ],
     "versions": [
         {
-            "name": "4.0",
-            "sha256": "bcb05763aa1df1e88f0da5e43ff86d956826cbea1d9c5ff591d78a3e091c66a4"
+            "name": "master",
+            "branch": "master"
         },
         {
-            "name": "3.2",
-            "sha256": "6b5337fb668b82d0ed0a4ab4b5af4e2f72e4cedbeeb4a8b6eb9a3ef057fb749a"
+            "name": "5.2.0",
+            "sha256": "997c860f351a5c7aaed8deec00f502167599288fd0559c92d5bfd77d0b4d475c"
         },
         {
-            "name": "3.1",
-            "sha256": "4520fb93fcc89161f65a40810cae0fa1f87cecb242da4a69655f502545a53426"
-        },
-        {
-            "name": "3.0.1",
-            "sha256": "5859e7b39ffbe73115dd598b035f212d36310462cf3a45e555a5087301710776"
-        },
-        {
-            "name": "3.0",
-            "sha256": "d94e08b688539748571e6d4c1ec1ce42732eac18bd75de989234983c33f01ced"
-        },
-        {
-            "name": "2.2",
-            "sha256": "12b9c1f92d2c2fa637305aaa15cf706652406f210eaa5cbc17aaea9fcfa576dc"
+            "name": "5.1.0",
+            "sha256": "e7189b750890bd781fe773f366b374518dd1d89a6513d3d6261bf549826384d1"
         }
     ],
-    "latest_version": "4.0",
+    "latest_version": "5.2.0",
     "build_system": "AutotoolsPackage",
     "conflicts": [
         {
             "name": "platform=windows",
             "spec": "build_system=autotools",
             "description": "None"
-        },
-        {
-            "name": "+ilp64",
-            "spec": "@:3.0.0",
-            "description": "ILP64 is supported from 3.0.1 onwards"
-        },
-        {
-            "name": "threads=pthreads",
-            "spec": "",
-            "description": "pthread is not supported"
-        },
-        {
-            "name": "threads=openmp",
-            "spec": "",
-            "description": "openmp is not supported"
         }
     ],
     "variants": [
@@ -90,20 +67,13 @@
             "name": "debug",
             "default": false,
             "description": "Build with debugging support"
-        },
-        {
-            "name": "ilp64",
-            "default": false,
-            "description": "Build with ILP64 support"
         }
     ],
-    "homepage": "https://www.amd.com/en/developer/aocl/blis.html#libflame",
-    "maintainers": [
-        "amd-toolchain-support"
-    ],
+    "homepage": "https://www.cs.utexas.edu/~flame/web/libFLAME.html",
+    "maintainers": [],
     "patches": [
         {
-            "owner": "builtin.amdlibflame",
+            "owner": "builtin.libflame",
             "sha256": "952fb1aea7056fdf37c38dfad596d375dfd9d35d82d0e7662cacb06c08e5e4bf",
             "level": 1,
             "working_dir": ".",
@@ -111,7 +81,7 @@
             "version": "@5.1.0"
         },
         {
-            "owner": "builtin.amdlibflame",
+            "owner": "builtin.libflame",
             "sha256": "c5cae9e9afe42a6cdca1dcfdc39058a3e75d076483467c1e0fefe6bb76a4b16b",
             "level": 1,
             "working_dir": ".",
@@ -119,32 +89,16 @@
             "version": "@5.2.0"
         },
         {
-            "owner": "builtin.amdlibflame",
+            "owner": "builtin.libflame",
             "sha256": "bf75a5b56d4d63f23d01976eb2e61bb0b2816b662a7c7a3de9f03b9276b0973a",
             "level": 1,
             "working_dir": ".",
             "relative_path": "Makefile_5.2.0_darwin.patch",
             "version": "@5.2.0"
-        },
-        {
-            "owner": "builtin.amdlibflame",
-            "sha256": "0f919537891ef7dafd5733167e7b5217b4fe0d684fcd3d48f2df19d6605c0c0d",
-            "level": 1,
-            "working_dir": ".",
-            "relative_path": "aocc-2.2.0.patch",
-            "version": "@:2"
-        },
-        {
-            "owner": "builtin.amdlibflame",
-            "sha256": "b3066e8ea70f9a59d1ce00330d72764482dd0faa57d185a45f73ce0effa2bc14",
-            "level": 1,
-            "working_dir": ".",
-            "relative_path": "cray-compiler-wrapper.patch",
-            "version": "@:3.0.0"
         }
     ],
     "resources": [],
-    "description": "libFLAME (AMD Optimized version) is a portable library for dense matrix\ncomputations, providing much of the functionality present in Linear\nAlgebra Package (LAPACK). It includes a compatibility layer, FLAPACK,\nwhich includes complete LAPACK implementation. The library provides\nscientific and numerical computing communities with a modern, high-\nperformance dense linear algebra library that is extensible, easy to\nuse, and available under an open source license. libFLAME is a C-only\nimplementation and does not depend on any external FORTRAN libraries\nincluding LAPACK. There is an optional backward compatibility layer,\nlapack2flame that maps LAPACK routine invocations to their corresponding\nnative C implementations in libFLAME. This allows legacy applications to\nstart taking advantage of libFLAME with virtually no changes to their\nsource code. In combination with BLIS library which includes\noptimizations for the AMD EPYC processor family, libFLAME enables\nrunning high performing LAPACK functionalities on AMD platform.\nLICENSING INFORMATION: By downloading, installing and using this\nsoftware, you agree to the terms and conditions of the AMD AOCL-libFLAME\nlicense agreement. You may obtain a copy of this license agreement from\nhttps://www.amd.com/en/developer/aocl/blis/libflame-4-0-eula.html\nhttps://www.amd.com/en/developer/aocl/blis/libflame-eula.html\n",
+    "description": "libflame is a portable library for dense matrix computations, providing\nmuch of the functionality present in LAPACK, developed by current and\nformer members of the Science of High-Performance Computing (SHPC) group\nin the Institute for Computational Engineering and Sciences at The\nUniversity of Texas at Austin. libflame includes a compatibility layer,\nlapack2flame, which includes a complete LAPACK implementation.\n",
     "dependencies": [
         {
             "name": "gnuconfig",
@@ -152,15 +106,11 @@
         },
         {
             "name": "blas",
-            "description": "XBLAS is a reference implementation for extra precision BLAS. XBLAS is a\nreference implementation for the dense and banded BLAS routines, along\nwith extended and mixed precision version. Extended precision is only\nused internally; input and output arguments remain the same as in the\nexisting BLAS. Extra precisions is implemented as double-double (i.e.,\n128-bit total, 106-bit significand). Mixed precision permits some\ninput/output arguments of different types (mixing real and complex) or\nprecisions (mixing single and double). This implementation is proof of\nconcept, and no attempt was made to optimize performance; performance\nshould be as good as straightforward but careful code written by hand."
+            "description": "The NVIDIA HPC SDK is a comprehensive suite of compilers, libraries and\ntools essential to maximizing developer productivity and the performance\nand portability of HPC applications. The NVIDIA HPC SDK C, C++, and\nFortran compilers support GPU acceleration of HPC modeling and\nsimulation applications with standard C++ and Fortran, OpenACC\ndirectives, and CUDA. GPU-accelerated math libraries maximize\nperformance on common HPC algorithms, and optimized communications\nlibraries enable standards-based multi-GPU and scalable systems\nprogramming. Performance profiling and debugging tools simplify porting\nand optimization of HPC applications."
         },
         {
             "name": "python",
             "description": "The Python programming language."
-        },
-        {
-            "name": "gmake",
-            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files."
         }
     ],
     "dependent_to": []
