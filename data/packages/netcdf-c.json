@@ -7,6 +7,10 @@
             "branch": "main"
         },
         {
+            "name": "4.9.2",
+            "sha256": "bc104d101278c68b303359b3dc4192f81592ae8640f1aee486921138f7f88cb7"
+        },
+        {
             "name": "4.9.0",
             "sha256": "9f4cb864f3ab54adb75409984c6202323d2fc66c003e5308f3cdf224ed41c0a6"
         },
@@ -79,7 +83,7 @@
             "sha256": "3f16e21bc3dfeb3973252b9addf5defb48994f84fc9c9356081f871526a680e7"
         }
     ],
-    "latest_version": "4.9.0",
+    "latest_version": "4.9.2",
     "build_system": "CMakePackage",
     "conflicts": [
         {
@@ -88,13 +92,43 @@
             "description": "None"
         },
         {
-            "name": "+parallel-netcdf",
-            "spec": "@:4.0",
+            "name": "+byterange",
+            "spec": "@:4.6",
             "description": "None"
         },
         {
-            "name": "+hdf4",
-            "spec": "@:4.0",
+            "name": "+nczarr_zip",
+            "spec": "@:4.8.0",
+            "description": "None"
+        },
+        {
+            "name": "+szip",
+            "spec": "@:4.8",
+            "description": "None"
+        },
+        {
+            "name": "+szip",
+            "spec": "~shared",
+            "description": "None"
+        },
+        {
+            "name": "+blosc",
+            "spec": "@:4.8",
+            "description": "None"
+        },
+        {
+            "name": "+blosc",
+            "spec": "~shared",
+            "description": "None"
+        },
+        {
+            "name": "+zstd",
+            "spec": "@:4.8",
+            "description": "None"
+        },
+        {
+            "name": "+zstd",
+            "spec": "~shared",
             "description": "None"
         }
     ],
@@ -150,6 +184,11 @@
             "description": "Enable DAP support"
         },
         {
+            "name": "byterange",
+            "default": false,
+            "description": "Enable byte-range I/O"
+        },
+        {
             "name": "jna",
             "default": false,
             "description": "Enable JNA support"
@@ -160,14 +199,29 @@
             "description": "Enable fsync support"
         },
         {
-            "name": "zstd",
-            "default": true,
-            "description": "Enable ZStandard compression"
+            "name": "nczarr_zip",
+            "default": false,
+            "description": "Enable NCZarr zipfile format storage"
         },
         {
             "name": "optimize",
             "default": true,
             "description": "Enable -O2 for a more optimized lib"
+        },
+        {
+            "name": "szip",
+            "default": true,
+            "description": "Enable Szip compression plugin"
+        },
+        {
+            "name": "blosc",
+            "default": true,
+            "description": "Enable Blosc compression plugin"
+        },
+        {
+            "name": "zstd",
+            "default": true,
+            "description": "Enable Zstandard compression plugin"
         }
     ],
     "homepage": "https://www.unidata.ucar.edu/software/netcdf",
@@ -178,11 +232,35 @@
     "patches": [
         {
             "owner": "builtin.netcdf-c",
-            "sha256": "c551ca2f5b6bcefa07dd7f8b7bac426a5df9861e091df1ab99167d8d401f963f",
+            "sha256": "151a6219fb4915c07cfa75929d0f04e99f7717314c03f8af0fe89f92d2f83b30",
             "level": 1,
             "working_dir": ".",
-            "url": "https://github.com/Unidata/netcdf-c/commit/e5315da1e748dc541d50796fb05233da65e86b6b.patch?full_index=1",
-            "version": "@4.7.0"
+            "relative_path": "4.8.1-win-hdf5-with-zlib.patch",
+            "version": "@4.8.1: build_system=cmake arch=windows-None-None"
+        },
+        {
+            "owner": "builtin.netcdf-c",
+            "sha256": "5dc0838a22698e2ce7962c01c3eca2b6d0607555f51346c6c7a22b2ca9b48109",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "netcdfc-mpi-win-support.patch",
+            "version": "build_system=cmake arch=windows-None-None"
+        },
+        {
+            "owner": "builtin.netcdf-c",
+            "sha256": "cb928a91f87c1615a0788f95b95d7a2e3df91dc16822f8b8a34a85d4e926c0de",
+            "level": 1,
+            "working_dir": ".",
+            "url": "https://github.com/Unidata/netcdf-c/commit/386e2695286702156eba27ab7c68816efb192230.patch?full_index=1",
+            "version": "@4.7.3:4.7.4+parallel-netcdf build_system=autotools"
+        },
+        {
+            "owner": "builtin.netcdf-c",
+            "sha256": "38d34de38bad99737d3308867071196f20a3fb39b936de7bfcfbc85eb0c7ef54",
+            "level": 1,
+            "working_dir": ".",
+            "url": "https://github.com/Unidata/netcdf-c/commit/a7ea050ebb3c412a99cc352859d5176a9b5ef986.patch?full_index=1",
+            "version": "@4.8.1 build_system=autotools"
         },
         {
             "owner": "builtin.netcdf-c",
@@ -202,43 +280,11 @@
         },
         {
             "owner": "builtin.netcdf-c",
-            "sha256": "151a6219fb4915c07cfa75929d0f04e99f7717314c03f8af0fe89f92d2f83b30",
+            "sha256": "25b83de1e081f020efa9e21c94c595220849f78c125ad43d8015631d453dfcb9",
             "level": 1,
             "working_dir": ".",
-            "relative_path": "4.8.1-win-hdf5-with-zlib.patch",
-            "version": "@4.8.1: arch=windows-None-None"
-        },
-        {
-            "owner": "builtin.netcdf-c",
-            "sha256": "5dc0838a22698e2ce7962c01c3eca2b6d0607555f51346c6c7a22b2ca9b48109",
-            "level": 1,
-            "working_dir": ".",
-            "relative_path": "netcdfc-mpi-win-support.patch",
-            "version": "arch=windows-None-None"
-        },
-        {
-            "owner": "builtin.netcdf-c",
-            "sha256": "2c88dfbd6d339a0336a43b14a65a1d1df995b853b645e4af612617612a642a53",
-            "level": 1,
-            "working_dir": ".",
-            "relative_path": "4.7.3-spectrum-mpi-pnetcdf-detect.patch",
-            "version": "@4.7.3:4.7.4+parallel-netcdf"
-        },
-        {
-            "owner": "builtin.netcdf-c",
-            "sha256": "de556dae6a691743dc527999cfb23ee414c2bbf7f71f33e940582a8a3a85cf17",
-            "level": 1,
-            "working_dir": ".",
-            "relative_path": "4.8.1-no-strict-aliasing-config.patch",
-            "version": "@4.8.1"
-        },
-        {
-            "owner": "builtin.netcdf-c",
-            "sha256": "fb0d1dc503b108f7155f4639e46288a7e70d39a25a93c635894fbc0815da9d53",
-            "level": 1,
-            "working_dir": ".",
-            "relative_path": "4.9.0-no-mpi-yes-pnetcdf.patch",
-            "version": "@4.9.0:~mpi+parallel-netcdf"
+            "url": "https://github.com/Unidata/netcdf-c/commit/00a722b253bae186bba403d0f92ff1eba719591f.patch?full_index=1",
+            "version": "@4.9.0:4.9.1~mpi+parallel-netcdf"
         }
     ],
     "resources": [],
@@ -294,15 +340,31 @@
         },
         {
             "name": "mpi",
-            "description": "MVAPICH2-GDR is an optimized version of the MVAPICH2 MPI library for\nGPU-enabled HPC and Deep Learning Applications. MVAPICH2-GDR is not\ninstallable from source and is only available through a binary mirror.\nIf you do not find the binary you're looking for, send us an email at\nmvapich@cse.ohio-state.edu. The binary mirror url is:\nhttp://mvapich.cse.ohio-state.edu/download/mvapich/spack-\nmirror/mvapich2-gdr/"
+            "description": "HPE MPI is HPE's implementation of the Message Passing Interface (MPI)\nstandard. Note: HPE MPI is proprietry software. Spack will search your\ncurrent directory for the download file. Alternatively, add this file to\na mirror so that Spack can find it. For instructions on how to set up a\nmirror, see https://spack.readthedocs.io/en/latest/mirrors.html"
+        },
+        {
+            "name": "hdf5",
+            "description": "HDF5 is a data model, library, and file format for storing and managing\ndata. It supports an unlimited variety of datatypes, and is designed for\nflexible and efficient I/O and for high volume and complex data."
+        },
+        {
+            "name": "libzip",
+            "description": "libzip is a C library for reading, creating, and modifying zip archives."
         },
         {
             "name": "zlib",
             "description": "A free, general-purpose, legally unencumbered lossless data-compression\nlibrary."
         },
         {
-            "name": "hdf5",
-            "description": "HDF5 is a data model, library, and file format for storing and managing\ndata. It supports an unlimited variety of datatypes, and is designed for\nflexible and efficient I/O and for high volume and complex data."
+            "name": "bzip2",
+            "description": "bzip2 is a freely available, patent free high-quality data compressor.\nIt typically compresses files to within 10% to 15% of the best available\ntechniques (the PPM family of statistical compressors), whilst being\naround twice as fast at compression and six times faster at\ndecompression."
+        },
+        {
+            "name": "szip",
+            "description": "Szip is an implementation of the extended-Rice lossless compression\nalgorithm. It provides lossless compression of scientific data, and is\nprovided with HDF software products."
+        },
+        {
+            "name": "c-blosc",
+            "description": "Blosc, an extremely fast, multi-threaded, meta-compressor library"
         },
         {
             "name": "zstd",
@@ -311,276 +373,276 @@
     ],
     "dependent_to": [
         {
-            "name": "adios",
-            "description": "The Adaptable IO System (ADIOS) provides a simple, flexible way for\nscientists to describe the data in their code that may need to be\nwritten, read, or processed outside of the running simulation."
-        },
-        {
-            "name": "py-netcdf4",
-            "description": "Python interface to the netCDF Library."
-        },
-        {
-            "name": "trilinos",
-            "description": "The Trilinos Project is an effort to develop algorithms and enabling\ntechnologies within an object-oriented software framework for the\nsolution of large-scale, complex multi-physics engineering and\nscientific problems. A unique design feature of Trilinos is its focus on\npackages."
-        },
-        {
-            "name": "grass",
-            "description": "GRASS GIS (Geographic Resources Analysis Support System), is a free and\nopen source Geographic Information System (GIS) software suite used for\ngeospatial data management and analysis, image processing, graphics and\nmaps production, spatial modeling, and visualization."
-        },
-        {
-            "name": "vtk",
-            "description": "The Visualization Toolkit (VTK) is an open-source, freely available\nsoftware system for 3D computer graphics, image processing and\nvisualization."
-        },
-        {
-            "name": "amp",
-            "description": "The Advanced Multi-Physics (AMP) package. The Advanced Multi-Physics\n(AMP) package is an open source parallel object-oriented computational\nframework that is designed with single and multi-domain multi-physics\napplications in mind."
-        },
-        {
-            "name": "r-ncdf4",
-            "description": "Interface to Unidata netCDF (Version 4 or Earlier) Format Data Files.\nProvides a high-level R interface to data files written using Unidata's\nnetCDF library (version 4 or earlier), which are binary data files that\nare portable across platforms and include metadata information in\naddition to the data sets. Using this package, netCDF files (either\nversion 4 or \"classic\" version 3) can be opened and data sets read in\neasily. It is also easy to create new netCDF dimensions, variables, and\nfiles, in either version 3 or 4 format, and manipulate existing netCDF\nfiles. This package replaces the former ncdf package, which only worked\nwith netcdf version 3 files. For various reasons the names of the\nfunctions have had to be changed from the names in the ncdf package. The\nold ncdf package is still available at the URL given below, if you need\nto have backward compatibility. It should be possible to have both the\nncdf and ncdf4 packages installed simultaneously without a problem.\nHowever, the ncdf package does not provide an interface for netcdf\nversion 4 files."
-        },
-        {
-            "name": "netcdf-cxx4",
-            "description": "NetCDF (network Common Data Form) is a set of software libraries and\nmachine-independent data formats that support the creation, access, and\nsharing of array-oriented scientific data. This is the C++ distribution."
-        },
-        {
-            "name": "libpressio",
-            "description": "A generic abstraction for the compression of dense tensors"
-        },
-        {
-            "name": "wps",
-            "description": "The Weather Research and Forecasting Pre-Processing System (WPS)"
-        },
-        {
-            "name": "fstrack",
-            "description": "Package with tools to analyze symmetry components of elastic tensors,\npredict synthetic waveforms and compute automated shear wave splitting\nalong ray paths, and to track finite strain and predict LPO from mantle\nflow given on GMT/netcdf grds."
-        },
-        {
-            "name": "esmf",
-            "description": "The Earth System Modeling Framework (ESMF) is high-performance, flexible\nsoftware infrastructure for building and coupling weather, climate, and\nrelated Earth science applications. The ESMF defines an architecture for\ncomposing complex, coupled modeling systems and includes data structures\nand utilities for developing individual models. The National Unified\nOperational Prediction Capability (NUOPC) Layer defines a common model\narchitecture to support interoperable ESMF components. The NUOPC Layer\nis included with the ESMF package."
-        },
-        {
-            "name": "ncl",
-            "description": "NCL is an interpreted language designed specifically for scientific data\nanalysis and visualization. Supports NetCDF 3/4, GRIB 1/2, HDF 4/5, HDF-\nEOD 2/5, shapefile, ASCII, binary. Numerous analysis functions are\nbuilt-in."
-        },
-        {
-            "name": "siesta",
-            "description": "SIESTA performs electronic structure calculations and ab initio\nmolecular dynamics simulations of molecules and solids."
-        },
-        {
-            "name": "fms",
-            "description": "GFDL's Flexible Modeling System (FMS) is a software environment that\nsupports the efficient development, construction, execution, and\nscientific interpretation of atmospheric, oceanic, and climate system\nmodels."
-        },
-        {
-            "name": "ophidia-analytics-framework",
-            "description": "Core modules and operators of the Ophidia framework"
-        },
-        {
-            "name": "serialbox",
-            "description": "Serialbox is a serialization library and tools for C/C++, Python3 and\nFortran. Serialbox is used in several projects for building validation\nframeworks against reference runs."
-        },
-        {
-            "name": "parallelio",
-            "description": "The Parallel IO libraries (PIO) are high-level parallel I/O C and\nFortran libraries for applications that need to do netCDF I/O from large\nnumbers of processors on a HPC system."
-        },
-        {
-            "name": "nccmp",
-            "description": "Compare NetCDF Files"
-        },
-        {
-            "name": "roms",
-            "description": "ROMS is a free-surface, terrain-following, primitive equations ocean\nmodel widely used by the scientific community for a diverse range of\napplications"
-        },
-        {
-            "name": "ftk",
-            "description": "FTK is a library that simplifies, scales, and delivers feature tracking\nalgorithms for scientific data."
-        },
-        {
-            "name": "moab",
-            "description": "MOAB is a component for representing and evaluating mesh data. MOAB can\nstore structured and unstructured mesh, consisting of elements in the\nfinite element 'zoo.' The functional interface to MOAB is simple yet\npowerful, allowing the representation of many types of metadata commonly\nfound on the mesh. MOAB is optimized for efficiency in space and time,\nbased on access to mesh in chunks rather than through individual\nentities, while also versatile enough to support individual entity\naccess."
-        },
-        {
-            "name": "lammps",
-            "description": "LAMMPS stands for Large-scale Atomic/Molecular Massively Parallel\nSimulator."
-        },
-        {
-            "name": "qgis",
-            "description": "QGIS is a free and open-source cross-platform desktop geographic\ninformation system application that supports viewing, editing, and\nanalysis of geospatial data."
-        },
-        {
-            "name": "sz",
-            "description": "Error-bounded Lossy Compressor for HPC Data"
-        },
-        {
-            "name": "wrf-io",
-            "description": "The WRFIO package is a lightweight WRF-IO API library for Unified Post\nProcessor (UPP). It reads wrf forecasts (WRF state plus diagnostics).\nThis is part of the NCEPLIBS project."
-        },
-        {
-            "name": "ophidia-io-server",
-            "description": "In-memory IO server of the Ophidia framework"
-        },
-        {
-            "name": "e3sm-scorpio",
-            "description": "The SCORPIO (Software for Caching Output and Reads for Parallel I/O)\nlibrary is used by all the model components in DOE's Energy Exascale\nEarth System Model (E3SM) for reading input data and writing model\noutput"
-        },
-        {
-            "name": "mfem",
-            "description": "Free, lightweight, scalable C++ library for finite element methods."
-        },
-        {
-            "name": "nco",
-            "description": "The NCO toolkit manipulates and analyzes data stored in netCDF-\naccessible formats"
-        },
-        {
-            "name": "pism",
-            "description": "Parallel Ice Sheet Model"
-        },
-        {
-            "name": "ferret",
-            "description": "Ferret is an interactive computer visualization and analysis environment\ndesigned to meet the needs of oceanographers and meteorologists\nanalyzing large and complex gridded data sets."
-        },
-        {
-            "name": "tempestremap",
-            "description": "TempestRemap is a conservative, consistent and monotone remapping\npackage for arbitrary grid geometry with support for finite volumes and\nfinite elements. There is still quite a bit of work to be done, but any\nfeedback is appreciated on the software in its current form"
-        },
-        {
-            "name": "ufs-weather-model",
-            "description": "The Unified Forecast System (UFS) Weather Model (WM) is a prognostic\nmodel that can be used for short- and medium-range research and\noperational forecasts, as exemplified by its use in the operational\nGlobal Forecast System (GFS) of the National Oceanic and Atmospheric\nAdministration (NOAA)."
-        },
-        {
-            "name": "grib-api",
-            "description": "The ECMWF GRIB API is an application program interface accessible from\nC, FORTRAN and Python programs developed for encoding and decoding WMO\nFM-92 GRIB edition 1 and edition 2 messages. The API was deprecated\nhttps://www.ecmwf.int/en/newsletter/152/news/end-road-grib-api in favor\nof ecCodes."
+            "name": "xios",
+            "description": "XML-IO-SERVER library for IO management of climate models."
         },
         {
             "name": "gdal",
             "description": "GDAL: Geospatial Data Abstraction Library. GDAL is a translator library\nfor raster and vector geospatial data formats that is released under an\nMIT style Open Source License by the Open Source Geospatial Foundation.\nAs a library, it presents a single raster abstract data model and single\nvector abstract data model to the calling application for all supported\nformats. It also comes with a variety of useful command line utilities\nfor data translation and processing."
         },
         {
-            "name": "grace",
-            "description": "Grace is a WYSIWYG 2D plotting tool for the X Window System and M*tif."
-        },
-        {
-            "name": "netcdf-fortran",
-            "description": "NetCDF (network Common Data Form) is a set of software libraries and\nmachine-independent data formats that support the creation, access, and\nsharing of array-oriented scientific data. This is the Fortran\ndistribution."
-        },
-        {
-            "name": "ufs-utils",
-            "description": "The UFS Utilities package contains programs set up the model grid and\ncreate coldstart initial conditions. This is related to NOAA's NCEPLIBS\nproject."
-        },
-        {
-            "name": "amr-wind",
-            "description": "AMR-Wind is a massively parallel, block-structured adaptive-mesh,\nincompressible flow sover for wind turbine and wind farm simulations."
-        },
-        {
-            "name": "nalu-wind",
-            "description": "Nalu-Wind: Wind energy focused variant of Nalu."
-        },
-        {
-            "name": "yambo",
-            "description": "Yambo is a FORTRAN/C code for Many-Body calculations in solid state and\nmolecular physics. Yambo relies on the Kohn-Sham wavefunctions generated\nby two DFT public codes: abinit, and PWscf. The code was originally\ndeveloped in the Condensed Matter Theoretical Group of the Physics\nDepartment at the University of Rome \"Tor Vergata\" by Andrea Marini.\nPrevious to its release under the GPL license, yambo was known as SELF."
-        },
-        {
-            "name": "seacas",
-            "description": "The SEACAS Project contains the Exodus and IOSS I/O libraries and a\ncollection of applications which create, query, modify, or translate\nExodus databases. Exodus is a finite element mesh and results database\nfile format. Default is to build the Exodus and IOSS libraries and the\nio_shell, io_info, io_modify, struc_to_unstruc apps."
-        },
-        {
-            "name": "cmor",
-            "description": "Climate Model Output Rewriter is used to produce CF-compliant netCDF\nfiles. The structure of the files created by the library and the\nmetadata they contain fulfill the requirements of many of the climate\ncommunity's standard model experiments."
-        },
-        {
-            "name": "gmt",
-            "description": "GMT (Generic Mapping Tools) is an open source collection of about 80\ncommand-line tools for manipulating geographic and Cartesian data sets\n(including filtering, trend fitting, gridding, projecting, etc.) and\nproducing PostScript illustrations ranging from simple x-y plots via\ncontour maps to artificially illuminated surfaces and 3D perspective\nviews."
-        },
-        {
-            "name": "trilinos-catalyst-ioss-adapter",
-            "description": "Adapter for Trilinos Seacas Ioss and Paraview Catalyst"
-        },
-        {
-            "name": "asagi",
-            "description": "a pArallel Server for Adaptive GeoInformation."
-        },
-        {
-            "name": "netcdf-cxx",
-            "description": "Deprecated C++ compatibility bindings for NetCDF. These do NOT read or\nwrite NetCDF-4 files, and are no longer maintained by Unidata.\nDevelopers should migrate to current NetCDF C++ bindings, in Spack\npackage netcdf-cxx4."
-        },
-        {
-            "name": "ioapi",
-            "description": "Models-3/EDSS Input/Output Applications Programming Interface."
-        },
-        {
-            "name": "wrf",
-            "description": "The Weather Research and Forecasting (WRF) Model is a next-generation\nmesoscale numerical weather prediction system designed for both\natmospheric research and operational forecasting applications."
-        },
-        {
-            "name": "gdl",
-            "description": "A free and open-source IDL/PV-WAVE compiler. GNU Data Language (GDL) is\na free/libre/open source incremental compiler compatible with IDL and to\nsome extent with PV-WAVE."
-        },
-        {
-            "name": "openfast",
-            "description": "Wind turbine simulation package from NREL"
-        },
-        {
-            "name": "scale",
-            "description": "SCALE (Scalable Computing for Advanced Library and Environment) is a\nbasic library for weather and climate model of the earth and planets\naimed to be widely used in various models. The SCALE library is\ndeveloped with co-design by researchers of computational science and\ncomputer science."
-        },
-        {
-            "name": "exodusii",
-            "description": "Exodus II is a C++/Fortran library developed to store and retrieve data\nfor finite element analyses. It's used for preprocessing (problem\ndefinition), postprocessing (results visualization), and data transfer\nbetween codes. An Exodus II data file is a random access, machine\nindependent, binary file that is written and read via C, C++, or Fortran\nAPI routines."
+            "name": "mfem",
+            "description": "Free, lightweight, scalable C++ library for finite element methods."
         },
         {
             "name": "eccodes",
             "description": "ecCodes is a package developed by ECMWF for processing meteorological\ndata in GRIB (1/2), BUFR (3/4) and GTS header formats."
         },
         {
-            "name": "channelflow",
-            "description": "Channelflow is a software system for numerical analysis of the\nincompressible fluid flow in channel geometries, written in C++."
+            "name": "serialbox",
+            "description": "Serialbox is a serialization library and tools for C/C++, Python3 and\nFortran. Serialbox is used in several projects for building validation\nframeworks against reference runs."
         },
         {
-            "name": "fpocket",
-            "description": "fpocket is a very fast open source protein pocket detection algorithm\nbased on Voronoi tessellation."
+            "name": "cmor",
+            "description": "Climate Model Output Rewriter is used to produce CF-compliant netCDF\nfiles. The structure of the files created by the library and the\nmetadata they contain fulfill the requirements of many of the climate\ncommunity's standard model experiments."
         },
         {
-            "name": "ncview",
-            "description": "Simple viewer for NetCDF files."
-        },
-        {
-            "name": "xios",
-            "description": "XML-IO-SERVER library for IO management of climate models."
-        },
-        {
-            "name": "regcm",
-            "description": "RegCM, ICTP Regional Climate Model (https://ictp.it)."
-        },
-        {
-            "name": "hc",
-            "description": "HC is a global mantle circulation solver following Hager & O'Connell\n(1981) which can compute velocities, tractions, and geoid for simple\ndensity distributions and plate velocities."
-        },
-        {
-            "name": "py-pynio",
-            "description": "PyNIO (\"pie-nee-oh\") is a Python module that allows read and/or write\naccess to a variety of scientific data formats popular in climate and\nweather"
-        },
-        {
-            "name": "dealii",
-            "description": "C++ software library providing well-documented tools to build finite\nelement codes for a broad variety of PDEs."
+            "name": "e3sm-scorpio",
+            "description": "The SCORPIO (Software for Caching Output and Reads for Parallel I/O)\nlibrary is used by all the model components in DOE's Energy Exascale\nEarth System Model (E3SM) for reading input data and writing model\noutput"
         },
         {
             "name": "paraview",
             "description": "ParaView is an open-source, multi-platform data analysis and\nvisualization application. This package includes the Catalyst in-situ\nlibrary for versions 5.7 and greater, otherwise use the catalyst\npackage."
         },
         {
+            "name": "openfast",
+            "description": "Wind turbine simulation package from NREL"
+        },
+        {
+            "name": "pism",
+            "description": "Parallel Ice Sheet Model"
+        },
+        {
+            "name": "amr-wind",
+            "description": "AMR-Wind is a massively parallel, block-structured adaptive-mesh,\nincompressible flow sover for wind turbine and wind farm simulations."
+        },
+        {
+            "name": "fms",
+            "description": "GFDL's Flexible Modeling System (FMS) is a software environment that\nsupports the efficient development, construction, execution, and\nscientific interpretation of atmospheric, oceanic, and climate system\nmodels."
+        },
+        {
+            "name": "nccmp",
+            "description": "Compare NetCDF Files"
+        },
+        {
+            "name": "dealii",
+            "description": "C++ software library providing well-documented tools to build finite\nelement codes for a broad variety of PDEs."
+        },
+        {
+            "name": "channelflow",
+            "description": "Channelflow is a software system for numerical analysis of the\nincompressible fluid flow in channel geometries, written in C++."
+        },
+        {
+            "name": "ioapi",
+            "description": "Models-3/EDSS Input/Output Applications Programming Interface."
+        },
+        {
+            "name": "netcdf-fortran",
+            "description": "NetCDF (network Common Data Form) is a set of software libraries and\nmachine-independent data formats that support the creation, access, and\nsharing of array-oriented scientific data. This is the Fortran\ndistribution."
+        },
+        {
+            "name": "parallelio",
+            "description": "The Parallel IO libraries (PIO) are high-level parallel I/O C and\nFortran libraries for applications that need to do netCDF I/O from large\nnumbers of processors on a HPC system."
+        },
+        {
+            "name": "vtk",
+            "description": "The Visualization Toolkit (VTK) is an open-source, freely available\nsoftware system for 3D computer graphics, image processing and\nvisualization."
+        },
+        {
+            "name": "fstrack",
+            "description": "Package with tools to analyze symmetry components of elastic tensors,\npredict synthetic waveforms and compute automated shear wave splitting\nalong ray paths, and to track finite strain and predict LPO from mantle\nflow given on GMT/netcdf grds."
+        },
+        {
+            "name": "sz",
+            "description": "Error-bounded Lossy Compressor for HPC Data"
+        },
+        {
             "name": "parflow",
             "description": "ParFlow is an open-source parallel watershed simulator which includes\noverland flow, complex topology, heterogeneity and coupled land-surface\nprocesses."
         },
         {
-            "name": "cdo",
-            "description": "CDO is a collection of command line Operators to manipulate and analyse\nClimate and NWP model Data."
+            "name": "moab",
+            "description": "MOAB is a component for representing and evaluating mesh data. MOAB can\nstore structured and unstructured mesh, consisting of elements in the\nfinite element 'zoo.' The functional interface to MOAB is simple yet\npowerful, allowing the representation of many types of metadata commonly\nfound on the mesh. MOAB is optimized for efficiency in space and time,\nbased on access to mesh in chunks rather than through individual\nentities, while also versatile enough to support individual entity\naccess."
+        },
+        {
+            "name": "py-pynio",
+            "description": "PyNIO (\"pie-nee-oh\") is a Python module that allows read and/or write\naccess to a variety of scientific data formats popular in climate and\nweather"
+        },
+        {
+            "name": "siesta",
+            "description": "SIESTA performs electronic structure calculations and ab initio\nmolecular dynamics simulations of molecules and solids."
+        },
+        {
+            "name": "tempestremap",
+            "description": "TempestRemap is a conservative, consistent and monotone remapping\npackage for arbitrary grid geometry with support for finite volumes and\nfinite elements. There is still quite a bit of work to be done, but any\nfeedback is appreciated on the software in its current form"
+        },
+        {
+            "name": "roms",
+            "description": "ROMS is a free-surface, terrain-following, primitive equations ocean\nmodel widely used by the scientific community for a diverse range of\napplications"
+        },
+        {
+            "name": "gdl",
+            "description": "A free and open-source IDL/PV-WAVE compiler. GNU Data Language (GDL) is\na free/libre/open source incremental compiler compatible with IDL and to\nsome extent with PV-WAVE."
+        },
+        {
+            "name": "hc",
+            "description": "HC is a global mantle circulation solver following Hager & O'Connell\n(1981) which can compute velocities, tractions, and geoid for simple\ndensity distributions and plate velocities."
+        },
+        {
+            "name": "netcdf-cxx",
+            "description": "Deprecated C++ compatibility bindings for NetCDF. These do NOT read or\nwrite NetCDF-4 files, and are no longer maintained by Unidata.\nDevelopers should migrate to current NetCDF C++ bindings, in Spack\npackage netcdf-cxx4."
         },
         {
             "name": "abinit",
             "description": "ABINIT is a package whose main program allows one to find the total\nenergy, charge density and electronic structure of systems made of\nelectrons and nuclei (molecules and periodic solids) within Density\nFunctional Theory (DFT), using pseudopotentials and a planewave or\nwavelet basis. ABINIT also includes options to optimize the geometry\naccording to the DFT forces and stresses, or to perform molecular\ndynamics simulations using these forces, or to generate dynamical\nmatrices, Born effective charges, and dielectric tensors, based on\nDensity-Functional Perturbation Theory, and many more properties.\nExcited states can be computed within the Many-Body Perturbation Theory\n(the GW approximation and the Bethe-Salpeter equation), and Time-\nDependent Density Functional Theory (for molecules). In addition to the\nmain ABINIT code, different utility programs are provided."
         },
         {
+            "name": "ophidia-io-server",
+            "description": "In-memory IO server of the Ophidia framework"
+        },
+        {
+            "name": "seacas",
+            "description": "The SEACAS Project contains the Exodus and IOSS I/O libraries and a\ncollection of applications which create, query, modify, or translate\nExodus databases. Exodus is a finite element mesh and results database\nfile format. Default is to build the Exodus and IOSS libraries and the\nio_shell, io_info, io_modify, struc_to_unstruc apps."
+        },
+        {
+            "name": "py-netcdf4",
+            "description": "Python interface to the netCDF Library."
+        },
+        {
             "name": "petsc",
             "description": "PETSc is a suite of data structures and routines for the scalable\n(parallel) solution of scientific applications modeled by partial\ndifferential equations."
+        },
+        {
+            "name": "gmt",
+            "description": "GMT (Generic Mapping Tools) is an open source collection of about 80\ncommand-line tools for manipulating geographic and Cartesian data sets\n(including filtering, trend fitting, gridding, projecting, etc.) and\nproducing PostScript illustrations ranging from simple x-y plots via\ncontour maps to artificially illuminated surfaces and 3D perspective\nviews."
+        },
+        {
+            "name": "ncview",
+            "description": "Simple viewer for NetCDF files."
+        },
+        {
+            "name": "trilinos-catalyst-ioss-adapter",
+            "description": "Adapter for Trilinos Seacas Ioss and Paraview Catalyst"
+        },
+        {
+            "name": "amp",
+            "description": "The Advanced Multi-Physics (AMP) package. The Advanced Multi-Physics\n(AMP) package is an open source parallel object-oriented computational\nframework that is designed with single and multi-domain multi-physics\napplications in mind."
+        },
+        {
+            "name": "ufs-utils",
+            "description": "The UFS Utilities package contains programs set up the model grid and\ncreate coldstart initial conditions. This is related to NOAA's NCEPLIBS\nproject."
+        },
+        {
+            "name": "adios",
+            "description": "The Adaptable IO System (ADIOS) provides a simple, flexible way for\nscientists to describe the data in their code that may need to be\nwritten, read, or processed outside of the running simulation."
+        },
+        {
+            "name": "scale",
+            "description": "SCALE (Scalable Computing for Advanced Library and Environment) is a\nbasic library for weather and climate model of the earth and planets\naimed to be widely used in various models. The SCALE library is\ndeveloped with co-design by researchers of computational science and\ncomputer science."
+        },
+        {
+            "name": "cdo",
+            "description": "CDO is a collection of command line Operators to manipulate and analyse\nClimate and NWP model Data."
+        },
+        {
+            "name": "wrf",
+            "description": "The Weather Research and Forecasting (WRF) Model is a next-generation\nmesoscale numerical weather prediction system designed for both\natmospheric research and operational forecasting applications."
+        },
+        {
+            "name": "qgis",
+            "description": "QGIS is a free and open-source cross-platform desktop geographic\ninformation system application that supports viewing, editing, and\nanalysis of geospatial data."
+        },
+        {
+            "name": "nco",
+            "description": "The NCO toolkit manipulates and analyzes data stored in netCDF-\naccessible formats"
+        },
+        {
+            "name": "asagi",
+            "description": "a pArallel Server for Adaptive GeoInformation."
+        },
+        {
+            "name": "wps",
+            "description": "The Weather Research and Forecasting Pre-Processing System (WPS)"
+        },
+        {
+            "name": "grass",
+            "description": "GRASS GIS (Geographic Resources Analysis Support System), is a free and\nopen source Geographic Information System (GIS) software suite used for\ngeospatial data management and analysis, image processing, graphics and\nmaps production, spatial modeling, and visualization."
+        },
+        {
+            "name": "ferret",
+            "description": "Ferret is an interactive computer visualization and analysis environment\ndesigned to meet the needs of oceanographers and meteorologists\nanalyzing large and complex gridded data sets."
+        },
+        {
+            "name": "libpressio",
+            "description": "A generic abstraction for the compression of dense tensors"
+        },
+        {
+            "name": "r-ncdf4",
+            "description": "Interface to Unidata netCDF (Version 4 or Earlier) Format Data Files.\nProvides a high-level R interface to data files written using Unidata's\nnetCDF library (version 4 or earlier), which are binary data files that\nare portable across platforms and include metadata information in\naddition to the data sets. Using this package, netCDF files (either\nversion 4 or \"classic\" version 3) can be opened and data sets read in\neasily. It is also easy to create new netCDF dimensions, variables, and\nfiles, in either version 3 or 4 format, and manipulate existing netCDF\nfiles. This package replaces the former ncdf package, which only worked\nwith netcdf version 3 files. For various reasons the names of the\nfunctions have had to be changed from the names in the ncdf package. The\nold ncdf package is still available at the URL given below, if you need\nto have backward compatibility. It should be possible to have both the\nncdf and ncdf4 packages installed simultaneously without a problem.\nHowever, the ncdf package does not provide an interface for netcdf\nversion 4 files."
+        },
+        {
+            "name": "nalu-wind",
+            "description": "Nalu-Wind: Wind energy focused variant of Nalu."
+        },
+        {
+            "name": "lammps",
+            "description": "LAMMPS stands for Large-scale Atomic/Molecular Massively Parallel\nSimulator."
+        },
+        {
+            "name": "grace",
+            "description": "Grace is a WYSIWYG 2D plotting tool for the X Window System and M*tif."
+        },
+        {
+            "name": "ufs-weather-model",
+            "description": "The Unified Forecast System (UFS) Weather Model (WM) is a prognostic\nmodel that can be used for short- and medium-range research and\noperational forecasts, as exemplified by its use in the operational\nGlobal Forecast System (GFS) of the National Oceanic and Atmospheric\nAdministration (NOAA)."
+        },
+        {
+            "name": "ncl",
+            "description": "NCL is an interpreted language designed specifically for scientific data\nanalysis and visualization. Supports NetCDF 3/4, GRIB 1/2, HDF 4/5, HDF-\nEOD 2/5, shapefile, ASCII, binary. Numerous analysis functions are\nbuilt-in."
+        },
+        {
+            "name": "netcdf-cxx4",
+            "description": "NetCDF (network Common Data Form) is a set of software libraries and\nmachine-independent data formats that support the creation, access, and\nsharing of array-oriented scientific data. This is the C++ distribution."
+        },
+        {
+            "name": "ftk",
+            "description": "FTK is a library that simplifies, scales, and delivers feature tracking\nalgorithms for scientific data."
+        },
+        {
+            "name": "trilinos",
+            "description": "The Trilinos Project is an effort to develop algorithms and enabling\ntechnologies within an object-oriented software framework for the\nsolution of large-scale, complex multi-physics engineering and\nscientific problems. A unique design feature of Trilinos is its focus on\npackages."
+        },
+        {
+            "name": "fpocket",
+            "description": "fpocket is a very fast open source protein pocket detection algorithm\nbased on Voronoi tessellation."
+        },
+        {
+            "name": "grib-api",
+            "description": "The ECMWF GRIB API is an application program interface accessible from\nC, FORTRAN and Python programs developed for encoding and decoding WMO\nFM-92 GRIB edition 1 and edition 2 messages. The API was deprecated\nhttps://www.ecmwf.int/en/newsletter/152/news/end-road-grib-api in favor\nof ecCodes."
+        },
+        {
+            "name": "esmf",
+            "description": "The Earth System Modeling Framework (ESMF) is high-performance, flexible\nsoftware infrastructure for building and coupling weather, climate, and\nrelated Earth science applications. The ESMF defines an architecture for\ncomposing complex, coupled modeling systems and includes data structures\nand utilities for developing individual models. The National Unified\nOperational Prediction Capability (NUOPC) Layer defines a common model\narchitecture to support interoperable ESMF components. The NUOPC Layer\nis included with the ESMF package."
+        },
+        {
+            "name": "yambo",
+            "description": "Yambo is a FORTRAN/C code for Many-Body calculations in solid state and\nmolecular physics. Yambo relies on the Kohn-Sham wavefunctions generated\nby two DFT public codes: abinit, and PWscf. The code was originally\ndeveloped in the Condensed Matter Theoretical Group of the Physics\nDepartment at the University of Rome \"Tor Vergata\" by Andrea Marini.\nPrevious to its release under the GPL license, yambo was known as SELF."
+        },
+        {
+            "name": "ophidia-analytics-framework",
+            "description": "Core modules and operators of the Ophidia framework"
+        },
+        {
+            "name": "wrf-io",
+            "description": "The WRFIO package is a lightweight WRF-IO API library for Unified Post\nProcessor (UPP). It reads wrf forecasts (WRF state plus diagnostics).\nThis is part of the NCEPLIBS project."
+        },
+        {
+            "name": "regcm",
+            "description": "RegCM, ICTP Regional Climate Model (https://ictp.it)."
+        },
+        {
+            "name": "exodusii",
+            "description": "Exodus II is a C++/Fortran library developed to store and retrieve data\nfor finite element analyses. It's used for preprocessing (problem\ndefinition), postprocessing (results visualization), and data transfer\nbetween codes. An Exodus II data file is a random access, machine\nindependent, binary file that is written and read via C, C++, or Fortran\nAPI routines."
         }
     ]
 }
