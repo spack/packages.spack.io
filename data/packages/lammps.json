@@ -775,6 +775,16 @@
             "name": "+intel",
             "spec": "%aocc@:3.2.9999",
             "description": "+intel with AOCC requires version 4 or newer"
+        },
+        {
+            "name": "+kokkos+rocm+kspace",
+            "spec": "@:20210929.3",
+            "description": "None"
+        },
+        {
+            "name": "^kokkos @4:",
+            "spec": "@:20221222",
+            "description": "LAMMPS is incompatible with Kokkos 4.x until @20230208"
         }
     ],
     "variants": [
@@ -1541,6 +1551,14 @@
     "patches": [
         {
             "owner": "builtin.lammps",
+            "sha256": "3dedd807f63a21c543d1036439099f05c6031fd98e7cb1ea7825822fc074106e",
+            "level": 1,
+            "working_dir": ".",
+            "url": "https://github.com/lammps/lammps/commit/ebb8eee941e52c98054fdf96ea78ee4d5f606f47.patch?full_index=1",
+            "version": "@20220623.3:20230208+kokkos+kspace+rocm"
+        },
+        {
+            "owner": "builtin.lammps",
             "sha256": "16f91dc30ea6ffba6ca6757f1414d51ef03ab4de7ff5b79f4f897be728ccca54",
             "level": 1,
             "working_dir": ".",
@@ -1621,11 +1639,11 @@
         },
         {
             "name": "mpi",
-            "description": "HPE MPI is HPE's implementation of the Message Passing Interface (MPI)\nstandard. Note: HPE MPI is proprietry software. Spack will search your\ncurrent directory for the download file. Alternatively, add this file to\na mirror so that Spack can find it. For instructions on how to set up a\nmirror, see https://spack.readthedocs.io/en/latest/mirrors.html"
+            "description": "Virtual package for the Message Passing Interface."
         },
         {
             "name": "fftw-api",
-            "description": "This is an earlier version of Intel parallel software development tools\nand has now been replaced by the Intel oneAPI Toolkits. LICENSE\nINFORMATION: By downloading and using this software, you agree to the\nterms and conditions of the software license agreements at\nhttps://intel.ly/393CijO."
+            "description": "FFTW is a C subroutine library for computing the discrete Fourier\ntransform (DFT) in one or more dimensions, of arbitrary input size, and\nof both real and complex data (as well as of even/odd data, i.e. the\ndiscrete cosine/sine transforms or DCT/DST). We believe that FFTW, which\nis free software, should become the FFT library of choice for most\napplications."
         },
         {
             "name": "hipfft",
@@ -1641,15 +1659,15 @@
         },
         {
             "name": "blas",
-            "description": "This is an earlier version of Intel parallel software development tools\nand has now been replaced by the Intel oneAPI Toolkits. LICENSE\nINFORMATION: By downloading and using this software, you agree to the\nterms and conditions of the software license agreements at\nhttps://intel.ly/393CijO."
+            "description": "Automatically Tuned Linear Algebra Software, generic shared ATLAS is an\napproach for the automatic generation and optimization of numerical\nsoftware. Currently ATLAS supplies optimized versions for the complete\nset of linear algebra kernels known as the Basic Linear Algebra\nSubroutines (BLAS), and a subset of the linear algebra routines in the\nLAPACK library."
         },
         {
             "name": "lapack",
-            "description": "This is an earlier version of Intel parallel software development tools\nand has now been replaced by the Intel oneAPI Toolkits. LICENSE\nINFORMATION: By downloading and using this software, you agree to the\nterms and conditions of the software license agreements at\nhttps://intel.ly/393CijO."
+            "description": "Automatically Tuned Linear Algebra Software, generic shared ATLAS is an\napproach for the automatic generation and optimization of numerical\nsoftware. Currently ATLAS supplies optimized versions for the complete\nset of linear algebra kernels known as the Basic Linear Algebra\nSubroutines (BLAS), and a subset of the linear algebra routines in the\nLAPACK library."
         },
         {
             "name": "opencl",
-            "description": "Portable Computing Language (pocl) is an open source implementation of\nthe OpenCL standard which can be easily adapted for new targets and\ndevices, both for homogeneous CPU and heterogeneous GPUs/accelerators."
+            "description": "CUDA is a parallel computing platform and programming model invented by\nNVIDIA. It enables dramatic increases in computing performance by\nharnessing the power of the graphics processing unit (GPU). Note: This\npackage does not currently install the drivers necessary to run CUDA.\nThese will need to be installed manually. See:\nhttps://docs.nvidia.com/cuda/ for details."
         },
         {
             "name": "latte",
