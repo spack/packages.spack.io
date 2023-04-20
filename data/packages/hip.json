@@ -579,7 +579,7 @@
         },
         {
             "name": "gl",
-            "description": "Shim package for the core OpenGL library from Apple"
+            "description": "External WGl and Windows OpenGL emulation representation in Spack"
         },
         {
             "name": "py-cppheaderparser",
@@ -628,64 +628,384 @@
     ],
     "dependent_to": [
         {
-            "name": "dbcsr",
-            "description": "Distributed Block Compressed Sparse Row matrix library."
+            "name": "rocfft",
+            "description": "Radeon Open Compute FFT library"
         },
         {
-            "name": "py-amrex",
-            "description": "AMReX Python Bindings with pybind11"
+            "name": "amrex",
+            "description": "AMReX is a publicly available software framework designed for building\nmassively parallel block- structured adaptive mesh refinement (AMR)\napplications."
         },
         {
-            "name": "rocthrust",
-            "description": "Thrust is a parallel algorithm library. This library has been ported to\nHIP/ROCm platform, which uses the rocPRIM library. The HIP ported\nlibrary works on HIP/ROCm platforms"
+            "name": "dihydrogen",
+            "description": "DiHydrogen is the second version of the Hydrogen fork of the well-known\ndistributed linear algebra library, Elemental. DiHydrogen aims to be a\nbasic distributed multilinear algebra interface with a particular\nemphasis on the needs of the distributed machine learning effort, LBANN."
         },
         {
-            "name": "mpich",
-            "description": "MPICH is a high performance and widely portable implementation of the\nMessage Passing Interface (MPI) standard."
+            "name": "spla",
+            "description": "Specialized Parallel Linear Algebra, providing distributed GEMM\nfunctionality for specific matrix distributions with optional GPU\nacceleration."
         },
         {
-            "name": "gasnet",
-            "description": "GASNet is a language-independent, networking middleware layer that\nprovides network-independent, high-performance communication primitives\nincluding Remote Memory Access (RMA) and Active Messages (AM). It has\nbeen used to implement parallel programming models and libraries such as\nUPC, UPC++, Co-Array Fortran, Legion, Chapel, and many others. The\ninterface is primarily intended as a compilation target and for use by\nruntime library writers (as opposed to end users), and the primary goals\nare high performance, interface portability, and expressiveness.\n***NOTICE***: The GASNet library built by this Spack package is ONLY\nintended for unit-testing purposes, and is generally UNSUITABLE FOR\nPRODUCTION USE. The RECOMMENDED way to build GASNet is as an embedded\nlibrary as configured by the higher-level client runtime package (UPC++,\nLegion, etc), including system-specific configuration."
-        },
-        {
-            "name": "papi",
-            "description": "PAPI provides the tool designer and application engineer with a\nconsistent interface and methodology for use of the performance counter\nhardware found in most major microprocessors. PAPI enables software\nengineers to see, in near real time, the relation between software\nperformance and processor events. In addition Component PAPI provides\naccess to a collection of components that expose performance measurement\nopportunities across the hardware and software stack."
-        },
-        {
-            "name": "hwloc",
-            "description": "The Hardware Locality (hwloc) software project. The Portable Hardware\nLocality (hwloc) software package provides a portable abstraction\n(across OS, versions, architectures, ...) of the hierarchical topology\nof modern architectures, including NUMA memory nodes, sockets, shared\ncaches, cores and simultaneous multithreading. It also gathers various\nsystem attributes such as cache and memory information as well as the\nlocality of I/O devices such as network interfaces, InfiniBand HCAs or\nGPUs. It primarily aims at helping applications with gathering\ninformation about modern computing hardware so as to exploit it\naccordingly and efficiently."
-        },
-        {
-            "name": "rocalution",
-            "description": "rocALUTION is a sparse linear algebra library with focus on exploring\nfine-grained parallelism on top of AMD's Radeon Open eCosystem Platform\nROCm runtime and toolchains, targeting modern CPU and GPU platforms.\nBased on C++ and HIP, it provides a portable, generic and flexible\ndesign that allows seamless integration with other scientific software\npackages."
-        },
-        {
-            "name": "axom",
-            "description": "Axom provides a robust, flexible software infrastructure for the\ndevelopment of multi-physics applications and computational tools."
-        },
-        {
-            "name": "pika",
-            "description": "C++ runtime system for parallellism and concurrency."
+            "name": "fftx",
+            "description": "FFTX is the exascale follow-on to the FFTW open source discrete FFT\npackage for executing the Fast Fourier Transform as well as higher-level\noperations composed of linear operations combined with DFT transforms."
         },
         {
             "name": "legion",
             "description": "Legion is a data-centric parallel programming system for writing\nportable high performance programs targeted at distributed heterogeneous\narchitectures. Legion presents abstractions which allow programmers to\ndescribe properties of program data (e.g. independence, locality). By\nmaking the Legion programming system aware of the structure of program\ndata, it can automate many of the tedious tasks programmers currently\nface, including correctly extracting task- and data-level parallelism\nand moving data around complex memory hierarchies. A novel mapping\ninterface provides explicit programmer controlled placement of data in\nthe memory hierarchy and assignment of tasks to processors in a way that\nis orthogonal to correctness, thereby enabling easy porting and tuning\nof Legion applications to new architectures."
         },
         {
+            "name": "vtk-m",
+            "description": "VTK-m is a toolkit of scientific visualization algorithms for emerging\nprocessor architectures. VTK-m supports the fine-grained concurrency for\ndata analysis and visualization algorithms required to drive extreme\nscale computing by providing abstract models for data and execution that\ncan be applied to a variety of algorithms across many different\nprocessor architectures."
+        },
+        {
+            "name": "chai",
+            "description": "Copy-hiding array interface for data migration between memory spaces"
+        },
+        {
+            "name": "mvapich2-gdr",
+            "description": "MVAPICH2-GDR is an optimized version of the MVAPICH2 MPI library for\nGPU-enabled HPC and Deep Learning Applications. MVAPICH2-GDR is not\ninstallable from source and is only available through a binary mirror.\nIf you do not find the binary you're looking for, send us an email at\nmvapich@cse.ohio-state.edu. The binary mirror url is:\nhttp://mvapich.cse.ohio-state.edu/download/mvapich/spack-\nmirror/mvapich2-gdr/"
+        },
+        {
+            "name": "papi",
+            "description": "PAPI provides the tool designer and application engineer with a\nconsistent interface and methodology for use of the performance counter\nhardware found in most major microprocessors. PAPI enables software\nengineers to see, in near real time, the relation between software\nperformance and processor events. In addition Component PAPI provides\naccess to a collection of components that expose performance measurement\nopportunities across the hardware and software stack."
+        },
+        {
+            "name": "kripke",
+            "description": "Kripke is a simple, scalable, 3D Sn deterministic particle transport\nproxy/mini app."
+        },
+        {
+            "name": "hydrogen",
+            "description": "Hydrogen: Distributed-memory dense and sparse-direct linear algebra and\noptimization library. Based on the Elemental library."
+        },
+        {
+            "name": "hipsolver",
+            "description": "hipSOLVER is a LAPACK marshalling library, with multiple supported\nbackends. It sits between the application and a 'worker' LAPACK library,\nmarshalling inputs into the backend library and marshalling results back\nto the application. hipSOLVER exports an interface that does not require\nthe client to change, regardless of the chosen backend. Currently,\nhipSOLVER supports rocSOLVER and cuSOLVER as backends."
+        },
+        {
+            "name": "rocrand",
+            "description": "The rocRAND project provides functions that generate pseudo-random and\nquasi-random numbers."
+        },
+        {
+            "name": "caliper",
+            "description": "Caliper is a program instrumentation and performance measurement\nframework. It is designed as a performance analysis toolbox in a\nlibrary, allowing one to bake performance analysis capabilities directly\ninto applications and activate them at runtime."
+        },
+        {
+            "name": "care",
+            "description": "Algorithms for chai managed arrays."
+        },
+        {
+            "name": "aluminum",
+            "description": "Aluminum provides a generic interface to high-performance communication\nlibraries, with a focus on allreduce algorithms. Blocking and non-\nblocking algorithms and GPU-aware algorithms are supported. Aluminum\nalso contains custom implementations of select algorithms to optimize\nfor certain situations."
+        },
+        {
+            "name": "whip",
+            "description": "whip is a small C++ abstraction layer for CUDA and HIP."
+        },
+        {
+            "name": "superlu-dist",
+            "description": "A general purpose library for the direct solution of large, sparse,\nnonsymmetric systems of linear equations on high performance machines."
+        },
+        {
+            "name": "spfft",
+            "description": "Sparse 3D FFT library with MPI, OpenMP, CUDA and ROCm support."
+        },
+        {
+            "name": "hpx",
+            "description": "C++ runtime system for parallel and distributed applications."
+        },
+        {
+            "name": "dbcsr",
+            "description": "Distributed Block Compressed Sparse Row matrix library."
+        },
+        {
+            "name": "rocalution",
+            "description": "rocALUTION is a sparse linear algebra library with focus on exploring\nfine-grained parallelism on top of AMD's Radeon Open eCosystem Platform\nROCm runtime and toolchains, targeting modern CPU and GPU platforms.\nBased on C++ and HIP, it provides a portable, generic and flexible\ndesign that allows seamless integration with other scientific software\npackages."
+        },
+        {
+            "name": "scorep",
+            "description": "The Score-P measurement infrastructure is a highly scalable and easy-to-\nuse tool suite for profiling, event tracing, and online analysis of HPC\napplications."
+        },
+        {
+            "name": "babelstream",
+            "description": "Measure memory transfer rates to/from global device memory on GPUs. This\nbenchmark is similar in spirit, and based on, the STREAM benchmark for\nCPUs."
+        },
+        {
+            "name": "py-tensorflow",
+            "description": "An Open Source Machine Learning Framework for Everyone. TensorFlow is an\nend-to-end open source platform for machine learning. It has a\ncomprehensive, flexible ecosystem of tools, libraries, and community\nresources that lets researchers push the state-of-the-art in ML and\ndevelopers easily build and deploy ML-powered applications. TensorFlow\nwas originally developed by researchers and engineers working on the\nGoogle Brain team within Google's Machine Intelligence Research\norganization to conduct machine learning and deep neural networks\nresearch. The system is general enough to be applicable in a wide\nvariety of other domains, as well."
+        },
+        {
+            "name": "hipfort",
+            "description": "Radeon Open Compute Parallel Primitives Library"
+        },
+        {
+            "name": "gasnet",
+            "description": "GASNet is a language-independent, networking middleware layer that\nprovides network-independent, high-performance communication primitives\nincluding Remote Memory Access (RMA) and Active Messages (AM). It has\nbeen used to implement parallel programming models and libraries such as\nUPC, UPC++, Co-Array Fortran, Legion, Chapel, and many others. The\ninterface is primarily intended as a compilation target and for use by\nruntime library writers (as opposed to end users), and the primary goals\nare high performance, interface portability, and expressiveness.\n***NOTICE***: The GASNet library built by this Spack package is ONLY\nintended for unit-testing purposes, and is generally UNSUITABLE FOR\nPRODUCTION USE. The RECOMMENDED way to build GASNet is as an embedded\nlibrary as configured by the higher-level client runtime package (UPC++,\nLegion, etc), including system-specific configuration."
+        },
+        {
+            "name": "axom",
+            "description": "Axom provides a robust, flexible software infrastructure for the\ndevelopment of multi-physics applications and computational tools."
+        },
+        {
+            "name": "trilinos",
+            "description": "The Trilinos Project is an effort to develop algorithms and enabling\ntechnologies within an object-oriented software framework for the\nsolution of large-scale, complex multi-physics engineering and\nscientific problems. A unique design feature of Trilinos is its focus on\npackages."
+        },
+        {
+            "name": "hiop",
+            "description": "HiOp is an optimization solver for solving certain mathematical\noptimization problems expressed as nonlinear programming problems. HiOp\nis a lightweight HPC solver that leverages application\"s existing data\nparallelism to parallelize the optimization iterations by using\nspecialized linear algebra kernels."
+        },
+        {
+            "name": "aml",
+            "description": "AML is a memory management library designed to ease the use of complex\nmemory topologies and complex data layout optimizations for high-\nperformance computing applications."
+        },
+        {
+            "name": "tasmanian",
+            "description": "The Toolkit for Adaptive Stochastic Modeling and Non-Intrusive\nApproximatioN is a robust library for high dimensional integration and\ninterpolation as well as parameter calibration."
+        },
+        {
+            "name": "yaksa",
+            "description": "Yaksa is a high-performance datatype engine for expressing, managing and\nmanipulating data present in noncontiguous memory regions. It provides\nportable abstractions for structured noncontiguous data layouts that are\nmuch more comprehensive compared with traditional I/O vectors. Yaksa\nimitates parts of the MPI Datatype system, but adds additional\nfunctionality that would allow it to be used independent of MPI. It\nprovides routines for packing/unpacking, creating I/O vectors (array of\ncontiguous segments) and flattening/unflattening datatypes into process-\nportable formats. Yaksa's backend includes support for CPUs as well as\ndifferent GPUs."
+        },
+        {
+            "name": "neko",
+            "description": "Neko: A modern, portable, and scalable framework for high-fidelity\ncomputational fluid dynamics"
+        },
+        {
+            "name": "paraview",
+            "description": "ParaView is an open-source, multi-platform data analysis and\nvisualization application. This package includes the Catalyst in-situ\nlibrary for versions 5.7 and greater, otherwise use the catalyst\npackage."
+        },
+        {
+            "name": "raja",
+            "description": "RAJA Parallel Framework."
+        },
+        {
+            "name": "ecp-data-vis-sdk",
+            "description": "ECP Data & Vis SDK"
+        },
+        {
+            "name": "umpire",
+            "description": "An application-focused API for memory management on NUMA & GPU\narchitectures"
+        },
+        {
+            "name": "lbann",
+            "description": "LBANN: Livermore Big Artificial Neural Network Toolkit. A distributed\nmemory, HPC-optimized, model and data parallel training toolkit for deep\nneural networks."
+        },
+        {
+            "name": "ceed",
+            "description": "Ceed is a collection of benchmarks, miniapps, software libraries and\nAPIs for efficient high-order finite element and spectral element\ndiscretizations for exascale applications developed in the Department of\nEnergy (DOE) and partially supported by the Exascale Computing Project\n(ECP). This is a Spack bundle package that installs the CEED software\ncomponents."
+        },
+        {
+            "name": "migraphx",
+            "description": "AMD's graph optimization engine."
+        },
+        {
+            "name": "apex",
+            "description": "Autonomic Performance Environment for eXascale (APEX)."
+        },
+        {
+            "name": "miopen-tensile",
+            "description": "MIOpenTensile provides host-callable interfaces to Tensile library.\nMIOpenTensile supports one programming model: HIP"
+        },
+        {
+            "name": "petsc",
+            "description": "PETSc is a suite of data structures and routines for the scalable\n(parallel) solution of scientific applications modeled by partial\ndifferential equations."
+        },
+        {
+            "name": "kokkos",
+            "description": "Kokkos implements a programming model in C++ for writing performance\nportable applications targeting all major HPC platforms."
+        },
+        {
+            "name": "py-torch",
+            "description": "Tensors and Dynamic neural networks in Python with strong GPU\nacceleration."
+        },
+        {
+            "name": "sundials",
+            "description": "SUNDIALS (SUite of Nonlinear and DIfferential/ALgebraic equation\nSolvers)"
+        },
+        {
+            "name": "rocblas",
+            "description": "Radeon Open Compute BLAS library"
+        },
+        {
+            "name": "hpx-kokkos",
+            "description": "HPXKokkos is an interoperability library for HPX and Kokkos"
+        },
+        {
+            "name": "magma",
+            "description": "The MAGMA project aims to develop a dense linear algebra library similar\nto LAPACK but for heterogeneous/hybrid architectures, starting with\ncurrent \"Multicore+GPU\" systems."
+        },
+        {
+            "name": "rocm-validation-suite",
+            "description": "The ROCm Validation Suite (RVS) is a system administrators and cluster\nmanager's tool for detecting and troubleshooting common problems\naffecting AMD GPU(s) running in a high-performance computing\nenvironment, enabled using the ROCm software stack on a compatible\nplatform."
+        },
+        {
+            "name": "xsdk",
+            "description": "Xsdk is a suite of Department of Energy (DOE) packages for numerical\nsimulation. This is a Spack bundle package that installs the xSDK\npackages"
+        },
+        {
+            "name": "py-pyfr",
+            "description": "PyFR is an open-source Python based framework for solving advection-\ndiffusion type problems on streaming architectures using the Flux\nReconstruction approach of Huynh."
+        },
+        {
+            "name": "mpich",
+            "description": "MPICH is a high performance and widely portable implementation of the\nMessage Passing Interface (MPI) standard."
+        },
+        {
+            "name": "camp",
+            "description": "Compiler agnostic metaprogramming library providing concepts, type\noperations and tuples for C++ and cuda"
+        },
+        {
+            "name": "ratel",
+            "description": "Extensible, performance-portable solid mechanics with libCEED and PETSc"
+        },
+        {
+            "name": "mfem",
+            "description": "Free, lightweight, scalable C++ library for finite element methods."
+        },
+        {
+            "name": "strumpack",
+            "description": "STRUMPACK -- STRUctured Matrix PACKage - provides linear solvers for\nsparse matrices and for dense rank-structured matrices, i.e., matrices\nthat exhibit some kind of low-rank property. It provides a distributed\nmemory fully algebraic sparse solver and preconditioner. The\npreconditioner is mostly aimed at large sparse linear systems which\nresult from the discretization of a partial differential equation, but\nis not limited to any particular type of problem. STRUMPACK also\nprovides preconditioned GMRES and BiCGStab iterative solvers."
+        },
+        {
+            "name": "exago",
+            "description": "ExaGO is a package for solving large-scale power grid optimization\nproblems on parallel and distributed architectures, particularly\ntargeted for exascale machines."
+        },
+        {
+            "name": "rocmlir",
+            "description": "This is the repository for a MLIR-based convolution and GEMM kernel\ngenerator targetting AMD hardware. This generator is mainly used from\nMIOpen and MIGraphX, but it can be used on a standalone basis."
+        },
+        {
+            "name": "ucx",
+            "description": "a communication library implementing high-performance messaging for\nMPI/PGAS frameworks"
+        },
+        {
+            "name": "amr-wind",
+            "description": "AMR-Wind is a massively parallel, block-structured adaptive-mesh,\nincompressible flow sover for wind turbine and wind farm simulations."
+        },
+        {
+            "name": "upcxx",
+            "description": "UPC++ is a C++ library that supports Partitioned Global Address Space\n(PGAS) programming, and is designed to interoperate smoothly and\nefficiently with MPI, OpenMP, CUDA, ROCm/HIP and AMTs. It leverages\nGASNet-EX to deliver low-overhead, fine-grained communication, including\nRemote Memory Access (RMA) and Remote Procedure Call (RPC)."
+        },
+        {
             "name": "py-pennylane-lightning-kokkos",
             "description": "The PennyLane-Lightning-Kokkos plugin provides a fast state-vector\nsimulator with Kokkos kernels."
+        },
+        {
+            "name": "hipcub",
+            "description": "Radeon Open Compute Parallel Primitives Library"
+        },
+        {
+            "name": "aws-ofi-rccl",
+            "description": "AWS OFI RCCL is a plug-in which enables EC2 developers to use libfabric\nas a network provider while running AMD's RCCL based applications."
+        },
+        {
+            "name": "mlirmiopen",
+            "description": "Multi-Level Intermediate Representation for rocm miopen project."
+        },
+        {
+            "name": "vecmem",
+            "description": "VecMem is a vectorised data model base and helper classes."
+        },
+        {
+            "name": "rocsolver",
+            "description": "rocSOLVER is a work-in-progress implementation of a subset of LAPACK\nfunctionality on the ROCm platform."
+        },
+        {
+            "name": "slepc",
+            "description": "Scalable Library for Eigenvalue Problem Computations."
+        },
+        {
+            "name": "hipsparse",
+            "description": "hipSPARSE is a SPARSE marshalling library, with multiple supported\nbackends"
+        },
+        {
+            "name": "sirius",
+            "description": "Domain specific library for electronic structure calculations"
+        },
+        {
+            "name": "osu-micro-benchmarks",
+            "description": "The Ohio MicroBenchmark suite is a collection of independent MPI message\npassing performance microbenchmarks developed and written at The Ohio\nState University. It includes traditional benchmarks and performance\nmeasures such as latency, bandwidth and host overhead and can be used\nfor both traditional and GPU-enhanced nodes."
+        },
+        {
+            "name": "rocprim",
+            "description": "Radeon Open Compute Parallel Primitives Library"
         },
         {
             "name": "slate",
             "description": "The Software for Linear Algebra Targeting Exascale (SLATE) project is to\nprovide fundamental dense linear algebra capabilities to the US\nDepartment of Energy and to the high-performance computing (HPC)\ncommunity at large. To this end, SLATE will provide basic dense matrix\noperations (e.g., matrix multiplication, rank-k update, triangular\nsolve), linear systems solvers, least square solvers, singular value and\neigenvalue solvers."
         },
         {
-            "name": "arborx",
-            "description": "ArborX is a performance-portable library for geometric search"
+            "name": "nekrs",
+            "description": "nekRS is an open-source Navier Stokes solver based on the spectral\nelement method targeting classical processors and hardware accelerators\nlike GPUs"
         },
         {
-            "name": "ginkgo",
-            "description": "High-performance linear algebra library for manycore systems, with a\nfocus on sparse solution of linear systems."
+            "name": "rocsparse",
+            "description": "rocSPARSE exposes a common interface that provides Basic Linear Algebra\nSubroutines for sparse computation implemented on top of AMD's Radeon\nOpen eCosystem Platform ROCm runtime and toolchains. rocSPARSE is\ncreated using the HIP programming language and optimized for AMD's\nlatest discrete GPUs."
+        },
+        {
+            "name": "omnitrace",
+            "description": "Application Profiling, Tracing, and Analysis"
+        },
+        {
+            "name": "py-amrex",
+            "description": "AMReX Python Bindings with pybind11"
+        },
+        {
+            "name": "hpctoolkit",
+            "description": "HPCToolkit is an integrated suite of tools for measurement and analysis\nof program performance on computers ranging from multicore desktop\nsystems to the nation's largest supercomputers. By using statistical\nsampling of timers and hardware performance counters, HPCToolkit\ncollects accurate measurements of a program's work, resource\nconsumption, and inefficiency and attributes them to the full calling\ncontext in which they occur."
+        },
+        {
+            "name": "libceed",
+            "description": "The CEED API Library: Code for Efficient Extensible Discretizations."
+        },
+        {
+            "name": "rocm-tensile",
+            "description": "Radeon Open Compute Tensile library"
+        },
+        {
+            "name": "celeritas",
+            "description": "Celeritas is a new Monte Carlo transport code designed for high-\nperformance (GPU-targeted) simulation of high-energy physics detectors."
+        },
+        {
+            "name": "rocwmma",
+            "description": "AMD's C++ library for accelerating mixed precision matrix multiplication\nand accumulation (MFMA) operations leveraging specialized GPU matrix\ncores. rocWMMA provides a C++ API to facilitate breaking down matrix\nmultiply-accumulate problems into fragments and using them in block-wise\noperations that are distributed in parallel across GPU wavefronts. The\nAPI is a header library of GPU device code meaning that matrix core\nacceleration may be compiled directly into your kernel device code. This\ncan benefit from compiler optimization in the generation of kernel\nassembly, and does not incur additional overhead costs of linking to\nexternal runtime libraries or having to launch separate kernels."
+        },
+        {
+            "name": "blaspp",
+            "description": "C++ API for the Basic Linear Algebra Subroutines. Developed by the\nInnovative Computing Laboratory at the University of Tennessee,\nKnoxville."
+        },
+        {
+            "name": "pika",
+            "description": "C++ runtime system for parallellism and concurrency."
+        },
+        {
+            "name": "hwloc",
+            "description": "The Hardware Locality (hwloc) software project. The Portable Hardware\nLocality (hwloc) software package provides a portable abstraction\n(across OS, versions, architectures, ...) of the hierarchical topology\nof modern architectures, including NUMA memory nodes, sockets, shared\ncaches, cores and simultaneous multithreading. It also gathers various\nsystem attributes such as cache and memory information as well as the\nlocality of I/O devices such as network interfaces, InfiniBand HCAs or\nGPUs. It primarily aims at helping applications with gathering\ninformation about modern computing hardware so as to exploit it\naccordingly and efficiently."
+        },
+        {
+            "name": "hypre",
+            "description": "Hypre is a library of high performance preconditioners that features\nparallel multigrid methods for both structured and unstructured grid\nproblems."
+        },
+        {
+            "name": "rocthrust",
+            "description": "Thrust is a parallel algorithm library. This library has been ported to\nHIP/ROCm platform, which uses the rocPRIM library. The HIP ported\nlibrary works on HIP/ROCm platforms"
+        },
+        {
+            "name": "aomp",
+            "description": "llvm openmp compiler from AMD."
+        },
+        {
+            "name": "rccl",
+            "description": "RCCL (pronounced \"Rickle\") is a stand-alone library of standard\ncollective communication routines for GPUs, implementing all-reduce,\nall-gather, reduce, broadcast, and reduce-scatter."
+        },
+        {
+            "name": "lapackpp",
+            "description": "LAPACK++: C++ API for the LAPACK Linear Algebra Package. Developed by\nthe Innovative Computing Laboratory at the University of Tennessee,\nKnoxville."
+        },
+        {
+            "name": "elpa",
+            "description": "Eigenvalue solvers for Petaflop-Applications (ELPA)"
+        },
+        {
+            "name": "roctracer-dev",
+            "description": "ROC-tracer library: Runtimes Generic Callback/Activity APIs. The goal of\nthe implementation is to provide a generic independent from specific\nruntime profiler to trace API and asyncronous activity."
         },
         {
             "name": "heffte",
@@ -696,352 +1016,32 @@
             "description": "AMD's library for high performance machine learning primitives."
         },
         {
-            "name": "amr-wind",
-            "description": "AMR-Wind is a massively parallel, block-structured adaptive-mesh,\nincompressible flow sover for wind turbine and wind farm simulations."
-        },
-        {
-            "name": "nekrs",
-            "description": "nekRS is an open-source Navier Stokes solver based on the spectral\nelement method targeting classical processors and hardware accelerators\nlike GPUs"
-        },
-        {
-            "name": "aomp",
-            "description": "llvm openmp compiler from AMD."
-        },
-        {
-            "name": "rccl-tests",
-            "description": "These tests check both the performance and the correctness of RCCL\noperations. They can be compiled against RCCL."
-        },
-        {
-            "name": "magma",
-            "description": "The MAGMA project aims to develop a dense linear algebra library similar\nto LAPACK but for heterogeneous/hybrid architectures, starting with\ncurrent \"Multicore+GPU\" systems."
-        },
-        {
-            "name": "umpire",
-            "description": "An application-focused API for memory management on NUMA & GPU\narchitectures"
-        },
-        {
-            "name": "rocm-debug-agent",
-            "description": "Radeon Open Compute (ROCm) debug agent"
-        },
-        {
-            "name": "superlu-dist",
-            "description": "A general purpose library for the direct solution of large, sparse,\nnonsymmetric systems of linear equations on high performance machines."
-        },
-        {
-            "name": "omnitrace",
-            "description": "Application Profiling, Tracing, and Analysis"
-        },
-        {
-            "name": "rocsolver",
-            "description": "rocSOLVER is a work-in-progress implementation of a subset of LAPACK\nfunctionality on the ROCm platform."
-        },
-        {
-            "name": "hipsolver",
-            "description": "hipSOLVER is a LAPACK marshalling library, with multiple supported\nbackends. It sits between the application and a 'worker' LAPACK library,\nmarshalling inputs into the backend library and marshalling results back\nto the application. hipSOLVER exports an interface that does not require\nthe client to change, regardless of the chosen backend. Currently,\nhipSOLVER supports rocSOLVER and cuSOLVER as backends."
-        },
-        {
-            "name": "vtk-m",
-            "description": "VTK-m is a toolkit of scientific visualization algorithms for emerging\nprocessor architectures. VTK-m supports the fine-grained concurrency for\ndata analysis and visualization algorithms required to drive extreme\nscale computing by providing abstract models for data and execution that\ncan be applied to a variety of algorithms across many different\nprocessor architectures."
-        },
-        {
-            "name": "py-tensorflow",
-            "description": "An Open Source Machine Learning Framework for Everyone. TensorFlow is an\nend-to-end open source platform for machine learning. It has a\ncomprehensive, flexible ecosystem of tools, libraries, and community\nresources that lets researchers push the state-of-the-art in ML and\ndevelopers easily build and deploy ML-powered applications. TensorFlow\nwas originally developed by researchers and engineers working on the\nGoogle Brain team within Google's Machine Intelligence Research\norganization to conduct machine learning and deep neural networks\nresearch. The system is general enough to be applicable in a wide\nvariety of other domains, as well."
-        },
-        {
-            "name": "sundials",
-            "description": "SUNDIALS (SUite of Nonlinear and DIfferential/ALgebraic equation\nSolvers)"
-        },
-        {
-            "name": "petsc",
-            "description": "PETSc is a suite of data structures and routines for the scalable\n(parallel) solution of scientific applications modeled by partial\ndifferential equations."
+            "name": "ginkgo",
+            "description": "High-performance linear algebra library for manycore systems, with a\nfocus on sparse solution of linear systems."
         },
         {
             "name": "hipfft",
             "description": "hipFFT is an FFT marshalling library. Currently, hipFFT supports either\nrocFFT or cuFFT as backends.hipFFT exports an interface that does not\nrequire the client to change, regardless of the chosen backend. It sits\nbetween the application and the backend FFT library, marshalling inputs\ninto the backend and results back to the application."
         },
         {
-            "name": "hipcub",
-            "description": "Radeon Open Compute Parallel Primitives Library"
+            "name": "lammps",
+            "description": "LAMMPS stands for Large-scale Atomic/Molecular Massively Parallel\nSimulator."
         },
         {
-            "name": "lapackpp",
-            "description": "LAPACK++: C++ API for the LAPACK Linear Algebra Package. Developed by\nthe Innovative Computing Laboratory at the University of Tennessee,\nKnoxville."
+            "name": "rccl-tests",
+            "description": "These tests check both the performance and the correctness of RCCL\noperations. They can be compiled against RCCL."
         },
         {
-            "name": "osu-micro-benchmarks",
-            "description": "The Ohio MicroBenchmark suite is a collection of independent MPI message\npassing performance microbenchmarks developed and written at The Ohio\nState University. It includes traditional benchmarks and performance\nmeasures such as latency, bandwidth and host overhead and can be used\nfor both traditional and GPU-enhanced nodes."
-        },
-        {
-            "name": "ratel",
-            "description": "Extensible, performance-portable solid mechanics with libCEED and PETSc"
-        },
-        {
-            "name": "aws-ofi-rccl",
-            "description": "AWS OFI RCCL is a plug-in which enables EC2 developers to use libfabric\nas a network provider while running AMD's RCCL based applications."
-        },
-        {
-            "name": "spfft",
-            "description": "Sparse 3D FFT library with MPI, OpenMP, CUDA and ROCm support."
-        },
-        {
-            "name": "care",
-            "description": "Algorithms for chai managed arrays."
-        },
-        {
-            "name": "fftx",
-            "description": "FFTX is the exascale follow-on to the FFTW open source discrete FFT\npackage for executing the Fast Fourier Transform as well as higher-level\noperations composed of linear operations combined with DFT transforms."
-        },
-        {
-            "name": "slepc",
-            "description": "Scalable Library for Eigenvalue Problem Computations."
-        },
-        {
-            "name": "libceed",
-            "description": "The CEED API Library: Code for Efficient Extensible Discretizations."
-        },
-        {
-            "name": "rocblas",
-            "description": "Radeon Open Compute BLAS library"
-        },
-        {
-            "name": "roctracer-dev",
-            "description": "ROC-tracer library: Runtimes Generic Callback/Activity APIs. The goal of\nthe implementation is to provide a generic independent from specific\nruntime profiler to trace API and asyncronous activity."
-        },
-        {
-            "name": "aml",
-            "description": "AML is a memory management library designed to ease the use of complex\nmemory topologies and complex data layout optimizations for high-\nperformance computing applications."
-        },
-        {
-            "name": "mlirmiopen",
-            "description": "Multi-Level Intermediate Representation for rocm miopen project."
-        },
-        {
-            "name": "amrex",
-            "description": "AMReX is a publicly available software framework designed for building\nmassively parallel block- structured adaptive mesh refinement (AMR)\napplications."
-        },
-        {
-            "name": "ucx",
-            "description": "a communication library implementing high-performance messaging for\nMPI/PGAS frameworks"
-        },
-        {
-            "name": "rocsparse",
-            "description": "rocSPARSE exposes a common interface that provides Basic Linear Algebra\nSubroutines for sparse computation implemented on top of AMD's Radeon\nOpen eCosystem Platform ROCm runtime and toolchains. rocSPARSE is\ncreated using the HIP programming language and optimized for AMD's\nlatest discrete GPUs."
-        },
-        {
-            "name": "upcxx",
-            "description": "UPC++ is a C++ library that supports Partitioned Global Address Space\n(PGAS) programming, and is designed to interoperate smoothly and\nefficiently with MPI, OpenMP, CUDA, ROCm/HIP and AMTs. It leverages\nGASNet-EX to deliver low-overhead, fine-grained communication, including\nRemote Memory Access (RMA) and Remote Procedure Call (RPC)."
-        },
-        {
-            "name": "whip",
-            "description": "whip is a small C++ abstraction layer for CUDA and HIP."
-        },
-        {
-            "name": "py-pyfr",
-            "description": "PyFR is an open-source Python based framework for solving advection-\ndiffusion type problems on streaming architectures using the Flux\nReconstruction approach of Huynh."
-        },
-        {
-            "name": "lbann",
-            "description": "LBANN: Livermore Big Artificial Neural Network Toolkit. A distributed\nmemory, HPC-optimized, model and data parallel training toolkit for deep\nneural networks."
-        },
-        {
-            "name": "hpx",
-            "description": "C++ runtime system for parallel and distributed applications."
-        },
-        {
-            "name": "hydrogen",
-            "description": "Hydrogen: Distributed-memory dense and sparse-direct linear algebra and\noptimization library. Based on the Elemental library."
-        },
-        {
-            "name": "rocrand",
-            "description": "The rocRAND project provides functions that generate pseudo-random and\nquasi-random numbers."
-        },
-        {
-            "name": "sirius",
-            "description": "Domain specific library for electronic structure calculations"
-        },
-        {
-            "name": "paraview",
-            "description": "ParaView is an open-source, multi-platform data analysis and\nvisualization application. This package includes the Catalyst in-situ\nlibrary for versions 5.7 and greater, otherwise use the catalyst\npackage."
-        },
-        {
-            "name": "babelstream",
-            "description": "Measure memory transfer rates to/from global device memory on GPUs. This\nbenchmark is similar in spirit, and based on, the STREAM benchmark for\nCPUs."
-        },
-        {
-            "name": "strumpack",
-            "description": "STRUMPACK -- STRUctured Matrix PACKage - provides linear solvers for\nsparse matrices and for dense rank-structured matrices, i.e., matrices\nthat exhibit some kind of low-rank property. It provides a distributed\nmemory fully algebraic sparse solver and preconditioner. The\npreconditioner is mostly aimed at large sparse linear systems which\nresult from the discretization of a partial differential equation, but\nis not limited to any particular type of problem. STRUMPACK also\nprovides preconditioned GMRES and BiCGStab iterative solvers."
-        },
-        {
-            "name": "chai",
-            "description": "Copy-hiding array interface for data migration between memory spaces"
-        },
-        {
-            "name": "py-torch",
-            "description": "Tensors and Dynamic neural networks in Python with strong GPU\nacceleration."
-        },
-        {
-            "name": "aluminum",
-            "description": "Aluminum provides a generic interface to high-performance communication\nlibraries, with a focus on allreduce algorithms. Blocking and non-\nblocking algorithms and GPU-aware algorithms are supported. Aluminum\nalso contains custom implementations of select algorithms to optimize\nfor certain situations."
-        },
-        {
-            "name": "ceed",
-            "description": "Ceed is a collection of benchmarks, miniapps, software libraries and\nAPIs for efficient high-order finite element and spectral element\ndiscretizations for exascale applications developed in the Department of\nEnergy (DOE) and partially supported by the Exascale Computing Project\n(ECP). This is a Spack bundle package that installs the CEED software\ncomponents."
-        },
-        {
-            "name": "ecp-data-vis-sdk",
-            "description": "ECP Data & Vis SDK"
-        },
-        {
-            "name": "xsdk",
-            "description": "Xsdk is a suite of Department of Energy (DOE) packages for numerical\nsimulation. This is a Spack bundle package that installs the xSDK\npackages"
-        },
-        {
-            "name": "rocm-validation-suite",
-            "description": "The ROCm Validation Suite (RVS) is a system administrators and cluster\nmanager's tool for detecting and troubleshooting common problems\naffecting AMD GPU(s) running in a high-performance computing\nenvironment, enabled using the ROCm software stack on a compatible\nplatform."
+            "name": "arborx",
+            "description": "ArborX is a performance-portable library for geometric search"
         },
         {
             "name": "hipblas",
             "description": "hipBLAS is a BLAS marshalling library, with multiple supported backends"
         },
         {
-            "name": "hipsparse",
-            "description": "hipSPARSE is a SPARSE marshalling library, with multiple supported\nbackends"
-        },
-        {
-            "name": "hipfort",
-            "description": "Radeon Open Compute Parallel Primitives Library"
-        },
-        {
-            "name": "neko",
-            "description": "Neko: A modern, portable, and scalable framework for high-fidelity\ncomputational fluid dynamics"
-        },
-        {
-            "name": "mvapich2-gdr",
-            "description": "MVAPICH2-GDR is an optimized version of the MVAPICH2 MPI library for\nGPU-enabled HPC and Deep Learning Applications. MVAPICH2-GDR is not\ninstallable from source and is only available through a binary mirror.\nIf you do not find the binary you're looking for, send us an email at\nmvapich@cse.ohio-state.edu. The binary mirror url is:\nhttp://mvapich.cse.ohio-state.edu/download/mvapich/spack-\nmirror/mvapich2-gdr/"
-        },
-        {
-            "name": "rocwmma",
-            "description": "AMD's C++ library for accelerating mixed precision matrix multiplication\nand accumulation (MFMA) operations leveraging specialized GPU matrix\ncores. rocWMMA provides a C++ API to facilitate breaking down matrix\nmultiply-accumulate problems into fragments and using them in block-wise\noperations that are distributed in parallel across GPU wavefronts. The\nAPI is a header library of GPU device code meaning that matrix core\nacceleration may be compiled directly into your kernel device code. This\ncan benefit from compiler optimization in the generation of kernel\nassembly, and does not incur additional overhead costs of linking to\nexternal runtime libraries or having to launch separate kernels."
-        },
-        {
-            "name": "miopen-tensile",
-            "description": "MIOpenTensile provides host-callable interfaces to Tensile library.\nMIOpenTensile supports one programming model: HIP"
-        },
-        {
-            "name": "elpa",
-            "description": "Eigenvalue solvers for Petaflop-Applications (ELPA)"
-        },
-        {
-            "name": "caliper",
-            "description": "Caliper is a program instrumentation and performance measurement\nframework. It is designed as a performance analysis toolbox in a\nlibrary, allowing one to bake performance analysis capabilities directly\ninto applications and activate them at runtime."
-        },
-        {
-            "name": "rocm-tensile",
-            "description": "Radeon Open Compute Tensile library"
-        },
-        {
-            "name": "tasmanian",
-            "description": "The Toolkit for Adaptive Stochastic Modeling and Non-Intrusive\nApproximatioN is a robust library for high dimensional integration and\ninterpolation as well as parameter calibration."
-        },
-        {
-            "name": "exago",
-            "description": "ExaGO is a package for solving large-scale power grid optimization\nproblems on parallel and distributed architectures, particularly\ntargeted for exascale machines."
-        },
-        {
-            "name": "hpctoolkit",
-            "description": "HPCToolkit is an integrated suite of tools for measurement and analysis\nof program performance on computers ranging from multicore desktop\nsystems to the nation's largest supercomputers. By using statistical\nsampling of timers and hardware performance counters, HPCToolkit\ncollects accurate measurements of a program's work, resource\nconsumption, and inefficiency and attributes them to the full calling\ncontext in which they occur."
-        },
-        {
-            "name": "blaspp",
-            "description": "C++ API for the Basic Linear Algebra Subroutines. Developed by the\nInnovative Computing Laboratory at the University of Tennessee,\nKnoxville."
-        },
-        {
-            "name": "rocprim",
-            "description": "Radeon Open Compute Parallel Primitives Library"
-        },
-        {
-            "name": "apex",
-            "description": "Autonomic Performance Environment for eXascale (APEX)."
-        },
-        {
-            "name": "spla",
-            "description": "Specialized Parallel Linear Algebra, providing distributed GEMM\nfunctionality for specific matrix distributions with optional GPU\nacceleration."
-        },
-        {
-            "name": "kripke",
-            "description": "Kripke is a simple, scalable, 3D Sn deterministic particle transport\nproxy/mini app."
-        },
-        {
-            "name": "dihydrogen",
-            "description": "DiHydrogen is the second version of the Hydrogen fork of the well-known\ndistributed linear algebra library, Elemental. DiHydrogen aims to be a\nbasic distributed multilinear algebra interface with a particular\nemphasis on the needs of the distributed machine learning effort, LBANN."
-        },
-        {
-            "name": "lammps",
-            "description": "LAMMPS stands for Large-scale Atomic/Molecular Massively Parallel\nSimulator."
-        },
-        {
-            "name": "camp",
-            "description": "Compiler agnostic metaprogramming library providing concepts, type\noperations and tuples for C++ and cuda"
-        },
-        {
-            "name": "vecmem",
-            "description": "VecMem is a vectorised data model base and helper classes."
-        },
-        {
-            "name": "kokkos",
-            "description": "Kokkos implements a programming model in C++ for writing performance\nportable applications targeting all major HPC platforms."
-        },
-        {
-            "name": "hiop",
-            "description": "HiOp is an optimization solver for solving certain mathematical\noptimization problems expressed as nonlinear programming problems. HiOp\nis a lightweight HPC solver that leverages application\"s existing data\nparallelism to parallelize the optimization iterations by using\nspecialized linear algebra kernels."
-        },
-        {
-            "name": "yaksa",
-            "description": "Yaksa is a high-performance datatype engine for expressing, managing and\nmanipulating data present in noncontiguous memory regions. It provides\nportable abstractions for structured noncontiguous data layouts that are\nmuch more comprehensive compared with traditional I/O vectors. Yaksa\nimitates parts of the MPI Datatype system, but adds additional\nfunctionality that would allow it to be used independent of MPI. It\nprovides routines for packing/unpacking, creating I/O vectors (array of\ncontiguous segments) and flattening/unflattening datatypes into process-\nportable formats. Yaksa's backend includes support for CPUs as well as\ndifferent GPUs."
-        },
-        {
-            "name": "celeritas",
-            "description": "Celeritas is a new Monte Carlo transport code designed for high-\nperformance (GPU-targeted) simulation of high-energy physics detectors."
-        },
-        {
-            "name": "hpx-kokkos",
-            "description": "HPXKokkos is an interoperability library for HPX and Kokkos"
-        },
-        {
-            "name": "migraphx",
-            "description": "AMD's graph optimization engine."
-        },
-        {
-            "name": "rocmlir",
-            "description": "This is the repository for a MLIR-based convolution and GEMM kernel\ngenerator targetting AMD hardware. This generator is mainly used from\nMIOpen and MIGraphX, but it can be used on a standalone basis."
-        },
-        {
-            "name": "rccl",
-            "description": "RCCL (pronounced \"Rickle\") is a stand-alone library of standard\ncollective communication routines for GPUs, implementing all-reduce,\nall-gather, reduce, broadcast, and reduce-scatter."
-        },
-        {
-            "name": "hypre",
-            "description": "Hypre is a library of high performance preconditioners that features\nparallel multigrid methods for both structured and unstructured grid\nproblems."
-        },
-        {
-            "name": "mfem",
-            "description": "Free, lightweight, scalable C++ library for finite element methods."
-        },
-        {
-            "name": "trilinos",
-            "description": "The Trilinos Project is an effort to develop algorithms and enabling\ntechnologies within an object-oriented software framework for the\nsolution of large-scale, complex multi-physics engineering and\nscientific problems. A unique design feature of Trilinos is its focus on\npackages."
-        },
-        {
-            "name": "rocfft",
-            "description": "Radeon Open Compute FFT library"
-        },
-        {
-            "name": "raja",
-            "description": "RAJA Parallel Framework."
-        },
-        {
-            "name": "scorep",
-            "description": "The Score-P measurement infrastructure is a highly scalable and easy-to-\nuse tool suite for profiling, event tracing, and online analysis of HPC\napplications."
+            "name": "rocm-debug-agent",
+            "description": "Radeon Open Compute (ROCm) debug agent"
         }
     ]
 }
