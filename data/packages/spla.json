@@ -3,6 +3,10 @@
     "aliases": [],
     "versions": [
         {
+            "name": "1.5.5",
+            "sha256": "bc0c366e228344b1b2df55b9ce750d73c1165380e512da5a04d471db126d66ce"
+        },
+        {
             "name": "1.5.4",
             "sha256": "de30e427d24c741e2e4fcae3d7668162056ac2574afed6522c0bb49d6f1d0f79"
         },
@@ -59,13 +63,18 @@
             "branch": "master"
         }
     ],
-    "latest_version": "1.5.4",
+    "latest_version": "1.5.5",
     "build_system": "CMakePackage",
     "conflicts": [
         {
             "name": "+cuda",
             "spec": "+rocm",
             "description": "+cuda and +rocm are mutually exclusive"
+        },
+        {
+            "name": "%gcc@13.0:",
+            "spec": "@1.5.0:1.5.4",
+            "description": "Version 1.5.0 to 1.5.4 is not compatible with GCC 13 and later."
         }
     ],
     "variants": [
@@ -147,7 +156,7 @@
         },
         {
             "name": "mpi",
-            "description": "HPE MPI is HPE's implementation of the Message Passing Interface (MPI)\nstandard. Note: HPE MPI is proprietry software. Spack will search your\ncurrent directory for the download file. Alternatively, add this file to\na mirror so that Spack can find it. For instructions on how to set up a\nmirror, see https://spack.readthedocs.io/en/latest/mirrors.html"
+            "description": "IBM MPI implementation from Spectrum MPI."
         },
         {
             "name": "blas",
