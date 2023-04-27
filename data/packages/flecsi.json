@@ -4,40 +4,58 @@
     "versions": [
         {
             "name": "develop",
-            "branch": "develop",
-            "submodules": false
+            "branch": "develop"
         },
         {
-            "name": "1.4.develop",
-            "preferred": false,
-            "git": "https://github.com/laristra/flecsi.git",
-            "branch": "1.4",
-            "submodules": false
-        },
-        {
-            "name": "1.4.2",
+            "name": "2.2.0",
             "preferred": true,
-            "git": "https://github.com/laristra/flecsi.git",
-            "submodules": false,
-            "tag": "v1.4.2"
+            "tag": "v2.2.0"
         },
         {
             "name": "2.1.0",
-            "preferred": false,
-            "submodules": false,
             "tag": "v2.1.0"
         },
         {
+            "name": "2.0.0",
+            "tag": "v2.0.0"
+        },
+        {
+            "name": "1.4.1",
+            "tag": "v1.4.1"
+        },
+        {
+            "name": "1.4.develop",
+            "deprecated": true,
+            "git": "https://github.com/laristra/flecsi.git",
+            "branch": "1.4"
+        },
+        {
+            "name": "1.4.2",
+            "deprecated": true,
+            "git": "https://github.com/laristra/flecsi.git",
+            "tag": "v1.4.2"
+        },
+        {
             "name": "flecsph",
-            "preferred": false,
+            "deprecated": true,
             "git": "https://github.com/laristra/flecsi.git",
             "branch": "stable/flecsph",
             "submodules": true
         }
     ],
-    "latest_version": "2.1.0",
+    "latest_version": "2.2.0",
     "build_system": "CMakePackage",
     "conflicts": [
+        {
+            "name": "^blt@:0.3.6",
+            "spec": "+rocm",
+            "description": "None"
+        },
+        {
+            "name": "amdgpu_target=none",
+            "spec": "+rocm",
+            "description": "None"
+        },
         {
             "name": "%gcc@:4",
             "spec": "+cuda ^cuda@11.0:~allow-unsupported-compilers",
@@ -404,11 +422,6 @@
             "description": "None"
         },
         {
-            "name": "+tutorial",
-            "spec": "@2.0:",
-            "description": "None"
-        },
-        {
             "name": "backend=serial",
             "spec": "@2.0:",
             "description": "None"
@@ -419,53 +432,23 @@
             "description": "None"
         },
         {
-            "name": "+debug_backend",
-            "spec": "@2.0:",
-            "description": "None"
-        },
-        {
-            "name": "+disable_metis",
-            "spec": "@2.0:",
-            "description": "None"
-        },
-        {
-            "name": "+doxygen",
-            "spec": "@2.0:",
-            "description": "None"
-        },
-        {
-            "name": "+doc",
-            "spec": "@2.0:",
-            "description": "None"
-        },
-        {
-            "name": "+coverage",
-            "spec": "@2.0:",
-            "description": "None"
-        },
-        {
-            "name": "+flecstan",
-            "spec": "@2.0:",
-            "description": "None"
-        },
-        {
-            "name": "+external_cinch",
-            "spec": "@2.0:",
-            "description": "None"
-        },
-        {
             "name": "+kokkos",
-            "spec": "@:1.4.99",
+            "spec": "@:1.4",
             "description": "None"
         },
         {
             "name": "+openmp",
-            "spec": "@:1.4.99",
+            "spec": "@:1.4",
             "description": "None"
         },
         {
             "name": "+cuda",
-            "spec": "@:1.4.99",
+            "spec": "@:1.4",
+            "description": "None"
+        },
+        {
+            "name": "+rocm",
+            "spec": "@:1.4",
             "description": "None"
         },
         {
@@ -480,11 +463,21 @@
         },
         {
             "name": "backend=legion",
-            "spec": "@:1.4.99",
+            "spec": "@:1.4",
             "description": "None"
         }
     ],
     "variants": [
+        {
+            "name": "rocm",
+            "default": false,
+            "description": "Enable ROCm support"
+        },
+        {
+            "name": "amdgpu_target",
+            "default": "none",
+            "description": "AMD GPU architecture"
+        },
         {
             "name": "cuda",
             "default": false,
@@ -521,16 +514,6 @@
             "description": "Backend to use for distributed memory"
         },
         {
-            "name": "debug_backend",
-            "default": false,
-            "description": "Build Backend with Debug Mode"
-        },
-        {
-            "name": "disable_metis",
-            "default": false,
-            "description": "Disable FindPackageMetis"
-        },
-        {
             "name": "shared",
             "default": true,
             "description": "Build shared libraries"
@@ -541,19 +524,14 @@
             "description": "Enable flog testing"
         },
         {
-            "name": "doxygen",
+            "name": "graphviz",
             "default": false,
-            "description": "Enable doxygen"
+            "description": "Enable GraphViz Support"
         },
         {
             "name": "doc",
             "default": false,
             "description": "Enable documentation"
-        },
-        {
-            "name": "coverage",
-            "default": false,
-            "description": "Enable coverage build"
         },
         {
             "name": "hdf5",
@@ -566,9 +544,34 @@
             "description": "Set Caliper Profiling Detail"
         },
         {
-            "name": "graphviz",
+            "name": "kokkos",
             "default": false,
-            "description": "Enable GraphViz Support"
+            "description": "Enable Kokkos Support"
+        },
+        {
+            "name": "openmp",
+            "default": false,
+            "description": "Enable OpenMP Support"
+        },
+        {
+            "name": "coverage",
+            "default": false,
+            "description": "Enable coverage build"
+        },
+        {
+            "name": "debug_backend",
+            "default": false,
+            "description": "Build Backend with Debug Mode"
+        },
+        {
+            "name": "disable_metis",
+            "default": false,
+            "description": "Disable FindPackageMetis"
+        },
+        {
+            "name": "doxygen",
+            "default": false,
+            "description": "Enable doxygen"
         },
         {
             "name": "tutorial",
@@ -586,19 +589,9 @@
             "description": "Enable External Cinch"
         },
         {
-            "name": "kokkos",
-            "default": false,
-            "description": "Enable Kokkos Support"
-        },
-        {
             "name": "unit_tests",
             "default": false,
             "description": "Build with Unit Tests Enabled"
-        },
-        {
-            "name": "openmp",
-            "default": false,
-            "description": "Enable OpenMP Support"
         }
     ],
     "homepage": "http://flecsi.org/",
@@ -611,6 +604,18 @@
     "resources": [],
     "description": "FleCSI is a compile-time configurable framework designed to support\nmulti-physics application development. As such, FleCSI attempts to\nprovide a very general set of infrastructure design patterns that can be\nspecialized and extended to suit the needs of a broad variety of solver\nand data requirements. Current support includes multi-dimensional mesh\ntopology, mesh geometry, and mesh adjacency information, n-dimensional\nhashed-tree data structures, graph partitioning interfaces,and\ndependency closures.\n",
     "dependencies": [
+        {
+            "name": "llvm-amdgpu",
+            "description": "Toolkit for the construction of highly optimized compilers, optimizers,\nand run-time environments."
+        },
+        {
+            "name": "hsa-rocr-dev",
+            "description": "This repository includes the user mode API nterfaces and libraries\nnecessary for host applications to launch computer kernels to available\nHSA ROCm kernel agents.AMD Heterogeneous System Architecture HSA - Linux\nHSA Runtime for Boltzmann (ROCm) platforms."
+        },
+        {
+            "name": "hip",
+            "description": "HIP is a C++ Runtime API and Kernel Language that allows developers to\ncreate portable applications for AMD and NVIDIA GPUs from single source\ncode."
+        },
         {
             "name": "cuda",
             "description": "CUDA is a parallel computing platform and programming model invented by\nNVIDIA. It enables dramatic increases in computing performance by\nharnessing the power of the graphics processing unit (GPU). Note: This\npackage does not currently install the drivers necessary to run CUDA.\nThese will need to be installed manually. See:\nhttps://docs.nvidia.com/cuda/ for details."
@@ -652,10 +657,6 @@
             "description": "Boost provides free peer-reviewed portable C++ source libraries,\nemphasizing libraries that work well with the C++ Standard Library.\nBoost libraries are intended to be widely useful, and usable across a\nbroad spectrum of applications. The Boost license encourages both\ncommercial and non-commercial use."
         },
         {
-            "name": "openmpi",
-            "description": "An open source Message Passing Interface implementation. The Open MPI\nProject is an open source Message Passing Interface implementation that\nis developed and maintained by a consortium of academic, research, and\nindustry partners. Open MPI is therefore able to combine the expertise,\ntechnologies, and resources from all across the High Performance\nComputing community in order to build the best MPI library available.\nOpen MPI offers advantages for system and software vendors, application\ndevelopers and computer science researchers."
-        },
-        {
             "name": "legion",
             "description": "Legion is a data-centric parallel programming system for writing\nportable high performance programs targeted at distributed heterogeneous\narchitectures. Legion presents abstractions which allow programmers to\ndescribe properties of program data (e.g. independence, locality). By\nmaking the Legion programming system aware of the structure of program\ndata, it can automate many of the tedious tasks programmers currently\nface, including correctly extracting task- and data-level parallelism\nand moving data around complex memory hierarchies. A novel mapping\ninterface provides explicit programmer controlled placement of data in\nthe memory hierarchy and assignment of tasks to processors in a way that\nis orthogonal to correctness, thereby enabling easy porting and tuning\nof Legion applications to new architectures."
         },
@@ -665,7 +666,7 @@
         },
         {
             "name": "mpi",
-            "description": "IBM MPI implementation from Spectrum MPI."
+            "description": "HPE MPI is HPE's implementation of the Message Passing Interface (MPI)\nstandard. Note: HPE MPI is proprietry software. Spack will search your\ncurrent directory for the download file. Alternatively, add this file to\na mirror so that Spack can find it. For instructions on how to set up a\nmirror, see https://spack.readthedocs.io/en/latest/mirrors.html"
         },
         {
             "name": "hpx",
@@ -696,12 +697,28 @@
             "description": "Gcovr provides a utility for managing the use of the GNU gcov utility\nand generating summarized code coverage results. This command is\ninspired by the Python coverage.py package, which provides a similar\nutility for Python."
         },
         {
+            "name": "openmpi",
+            "description": "An open source Message Passing Interface implementation. The Open MPI\nProject is an open source Message Passing Interface implementation that\nis developed and maintained by a consortium of academic, research, and\nindustry partners. Open MPI is therefore able to combine the expertise,\ntechnologies, and resources from all across the High Performance\nComputing community in order to build the best MPI library available.\nOpen MPI offers advantages for system and software vendors, application\ndevelopers and computer science researchers."
+        },
+        {
             "name": "kokkos",
             "description": "Kokkos implements a programming model in C++ for writing performance\nportable applications targeting all major HPC platforms."
         },
         {
             "name": "mpich",
             "description": "MPICH is a high performance and widely portable implementation of the\nMessage Passing Interface (MPI) standard."
+        },
+        {
+            "name": "py-sphinx",
+            "description": "Sphinx Documentation Generator."
+        },
+        {
+            "name": "py-sphinx-rtd-theme",
+            "description": "ReadTheDocs.org theme for Sphinx."
+        },
+        {
+            "name": "py-recommonmark",
+            "description": "A docutils-compatibility bridge to CommonMark. This allows you to write\nCommonMark inside of Docutils & Sphinx projects. Documentation is\navailable on Read the Docs: http://recommonmark.readthedocs.org"
         }
     ],
     "dependent_to": [
