@@ -237,6 +237,14 @@
             "working_dir": ".",
             "relative_path": "0004-Find-python.patch",
             "version": "@5.2.0:"
+        },
+        {
+            "owner": "builtin.rocblas",
+            "sha256": "ac4626b76c0cae65c881e0d02bb4321c499e03b611537cec56b9cd17dabfb9b5",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "0006-Guard-use-of-OpenMP-to-make-it-optional-5.4.patch",
+            "version": "@5.4:"
         }
     ],
     "resources": [
@@ -414,12 +422,12 @@
             "description": "LAPACK version 3.X is a comprehensive FORTRAN library that does linear\nalgebra operations including matrix inversions, least squared solutions\nto linear sets of equations, eigenvector analysis, singular value\ndecomposition, etc. It is a very comprehensive and reputable package\nthat has found extensive use in the scientific community."
         },
         {
-            "name": "llvm-amdgpu",
-            "description": "Toolkit for the construction of highly optimized compilers, optimizers,\nand run-time environments."
-        },
-        {
             "name": "hip",
             "description": "HIP is a C++ Runtime API and Kernel Language that allows developers to\ncreate portable applications for AMD and NVIDIA GPUs from single source\ncode."
+        },
+        {
+            "name": "llvm-amdgpu",
+            "description": "Toolkit for the construction of highly optimized compilers, optimizers,\nand run-time environments."
         },
         {
             "name": "rocm-cmake",
@@ -464,36 +472,32 @@
     ],
     "dependent_to": [
         {
-            "name": "py-pyfr",
-            "description": "PyFR is an open-source Python based framework for solving advection-\ndiffusion type problems on streaming architectures using the Flux\nReconstruction approach of Huynh."
-        },
-        {
-            "name": "cosma",
-            "description": "Distributed Communication-Optimal Matrix-Matrix Multiplication Library"
-        },
-        {
-            "name": "sirius",
-            "description": "Domain specific library for electronic structure calculations"
+            "name": "elpa",
+            "description": "Eigenvalue solvers for Petaflop-Applications (ELPA)"
         },
         {
             "name": "blaspp",
             "description": "C++ API for the Basic Linear Algebra Subroutines. Developed by the\nInnovative Computing Laboratory at the University of Tennessee,\nKnoxville."
         },
         {
-            "name": "spla",
-            "description": "Specialized Parallel Linear Algebra, providing distributed GEMM\nfunctionality for specific matrix distributions with optional GPU\nacceleration."
+            "name": "rocm-validation-suite",
+            "description": "The ROCm Validation Suite (RVS) is a system administrators and cluster\nmanager's tool for detecting and troubleshooting common problems\naffecting AMD GPU(s) running in a high-performance computing\nenvironment, enabled using the ROCm software stack on a compatible\nplatform."
         },
         {
-            "name": "pika",
-            "description": "C++ runtime system for parallellism and concurrency."
+            "name": "rocwmma",
+            "description": "AMD's C++ library for accelerating mixed precision matrix multiplication\nand accumulation (MFMA) operations leveraging specialized GPU matrix\ncores. rocWMMA provides a C++ API to facilitate breaking down matrix\nmultiply-accumulate problems into fragments and using them in block-wise\noperations that are distributed in parallel across GPU wavefronts. The\nAPI is a header library of GPU device code meaning that matrix core\nacceleration may be compiled directly into your kernel device code. This\ncan benefit from compiler optimization in the generation of kernel\nassembly, and does not incur additional overhead costs of linking to\nexternal runtime libraries or having to launch separate kernels."
         },
         {
-            "name": "miopen-opencl",
-            "description": "AMD's library for high performance machine learning primitives."
+            "name": "sirius",
+            "description": "Domain specific library for electronic structure calculations"
         },
         {
-            "name": "miopen-hip",
-            "description": "AMD's library for high performance machine learning primitives."
+            "name": "py-tensorflow",
+            "description": "An Open Source Machine Learning Framework for Everyone. TensorFlow is an\nend-to-end open source platform for machine learning. It has a\ncomprehensive, flexible ecosystem of tools, libraries, and community\nresources that lets researchers push the state-of-the-art in ML and\ndevelopers easily build and deploy ML-powered applications. TensorFlow\nwas originally developed by researchers and engineers working on the\nGoogle Brain team within Google's Machine Intelligence Research\norganization to conduct machine learning and deep neural networks\nresearch. The system is general enough to be applicable in a wide\nvariety of other domains, as well."
+        },
+        {
+            "name": "cosma",
+            "description": "Distributed Communication-Optimal Matrix-Matrix Multiplication Library"
         },
         {
             "name": "lapackpp",
@@ -504,8 +508,8 @@
             "description": "hipSOLVER is a LAPACK marshalling library, with multiple supported\nbackends. It sits between the application and a 'worker' LAPACK library,\nmarshalling inputs into the backend library and marshalling results back\nto the application. hipSOLVER exports an interface that does not require\nthe client to change, regardless of the chosen backend. Currently,\nhipSOLVER supports rocSOLVER and cuSOLVER as backends."
         },
         {
-            "name": "py-tensorflow",
-            "description": "An Open Source Machine Learning Framework for Everyone. TensorFlow is an\nend-to-end open source platform for machine learning. It has a\ncomprehensive, flexible ecosystem of tools, libraries, and community\nresources that lets researchers push the state-of-the-art in ML and\ndevelopers easily build and deploy ML-powered applications. TensorFlow\nwas originally developed by researchers and engineers working on the\nGoogle Brain team within Google's Machine Intelligence Research\norganization to conduct machine learning and deep neural networks\nresearch. The system is general enough to be applicable in a wide\nvariety of other domains, as well."
+            "name": "pika",
+            "description": "C++ runtime system for parallellism and concurrency."
         },
         {
             "name": "rocalution",
@@ -516,36 +520,40 @@
             "description": "Tensors and Dynamic neural networks in Python with strong GPU\nacceleration."
         },
         {
-            "name": "rocwmma",
-            "description": "AMD's C++ library for accelerating mixed precision matrix multiplication\nand accumulation (MFMA) operations leveraging specialized GPU matrix\ncores. rocWMMA provides a C++ API to facilitate breaking down matrix\nmultiply-accumulate problems into fragments and using them in block-wise\noperations that are distributed in parallel across GPU wavefronts. The\nAPI is a header library of GPU device code meaning that matrix core\nacceleration may be compiled directly into your kernel device code. This\ncan benefit from compiler optimization in the generation of kernel\nassembly, and does not incur additional overhead costs of linking to\nexternal runtime libraries or having to launch separate kernels."
+            "name": "spla",
+            "description": "Specialized Parallel Linear Algebra, providing distributed GEMM\nfunctionality for specific matrix distributions with optional GPU\nacceleration."
+        },
+        {
+            "name": "miopen-opencl",
+            "description": "AMD's library for high performance machine learning primitives."
+        },
+        {
+            "name": "miopen-hip",
+            "description": "AMD's library for high performance machine learning primitives."
         },
         {
             "name": "rocsolver",
             "description": "rocSOLVER is a work-in-progress implementation of a subset of LAPACK\nfunctionality on the ROCm platform."
         },
         {
-            "name": "tasmanian",
-            "description": "The Toolkit for Adaptive Stochastic Modeling and Non-Intrusive\nApproximatioN is a robust library for high dimensional integration and\ninterpolation as well as parameter calibration."
-        },
-        {
-            "name": "rocm-validation-suite",
-            "description": "The ROCm Validation Suite (RVS) is a system administrators and cluster\nmanager's tool for detecting and troubleshooting common problems\naffecting AMD GPU(s) running in a high-performance computing\nenvironment, enabled using the ROCm software stack on a compatible\nplatform."
-        },
-        {
-            "name": "migraphx",
-            "description": "AMD's graph optimization engine."
-        },
-        {
-            "name": "elpa",
-            "description": "Eigenvalue solvers for Petaflop-Applications (ELPA)"
+            "name": "petsc",
+            "description": "PETSc is a suite of data structures and routines for the scalable\n(parallel) solution of scientific applications modeled by partial\ndifferential equations."
         },
         {
             "name": "hipblas",
             "description": "hipBLAS is a BLAS marshalling library, with multiple supported backends"
         },
         {
-            "name": "petsc",
-            "description": "PETSc is a suite of data structures and routines for the scalable\n(parallel) solution of scientific applications modeled by partial\ndifferential equations."
+            "name": "tasmanian",
+            "description": "The Toolkit for Adaptive Stochastic Modeling and Non-Intrusive\nApproximatioN is a robust library for high dimensional integration and\ninterpolation as well as parameter calibration."
+        },
+        {
+            "name": "py-pyfr",
+            "description": "PyFR is an open-source Python based framework for solving advection-\ndiffusion type problems on streaming architectures using the Flux\nReconstruction approach of Huynh."
+        },
+        {
+            "name": "migraphx",
+            "description": "AMD's graph optimization engine."
         }
     ]
 }
