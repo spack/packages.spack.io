@@ -1,115 +1,136 @@
 <!doctype html>
 <html lang="en">
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" conteSpt="width=device-width, initial-scale=1">
-  <title>Spack Packages</title>
-  <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
-  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" conteSpt="width=device-width, initial-scale=1">
+    <title>Spack Packages</title>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
 
-<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-<link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:300,400"
+      rel="stylesheet">
+    <link rel="stylesheet"
+      href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,600">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css"
+      rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.12.1/dist/cdn.min.js"></script>
 
-<style>
-@import url(https://fonts.googleapis.com/css?family=Raleway:400,700,900);
-body {
-  background-color: #0f3a80;
-}
-.title {
-  padding-top:20px;
-  padding-left:10px;
-  font-family: 'Raleway', sans-serif;
-  font-weight: 700;
-  color: white;
-}
-.card:hover {
-  transform: scale(1.1);
-  background-color: white;
-}
-.flex-grid {
-  display: flex;
-  flex-wrap: wrap;
-  margin: 0 auto;
-  max-width: 2000px;
-}
-@media only screen and (max-width: 600px) {
-  .card {
-    width: calc(100%) !important;
-  }
-}
-.card {
-  overflow: hidden;
-  cursor: pointer;
-  background-color: white;
-  box-sizing: border-box;
-  border-radius: 5px;
-  border: .75rem solid white;
-  margin: 10px;
-  padding: 3px;
-  height: 5vh;
-  color: #333;
-  min-height: 50px;
-  width: calc(20%);
-  font-size: 14px;
-  font-weight: 600;
-}
+    <script type="text/javascript">
+     const search = {
+       loaded: false,
+       query: '',
+       packages: [],
+       more_results: false,
 
-#search {
-  position: absolute;
-  left: 490px;
-  top: 28px;
-}
-</style>
-</head>
-<body>
-     <h1 class='title'><img src="img/spack-logo.svg" style="width:60px; padding-right:15px; padding-bottom:7px">Spack Packages</h1>
-     <div id="search">
-       <div class="input-group">
-         <div class="form-outline">
-           <input placeholder="search" type="search" id="searchbox" class="form-control" />
-         </div>
-       </div>
-     </div>
-<main class="grid flex-grid" id='app'>
-</main> 
+       init() {
+         this.loadPackages();
+         this.loaded = true;
+       },
 
-<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-<script>
+      async loadPackages() {
+        const response = await fetch('data/packages.json');
+        this.packages = await response.json();
+      },
 
-function loadJSON(path, success, error)
-{
-    var xhr = new XMLHttpRequest();
-    xhr.onreadystatechange = function()
-    {
-        if (xhr.readyState === XMLHttpRequest.DONE) {
-            if (xhr.status === 200) {
-                if (success)
-                    success(JSON.parse(xhr.responseText));
-            } else {
-                if (error)
-                    error(xhr);
-            }
-        }
-    };
-    xhr.open("GET", path, true);
-    xhr.send();
-}
+       get results() {
+         if (this.query.length < 2) {
+           return [];
+         }
 
+          const results = this.packages.filter(pkg => {
+            return pkg.name.toLowerCase().includes(this.query.toLowerCase());
+          })
 
-loadJSON('data/packages.json',
-    function(data) {    
-      $.each(data, function(i, item) {
-        $("#app").append("<div onclick='document.location=\"package.html?name=" + item + "\"' class='card'>" + item + "</div>");
-    });
-})
-$("#searchbox").on("keyup", function () {
-    var search = $(this).val().trim().toLowerCase();
-    $('.card').hide();
-    $(".card").show().filter(function () {
-        return $(this).text().toLowerCase().indexOf(search) < 0;
-    }).hide();        
-});
-</script>
-</body>
+            this.more_results = results.length > 20;
+            return results.slice(0, 20);
+       },
+
+       packagePageUrl(pkg) {
+         return `package.html?name=${pkg.name}`;
+       }
+     };
+
+    </script>
+  </head>
+
+  <body class="bg-gray-100" x-data="search">
+    <div class="container mx-auto">
+      <section id="main" class="flex flex-col gap-12 h-screen max-w-[960px] mx-auto pt-4 md:pt-28 px-4 lg:px-0">
+        
+        <!-- Header Section -->
+        <header class="flex items-center justify-between">
+          <div class="flex font-light gap-4 items-center justify-center text-2xl md:text-4xl">
+            <img src="img/spack-logo.svg" alt="Spack" class="w-[48px] md:w-[72px]">
+            Spack Packages
+          </div>
+          <div class="flex items-stretch">
+            <div class="tooltip tooltip-bottom" data-tip="Spack Cache">
+              <a href="https://cache.spack.io/" class="btn btn-ghost btn-square
+                rounded-btn" target="_blank" alt="Spack Cache">
+                <i class="ri-database-2-line text-xl"></i>
+              </a>
+            </div>
+            <div class="dropdown dropdown-end">
+              <label tabindex="0" class="btn btn-ghost btn-square rounded-btn">
+                <i class="ri-github-fill text-xl"></i>
+              </label>
+              <ul tabindex="0" class="menu dropdown-content p-2 shadow bg-base-100
+                rounded-box mt-4">
+                <li>
+                  <a href="https://github.com/spack/packages.spack.io"
+                    class="nolink" target="_blank">
+                    <i class="ri-git-repository-fill text-xl"></i>
+                    packages.spack.io
+                  </a>
+                </li>
+                <li>
+                  <a href="https://github.com/spack/cache.spack.io"
+                    class="nolink" target="_blank">
+                    <i class="ri-git-repository-fill text-xl"></i>
+                    cache.spack.io
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </header>
+
+        <!-- Search Box -->
+        <div class="bg-primary border-l-4 border-secondary flex flex-col gap-8 p-8 rounded">
+          <div class="form-control">
+            <input type="text" placeholder="Search Packages" class="input input-bordered input-lg w-full" x-model="query">
+          </div>
+        </div>
+
+        <!-- Results Box -->
+        <div id="results" class="bg-base-100 border border-b-0 border-base-200 flex flex-col flex-grow overflow-y-auto rounded-t-xl shadow-xl" x-show="results.length" x-cloak>
+          <ul class="menu px-0 w-full">
+            <li class="menu-title !opacity-[0.6] py-2">
+              <span class="flex items-center justify-between">
+                Search Results
+                <small class="font-normal"><span x-text="results.length"></span><span x-show="more_results">+</span> packages found</small>
+              </span>
+            </li>
+
+            <template x-for="result in results">
+              <li class="hover-bordered border-t border-base-200">
+                <a :href="packagePageUrl(result)" class="!rounded-none hover:bg-gray-100">
+                  <i class="ri-box-2-fill mr-2 text-3xl text-gray-300"></i>
+                  <span class="flex-grow font-semibold text-primary">
+                    <span x-text="result.name"></span>
+                    <small class="block font-light text-neutral" x-text="result.description"></small>
+                  </span>
+                  <i class="ri-arrow-right-s-line text-xl text-gray-300"></i>
+                </a>
+              </li>
+            </template>
+          </ul>
+        </div>
+      </section>
+    </div>
+  </body>
+
 </html>

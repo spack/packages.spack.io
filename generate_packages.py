@@ -237,8 +237,8 @@ def main():
     write_json(repology, outfile)
 
     # We need one file with all names available
-    names = list(metas.keys())
-    names.sort()
+    names = [{'name': p, 'description': metas[p]['description']} for p in metas.keys()]
+    names.sort(key=lambda x: x['name'])
     outfile = os.path.join(here, "data", "packages.json")
     write_json(names, outfile)
 
