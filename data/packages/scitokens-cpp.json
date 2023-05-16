@@ -11,6 +11,14 @@
             "sha256": "88376c5cd065aac8d92445184a02ccf5186dc4890ccd7518e88be436978675c0"
         },
         {
+            "name": "0.7.3",
+            "sha256": "7d3c438596588cd74cf1af8255c55f44ca86a34293b81415ee24b33de64f886a"
+        },
+        {
+            "name": "0.7.2",
+            "sha256": "594eee5f80463cd501e9b4c17b6ea6dcae47a42ef4947406ce8b157e15d50d5b"
+        },
+        {
             "name": "0.7.1",
             "sha256": "44a1bca188897b1e97645149d1f6bc187cd0e482ad36159ca376834f028ce5ef"
         },
@@ -21,7 +29,13 @@
     ],
     "latest_version": "1.0.1",
     "build_system": "CMakePackage",
-    "conflicts": [],
+    "conflicts": [
+        {
+            "name": "jwt-cpp@0.5:",
+            "spec": "@:0.7",
+            "description": "None"
+        }
+    ],
     "variants": [
         {
             "name": "build_system",
@@ -42,10 +56,20 @@
             "name": "generator",
             "default": "make",
             "description": "the build system generator to use"
+        },
+        {
+            "name": "cxxstd",
+            "default": "11",
+            "description": "Use the specified C++ standard when building"
         }
     ],
     "homepage": "https://github.com/scitokens/scitokens-cpp",
-    "maintainers": [],
+    "maintainers": [
+        "gartung",
+        "greenc-FNAL",
+        "marcmengel",
+        "vitodb"
+    ],
     "patches": [],
     "resources": [],
     "description": "A C++ implementation of the SciTokens library with a C library\ninterface. SciTokens provide a token format for distributed\nauthorization.\n",
@@ -73,6 +97,10 @@
         {
             "name": "curl",
             "description": "cURL is an open source command line tool and library for transferring\ndata with URL syntax"
+        },
+        {
+            "name": "jwt-cpp",
+            "description": "A header only library for creating and validating JSON Web Tokens in\nC++11."
         },
         {
             "name": "pkgconfig",
