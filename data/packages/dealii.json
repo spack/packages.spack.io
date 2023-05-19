@@ -7,14 +7,6 @@
             "branch": "master"
         },
         {
-            "name": "9.4.2",
-            "sha256": "45a76cb400bfcff25cc2d9093d9a5c91545c8367985e6798811c5e9d2a6a6fd4"
-        },
-        {
-            "name": "9.4.1",
-            "sha256": "bfe5e4bf069159f93feb0f78529498bfee3da35baf5a9c6852aa59d7ea7c7a48"
-        },
-        {
             "name": "9.4.0",
             "sha256": "238677006cd9173658e5b69cdd1861f800556982db6005a3cc5eb8329cc1e36c"
         },
@@ -87,7 +79,7 @@
             "sha256": "d666bbda2a17b41b80221d7029468246f2658051b8c00d9c5907cd6434c4df99"
         }
     ],
-    "latest_version": "9.4.2",
+    "latest_version": "9.4.0",
     "build_system": "CMakePackage",
     "conflicts": [
         {
@@ -122,7 +114,7 @@
         },
         {
             "name": "%gcc@13:",
-            "spec": "+cuda ^cuda@:12.1~allow-unsupported-compilers",
+            "spec": "+cuda ^cuda@:12.0~allow-unsupported-compilers",
             "description": "None"
         },
         {
@@ -143,11 +135,6 @@
         {
             "name": "%clang@15:",
             "spec": "+cuda ^cuda@:12.0~allow-unsupported-compilers",
-            "description": "None"
-        },
-        {
-            "name": "%clang@16:",
-            "spec": "+cuda ^cuda@:12.1~allow-unsupported-compilers",
             "description": "None"
         },
         {
@@ -436,11 +423,6 @@
             "description": "CGAL requires the C++ standard to be set to 17 or later."
         },
         {
-            "name": "cxxstd=default",
-            "spec": "@9.4:+cgal",
-            "description": "CGAL requires the C++ standard to be set explicitly to 17 or later."
-        },
-        {
             "name": "+gsl",
             "spec": "@:8.4.2",
             "description": "The interface to gsl is supported from version 8.5.0 onwards. Please explicitly disable this variant via ~gsl"
@@ -614,7 +596,7 @@
         },
         {
             "name": "cxxstd",
-            "default": "17",
+            "default": "default",
             "description": "Compile using the specified C++ standard"
         },
         {
@@ -807,7 +789,7 @@
             "level": 1,
             "working_dir": ".",
             "url": "https://github.com/dealii/dealii/commit/06bb9dc07efb6fea9912ee0d66264af548c552c8.patch?full_index=1",
-            "version": "@9.4 ^hdf5"
+            "version": "@9.4.0 ^hdf5"
         },
         {
             "owner": "builtin.dealii",
@@ -815,7 +797,7 @@
             "level": 1,
             "working_dir": ".",
             "url": "https://github.com/dealii/dealii/commit/40076ac1a013cd7d221f9dda913b4d0e6452c21e.patch?full_index=1",
-            "version": "@9.4 ^python"
+            "version": "@9.4.0 ^python"
         },
         {
             "owner": "builtin.dealii",
@@ -823,7 +805,7 @@
             "level": 1,
             "working_dir": ".",
             "url": "https://github.com/dealii/dealii/commit/df6c5de8d6785fce701c10575982858f3aeb4cbd.patch?full_index=1",
-            "version": "@:9.4+ginkgo ^ginkgo@1.5.0:"
+            "version": "@:9.4.0+ginkgo ^ginkgo@1.5.0:"
         }
     ],
     "resources": [],
@@ -847,7 +829,7 @@
         },
         {
             "name": "blas",
-            "description": "Intel Math Kernel Library. This package has been replaced by intel-\noneapi-mkl. LICENSE INFORMATION: By downloading and using this software,\nyou agree to the terms and conditions of the software license agreements\nat https://intel.ly/393CijO."
+            "description": "Lightweight but flexible shim designed to rectify the incompatibilities\nbetween the Accelerate/vecLib BLAS and LAPACK libraries shipped with\nmacOS and FORTRAN code compiled with modern compilers such as GNU\nFortran."
         },
         {
             "name": "boost",
@@ -859,7 +841,7 @@
         },
         {
             "name": "lapack",
-            "description": "Intel Math Kernel Library. This package has been replaced by intel-\noneapi-mkl. LICENSE INFORMATION: By downloading and using this software,\nyou agree to the terms and conditions of the software license agreements\nat https://intel.ly/393CijO."
+            "description": "Lightweight but flexible shim designed to rectify the incompatibilities\nbetween the Accelerate/vecLib BLAS and LAPACK libraries shipped with\nmacOS and FORTRAN code compiled with modern compilers such as GNU\nFortran."
         },
         {
             "name": "suite-sparse",
@@ -871,7 +853,7 @@
         },
         {
             "name": "mpi",
-            "description": "MPICH is a high performance and widely portable implementation of the\nMessage Passing Interface (MPI) standard."
+            "description": "MVAPICH2-X is the advanced version of the MVAPICH2 MPI library with\nenhanced features (UMR, ODP, DC, Core-Direct, SHARP, XPMEM), OSU INAM\n(InifniBand Network Monitoring and Analysis),PGAS (OpenSHMEM, UPC,\nUPC++, and CAF), and MPI+PGAS programming models with unified\ncommunication runtime. MVAPICH2-X is not installable from source and is\nonly available through a binary mirror. If you do not find the binary\nyou're looking for, send us an email at mvapich@cse.ohio-state.edu. The\nbinary mirror url is: http://mvapich.cse.ohio-\nstate.edu/download/mvapich/spack-mirror/mvapich2x/"
         },
         {
             "name": "python",
@@ -975,17 +957,17 @@
         },
         {
             "name": "tbb",
-            "description": "This is an earlier version of Intel parallel software development tools\nand has now been replaced by the Intel oneAPI Toolkits. LICENSE\nINFORMATION: By downloading and using this software, you agree to the\nterms and conditions of the software license agreements at\nhttps://intel.ly/393CijO."
+            "description": "Intel oneAPI Threading Building Blocks (oneTBB) is a flexible\nperformance library that simplifies the work of adding parallelism to\ncomplex applications across accelerated architectures, even if you are\nnot a threading expert. LICENSE INFORMATION: By downloading and using\nthis software, you agree to the terms and conditions of the software\nlicense agreements at https://intel.ly/393CijO."
         }
     ],
     "dependent_to": [
         {
-            "name": "dftfe",
-            "description": "Real-space DFT calculations using Finite Elements"
-        },
-        {
             "name": "aspect",
             "description": "Parallel and extensible Finite Element code to simulate convection in\nthe Earth's mantle and elsewhere."
+        },
+        {
+            "name": "dftfe",
+            "description": "Real-space DFT calculations using Finite Elements"
         },
         {
             "name": "xsdk",

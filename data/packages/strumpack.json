@@ -7,22 +7,6 @@
             "branch": "master"
         },
         {
-            "name": "7.1.3",
-            "sha256": "c951f38ee7af20da3ff46429e38fcebd57fb6f12619b2c56040d6da5096abcb0"
-        },
-        {
-            "name": "7.1.2",
-            "sha256": "262a0193fa1682d0eaa90363f739e0be7a778d5deeb80e4d4ae12446082a39cc"
-        },
-        {
-            "name": "7.1.1",
-            "sha256": "56481a22955c2eeb40932777233fc227347743c75683d996cb598617dd2a8635"
-        },
-        {
-            "name": "7.1.0",
-            "sha256": "a3e80e0530ea1cc6b62c22699cfe5f02f81794321f225440f0e08bceed69c241"
-        },
-        {
             "name": "7.0.1",
             "sha256": "ddbf9c0509eaf0f8a4c70f59508787336a05eeacc8322f156117d8ce59a70a60"
         },
@@ -79,7 +63,7 @@
             "sha256": "c1c3446ee023f7b24baa97b24907735e89ce4ae9f5ef516645dfe390165d1778"
         }
     ],
-    "latest_version": "7.1.3",
+    "latest_version": "7.0.1",
     "build_system": "CMakePackage",
     "conflicts": [
         {
@@ -124,7 +108,7 @@
         },
         {
             "name": "%gcc@13:",
-            "spec": "+cuda ^cuda@:12.1~allow-unsupported-compilers",
+            "spec": "+cuda ^cuda@:12.0~allow-unsupported-compilers",
             "description": "None"
         },
         {
@@ -145,11 +129,6 @@
         {
             "name": "%clang@15:",
             "spec": "+cuda ^cuda@:12.0~allow-unsupported-compilers",
-            "description": "None"
-        },
-        {
-            "name": "%clang@16:",
-            "spec": "+cuda ^cuda@:12.1~allow-unsupported-compilers",
             "description": "None"
         },
         {
@@ -496,7 +475,7 @@
         },
         {
             "name": "build_type",
-            "default": "Release",
+            "default": "RelWithDebInfo",
             "description": "CMake build type"
         },
         {
@@ -628,15 +607,15 @@
         },
         {
             "name": "mpi",
-            "description": "MPICH is a high performance and widely portable implementation of the\nMessage Passing Interface (MPI) standard."
+            "description": "MVAPICH2-X is the advanced version of the MVAPICH2 MPI library with\nenhanced features (UMR, ODP, DC, Core-Direct, SHARP, XPMEM), OSU INAM\n(InifniBand Network Monitoring and Analysis),PGAS (OpenSHMEM, UPC,\nUPC++, and CAF), and MPI+PGAS programming models with unified\ncommunication runtime. MVAPICH2-X is not installable from source and is\nonly available through a binary mirror. If you do not find the binary\nyou're looking for, send us an email at mvapich@cse.ohio-state.edu. The\nbinary mirror url is: http://mvapich.cse.ohio-\nstate.edu/download/mvapich/spack-mirror/mvapich2x/"
         },
         {
             "name": "blas",
-            "description": "Intel Math Kernel Library. This package has been replaced by intel-\noneapi-mkl. LICENSE INFORMATION: By downloading and using this software,\nyou agree to the terms and conditions of the software license agreements\nat https://intel.ly/393CijO."
+            "description": "Lightweight but flexible shim designed to rectify the incompatibilities\nbetween the Accelerate/vecLib BLAS and LAPACK libraries shipped with\nmacOS and FORTRAN code compiled with modern compilers such as GNU\nFortran."
         },
         {
             "name": "lapack",
-            "description": "Intel Math Kernel Library. This package has been replaced by intel-\noneapi-mkl. LICENSE INFORMATION: By downloading and using this software,\nyou agree to the terms and conditions of the software license agreements\nat https://intel.ly/393CijO."
+            "description": "Lightweight but flexible shim designed to rectify the incompatibilities\nbetween the Accelerate/vecLib BLAS and LAPACK libraries shipped with\nmacOS and FORTRAN code compiled with modern compilers such as GNU\nFortran."
         },
         {
             "name": "openblas",
@@ -679,18 +658,14 @@
             "description": "rocSOLVER is a work-in-progress implementation of a subset of LAPACK\nfunctionality on the ROCm platform."
         },
         {
-            "name": "rocthrust",
-            "description": "Thrust is a parallel algorithm library. This library has been ported to\nHIP/ROCm platform, which uses the rocPRIM library. The HIP ported\nlibrary works on HIP/ROCm platforms"
-        },
-        {
             "name": "slate",
             "description": "The Software for Linear Algebra Targeting Exascale (SLATE) project is to\nprovide fundamental dense linear algebra capabilities to the US\nDepartment of Energy and to the high-performance computing (HPC)\ncommunity at large. To this end, SLATE will provide basic dense matrix\noperations (e.g., matrix multiplication, rank-k update, triangular\nsolve), linear systems solvers, least square solvers, singular value and\neigenvalue solvers."
         }
     ],
     "dependent_to": [
         {
-            "name": "mfem",
-            "description": "Free, lightweight, scalable C++ library for finite element methods."
+            "name": "trilinos",
+            "description": "The Trilinos Project is an effort to develop algorithms and enabling\ntechnologies within an object-oriented software framework for the\nsolution of large-scale, complex multi-physics engineering and\nscientific problems. A unique design feature of Trilinos is its focus on\npackages."
         },
         {
             "name": "petsc",
@@ -701,12 +676,12 @@
             "description": "Xsdk is a suite of Department of Energy (DOE) packages for numerical\nsimulation. This is a Spack bundle package that installs the xSDK\npackages"
         },
         {
-            "name": "trilinos",
-            "description": "The Trilinos Project is an effort to develop algorithms and enabling\ntechnologies within an object-oriented software framework for the\nsolution of large-scale, complex multi-physics engineering and\nscientific problems. A unique design feature of Trilinos is its focus on\npackages."
-        },
-        {
             "name": "palace",
             "description": "3D finite element solver for computational electromagnetics"
+        },
+        {
+            "name": "mfem",
+            "description": "Free, lightweight, scalable C++ library for finite element methods."
         }
     ]
 }
