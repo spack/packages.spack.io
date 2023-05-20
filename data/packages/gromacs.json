@@ -12,6 +12,10 @@
             "branch": "main"
         },
         {
+            "name": "2023.1",
+            "sha256": "eef2bb4a6cb6314cf9da47f26df2a0d27af4bf7b3099723d43601073ab0a42f4"
+        },
+        {
             "name": "2023",
             "sha256": "ac92c6da72fbbcca414fd8a8d979e56ecf17c4c1cdabed2da5cfb4e7277b7ba8"
         },
@@ -196,7 +200,7 @@
             "sha256": "e0605e4810b0d552a8761fef5540c545beeaf85893f4a6e21df9905a33f871ba"
         }
     ],
-    "latest_version": "2023",
+    "latest_version": "2023.1",
     "build_system": "CMakePackage",
     "conflicts": [
         {
@@ -231,7 +235,7 @@
         },
         {
             "name": "%gcc@13:",
-            "spec": "+cuda ^cuda@:12.0~allow-unsupported-compilers",
+            "spec": "+cuda ^cuda@:12.1~allow-unsupported-compilers",
             "description": "None"
         },
         {
@@ -252,6 +256,11 @@
         {
             "name": "%clang@15:",
             "spec": "+cuda ^cuda@:12.0~allow-unsupported-compilers",
+            "description": "None"
+        },
+        {
+            "name": "%clang@16:",
+            "spec": "+cuda ^cuda@:12.1~allow-unsupported-compilers",
             "description": "None"
         },
         {
@@ -530,6 +539,11 @@
             "description": "mdrun-only build option was removed for GROMACS 2021."
         },
         {
+            "name": "+openmp_max_threads",
+            "spec": "~openmp",
+            "description": "OpenMP is off but OpenMP Max threads is set"
+        },
+        {
             "name": "+relaxed_double_precision",
             "spec": "@2021:",
             "description": "GMX_RELAXED_DOUBLE_PRECISION option removed for GROMACS 2021."
@@ -617,11 +631,6 @@
             "description": "Produces a double precision version of the executables"
         },
         {
-            "name": "plumed",
-            "default": false,
-            "description": "Enable PLUMED support"
-        },
-        {
             "name": "cufftmp",
             "default": false,
             "description": "Enable Multi GPU FFT support"
@@ -650,6 +659,11 @@
             "name": "openmp",
             "default": true,
             "description": "Enables OpenMP at configure time"
+        },
+        {
+            "name": "openmp_max_threads",
+            "default": "none",
+            "description": "Max number of OpenMP threads"
         },
         {
             "name": "sve",
@@ -685,6 +699,11 @@
             "name": "cp2k",
             "default": false,
             "description": "CP2K QM/MM interface integration"
+        },
+        {
+            "name": "plumed",
+            "default": false,
+            "description": "Enable PLUMED support"
         }
     ],
     "homepage": "https://www.gromacs.org",
@@ -732,7 +751,7 @@
         },
         {
             "name": "mpi",
-            "description": "MVAPICH2-X is the advanced version of the MVAPICH2 MPI library with\nenhanced features (UMR, ODP, DC, Core-Direct, SHARP, XPMEM), OSU INAM\n(InifniBand Network Monitoring and Analysis),PGAS (OpenSHMEM, UPC,\nUPC++, and CAF), and MPI+PGAS programming models with unified\ncommunication runtime. MVAPICH2-X is not installable from source and is\nonly available through a binary mirror. If you do not find the binary\nyou're looking for, send us an email at mvapich@cse.ohio-state.edu. The\nbinary mirror url is: http://mvapich.cse.ohio-\nstate.edu/download/mvapich/spack-mirror/mvapich2x/"
+            "description": "Intel MPI Library is a multifabric message-passing library that\nimplements the open-source MPICH specification. Use the library to\ncreate, maintain, and test advanced, complex applications that perform\nbetter on high-performance computing (HPC) clusters based on Intel\nprocessors. LICENSE INFORMATION: By downloading and using this software,\nyou agree to the terms and conditions of the software license agreements\nat https://intel.ly/393CijO."
         },
         {
             "name": "plumed",
@@ -740,7 +759,7 @@
         },
         {
             "name": "fftw-api",
-            "description": "FFTW (Fujitsu Optimized version) is a comprehensive collection of fast C\nroutines for computing the Discrete Fourier Transform (DFT) and various\nspecial cases thereof. It is an open-source implementation of the Fast\nFourier transform algorithm. It can compute transforms of real and\ncomplex-values arrays of arbitrary size and dimension. Fujitsu Optimized\nFFTW is the optimized FFTW implementation targeted for A64FX CPUs. For\nsingle precision build, please use precision value as float. Example :\nspack install fujitsufftw precision=float"
+            "description": "Arm Performance Libraries provides optimized standard core math\nlibraries for high-performance computing applications on Arm processors."
         },
         {
             "name": "sycl",
@@ -748,11 +767,11 @@
         },
         {
             "name": "lapack",
-            "description": "Lightweight but flexible shim designed to rectify the incompatibilities\nbetween the Accelerate/vecLib BLAS and LAPACK libraries shipped with\nmacOS and FORTRAN code compiled with modern compilers such as GNU\nFortran."
+            "description": "Arm Performance Libraries provides optimized standard core math\nlibraries for high-performance computing applications on Arm processors."
         },
         {
             "name": "blas",
-            "description": "Lightweight but flexible shim designed to rectify the incompatibilities\nbetween the Accelerate/vecLib BLAS and LAPACK libraries shipped with\nmacOS and FORTRAN code compiled with modern compilers such as GNU\nFortran."
+            "description": "Arm Performance Libraries provides optimized standard core math\nlibraries for high-performance computing applications on Arm processors."
         },
         {
             "name": "gcc",
@@ -777,12 +796,12 @@
     ],
     "dependent_to": [
         {
-            "name": "py-gmxapi",
-            "description": "Python bindings and ensemble workflow management for GROMACS. The\nGROMACS C++ API is affected by its package variants. You can specify a\nparticular GROMACS API by making the dependency variant explicit. E.g.\n``spack install gmxapi ^gromacs+mpi~double``"
-        },
-        {
             "name": "votca-csg",
             "description": "Versatile Object-oriented Toolkit for Coarse-graining Applications\n(VOTCA) is a package intended to reduce the amount of routine work when\ndoing systematic coarse-graining of various systems. The core is written\nin C++. This package contains the VOTCA coarse-graining engine."
+        },
+        {
+            "name": "py-gmxapi",
+            "description": "Python bindings and ensemble workflow management for GROMACS. The\nGROMACS C++ API is affected by its package variants. You can specify a\nparticular GROMACS API by making the dependency variant explicit. E.g.\n``spack install gmxapi ^gromacs+mpi~double``"
         },
         {
             "name": "votca",

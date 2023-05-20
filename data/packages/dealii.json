@@ -7,6 +7,14 @@
             "branch": "master"
         },
         {
+            "name": "9.4.2",
+            "sha256": "45a76cb400bfcff25cc2d9093d9a5c91545c8367985e6798811c5e9d2a6a6fd4"
+        },
+        {
+            "name": "9.4.1",
+            "sha256": "bfe5e4bf069159f93feb0f78529498bfee3da35baf5a9c6852aa59d7ea7c7a48"
+        },
+        {
             "name": "9.4.0",
             "sha256": "238677006cd9173658e5b69cdd1861f800556982db6005a3cc5eb8329cc1e36c"
         },
@@ -79,7 +87,7 @@
             "sha256": "d666bbda2a17b41b80221d7029468246f2658051b8c00d9c5907cd6434c4df99"
         }
     ],
-    "latest_version": "9.4.0",
+    "latest_version": "9.4.2",
     "build_system": "CMakePackage",
     "conflicts": [
         {
@@ -114,7 +122,7 @@
         },
         {
             "name": "%gcc@13:",
-            "spec": "+cuda ^cuda@:12.0~allow-unsupported-compilers",
+            "spec": "+cuda ^cuda@:12.1~allow-unsupported-compilers",
             "description": "None"
         },
         {
@@ -135,6 +143,11 @@
         {
             "name": "%clang@15:",
             "spec": "+cuda ^cuda@:12.0~allow-unsupported-compilers",
+            "description": "None"
+        },
+        {
+            "name": "%clang@16:",
+            "spec": "+cuda ^cuda@:12.1~allow-unsupported-compilers",
             "description": "None"
         },
         {
@@ -423,6 +436,11 @@
             "description": "CGAL requires the C++ standard to be set to 17 or later."
         },
         {
+            "name": "cxxstd=default",
+            "spec": "@9.4:+cgal",
+            "description": "CGAL requires the C++ standard to be set explicitly to 17 or later."
+        },
+        {
             "name": "+gsl",
             "spec": "@:8.4.2",
             "description": "The interface to gsl is supported from version 8.5.0 onwards. Please explicitly disable this variant via ~gsl"
@@ -596,7 +614,7 @@
         },
         {
             "name": "cxxstd",
-            "default": "default",
+            "default": "17",
             "description": "Compile using the specified C++ standard"
         },
         {
@@ -789,7 +807,7 @@
             "level": 1,
             "working_dir": ".",
             "url": "https://github.com/dealii/dealii/commit/06bb9dc07efb6fea9912ee0d66264af548c552c8.patch?full_index=1",
-            "version": "@9.4.0 ^hdf5"
+            "version": "@9.4 ^hdf5"
         },
         {
             "owner": "builtin.dealii",
@@ -797,7 +815,7 @@
             "level": 1,
             "working_dir": ".",
             "url": "https://github.com/dealii/dealii/commit/40076ac1a013cd7d221f9dda913b4d0e6452c21e.patch?full_index=1",
-            "version": "@9.4.0 ^python"
+            "version": "@9.4 ^python"
         },
         {
             "owner": "builtin.dealii",
@@ -805,7 +823,7 @@
             "level": 1,
             "working_dir": ".",
             "url": "https://github.com/dealii/dealii/commit/df6c5de8d6785fce701c10575982858f3aeb4cbd.patch?full_index=1",
-            "version": "@:9.4.0+ginkgo ^ginkgo@1.5.0:"
+            "version": "@:9.4+ginkgo ^ginkgo@1.5.0:"
         }
     ],
     "resources": [],
@@ -829,7 +847,7 @@
         },
         {
             "name": "blas",
-            "description": "Lightweight but flexible shim designed to rectify the incompatibilities\nbetween the Accelerate/vecLib BLAS and LAPACK libraries shipped with\nmacOS and FORTRAN code compiled with modern compilers such as GNU\nFortran."
+            "description": "Arm Performance Libraries provides optimized standard core math\nlibraries for high-performance computing applications on Arm processors."
         },
         {
             "name": "boost",
@@ -841,7 +859,7 @@
         },
         {
             "name": "lapack",
-            "description": "Lightweight but flexible shim designed to rectify the incompatibilities\nbetween the Accelerate/vecLib BLAS and LAPACK libraries shipped with\nmacOS and FORTRAN code compiled with modern compilers such as GNU\nFortran."
+            "description": "Arm Performance Libraries provides optimized standard core math\nlibraries for high-performance computing applications on Arm processors."
         },
         {
             "name": "suite-sparse",
@@ -853,7 +871,7 @@
         },
         {
             "name": "mpi",
-            "description": "MVAPICH2-X is the advanced version of the MVAPICH2 MPI library with\nenhanced features (UMR, ODP, DC, Core-Direct, SHARP, XPMEM), OSU INAM\n(InifniBand Network Monitoring and Analysis),PGAS (OpenSHMEM, UPC,\nUPC++, and CAF), and MPI+PGAS programming models with unified\ncommunication runtime. MVAPICH2-X is not installable from source and is\nonly available through a binary mirror. If you do not find the binary\nyou're looking for, send us an email at mvapich@cse.ohio-state.edu. The\nbinary mirror url is: http://mvapich.cse.ohio-\nstate.edu/download/mvapich/spack-mirror/mvapich2x/"
+            "description": "Intel MPI Library is a multifabric message-passing library that\nimplements the open-source MPICH specification. Use the library to\ncreate, maintain, and test advanced, complex applications that perform\nbetter on high-performance computing (HPC) clusters based on Intel\nprocessors. LICENSE INFORMATION: By downloading and using this software,\nyou agree to the terms and conditions of the software license agreements\nat https://intel.ly/393CijO."
         },
         {
             "name": "python",
@@ -937,7 +955,7 @@
         },
         {
             "name": "scalapack",
-            "description": "ScaLAPACK is a library of high-performance linear algebra routines for\nparallel distributed memory machines"
+            "description": "ScaLAPACK is a library of high-performance linear algebra routines for\nparallel distributed memory machines. It depends on external libraries\nincluding BLAS and LAPACK for Linear Algebra computations. AMD's\noptimized version of ScaLAPACK enables using BLIS and LibFLAME library\nthat have optimized dense matrix functions and solvers for AMD EPYC\nprocessor family CPUs. LICENSING INFORMATION: By downloading, installing\nand using this software, you agree to the terms and conditions of the\nAMD AOCL-ScaLAPACK license agreement. You may obtain a copy of this\nlicense agreement from\nhttps://www.amd.com/en/developer/aocl/scalapack/scalapack-\nlibraries-4-0-eula.html\nhttps://www.amd.com/en/developer/aocl/scalapack/scalapack-libraries-\neula.html"
         },
         {
             "name": "slepc",
@@ -957,7 +975,7 @@
         },
         {
             "name": "tbb",
-            "description": "Intel oneAPI Threading Building Blocks (oneTBB) is a flexible\nperformance library that simplifies the work of adding parallelism to\ncomplex applications across accelerated architectures, even if you are\nnot a threading expert. LICENSE INFORMATION: By downloading and using\nthis software, you agree to the terms and conditions of the software\nlicense agreements at https://intel.ly/393CijO."
+            "description": "Widely used C++ template library for task parallelism. Intel Threading\nBuilding Blocks (Intel TBB) lets you easily write parallel C++ programs\nthat take full advantage of multicore performance, that are portable and\ncomposable, and that have future-proof scalability."
         }
     ],
     "dependent_to": [
@@ -966,12 +984,12 @@
             "description": "Parallel and extensible Finite Element code to simulate convection in\nthe Earth's mantle and elsewhere."
         },
         {
-            "name": "dftfe",
-            "description": "Real-space DFT calculations using Finite Elements"
-        },
-        {
             "name": "xsdk",
             "description": "Xsdk is a suite of Department of Energy (DOE) packages for numerical\nsimulation. This is a Spack bundle package that installs the xSDK\npackages"
+        },
+        {
+            "name": "dftfe",
+            "description": "Real-space DFT calculations using Finite Elements"
         }
     ]
 }

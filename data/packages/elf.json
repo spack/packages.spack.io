@@ -102,6 +102,11 @@
             "description": "None"
         },
         {
+            "name": "^libarchive@3.6.2 +iconv",
+            "spec": "+debuginfod",
+            "description": "None"
+        },
+        {
             "name": "%apple-clang",
             "spec": "",
             "description": "None"
@@ -122,21 +127,6 @@
             "name": "build_system",
             "default": "autotools",
             "description": "Build systems supported by the package"
-        },
-        {
-            "name": "bzip2",
-            "default": false,
-            "description": "Support bzip2 compressed sections."
-        },
-        {
-            "name": "xz",
-            "default": false,
-            "description": "Support xz (lzma) compressed sections."
-        },
-        {
-            "name": "zstd",
-            "default": false,
-            "description": "Support zstd compressed sections."
         },
         {
             "name": "nls",
@@ -179,20 +169,28 @@
             "description": "XZ Utils is free general-purpose data compression software with high\ncompression ratio. XZ Utils were written for POSIX-like systems, but\nalso work on some not-so-POSIX systems. XZ Utils are the successor to\nLZMA Utils."
         },
         {
-            "name": "zstd",
-            "description": "Zstandard, or zstd as short version, is a fast lossless compression\nalgorithm, targeting real-time compression scenarios at zlib-level and\nbetter compression ratios."
-        },
-        {
             "name": "zlib",
             "description": "A free, general-purpose, legally unencumbered lossless data-compression\nlibrary."
+        },
+        {
+            "name": "zstd",
+            "description": "Zstandard, or zstd as short version, is a fast lossless compression\nalgorithm, targeting real-time compression scenarios at zlib-level and\nbetter compression ratios."
         },
         {
             "name": "gettext",
             "description": "GNU internationalization (i18n) and localization (l10n) library."
         },
         {
+            "name": "iconv",
+            "description": "GNU libiconv provides an implementation of the iconv() function and the\niconv program for character set conversion."
+        },
+        {
             "name": "m4",
             "description": "GNU M4 is an implementation of the traditional Unix macro processor."
+        },
+        {
+            "name": "pkgconfig",
+            "description": "pkg-config is a helper tool used when compiling applications and\nlibraries"
         },
         {
             "name": "libmicrohttpd",
@@ -213,28 +211,44 @@
     ],
     "dependent_to": [
         {
+            "name": "extrae",
+            "description": "Extrae is the package devoted to generate tracefiles which can be\nanalyzed later by Paraver. Extrae is a tool that uses different\ninterposition mechanisms to inject probes into the target application so\nas to gather information regarding the application performance. The\nExtrae instrumentation package can instrument the MPI programin model,\nand the following parallel programming models either alone or in\nconjunction with MPI : OpenMP, CUDA, OpenCL, pthread, OmpSs"
+        },
+        {
             "name": "launchmon",
             "description": "Software infrastructure that enables HPC run-time tools to co-locate\ntool daemons with a parallel job."
         },
         {
-            "name": "atmi",
-            "description": "Asynchronous Task and Memory Interface, or ATMI, is a runtime framework\nand programming model for heterogeneous CPU-GPU systems. It provides a\nconsistent, declarative API to create task graphs on CPUs and GPUs\n(integrated and discrete)."
-        },
-        {
-            "name": "hsa-rocr-dev",
-            "description": "This repository includes the user mode API nterfaces and libraries\nnecessary for host applications to launch computer kernels to available\nHSA ROCm kernel agents.AMD Heterogeneous System Architecture HSA - Linux\nHSA Runtime for Boltzmann (ROCm) platforms."
-        },
-        {
-            "name": "llvm-amdgpu",
-            "description": "Toolkit for the construction of highly optimized compilers, optimizers,\nand run-time environments."
+            "name": "fast-global-file-status",
+            "description": "provides a scalable mechanism to retrieve such information of a file,\nincluding its degree of distribution or replication and consistency."
         },
         {
             "name": "llvm-openmp-ompt",
             "description": "The OpenMP subproject provides an OpenMP runtime for use with the OpenMP\nimplementation in Clang. This branch includes experimental changes for\nOMPT, the OpenMP Tools interface"
         },
         {
+            "name": "callpath",
+            "description": "Library for representing callpaths consistently in distributed-memory\nperformance tools."
+        },
+        {
+            "name": "atmi",
+            "description": "Asynchronous Task and Memory Interface, or ATMI, is a runtime framework\nand programming model for heterogeneous CPU-GPU systems. It provides a\nconsistent, declarative API to create task graphs on CPUs and GPUs\n(integrated and discrete)."
+        },
+        {
             "name": "dwz",
             "description": "DWZ: A DWARF optimization and duplicate removal tool"
+        },
+        {
+            "name": "glib",
+            "description": "GLib provides the core application building blocks for libraries and\napplications written in C. The GLib package contains a low-level\nlibraries useful for providing data structure handling for C,\nportability wrappers and interfaces for such runtime functionality as an\nevent loop, threads, dynamic loading and an object system."
+        },
+        {
+            "name": "libdwarf",
+            "description": "The DWARF Debugging Information Format is of interest to programmers\nworking on compilers and debuggers (and any one interested in reading or\nwriting DWARF information). It was developed by a committee (known as\nthe PLSIG at the time) starting around 1991. Starting around 1991 SGI\ndeveloped the libdwarf and dwarfdump tools for internal use and as part\nof SGI IRIX developer tools. Since that time dwarfdump and libdwarf have\nbeen shipped (as an executable and archive respectively, not source)\nwith every release of the SGI MIPS/IRIX C compiler."
+        },
+        {
+            "name": "llvm-amdgpu",
+            "description": "Toolkit for the construction of highly optimized compilers, optimizers,\nand run-time environments."
         },
         {
             "name": "tau",
@@ -245,24 +259,8 @@
             "description": "The LLVM Project is a collection of modular and reusable compiler and\ntoolchain technologies. Despite its name, LLVM has little to do with\ntraditional virtual machines, though it does provide helpful libraries\nthat can be used to build them. The name \"LLVM\" itself is not an\nacronym; it is the full name of the project."
         },
         {
-            "name": "extrae",
-            "description": "Extrae is the package devoted to generate tracefiles which can be\nanalyzed later by Paraver. Extrae is a tool that uses different\ninterposition mechanisms to inject probes into the target application so\nas to gather information regarding the application performance. The\nExtrae instrumentation package can instrument the MPI programin model,\nand the following parallel programming models either alone or in\nconjunction with MPI : OpenMP, CUDA, OpenCL, pthread, OmpSs"
-        },
-        {
-            "name": "glib",
-            "description": "GLib provides the core application building blocks for libraries and\napplications written in C. The GLib package contains a low-level\nlibraries useful for providing data structure handling for C,\nportability wrappers and interfaces for such runtime functionality as an\nevent loop, threads, dynamic loading and an object system."
-        },
-        {
-            "name": "callpath",
-            "description": "Library for representing callpaths consistently in distributed-memory\nperformance tools."
-        },
-        {
-            "name": "libdwarf",
-            "description": "The DWARF Debugging Information Format is of interest to programmers\nworking on compilers and debuggers (and any one interested in reading or\nwriting DWARF information). It was developed by a committee (known as\nthe PLSIG at the time) starting around 1991. Starting around 1991 SGI\ndeveloped the libdwarf and dwarfdump tools for internal use and as part\nof SGI IRIX developer tools. Since that time dwarfdump and libdwarf have\nbeen shipped (as an executable and archive respectively, not source)\nwith every release of the SGI MIPS/IRIX C compiler."
-        },
-        {
-            "name": "fast-global-file-status",
-            "description": "provides a scalable mechanism to retrieve such information of a file,\nincluding its degree of distribution or replication and consistency."
+            "name": "hsa-rocr-dev",
+            "description": "This repository includes the user mode API nterfaces and libraries\nnecessary for host applications to launch computer kernels to available\nHSA ROCm kernel agents.AMD Heterogeneous System Architecture HSA - Linux\nHSA Runtime for Boltzmann (ROCm) platforms."
         }
     ]
 }

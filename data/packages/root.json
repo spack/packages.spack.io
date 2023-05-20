@@ -7,6 +7,10 @@
             "branch": "master"
         },
         {
+            "name": "6.28.04",
+            "sha256": "70f7f86a0cd5e3f2a0befdc59942dd50140d990ab264e8e56c7f17f6bfe9c965"
+        },
+        {
             "name": "6.28.02",
             "sha256": "6643c07710e68972b00227c68b20b1016fec16f3fba5f44a571fa1ce5bb42faa"
         },
@@ -151,7 +155,7 @@
             "sha256": "18a4ce42ee19e1a810d5351f74ec9550e6e422b13b5c58e0c3db740cdbc569d1"
         }
     ],
-    "latest_version": "6.28.02",
+    "latest_version": "6.28.04",
     "build_system": "CMakePackage",
     "conflicts": [
         {
@@ -171,7 +175,7 @@
         },
         {
             "name": "%gcc@5.0.0:",
-            "spec": "@:6.07",
+            "spec": "@:6.7",
             "description": "None"
         },
         {
@@ -216,12 +220,12 @@
         },
         {
             "name": "cxxstd=20",
-            "spec": "@:6.25.01",
-            "description": "C++20 support was added in 6.25.02"
+            "spec": "@:6.28.2",
+            "description": "C++20 support requires at least version 6.28.04"
         },
         {
             "name": "%clang@16:",
-            "spec": "@:6.26.07",
+            "spec": "@:6.26.7",
             "description": "clang 16+ support was added in 6.26.08"
         },
         {
@@ -243,7 +247,7 @@
         },
         {
             "name": "build_type",
-            "default": "RelWithDebInfo",
+            "default": "Release",
             "description": "CMake build type"
         },
         {
@@ -506,7 +510,10 @@
     "maintainers": [
         "HadrienG2",
         "drbenmorgan",
+        "gartung",
         "greenc-FNAL",
+        "marcmengel",
+        "vitodb",
         "vvolkl"
     ],
     "patches": [
@@ -524,7 +531,7 @@
             "level": 1,
             "working_dir": ".",
             "relative_path": "find-mysql.patch",
-            "version": "@:6.16.00"
+            "version": "@:6.16.0"
         },
         {
             "owner": "builtin.root",
@@ -548,7 +555,7 @@
             "level": 1,
             "working_dir": ".",
             "url": "https://github.com/root-project/root/pull/11111.patch?full_index=1",
-            "version": "@6.26:6.26.06"
+            "version": "@6.26:6.26.6"
         },
         {
             "owner": "builtin.root",
@@ -556,7 +563,7 @@
             "level": 1,
             "working_dir": ".",
             "url": "https://github.com/root-project/root/pull/11225.patch?full_index=1",
-            "version": "@6.26:6.26.06+root7 ^nlohmann-json@3.11:"
+            "version": "@6.26:6.26.6+root7 ^nlohmann-json@3.11:"
         }
     ],
     "resources": [],
@@ -580,7 +587,7 @@
         },
         {
             "name": "blas",
-            "description": "Lightweight but flexible shim designed to rectify the incompatibilities\nbetween the Accelerate/vecLib BLAS and LAPACK libraries shipped with\nmacOS and FORTRAN code compiled with modern compilers such as GNU\nFortran."
+            "description": "Arm Performance Libraries provides optimized standard core math\nlibraries for high-performance computing applications on Arm processors."
         },
         {
             "name": "freetype",
@@ -588,7 +595,7 @@
         },
         {
             "name": "jpeg",
-            "description": "libjpeg-turbo is a fork of the original IJG libjpeg which uses SIMD to\naccelerate baseline JPEG compression and decompression. libjpeg is a\nlibrary that implements JPEG image encoding, decoding and transcoding."
+            "description": "MozJPEG is a patched version of libjpeg-turbo which improves JPEG\ncompression efficiency achieving higher visual quality and smaller file\nsizes at the same time"
         },
         {
             "name": "libice",
@@ -768,7 +775,7 @@
         },
         {
             "name": "tbb",
-            "description": "Intel oneAPI Threading Building Blocks (oneTBB) is a flexible\nperformance library that simplifies the work of adding parallelism to\ncomplex applications across accelerated architectures, even if you are\nnot a threading expert. LICENSE INFORMATION: By downloading and using\nthis software, you agree to the terms and conditions of the software\nlicense agreements at https://intel.ly/393CijO."
+            "description": "Widely used C++ template library for task parallelism. Intel Threading\nBuilding Blocks (Intel TBB) lets you easily write parallel C++ programs\nthat take full advantage of multicore performance, that are portable and\ncomposable, and that have future-proof scalability."
         },
         {
             "name": "unuran",
@@ -797,84 +804,104 @@
     ],
     "dependent_to": [
         {
-            "name": "genie",
-            "description": "Genie is a neutrino Monte Carlo Generator."
-        },
-        {
-            "name": "hepmcanalysis",
-            "description": "The HepMCAnalysis Tool is a tool for generator validation and\ncomparisons."
-        },
-        {
-            "name": "lcio",
-            "description": "HEP Library for Linear Collider Input/Output"
+            "name": "gatepet2stir",
+            "description": "A QT/C++ application to convert GATE geometries to STIR format."
         },
         {
             "name": "garfieldpp",
             "description": "Garfield++ is a toolkit for the detailed simulation of particle\ndetectors based on ionisation measurement in gases and semiconductors."
         },
         {
-            "name": "relax",
-            "description": "A set of Reflex libraries for the most common used general data types in\nthe LHC Computing Grid"
-        },
-        {
-            "name": "cepgen",
-            "description": "A generic central exclusive processes event generator"
-        },
-        {
-            "name": "genfit",
-            "description": "GenFit is an experiment-independent framework for track reconstruction\nin particle and nuclear physics"
-        },
-        {
-            "name": "hepmc3",
-            "description": "The HepMC package is an object oriented, C++ event record for High\nEnergy Physics Monte Carlo generators and simulation."
-        },
-        {
-            "name": "crmc",
-            "description": "CRMC (Cosmic Ray Monte Carlo package). CRMC is a package providing a\ncommon interface to access the output from event generators used to\nmodel the secondary particle production in hadronic collisons."
-        },
-        {
-            "name": "gbl",
-            "description": "General Broken Lines: Advanced track fitting library"
-        },
-        {
             "name": "kassiopeia",
             "description": "Simulation of electric and magnetic fields and particle tracking."
-        },
-        {
-            "name": "edm4hep",
-            "description": "Event data model of Key4hep."
         },
         {
             "name": "vgm",
             "description": "Virtual Geometry Model (VGM) is a geometry conversion tool, actually\nproviding conversion between Geant4 and ROOT TGeo geometry models."
         },
         {
-            "name": "dd4hep",
-            "description": "DD4hep is a software framework for providing a complete solution for\nfull detector description (geometry, materials, visualization, readout,\nalignment, calibration, etc.) for the full experiment life cycle\n(detector concept development, detector optimization, construction,\noperation). It offers a consistent description through a single source\nof detector information for simulation, reconstruction, analysis, etc.\nIt distributed under the LGPLv3 License."
+            "name": "hepmcanalysis",
+            "description": "The HepMCAnalysis Tool is a tool for generator validation and\ncomparisons."
         },
         {
-            "name": "unigen",
-            "description": "The United Generators project was launched by the Virtual Institute 146\nVI-SIM in September 2005 following a proposal of Herbert Strobele. The\ngoal was to facilitate comparison between various models (see below)\nand/or various experiments (HADES, FOPI, CERES, NA49, CBM). The package\nat present allows to convert output of various event generators to a\ngeneric root format."
+            "name": "celeritas",
+            "description": "Celeritas is a new Monte Carlo transport code designed for high-\nperformance (GPU-targeted) simulation of high-energy physics detectors."
+        },
+        {
+            "name": "gaudi",
+            "description": "An experiment-independent HEP event data processing framework"
+        },
+        {
+            "name": "sherpa",
+            "description": "Sherpa is a Monte Carlo event generator for the Simulation of High-\nEnergy Reactions of PArticles in lepton-lepton, lepton-photon, photon-\nphoton, lepton-hadron and hadron-hadron collisions."
+        },
+        {
+            "name": "yoda",
+            "description": "YODA - Yet more Objects for Data Analysis"
+        },
+        {
+            "name": "bdsim",
+            "description": "Beam Delivery Simulation (BDSIM) is a C++ program that utilises the\nGeant4 toolkit to simulate both the transport of particles in an\naccelerator and their interaction with the accelerator material"
+        },
+        {
+            "name": "sartre",
+            "description": "Sartre 1 is an event generator for exclusive diffractive vector meson\nproduction and DVCS in ep and eA collisions based on the dipole model."
+        },
+        {
+            "name": "vmc",
+            "description": "The Virtual Monte Carlo (VMC) library"
         },
         {
             "name": "podio",
             "description": "PODIO, or plain-old-data I/O, is a C++ library to support the creation\nand handling of data models in particle physics."
         },
         {
-            "name": "delphes",
-            "description": "A high energy physics framework for fast simulation of a generic\ncollider experiment."
+            "name": "relax",
+            "description": "A set of Reflex libraries for the most common used general data types in\nthe LHC Computing Grid"
         },
         {
-            "name": "cnvnator",
-            "description": "A tool for CNV discovery and genotyping from depth-of-coverage by mapped\nreads."
+            "name": "edm4hep",
+            "description": "Event data model of Key4hep."
         },
         {
             "name": "pythia8",
             "description": "The Pythia program is a standard tool for the generation of events in\nhigh-energy collisions, comprising a coherent set of physics models for\nthe evolution from a few-body hard process to a complex multiparticle\nfinal state."
         },
         {
-            "name": "celeritas",
-            "description": "Celeritas is a new Monte Carlo transport code designed for high-\nperformance (GPU-targeted) simulation of high-energy physics detectors."
+            "name": "cnvnator",
+            "description": "A tool for CNV discovery and genotyping from depth-of-coverage by mapped\nreads."
+        },
+        {
+            "name": "cool",
+            "description": "COOL provides specific software components and tools for the handling of\nthe time variation and versioning of the experiment conditions data."
+        },
+        {
+            "name": "hepmc3",
+            "description": "The HepMC package is an object oriented, C++ event record for High\nEnergy Physics Monte Carlo generators and simulation."
+        },
+        {
+            "name": "professor",
+            "description": "Professor Monte-Carlo tuning package"
+        },
+        {
+            "name": "cepgen",
+            "description": "A generic central exclusive processes event generator"
+        },
+        {
+            "name": "vecgeom",
+            "description": "The vectorized geometry library for particle-detector simulation\n(toolkits)."
+        },
+        {
+            "name": "gate",
+            "description": "Simulations of Preclinical and Clinical Scans in Emission Tomography,\nTransmission Tomography and Radiation Therapy GATE is an advanced\nopensource software developed by the international OpenGATE\ncollaboration and dedicated to numerical simulations in medical imaging\nand radiotherapy. It currently supports simulations of Emission\nTomography (Positron Emission Tomography - PET and Single Photon\nEmission Computed Tomography - SPECT), Computed Tomography (CT), Optical\nImaging (Bioluminescence and Fluorescence) and Radiotherapy experiments.\nUsing an easy-to-learn macro mechanism to configurate simple or highly\nsophisticated experimental settings, GATE now plays a key role in the\ndesign of new medical imaging devices, in the optimization of\nacquisition protocols and in the development and assessment of image\nreconstruction algorithms and correction techniques. It can also be used\nfor dose calculation in radiotherapy experiments."
+        },
+        {
+            "name": "genie",
+            "description": "Genie is a neutrino Monte Carlo Generator."
+        },
+        {
+            "name": "unigen",
+            "description": "The United Generators project was launched by the Virtual Institute 146\nVI-SIM in September 2005 following a proposal of Herbert Strobele. The\ngoal was to facilitate comparison between various models (see below)\nand/or various experiments (HADES, FOPI, CERES, NA49, CBM). The package\nat present allows to convert output of various event generators to a\ngeneric root format."
         },
         {
             "name": "geant3",
@@ -885,60 +912,40 @@
             "description": "Open Data Detector for High Energy Physics."
         },
         {
-            "name": "sartre",
-            "description": "Sartre 1 is an event generator for exclusive diffractive vector meson\nproduction and DVCS in ep and eA collisions based on the dipole model."
-        },
-        {
-            "name": "vecgeom",
-            "description": "The vectorized geometry library for particle-detector simulation\n(toolkits)."
-        },
-        {
-            "name": "cool",
-            "description": "COOL provides specific software components and tools for the handling of\nthe time variation and versioning of the experiment conditions data."
+            "name": "lcio",
+            "description": "HEP Library for Linear Collider Input/Output"
         },
         {
             "name": "acts",
             "description": "A Common Tracking Software (Acts) This project contains an experiment-\nindependent set of track reconstruction tools. The main philosophy is to\nprovide high-level track reconstruction modules that can be used for any\ntracking detector. The description of the tracking detector's geometry\nis optimized for efficient navigation and quick extrapolation of tracks.\nConverters for several common geometry description languages exist.\nHaving a highly performant, yet largely customizable implementation of\ntrack reconstruction algorithms was a primary objective for the design\nof this toolset. Additionally, the applicability to real-life HEP\nexperiments plays major role in the development process. Apart from\nalgorithmic code, this project also provides an event data model for the\ndescription of track parameters and measurements. Key features of this\nproject include: tracking geometry description which can be constructed\nfrom TGeo, DD4Hep, or GDML input, simple and efficient event data model,\nperformant and highly flexible algorithms for track propagation and\nfitting, basic seed finding algorithms."
         },
         {
-            "name": "gate",
-            "description": "Simulations of Preclinical and Clinical Scans in Emission Tomography,\nTransmission Tomography and Radiation Therapy GATE is an advanced\nopensource software developed by the international OpenGATE\ncollaboration and dedicated to numerical simulations in medical imaging\nand radiotherapy. It currently supports simulations of Emission\nTomography (Positron Emission Tomography - PET and Single Photon\nEmission Computed Tomography - SPECT), Computed Tomography (CT), Optical\nImaging (Bioluminescence and Fluorescence) and Radiotherapy experiments.\nUsing an easy-to-learn macro mechanism to configurate simple or highly\nsophisticated experimental settings, GATE now plays a key role in the\ndesign of new medical imaging devices, in the optimization of\nacquisition protocols and in the development and assessment of image\nreconstruction algorithms and correction techniques. It can also be used\nfor dose calculation in radiotherapy experiments."
+            "name": "genfit",
+            "description": "GenFit is an experiment-independent framework for track reconstruction\nin particle and nuclear physics"
         },
         {
-            "name": "sherpa",
-            "description": "Sherpa is a Monte Carlo event generator for the Simulation of High-\nEnergy Reactions of PArticles in lepton-lepton, lepton-photon, photon-\nphoton, lepton-hadron and hadron-hadron collisions."
-        },
-        {
-            "name": "bdsim",
-            "description": "Beam Delivery Simulation (BDSIM) is a C++ program that utilises the\nGeant4 toolkit to simulate both the transport of particles in an\naccelerator and their interaction with the accelerator material"
-        },
-        {
-            "name": "professor",
-            "description": "Professor Monte-Carlo tuning package"
-        },
-        {
-            "name": "cutlang",
-            "description": "CutLang is a domain specific language that aims to provide a clear,\nhuman readable way to define analyses in high energy particle physics\n(HEP) along with an interpretation framework of that language."
+            "name": "dd4hep",
+            "description": "DD4hep is a software framework for providing a complete solution for\nfull detector description (geometry, materials, visualization, readout,\nalignment, calibration, etc.) for the full experiment life cycle\n(detector concept development, detector optimization, construction,\noperation). It offers a consistent description through a single source\nof detector information for simulation, reconstruction, analysis, etc.\nIt distributed under the LGPLv3 License."
         },
         {
             "name": "py-hepdata-lib",
             "description": "Library for getting your data into HEPData"
         },
         {
-            "name": "yoda",
-            "description": "YODA - Yet more Objects for Data Analysis"
+            "name": "crmc",
+            "description": "CRMC (Cosmic Ray Monte Carlo package). CRMC is a package providing a\ncommon interface to access the output from event generators used to\nmodel the secondary particle production in hadronic collisons."
         },
         {
-            "name": "gatepet2stir",
-            "description": "A QT/C++ application to convert GATE geometries to STIR format."
+            "name": "gbl",
+            "description": "General Broken Lines: Advanced track fitting library"
         },
         {
-            "name": "vmc",
-            "description": "The Virtual Monte Carlo (VMC) library"
+            "name": "delphes",
+            "description": "A high energy physics framework for fast simulation of a generic\ncollider experiment."
         },
         {
-            "name": "gaudi",
-            "description": "An experiment-independent HEP event data processing framework"
+            "name": "cutlang",
+            "description": "CutLang is a domain specific language that aims to provide a clear,\nhuman readable way to define analyses in high energy particle physics\n(HEP) along with an interpretation framework of that language."
         }
     ]
 }

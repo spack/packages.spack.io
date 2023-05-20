@@ -7,6 +7,10 @@
             "branch": "develop"
         },
         {
+            "name": "3.3.3",
+            "sha256": "cc67abb7585e23b51ad576e797df4108641ae6c8c5e80e5359a279c729769187"
+        },
+        {
             "name": "3.3.2",
             "sha256": "0ae7c38287598e8d7d238cf284ea8be1096dcf13f58a7e9e444a28a32c085b56"
         },
@@ -36,7 +40,7 @@
             "sha256": "a506d4d83b8973829e68787d8d721199523ce7ec73e7594e93333c214c2c12bd"
         }
     ],
-    "latest_version": "3.3.2",
+    "latest_version": "3.3.3",
     "build_system": "CMakePackage",
     "conflicts": [
         {
@@ -58,7 +62,7 @@
         },
         {
             "name": "build_type",
-            "default": "RelWithDebInfo",
+            "default": "Release",
             "description": "CMake build type"
         },
         {
@@ -186,7 +190,7 @@
             "level": 1,
             "working_dir": ".",
             "relative_path": "cmake-findvtkh-3.3.patch",
-            "version": "@3.3.0:+vtkm"
+            "version": "@3.3.0:3.3.2+vtkm"
         },
         {
             "owner": "builtin.visit",
@@ -222,7 +226,7 @@
         },
         {
             "name": "mpi",
-            "description": "MVAPICH2-X is the advanced version of the MVAPICH2 MPI library with\nenhanced features (UMR, ODP, DC, Core-Direct, SHARP, XPMEM), OSU INAM\n(InifniBand Network Monitoring and Analysis),PGAS (OpenSHMEM, UPC,\nUPC++, and CAF), and MPI+PGAS programming models with unified\ncommunication runtime. MVAPICH2-X is not installable from source and is\nonly available through a binary mirror. If you do not find the binary\nyou're looking for, send us an email at mvapich@cse.ohio-state.edu. The\nbinary mirror url is: http://mvapich.cse.ohio-\nstate.edu/download/mvapich/spack-mirror/mvapich2x/"
+            "description": "Intel MPI Library is a multifabric message-passing library that\nimplements the open-source MPICH specification. Use the library to\ncreate, maintain, and test advanced, complex applications that perform\nbetter on high-performance computing (HPC) clusters based on Intel\nprocessors. LICENSE INFORMATION: By downloading and using this software,\nyou agree to the terms and conditions of the software license agreements\nat https://intel.ly/393CijO."
         },
         {
             "name": "vtk",
@@ -283,8 +287,24 @@
     ],
     "dependent_to": [
         {
+            "name": "nektools",
+            "description": "Tools required by Nek5000"
+        },
+        {
+            "name": "visit-cgns",
+            "description": "This is the CGNS Plug-In for VisIt. It can be installed after VisIt is\ninstalled along CGNS library."
+        },
+        {
             "name": "visit-ffp",
             "description": "This is the FFP Plug-In for VisIt. Can be installed after VisIt is\ninstalled with/without the STRIPACK library."
+        },
+        {
+            "name": "sensei",
+            "description": "SENSEI is a platform for scalable in-situ analysis and visualization.\nIts design motto is \"Write once, run everywhere\", this means that once\nthe application is instrumented with SENSEI it can use existing and\nfuture analysis backends. Existing backends include: Paraview/Catalyst,\nVisit/Libsim, ADIOS, Python scripts, and so on."
+        },
+        {
+            "name": "damaris",
+            "description": "Damaris is a middleware for I/O and in situ analytics targeting large-\nscale, MPI-based HPC simulations."
         },
         {
             "name": "visit-silo",
@@ -295,28 +315,12 @@
             "description": "This is the MFEM Plug-In for VisIt. It can be installed after VisIt is\ninstalled along MFEM library."
         },
         {
-            "name": "nektools",
-            "description": "Tools required by Nek5000"
-        },
-        {
-            "name": "visit-cgns",
-            "description": "This is the CGNS Plug-In for VisIt. It can be installed after VisIt is\ninstalled along CGNS library."
-        },
-        {
-            "name": "sensei",
-            "description": "SENSEI is a platform for scalable in-situ analysis and visualization.\nIts design motto is \"Write once, run everywhere\", this means that once\nthe application is instrumented with SENSEI it can use existing and\nfuture analysis backends. Existing backends include: Paraview/Catalyst,\nVisit/Libsim, ADIOS, Python scripts, and so on."
-        },
-        {
             "name": "visit-unv",
             "description": "This is the UNV Plug-In for VisIt."
         },
         {
             "name": "ecp-data-vis-sdk",
             "description": "ECP Data & Vis SDK"
-        },
-        {
-            "name": "damaris",
-            "description": "Damaris is a middleware for I/O and in situ analytics targeting large-\nscale, MPI-based HPC simulations."
         }
     ]
 }

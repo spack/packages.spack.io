@@ -3,6 +3,10 @@
     "aliases": [],
     "versions": [
         {
+            "name": "5.5.5",
+            "sha256": "0710caae527082e73d3bf8f9d1dffe95808afd3fcaaaa15ab0b937b8b226bc1f"
+        },
+        {
             "name": "5.5.4",
             "sha256": "41a8557ea2d118b1950282b17abea9230b252aa5ee1a5959173e2534b7d611d3"
         },
@@ -127,12 +131,52 @@
             "sha256": "d34865772d975b5d58ad80bb05312bf49aaf124d5431e54dc8618c05a0870e3c"
         }
     ],
-    "latest_version": "5.5.4",
+    "latest_version": "5.5.5",
     "build_system": "CMakePackage",
     "conflicts": [
         {
             "name": "cxxstd=98",
             "spec": "@4.7.0:",
+            "description": "None"
+        },
+        {
+            "name": "cxxstd=17",
+            "spec": "@5.0:5.5.2",
+            "description": "None"
+        },
+        {
+            "name": "cxxstd=17",
+            "spec": "@5~client_only",
+            "description": "None"
+        },
+        {
+            "name": "cxxstd=20",
+            "spec": "@5.0:5.5.2",
+            "description": "None"
+        },
+        {
+            "name": "cxxstd=20",
+            "spec": "@5~client_only",
+            "description": "None"
+        },
+        {
+            "name": "scitokens-cpp",
+            "spec": "@:5.5.2+client_only",
+            "description": "None"
+        },
+        {
+            "name": "cmake@:3.0",
+            "spec": "@5.0.0",
+            "description": "None"
+        },
+        {
+            "name": "cmake@:3.15.99",
+            "spec": "@5.5.4:",
+            "description": "None"
+        },
+        {
+            "name": "openssl@3:",
+            "spec": "@:5.3.99",
             "description": "None"
         }
     ],
@@ -144,7 +188,7 @@
         },
         {
             "name": "build_type",
-            "default": "RelWithDebInfo",
+            "default": "Release",
             "description": "CMake build type"
         },
         {
@@ -158,9 +202,19 @@
             "description": "the build system generator to use"
         },
         {
+            "name": "davix",
+            "default": true,
+            "description": "Build with Davix"
+        },
+        {
             "name": "http",
             "default": true,
             "description": "Build with HTTP support"
+        },
+        {
+            "name": "krb5",
+            "default": false,
+            "description": "Build with KRB5 support"
         },
         {
             "name": "python",
@@ -173,23 +227,27 @@
             "description": "Use readline"
         },
         {
-            "name": "krb5",
-            "default": false,
-            "description": "Build with KRB5 support"
-        },
-        {
             "name": "cxxstd",
-            "default": "11",
-            "description": "Use the specified C++ standard when building."
+            "default": "14",
+            "description": "Use the specified C++ standard when building"
         },
         {
             "name": "scitokens-cpp",
             "default": false,
             "description": "Enable support for SciTokens"
+        },
+        {
+            "name": "client_only",
+            "default": false,
+            "description": "Build and install client only"
         }
     ],
     "homepage": "http://xrootd.org",
     "maintainers": [
+        "gartung",
+        "greenc-FNAL",
+        "marcmengel",
+        "vitodb",
         "wdconinc"
     ],
     "patches": [
@@ -208,6 +266,30 @@
             "working_dir": ".",
             "url": "https://patch-diff.githubusercontent.com/raw/xrootd/xrootd/pull/1805.patch?full_index=1",
             "version": "@5.5.1"
+        },
+        {
+            "owner": "builtin.xrootd",
+            "sha256": "969f8b07edff42449ad76b02f3e57d93b8d6c829be1ba14bccf831c27bc971e1",
+            "level": 1,
+            "working_dir": ".",
+            "url": "https://patch-diff.githubusercontent.com/raw/xrootd/xrootd/pull/1930.patch?full_index=1",
+            "version": "@5.5.3"
+        },
+        {
+            "owner": "builtin.xrootd",
+            "sha256": "0860cb804d7c67f67f1143049ed52568425add94368a124d60f3e7f21077ad1b",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "no-systemd-pre-5.5.2.patch",
+            "version": "@:5.5.1"
+        },
+        {
+            "owner": "builtin.xrootd",
+            "sha256": "0d03eed8983de842af2d5757069b17e4bcbfa0583d809152336c8c284ec9cccb",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "no-systemd-5.5.2.patch",
+            "version": "@5.5.2:"
         }
     ],
     "resources": [],
@@ -230,12 +312,16 @@
             "description": "bzip2 is a freely available, patent free high-quality data compressor.\nIt typically compresses files to within 10% to 15% of the best available\ntechniques (the PPM family of statistical compressors), whilst being\naround twice as fast at compression and six times faster at\ndecompression."
         },
         {
+            "name": "davix",
+            "description": "High-performance file management over WebDAV/HTTP."
+        },
+        {
             "name": "libxml2",
             "description": "Libxml2 is the XML C parser and toolkit developed for the Gnome project\n(but usable outside of the Gnome platform), it is free software\navailable under the MIT License."
         },
         {
             "name": "uuid",
-            "description": "OSSP uuid is a ISO-C:1999 application programming interface (API) and\ncorresponding command line interface (CLI) for the generation of DCE\n1.1, ISO/IEC 11578:1996 and RFC 4122 compliant Universally Unique\nIdentifier (UUID)."
+            "description": "Portable uuid C library"
         },
         {
             "name": "openssl",
@@ -244,6 +330,10 @@
         {
             "name": "python",
             "description": "The Python programming language."
+        },
+        {
+            "name": "py-setuptools",
+            "description": "A Python utility that aids in the process of downloading, building,\nupgrading, installing, and uninstalling Python packages."
         },
         {
             "name": "readline",
@@ -280,24 +370,24 @@
             "description": "DEPRECATED! This package was renamed to py-uproot. ROOT I/O in pure\nPython and NumPy."
         },
         {
-            "name": "xrdcl-record",
-            "description": "XrdClRecorder Plugin. This XRootD Client Plugin can be used to record\nall user's actions on XrdCl::File object and store them into a csv file."
-        },
-        {
-            "name": "py-xrootdpyfs",
-            "description": "XRootDPyFS is a PyFilesystem interface to XRootD."
-        },
-        {
-            "name": "hadoop-xrootd",
-            "description": "Connector between Hadoop and XRootD protocols (EOS compatible)."
+            "name": "root",
+            "description": "ROOT is a data analysis framework."
         },
         {
             "name": "py-uproot",
             "description": "ROOT I/O in pure Python and NumPy. Uproot is a reader and a writer of\nthe ROOT file format using only Python and Numpy. Unlike the standard\nC++ ROOT implementation, Uproot is only an I/O library, primarily\nintended to stream data into machine learning libraries in Python.\nUnlike PyROOT and root_numpy, Uproot does not depend on C++ ROOT.\nInstead, it uses Numpy to cast blocks of data from the ROOT file as\nNumpy arrays."
         },
         {
-            "name": "root",
-            "description": "ROOT is a data analysis framework."
+            "name": "hadoop-xrootd",
+            "description": "Connector between Hadoop and XRootD protocols (EOS compatible)."
+        },
+        {
+            "name": "xrdcl-record",
+            "description": "XrdClRecorder Plugin. This XRootD Client Plugin can be used to record\nall user's actions on XrdCl::File object and store them into a csv file."
+        },
+        {
+            "name": "py-xrootdpyfs",
+            "description": "XRootDPyFS is a PyFilesystem interface to XRootD."
         }
     ]
 }

@@ -7,6 +7,10 @@
             "branch": "main"
         },
         {
+            "name": "2023.04.16",
+            "tag": "v2023.04.16"
+        },
+        {
             "name": "2022.10.11",
             "tag": "v2022.10.11"
         },
@@ -28,28 +32,13 @@
         },
         {
             "name": "10.2019.03",
+            "deprecated": true,
             "commit": "b7231de4c808db821d64f4018d15412640c34113"
         }
     ],
-    "latest_version": "2022.10.11",
+    "latest_version": "2023.04.16",
     "build_system": "Package",
-    "conflicts": [
-        {
-            "name": "target=ppc64:",
-            "spec": "",
-            "description": "intel-xed only runs on x86"
-        },
-        {
-            "name": "target=ppc64le:",
-            "spec": "",
-            "description": "intel-xed only runs on x86"
-        },
-        {
-            "name": "target=aarch64:",
-            "spec": "",
-            "description": "intel-xed only runs on x86"
-        }
-    ],
+    "conflicts": [],
     "variants": [
         {
             "name": "build_system",
@@ -87,6 +76,14 @@
             "working_dir": ".",
             "relative_path": "2019-python3.patch",
             "version": "@10.2019.03"
+        },
+        {
+            "owner": "builtin.intel-xed",
+            "sha256": "c6aa5f72ee5098cb59937356cd0447d37c7e60c0a2bcadafb60211f8ef107f00",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "libxed-ild.patch",
+            "version": "@12.0:2022.12"
         }
     ],
     "resources": [
@@ -94,13 +91,19 @@
             "version": "@main",
             "name": "mbuild",
             "destination": "",
-            "placement": "mbuild"
+            "placement": "../mbuild"
         },
         {
-            "version": "@:9999",
+            "version": "@2022.07:9999",
             "name": "mbuild",
             "destination": "",
-            "placement": "mbuild"
+            "placement": "../mbuild"
+        },
+        {
+            "version": "@:2022.6",
+            "name": "mbuild",
+            "destination": "",
+            "placement": "../mbuild"
         }
     ],
     "description": "The Intel X86 Encoder Decoder library for encoding and decoding x86\nmachine instructions (64- and 32-bit). Also includes libxed-ild, a\nlightweight library for decoding the length of an instruction.\n",

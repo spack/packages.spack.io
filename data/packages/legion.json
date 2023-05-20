@@ -3,6 +3,38 @@
     "aliases": [],
     "versions": [
         {
+            "name": "23.03.0",
+            "tag": "legion-23.03.0"
+        },
+        {
+            "name": "22.12.0",
+            "tag": "legion-22.12.0"
+        },
+        {
+            "name": "22.09.0",
+            "tag": "legion-22.09.0"
+        },
+        {
+            "name": "22.06.0",
+            "tag": "legion-22.06.0"
+        },
+        {
+            "name": "22.03.0",
+            "tag": "legion-22.03.0"
+        },
+        {
+            "name": "21.12.0",
+            "tag": "legion-21.12.0"
+        },
+        {
+            "name": "21.09.0",
+            "tag": "legion-21.09.0"
+        },
+        {
+            "name": "21.06.0",
+            "tag": "legion-21.06.0"
+        },
+        {
             "name": "21.03.0",
             "tag": "legion-21.03.0"
         },
@@ -19,7 +51,7 @@
             "branch": "control_replication"
         }
     ],
-    "latest_version": "21.03.0",
+    "latest_version": "23.03.0",
     "build_system": "CMakePackage",
     "conflicts": [
         {
@@ -126,7 +158,7 @@
         },
         {
             "name": "build_type",
-            "default": "RelWithDebInfo",
+            "default": "Release",
             "description": "CMake build type"
         },
         {
@@ -292,10 +324,20 @@
     ],
     "homepage": "https://legion.stanford.edu/",
     "maintainers": [
+        "elliottslaughter",
         "pmccormick",
         "streichler"
     ],
-    "patches": [],
+    "patches": [
+        {
+            "owner": "builtin.legion",
+            "sha256": "232c0933aa6cdfd67b13aaff2658a7a4970d9faa2e0676d20251811908284334",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "hip-offload-arch.patch",
+            "version": "@23.03.0+rocm"
+        }
+    ],
     "resources": [
         {
             "version": "network=gasnet",
@@ -332,7 +374,7 @@
         },
         {
             "name": "mpi",
-            "description": "MVAPICH2-X is the advanced version of the MVAPICH2 MPI library with\nenhanced features (UMR, ODP, DC, Core-Direct, SHARP, XPMEM), OSU INAM\n(InifniBand Network Monitoring and Analysis),PGAS (OpenSHMEM, UPC,\nUPC++, and CAF), and MPI+PGAS programming models with unified\ncommunication runtime. MVAPICH2-X is not installable from source and is\nonly available through a binary mirror. If you do not find the binary\nyou're looking for, send us an email at mvapich@cse.ohio-state.edu. The\nbinary mirror url is: http://mvapich.cse.ohio-\nstate.edu/download/mvapich/spack-mirror/mvapich2x/"
+            "description": "Intel MPI Library is a multifabric message-passing library that\nimplements the open-source MPICH specification. Use the library to\ncreate, maintain, and test advanced, complex applications that perform\nbetter on high-performance computing (HPC) clusters based on Intel\nprocessors. LICENSE INFORMATION: By downloading and using this software,\nyou agree to the terms and conditions of the software license agreements\nat https://intel.ly/393CijO."
         },
         {
             "name": "ucx",

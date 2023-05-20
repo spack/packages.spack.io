@@ -7,6 +7,10 @@
             "branch": "development"
         },
         {
+            "name": "23.05",
+            "sha256": "a4bf5ad5322e706b9fae46ff52043e2cca5ddba81479647816251e9ab21c0027"
+        },
+        {
             "name": "23.04",
             "sha256": "b070949611abd2156208e675e40e5e73ed405bf83e3b1e8ba70fbb451a9e7dd7"
         },
@@ -187,7 +191,7 @@
             "sha256": "a065ee4d1d98324b6c492ae20ea63ba12a4a4e23432bf5b3fe9788d44aa4398e"
         }
     ],
-    "latest_version": "23.04",
+    "latest_version": "23.05",
     "build_system": "CMakePackage",
     "conflicts": [
         {
@@ -232,7 +236,7 @@
         },
         {
             "name": "%gcc@13:",
-            "spec": "+cuda ^cuda@:12.0~allow-unsupported-compilers",
+            "spec": "+cuda ^cuda@:12.1~allow-unsupported-compilers",
             "description": "None"
         },
         {
@@ -253,6 +257,11 @@
         {
             "name": "%clang@15:",
             "spec": "+cuda ^cuda@:12.0~allow-unsupported-compilers",
+            "description": "None"
+        },
+        {
+            "name": "%clang@16:",
+            "spec": "+cuda ^cuda@:12.1~allow-unsupported-compilers",
             "description": "None"
         },
         {
@@ -532,7 +541,7 @@
         },
         {
             "name": "%gcc@8.1.0:8.2.0",
-            "spec": "@21.01:21.02",
+            "spec": "@21.01:21.2",
             "description": "None"
         },
         {
@@ -542,22 +551,22 @@
         },
         {
             "name": "+sundials",
-            "spec": "@20.12:21.06",
+            "spec": "@20.12:21.6",
             "description": "AMReX 20.12 -- 21.06 does not support SUNDIALS interfaces"
         },
         {
             "name": "+hdf5",
-            "spec": "@:20.06",
+            "spec": "@:20.6",
             "description": "AMReX HDF5 support needs AMReX newer than version 20.06"
         },
         {
             "name": "+hypre",
-            "spec": "@:20.06",
+            "spec": "@:20.6",
             "description": "AMReX Hypre support needs AMReX newer than version 20.06"
         },
         {
             "name": "+hypre",
-            "spec": "@:20.07~fortran",
+            "spec": "@:20.7~fortran",
             "description": "AMReX < 20.08 needs the Fortran API (+fortran) for Hypre support"
         },
         {
@@ -567,12 +576,12 @@
         },
         {
             "name": "+petsc",
-            "spec": "@:20.06",
+            "spec": "@:20.6",
             "description": "PETSc support needs AMReX newer than version 20.06"
         },
         {
             "name": "+petsc",
-            "spec": "@:20.07~fortran",
+            "spec": "@:20.7~fortran",
             "description": "AMReX < 20.08 needs the Fortran API (+fortran) for PETSc support"
         },
         {
@@ -582,7 +591,7 @@
         },
         {
             "name": "+cuda",
-            "spec": "@:19.08",
+            "spec": "@:19.8",
             "description": "AMReX CUDA support needs AMReX newer than version 19.08"
         },
         {
@@ -652,7 +661,7 @@
         },
         {
             "name": "+sycl",
-            "spec": "@:21.05",
+            "spec": "@:21.5",
             "description": "For SYCL support, AMReX version 21.06 and newer suggested."
         }
     ],
@@ -684,7 +693,7 @@
         },
         {
             "name": "build_type",
-            "default": "RelWithDebInfo",
+            "default": "Release",
             "description": "CMake build type"
         },
         {
@@ -828,7 +837,7 @@
         },
         {
             "name": "mpi",
-            "description": "MVAPICH2-X is the advanced version of the MVAPICH2 MPI library with\nenhanced features (UMR, ODP, DC, Core-Direct, SHARP, XPMEM), OSU INAM\n(InifniBand Network Monitoring and Analysis),PGAS (OpenSHMEM, UPC,\nUPC++, and CAF), and MPI+PGAS programming models with unified\ncommunication runtime. MVAPICH2-X is not installable from source and is\nonly available through a binary mirror. If you do not find the binary\nyou're looking for, send us an email at mvapich@cse.ohio-state.edu. The\nbinary mirror url is: http://mvapich.cse.ohio-\nstate.edu/download/mvapich/spack-mirror/mvapich2x/"
+            "description": "Intel MPI Library is a multifabric message-passing library that\nimplements the open-source MPICH specification. Use the library to\ncreate, maintain, and test advanced, complex applications that perform\nbetter on high-performance computing (HPC) clusters based on Intel\nprocessors. LICENSE INFORMATION: By downloading and using this software,\nyou agree to the terms and conditions of the software license agreements\nat https://intel.ly/393CijO."
         },
         {
             "name": "sundials",
@@ -869,16 +878,16 @@
     ],
     "dependent_to": [
         {
-            "name": "py-amrex",
-            "description": "AMReX Python Bindings with pybind11"
-        },
-        {
             "name": "fastmath",
             "description": "FASTMath is a suite of ~15 numerical libraries frequently used together\nin various SciDAC and CSE applications. The suite includes\ndiscretization libraries for structured, AMR and unstructured grids as\nwell as solver libraries for ODE's, Time Integrators, Iterative, Non-\nLinear, and Direct Solvers."
         },
         {
             "name": "xsdk",
             "description": "Xsdk is a suite of Department of Energy (DOE) packages for numerical\nsimulation. This is a Spack bundle package that installs the xSDK\npackages"
+        },
+        {
+            "name": "py-amrex",
+            "description": "AMReX Python Bindings with pybind11"
         }
     ]
 }

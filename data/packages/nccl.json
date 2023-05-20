@@ -3,6 +3,14 @@
     "aliases": [],
     "versions": [
         {
+            "name": "2.18.1-1",
+            "sha256": "0e4ede5cf8df009bff5aeb3a9f194852c03299ae5664b5a425b43358e7a9eef2"
+        },
+        {
+            "name": "2.17.1-1",
+            "sha256": "1311a6fd7cd44ad6d4523ba03065ce694605843fd30a5c0f77aa3d911abe706d"
+        },
+        {
             "name": "2.16.2-1",
             "sha256": "7f7c738511a8876403fc574d13d48e7c250d934d755598d82e14bab12236fc64"
         },
@@ -121,7 +129,7 @@
             "deprecated": true
         }
     ],
-    "latest_version": "2.16.2-1",
+    "latest_version": "2.18.1-1",
     "build_system": "MakefilePackage",
     "conflicts": [
         {
@@ -156,7 +164,7 @@
         },
         {
             "name": "%gcc@13:",
-            "spec": "+cuda ^cuda@:12.0~allow-unsupported-compilers",
+            "spec": "+cuda ^cuda@:12.1~allow-unsupported-compilers",
             "description": "None"
         },
         {
@@ -177,6 +185,11 @@
         {
             "name": "%clang@15:",
             "spec": "+cuda ^cuda@:12.0~allow-unsupported-compilers",
+            "description": "None"
+        },
+        {
+            "name": "%clang@16:",
+            "spec": "+cuda ^cuda@:12.1~allow-unsupported-compilers",
             "description": "None"
         },
         {
@@ -510,32 +523,12 @@
     ],
     "dependent_to": [
         {
-            "name": "py-horovod",
-            "description": "Horovod is a distributed deep learning training framework for\nTensorFlow, Keras, PyTorch, and Apache MXNet."
-        },
-        {
-            "name": "xgboost",
-            "description": "XGBoost is an optimized distributed gradient boosting library designed\nto be highly efficient, flexible and portable. It implements machine\nlearning algorithms under the Gradient Boosting framework. XGBoost\nprovides a parallel tree boosting (also known as GBDT, GBM) that solve\nmany data science problems in a fast and accurate way. The same code\nruns on major distributed environment (Hadoop, SGE, MPI) and can solve\nproblems beyond billions of examples."
-        },
-        {
             "name": "aluminum",
             "description": "Aluminum provides a generic interface to high-performance communication\nlibraries, with a focus on allreduce algorithms. Blocking and non-\nblocking algorithms and GPU-aware algorithms are supported. Aluminum\nalso contains custom implementations of select algorithms to optimize\nfor certain situations."
         },
         {
-            "name": "py-tensorflow",
-            "description": "An Open Source Machine Learning Framework for Everyone. TensorFlow is an\nend-to-end open source platform for machine learning. It has a\ncomprehensive, flexible ecosystem of tools, libraries, and community\nresources that lets researchers push the state-of-the-art in ML and\ndevelopers easily build and deploy ML-powered applications. TensorFlow\nwas originally developed by researchers and engineers working on the\nGoogle Brain team within Google's Machine Intelligence Research\norganization to conduct machine learning and deep neural networks\nresearch. The system is general enough to be applicable in a wide\nvariety of other domains, as well."
-        },
-        {
-            "name": "nccl-tests",
-            "description": "These tests check both the performance and the correctness of NCCL\noperations."
-        },
-        {
             "name": "py-cupy",
             "description": "CuPy is an open-source array library accelerated with NVIDIA CUDA. CuPy\nprovides GPU accelerated computing with Python. CuPy uses CUDA-related\nlibraries including cuBLAS, cuDNN, cuRand, cuSolver, cuSPARSE, cuFFT and\nNCCL to make full use of the GPU architecture."
-        },
-        {
-            "name": "mxnet",
-            "description": "MXNet is a deep learning framework designed for both efficiency and\nflexibility."
         },
         {
             "name": "timemory",
@@ -550,20 +543,44 @@
             "description": "LBANN: Livermore Big Artificial Neural Network Toolkit. A distributed\nmemory, HPC-optimized, model and data parallel training toolkit for deep\nneural networks."
         },
         {
-            "name": "py-torch",
-            "description": "Tensors and Dynamic neural networks in Python with strong GPU\nacceleration."
-        },
-        {
             "name": "cntk",
             "description": "The Microsoft Cognitive Toolkit is a unified deep-learning toolkit that\ndescribes neural networks as a series of computational steps via a\ndirected graph."
+        },
+        {
+            "name": "nvshmem",
+            "description": "NVSHMEM is a parallel programming interface based on OpenSHMEM that\nprovides efficient and scalable communication for NVIDIA GPU clusters.\nNVSHMEM creates a global address space for data that spans the memory of\nmultiple GPUs and can be accessed with fine-grained GPU-initiated\noperations, CPU-initiated operations, and operations on CUDA streams."
+        },
+        {
+            "name": "py-tensorflow",
+            "description": "An Open Source Machine Learning Framework for Everyone. TensorFlow is an\nend-to-end open source platform for machine learning. It has a\ncomprehensive, flexible ecosystem of tools, libraries, and community\nresources that lets researchers push the state-of-the-art in ML and\ndevelopers easily build and deploy ML-powered applications. TensorFlow\nwas originally developed by researchers and engineers working on the\nGoogle Brain team within Google's Machine Intelligence Research\norganization to conduct machine learning and deep neural networks\nresearch. The system is general enough to be applicable in a wide\nvariety of other domains, as well."
+        },
+        {
+            "name": "xgboost",
+            "description": "XGBoost is an optimized distributed gradient boosting library designed\nto be highly efficient, flexible and portable. It implements machine\nlearning algorithms under the Gradient Boosting framework. XGBoost\nprovides a parallel tree boosting (also known as GBDT, GBM) that solve\nmany data science problems in a fast and accurate way. The same code\nruns on major distributed environment (Hadoop, SGE, MPI) and can solve\nproblems beyond billions of examples."
+        },
+        {
+            "name": "mxnet",
+            "description": "MXNet is a deep learning framework designed for both efficiency and\nflexibility."
+        },
+        {
+            "name": "nccl-tests",
+            "description": "These tests check both the performance and the correctness of NCCL\noperations."
+        },
+        {
+            "name": "py-horovod",
+            "description": "Horovod is a distributed deep learning training framework for\nTensorFlow, Keras, PyTorch, and Apache MXNet."
+        },
+        {
+            "name": "nccl-fastsocket",
+            "description": "NCCL Fast Socket GCP Net plugin for NCCL"
         },
         {
             "name": "aws-ofi-nccl",
             "description": "AWS OFI NCCL is a plug-in which enables EC2 developers to use libfabric\nas a network provider while running NVIDIA's NCCL based applications."
         },
         {
-            "name": "nvshmem",
-            "description": "NVSHMEM is a parallel programming interface based on OpenSHMEM that\nprovides efficient and scalable communication for NVIDIA GPU clusters.\nNVSHMEM creates a global address space for data that spans the memory of\nmultiple GPUs and can be accessed with fine-grained GPU-initiated\noperations, CPU-initiated operations, and operations on CUDA streams."
+            "name": "py-torch",
+            "description": "Tensors and Dynamic neural networks in Python with strong GPU\nacceleration."
         }
     ]
 }
