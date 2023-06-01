@@ -7,6 +7,10 @@
             "branch": "master"
         },
         {
+            "name": "0.4.0",
+            "sha256": "de54e02e0222420976a2f4cf0a6230e4bb625b443c66500fa1441032db206df9"
+        },
+        {
             "name": "0.3.0",
             "sha256": "e7444a403c0a69eeeb34a4068be4d6f4e5b54cbfd275629019b9236a538a739e"
         },
@@ -16,9 +20,19 @@
             "deprecated": true
         }
     ],
-    "latest_version": "0.3.0",
+    "latest_version": "0.4.0",
     "build_system": "CMakePackage",
     "conflicts": [
+        {
+            "name": "^blt@:0.3.6",
+            "spec": "+rocm",
+            "description": "None"
+        },
+        {
+            "name": "amdgpu_target=none",
+            "spec": "+rocm",
+            "description": "None"
+        },
         {
             "name": "%gcc@:4",
             "spec": "+cuda ^cuda@11.0:~allow-unsupported-compilers",
@@ -352,6 +366,16 @@
     ],
     "variants": [
         {
+            "name": "rocm",
+            "default": false,
+            "description": "Enable ROCm support"
+        },
+        {
+            "name": "amdgpu_target",
+            "default": "none",
+            "description": "AMD GPU architecture"
+        },
+        {
             "name": "cuda",
             "default": false,
             "description": "Build with CUDA"
@@ -395,6 +419,18 @@
     "description": "xSDK Examples show usage of libraries in the xSDK package.\n",
     "dependencies": [
         {
+            "name": "llvm-amdgpu",
+            "description": "Toolkit for the construction of highly optimized compilers, optimizers,\nand run-time environments."
+        },
+        {
+            "name": "hsa-rocr-dev",
+            "description": "This repository includes the user mode API nterfaces and libraries\nnecessary for host applications to launch computer kernels to available\nHSA ROCm kernel agents.AMD Heterogeneous System Architecture HSA - Linux\nHSA Runtime for Boltzmann (ROCm) platforms."
+        },
+        {
+            "name": "hip",
+            "description": "HIP is a C++ Runtime API and Kernel Language that allows developers to\ncreate portable applications for AMD and NVIDIA GPUs from single source\ncode."
+        },
+        {
             "name": "cuda",
             "description": "CUDA is a parallel computing platform and programming model invented by\nNVIDIA. It enables dramatic increases in computing performance by\nharnessing the power of the graphics processing unit (GPU). Note: This\npackage does not currently install the drivers necessary to run CUDA.\nThese will need to be installed manually. See:\nhttps://docs.nvidia.com/cuda/ for details."
         },
@@ -416,7 +452,7 @@
         },
         {
             "name": "mpi",
-            "description": "Cray/HPE packaging of MVAPICH2 for HPE Apollo systems"
+            "description": "Intel MPI Library is a multifabric message-passing library that\nimplements the open-source MPICH specification. Use the library to\ncreate, maintain, and test advanced, complex applications that perform\nbetter on high-performance computing (HPC) clusters based on Intel\nprocessors. LICENSE INFORMATION: By downloading and using this software,\nyou agree to the terms and conditions of the software license agreements\nat https://intel.ly/393CijO."
         }
     ],
     "dependent_to": []
