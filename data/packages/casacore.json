@@ -3,6 +3,10 @@
     "aliases": [],
     "versions": [
         {
+            "name": "3.5.0",
+            "sha256": "63f1c8eff932b0fcbd38c598a5811e6e5397b72835b637d6f426105a183b3f91"
+        },
+        {
             "name": "3.4.0",
             "sha256": "31f02ad2e26f29bab4a47a2a69e049d7bc511084a0b8263360e6157356f92ae1"
         },
@@ -35,9 +39,25 @@
             "sha256": "58eccc875053b2c6fe44fe53b6463030ef169597ec29926936f18d27b5087d63"
         }
     ],
-    "latest_version": "3.4.0",
+    "latest_version": "3.5.0",
     "build_system": "CMakePackage",
-    "conflicts": [],
+    "conflicts": [
+        {
+            "name": "~mpi",
+            "spec": "+adios2",
+            "description": "None"
+        },
+        {
+            "name": "+tablelocking",
+            "spec": "+mpi",
+            "description": "None"
+        },
+        {
+            "name": "~threads",
+            "spec": "+openmp",
+            "description": "None"
+        }
+    ],
     "variants": [
         {
             "name": "build_system",
@@ -60,24 +80,14 @@
             "description": "the build system generator to use"
         },
         {
-            "name": "openmp",
-            "default": false,
-            "description": "Build OpenMP support"
-        },
-        {
-            "name": "shared",
-            "default": true,
-            "description": "Build shared libraries"
-        },
-        {
-            "name": "readline",
-            "default": true,
-            "description": "Build readline support"
-        },
-        {
             "name": "adios2",
             "default": false,
             "description": "Build ADIOS2 support"
+        },
+        {
+            "name": "dysco",
+            "default": true,
+            "description": "Build Dysco storage manager"
         },
         {
             "name": "fftpack",
@@ -90,9 +100,39 @@
             "description": "Build HDF5 support"
         },
         {
+            "name": "mpi",
+            "default": false,
+            "description": "Use MPI for parallel I/O"
+        },
+        {
+            "name": "openmp",
+            "default": false,
+            "description": "Build OpenMP support"
+        },
+        {
             "name": "python",
             "default": false,
             "description": "Build python support"
+        },
+        {
+            "name": "readline",
+            "default": true,
+            "description": "Build readline support"
+        },
+        {
+            "name": "shared",
+            "default": true,
+            "description": "Build shared libraries"
+        },
+        {
+            "name": "tablelocking",
+            "default": true,
+            "description": "Enable table locking"
+        },
+        {
+            "name": "threads",
+            "default": true,
+            "description": "Use mutex thread synchronization"
         }
     ],
     "homepage": "https://github.com/casacore/casacore",
@@ -129,11 +169,11 @@
         },
         {
             "name": "blas",
-            "description": "AMD Optimized BLIS. BLIS is a portable software framework for\ninstantiating high-performance BLAS-like dense linear algebra libraries.\nThe framework was designed to isolate essential kernels of computation\nthat, when optimized, immediately enable optimized implementations of\nmost of its commonly used and computationally intensive operations.\nLICENSING INFORMATION: By downloading, installing and using this\nsoftware, you agree to the terms and conditions of the AMD AOCL-BLIS\nlicense agreement. You may obtain a copy of this license agreement from\nhttps://www.amd.com/en/developer/aocl/blis/blis-4-0-eula.html\nhttps://www.amd.com/en/developer/aocl/blis/blis-eula.html"
+            "description": "Arm Performance Libraries provides optimized standard core math\nlibraries for high-performance computing applications on Arm processors."
         },
         {
             "name": "lapack",
-            "description": "Intel Math Kernel Library. This package has been replaced by intel-\noneapi-mkl. LICENSE INFORMATION: By downloading and using this software,\nyou agree to the terms and conditions of the software license agreements\nat https://intel.ly/393CijO."
+            "description": "Arm Performance Libraries provides optimized standard core math\nlibraries for high-performance computing applications on Arm processors."
         },
         {
             "name": "cfitsio",
@@ -161,7 +201,7 @@
         },
         {
             "name": "mpi",
-            "description": "IBM MPI implementation from Spectrum MPI."
+            "description": "Cray's MPICH is a high performance and widely portable implementation of\nthe Message Passing Interface (MPI) standard."
         },
         {
             "name": "python",
@@ -174,6 +214,10 @@
         {
             "name": "py-numpy",
             "description": "NumPy is the fundamental package for scientific computing with Python.\nIt contains among other things: a powerful N-dimensional array object,\nsophisticated (broadcasting) functions, tools for integrating C/C++ and\nFortran code, and useful linear algebra, Fourier transform, and random\nnumber capabilities"
+        },
+        {
+            "name": "gsl",
+            "description": "The GNU Scientific Library (GSL) is a numerical library for C and C++\nprogrammers. It is free software under the GNU General Public License.\nThe library provides a wide range of mathematical routines such as\nrandom number generators, special functions and least-squares fitting.\nThere are over 1000 functions in total with an extensive test suite."
         }
     ],
     "dependent_to": [
@@ -182,12 +226,12 @@
             "description": "The chgcentre tool can be used to change the phase centre of a\nmeasurement set."
         },
         {
-            "name": "dysco",
-            "description": "Dysco is a compressing storage manager for Casacore mearement sets."
-        },
-        {
             "name": "aoflagger",
             "description": "RFI detector and quality analysis for astronomical radio observations."
+        },
+        {
+            "name": "dysco",
+            "description": "Dysco is a compressing storage manager for Casacore mearement sets."
         }
     ]
 }
