@@ -1,204 +1,157 @@
 {
-    "name": "netlib-scalapack",
+    "name": "cray-libsci",
     "aliases": [
         {
+            "name": "blas",
+            "alias_for": "{cray-libsci}"
+        },
+        {
+            "name": "lapack",
+            "alias_for": "{cray-libsci}"
+        },
+        {
             "name": "scalapack",
-            "alias_for": "{netlib-scalapack}"
+            "alias_for": "{cray-libsci+mpi}"
         }
     ],
     "versions": [
         {
-            "name": "2.2.0",
-            "sha256": "40b9406c20735a9a3009d863318cb8d3e496fb073d201c5463df810e01ab2a57"
+            "name": "21.08.1.2"
         },
         {
-            "name": "2.1.0",
-            "sha256": "61d9216cf81d246944720cfce96255878a3f85dec13b9351f1fa0fd6768220a6"
+            "name": "20.06.1"
         },
         {
-            "name": "2.0.2",
-            "sha256": "0c74aeae690fe5ee4db7926f49c5d0bb69ce09eea75beb915e00bba07530395c"
+            "name": "20.03.1"
         },
         {
-            "name": "2.0.1",
-            "sha256": "a9b34278d4e10b40cbe084c6d87d09af8845e874250719bfbbc497b2a88bfde1"
+            "name": "19.06.1"
         },
         {
-            "name": "2.0.0",
-            "sha256": "e51fbd9c3ef3a0dbd81385b868e2355900148eea689bf915c5383d72daf73114"
+            "name": "18.12.1"
+        },
+        {
+            "name": "18.11.1.2"
+        },
+        {
+            "name": "16.11.1"
+        },
+        {
+            "name": "16.09.1"
+        },
+        {
+            "name": "16.07.1"
+        },
+        {
+            "name": "16.06.1"
+        },
+        {
+            "name": "16.03.1"
         }
     ],
-    "latest_version": "2.2.0",
-    "build_system": "CMakePackage",
+    "latest_version": "21.08.1.2",
+    "build_system": "Package",
     "conflicts": [],
     "variants": [
         {
             "name": "build_system",
-            "default": "cmake",
+            "default": "generic",
             "description": "Build systems supported by the package"
-        },
-        {
-            "name": "build_type",
-            "default": "Release",
-            "description": "CMake build type"
-        },
-        {
-            "name": "ipo",
-            "default": false,
-            "description": "CMake interprocedural optimization"
-        },
-        {
-            "name": "generator",
-            "default": "make",
-            "description": "the build system generator to use"
         },
         {
             "name": "shared",
             "default": true,
-            "description": "Build the shared library version"
+            "description": "enable shared libs"
         },
         {
-            "name": "pic",
+            "name": "openmp",
             "default": false,
-            "description": "Build position independent code"
-        }
-    ],
-    "homepage": "https://www.netlib.org/scalapack/",
-    "maintainers": [],
-    "patches": [
-        {
-            "owner": "builtin.netlib-scalapack",
-            "sha256": "e8f30dd1f26e523dfb552f8d7b8ad26ac88fc0c8d72e3d4f9a9717a3383e0b33",
-            "level": 1,
-            "working_dir": ".",
-            "relative_path": "cmake_fortran_mangle.patch",
-            "version": "@2.0.2:2.0"
-        },
-        {
-            "owner": "builtin.netlib-scalapack",
-            "sha256": "22ebf4e3d5a6356cd6086ea65bfdf30f9d0a2038136127590cd269d15bdb03af",
-            "level": 1,
-            "working_dir": ".",
-            "relative_path": "mpi2-compatibility.patch",
-            "version": "@2.0.2:2.0"
-        },
-        {
-            "owner": "builtin.netlib-scalapack",
-            "sha256": "f2baedde688ffe4c20943c334f580eb298e04d6f35c86b90a1f4e8cb7ae344a2",
-            "level": 1,
-            "working_dir": ".",
-            "relative_path": "int_overflow.patch",
-            "version": "@2.0.0:2.1.0"
-        },
-        {
-            "owner": "builtin.netlib-scalapack",
-            "sha256": "1c9ce5fee1451a08c2de3cc87f446aeda0b818ebbce4ad0d980ddf2f2a0b2dc4",
-            "level": 1,
-            "working_dir": ".",
-            "relative_path": "gcc10-compatibility.patch",
-            "version": "@2.0.0:2.2.0"
-        },
-        {
-            "owner": "builtin.netlib-scalapack",
-            "sha256": "072b006e485f0ca4cba56096912a986e4d3da73aae51c2205928aa5eb842cefd",
-            "level": 1,
-            "working_dir": ".",
-            "url": "https://github.com/Reference-ScaLAPACK/scalapack/commit/d4d0066c041cf19a23f8b3aa62fbcf5f0a33c166.patch?full_index=1",
-            "version": "@2.2.0"
-        },
-        {
-            "owner": "builtin.netlib-scalapack",
-            "sha256": "244a9aadb1b1e212ed1390f492afa827189c940524b7ab17053d00130a12577b",
-            "level": 1,
-            "working_dir": ".",
-            "relative_path": "fix-build-macos.patch",
-            "version": "@2.2.0"
-        }
-    ],
-    "resources": [],
-    "description": "ScaLAPACK is a library of high-performance linear algebra routines for\nparallel distributed memory machines\n",
-    "dependencies": [
-        {
-            "name": "cmake",
-            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
-        },
-        {
-            "name": "gmake",
-            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files."
-        },
-        {
-            "name": "ninja",
-            "description": "Ninja is a small build system with a focus on speed. It differs from\nother build systems in two major respects: it is designed to have its\ninput files generated by a higher-level build system, and it is designed\nto run builds as fast as possible."
+            "description": "link with openmp"
         },
         {
             "name": "mpi",
-            "description": "MVAPICH2-GDR is an optimized version of the MVAPICH2 MPI library for\nGPU-enabled HPC and Deep Learning Applications. MVAPICH2-GDR is not\ninstallable from source and is only available through a binary mirror.\nIf you do not find the binary you're looking for, send us an email at\nmvapich@cse.ohio-state.edu. The binary mirror url is:\nhttp://mvapich.cse.ohio-state.edu/download/mvapich/spack-\nmirror/mvapich2-gdr/"
-        },
-        {
-            "name": "lapack",
-            "description": "A BLAS and LAPACK wrapper library with runtime exchangable backends"
-        },
-        {
-            "name": "blas",
-            "description": "XBLAS is a reference implementation for extra precision BLAS. XBLAS is a\nreference implementation for the dense and banded BLAS routines, along\nwith extended and mixed precision version. Extended precision is only\nused internally; input and output arguments remain the same as in the\nexisting BLAS. Extra precisions is implemented as double-double (i.e.,\n128-bit total, 106-bit significand). Mixed precision permits some\ninput/output arguments of different types (mixing real and complex) or\nprecisions (mixing single and double). This implementation is proof of\nconcept, and no attempt was made to optimize performance; performance\nshould be as good as straightforward but careful code written by hand."
+            "default": false,
+            "description": "link with mpi libs"
         }
     ],
+    "homepage": "https://docs.nersc.gov/development/libraries/libsci/",
+    "maintainers": [],
+    "patches": [],
+    "resources": [],
+    "description": "The Cray Scientific Libraries package, LibSci, is a collection of\nnumerical routines optimized for best performance on Cray systems.\n",
+    "dependencies": [],
     "dependent_to": [
+        {
+            "name": "hypar",
+            "description": "HyPar is a finite-difference algorithm to solve hyperbolic-parabolic\npartial differential equations (with source terms) on Cartesian grids.\nIt is a unified framework that can handle systems of PDEs with arbitrary\nnumber of spatial dimensions and solution components. It provides the\nspatial discretization and time integration functions, functions to read\nand write solutions from/to files, as well as functions required to\nsolve the system on parallel (MPI) platforms. The physical models define\nthe physics-specific functions such as the exact forms of the hyperbolic\nflux, parabolic flux, source terms, upwinding functions, etc."
+        },
+        {
+            "name": "gptune",
+            "description": "GPTune is an autotuning framework that relies on multitask and transfer\nlearnings to help solve the underlying black-box optimization problem\nusing Bayesian optimization methodologies."
+        },
+        {
+            "name": "fleur",
+            "description": "FLEUR (Full-potential Linearised augmented plane wave in EURope) is a\ncode family for calculating groundstate as well as excited-state\nproperties of solids within the context of density functional theory\n(DFT)."
+        },
+        {
+            "name": "fujitsu-frontistr",
+            "description": "This is a fork repository of the FrontISTR tuned for A64FX."
+        },
+        {
+            "name": "ffb",
+            "description": "Computational Fluid Dynamics Software for aeroacoustics"
+        },
+        {
+            "name": "dealii",
+            "description": "C++ software library providing well-documented tools to build finite\nelement codes for a broad variety of PDEs."
+        },
         {
             "name": "openmx",
             "description": "OpenMX (Open source package for Material eXplorer) is a software package\nfor nano-scale material simulations based on density functional theories\n(DFT), norm-conserving pseudopotentials, and pseudo-atomic localized\nbasis functions."
         },
         {
-            "name": "sirius",
-            "description": "Domain specific library for electronic structure calculations"
-        },
-        {
-            "name": "cp2k",
-            "description": "CP2K is a quantum chemistry and solid state physics software package\nthat can perform atomistic simulations of solid state, liquid,\nmolecular, periodic, material, crystal, and biological systems"
-        },
-        {
-            "name": "q-e-sirius",
-            "description": "SIRIUS enabled fork of QuantumESPRESSO."
-        },
-        {
-            "name": "frontistr",
-            "description": "Open-Source Large-Scale Parallel FEM Program for Nonlinear Structural\nAnalysis"
-        },
-        {
-            "name": "vasp",
-            "description": "The Vienna Ab initio Simulation Package (VASP) is a computer program\nfor atomic scale materials modelling, e.g. electronic structure\ncalculations and quantum-mechanical molecular dynamics, from first\nprinciples."
-        },
-        {
-            "name": "dftbplus",
-            "description": "DFTB+ is an implementation of the Density Functional based Tight Binding\n(DFTB) method, containing many extensions to the original method."
-        },
-        {
-            "name": "eigenexa",
-            "description": "EigenExa is a high-performance eigenvalue solver."
-        },
-        {
-            "name": "quantum-espresso",
-            "description": "Quantum ESPRESSO is an integrated suite of Open-Source computer codes\nfor electronic-structure calculations and materials modeling at the\nnanoscale. It is based on density-functional theory, plane waves, and\npseudopotentials."
-        },
-        {
-            "name": "petsc",
-            "description": "PETSc is a suite of data structures and routines for the scalable\n(parallel) solution of scientific applications modeled by partial\ndifferential equations."
+            "name": "bigdft-spred",
+            "description": "BigDFT-spred: a library for structure prediction tools, that is compiled\non top of BigDFT routines."
         },
         {
             "name": "octopus",
             "description": "A real-space finite-difference (time-dependent) density-functional\ntheory code."
         },
         {
-            "name": "linsys-v",
-            "description": "LINSYS_V: Verified Solution of Linear Systems"
+            "name": "strumpack",
+            "description": "STRUMPACK -- STRUctured Matrix PACKage - provides linear solvers for\nsparse matrices and for dense rank-structured matrices, i.e., matrices\nthat exhibit some kind of low-rank property. It provides a distributed\nmemory fully algebraic sparse solver and preconditioner. The\npreconditioner is mostly aimed at large sparse linear systems which\nresult from the discretization of a partial differential equation, but\nis not limited to any particular type of problem. STRUMPACK also\nprovides preconditioned GMRES and BiCGStab iterative solvers."
         },
         {
-            "name": "hpddm",
-            "description": "High-performance unified framework for domain decomposition methods."
+            "name": "cp2k",
+            "description": "CP2K is a quantum chemistry and solid state physics software package\nthat can perform atomistic simulations of solid state, liquid,\nmolecular, periodic, material, crystal, and biological systems"
         },
         {
-            "name": "py-gpaw",
-            "description": "GPAW is a density-functional theory (DFT) Python code based on the\nprojector-augmented wave (PAW) method and the atomic simulation\nenvironment (ASE)."
+            "name": "sirius",
+            "description": "Domain specific library for electronic structure calculations"
+        },
+        {
+            "name": "elemental",
+            "description": "Elemental: Distributed-memory dense and sparse-direct linear algebra and\noptimization library."
+        },
+        {
+            "name": "elmerfem",
+            "description": "Elmer is an open source multiphysical simulation software. It includes\nphysical models of fluid dynamics, structural mechanics,\nelectromagnetics, heat transfer and acoustics."
+        },
+        {
+            "name": "butterflypack",
+            "description": "ButterflyPACK is a mathematical software for rapidly solving large-scale\ndense linear systems that exhibit off-diagonal rank-deficiency. These\nsystems arise frequently from boundary element methods, or factorization\nphases in finite-difference/finite-element methods. ButterflyPACK relies\non low-rank or butterfly formats under Hierarchical matrix, HODLR or\nother hierarchically nested frameworks to compress, factor and solve the\nlinear system in quasi-linear time. The computationally most intensive\nphase, factorization, is accelerated via randomized linear algebras. The\nbutterfly format, originally inspired by the butterfly data flow in fast\nFourier Transform, is a linear algebra tool well-suited for compressing\nmatrices arising from high-frequency wave equations or highly\noscillatory integral operators."
+        },
+        {
+            "name": "dftbplus",
+            "description": "DFTB+ is an implementation of the Density Functional based Tight Binding\n(DFTB) method, containing many extensions to the original method."
+        },
+        {
+            "name": "kadath",
+            "description": "KADATH SPECTRAL SOLVER. The Frankfurt University/Kadath (FUKA) Initial\nData solver branch is a collection of ID solvers aimed at delivering\nconsistent initial data (ID) solutions to the eXtended Conformal Thin-\nSandwich (XCTS) formulation of Einstein's field equations for a variety\nof compact object configurations to include extremely compact,\nasymmetric, and mixed spin binaries."
+        },
+        {
+            "name": "siesta",
+            "description": "SIESTA performs electronic structure calculations and ab initio\nmolecular dynamics simulations of molecules and solids."
         },
         {
             "name": "slate",
@@ -209,128 +162,112 @@
             "description": "Global Arrays (GA) is a Partitioned Global Address Space (PGAS)\nprogramming model. It provides primitives for one-sided communication\n(Get, Put, Accumulate) and Atomic Operations (read increment). It\nsupports blocking and non-blocking primtives, and supports location\nconsistency."
         },
         {
-            "name": "mptensor",
-            "description": "mptensor is parallel C++ libarary for tensor calculations. It provides\nsimilar interfaces as Numpy and Scipy in Python."
-        },
-        {
-            "name": "kadath",
-            "description": "KADATH SPECTRAL SOLVER. The Frankfurt University/Kadath (FUKA) Initial\nData solver branch is a collection of ID solvers aimed at delivering\nconsistent initial data (ID) solutions to the eXtended Conformal Thin-\nSandwich (XCTS) formulation of Einstein's field equations for a variety\nof compact object configurations to include extremely compact,\nasymmetric, and mixed spin binaries."
-        },
-        {
-            "name": "bigdft-psolver",
-            "description": "BigDFT-Psolver: a flexible real-space Poisson Solver based on\nInterpolating Scaling Functions. It constitutes a fundamental building\nblock of BigDFT code, and it can also be used separately and linked to\nother codes."
-        },
-        {
-            "name": "butterflypack",
-            "description": "ButterflyPACK is a mathematical software for rapidly solving large-scale\ndense linear systems that exhibit off-diagonal rank-deficiency. These\nsystems arise frequently from boundary element methods, or factorization\nphases in finite-difference/finite-element methods. ButterflyPACK relies\non low-rank or butterfly formats under Hierarchical matrix, HODLR or\nother hierarchically nested frameworks to compress, factor and solve the\nlinear system in quasi-linear time. The computationally most intensive\nphase, factorization, is accelerated via randomized linear algebras. The\nbutterfly format, originally inspired by the butterfly data flow in fast\nFourier Transform, is a linear algebra tool well-suited for compressing\nmatrices arising from high-frequency wave equations or highly\noscillatory integral operators."
-        },
-        {
-            "name": "strumpack",
-            "description": "STRUMPACK -- STRUctured Matrix PACKage - provides linear solvers for\nsparse matrices and for dense rank-structured matrices, i.e., matrices\nthat exhibit some kind of low-rank property. It provides a distributed\nmemory fully algebraic sparse solver and preconditioner. The\npreconditioner is mostly aimed at large sparse linear systems which\nresult from the discretization of a partial differential equation, but\nis not limited to any particular type of problem. STRUMPACK also\nprovides preconditioned GMRES and BiCGStab iterative solvers."
-        },
-        {
-            "name": "dealii",
-            "description": "C++ software library providing well-documented tools to build finite\nelement codes for a broad variety of PDEs."
-        },
-        {
-            "name": "mumps",
-            "description": "MUMPS: a MUltifrontal Massively Parallel sparse direct Solver"
-        },
-        {
-            "name": "cosma",
-            "description": "Distributed Communication-Optimal Matrix-Matrix Multiplication Library"
-        },
-        {
-            "name": "trilinos",
-            "description": "The Trilinos Project is an effort to develop algorithms and enabling\ntechnologies within an object-oriented software framework for the\nsolution of large-scale, complex multi-physics engineering and\nscientific problems. A unique design feature of Trilinos is its focus on\npackages."
-        },
-        {
-            "name": "fujitsu-frontistr",
-            "description": "This is a fork repository of the FrontISTR tuned for A64FX."
-        },
-        {
-            "name": "bigdft-chess",
-            "description": "BigDFT-CheSS: A module for performing Fermi Operator Expansions via\nChebyshev Polynomials."
-        },
-        {
-            "name": "abinit",
-            "description": "ABINIT is a package whose main program allows one to find the total\nenergy, charge density and electronic structure of systems made of\nelectrons and nuclei (molecules and periodic solids) within Density\nFunctional Theory (DFT), using pseudopotentials and a planewave or\nwavelet basis. ABINIT also includes options to optimize the geometry\naccording to the DFT forces and stresses, or to perform molecular\ndynamics simulations using these forces, or to generate dynamical\nmatrices, Born effective charges, and dielectric tensors, based on\nDensity-Functional Perturbation Theory, and many more properties.\nExcited states can be computed within the Many-Body Perturbation Theory\n(the GW approximation and the Bethe-Salpeter equation), and Time-\nDependent Density Functional Theory (for molecules). In addition to the\nmain ABINIT code, different utility programs are provided."
-        },
-        {
-            "name": "hypar",
-            "description": "HyPar is a finite-difference algorithm to solve hyperbolic-parabolic\npartial differential equations (with source terms) on Cartesian grids.\nIt is a unified framework that can handle systems of PDEs with arbitrary\nnumber of spatial dimensions and solution components. It provides the\nspatial discretization and time integration functions, functions to read\nand write solutions from/to files, as well as functions required to\nsolve the system on parallel (MPI) platforms. The physical models define\nthe physics-specific functions such as the exact forms of the hyperbolic\nflux, parabolic flux, source terms, upwinding functions, etc."
-        },
-        {
-            "name": "exciting",
-            "description": "exciting is a full-potential all-electron density-functional-theory\npackage implementing the families of linearized augmented planewave\nmethods. It can be applied to all kinds of materials, irrespective of\nthe atomic species in volved, and also allows for exploring the physics\nof core electrons. A particular focus are excited states within many-\nbody perturbation theory."
-        },
-        {
-            "name": "gptune",
-            "description": "GPTune is an autotuning framework that relies on multitask and transfer\nlearnings to help solve the underlying black-box optimization problem\nusing Bayesian optimization methodologies."
-        },
-        {
-            "name": "nwchem",
-            "description": "High-performance computational chemistry software"
-        },
-        {
-            "name": "ffb",
-            "description": "Computational Fluid Dynamics Software for aeroacoustics"
-        },
-        {
             "name": "salmon-tddft",
             "description": "SALMON is an open-source computer program for ab-initio quantum-\nmechanical calculations of electron dynamics at the nanoscale that takes\nplace in various situations of light-matter interactions. It is based on\ntime-dependent density functional theory, solving time-dependent Kohn-\nSham equation in real time and real space with norm-conserving\npseudopotentials."
-        },
-        {
-            "name": "bigdft-core",
-            "description": "BigDFT-core: the core components of BigDFT, an electronic structure\ncalculation based on Daubechies wavelets."
         },
         {
             "name": "hydrogen",
             "description": "Hydrogen: Distributed-memory dense and sparse-direct linear algebra and\noptimization library. Based on the Elemental library."
         },
         {
-            "name": "siesta",
-            "description": "SIESTA performs electronic structure calculations and ab initio\nmolecular dynamics simulations of molecules and solids."
+            "name": "nwchem",
+            "description": "High-performance computational chemistry software"
         },
         {
             "name": "dftfe",
             "description": "Real-space DFT calculations using Finite Elements"
         },
         {
-            "name": "elmerfem",
-            "description": "Elmer is an open source multiphysical simulation software. It includes\nphysical models of fluid dynamics, structural mechanics,\nelectromagnetics, heat transfer and acoustics."
-        },
-        {
-            "name": "elpa",
-            "description": "Eigenvalue solvers for Petaflop-Applications (ELPA)"
-        },
-        {
-            "name": "fleur",
-            "description": "FLEUR (Full-potential Linearised augmented plane wave in EURope) is a\ncode family for calculating groundstate as well as excited-state\nproperties of solids within the context of density functional theory\n(DFT)."
-        },
-        {
-            "name": "costa",
-            "description": "Distributed Communication-Optimal Matrix Transpose and Reshuffle\nLibrary Based on the paper: https://arxiv.org/abs/2106.06601"
-        },
-        {
-            "name": "elemental",
-            "description": "Elemental: Distributed-memory dense and sparse-direct linear algebra and\noptimization library."
-        },
-        {
-            "name": "bigdft-spred",
-            "description": "BigDFT-spred: a library for structure prediction tools, that is compiled\non top of BigDFT routines."
-        },
-        {
-            "name": "berkeleygw",
-            "description": "BerkeleyGW is a many-body perturbation theory code for excited states,\nusing the GW method and the GW plus Bethe-Salpeter equation (GW-BSE)\nmethod to solve respectively for quasiparticle excitations and optical\nproperties of materials."
+            "name": "elsi",
+            "description": "ELSI provides a unified interface for electronic structure codes to a\nvariety of eigenvalue solvers."
         },
         {
             "name": "yambo",
             "description": "Yambo is a FORTRAN/C code for Many-Body calculations in solid state and\nmolecular physics. Yambo relies on the Kohn-Sham wavefunctions generated\nby two DFT public codes: abinit, and PWscf. The code was originally\ndeveloped in the Condensed Matter Theoretical Group of the Physics\nDepartment at the University of Rome \"Tor Vergata\" by Andrea Marini.\nPrevious to its release under the GPL license, yambo was known as SELF."
         },
         {
-            "name": "elsi",
-            "description": "ELSI provides a unified interface for electronic structure codes to a\nvariety of eigenvalue solvers."
+            "name": "petsc",
+            "description": "PETSc is a suite of data structures and routines for the scalable\n(parallel) solution of scientific applications modeled by partial\ndifferential equations."
+        },
+        {
+            "name": "vasp",
+            "description": "The Vienna Ab initio Simulation Package (VASP) is a computer program\nfor atomic scale materials modelling, e.g. electronic structure\ncalculations and quantum-mechanical molecular dynamics, from first\nprinciples."
+        },
+        {
+            "name": "quantum-espresso",
+            "description": "Quantum ESPRESSO is an integrated suite of Open-Source computer codes\nfor electronic-structure calculations and materials modeling at the\nnanoscale. It is based on density-functional theory, plane waves, and\npseudopotentials."
+        },
+        {
+            "name": "mumps",
+            "description": "MUMPS: a MUltifrontal Massively Parallel sparse direct Solver"
+        },
+        {
+            "name": "costa",
+            "description": "Distributed Communication-Optimal Matrix Transpose and Reshuffle\nLibrary Based on the paper: https://arxiv.org/abs/2106.06601"
+        },
+        {
+            "name": "cosma",
+            "description": "Distributed Communication-Optimal Matrix-Matrix Multiplication Library"
+        },
+        {
+            "name": "mptensor",
+            "description": "mptensor is parallel C++ libarary for tensor calculations. It provides\nsimilar interfaces as Numpy and Scipy in Python."
+        },
+        {
+            "name": "frontistr",
+            "description": "Open-Source Large-Scale Parallel FEM Program for Nonlinear Structural\nAnalysis"
+        },
+        {
+            "name": "hpddm",
+            "description": "High-performance unified framework for domain decomposition methods."
+        },
+        {
+            "name": "exciting",
+            "description": "exciting is a full-potential all-electron density-functional-theory\npackage implementing the families of linearized augmented planewave\nmethods. It can be applied to all kinds of materials, irrespective of\nthe atomic species in volved, and also allows for exploring the physics\nof core electrons. A particular focus are excited states within many-\nbody perturbation theory."
+        },
+        {
+            "name": "bigdft-psolver",
+            "description": "BigDFT-Psolver: a flexible real-space Poisson Solver based on\nInterpolating Scaling Functions. It constitutes a fundamental building\nblock of BigDFT code, and it can also be used separately and linked to\nother codes."
+        },
+        {
+            "name": "bigdft-chess",
+            "description": "BigDFT-CheSS: A module for performing Fermi Operator Expansions via\nChebyshev Polynomials."
+        },
+        {
+            "name": "eigenexa",
+            "description": "EigenExa is a high-performance eigenvalue solver."
+        },
+        {
+            "name": "abinit",
+            "description": "ABINIT is a package whose main program allows one to find the total\nenergy, charge density and electronic structure of systems made of\nelectrons and nuclei (molecules and periodic solids) within Density\nFunctional Theory (DFT), using pseudopotentials and a planewave or\nwavelet basis. ABINIT also includes options to optimize the geometry\naccording to the DFT forces and stresses, or to perform molecular\ndynamics simulations using these forces, or to generate dynamical\nmatrices, Born effective charges, and dielectric tensors, based on\nDensity-Functional Perturbation Theory, and many more properties.\nExcited states can be computed within the Many-Body Perturbation Theory\n(the GW approximation and the Bethe-Salpeter equation), and Time-\nDependent Density Functional Theory (for molecules). In addition to the\nmain ABINIT code, different utility programs are provided."
+        },
+        {
+            "name": "q-e-sirius",
+            "description": "SIRIUS enabled fork of QuantumESPRESSO."
+        },
+        {
+            "name": "linsys-v",
+            "description": "LINSYS_V: Verified Solution of Linear Systems"
+        },
+        {
+            "name": "py-gpaw",
+            "description": "GPAW is a density-functional theory (DFT) Python code based on the\nprojector-augmented wave (PAW) method and the atomic simulation\nenvironment (ASE)."
+        },
+        {
+            "name": "trilinos",
+            "description": "The Trilinos Project is an effort to develop algorithms and enabling\ntechnologies within an object-oriented software framework for the\nsolution of large-scale, complex multi-physics engineering and\nscientific problems. A unique design feature of Trilinos is its focus on\npackages."
+        },
+        {
+            "name": "berkeleygw",
+            "description": "BerkeleyGW is a many-body perturbation theory code for excited states,\nusing the GW method and the GW plus Bethe-Salpeter equation (GW-BSE)\nmethod to solve respectively for quasiparticle excitations and optical\nproperties of materials."
+        },
+        {
+            "name": "elpa",
+            "description": "Eigenvalue solvers for Petaflop-Applications (ELPA)"
+        },
+        {
+            "name": "bigdft-core",
+            "description": "BigDFT-core: the core components of BigDFT, an electronic structure\ncalculation based on Daubechies wavelets."
         }
     ]
 }
