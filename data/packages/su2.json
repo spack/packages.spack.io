@@ -3,6 +3,21 @@
     "aliases": [],
     "versions": [
         {
+            "name": "7.5.1",
+            "submodules": true,
+            "commit": "09ba9e3a9605c02d38290e34f42aa6982cb4dd05"
+        },
+        {
+            "name": "7.5.0",
+            "submodules": true,
+            "commit": "8e8ea59fe6225c8ec4e94d0e0a4b6690ea4294e5"
+        },
+        {
+            "name": "7.4.0",
+            "submodules": true,
+            "commit": "745e5d922c63c8ec6963b31808c20df2e3bfd075"
+        },
+        {
             "name": "7.3.1",
             "submodules": true,
             "commit": "328a1b747a4785d13b749e7fb6cc4589fd1b9529"
@@ -60,7 +75,7 @@
             "sha256": "ffc953326e8432a1a6534556a5f6cf086046d3149cfcec6b4e7390eebe30ce2e"
         }
     ],
-    "latest_version": "7.3.1",
+    "latest_version": "7.5.1",
     "build_system": "MesonPackage",
     "conflicts": [],
     "variants": [
@@ -83,13 +98,77 @@
             "name": "strip",
             "default": false,
             "description": "Strip targets on install"
+        },
+        {
+            "name": "mpi",
+            "default": false,
+            "description": "enable MPI support"
+        },
+        {
+            "name": "openmp",
+            "default": false,
+            "description": "enable OpenMP support"
+        },
+        {
+            "name": "tecio",
+            "default": true,
+            "description": "enable TECIO support"
+        },
+        {
+            "name": "cgns",
+            "default": true,
+            "description": "enable CGNS support"
+        },
+        {
+            "name": "autodiff",
+            "default": false,
+            "description": "enable AD(reverse) support"
+        },
+        {
+            "name": "directdiff",
+            "default": false,
+            "description": "enable AD(forward) support"
+        },
+        {
+            "name": "pywrapper",
+            "default": false,
+            "description": "enable Python wrapper support"
+        },
+        {
+            "name": "mkl",
+            "default": false,
+            "description": "enable Intel MKL support"
+        },
+        {
+            "name": "openblas",
+            "default": false,
+            "description": "enable OpenBLAS support"
+        },
+        {
+            "name": "mpp",
+            "default": false,
+            "description": "enable Mutation++ support"
+        },
+        {
+            "name": "mixedprec",
+            "default": false,
+            "description": "use single precision floating point arithmetic for sparse algebra"
         }
     ],
     "homepage": "https://su2code.github.io",
     "maintainers": [
         "kjrstory"
     ],
-    "patches": [],
+    "patches": [
+        {
+            "owner": "builtin.su2",
+            "sha256": "8b53583248c174c83f35bab05a97db05fdaa54b4f1017a9205ca20ab66cc6608",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "meson_version.patch",
+            "version": "@7.4.0:7.5.1"
+        }
+    ],
     "resources": [],
     "description": "SU2 is a suite of open-source software tools written in C++ for the\nnumerical solution of partial differential equations (PDE) and\nperforming PDE constrained optimization.\n",
     "dependencies": [
@@ -108,6 +187,34 @@
         {
             "name": "zlib",
             "description": "A free, general-purpose, legally unencumbered lossless data-compression\nlibrary."
+        },
+        {
+            "name": "pkg-config",
+            "description": "pkg-config is a helper tool used when compiling applications and\nlibraries"
+        },
+        {
+            "name": "mpi",
+            "description": "Mvapich2 is a High-Performance MPI Library for clusters with diverse\nnetworks (InfiniBand, Omni-Path, Ethernet/iWARP, and RoCE) and computing\nplatforms (x86 (Intel and AMD), ARM and OpenPOWER)"
+        },
+        {
+            "name": "swig",
+            "description": "SWIG is an interface compiler that connects programs written in C and\nC++ with scripting languages such as Perl, Python, Ruby, and Tcl. It\nworks by taking the declarations found in C/C++ header files and using\nthem to generate the wrapper code that scripting languages need to\naccess the underlying C/C++ code. In addition, SWIG provides a variety\nof customization features that let you tailor the wrapping process to\nsuit your application."
+        },
+        {
+            "name": "py-mpi4py",
+            "description": "This package provides Python bindings for the Message Passing Interface\n(MPI) standard. It is implemented on top of the MPI-1/MPI-2\nspecification and exposes an API which grounds on the standard MPI-2 C++\nbindings."
+        },
+        {
+            "name": "intel-oneapi-mkl",
+            "description": "Intel oneAPI Math Kernel Library (Intel oneMKL; formerly Intel Math\nKernel Library or Intel MKL), is a library of optimized math routines\nfor science, engineering, and financial applications. Core math\nfunctions include BLAS, LAPACK, ScaLAPACK, sparse solvers, fast Fourier\ntransforms, and vector math. LICENSE INFORMATION: By downloading and\nusing this software, you agree to the terms and conditions of the\nsoftware license agreements at https://intel.ly/393CijO."
+        },
+        {
+            "name": "openblas",
+            "description": "OpenBLAS: An optimized BLAS library"
+        },
+        {
+            "name": "cmake",
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
         }
     ],
     "dependent_to": []
