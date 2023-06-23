@@ -3,6 +3,9 @@
     "aliases": [],
     "versions": [
         {
+            "name": "beta"
+        },
+        {
             "name": "master",
             "branch": "master",
             "submodules": true
@@ -11,47 +14,19 @@
             "name": "nightly"
         },
         {
+            "name": "1.70.0",
+            "sha256": "b2bfae000b7a5040e4ec4bbc50a09f21548190cb7570b0ed77358368413bd27c"
+        },
+        {
             "name": "1.65.0",
             "sha256": "5828bb67f677eabf8c384020582b0ce7af884e1c84389484f7f8d00dd82c0038"
         },
         {
             "name": "1.60.0",
             "sha256": "20ca826d1cf674daf8e22c4f8c4b9743af07973211c839b85839742314c838b7"
-        },
-        {
-            "name": "1.58.1",
-            "sha256": "a839afdd3625d6f3f3c4c10b79813675d1775c460d14be1feaf33a6c829c07c7"
-        },
-        {
-            "name": "1.51.0",
-            "sha256": "7a6b9bafc8b3d81bbc566e7c0d1f17c9f499fd22b95142f7ea3a8e4d1f9eb847"
-        },
-        {
-            "name": "1.48.0",
-            "sha256": "0e763e6db47d5d6f91583284d2f989eacc49b84794d1443355b85c58d67ae43b"
-        },
-        {
-            "name": "1.47.0",
-            "sha256": "3185df064c4747f2c8b9bb8c4468edd58ff4ad6d07880c879ac1b173b768d81d"
-        },
-        {
-            "name": "1.46.0",
-            "sha256": "2d6a3b7196db474ba3f37b8f5d50a1ecedff00738d7846840605b42bfc922728"
-        },
-        {
-            "name": "1.45.1",
-            "sha256": "ea53e6424e3d1fe56c6d77a00e72c5d594b509ec920c5a779a7b8e1dbd74219b"
-        },
-        {
-            "name": "1.44.1",
-            "sha256": "7e2e64cb298dd5d5aea52eafe943ba0458fa82f2987fdcda1ff6f537b6f88473"
-        },
-        {
-            "name": "1.44.0",
-            "sha256": "bf2df62317e533e84167c5bc7d4351a99fdab1f9cd6e6ba09f51996ad8561100"
         }
     ],
-    "latest_version": "1.65.0",
+    "latest_version": "1.70.0",
     "build_system": "Package",
     "conflicts": [],
     "variants": [
@@ -61,698 +36,136 @@
             "description": "Build systems supported by the package"
         },
         {
-            "name": "rustfmt",
-            "default": true,
-            "description": "Formatting tool for Rust code"
-        },
-        {
             "name": "analysis",
-            "default": true,
+            "default": false,
             "description": "Outputs code analysis that can be consumed by other tools"
         },
         {
             "name": "clippy",
             "default": true,
-            "description": "Linting tool for Rust"
+            "description": "A bunch of lints to catch common mistakes and improve your Rust code."
         },
         {
-            "name": "rls",
+            "name": "docs",
             "default": false,
-            "description": "The Rust Language Server can be used for IDE integration"
+            "description": "Build Rust documentation."
+        },
+        {
+            "name": "rustfmt",
+            "default": true,
+            "description": "Formatting tool for Rust code."
         },
         {
             "name": "src",
             "default": true,
-            "description": "Install Rust source files"
-        },
-        {
-            "name": "extra_targets",
-            "default": "none",
-            "description": "Triples for extra targets to enable. For supported targets, see: https://doc.rust-lang.org/nightly/rustc/platform-support.html"
+            "description": "Include standard library source files."
         }
     ],
     "homepage": "https://www.rust-lang.org",
     "maintainers": [
-        "AndrewGaspar"
+        "alecbcs"
     ],
     "patches": [],
-    "resources": [
-        {
-            "version": "@beta arch=linux-None-x86_64:",
-            "name": "rust-beta-x86_64-unknown-linux-gnu",
-            "destination": "spack_bootstrap_stage",
-            "placement": null
-        },
-        {
-            "version": "@beta arch=cray-None-x86_64:",
-            "name": "rust-beta-x86_64-unknown-linux-gnu",
-            "destination": "spack_bootstrap_stage",
-            "placement": null
-        },
-        {
-            "version": "@beta arch=linux-None-ppc64le:",
-            "name": "rust-beta-powerpc64le-unknown-linux-gnu",
-            "destination": "spack_bootstrap_stage",
-            "placement": null
-        },
-        {
-            "version": "@beta arch=cray-None-ppc64le:",
-            "name": "rust-beta-powerpc64le-unknown-linux-gnu",
-            "destination": "spack_bootstrap_stage",
-            "placement": null
-        },
-        {
-            "version": "@beta arch=linux-None-aarch64:",
-            "name": "rust-beta-aarch64-unknown-linux-gnu",
-            "destination": "spack_bootstrap_stage",
-            "placement": null
-        },
-        {
-            "version": "@beta arch=cray-None-aarch64:",
-            "name": "rust-beta-aarch64-unknown-linux-gnu",
-            "destination": "spack_bootstrap_stage",
-            "placement": null
-        },
-        {
-            "version": "@beta arch=darwin-None-x86_64:",
-            "name": "rust-beta-x86_64-apple-darwin",
-            "destination": "spack_bootstrap_stage",
-            "placement": null
-        },
-        {
-            "version": "@beta arch=darwin-None-aarch64:",
-            "name": "rust-beta-aarch64-apple-darwin",
-            "destination": "spack_bootstrap_stage",
-            "placement": null
-        },
-        {
-            "version": "@nightly arch=linux-None-x86_64:",
-            "name": "rust-beta-x86_64-unknown-linux-gnu",
-            "destination": "spack_bootstrap_stage",
-            "placement": null
-        },
-        {
-            "version": "@nightly arch=cray-None-x86_64:",
-            "name": "rust-beta-x86_64-unknown-linux-gnu",
-            "destination": "spack_bootstrap_stage",
-            "placement": null
-        },
-        {
-            "version": "@nightly arch=linux-None-ppc64le:",
-            "name": "rust-beta-powerpc64le-unknown-linux-gnu",
-            "destination": "spack_bootstrap_stage",
-            "placement": null
-        },
-        {
-            "version": "@nightly arch=cray-None-ppc64le:",
-            "name": "rust-beta-powerpc64le-unknown-linux-gnu",
-            "destination": "spack_bootstrap_stage",
-            "placement": null
-        },
-        {
-            "version": "@nightly arch=linux-None-aarch64:",
-            "name": "rust-beta-aarch64-unknown-linux-gnu",
-            "destination": "spack_bootstrap_stage",
-            "placement": null
-        },
-        {
-            "version": "@nightly arch=cray-None-aarch64:",
-            "name": "rust-beta-aarch64-unknown-linux-gnu",
-            "destination": "spack_bootstrap_stage",
-            "placement": null
-        },
-        {
-            "version": "@nightly arch=darwin-None-x86_64:",
-            "name": "rust-beta-x86_64-apple-darwin",
-            "destination": "spack_bootstrap_stage",
-            "placement": null
-        },
-        {
-            "version": "@nightly arch=darwin-None-aarch64:",
-            "name": "rust-beta-aarch64-apple-darwin",
-            "destination": "spack_bootstrap_stage",
-            "placement": null
-        },
-        {
-            "version": "@master arch=linux-None-x86_64:",
-            "name": "rust-beta-x86_64-unknown-linux-gnu",
-            "destination": "spack_bootstrap_stage",
-            "placement": null
-        },
-        {
-            "version": "@master arch=cray-None-x86_64:",
-            "name": "rust-beta-x86_64-unknown-linux-gnu",
-            "destination": "spack_bootstrap_stage",
-            "placement": null
-        },
-        {
-            "version": "@master arch=linux-None-ppc64le:",
-            "name": "rust-beta-powerpc64le-unknown-linux-gnu",
-            "destination": "spack_bootstrap_stage",
-            "placement": null
-        },
-        {
-            "version": "@master arch=cray-None-ppc64le:",
-            "name": "rust-beta-powerpc64le-unknown-linux-gnu",
-            "destination": "spack_bootstrap_stage",
-            "placement": null
-        },
-        {
-            "version": "@master arch=linux-None-aarch64:",
-            "name": "rust-beta-aarch64-unknown-linux-gnu",
-            "destination": "spack_bootstrap_stage",
-            "placement": null
-        },
-        {
-            "version": "@master arch=cray-None-aarch64:",
-            "name": "rust-beta-aarch64-unknown-linux-gnu",
-            "destination": "spack_bootstrap_stage",
-            "placement": null
-        },
-        {
-            "version": "@master arch=darwin-None-x86_64:",
-            "name": "rust-beta-x86_64-apple-darwin",
-            "destination": "spack_bootstrap_stage",
-            "placement": null
-        },
-        {
-            "version": "@master arch=darwin-None-aarch64:",
-            "name": "rust-beta-aarch64-apple-darwin",
-            "destination": "spack_bootstrap_stage",
-            "placement": null
-        },
-        {
-            "version": "@1.65.0 arch=linux-None-x86_64:",
-            "name": "rust-1.65.0-x86_64-unknown-linux-gnu",
-            "destination": "spack_bootstrap_stage",
-            "placement": null
-        },
-        {
-            "version": "@1.65.0 arch=cray-None-x86_64:",
-            "name": "rust-1.65.0-x86_64-unknown-linux-gnu",
-            "destination": "spack_bootstrap_stage",
-            "placement": null
-        },
-        {
-            "version": "@1.65.0 arch=linux-None-ppc64le:",
-            "name": "rust-1.65.0-powerpc64le-unknown-linux-gnu",
-            "destination": "spack_bootstrap_stage",
-            "placement": null
-        },
-        {
-            "version": "@1.65.0 arch=cray-None-ppc64le:",
-            "name": "rust-1.65.0-powerpc64le-unknown-linux-gnu",
-            "destination": "spack_bootstrap_stage",
-            "placement": null
-        },
-        {
-            "version": "@1.65.0 arch=linux-None-aarch64:",
-            "name": "rust-1.65.0-aarch64-unknown-linux-gnu",
-            "destination": "spack_bootstrap_stage",
-            "placement": null
-        },
-        {
-            "version": "@1.65.0 arch=cray-None-aarch64:",
-            "name": "rust-1.65.0-aarch64-unknown-linux-gnu",
-            "destination": "spack_bootstrap_stage",
-            "placement": null
-        },
-        {
-            "version": "@1.65.0 arch=darwin-None-x86_64:",
-            "name": "rust-1.65.0-x86_64-apple-darwin",
-            "destination": "spack_bootstrap_stage",
-            "placement": null
-        },
-        {
-            "version": "@1.65.0 arch=darwin-None-aarch64:",
-            "name": "rust-1.65.0-aarch64-apple-darwin",
-            "destination": "spack_bootstrap_stage",
-            "placement": null
-        },
-        {
-            "version": "@1.60.0 arch=linux-None-x86_64:",
-            "name": "rust-1.60.0-x86_64-unknown-linux-gnu",
-            "destination": "spack_bootstrap_stage",
-            "placement": null
-        },
-        {
-            "version": "@1.60.0 arch=cray-None-x86_64:",
-            "name": "rust-1.60.0-x86_64-unknown-linux-gnu",
-            "destination": "spack_bootstrap_stage",
-            "placement": null
-        },
-        {
-            "version": "@1.60.0 arch=linux-None-ppc64le:",
-            "name": "rust-1.60.0-powerpc64le-unknown-linux-gnu",
-            "destination": "spack_bootstrap_stage",
-            "placement": null
-        },
-        {
-            "version": "@1.60.0 arch=cray-None-ppc64le:",
-            "name": "rust-1.60.0-powerpc64le-unknown-linux-gnu",
-            "destination": "spack_bootstrap_stage",
-            "placement": null
-        },
-        {
-            "version": "@1.60.0 arch=linux-None-aarch64:",
-            "name": "rust-1.60.0-aarch64-unknown-linux-gnu",
-            "destination": "spack_bootstrap_stage",
-            "placement": null
-        },
-        {
-            "version": "@1.60.0 arch=cray-None-aarch64:",
-            "name": "rust-1.60.0-aarch64-unknown-linux-gnu",
-            "destination": "spack_bootstrap_stage",
-            "placement": null
-        },
-        {
-            "version": "@1.60.0 arch=darwin-None-x86_64:",
-            "name": "rust-1.60.0-x86_64-apple-darwin",
-            "destination": "spack_bootstrap_stage",
-            "placement": null
-        },
-        {
-            "version": "@1.60.0 arch=darwin-None-aarch64:",
-            "name": "rust-1.60.0-aarch64-apple-darwin",
-            "destination": "spack_bootstrap_stage",
-            "placement": null
-        },
-        {
-            "version": "@1.58.1 arch=linux-None-x86_64:",
-            "name": "rust-1.58.1-x86_64-unknown-linux-gnu",
-            "destination": "spack_bootstrap_stage",
-            "placement": null
-        },
-        {
-            "version": "@1.58.1 arch=cray-None-x86_64:",
-            "name": "rust-1.58.1-x86_64-unknown-linux-gnu",
-            "destination": "spack_bootstrap_stage",
-            "placement": null
-        },
-        {
-            "version": "@1.58.1 arch=linux-None-ppc64le:",
-            "name": "rust-1.58.1-powerpc64le-unknown-linux-gnu",
-            "destination": "spack_bootstrap_stage",
-            "placement": null
-        },
-        {
-            "version": "@1.58.1 arch=cray-None-ppc64le:",
-            "name": "rust-1.58.1-powerpc64le-unknown-linux-gnu",
-            "destination": "spack_bootstrap_stage",
-            "placement": null
-        },
-        {
-            "version": "@1.58.1 arch=linux-None-aarch64:",
-            "name": "rust-1.58.1-aarch64-unknown-linux-gnu",
-            "destination": "spack_bootstrap_stage",
-            "placement": null
-        },
-        {
-            "version": "@1.58.1 arch=cray-None-aarch64:",
-            "name": "rust-1.58.1-aarch64-unknown-linux-gnu",
-            "destination": "spack_bootstrap_stage",
-            "placement": null
-        },
-        {
-            "version": "@1.58.1 arch=darwin-None-x86_64:",
-            "name": "rust-1.58.1-x86_64-apple-darwin",
-            "destination": "spack_bootstrap_stage",
-            "placement": null
-        },
-        {
-            "version": "@1.51.0 arch=linux-None-x86_64:",
-            "name": "rust-1.51.0-x86_64-unknown-linux-gnu",
-            "destination": "spack_bootstrap_stage",
-            "placement": null
-        },
-        {
-            "version": "@1.51.0 arch=cray-None-x86_64:",
-            "name": "rust-1.51.0-x86_64-unknown-linux-gnu",
-            "destination": "spack_bootstrap_stage",
-            "placement": null
-        },
-        {
-            "version": "@1.51.0 arch=linux-None-ppc64le:",
-            "name": "rust-1.51.0-powerpc64le-unknown-linux-gnu",
-            "destination": "spack_bootstrap_stage",
-            "placement": null
-        },
-        {
-            "version": "@1.51.0 arch=cray-None-ppc64le:",
-            "name": "rust-1.51.0-powerpc64le-unknown-linux-gnu",
-            "destination": "spack_bootstrap_stage",
-            "placement": null
-        },
-        {
-            "version": "@1.51.0 arch=linux-None-aarch64:",
-            "name": "rust-1.51.0-aarch64-unknown-linux-gnu",
-            "destination": "spack_bootstrap_stage",
-            "placement": null
-        },
-        {
-            "version": "@1.51.0 arch=cray-None-aarch64:",
-            "name": "rust-1.51.0-aarch64-unknown-linux-gnu",
-            "destination": "spack_bootstrap_stage",
-            "placement": null
-        },
-        {
-            "version": "@1.51.0 arch=darwin-None-x86_64:",
-            "name": "rust-1.51.0-x86_64-apple-darwin",
-            "destination": "spack_bootstrap_stage",
-            "placement": null
-        },
-        {
-            "version": "@1.48.0 arch=linux-None-x86_64:",
-            "name": "rust-1.48.0-x86_64-unknown-linux-gnu",
-            "destination": "spack_bootstrap_stage",
-            "placement": null
-        },
-        {
-            "version": "@1.48.0 arch=cray-None-x86_64:",
-            "name": "rust-1.48.0-x86_64-unknown-linux-gnu",
-            "destination": "spack_bootstrap_stage",
-            "placement": null
-        },
-        {
-            "version": "@1.48.0 arch=linux-None-ppc64le:",
-            "name": "rust-1.48.0-powerpc64le-unknown-linux-gnu",
-            "destination": "spack_bootstrap_stage",
-            "placement": null
-        },
-        {
-            "version": "@1.48.0 arch=cray-None-ppc64le:",
-            "name": "rust-1.48.0-powerpc64le-unknown-linux-gnu",
-            "destination": "spack_bootstrap_stage",
-            "placement": null
-        },
-        {
-            "version": "@1.48.0 arch=linux-None-aarch64:",
-            "name": "rust-1.48.0-aarch64-unknown-linux-gnu",
-            "destination": "spack_bootstrap_stage",
-            "placement": null
-        },
-        {
-            "version": "@1.48.0 arch=cray-None-aarch64:",
-            "name": "rust-1.48.0-aarch64-unknown-linux-gnu",
-            "destination": "spack_bootstrap_stage",
-            "placement": null
-        },
-        {
-            "version": "@1.48.0 arch=darwin-None-x86_64:",
-            "name": "rust-1.48.0-x86_64-apple-darwin",
-            "destination": "spack_bootstrap_stage",
-            "placement": null
-        },
-        {
-            "version": "@1.47.0 arch=linux-None-x86_64:",
-            "name": "rust-1.47.0-x86_64-unknown-linux-gnu",
-            "destination": "spack_bootstrap_stage",
-            "placement": null
-        },
-        {
-            "version": "@1.47.0 arch=cray-None-x86_64:",
-            "name": "rust-1.47.0-x86_64-unknown-linux-gnu",
-            "destination": "spack_bootstrap_stage",
-            "placement": null
-        },
-        {
-            "version": "@1.47.0 arch=linux-None-ppc64le:",
-            "name": "rust-1.47.0-powerpc64le-unknown-linux-gnu",
-            "destination": "spack_bootstrap_stage",
-            "placement": null
-        },
-        {
-            "version": "@1.47.0 arch=cray-None-ppc64le:",
-            "name": "rust-1.47.0-powerpc64le-unknown-linux-gnu",
-            "destination": "spack_bootstrap_stage",
-            "placement": null
-        },
-        {
-            "version": "@1.47.0 arch=linux-None-aarch64:",
-            "name": "rust-1.47.0-aarch64-unknown-linux-gnu",
-            "destination": "spack_bootstrap_stage",
-            "placement": null
-        },
-        {
-            "version": "@1.47.0 arch=cray-None-aarch64:",
-            "name": "rust-1.47.0-aarch64-unknown-linux-gnu",
-            "destination": "spack_bootstrap_stage",
-            "placement": null
-        },
-        {
-            "version": "@1.47.0 arch=darwin-None-x86_64:",
-            "name": "rust-1.47.0-x86_64-apple-darwin",
-            "destination": "spack_bootstrap_stage",
-            "placement": null
-        },
-        {
-            "version": "@1.46.0 arch=linux-None-x86_64:",
-            "name": "rust-1.46.0-x86_64-unknown-linux-gnu",
-            "destination": "spack_bootstrap_stage",
-            "placement": null
-        },
-        {
-            "version": "@1.46.0 arch=cray-None-x86_64:",
-            "name": "rust-1.46.0-x86_64-unknown-linux-gnu",
-            "destination": "spack_bootstrap_stage",
-            "placement": null
-        },
-        {
-            "version": "@1.46.0 arch=linux-None-ppc64le:",
-            "name": "rust-1.46.0-powerpc64le-unknown-linux-gnu",
-            "destination": "spack_bootstrap_stage",
-            "placement": null
-        },
-        {
-            "version": "@1.46.0 arch=cray-None-ppc64le:",
-            "name": "rust-1.46.0-powerpc64le-unknown-linux-gnu",
-            "destination": "spack_bootstrap_stage",
-            "placement": null
-        },
-        {
-            "version": "@1.46.0 arch=linux-None-aarch64:",
-            "name": "rust-1.46.0-aarch64-unknown-linux-gnu",
-            "destination": "spack_bootstrap_stage",
-            "placement": null
-        },
-        {
-            "version": "@1.46.0 arch=cray-None-aarch64:",
-            "name": "rust-1.46.0-aarch64-unknown-linux-gnu",
-            "destination": "spack_bootstrap_stage",
-            "placement": null
-        },
-        {
-            "version": "@1.46.0 arch=darwin-None-x86_64:",
-            "name": "rust-1.46.0-x86_64-apple-darwin",
-            "destination": "spack_bootstrap_stage",
-            "placement": null
-        },
-        {
-            "version": "@1.45.1 arch=linux-None-x86_64:",
-            "name": "rust-1.45.1-x86_64-unknown-linux-gnu",
-            "destination": "spack_bootstrap_stage",
-            "placement": null
-        },
-        {
-            "version": "@1.45.1 arch=cray-None-x86_64:",
-            "name": "rust-1.45.1-x86_64-unknown-linux-gnu",
-            "destination": "spack_bootstrap_stage",
-            "placement": null
-        },
-        {
-            "version": "@1.45.1 arch=linux-None-ppc64le:",
-            "name": "rust-1.45.1-powerpc64le-unknown-linux-gnu",
-            "destination": "spack_bootstrap_stage",
-            "placement": null
-        },
-        {
-            "version": "@1.45.1 arch=cray-None-ppc64le:",
-            "name": "rust-1.45.1-powerpc64le-unknown-linux-gnu",
-            "destination": "spack_bootstrap_stage",
-            "placement": null
-        },
-        {
-            "version": "@1.45.1 arch=linux-None-aarch64:",
-            "name": "rust-1.45.1-aarch64-unknown-linux-gnu",
-            "destination": "spack_bootstrap_stage",
-            "placement": null
-        },
-        {
-            "version": "@1.45.1 arch=cray-None-aarch64:",
-            "name": "rust-1.45.1-aarch64-unknown-linux-gnu",
-            "destination": "spack_bootstrap_stage",
-            "placement": null
-        },
-        {
-            "version": "@1.45.1 arch=darwin-None-x86_64:",
-            "name": "rust-1.45.1-x86_64-apple-darwin",
-            "destination": "spack_bootstrap_stage",
-            "placement": null
-        },
-        {
-            "version": "@1.44.1 arch=linux-None-x86_64:",
-            "name": "rust-1.44.1-x86_64-unknown-linux-gnu",
-            "destination": "spack_bootstrap_stage",
-            "placement": null
-        },
-        {
-            "version": "@1.44.1 arch=cray-None-x86_64:",
-            "name": "rust-1.44.1-x86_64-unknown-linux-gnu",
-            "destination": "spack_bootstrap_stage",
-            "placement": null
-        },
-        {
-            "version": "@1.44.1 arch=linux-None-ppc64le:",
-            "name": "rust-1.44.1-powerpc64le-unknown-linux-gnu",
-            "destination": "spack_bootstrap_stage",
-            "placement": null
-        },
-        {
-            "version": "@1.44.1 arch=cray-None-ppc64le:",
-            "name": "rust-1.44.1-powerpc64le-unknown-linux-gnu",
-            "destination": "spack_bootstrap_stage",
-            "placement": null
-        },
-        {
-            "version": "@1.44.1 arch=linux-None-aarch64:",
-            "name": "rust-1.44.1-aarch64-unknown-linux-gnu",
-            "destination": "spack_bootstrap_stage",
-            "placement": null
-        },
-        {
-            "version": "@1.44.1 arch=cray-None-aarch64:",
-            "name": "rust-1.44.1-aarch64-unknown-linux-gnu",
-            "destination": "spack_bootstrap_stage",
-            "placement": null
-        },
-        {
-            "version": "@1.44.1 arch=darwin-None-x86_64:",
-            "name": "rust-1.44.1-x86_64-apple-darwin",
-            "destination": "spack_bootstrap_stage",
-            "placement": null
-        },
-        {
-            "version": "@1.44.0 arch=linux-None-x86_64:",
-            "name": "rust-1.44.0-x86_64-unknown-linux-gnu",
-            "destination": "spack_bootstrap_stage",
-            "placement": null
-        },
-        {
-            "version": "@1.44.0 arch=cray-None-x86_64:",
-            "name": "rust-1.44.0-x86_64-unknown-linux-gnu",
-            "destination": "spack_bootstrap_stage",
-            "placement": null
-        },
-        {
-            "version": "@1.44.0 arch=linux-None-ppc64le:",
-            "name": "rust-1.44.0-powerpc64le-unknown-linux-gnu",
-            "destination": "spack_bootstrap_stage",
-            "placement": null
-        },
-        {
-            "version": "@1.44.0 arch=cray-None-ppc64le:",
-            "name": "rust-1.44.0-powerpc64le-unknown-linux-gnu",
-            "destination": "spack_bootstrap_stage",
-            "placement": null
-        },
-        {
-            "version": "@1.44.0 arch=linux-None-aarch64:",
-            "name": "rust-1.44.0-aarch64-unknown-linux-gnu",
-            "destination": "spack_bootstrap_stage",
-            "placement": null
-        },
-        {
-            "version": "@1.44.0 arch=cray-None-aarch64:",
-            "name": "rust-1.44.0-aarch64-unknown-linux-gnu",
-            "destination": "spack_bootstrap_stage",
-            "placement": null
-        },
-        {
-            "version": "@1.44.0 arch=darwin-None-x86_64:",
-            "name": "rust-1.44.0-x86_64-apple-darwin",
-            "destination": "spack_bootstrap_stage",
-            "placement": null
-        }
-    ],
-    "description": "The Rust programming language toolchain This package can bootstrap any\nversion of the Rust compiler since Rust 1.23. It does this by\ndownloading the platform-appropriate binary distribution of the desired\nversion of the rust compiler, and then building that compiler from\nsource.\n",
+    "resources": [],
+    "description": "The Rust programming language toolchain.\n",
     "dependencies": [
-        {
-            "name": "python",
-            "description": "The Python programming language."
-        },
-        {
-            "name": "gmake",
-            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files."
-        },
         {
             "name": "cmake",
             "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
-        },
-        {
-            "name": "ninja",
-            "description": "Ninja is a small build system with a focus on speed. It differs from\nother build systems in two major respects: it is designed to have its\ninput files generated by a higher-level build system, and it is designed\nto run builds as fast as possible."
-        },
-        {
-            "name": "pkgconfig",
-            "description": "pkg-config is a helper tool used when compiling applications and\nlibraries"
-        },
-        {
-            "name": "openssl",
-            "description": "OpenSSL is an open source project that provides a robust, commercial-\ngrade, and full-featured toolkit for the Transport Layer Security (TLS)\nand Secure Sockets Layer (SSL) protocols. It is also a general-purpose\ncryptography library."
         },
         {
             "name": "curl",
             "description": "cURL is an open source command line tool and library for transferring\ndata with URL syntax"
         },
         {
-            "name": "libssh2",
-            "description": "libssh2 is a client-side C library implementing the SSH2 protocol"
-        },
-        {
             "name": "libgit2",
             "description": "libgit2 is a portable, pure C implementation of the Git core methods\nprovided as a re-entrant linkable library with a solid API, allowing you\nto write native speed custom Git applications in any language which\nsupports C bindings."
+        },
+        {
+            "name": "ninja",
+            "description": "Ninja is a small build system with a focus on speed. It differs from\nother build systems in two major respects: it is designed to have its\ninput files generated by a higher-level build system, and it is designed\nto run builds as fast as possible."
+        },
+        {
+            "name": "openssl",
+            "description": "OpenSSL is an open source project that provides a robust, commercial-\ngrade, and full-featured toolkit for the Transport Layer Security (TLS)\nand Secure Sockets Layer (SSL) protocols. It is also a general-purpose\ncryptography library."
+        },
+        {
+            "name": "pkgconfig",
+            "description": "pkg-config is a helper tool used when compiling applications and\nlibraries"
+        },
+        {
+            "name": "python",
+            "description": "The Python programming language."
+        },
+        {
+            "name": "rust-bootstrap",
+            "description": "Binary bootstrap Rust compiler."
         }
     ],
     "dependent_to": [
         {
-            "name": "py-tensorboard-data-server",
-            "description": "Fast data loading for TensorBoard"
+            "name": "fd",
+            "description": "A simple, fast and user-friendly alternative to 'find'"
         },
         {
             "name": "routinator",
             "description": "An RPKI Validator and RTR server written in Rust"
         },
         {
-            "name": "py-tokenizers",
-            "description": "Fast and Customizable Tokenizers."
-        },
-        {
             "name": "ripgrep",
             "description": "ripgrep is a line-oriented search tool that recursively searches your\ncurrent directory for a regex pattern. ripgrep is similar to other\npopular search tools like The Silver Searcher, ack and grep."
         },
         {
-            "name": "exa",
-            "description": "exa is a replacement for ls written in Rust."
+            "name": "py-tensorboard-data-server",
+            "description": "Fast data loading for TensorBoard"
+        },
+        {
+            "name": "librsvg",
+            "description": "Library to render SVG files using Cairo"
+        },
+        {
+            "name": "rust-bindgen",
+            "description": "The rust programming language toolchain"
+        },
+        {
+            "name": "navi",
+            "description": "An interactive cheatsheet tool for the command-line"
+        },
+        {
+            "name": "bat",
+            "description": "A cat(1) clone with wings."
         },
         {
             "name": "py-py-spy",
             "description": "A Sampling Profiler for Python."
         },
         {
+            "name": "py-tokenizers",
+            "description": "Fast and Customizable Tokenizers."
+        },
+        {
+            "name": "hyperqueue",
+            "description": "Scheduler for sub-node tasks for HPC systems with batch scheduling"
+        },
+        {
             "name": "py-cryptography",
             "description": "cryptography is a package which provides cryptographic recipes and\nprimitives to Python developers"
         },
         {
+            "name": "py-setuptools-rust",
+            "description": "Setuptools rust extension plugin."
+        },
+        {
+            "name": "polypolish",
+            "description": "Polypolish is a tool for polishing genome assemblies with short reads.\nUnlike other tools in this category, Polypolish uses SAM files where\neach read has been aligned to all possible locations (not just a single\nbest location). This allows it to repair errors in repeat regions that\nother alignment-based polishers cannot fix."
+        },
+        {
+            "name": "exa",
+            "description": "exa is a replacement for ls written in Rust."
+        },
+        {
             "name": "py-rtoml",
             "description": "A better TOML library for python implemented in rust."
-        },
-        {
-            "name": "hyperfine",
-            "description": "A command-line benchmarking tool."
-        },
-        {
-            "name": "navi",
-            "description": "An interactive cheatsheet tool for the command-line"
         },
         {
             "name": "py-maturin",
@@ -763,32 +176,8 @@
             "description": "du + rust = dust. Like du but more intuitive."
         },
         {
-            "name": "librsvg",
-            "description": "Library to render SVG files using Cairo"
-        },
-        {
-            "name": "polypolish",
-            "description": "Polypolish is a tool for polishing genome assemblies with short reads.\nUnlike other tools in this category, Polypolish uses SAM files where\neach read has been aligned to all possible locations (not just a single\nbest location). This allows it to repair errors in repeat regions that\nother alignment-based polishers cannot fix."
-        },
-        {
-            "name": "bat",
-            "description": "A cat(1) clone with wings."
-        },
-        {
-            "name": "hyperqueue",
-            "description": "Scheduler for sub-node tasks for HPC systems with batch scheduling"
-        },
-        {
-            "name": "rust-bindgen",
-            "description": "The rust programming language toolchain"
-        },
-        {
-            "name": "py-setuptools-rust",
-            "description": "Setuptools rust extension plugin."
-        },
-        {
-            "name": "fd",
-            "description": "A simple, fast and user-friendly alternative to 'find'"
+            "name": "hyperfine",
+            "description": "A command-line benchmarking tool."
         }
     ]
 }
