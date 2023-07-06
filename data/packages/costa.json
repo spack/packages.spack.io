@@ -8,6 +8,18 @@
             "submodules": true
         },
         {
+            "name": "2.2.2",
+            "sha256": "e87bc37aad14ac0c5922237be5d5390145c9ac6aef0350ed17d86cb2d994e67c"
+        },
+        {
+            "name": "2.2.1",
+            "sha256": "aa8aa2a4a79de094f857c22293825de270ff72becd6bd736ff9f2dd8c192446d"
+        },
+        {
+            "name": "2.2",
+            "sha256": "3e7333f012af76ec3508276ea90800313f6136504667021fe229e710bf6acdc7"
+        },
+        {
             "name": "2.1",
             "sha256": "c1e86452415083f7470b292d93ec60708b7c8dbafc2bac383636bb4b28135866"
         },
@@ -16,7 +28,7 @@
             "sha256": "de250197f31f7d23226c6956a687c3ff46fb0ff6c621a932428236c3f7925fe4"
         }
     ],
-    "latest_version": "2.1",
+    "latest_version": "2.2.2",
     "build_system": "CMakePackage",
     "conflicts": [],
     "variants": [
@@ -49,13 +61,34 @@
             "name": "shared",
             "default": false,
             "description": "Build shared libraries"
+        },
+        {
+            "name": "profiling",
+            "default": false,
+            "description": "Enable profiling"
+        },
+        {
+            "name": "tests",
+            "default": false,
+            "description": "Enable tests"
+        },
+        {
+            "name": "apps",
+            "default": false,
+            "description": "Enable miniapp"
+        },
+        {
+            "name": "benchmarks",
+            "default": false,
+            "description": "Enable benchmarks"
         }
     ],
     "homepage": "https://github.com/eth-cscs/COSTA",
     "maintainers": [
         "RMeli",
         "haampie",
-        "kabicm"
+        "kabicm",
+        "mtaillefumier"
     ],
     "patches": [],
     "resources": [],
@@ -75,14 +108,26 @@
         },
         {
             "name": "mpi",
-            "description": "The NVIDIA HPC SDK is a comprehensive suite of compilers, libraries and\ntools essential to maximizing developer productivity and the performance\nand portability of HPC applications. The NVIDIA HPC SDK C, C++, and\nFortran compilers support GPU acceleration of HPC modeling and\nsimulation applications with standard C++ and Fortran, OpenACC\ndirectives, and CUDA. GPU-accelerated math libraries maximize\nperformance on common HPC algorithms, and optimized communications\nlibraries enable standards-based multi-GPU and scalable systems\nprogramming. Performance profiling and debugging tools simplify porting\nand optimization of HPC applications."
+            "description": "Cray/HPE packaging of MVAPICH2 for HPE Apollo systems"
         },
         {
             "name": "scalapack",
-            "description": "Intel oneAPI Math Kernel Library (Intel oneMKL; formerly Intel Math\nKernel Library or Intel MKL), is a library of optimized math routines\nfor science, engineering, and financial applications. Core math\nfunctions include BLAS, LAPACK, ScaLAPACK, sparse solvers, fast Fourier\ntransforms, and vector math. LICENSE INFORMATION: By downloading and\nusing this software, you agree to the terms and conditions of the\nsoftware license agreements at https://intel.ly/393CijO."
+            "description": "Intel Math Kernel Library. This package has been replaced by intel-\noneapi-mkl. LICENSE INFORMATION: By downloading and using this software,\nyou agree to the terms and conditions of the software license agreements\nat https://intel.ly/393CijO."
+        },
+        {
+            "name": "cxxopts",
+            "description": "Lightweight C++ command line option parser"
+        },
+        {
+            "name": "semiprof",
+            "description": "Simple thread safe annotation based C++ profiler."
         }
     ],
     "dependent_to": [
+        {
+            "name": "cosma",
+            "description": "Distributed Communication-Optimal Matrix-Matrix Multiplication Library"
+        },
         {
             "name": "sirius",
             "description": "Domain specific library for electronic structure calculations"

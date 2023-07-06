@@ -5,7 +5,31 @@
         {
             "name": "master",
             "branch": "master",
-            "submodules": true
+            "submodules": false
+        },
+        {
+            "name": "2.6.6",
+            "sha256": "1604be101e77192fbcc5551236bc87888d336e402f5409bbdd9dea900401cc37"
+        },
+        {
+            "name": "2.6.5",
+            "sha256": "10d9b7ecc1ce44ec5b9e0c0bf89278a63029912ec3ea99661be8576b553ececf"
+        },
+        {
+            "name": "2.6.4",
+            "sha256": "6d7bd5e3005874af9542a329c93e7ccd29ca1a5573dae27618fac2704fa2b6ab"
+        },
+        {
+            "name": "2.6.3",
+            "sha256": "8ca96ca41458f1e9d0da70d524c5a03c677dba7238d23a578f852163b6d45ac9"
+        },
+        {
+            "name": "2.6.2",
+            "sha256": "2debb5123cc35aeebc5fd2f8a46cfd6356d1e27618c9bb57129ecd09aa400940"
+        },
+        {
+            "name": "2.6.1",
+            "sha256": "69aa6634a030674f0d9be61e7b0bf0dc17acf0fc9e7a90b40e3179e2254c8d67"
         },
         {
             "name": "2.5.1",
@@ -36,7 +60,7 @@
             "sha256": "4f3354828bc718f3eef2f0098c3bdca3499297497a220da32db1acd57920c68d"
         }
     ],
-    "latest_version": "2.5.1",
+    "latest_version": "2.6.6",
     "build_system": "CMakePackage",
     "conflicts": [],
     "variants": [
@@ -79,12 +103,39 @@
             "name": "shared",
             "default": false,
             "description": "Build the shared library version"
+        },
+        {
+            "name": "tests",
+            "default": false,
+            "description": "Build tests"
+        },
+        {
+            "name": "apps",
+            "default": false,
+            "description": "Build miniapp"
+        },
+        {
+            "name": "profiling",
+            "default": false,
+            "description": "Enable profiling"
+        },
+        {
+            "name": "gpu_direct",
+            "default": false,
+            "description": "GPU aware MPI"
+        },
+        {
+            "name": "nccl",
+            "default": false,
+            "description": "Use cuda nccl"
         }
     ],
     "homepage": "https://github.com/eth-cscs/COSMA",
     "maintainers": [
         "haampie",
         "kabicm",
+        "mtaillefumier",
+        "simonpintarelli",
         "teonnik"
     ],
     "patches": [],
@@ -105,15 +156,15 @@
         },
         {
             "name": "mpi",
-            "description": "The NVIDIA HPC SDK is a comprehensive suite of compilers, libraries and\ntools essential to maximizing developer productivity and the performance\nand portability of HPC applications. The NVIDIA HPC SDK C, C++, and\nFortran compilers support GPU acceleration of HPC modeling and\nsimulation applications with standard C++ and Fortran, OpenACC\ndirectives, and CUDA. GPU-accelerated math libraries maximize\nperformance on common HPC algorithms, and optimized communications\nlibraries enable standards-based multi-GPU and scalable systems\nprogramming. Performance profiling and debugging tools simplify porting\nand optimization of HPC applications."
+            "description": "Cray/HPE packaging of MVAPICH2 for HPE Apollo systems"
         },
         {
             "name": "blas",
-            "description": "Arm Performance Libraries provides optimized standard core math\nlibraries for high-performance computing applications on Arm processors."
+            "description": "LAPACK version 3.X is a comprehensive FORTRAN library that does linear\nalgebra operations including matrix inversions, least squared solutions\nto linear sets of equations, eigenvector analysis, singular value\ndecomposition, etc. It is a very comprehensive and reputable package\nthat has found extensive use in the scientific community."
         },
         {
             "name": "scalapack",
-            "description": "Intel oneAPI Math Kernel Library (Intel oneMKL; formerly Intel Math\nKernel Library or Intel MKL), is a library of optimized math routines\nfor science, engineering, and financial applications. Core math\nfunctions include BLAS, LAPACK, ScaLAPACK, sparse solvers, fast Fourier\ntransforms, and vector math. LICENSE INFORMATION: By downloading and\nusing this software, you agree to the terms and conditions of the\nsoftware license agreements at https://intel.ly/393CijO."
+            "description": "Intel Math Kernel Library. This package has been replaced by intel-\noneapi-mkl. LICENSE INFORMATION: By downloading and using this software,\nyou agree to the terms and conditions of the software license agreements\nat https://intel.ly/393CijO."
         },
         {
             "name": "cuda",
@@ -122,6 +173,22 @@
         {
             "name": "rocblas",
             "description": "Radeon Open Compute BLAS library"
+        },
+        {
+            "name": "tiled-mm",
+            "description": "Matrix multiplication on GPUs for matrices stored on a CPU. Similar to\ncublasXt, but ported to both NVIDIA and AMD GPUs."
+        },
+        {
+            "name": "costa",
+            "description": "Distributed Communication-Optimal Matrix Transpose and Reshuffle\nLibrary Based on the paper: https://arxiv.org/abs/2106.06601"
+        },
+        {
+            "name": "cxxopts",
+            "description": "Lightweight C++ command line option parser"
+        },
+        {
+            "name": "semiprof",
+            "description": "Simple thread safe annotation based C++ profiler."
         }
     ],
     "dependent_to": [
