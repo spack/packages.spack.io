@@ -56,6 +56,16 @@
     "build_system": "MakefilePackage",
     "conflicts": [
         {
+            "name": "^blt@:0.3.6",
+            "spec": "+rocm",
+            "description": "None"
+        },
+        {
+            "name": "amdgpu_target=none",
+            "spec": "+rocm",
+            "description": "None"
+        },
+        {
             "name": "%gcc@:4",
             "spec": "+cuda ^cuda@11.0:~allow-unsupported-compilers",
             "description": "None"
@@ -413,7 +423,7 @@
         {
             "name": "~mpi",
             "spec": "+sirius",
-            "description": "None"
+            "description": "SIRIUS requires MPI"
         },
         {
             "name": "@:7",
@@ -452,111 +462,276 @@
         },
         {
             "name": "+cuda",
-            "spec": "cuda_arch=10",
-            "description": "cp2k only supports cuda_arch ('35', '37', '60', '70')"
-        },
-        {
-            "name": "+cuda",
-            "spec": "cuda_arch=11",
-            "description": "cp2k only supports cuda_arch ('35', '37', '60', '70')"
-        },
-        {
-            "name": "+cuda",
-            "spec": "cuda_arch=12",
-            "description": "cp2k only supports cuda_arch ('35', '37', '60', '70')"
-        },
-        {
-            "name": "+cuda",
-            "spec": "cuda_arch=13",
-            "description": "cp2k only supports cuda_arch ('35', '37', '60', '70')"
-        },
-        {
-            "name": "+cuda",
-            "spec": "cuda_arch=20",
-            "description": "cp2k only supports cuda_arch ('35', '37', '60', '70')"
-        },
-        {
-            "name": "+cuda",
-            "spec": "cuda_arch=21",
-            "description": "cp2k only supports cuda_arch ('35', '37', '60', '70')"
-        },
-        {
-            "name": "+cuda",
-            "spec": "cuda_arch=30",
-            "description": "cp2k only supports cuda_arch ('35', '37', '60', '70')"
-        },
-        {
-            "name": "+cuda",
-            "spec": "cuda_arch=32",
-            "description": "cp2k only supports cuda_arch ('35', '37', '60', '70')"
-        },
-        {
-            "name": "+cuda",
-            "spec": "cuda_arch=50",
-            "description": "cp2k only supports cuda_arch ('35', '37', '60', '70')"
-        },
-        {
-            "name": "+cuda",
-            "spec": "cuda_arch=52",
-            "description": "cp2k only supports cuda_arch ('35', '37', '60', '70')"
-        },
-        {
-            "name": "+cuda",
-            "spec": "cuda_arch=53",
-            "description": "cp2k only supports cuda_arch ('35', '37', '60', '70')"
-        },
-        {
-            "name": "+cuda",
-            "spec": "cuda_arch=61",
-            "description": "cp2k only supports cuda_arch ('35', '37', '60', '70')"
-        },
-        {
-            "name": "+cuda",
-            "spec": "cuda_arch=62",
-            "description": "cp2k only supports cuda_arch ('35', '37', '60', '70')"
-        },
-        {
-            "name": "+cuda",
-            "spec": "cuda_arch=72",
-            "description": "cp2k only supports cuda_arch ('35', '37', '60', '70')"
-        },
-        {
-            "name": "+cuda",
-            "spec": "cuda_arch=75",
-            "description": "cp2k only supports cuda_arch ('35', '37', '60', '70')"
-        },
-        {
-            "name": "+cuda",
-            "spec": "cuda_arch=80",
-            "description": "cp2k only supports cuda_arch ('35', '37', '60', '70')"
-        },
-        {
-            "name": "+cuda",
-            "spec": "cuda_arch=86",
-            "description": "cp2k only supports cuda_arch ('35', '37', '60', '70')"
-        },
-        {
-            "name": "+cuda",
-            "spec": "cuda_arch=87",
-            "description": "cp2k only supports cuda_arch ('35', '37', '60', '70')"
-        },
-        {
-            "name": "+cuda",
-            "spec": "cuda_arch=89",
-            "description": "cp2k only supports cuda_arch ('35', '37', '60', '70')"
-        },
-        {
-            "name": "+cuda",
-            "spec": "cuda_arch=90",
-            "description": "cp2k only supports cuda_arch ('35', '37', '60', '70')"
-        },
-        {
-            "name": "+cuda",
             "spec": "cuda_arch=none",
-            "description": "cp2k only supports cuda_arch ('35', '37', '60', '70')"
+            "description": "None"
+        },
+        {
+            "name": "+cuda",
+            "spec": "+cuda cuda_arch=10",
+            "description": "cp2k only supports cuda_arch ('35', '37', '60', '70', '80')"
+        },
+        {
+            "name": "+cuda",
+            "spec": "+cuda cuda_arch=11",
+            "description": "cp2k only supports cuda_arch ('35', '37', '60', '70', '80')"
+        },
+        {
+            "name": "+cuda",
+            "spec": "+cuda cuda_arch=12",
+            "description": "cp2k only supports cuda_arch ('35', '37', '60', '70', '80')"
+        },
+        {
+            "name": "+cuda",
+            "spec": "+cuda cuda_arch=13",
+            "description": "cp2k only supports cuda_arch ('35', '37', '60', '70', '80')"
+        },
+        {
+            "name": "+cuda",
+            "spec": "+cuda cuda_arch=20",
+            "description": "cp2k only supports cuda_arch ('35', '37', '60', '70', '80')"
+        },
+        {
+            "name": "+cuda",
+            "spec": "+cuda cuda_arch=21",
+            "description": "cp2k only supports cuda_arch ('35', '37', '60', '70', '80')"
+        },
+        {
+            "name": "+cuda",
+            "spec": "+cuda cuda_arch=30",
+            "description": "cp2k only supports cuda_arch ('35', '37', '60', '70', '80')"
+        },
+        {
+            "name": "+cuda",
+            "spec": "+cuda cuda_arch=32",
+            "description": "cp2k only supports cuda_arch ('35', '37', '60', '70', '80')"
+        },
+        {
+            "name": "+cuda",
+            "spec": "+cuda cuda_arch=50",
+            "description": "cp2k only supports cuda_arch ('35', '37', '60', '70', '80')"
+        },
+        {
+            "name": "+cuda",
+            "spec": "+cuda cuda_arch=52",
+            "description": "cp2k only supports cuda_arch ('35', '37', '60', '70', '80')"
+        },
+        {
+            "name": "+cuda",
+            "spec": "+cuda cuda_arch=53",
+            "description": "cp2k only supports cuda_arch ('35', '37', '60', '70', '80')"
+        },
+        {
+            "name": "+cuda",
+            "spec": "+cuda cuda_arch=61",
+            "description": "cp2k only supports cuda_arch ('35', '37', '60', '70', '80')"
+        },
+        {
+            "name": "+cuda",
+            "spec": "+cuda cuda_arch=62",
+            "description": "cp2k only supports cuda_arch ('35', '37', '60', '70', '80')"
+        },
+        {
+            "name": "+cuda",
+            "spec": "+cuda cuda_arch=72",
+            "description": "cp2k only supports cuda_arch ('35', '37', '60', '70', '80')"
+        },
+        {
+            "name": "+cuda",
+            "spec": "+cuda cuda_arch=75",
+            "description": "cp2k only supports cuda_arch ('35', '37', '60', '70', '80')"
+        },
+        {
+            "name": "+cuda",
+            "spec": "+cuda cuda_arch=86",
+            "description": "cp2k only supports cuda_arch ('35', '37', '60', '70', '80')"
+        },
+        {
+            "name": "+cuda",
+            "spec": "+cuda cuda_arch=87",
+            "description": "cp2k only supports cuda_arch ('35', '37', '60', '70', '80')"
+        },
+        {
+            "name": "+cuda",
+            "spec": "+cuda cuda_arch=89",
+            "description": "cp2k only supports cuda_arch ('35', '37', '60', '70', '80')"
+        },
+        {
+            "name": "+cuda",
+            "spec": "+cuda cuda_arch=90",
+            "description": "cp2k only supports cuda_arch ('35', '37', '60', '70', '80')"
+        },
+        {
+            "name": "+rocm",
+            "spec": "+rocm amdgpu_target=gfx701",
+            "description": "cp2k only supports amdgpu_target ('gfx906', 'gfx908', 'gfx90a', 'gfx90a:xnack-', 'gfx90a:xnack+')"
+        },
+        {
+            "name": "+rocm",
+            "spec": "+rocm amdgpu_target=gfx801",
+            "description": "cp2k only supports amdgpu_target ('gfx906', 'gfx908', 'gfx90a', 'gfx90a:xnack-', 'gfx90a:xnack+')"
+        },
+        {
+            "name": "+rocm",
+            "spec": "+rocm amdgpu_target=gfx802",
+            "description": "cp2k only supports amdgpu_target ('gfx906', 'gfx908', 'gfx90a', 'gfx90a:xnack-', 'gfx90a:xnack+')"
+        },
+        {
+            "name": "+rocm",
+            "spec": "+rocm amdgpu_target=gfx803",
+            "description": "cp2k only supports amdgpu_target ('gfx906', 'gfx908', 'gfx90a', 'gfx90a:xnack-', 'gfx90a:xnack+')"
+        },
+        {
+            "name": "+rocm",
+            "spec": "+rocm amdgpu_target=gfx900",
+            "description": "cp2k only supports amdgpu_target ('gfx906', 'gfx908', 'gfx90a', 'gfx90a:xnack-', 'gfx90a:xnack+')"
+        },
+        {
+            "name": "+rocm",
+            "spec": "+rocm amdgpu_target=gfx900:xnack-",
+            "description": "cp2k only supports amdgpu_target ('gfx906', 'gfx908', 'gfx90a', 'gfx90a:xnack-', 'gfx90a:xnack+')"
+        },
+        {
+            "name": "+rocm",
+            "spec": "+rocm amdgpu_target=gfx902",
+            "description": "cp2k only supports amdgpu_target ('gfx906', 'gfx908', 'gfx90a', 'gfx90a:xnack-', 'gfx90a:xnack+')"
+        },
+        {
+            "name": "+rocm",
+            "spec": "+rocm amdgpu_target=gfx904",
+            "description": "cp2k only supports amdgpu_target ('gfx906', 'gfx908', 'gfx90a', 'gfx90a:xnack-', 'gfx90a:xnack+')"
+        },
+        {
+            "name": "+rocm",
+            "spec": "+rocm amdgpu_target=gfx906:xnack-",
+            "description": "cp2k only supports amdgpu_target ('gfx906', 'gfx908', 'gfx90a', 'gfx90a:xnack-', 'gfx90a:xnack+')"
+        },
+        {
+            "name": "+rocm",
+            "spec": "+rocm amdgpu_target=gfx908:xnack-",
+            "description": "cp2k only supports amdgpu_target ('gfx906', 'gfx908', 'gfx90a', 'gfx90a:xnack-', 'gfx90a:xnack+')"
+        },
+        {
+            "name": "+rocm",
+            "spec": "+rocm amdgpu_target=gfx909",
+            "description": "cp2k only supports amdgpu_target ('gfx906', 'gfx908', 'gfx90a', 'gfx90a:xnack-', 'gfx90a:xnack+')"
+        },
+        {
+            "name": "+rocm",
+            "spec": "+rocm amdgpu_target=gfx90c",
+            "description": "cp2k only supports amdgpu_target ('gfx906', 'gfx908', 'gfx90a', 'gfx90a:xnack-', 'gfx90a:xnack+')"
+        },
+        {
+            "name": "+rocm",
+            "spec": "+rocm amdgpu_target=gfx940",
+            "description": "cp2k only supports amdgpu_target ('gfx906', 'gfx908', 'gfx90a', 'gfx90a:xnack-', 'gfx90a:xnack+')"
+        },
+        {
+            "name": "+rocm",
+            "spec": "+rocm amdgpu_target=gfx1010",
+            "description": "cp2k only supports amdgpu_target ('gfx906', 'gfx908', 'gfx90a', 'gfx90a:xnack-', 'gfx90a:xnack+')"
+        },
+        {
+            "name": "+rocm",
+            "spec": "+rocm amdgpu_target=gfx1011",
+            "description": "cp2k only supports amdgpu_target ('gfx906', 'gfx908', 'gfx90a', 'gfx90a:xnack-', 'gfx90a:xnack+')"
+        },
+        {
+            "name": "+rocm",
+            "spec": "+rocm amdgpu_target=gfx1012",
+            "description": "cp2k only supports amdgpu_target ('gfx906', 'gfx908', 'gfx90a', 'gfx90a:xnack-', 'gfx90a:xnack+')"
+        },
+        {
+            "name": "+rocm",
+            "spec": "+rocm amdgpu_target=gfx1013",
+            "description": "cp2k only supports amdgpu_target ('gfx906', 'gfx908', 'gfx90a', 'gfx90a:xnack-', 'gfx90a:xnack+')"
+        },
+        {
+            "name": "+rocm",
+            "spec": "+rocm amdgpu_target=gfx1030",
+            "description": "cp2k only supports amdgpu_target ('gfx906', 'gfx908', 'gfx90a', 'gfx90a:xnack-', 'gfx90a:xnack+')"
+        },
+        {
+            "name": "+rocm",
+            "spec": "+rocm amdgpu_target=gfx1031",
+            "description": "cp2k only supports amdgpu_target ('gfx906', 'gfx908', 'gfx90a', 'gfx90a:xnack-', 'gfx90a:xnack+')"
+        },
+        {
+            "name": "+rocm",
+            "spec": "+rocm amdgpu_target=gfx1032",
+            "description": "cp2k only supports amdgpu_target ('gfx906', 'gfx908', 'gfx90a', 'gfx90a:xnack-', 'gfx90a:xnack+')"
+        },
+        {
+            "name": "+rocm",
+            "spec": "+rocm amdgpu_target=gfx1033",
+            "description": "cp2k only supports amdgpu_target ('gfx906', 'gfx908', 'gfx90a', 'gfx90a:xnack-', 'gfx90a:xnack+')"
+        },
+        {
+            "name": "+rocm",
+            "spec": "+rocm amdgpu_target=gfx1034",
+            "description": "cp2k only supports amdgpu_target ('gfx906', 'gfx908', 'gfx90a', 'gfx90a:xnack-', 'gfx90a:xnack+')"
+        },
+        {
+            "name": "+rocm",
+            "spec": "+rocm amdgpu_target=gfx1035",
+            "description": "cp2k only supports amdgpu_target ('gfx906', 'gfx908', 'gfx90a', 'gfx90a:xnack-', 'gfx90a:xnack+')"
+        },
+        {
+            "name": "+rocm",
+            "spec": "+rocm amdgpu_target=gfx1036",
+            "description": "cp2k only supports amdgpu_target ('gfx906', 'gfx908', 'gfx90a', 'gfx90a:xnack-', 'gfx90a:xnack+')"
+        },
+        {
+            "name": "+rocm",
+            "spec": "+rocm amdgpu_target=gfx1100",
+            "description": "cp2k only supports amdgpu_target ('gfx906', 'gfx908', 'gfx90a', 'gfx90a:xnack-', 'gfx90a:xnack+')"
+        },
+        {
+            "name": "+rocm",
+            "spec": "+rocm amdgpu_target=gfx1101",
+            "description": "cp2k only supports amdgpu_target ('gfx906', 'gfx908', 'gfx90a', 'gfx90a:xnack-', 'gfx90a:xnack+')"
+        },
+        {
+            "name": "+rocm",
+            "spec": "+rocm amdgpu_target=gfx1102",
+            "description": "cp2k only supports amdgpu_target ('gfx906', 'gfx908', 'gfx90a', 'gfx90a:xnack-', 'gfx90a:xnack+')"
+        },
+        {
+            "name": "+rocm",
+            "spec": "+rocm amdgpu_target=gfx1103",
+            "description": "cp2k only supports amdgpu_target ('gfx906', 'gfx908', 'gfx90a', 'gfx90a:xnack-', 'gfx90a:xnack+')"
         }
     ],
     "variants": [
+        {
+            "name": "rocm",
+            "default": false,
+            "description": "Enable ROCm support"
+        },
+        {
+            "name": "amdgpu_target",
+            "default": "none",
+            "description": "AMD GPU architecture"
+        },
+        {
+            "name": "build_system",
+            "default": "makefile",
+            "description": "Build systems supported by the package"
+        },
+        {
+            "name": "build_type",
+            "default": "Release",
+            "description": "CMake build type"
+        },
+        {
+            "name": "ipo",
+            "default": false,
+            "description": "CMake interprocedural optimization"
+        },
+        {
+            "name": "generator",
+            "default": "make",
+            "description": "the build system generator to use"
+        },
         {
             "name": "cuda",
             "default": false,
@@ -566,11 +741,6 @@
             "name": "cuda_arch",
             "default": "none",
             "description": "CUDA architecture"
-        },
-        {
-            "name": "build_system",
-            "default": "makefile",
-            "description": "Build systems supported by the package"
         },
         {
             "name": "mpi",
@@ -605,7 +775,7 @@
         {
             "name": "pexsi",
             "default": false,
-            "description": "Enable the alternative PEXSI methodfor density matrix evaluation"
+            "description": "Enable the alternative PEXSI method for density matrix evaluation"
         },
         {
             "name": "elpa",
@@ -633,6 +803,26 @@
             "description": "Enable support for spglib"
         },
         {
+            "name": "spla",
+            "default": false,
+            "description": "Use SPLA off-loading functionality. Only relevant when CUDA or ROCM are enabled"
+        },
+        {
+            "name": "pytorch",
+            "default": false,
+            "description": "Enable libtorch support"
+        },
+        {
+            "name": "quip",
+            "default": false,
+            "description": "Enable quip support"
+        },
+        {
+            "name": "enable_regtests",
+            "default": false,
+            "description": "Configure cp2k to run the regtests afterwards. It build cp2k normally but put the executables in exe/cmake-build-* instead of the conventional location. This option is only relevant when regtests need to be run."
+        },
+        {
             "name": "cuda_arch_35_k20x",
             "default": false,
             "description": "CP2K (resp. DBCSR) has specific parameter sets for different GPU models. Enable this when building with cuda_arch=35 for a K20x instead of a K40"
@@ -655,7 +845,8 @@
     ],
     "homepage": "https://www.cp2k.org",
     "maintainers": [
-        "dev-zero"
+        "dev-zero",
+        "mtaillefumier"
     ],
     "patches": [
         {
@@ -679,6 +870,30 @@
     "description": "CP2K is a quantum chemistry and solid state physics software package\nthat can perform atomistic simulations of solid state, liquid,\nmolecular, periodic, material, crystal, and biological systems\n",
     "dependencies": [
         {
+            "name": "llvm-amdgpu",
+            "description": "Toolkit for the construction of highly optimized compilers, optimizers,\nand run-time environments."
+        },
+        {
+            "name": "hsa-rocr-dev",
+            "description": "This repository includes the user mode API nterfaces and libraries\nnecessary for host applications to launch computer kernels to available\nHSA ROCm kernel agents.AMD Heterogeneous System Architecture HSA - Linux\nHSA Runtime for Boltzmann (ROCm) platforms."
+        },
+        {
+            "name": "hip",
+            "description": "HIP is a C++ Runtime API and Kernel Language that allows developers to\ncreate portable applications for AMD and NVIDIA GPUs from single source\ncode."
+        },
+        {
+            "name": "cmake",
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
+        },
+        {
+            "name": "gmake",
+            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files."
+        },
+        {
+            "name": "ninja",
+            "description": "Ninja is a small build system with a focus on speed. It differs from\nother build systems in two major respects: it is designed to have its\ninput files generated by a higher-level build system, and it is designed\nto run builds as fast as possible."
+        },
+        {
             "name": "cuda",
             "description": "CUDA is a parallel computing platform and programming model invented by\nNVIDIA. It enables dramatic increases in computing performance by\nharnessing the power of the graphics processing unit (GPU). Note: This\npackage does not currently install the drivers necessary to run CUDA.\nThese will need to be installed manually. See:\nhttps://docs.nvidia.com/cuda/ for details."
         },
@@ -688,15 +903,15 @@
         },
         {
             "name": "blas",
-            "description": "The NVIDIA HPC SDK is a comprehensive suite of compilers, libraries and\ntools essential to maximizing developer productivity and the performance\nand portability of HPC applications. The NVIDIA HPC SDK C, C++, and\nFortran compilers support GPU acceleration of HPC modeling and\nsimulation applications with standard C++ and Fortran, OpenACC\ndirectives, and CUDA. GPU-accelerated math libraries maximize\nperformance on common HPC algorithms, and optimized communications\nlibraries enable standards-based multi-GPU and scalable systems\nprogramming. Performance profiling and debugging tools simplify porting\nand optimization of HPC applications."
+            "description": "IBM's Engineering and Scientific Subroutine Library (ESSL)."
         },
         {
             "name": "lapack",
-            "description": "The NVIDIA HPC SDK is a comprehensive suite of compilers, libraries and\ntools essential to maximizing developer productivity and the performance\nand portability of HPC applications. The NVIDIA HPC SDK C, C++, and\nFortran compilers support GPU acceleration of HPC modeling and\nsimulation applications with standard C++ and Fortran, OpenACC\ndirectives, and CUDA. GPU-accelerated math libraries maximize\nperformance on common HPC algorithms, and optimized communications\nlibraries enable standards-based multi-GPU and scalable systems\nprogramming. Performance profiling and debugging tools simplify porting\nand optimization of HPC applications."
+            "description": "The Cray Scientific Libraries package, LibSci, is a collection of\nnumerical routines optimized for best performance on Cray systems."
         },
         {
             "name": "fftw-api",
-            "description": "Intel oneAPI Math Kernel Library (Intel oneMKL; formerly Intel Math\nKernel Library or Intel MKL), is a library of optimized math routines\nfor science, engineering, and financial applications. Core math\nfunctions include BLAS, LAPACK, ScaLAPACK, sparse solvers, fast Fourier\ntransforms, and vector math. LICENSE INFORMATION: By downloading and\nusing this software, you agree to the terms and conditions of the\nsoftware license agreements at https://intel.ly/393CijO."
+            "description": "Arm Compiler combines the optimized tools and libraries from Arm with a\nmodern LLVM-based compiler framework."
         },
         {
             "name": "fftw",
@@ -740,11 +955,11 @@
         },
         {
             "name": "mpi",
-            "description": "The NVIDIA HPC SDK is a comprehensive suite of compilers, libraries and\ntools essential to maximizing developer productivity and the performance\nand portability of HPC applications. The NVIDIA HPC SDK C, C++, and\nFortran compilers support GPU acceleration of HPC modeling and\nsimulation applications with standard C++ and Fortran, OpenACC\ndirectives, and CUDA. GPU-accelerated math libraries maximize\nperformance on common HPC algorithms, and optimized communications\nlibraries enable standards-based multi-GPU and scalable systems\nprogramming. Performance profiling and debugging tools simplify porting\nand optimization of HPC applications."
+            "description": "Cray's MPICH is a high performance and widely portable implementation of\nthe Message Passing Interface (MPI) standard."
         },
         {
             "name": "scalapack",
-            "description": "Intel oneAPI Math Kernel Library (Intel oneMKL; formerly Intel Math\nKernel Library or Intel MKL), is a library of optimized math routines\nfor science, engineering, and financial applications. Core math\nfunctions include BLAS, LAPACK, ScaLAPACK, sparse solvers, fast Fourier\ntransforms, and vector math. LICENSE INFORMATION: By downloading and\nusing this software, you agree to the terms and conditions of the\nsoftware license agreements at https://intel.ly/393CijO."
+            "description": "The Cray Scientific Libraries package, LibSci, is a collection of\nnumerical routines optimized for best performance on Cray systems."
         },
         {
             "name": "cosma",
@@ -775,22 +990,30 @@
             "description": "NumPy is the fundamental package for scientific computing with Python.\nIt contains among other things: a powerful N-dimensional array object,\nsophisticated (broadcasting) functions, tools for integrating C/C++ and\nFortran code, and useful linear algebra, Fourier transform, and random\nnumber capabilities"
         },
         {
+            "name": "py-fypp",
+            "description": "Python powered Fortran preprocessor."
+        },
+        {
             "name": "spglib",
             "description": "C library for finding and handling crystal symmetries."
         },
         {
             "name": "wannier90",
             "description": "Wannier90 calculates maximally-localised Wannier functions (MLWFs).\nWannier90 is released under the GNU General Public License."
+        },
+        {
+            "name": "dbcsr",
+            "description": "Distributed Block Compressed Sparse Row matrix library."
         }
     ],
     "dependent_to": [
         {
-            "name": "gromacs-chain-coordinate",
-            "description": "A modification of GROMACS that implements the \"chain coordinate\", a\nreaction coordinate for pore formation in membranes and stalk formation\nbetween membranes."
-        },
-        {
             "name": "gromacs-swaxs",
             "description": "Modified Gromacs for small-angle scattering calculations\n(SAXS/WAXS/SANS)"
+        },
+        {
+            "name": "gromacs-chain-coordinate",
+            "description": "A modification of GROMACS that implements the \"chain coordinate\", a\nreaction coordinate for pore formation in membranes and stalk formation\nbetween membranes."
         },
         {
             "name": "gromacs",
