@@ -24,6 +24,12 @@
     ],
     "versions": [
         {
+            "name": "2023.2.0",
+            "sha256": "4a0d93da85a94d92e0ad35dc0fc3b3ab7f040bd55ad374c4d5ec81a57a2b872b",
+            "expand": false,
+            "url": "https://registrationcenter-download.intel.com/akdlm/IRC_NAS/adb8a02c-4ee7-4882-97d6-a524150da358/l_onemkl_p_2023.2.0.49497_offline.sh"
+        },
+        {
             "name": "2023.1.0",
             "sha256": "cc28c94cab23c185520b93c5a04f3979d8da6b4c90cee8c0681dd89819d76167",
             "expand": false,
@@ -90,7 +96,7 @@
             "url": "https://registrationcenter-download.intel.com/akdlm/irc_nas/17402/l_onemkl_p_2021.1.1.52_offline.sh"
         }
     ],
-    "latest_version": "2023.1.0",
+    "latest_version": "2023.2.0",
     "build_system": "Package",
     "conflicts": [
         {
@@ -166,14 +172,18 @@
     "dependencies": [
         {
             "name": "tbb",
-            "description": "Intel oneAPI Threading Building Blocks (oneTBB) is a flexible\nperformance library that simplifies the work of adding parallelism to\ncomplex applications across accelerated architectures, even if you are\nnot a threading expert. LICENSE INFORMATION: By downloading and using\nthis software, you agree to the terms and conditions of the software\nlicense agreements at https://intel.ly/393CijO."
+            "description": "Widely used C++ template library for task parallelism. Intel Threading\nBuilding Blocks (Intel TBB) lets you easily write parallel C++ programs\nthat take full advantage of multicore performance, that are portable and\ncomposable, and that have future-proof scalability."
         },
         {
             "name": "mpi",
-            "description": "A single processor implementation of the mpi library."
+            "description": "Virtual package for the Message Passing Interface."
         }
     ],
     "dependent_to": [
+        {
+            "name": "ginkgo",
+            "description": "High-performance linear algebra library for manycore systems, with a\nfocus on sparse solution of linear systems."
+        },
         {
             "name": "molgw",
             "description": "MOLGW is a quantum chemistry code that implements the many-body\nperturbation theory (MBPT) to describe the excited electronic states in\nfinite systems (atoms, molecules, clusters). MOLGW implements the GW\napproximation for the self-energy (ionization and affinity) and the\nBethe-Salpeter equation for the optical excitations. MOLGW also applies\nthe real-time time-dependent density-functional theory (RT-TDDFT). MOLGW\nemploys standard Gaussian basis set."
@@ -189,10 +199,6 @@
         {
             "name": "su2",
             "description": "SU2 is a suite of open-source software tools written in C++ for the\nnumerical solution of partial differential equations (PDE) and\nperforming PDE constrained optimization."
-        },
-        {
-            "name": "ginkgo",
-            "description": "High-performance linear algebra library for manycore systems, with a\nfocus on sparse solution of linear systems."
         }
     ]
 }
