@@ -7,15 +7,11 @@
             "branch": "main"
         },
         {
-            "name": "0.11.1",
-            "tag": "v0.11.1"
-        },
-        {
-            "name": "0.11.0",
-            "tag": "v0.11.0"
+            "name": "0.11.2",
+            "tag": "v0.11.2"
         }
     ],
-    "latest_version": "0.11.1",
+    "latest_version": "0.11.2",
     "build_system": "CMakePackage",
     "conflicts": [
         {
@@ -24,44 +20,24 @@
             "description": "Palace builds its own internal MFEM"
         },
         {
+            "name": "^gslib",
+            "spec": "",
+            "description": "Palace builds its own internal GSLIB"
+        },
+        {
             "name": "^hypre+int64",
             "spec": "",
             "description": "Palace uses HYPRE's mixedint option for 64 bit integers"
         },
         {
-            "name": "^petsc~double",
+            "name": "^mumps+int64",
             "spec": "",
-            "description": "Palace requires PETSc with double precision"
-        },
-        {
-            "name": "^petsc~complex",
-            "spec": "",
-            "description": "Palace requires PETSc with complex numbers"
-        },
-        {
-            "name": "^petsc+metis",
-            "spec": "",
-            "description": "Palace requires PETSc without METIS"
-        },
-        {
-            "name": "^petsc+hypre",
-            "spec": "",
-            "description": "Palace requires PETSc without HYPRE"
-        },
-        {
-            "name": "^petsc+superlu-dist",
-            "spec": "",
-            "description": "Palace requires PETSc without SuperLU_DIST"
+            "description": "Palace requires MUMPS without 64 bit integers"
         },
         {
             "name": "^slepc+arpack",
             "spec": "",
             "description": "Palace requires SLEPc without ARPACK"
-        },
-        {
-            "name": "^mumps+int64",
-            "spec": "",
-            "description": "Palace requires MUMPS without 64 bit integers"
         }
     ],
     "variants": [
@@ -84,6 +60,11 @@
             "name": "generator",
             "default": "make",
             "description": "the build system generator to use"
+        },
+        {
+            "name": "shared",
+            "default": true,
+            "description": "Enables the build of shared libraries"
         },
         {
             "name": "int64",
@@ -152,7 +133,7 @@
         },
         {
             "name": "mpi",
-            "description": "Virtual package for the Message Passing Interface."
+            "description": "MPItrampoline: A forwarding MPI implementation that can use any other\nMPI implementation via an MPI ABI."
         },
         {
             "name": "zlib",
@@ -167,28 +148,16 @@
             "description": "fmt (formerly cppformat) is an open-source formatting library. It can be\nused as a safe alternative to printf or as a fast alternative to C++\nIOStreams."
         },
         {
+            "name": "eigen",
+            "description": "Eigen is a C++ template library for linear algebra matrices, vectors,\nnumerical solvers, and related algorithms."
+        },
+        {
             "name": "metis",
             "description": "METIS is a set of serial programs for partitioning graphs, partitioning\nfinite element meshes, and producing fill reducing orderings for sparse\nmatrices. The algorithms implemented in METIS are based on the\nmultilevel recursive-bisection, multilevel k-way, and multi-constraint\npartitioning schemes."
         },
         {
             "name": "hypre",
             "description": "Hypre is a library of high performance preconditioners that features\nparallel multigrid methods for both structured and unstructured grid\nproblems."
-        },
-        {
-            "name": "petsc",
-            "description": "PETSc is a suite of data structures and routines for the scalable\n(parallel) solution of scientific applications modeled by partial\ndifferential equations."
-        },
-        {
-            "name": "slepc",
-            "description": "Scalable Library for Eigenvalue Problem Computations."
-        },
-        {
-            "name": "arpack-ng",
-            "description": "ARPACK-NG is a collection of Fortran77 subroutines designed to solve\nlarge scale eigenvalue problems. Important Features: * Reverse\nCommunication Interface. * Single and Double Precision Real Arithmetic\nVersions for Symmetric, Non-symmetric, Standard or Generalized Problems.\n* Single and Double Precision Complex Arithmetic Versions for Standard\nor Generalized Problems. * Routines for Banded Matrices - Standard or\nGeneralized Problems. * Routines for The Singular Value Decomposition. *\nExample driver routines that may be used as templates to implement\nnumerous Shift-Invert strategies for all problem types, data types and\nprecision. This project is a joint project between Debian, Octave and\nScilab in order to provide a common and maintained version of arpack.\nIndeed, no single release has been published by Rice university for the\nlast few years and since many software (Octave, Scilab, R, Matlab...)\nforked it and implemented their own modifications, arpack-ng aims to\ntackle this by providing a common repository and maintained versions.\narpack-ng is replacing arpack almost everywhere."
-        },
-        {
-            "name": "gslib",
-            "description": "Highly scalable Gather-scatter code with AMG and XXT solvers"
         },
         {
             "name": "superlu-dist",
@@ -201,6 +170,18 @@
         {
             "name": "mumps",
             "description": "MUMPS: a MUltifrontal Massively Parallel sparse direct Solver"
+        },
+        {
+            "name": "slepc",
+            "description": "Scalable Library for Eigenvalue Problem Computations."
+        },
+        {
+            "name": "petsc",
+            "description": "PETSc is a suite of data structures and routines for the scalable\n(parallel) solution of scientific applications modeled by partial\ndifferential equations."
+        },
+        {
+            "name": "arpack-ng",
+            "description": "ARPACK-NG is a collection of Fortran77 subroutines designed to solve\nlarge scale eigenvalue problems. Important Features: * Reverse\nCommunication Interface. * Single and Double Precision Real Arithmetic\nVersions for Symmetric, Non-symmetric, Standard or Generalized Problems.\n* Single and Double Precision Complex Arithmetic Versions for Standard\nor Generalized Problems. * Routines for Banded Matrices - Standard or\nGeneralized Problems. * Routines for The Singular Value Decomposition. *\nExample driver routines that may be used as templates to implement\nnumerous Shift-Invert strategies for all problem types, data types and\nprecision. This project is a joint project between Debian, Octave and\nScilab in order to provide a common and maintained version of arpack.\nIndeed, no single release has been published by Rice university for the\nlast few years and since many software (Octave, Scilab, R, Matlab...)\nforked it and implemented their own modifications, arpack-ng aims to\ntackle this by providing a common repository and maintained versions.\narpack-ng is replacing arpack almost everywhere."
         }
     ],
     "dependent_to": []
