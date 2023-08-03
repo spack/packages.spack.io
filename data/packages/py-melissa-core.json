@@ -4,12 +4,27 @@
     "versions": [
         {
             "name": "develop",
+            "preferred": true,
             "branch": "develop"
+        },
+        {
+            "name": "joss",
+            "tag": "JOSS_v2"
+        },
+        {
+            "name": "sc23",
+            "tag": "SC23"
         }
     ],
-    "latest_version": "develop",
+    "latest_version": "sc23",
     "build_system": "PythonPackage",
-    "conflicts": [],
+    "conflicts": [
+        {
+            "name": "@sc23",
+            "spec": "+tf",
+            "description": "tensorflow is only supported with newer versions"
+        }
+    ],
     "variants": [
         {
             "name": "build_system",
@@ -80,8 +95,16 @@
             "description": "SciPy (pronounced \"Sigh Pie\") is a Scientific Library for Python. It\nprovides many user-friendly and efficient numerical routines such as\nroutines for numerical integration and optimization."
         },
         {
+            "name": "py-plotext",
+            "description": "Plotext plots directly on terminal."
+        },
+        {
             "name": "py-cloudpickle",
             "description": "Extended pickling support for Python objects."
+        },
+        {
+            "name": "py-iterative-stats",
+            "description": "Bacis iterative statistics implementation."
         },
         {
             "name": "py-tensorboard",
@@ -94,6 +117,10 @@
         {
             "name": "py-torch",
             "description": "Tensors and Dynamic neural networks in Python with strong GPU\nacceleration."
+        },
+        {
+            "name": "py-python-hostlist",
+            "description": "The hostlist.py module knows how to expand and collect hostlist\nexpressions."
         },
         {
             "name": "py-tensorflow",
