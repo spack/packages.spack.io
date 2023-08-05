@@ -1,0 +1,192 @@
+{
+    "name": "met",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "develop",
+            "branch": "develop"
+        },
+        {
+            "name": "11.0.2",
+            "sha256": "f720d15e1d6c235c9a41fd97dbeb0eb1082fb8ae99e1bcdcb5e51be9b50bdfbf"
+        },
+        {
+            "name": "11.0.1",
+            "sha256": "48d471ad4634f1b969d9358c51925ce36bf0a1cec5312a6755203a4794b81646"
+        },
+        {
+            "name": "11.0.0",
+            "sha256": "648ebb54d07ca099680f4fc23b7ef5095c1a8ac5537c0a5d0e8587bf15991cff"
+        },
+        {
+            "name": "10.1.1",
+            "sha256": "9827e65fbd1c64e776525bae072bc2d37d14465e85a952778dcc32a26d8b5c9e"
+        },
+        {
+            "name": "10.1.0",
+            "sha256": "8d4c1fb2311d8481ffd24e30e407a1b1bc72a6add9658d76b9c323f1733db336"
+        },
+        {
+            "name": "10.0.1",
+            "sha256": "8e965bb0eb8353229a730af511c5fa62bad9744606ab6a218d741d29eb5f3acd"
+        },
+        {
+            "name": "10.0.0",
+            "sha256": "92f37c8bd83c951d86026cce294a16e4d3aa6dd41905629d0a729fa1bebe668a"
+        },
+        {
+            "name": "9.1.3",
+            "sha256": "7356a5ad79ca961fd965cadd93a7bf6c73b3aa5fb1a01a932580b94e66d0d0c8"
+        }
+    ],
+    "latest_version": "11.0.2",
+    "build_system": "AutotoolsPackage",
+    "conflicts": [
+        {
+            "name": "platform=windows",
+            "spec": "build_system=autotools",
+            "description": "None"
+        }
+    ],
+    "variants": [
+        {
+            "name": "build_system",
+            "default": "autotools",
+            "description": "Build systems supported by the package"
+        },
+        {
+            "name": "openmp",
+            "default": true,
+            "description": "Use OpenMP multithreading"
+        },
+        {
+            "name": "grib2",
+            "default": false,
+            "description": "Enable compilation of utilities using GRIB2"
+        },
+        {
+            "name": "python",
+            "default": false,
+            "description": "Enable python embedding"
+        },
+        {
+            "name": "lidar2nc",
+            "default": false,
+            "description": "Enable compilation of lidar2nc"
+        },
+        {
+            "name": "modis",
+            "default": false,
+            "description": "Enable compilation of modis"
+        },
+        {
+            "name": "graphics",
+            "default": false,
+            "description": "Enable compilation of mode_graphics"
+        }
+    ],
+    "homepage": "https://dtcenter.org/community-code/model-evaluation-tools-met",
+    "maintainers": [
+        "AlexanderRichert-NOAA"
+    ],
+    "patches": [
+        {
+            "owner": "builtin.met",
+            "sha256": "98c0925bee1da49298779076ce22da243ec561fc30253d770d6a3c3027084e46",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "openmp_shape_patch.patch",
+            "version": "@10.1.0"
+        },
+        {
+            "owner": "builtin.met",
+            "sha256": "fdf65601e56f22ae31227b372698b0e22290494a2130841d89d53887e1c01a8a",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "apple-clang-string-cast-operator.patch",
+            "version": "@10.1.1:%apple-clang@14:"
+        },
+        {
+            "owner": "builtin.met",
+            "sha256": "c143c74a0bea2b8140a23567538e1998d504690ea80d434498428e757e91c5e2",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "apple-clang-no-register.patch",
+            "version": "@10.1.1:%apple-clang@14:"
+        }
+    ],
+    "resources": [],
+    "description": "Statistical tool that matches up grids with either gridded analyses or\npoint observations and applies configurable methods to compute\nstatistics and diagnostics\n",
+    "dependencies": [
+        {
+            "name": "gnuconfig",
+            "description": "The GNU config.guess and config.sub scripts versioned by timestamp.\nThis package can be used as a build dependency for autotools packages\nthat ship a tarball with outdated config.guess and config.sub files."
+        },
+        {
+            "name": "gsl",
+            "description": "The GNU Scientific Library (GSL) is a numerical library for C and C++\nprogrammers. It is free software under the GNU General Public License.\nThe library provides a wide range of mathematical routines such as\nrandom number generators, special functions and least-squares fitting.\nThere are over 1000 functions in total with an extensive test suite."
+        },
+        {
+            "name": "bufr",
+            "description": "The NOAA bufr library contains subroutines, functions and other\nutilities that can be used to read (decode) and write (encode) data in\nBUFR, which is a WMO standard format for the exchange of meteorological\ndata. This is part of the NCEPLIBS project."
+        },
+        {
+            "name": "zlib",
+            "description": "A free, general-purpose, legally unencumbered lossless data-compression\nlibrary."
+        },
+        {
+            "name": "netcdf-c",
+            "description": "NetCDF (network Common Data Form) is a set of software libraries and\nmachine-independent data formats that support the creation, access, and\nsharing of array-oriented scientific data. This is the C distribution."
+        },
+        {
+            "name": "netcdf-cxx4",
+            "description": "NetCDF (network Common Data Form) is a set of software libraries and\nmachine-independent data formats that support the creation, access, and\nsharing of array-oriented scientific data. This is the C++ distribution."
+        },
+        {
+            "name": "g2c",
+            "description": "This library contains C decoder/encoder routines for GRIB edition 2.\nThis is part of NOAA's NCEPLIBS project."
+        },
+        {
+            "name": "hdf-eos2",
+            "description": "HDF-EOS (Hierarchical Data Format - Earth Observing System) is a self-\ndescribing file format based upon HDF for standard data products that\nare derived from EOS missions. HDF-EOS2 is based upon HDF4."
+        },
+        {
+            "name": "hdf",
+            "description": "HDF4 (also known as HDF) is a library and multi-object file format for\nstoring and managing data between machines."
+        },
+        {
+            "name": "cairo",
+            "description": "Cairo is a 2D graphics library with support for multiple output devices."
+        },
+        {
+            "name": "freetype",
+            "description": "FreeType is a freely available software library to render fonts. It is\nwritten in C, designed to be small, efficient, highly customizable, and\nportable while capable of producing high-quality output (glyph images)\nof most vector and bitmap font formats."
+        },
+        {
+            "name": "python",
+            "description": "The Python programming language."
+        },
+        {
+            "name": "py-netcdf4",
+            "description": "Python interface to the netCDF Library."
+        },
+        {
+            "name": "py-numpy",
+            "description": "NumPy is the fundamental package for scientific computing with Python.\nIt contains among other things: a powerful N-dimensional array object,\nsophisticated (broadcasting) functions, tools for integrating C/C++ and\nFortran code, and useful linear algebra, Fourier transform, and random\nnumber capabilities"
+        },
+        {
+            "name": "py-xarray",
+            "description": "N-D labeled arrays and datasets in Python"
+        },
+        {
+            "name": "py-pandas",
+            "description": "pandas is a fast, powerful, flexible and easy to use open source data\nanalysis and manipulation tool, built on top of the Python programming\nlanguage."
+        }
+    ],
+    "dependent_to": [
+        {
+            "name": "metplus",
+            "description": "METplus is a verification framework that spans a wide range of temporal\n(warn-on-forecast to climate) and spatial (storm to global) scales."
+        }
+    ]
+}

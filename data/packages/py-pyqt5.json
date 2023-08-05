@@ -3,19 +3,26 @@
     "aliases": [],
     "versions": [
         {
+            "name": "5.15.9",
+            "sha256": "dc41e8401a90dc3e2b692b411bd5492ab559ae27a27424eed4bd3915564ec4c0"
+        },
+        {
             "name": "5.13.1",
-            "sha256": "54b7f456341b89eeb3930e786837762ea67f235e886512496c4152ebe106d4af"
+            "sha256": "54b7f456341b89eeb3930e786837762ea67f235e886512496c4152ebe106d4af",
+            "deprecated": true
         },
         {
             "name": "5.13.0",
-            "sha256": "0cdbffe5135926527b61cc3692dd301cd0328dd87eeaf1313e610787c46faff9"
+            "sha256": "0cdbffe5135926527b61cc3692dd301cd0328dd87eeaf1313e610787c46faff9",
+            "deprecated": true
         },
         {
             "name": "5.12.3",
-            "sha256": "0db0fa37debab147450f9e052286f7a530404e2aaddc438e97a7dcdf56292110"
+            "sha256": "0db0fa37debab147450f9e052286f7a530404e2aaddc438e97a7dcdf56292110",
+            "deprecated": true
         }
     ],
-    "latest_version": "5.13.1",
+    "latest_version": "5.15.9",
     "build_system": "SIPPackage",
     "conflicts": [],
     "variants": [
@@ -23,11 +30,6 @@
             "name": "build_system",
             "default": "sip",
             "description": "Build systems supported by the package"
-        },
-        {
-            "name": "qsci_api",
-            "default": false,
-            "description": "Install PyQt API file for QScintilla"
         }
     ],
     "homepage": "https://www.riverbankcomputing.com/software/pyqt/intro",
@@ -41,46 +43,58 @@
             "description": "The Python programming language."
         },
         {
-            "name": "qt",
-            "description": "Qt is a comprehensive cross-platform C++ application framework."
-        },
-        {
             "name": "py-sip",
             "description": "A Python bindings generator for C/C++ libraries."
+        },
+        {
+            "name": "py-pyqt-builder",
+            "description": "The PEP 517 compliant PyQt build system."
+        },
+        {
+            "name": "py-pyqt5-sip",
+            "description": "The sip module support for PyQt5."
+        },
+        {
+            "name": "qt",
+            "description": "Qt is a comprehensive cross-platform C++ application framework."
         }
     ],
     "dependent_to": [
         {
-            "name": "qgis",
-            "description": "QGIS is a free and open-source cross-platform desktop geographic\ninformation system application that supports viewing, editing, and\nanalysis of geospatial data."
-        },
-        {
-            "name": "py-mayavi",
-            "description": "Mayavi: 3D visualization of scientific data in Python."
-        },
-        {
-            "name": "py-pyface",
-            "description": "The pyface project contains a toolkit-independent GUI abstraction layer,\nwhich is used to support the \"visualization\" features of the Traits\npackage. Thus, you can write code in terms of the Traits API (views,\nitems, editors, etc.), and let pyface and your selected toolkit and\nback-end take care of the details of displaying them."
+            "name": "py-bidscoin",
+            "description": "Converts and organises raw MRI data-sets according to the Brain Imaging\nData Structure (BIDS)."
         },
         {
             "name": "py-mne",
             "description": "MNE python project for MEG and EEG data analysis."
         },
         {
-            "name": "gnuradio",
-            "description": "GNU Radio is a free & open-source software development toolkit that\nprovides signal processing blocks to implement software radios. It can\nbe used with readily-available, low-cost external RF hardware to create\nsoftware-defined radios, or without hardware in a simulation-like\nenvironment. It is widely used in hobbyist, academic, and commercial\nenvironments to support both wireless communications research and real-\nworld radio systems."
+            "name": "py-ete3",
+            "description": "The Environment for Tree Exploration (ETE) is a Python programming\ntoolkit that assists in the recontruction, manipulation, analysis and\nvisualization of phylogenetic trees (although clustering trees or any\nother tree-like data structure are also supported)."
+        },
+        {
+            "name": "py-pyface",
+            "description": "The pyface project contains a toolkit-independent GUI abstraction layer,\nwhich is used to support the \"visualization\" features of the Traits\npackage. Thus, you can write code in terms of the Traits API (views,\nitems, editors, etc.), and let pyface and your selected toolkit and\nback-end take care of the details of displaying them."
+        },
+        {
+            "name": "py-tuiview",
+            "description": "TuiView is a lightweight raster GIS with powerful raster attribute table\nmanipulation abilities."
+        },
+        {
+            "name": "numaprof",
+            "description": "NumaProf is a NUMA memory access profiling tool. It is based on Intel-\nPIN to intercept all the memory access and report them on NUMA counters\nso we can tell by annotating the source code where you make local,\nremote, unpinned memory accessed. It also provide some charts to better\nunderstand the NUMA behavior of the application."
+        },
+        {
+            "name": "py-mayavi",
+            "description": "Mayavi: 3D visualization of scientific data in Python."
         },
         {
             "name": "py-qtconsole",
             "description": "Jupyter Qt console"
         },
         {
-            "name": "py-qtpy",
-            "description": "QtPy: Abtraction layer for PyQt5/PyQt4/PySide/PySide2"
-        },
-        {
-            "name": "py-tuiview",
-            "description": "TuiView is a lightweight raster GIS with powerful raster attribute table\nmanipulation abilities."
+            "name": "gnuradio",
+            "description": "GNU Radio is a free & open-source software development toolkit that\nprovides signal processing blocks to implement software radios. It can\nbe used with readily-available, low-cost external RF hardware to create\nsoftware-defined radios, or without hardware in a simulation-like\nenvironment. It is widely used in hobbyist, academic, and commercial\nenvironments to support both wireless communications research and real-\nworld radio systems."
         },
         {
             "name": "tulip",
@@ -91,28 +105,24 @@
             "description": "PyMOL is a Python-enhanced molecular graphics tool. It excels at 3D\nvisualization of proteins, small molecules, density, surfaces, and\ntrajectories. It also includes molecular editing, ray tracing, and\nmovies. Open Source PyMOL is free to everyone!"
         },
         {
-            "name": "qscintilla",
-            "description": "QScintilla is a port to Qt of Neil Hodgson's Scintilla C++ editor\ncontrol."
+            "name": "py-qtpy",
+            "description": "QtPy: Abtraction layer for PyQt5/PyQt4/PySide/PySide2"
         },
         {
-            "name": "py-bidscoin",
-            "description": "Converts and organises raw MRI data-sets according to the Brain Imaging\nData Structure (BIDS)."
+            "name": "qscintilla",
+            "description": "QScintilla is a port to Qt of Neil Hodgson's Scintilla C++ editor\ncontrol."
         },
         {
             "name": "py-matplotlib",
             "description": "Matplotlib is a comprehensive library for creating static, animated, and\ninteractive visualizations in Python."
         },
         {
+            "name": "qgis",
+            "description": "QGIS is a free and open-source cross-platform desktop geographic\ninformation system application that supports viewing, editing, and\nanalysis of geospatial data."
+        },
+        {
             "name": "py-traitsui",
             "description": "The TraitsUI project contains a toolkit-independent GUI abstraction\nlayer, which is used to support the \"visualization\" features of the\nTraits package. Thus, you can write model in terms of the Traits API and\nspecify a GUI in terms of the primitives supplied by TraitsUI (views,\nitems, editors, etc.), and let TraitsUI and your selected toolkit and\nback-end take care of the details of displaying them."
-        },
-        {
-            "name": "py-ete3",
-            "description": "The Environment for Tree Exploration (ETE) is a Python programming\ntoolkit that assists in the recontruction, manipulation, analysis and\nvisualization of phylogenetic trees (although clustering trees or any\nother tree-like data structure are also supported)."
-        },
-        {
-            "name": "numaprof",
-            "description": "NumaProf is a NUMA memory access profiling tool. It is based on Intel-\nPIN to intercept all the memory access and report them on NUMA counters\nso we can tell by annotating the source code where you make local,\nremote, unpinned memory accessed. It also provide some charts to better\nunderstand the NUMA behavior of the application."
         }
     ]
 }
