@@ -1,0 +1,70 @@
+{
+    "name": "amg2023",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "develop",
+            "branch": "main"
+        }
+    ],
+    "latest_version": "develop",
+    "build_system": "MakefilePackage",
+    "conflicts": [
+        {
+            "name": "platform=windows",
+            "spec": "build_system=makefile",
+            "description": "None"
+        }
+    ],
+    "variants": [
+        {
+            "name": "build_system",
+            "default": "makefile",
+            "description": "Build systems supported by the package"
+        },
+        {
+            "name": "mpi",
+            "default": true,
+            "description": "Enable MPI support"
+        },
+        {
+            "name": "openmp",
+            "default": false,
+            "description": "Enable OpenMP support"
+        },
+        {
+            "name": "caliper",
+            "default": false,
+            "description": "Enable Caliper monitoring"
+        },
+        {
+            "name": "adiak",
+            "default": false,
+            "description": "Enable Adiak metadata gathering"
+        }
+    ],
+    "homepage": "https://github.com/LLNL/AMG2023",
+    "maintainers": [],
+    "patches": [],
+    "resources": [],
+    "description": "AMG2023 is a parallel algebraic multigrid solver for linear systems\narising from problems on unstructured grids. The driver provided here\nbuilds linear systems for various 3-dimensional problems. It requires an\ninstallation of hypre-2.27.0 or higher.\n",
+    "dependencies": [
+        {
+            "name": "caliper",
+            "description": "Caliper is a program instrumentation and performance measurement\nframework. It is designed as a performance analysis toolbox in a\nlibrary, allowing one to bake performance analysis capabilities directly\ninto applications and activate them at runtime."
+        },
+        {
+            "name": "adiak",
+            "description": "Adiak collects metadata about HPC application runs and provides it to\ntools."
+        },
+        {
+            "name": "hypre",
+            "description": "Hypre is a library of high performance preconditioners that features\nparallel multigrid methods for both structured and unstructured grid\nproblems."
+        },
+        {
+            "name": "mpi",
+            "description": "MVAPICH2-X is the advanced version of the MVAPICH2 MPI library with\nenhanced features (UMR, ODP, DC, Core-Direct, SHARP, XPMEM), OSU INAM\n(InifniBand Network Monitoring and Analysis),PGAS (OpenSHMEM, UPC,\nUPC++, and CAF), and MPI+PGAS programming models with unified\ncommunication runtime. MVAPICH2-X is not installable from source and is\nonly available through a binary mirror. If you do not find the binary\nyou're looking for, send us an email at mvapich@cse.ohio-state.edu. The\nbinary mirror url is: http://mvapich.cse.ohio-\nstate.edu/download/mvapich/spack-mirror/mvapich2x/"
+        }
+    ],
+    "dependent_to": []
+}

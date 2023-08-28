@@ -1,0 +1,77 @@
+{
+    "name": "hiptt",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "master",
+            "branch": "master"
+        }
+    ],
+    "latest_version": "master",
+    "build_system": "MakefilePackage",
+    "conflicts": [
+        {
+            "name": "amdgpu_target=none",
+            "spec": "+rocm",
+            "description": "None"
+        },
+        {
+            "name": "platform=windows",
+            "spec": "build_system=makefile",
+            "description": "None"
+        }
+    ],
+    "variants": [
+        {
+            "name": "rocm",
+            "default": false,
+            "description": "Enable ROCm support"
+        },
+        {
+            "name": "amdgpu_target",
+            "default": "none",
+            "description": "AMD GPU architecture"
+        },
+        {
+            "name": "build_system",
+            "default": "makefile",
+            "description": "Build systems supported by the package"
+        }
+    ],
+    "homepage": "https://github.com/DmitryLyakh/hipTT",
+    "maintainers": [
+        "bvanessen"
+    ],
+    "patches": [
+        {
+            "owner": "builtin.hiptt",
+            "sha256": "91e571b8ac73c2cb90d5a06add769ebd838bc9221fd583e89e159b0569b8e1fa",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "bugfix_make.patch",
+            "version": ""
+        }
+    ],
+    "resources": [],
+    "description": "hipTT - Fast GPU Tensor Transpose for NVIDIA and AMD GPU.\n",
+    "dependencies": [
+        {
+            "name": "llvm-amdgpu",
+            "description": "Toolkit for the construction of highly optimized compilers, optimizers,\nand run-time environments."
+        },
+        {
+            "name": "hsa-rocr-dev",
+            "description": "This repository includes the user mode API nterfaces and libraries\nnecessary for host applications to launch computer kernels to available\nHSA ROCm kernel agents.AMD Heterogeneous System Architecture HSA - Linux\nHSA Runtime for Boltzmann (ROCm) platforms."
+        },
+        {
+            "name": "hip",
+            "description": "HIP is a C++ Runtime API and Kernel Language that allows developers to\ncreate portable applications for AMD and NVIDIA GPUs from single source\ncode."
+        }
+    ],
+    "dependent_to": [
+        {
+            "name": "lbann",
+            "description": "LBANN: Livermore Big Artificial Neural Network Toolkit. A distributed\nmemory, HPC-optimized, model and data parallel training toolkit for deep\nneural networks."
+        }
+    ]
+}

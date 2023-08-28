@@ -7,6 +7,10 @@
             "branch": "master"
         },
         {
+            "name": "1.4.1",
+            "sha256": "2ca828ef6615859654b233a7df17017e7cfd904982b80026ec7409eb46b77a95"
+        },
+        {
             "name": "1.4",
             "sha256": "803a1018a6305cf3fea161172b3ada49537f59261279d91c2abbcce9492ee7af"
         },
@@ -32,7 +36,7 @@
             "deprecated": true
         }
     ],
-    "latest_version": "1.4",
+    "latest_version": "1.4.1",
     "build_system": "CMakePackage",
     "conflicts": [
         {
@@ -467,7 +471,16 @@
     "maintainers": [
         "aprokop"
     ],
-    "patches": [],
+    "patches": [
+        {
+            "owner": "builtin.arborx",
+            "sha256": "b61f06e5a9124e78ca4851cc820b9f00144752e9449c0a47f91101bbcbb51469",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "trilinos14.0-kokkos-major-version.patch",
+            "version": "@1.4+trilinos ^trilinos@14.0.0"
+        }
+    ],
     "resources": [],
     "description": "ArborX is a performance-portable library for geometric search\n",
     "dependencies": [
@@ -501,7 +514,7 @@
         },
         {
             "name": "mpi",
-            "description": "MVAPICH2-GDR is an optimized version of the MVAPICH2 MPI library for\nGPU-enabled HPC and Deep Learning Applications. MVAPICH2-GDR is not\ninstallable from source and is only available through a binary mirror.\nIf you do not find the binary you're looking for, send us an email at\nmvapich@cse.ohio-state.edu. The binary mirror url is:\nhttp://mvapich.cse.ohio-state.edu/download/mvapich/spack-\nmirror/mvapich2-gdr/"
+            "description": "MVAPICH2-X is the advanced version of the MVAPICH2 MPI library with\nenhanced features (UMR, ODP, DC, Core-Direct, SHARP, XPMEM), OSU INAM\n(InifniBand Network Monitoring and Analysis),PGAS (OpenSHMEM, UPC,\nUPC++, and CAF), and MPI+PGAS programming models with unified\ncommunication runtime. MVAPICH2-X is not installable from source and is\nonly available through a binary mirror. If you do not find the binary\nyou're looking for, send us an email at mvapich@cse.ohio-state.edu. The\nbinary mirror url is: http://mvapich.cse.ohio-\nstate.edu/download/mvapich/spack-mirror/mvapich2x/"
         },
         {
             "name": "rocthrust",
@@ -518,20 +531,20 @@
     ],
     "dependent_to": [
         {
-            "name": "xsdk",
-            "description": "Xsdk is a suite of Department of Energy (DOE) packages for numerical\nsimulation. This is a Spack bundle package that installs the xSDK\npackages"
-        },
-        {
             "name": "dealii",
             "description": "C++ software library providing well-documented tools to build finite\nelement codes for a broad variety of PDEs."
         },
         {
-            "name": "cabana",
-            "description": "The Exascale Co-Design Center for Particle Applications Toolkit"
-        },
-        {
             "name": "datatransferkit",
             "description": "DataTransferKit is an open-source software library of parallel solution\ntransfer services for multiphysics simulations"
+        },
+        {
+            "name": "xsdk",
+            "description": "Xsdk is a suite of Department of Energy (DOE) packages for numerical\nsimulation. This is a Spack bundle package that installs the xSDK\npackages"
+        },
+        {
+            "name": "cabana",
+            "description": "The Exascale Co-Design Center for Particle Applications Toolkit"
         }
     ]
 }

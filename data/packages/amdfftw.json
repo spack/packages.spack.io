@@ -8,6 +8,10 @@
     ],
     "versions": [
         {
+            "name": "4.1",
+            "sha256": "f1cfecfcc0729f96a5bd61c6b26f3fa43bb0662d3fff370d4f73490c60cf4e59"
+        },
+        {
             "name": "4.0",
             "sha256": "5f02cb05f224bd86bd88ec6272b294c26dba3b1d22c7fb298745fd7b9d2271c0"
         },
@@ -32,7 +36,7 @@
             "sha256": "de9d777236fb290c335860b458131678f75aa0799c641490c644c843f0e246f8"
         }
     ],
-    "latest_version": "4.0",
+    "latest_version": "4.1",
     "build_system": "AutotoolsPackage",
     "conflicts": [
         {
@@ -119,11 +123,6 @@
             "name": "+amd-mpi-vader-limit",
             "spec": "precision=quad",
             "description": "amdfftw: Quad precision is not supported with amd-mpi-vader-limit"
-        },
-        {
-            "name": "+amd-dynamic-dispatcher",
-            "spec": "%aocc",
-            "description": "amdfftw: dynamic-dispatcher is not supported by AOCC clang compiler"
         }
     ],
     "variants": [
@@ -194,7 +193,7 @@
         },
         {
             "name": "amd-dynamic-dispatcher",
-            "default": false,
+            "default": true,
             "description": "Single portable optimized library to execute on different x86 CPU architectures"
         }
     ],
@@ -204,7 +203,7 @@
     ],
     "patches": [],
     "resources": [],
-    "description": "FFTW (AMD Optimized version) is a comprehensive collection of fast C\nroutines for computing the Discrete Fourier Transform (DFT) and various\nspecial cases thereof. It is an open-source implementation of the Fast\nFourier transform algorithm. It can compute transforms of real and\ncomplex-values arrays of arbitrary size and dimension. AMD Optimized\nFFTW is the optimized FFTW implementation targeted for AMD CPUs. For\nsingle precision build, please use precision value as float. Example :\nspack install amdfftw precision=float LICENSING INFORMATION: By\ndownloading, installing and using this software, you agree to the terms\nand conditions of the AMD AOCL-FFTW license agreement. You may obtain a\ncopy of this license agreement from\nhttps://www.amd.com/en/developer/aocl/fftw/fftw-libraries-4-0-eula.html\nhttps://www.amd.com/en/developer/aocl/fftw/fftw-libraries-eula.html\n",
+    "description": "FFTW (AMD Optimized version) is a comprehensive collection of fast C\nroutines for computing the Discrete Fourier Transform (DFT) and various\nspecial cases thereof. It is an open-source implementation of the Fast\nFourier transform algorithm. It can compute transforms of real and\ncomplex-values arrays of arbitrary size and dimension. AMD Optimized\nFFTW is the optimized FFTW implementation targeted for AMD CPUs. For\nsingle precision build, please use precision value as float. Example :\nspack install amdfftw precision=float LICENSING INFORMATION: By\ndownloading, installing and using this software, you agree to the terms\nand conditions of the AMD AOCL-FFTW license agreement. You may obtain a\ncopy of this license agreement from\nhttps://www.amd.com/en/developer/aocl/fftw/eula/fftw-\nlibraries-4-1-eula.html\nhttps://www.amd.com/en/developer/aocl/fftw/eula/fftw-libraries-eula.html\n",
     "dependencies": [
         {
             "name": "gnuconfig",
@@ -212,7 +211,7 @@
         },
         {
             "name": "mpi",
-            "description": "MVAPICH2-GDR is an optimized version of the MVAPICH2 MPI library for\nGPU-enabled HPC and Deep Learning Applications. MVAPICH2-GDR is not\ninstallable from source and is only available through a binary mirror.\nIf you do not find the binary you're looking for, send us an email at\nmvapich@cse.ohio-state.edu. The binary mirror url is:\nhttp://mvapich.cse.ohio-state.edu/download/mvapich/spack-\nmirror/mvapich2-gdr/"
+            "description": "MVAPICH2-X is the advanced version of the MVAPICH2 MPI library with\nenhanced features (UMR, ODP, DC, Core-Direct, SHARP, XPMEM), OSU INAM\n(InifniBand Network Monitoring and Analysis),PGAS (OpenSHMEM, UPC,\nUPC++, and CAF), and MPI+PGAS programming models with unified\ncommunication runtime. MVAPICH2-X is not installable from source and is\nonly available through a binary mirror. If you do not find the binary\nyou're looking for, send us an email at mvapich@cse.ohio-state.edu. The\nbinary mirror url is: http://mvapich.cse.ohio-\nstate.edu/download/mvapich/spack-mirror/mvapich2x/"
         },
         {
             "name": "llvm-openmp",
@@ -225,6 +224,14 @@
     ],
     "dependent_to": [
         {
+            "name": "berkeleygw",
+            "description": "BerkeleyGW is a many-body perturbation theory code for excited states,\nusing the GW method and the GW plus Bethe-Salpeter equation (GW-BSE)\nmethod to solve respectively for quasiparticle excitations and optical\nproperties of materials."
+        },
+        {
+            "name": "namd",
+            "description": "NAMD is a parallel molecular dynamics code designed for high-performance\nsimulation of large biomolecular systems."
+        },
+        {
             "name": "quantum-espresso",
             "description": "Quantum ESPRESSO is an integrated suite of Open-Source computer codes\nfor electronic-structure calculations and materials modeling at the\nnanoscale. It is based on density-functional theory, plane waves, and\npseudopotentials."
         },
@@ -233,16 +240,8 @@
             "description": "CP2K is a quantum chemistry and solid state physics software package\nthat can perform atomistic simulations of solid state, liquid,\nmolecular, periodic, material, crystal, and biological systems"
         },
         {
-            "name": "namd",
-            "description": "NAMD is a parallel molecular dynamics code designed for high-performance\nsimulation of large biomolecular systems."
-        },
-        {
             "name": "amd-aocl",
-            "description": "AMD Optimizing CPU Libraries (AOCL) - AOCL is a set of numerical\nlibraries tuned specifically for AMD EPYC processor family. They have a\nsimple interface to take advantage of the latest hardware innovations.\nThe tuned implementations of industry standard math libraries enable\nfast development of scientific and high performance computing projects\nLICENSING INFORMATION: By downloading, installing and using this\nsoftware, you agree to the terms and conditions of the AMD AOCL license\nagreement. You may obtain a copy of this license agreement from\nhttps://www.amd.com/en/developer/aocl/aocl-eula.html\nhttps://www.amd.com/en/developer/aocl/aocl-4-0-eula.html"
-        },
-        {
-            "name": "berkeleygw",
-            "description": "BerkeleyGW is a many-body perturbation theory code for excited states,\nusing the GW method and the GW plus Bethe-Salpeter equation (GW-BSE)\nmethod to solve respectively for quasiparticle excitations and optical\nproperties of materials."
+            "description": "AMD Optimizing CPU Libraries (AOCL) - AOCL is a set of numerical\nlibraries tuned specifically for AMD EPYC processor family. They have a\nsimple interface to take advantage of the latest hardware innovations.\nThe tuned implementations of industry standard math libraries enable\nfast development of scientific and high performance computing projects\nLICENSING INFORMATION: By downloading, installing and using this\nsoftware, you agree to the terms and conditions of the AMD AOCL license\nagreement. You may obtain a copy of this license agreement from\nhttps://www.amd.com/en/developer/aocl/aocl-eula.html\nhttps://www.amd.com/en/developer/aocl/eula/aocl-4-1-eula.html"
         }
     ]
 }

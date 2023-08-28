@@ -48,6 +48,11 @@
             "name": "openmp",
             "default": true,
             "description": "Enable OpenMP support."
+        },
+        {
+            "name": "grib",
+            "default": true,
+            "description": "Enable GRIB support."
         }
     ],
     "homepage": "https://www.ncl.ucar.edu",
@@ -102,6 +107,14 @@
             "working_dir": ".",
             "url": "https://src.fedoraproject.org/rpms/ncl/raw/12778c55142b5b1ccc26dfbd7857da37332940c2/f/ncl-boz.patch",
             "version": "%gcc@10:"
+        },
+        {
+            "owner": "builtin.ncl",
+            "sha256": "0d38521f1259cb93878ef93680d5cf4fce102d6062a5c6f7af46d3e4847d217a",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "ymake-grib.patch",
+            "version": "+grib"
         }
     ],
     "resources": [
@@ -116,7 +129,7 @@
     "dependencies": [
         {
             "name": "jpeg",
-            "description": "libjpeg is a widely used free library with functions for handling the\nJPEG image data format. It implements a JPEG codec (encoding and\ndecoding) alongside various utilities for handling JPEG data."
+            "description": "libjpeg-turbo is a fork of the original IJG libjpeg which uses SIMD to\naccelerate baseline JPEG compression and decompression. libjpeg is a\nlibrary that implements JPEG image encoding, decoding and transcoding."
         },
         {
             "name": "netcdf-c",
@@ -136,7 +149,7 @@
         },
         {
             "name": "iconv",
-            "description": "Dummy package to provide interfaces available in libc."
+            "description": "GNU libiconv provides an implementation of the iconv() function and the\niconv program for character set conversion."
         },
         {
             "name": "tcsh",
@@ -205,6 +218,10 @@
         {
             "name": "udunits",
             "description": "Automated units conversion"
+        },
+        {
+            "name": "jasper",
+            "description": "Library for manipulating JPEG-2000 images"
         }
     ],
     "dependent_to": []

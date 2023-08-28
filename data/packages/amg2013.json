@@ -3,12 +3,23 @@
     "aliases": [],
     "versions": [
         {
-            "name": "master",
-            "sha256": "b03771d84a04e3dbbbe32ba5648cd7b789e5853b938dd501e17d23d43f13c50f",
-            "url": "https://computing.llnl.gov/projects/co-design/download/amg2013.tgz"
+            "name": "develop",
+            "branch": "master"
+        },
+        {
+            "name": "1.2",
+            "tag": "1.2"
+        },
+        {
+            "name": "1.1",
+            "tag": "1.1"
+        },
+        {
+            "name": "1.0",
+            "tag": "1.0"
         }
     ],
-    "latest_version": "master",
+    "latest_version": "1.2",
     "build_system": "MakefilePackage",
     "conflicts": [
         {
@@ -29,9 +40,9 @@
             "description": "Build with OpenMP support"
         },
         {
-            "name": "assumedpartition",
+            "name": "optflags",
             "default": false,
-            "description": "Use assumed partition (for thousands of processors)"
+            "description": "Additional optimizations"
         },
         {
             "name": "int64",
@@ -43,12 +54,17 @@
     "maintainers": [],
     "patches": [],
     "resources": [],
-    "description": "AMG2013 is a parallel algebraic multigrid solver for linear systems\narising from problems on unstructured grids. It has been derived\ndirectly from the BoomerAMG solver in the hypre library, a large linear\nsolver library that is being developed in the Center for Applied\nScientific Computing (CASC) at LLNL.\n",
+    "description": "AMG is a parallel algebraic multigrid solver for linear systems arising\nfrom problems on unstructured grids. The driver provided with AMG builds\nlinear systems for various 3-dimensional problems.\n",
     "dependencies": [
         {
             "name": "mpi",
-            "description": "MVAPICH2-GDR is an optimized version of the MVAPICH2 MPI library for\nGPU-enabled HPC and Deep Learning Applications. MVAPICH2-GDR is not\ninstallable from source and is only available through a binary mirror.\nIf you do not find the binary you're looking for, send us an email at\nmvapich@cse.ohio-state.edu. The binary mirror url is:\nhttp://mvapich.cse.ohio-state.edu/download/mvapich/spack-\nmirror/mvapich2-gdr/"
+            "description": "MVAPICH2-X is the advanced version of the MVAPICH2 MPI library with\nenhanced features (UMR, ODP, DC, Core-Direct, SHARP, XPMEM), OSU INAM\n(InifniBand Network Monitoring and Analysis),PGAS (OpenSHMEM, UPC,\nUPC++, and CAF), and MPI+PGAS programming models with unified\ncommunication runtime. MVAPICH2-X is not installable from source and is\nonly available through a binary mirror. If you do not find the binary\nyou're looking for, send us an email at mvapich@cse.ohio-state.edu. The\nbinary mirror url is: http://mvapich.cse.ohio-\nstate.edu/download/mvapich/spack-mirror/mvapich2x/"
         }
     ],
-    "dependent_to": []
+    "dependent_to": [
+        {
+            "name": "ecp-proxy-apps",
+            "description": "This is a collection of packages that represents the official suite of\nDOE/ECP proxy applications. This is a Spack bundle package that installs\nthe ECP proxy application suite."
+        }
+    ]
 }

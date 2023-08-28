@@ -3,10 +3,14 @@
     "aliases": [
         {
             "name": "blas",
-            "alias_for": "{amdblis+blas, amdblis+cblas}"
+            "alias_for": "{amdblis+cblas, amdblis+blas}"
         }
     ],
     "versions": [
+        {
+            "name": "4.1",
+            "sha256": "a05c6c7d359232580d1d599696053ad0beeedf50f3b88d5d22ee7d34375ab577"
+        },
         {
             "name": "4.0",
             "sha256": "cddd31176834a932753ac0fc4c76332868feab3e9ac607fa197d8b44c1e74a41"
@@ -32,7 +36,7 @@
             "sha256": "e1feb60ac919cf6d233c43c424f6a8a11eab2c62c2c6e3f2652c15ee9063c0c9"
         }
     ],
-    "latest_version": "4.0",
+    "latest_version": "4.1",
     "build_system": "MakefilePackage",
     "conflicts": [
         {
@@ -81,6 +85,16 @@
             "name": "ilp64",
             "default": false,
             "description": "ILP64 support"
+        },
+        {
+            "name": "aocl_gemm",
+            "default": false,
+            "description": "aocl_gemm support"
+        },
+        {
+            "name": "suphandling",
+            "default": true,
+            "description": "Small Unpacked Kernel handling"
         }
     ],
     "homepage": "https://www.amd.com/en/developer/aocl/blis.html",
@@ -89,7 +103,7 @@
     ],
     "patches": [],
     "resources": [],
-    "description": "AMD Optimized BLIS. BLIS is a portable software framework for\ninstantiating high-performance BLAS-like dense linear algebra libraries.\nThe framework was designed to isolate essential kernels of computation\nthat, when optimized, immediately enable optimized implementations of\nmost of its commonly used and computationally intensive operations.\nLICENSING INFORMATION: By downloading, installing and using this\nsoftware, you agree to the terms and conditions of the AMD AOCL-BLIS\nlicense agreement. You may obtain a copy of this license agreement from\nhttps://www.amd.com/en/developer/aocl/blis/blis-4-0-eula.html\nhttps://www.amd.com/en/developer/aocl/blis/blis-eula.html\n",
+    "description": "AMD Optimized BLIS. BLIS is a portable software framework for\ninstantiating high-performance BLAS-like dense linear algebra libraries.\nThe framework was designed to isolate essential kernels of computation\nthat, when optimized, immediately enable optimized implementations of\nmost of its commonly used and computationally intensive operations.\nLICENSING INFORMATION: By downloading, installing and using this\nsoftware, you agree to the terms and conditions of the AMD AOCL-BLIS\nlicense agreement. You may obtain a copy of this license agreement from\nhttps://www.amd.com/en/developer/aocl/dense/eula/blas-4-1-eula.html\nhttps://www.amd.com/en/developer/aocl/dense/eula/blas-eula.html\n",
     "dependencies": [
         {
             "name": "python",
@@ -97,6 +111,10 @@
         }
     ],
     "dependent_to": [
+        {
+            "name": "berkeleygw",
+            "description": "BerkeleyGW is a many-body perturbation theory code for excited states,\nusing the GW method and the GW plus Bethe-Salpeter equation (GW-BSE)\nmethod to solve respectively for quasiparticle excitations and optical\nproperties of materials."
+        },
         {
             "name": "quantum-espresso",
             "description": "Quantum ESPRESSO is an integrated suite of Open-Source computer codes\nfor electronic-structure calculations and materials modeling at the\nnanoscale. It is based on density-functional theory, plane waves, and\npseudopotentials."
@@ -106,16 +124,16 @@
             "description": "Domain specific library for electronic structure calculations"
         },
         {
-            "name": "amd-aocl",
-            "description": "AMD Optimizing CPU Libraries (AOCL) - AOCL is a set of numerical\nlibraries tuned specifically for AMD EPYC processor family. They have a\nsimple interface to take advantage of the latest hardware innovations.\nThe tuned implementations of industry standard math libraries enable\nfast development of scientific and high performance computing projects\nLICENSING INFORMATION: By downloading, installing and using this\nsoftware, you agree to the terms and conditions of the AMD AOCL license\nagreement. You may obtain a copy of this license agreement from\nhttps://www.amd.com/en/developer/aocl/aocl-eula.html\nhttps://www.amd.com/en/developer/aocl/aocl-4-0-eula.html"
+            "name": "aocl-sparse",
+            "description": "AOCL-Sparse is a library that contains basic linear algebra subroutines\nfor sparse matrices and vectors optimized for AMD EPYC family of\nprocessors. It is designed to be used with C and C++. Current\nfunctionality of sparse library supports SPMV function with CSR and\nELLPACK formats. LICENSING INFORMATION: By downloading, installing and\nusing this software, you agree to the terms and conditions of the AMD\nAOCL-Sparse license agreement. You may obtain a copy of this license\nagreement from https://www.amd.com/en/developer/aocl/sparse/eula/sparse-\nlibraries-4-1-eula.html\nhttps://www.amd.com/en/developer/aocl/sparse/eula/sparse-libraries-\neula.html"
         },
         {
             "name": "spla",
             "description": "Specialized Parallel Linear Algebra, providing distributed GEMM\nfunctionality for specific matrix distributions with optional GPU\nacceleration."
         },
         {
-            "name": "berkeleygw",
-            "description": "BerkeleyGW is a many-body perturbation theory code for excited states,\nusing the GW method and the GW plus Bethe-Salpeter equation (GW-BSE)\nmethod to solve respectively for quasiparticle excitations and optical\nproperties of materials."
+            "name": "amd-aocl",
+            "description": "AMD Optimizing CPU Libraries (AOCL) - AOCL is a set of numerical\nlibraries tuned specifically for AMD EPYC processor family. They have a\nsimple interface to take advantage of the latest hardware innovations.\nThe tuned implementations of industry standard math libraries enable\nfast development of scientific and high performance computing projects\nLICENSING INFORMATION: By downloading, installing and using this\nsoftware, you agree to the terms and conditions of the AMD AOCL license\nagreement. You may obtain a copy of this license agreement from\nhttps://www.amd.com/en/developer/aocl/aocl-eula.html\nhttps://www.amd.com/en/developer/aocl/eula/aocl-4-1-eula.html"
         }
     ]
 }

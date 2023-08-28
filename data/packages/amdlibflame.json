@@ -12,6 +12,10 @@
     ],
     "versions": [
         {
+            "name": "4.1",
+            "sha256": "8aed69c60d11cc17e058cabcb8a931cee4f343064ade3e73d3392b7214624b61"
+        },
+        {
             "name": "4.0",
             "sha256": "bcb05763aa1df1e88f0da5e43ff86d956826cbea1d9c5ff591d78a3e091c66a4"
         },
@@ -36,7 +40,7 @@
             "sha256": "12b9c1f92d2c2fa637305aaa15cf706652406f210eaa5cbc17aaea9fcfa576dc"
         }
     ],
-    "latest_version": "4.0",
+    "latest_version": "4.1",
     "build_system": "AutotoolsPackage",
     "conflicts": [
         {
@@ -144,7 +148,7 @@
         }
     ],
     "resources": [],
-    "description": "libFLAME (AMD Optimized version) is a portable library for dense matrix\ncomputations, providing much of the functionality present in Linear\nAlgebra Package (LAPACK). It includes a compatibility layer, FLAPACK,\nwhich includes complete LAPACK implementation. The library provides\nscientific and numerical computing communities with a modern, high-\nperformance dense linear algebra library that is extensible, easy to\nuse, and available under an open source license. libFLAME is a C-only\nimplementation and does not depend on any external FORTRAN libraries\nincluding LAPACK. There is an optional backward compatibility layer,\nlapack2flame that maps LAPACK routine invocations to their corresponding\nnative C implementations in libFLAME. This allows legacy applications to\nstart taking advantage of libFLAME with virtually no changes to their\nsource code. In combination with BLIS library which includes\noptimizations for the AMD EPYC processor family, libFLAME enables\nrunning high performing LAPACK functionalities on AMD platform.\nLICENSING INFORMATION: By downloading, installing and using this\nsoftware, you agree to the terms and conditions of the AMD AOCL-libFLAME\nlicense agreement. You may obtain a copy of this license agreement from\nhttps://www.amd.com/en/developer/aocl/blis/libflame-4-0-eula.html\nhttps://www.amd.com/en/developer/aocl/blis/libflame-eula.html\n",
+    "description": "libFLAME (AMD Optimized version) is a portable library for dense matrix\ncomputations, providing much of the functionality present in Linear\nAlgebra Package (LAPACK). It includes a compatibility layer, FLAPACK,\nwhich includes complete LAPACK implementation. The library provides\nscientific and numerical computing communities with a modern, high-\nperformance dense linear algebra library that is extensible, easy to\nuse, and available under an open source license. libFLAME is a C-only\nimplementation and does not depend on any external FORTRAN libraries\nincluding LAPACK. There is an optional backward compatibility layer,\nlapack2flame that maps LAPACK routine invocations to their corresponding\nnative C implementations in libFLAME. This allows legacy applications to\nstart taking advantage of libFLAME with virtually no changes to their\nsource code. In combination with BLIS library which includes\noptimizations for the AMD EPYC processor family, libFLAME enables\nrunning high performing LAPACK functionalities on AMD platform.\nLICENSING INFORMATION: By downloading, installing and using this\nsoftware, you agree to the terms and conditions of the AMD AOCL-libFLAME\nlicense agreement. You may obtain a copy of this license agreement from\nhttps://www.amd.com/en/developer/aocl/dense/eula-\nlibflame/libflame-4-1-eula.html\nhttps://www.amd.com/en/developer/aocl/dense/eula-libflame/libflame-\neula.html\n",
     "dependencies": [
         {
             "name": "gnuconfig",
@@ -152,7 +156,7 @@
         },
         {
             "name": "blas",
-            "description": "The NVIDIA HPC SDK is a comprehensive suite of compilers, libraries and\ntools essential to maximizing developer productivity and the performance\nand portability of HPC applications. The NVIDIA HPC SDK C, C++, and\nFortran compilers support GPU acceleration of HPC modeling and\nsimulation applications with standard C++ and Fortran, OpenACC\ndirectives, and CUDA. GPU-accelerated math libraries maximize\nperformance on common HPC algorithms, and optimized communications\nlibraries enable standards-based multi-GPU and scalable systems\nprogramming. Performance profiling and debugging tools simplify porting\nand optimization of HPC applications."
+            "description": "LAPACK version 3.X is a comprehensive FORTRAN library that does linear\nalgebra operations including matrix inversions, least squared solutions\nto linear sets of equations, eigenvector analysis, singular value\ndecomposition, etc. It is a very comprehensive and reputable package\nthat has found extensive use in the scientific community."
         },
         {
             "name": "python",
@@ -161,12 +165,20 @@
         {
             "name": "gmake",
             "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files."
+        },
+        {
+            "name": "aocl-utils",
+            "description": "The library AOCL-Utils is intended to provide a uniform interface to all\nAOCL libraries to access CPU features, especially for AMD CPUs. The\nlibrary provides the following features: * Core details * Flags\navailable/usable * ISA available/usable * Topology about L1/L2/L3 AOCL-\nUtils is designed to be integrated into other AMD AOCL libraries. Each\nproject has their own mechanism to identify CPU and provide necessary\nfeatures such as \"dynamic dispatch\".The main purpose of this library is\nto provide a centralized mechanism to update/validate and provide\ninformation to the users of this library. LICENSING INFORMATION: By\ndownloading, installing and using this software, you agree to the terms\nand conditions of the AMD AOCL-Utils license agreement. You may obtain a\ncopy of this license agreement from\nhttps://www.amd.com/en/developer/aocl/utils/utils-eula/utils-\neula-4-1.html"
         }
     ],
     "dependent_to": [
         {
+            "name": "aocl-sparse",
+            "description": "AOCL-Sparse is a library that contains basic linear algebra subroutines\nfor sparse matrices and vectors optimized for AMD EPYC family of\nprocessors. It is designed to be used with C and C++. Current\nfunctionality of sparse library supports SPMV function with CSR and\nELLPACK formats. LICENSING INFORMATION: By downloading, installing and\nusing this software, you agree to the terms and conditions of the AMD\nAOCL-Sparse license agreement. You may obtain a copy of this license\nagreement from https://www.amd.com/en/developer/aocl/sparse/eula/sparse-\nlibraries-4-1-eula.html\nhttps://www.amd.com/en/developer/aocl/sparse/eula/sparse-libraries-\neula.html"
+        },
+        {
             "name": "amd-aocl",
-            "description": "AMD Optimizing CPU Libraries (AOCL) - AOCL is a set of numerical\nlibraries tuned specifically for AMD EPYC processor family. They have a\nsimple interface to take advantage of the latest hardware innovations.\nThe tuned implementations of industry standard math libraries enable\nfast development of scientific and high performance computing projects\nLICENSING INFORMATION: By downloading, installing and using this\nsoftware, you agree to the terms and conditions of the AMD AOCL license\nagreement. You may obtain a copy of this license agreement from\nhttps://www.amd.com/en/developer/aocl/aocl-eula.html\nhttps://www.amd.com/en/developer/aocl/aocl-4-0-eula.html"
+            "description": "AMD Optimizing CPU Libraries (AOCL) - AOCL is a set of numerical\nlibraries tuned specifically for AMD EPYC processor family. They have a\nsimple interface to take advantage of the latest hardware innovations.\nThe tuned implementations of industry standard math libraries enable\nfast development of scientific and high performance computing projects\nLICENSING INFORMATION: By downloading, installing and using this\nsoftware, you agree to the terms and conditions of the AMD AOCL license\nagreement. You may obtain a copy of this license agreement from\nhttps://www.amd.com/en/developer/aocl/aocl-eula.html\nhttps://www.amd.com/en/developer/aocl/eula/aocl-4-1-eula.html"
         }
     ]
 }

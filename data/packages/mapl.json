@@ -11,6 +11,38 @@
             "branch": "main"
         },
         {
+            "name": "2.40.3",
+            "sha256": "4b82a314c88a035fc2b91395750aa7950d6bee838786178ed16a3f39a1e45519"
+        },
+        {
+            "name": "2.40.2",
+            "sha256": "7327f6f5bce6e09e7f7b930013fba86ee7cbfe8ed4c7c087fc9ab5acbf6640fd"
+        },
+        {
+            "name": "2.40.1",
+            "sha256": "6f40f946fabea6ba73b0764092e495505d220455b191b4e454736a0a25ee058c"
+        },
+        {
+            "name": "2.40.0",
+            "sha256": "406bc63407ced3cd0cb147f203994fd4d14149fa3b909280ee1e0b2b549e732e"
+        },
+        {
+            "name": "2.39.7",
+            "sha256": "f0b02bf3dc1c77dba636f95020e4b858da03214711d3a50bc233df277698755a"
+        },
+        {
+            "name": "2.39.6",
+            "sha256": "3c1a838b445c5ae5c80d6912033495a9e696257c6113aead4a13755b6a242883"
+        },
+        {
+            "name": "2.39.5",
+            "sha256": "42afac883793cb0f2f40ed2c51bfc9f116803299168cbf055a83b33934d3f6c2"
+        },
+        {
+            "name": "2.39.4",
+            "sha256": "681842fda70f21e2b2743b3bf861ea2674862c322b885e69c6c2c926e0f5d09e"
+        },
+        {
             "name": "2.39.3",
             "sha256": "693310aea86bc3e00aaf3d7230eddee2ab0a994e6a55f857f780230e6b47c7d4"
         },
@@ -148,34 +180,41 @@
         },
         {
             "name": "2.12.3",
-            "sha256": "e849eff291939509e74830f393cb2670c2cc96f6160d8060dbeb1742639c7d41"
+            "sha256": "e849eff291939509e74830f393cb2670c2cc96f6160d8060dbeb1742639c7d41",
+            "deprecated": true
         },
         {
             "name": "2.11.0",
-            "sha256": "76351e026c17e2044b89085db639e05ba0e7439a174d14181e01874f0f93db44"
+            "sha256": "76351e026c17e2044b89085db639e05ba0e7439a174d14181e01874f0f93db44",
+            "deprecated": true
         },
         {
             "name": "2.8.1",
-            "sha256": "a7657d4c52a66c3a6663e436d2c2dd4dbb81addd747e1ace68f59843665eb739"
+            "sha256": "a7657d4c52a66c3a6663e436d2c2dd4dbb81addd747e1ace68f59843665eb739",
+            "deprecated": true
         },
         {
             "name": "2.8.0",
-            "sha256": "6da60a21ab77ecebc80575f25b756c398ef48f635ab0b9c96932a1d4ebd8b4a0"
+            "sha256": "6da60a21ab77ecebc80575f25b756c398ef48f635ab0b9c96932a1d4ebd8b4a0",
+            "deprecated": true
         },
         {
             "name": "2.7.3",
-            "sha256": "e8cdc0816471bb4c42673c2fa66d9d749f5a18944cd31580a2d6fd6d961ba163"
+            "sha256": "e8cdc0816471bb4c42673c2fa66d9d749f5a18944cd31580a2d6fd6d961ba163",
+            "deprecated": true
         },
         {
             "name": "2.7.2",
-            "sha256": "8f123352c665c434a18ff87304a71a61fb3342919adcccfea2a40729992d9f93"
+            "sha256": "8f123352c665c434a18ff87304a71a61fb3342919adcccfea2a40729992d9f93",
+            "deprecated": true
         },
         {
             "name": "2.7.1",
-            "sha256": "8239fdbebd2caa47a232c24927f7a91196704e35c8b7909e1bbbefccf0647ea6"
+            "sha256": "8239fdbebd2caa47a232c24927f7a91196704e35c8b7909e1bbbefccf0647ea6",
+            "deprecated": true
         }
     ],
-    "latest_version": "2.39.3",
+    "latest_version": "2.40.3",
     "build_system": "CMakePackage",
     "conflicts": [],
     "variants": [
@@ -206,12 +245,12 @@
         },
         {
             "name": "pflogger",
-            "default": false,
+            "default": true,
             "description": "Build with pFlogger support"
         },
         {
             "name": "fargparse",
-            "default": false,
+            "default": true,
             "description": "Build with fArgParse support"
         },
         {
@@ -226,13 +265,8 @@
         },
         {
             "name": "extdata2g",
-            "default": false,
-            "description": "Use ExtData2G"
-        },
-        {
-            "name": "pnetcdf",
             "default": true,
-            "description": "Use parallel netCDF"
+            "description": "Use ExtData2G"
         },
         {
             "name": "pfunit",
@@ -282,7 +316,13 @@
     ],
     "resources": [
         {
-            "version": "@2.36.0:",
+            "version": "@2.40.0:",
+            "name": "esma_cmake",
+            "destination": "",
+            "placement": null
+        },
+        {
+            "version": "@2.36.0:2.39",
             "name": "esma_cmake",
             "destination": "",
             "placement": null
@@ -322,7 +362,7 @@
         },
         {
             "name": "mpi",
-            "description": "MVAPICH2-GDR is an optimized version of the MVAPICH2 MPI library for\nGPU-enabled HPC and Deep Learning Applications. MVAPICH2-GDR is not\ninstallable from source and is only available through a binary mirror.\nIf you do not find the binary you're looking for, send us an email at\nmvapich@cse.ohio-state.edu. The binary mirror url is:\nhttp://mvapich.cse.ohio-state.edu/download/mvapich/spack-\nmirror/mvapich2-gdr/"
+            "description": "MVAPICH2-X is the advanced version of the MVAPICH2 MPI library with\nenhanced features (UMR, ODP, DC, Core-Direct, SHARP, XPMEM), OSU INAM\n(InifniBand Network Monitoring and Analysis),PGAS (OpenSHMEM, UPC,\nUPC++, and CAF), and MPI+PGAS programming models with unified\ncommunication runtime. MVAPICH2-X is not installable from source and is\nonly available through a binary mirror. If you do not find the binary\nyou're looking for, send us an email at mvapich@cse.ohio-state.edu. The\nbinary mirror url is: http://mvapich.cse.ohio-\nstate.edu/download/mvapich/spack-mirror/mvapich2x/"
         },
         {
             "name": "hdf5",
@@ -335,10 +375,6 @@
         {
             "name": "netcdf-fortran",
             "description": "NetCDF (network Common Data Form) is a set of software libraries and\nmachine-independent data formats that support the creation, access, and\nsharing of array-oriented scientific data. This is the Fortran\ndistribution."
-        },
-        {
-            "name": "parallel-netcdf",
-            "description": "PnetCDF (Parallel netCDF) is a high-performance parallel I/O library for\naccessing files in format compatibility with Unidata's NetCDF,\nspecifically the formats of CDF-1, 2, and 5."
         },
         {
             "name": "esmf",
