@@ -56,7 +56,7 @@ def main():
     for i, package in enumerate(pkgs):
 
         print("Parsing %s, %s of %s" % (package, i, len(pkgs)))
-        pkg_class = spack.repo.path.get_pkg_class(package)
+        pkg_class = spack.repo.PATH.get_pkg_class(package)
         # this should be refactored later to just use the pkg_class
         pkg = pkg_class(spack.spec.Spec(package))
         descriptions[pkg.name] = pkg.format_doc().strip()
