@@ -110,7 +110,8 @@ def main():
             seen_versions.add(str(version))
             meta = {"name": str(version)}
             for key, h in hashes.items():
-                meta[key] = h
+                if isinstance(key, str) and isinstance(h, str):
+                    meta[key] = h
             versions.append(meta)
 
         # Repology wants a completely different format for versions
@@ -265,7 +266,10 @@ def main():
                 {"name": dep, "description": descriptions.get(dep, "")}
             )
         outfile = os.path.join(here, "data", "packages", "%s.json" % pkg)
-        write_json(meta, outfile)
+        try:
+            write_json(meta, outfile)
+        except Exception as e:
+            print(f"cannot update {pkg}: {str(e)}")
 
 
 if __name__ == "__main__":
