@@ -3,6 +3,10 @@
     "aliases": [],
     "versions": [
         {
+            "name": "develop",
+            "branch": "develop"
+        },
+        {
             "name": "1.7.0",
             "sha256": "73afba9da382fed73ed8692d77fa037bb313280879cd4012a5e5697dccf55175"
         },
@@ -17,7 +21,13 @@
     ],
     "latest_version": "1.7.0",
     "build_system": "CMakePackage",
-    "conflicts": [],
+    "conflicts": [
+        {
+            "name": "+jasper +openjpeg",
+            "spec": "",
+            "description": "g2c: Either Jasper or OpenJPEG should be used, not both"
+        }
+    ],
     "variants": [
         {
             "name": "build_system",
@@ -53,6 +63,29 @@
             "name": "openjpeg",
             "default": false,
             "description": "Use OpenJPEG library"
+        },
+        {
+            "name": "pic",
+            "default": true,
+            "description": "Build with position-independent-code"
+        },
+        {
+            "name": "libs",
+            "default": [
+                "shared",
+                "static"
+            ],
+            "description": "Build shared libs, static libs or both"
+        },
+        {
+            "name": "pthreads",
+            "default": false,
+            "description": "Turn on thread-safety with pthreads"
+        },
+        {
+            "name": "utils",
+            "default": true,
+            "description": "Build and install some utility programs"
         }
     ],
     "homepage": "https://github.com/NOAA-EMC/NCEPLIBS-g2c",
