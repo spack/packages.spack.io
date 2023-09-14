@@ -3,6 +3,10 @@
     "aliases": [],
     "versions": [
         {
+            "name": "5.63-95.0",
+            "sha256": "3d7babd09e64da3d7104c58f1e5104a298d69425e3210952331bc3f1ddf89ca6"
+        },
+        {
             "name": "5.61-93.0",
             "sha256": "70aca3b14983733fe5119b6978cb707156d006d7f737aa60ce6c9addd6c288e4"
         },
@@ -24,7 +28,7 @@
             "url": "ftp://ftp.ebi.ac.uk/pub/software/unix/iprscan/4/RELEASE/4.8/iprscan_v4.8.tar.gz"
         }
     ],
-    "latest_version": "5.61-93.0",
+    "latest_version": "5.63-95.0",
     "build_system": "Package",
     "conflicts": [],
     "variants": [
@@ -32,6 +36,11 @@
             "name": "build_system",
             "default": "generic",
             "description": "Build systems supported by the package"
+        },
+        {
+            "name": "databases",
+            "default": false,
+            "description": "Fetch and include databases in the install. Greatly increases install size."
         }
     ],
     "homepage": "https://www.ebi.ac.uk/interpro/interproscan.html",
@@ -74,17 +83,47 @@
     ],
     "resources": [
         {
+            "version": "@5.63-95.0+databases",
+            "name": "databases",
+            "destination": "",
+            "placement": null
+        },
+        {
+            "version": "@5.61-93.0+databases",
+            "name": "databases",
+            "destination": "",
+            "placement": null
+        },
+        {
+            "version": "0+databases",
+            "name": "databases",
+            "destination": "",
+            "placement": null
+        },
+        {
+            "version": "0+databases",
+            "name": "databases",
+            "destination": "",
+            "placement": null
+        },
+        {
+            "version": "0+databases",
+            "name": "databases",
+            "destination": "",
+            "placement": null
+        },
+        {
             "version": "@:4.8",
             "name": "binaries",
             "destination": "",
             "placement": null
         }
     ],
-    "description": "InterProScan is the software package that allows sequences (protein and\nnucleic) to be scanned against InterPro's signatures. Signatures are\npredictive models, provided by several different databases, that make up\nthe InterPro consortium.\n",
+    "description": "InterProScan is the software package that allows sequences (protein and\nnucleic) to be scanned against InterPro's signatures. Signatures are\npredictive models, provided by several different databases, that make up\nthe InterPro consortium. By default this does not download all the\ndatabases you likely want, you'll either want to build with +databases\nor download the data archive for the version you installed to a separate\nlocation and modify interproscan.properties\n",
     "dependencies": [
         {
             "name": "java",
-            "description": "The free and opensource java implementation"
+            "description": "The IcedTea project provides a harness to build the source code from\nhttps://openjdk.java.net/ using Free Software build tools and adds a\nnumber of key features to the upstream OpenJDK codebase. IcedTea\nrequires an existing IcedTea or OpenJDK install to build."
         },
         {
             "name": "maven",

@@ -455,6 +455,11 @@
             "description": "None"
         },
         {
+            "name": "%aocc@:3.2",
+            "spec": "",
+            "description": "cp2k: Please use AOCC 4.0+ that better support modern Fortran features CP2K requires"
+        },
+        {
             "name": "~openmp",
             "spec": "@8:",
             "description": "cp2k: Building without OpenMP is not supported in CP2K 8+"
@@ -862,7 +867,39 @@
             "level": 1,
             "working_dir": ".",
             "relative_path": "posix_c_source.patch",
-            "version": "%aocc"
+            "version": "@7.1%aocc@4.0:"
+        },
+        {
+            "owner": "builtin.cp2k",
+            "sha256": "d05ff084d3cdc87d868294ab49d13bfacaee9bc2285a1fede76a65c53d66c0aa",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "posix_c_source.patch",
+            "version": "@7.1%gcc@13:"
+        },
+        {
+            "owner": "builtin.cp2k",
+            "sha256": "1bb5a8e80603684a743e7821d24d41b31b60ccbb7d4257df1d2da53a3630e5bf",
+            "level": 1,
+            "working_dir": ".",
+            "url": "https://github.com/cp2k/cp2k/commit/be86bd7f6cd6af7d68f8957dcdb67e7c3d586741.patch?full_index=1",
+            "version": "@2022.1:2022.2"
+        },
+        {
+            "owner": "builtin.cp2k",
+            "sha256": "c24e24cd0f4b8feabb20cb03d9f1daf6bb8581f791f2ba431a8b14902f8b123b",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "backport_avoid_null_2022.x.patch",
+            "version": "@2022.1:2022.2%aocc@:4.0"
+        },
+        {
+            "owner": "builtin.cp2k",
+            "sha256": "ad835a71918f782fb1d2026ecc6468e7519d1f53b03988507f6f0575a241f5e0",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "backport_avoid_null_9.1.patch",
+            "version": "@9.1%aocc@:4.0"
         }
     ],
     "resources": [],
@@ -902,15 +939,15 @@
         },
         {
             "name": "blas",
-            "description": "The Cray Scientific Libraries package, LibSci, is a collection of\nnumerical routines optimized for best performance on Cray systems."
+            "description": "Arm Compiler combines the optimized tools and libraries from Arm with a\nmodern LLVM-based compiler framework."
         },
         {
             "name": "lapack",
-            "description": "The Cray Scientific Libraries package, LibSci, is a collection of\nnumerical routines optimized for best performance on Cray systems."
+            "description": "Arm Compiler combines the optimized tools and libraries from Arm with a\nmodern LLVM-based compiler framework."
         },
         {
             "name": "fftw-api",
-            "description": "FFTW (Fujitsu Optimized version) is a comprehensive collection of fast C\nroutines for computing the Discrete Fourier Transform (DFT) and various\nspecial cases thereof. It is an open-source implementation of the Fast\nFourier transform algorithm. It can compute transforms of real and\ncomplex-values arrays of arbitrary size and dimension. Fujitsu Optimized\nFFTW is the optimized FFTW implementation targeted for A64FX CPUs. For\nsingle precision build, please use precision value as float. Example :\nspack install fujitsufftw precision=float"
+            "description": "Arm Compiler combines the optimized tools and libraries from Arm with a\nmodern LLVM-based compiler framework."
         },
         {
             "name": "fftw",
@@ -942,7 +979,7 @@
         },
         {
             "name": "pkgconfig",
-            "description": "pkg-config is a helper tool used when compiling applications and\nlibraries"
+            "description": "pkgconf is a program which helps to configure compiler and linker flags\nfor development frameworks. It is similar to pkg-config from\nfreedesktop.org, providing additional functionality while also\nmaintaining compatibility."
         },
         {
             "name": "libint",
@@ -958,7 +995,7 @@
         },
         {
             "name": "mpi",
-            "description": "MSMPI is a Windows port of MPICH provided by the Windows team"
+            "description": "IBM MPI implementation from Spectrum MPI."
         },
         {
             "name": "scalapack",
