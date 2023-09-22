@@ -1,74 +1,54 @@
 {
-    "name": "libtirpc",
+    "name": "libc",
     "aliases": [
         {
+            "name": "iconv",
+            "alias_for": "{libc+iconv}"
+        },
+        {
             "name": "rpc",
-            "alias_for": "{libtirpc}"
+            "alias_for": "{libc+rpc}"
         }
     ],
     "versions": [
         {
-            "name": "1.2.6",
-            "sha256": "4278e9a5181d5af9cd7885322fdecebc444f9a3da87c526e7d47f7a12a37d1cc"
-        },
-        {
-            "name": "1.1.4",
-            "sha256": "2ca529f02292e10c158562295a1ffd95d2ce8af97820e3534fe1b0e3aec7561d"
+            "name": "1.0"
         }
     ],
-    "latest_version": "1.2.6",
-    "build_system": "AutotoolsPackage",
-    "conflicts": [
-        {
-            "name": "platform=windows",
-            "spec": "build_system=autotools",
-            "description": "None"
-        },
-        {
-            "name": "platform=darwin",
-            "spec": "",
-            "description": "libtirpc: Does not build on macOS"
-        }
-    ],
+    "latest_version": "1.0",
+    "build_system": "BundlePackage",
+    "conflicts": [],
     "variants": [
         {
             "name": "build_system",
-            "default": "autotools",
+            "default": "bundle",
             "description": "Build systems supported by the package"
+        },
+        {
+            "name": "iconv",
+            "default": false,
+            "description": "Provides interfaces for Localization Functions"
+        },
+        {
+            "name": "rpc",
+            "default": false,
+            "description": "Provides interfaces for RPC"
         }
     ],
-    "homepage": "https://sourceforge.net/projects/libtirpc/",
+    "homepage": "https://en.wikipedia.org/wiki/C_standard_library",
     "maintainers": [],
-    "patches": [
-        {
-            "owner": "builtin.libtirpc",
-            "sha256": "d087e442ac8ad98b99212ed6207b635e071b8e8027057b0bc78e1eae7c36ff1b",
-            "level": 1,
-            "working_dir": ".",
-            "relative_path": "libtirpc-remove-pipe-flag-for-nvhpc.patch",
-            "version": "%nvhpc"
-        }
-    ],
+    "patches": [],
     "resources": [],
-    "description": "Libtirpc is a port of Suns Transport-Independent RPC library to Linux.\n",
-    "dependencies": [
-        {
-            "name": "gnuconfig",
-            "description": "The GNU config.guess and config.sub scripts versioned by timestamp.\nThis package can be used as a build dependency for autotools packages\nthat ship a tarball with outdated config.guess and config.sub files."
-        },
-        {
-            "name": "krb5",
-            "description": "Network authentication protocol"
-        }
-    ],
+    "description": "Dummy package to provide interfaces available in libc.\n",
+    "dependencies": [],
     "dependent_to": [
-        {
-            "name": "hdf",
-            "description": "HDF4 (also known as HDF) is a library and multi-object file format for\nstoring and managing data between machines."
-        },
         {
             "name": "rsl",
             "description": "This library is an object oriented programming environment for writing\nsoftware applicable to all RADAR data related to the TRMM GV effort."
+        },
+        {
+            "name": "hdf",
+            "description": "HDF4 (also known as HDF) is a library and multi-object file format for\nstoring and managing data between machines."
         }
     ]
 }
