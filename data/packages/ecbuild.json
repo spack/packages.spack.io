@@ -3,6 +3,10 @@
     "aliases": [],
     "versions": [
         {
+            "name": "3.7.2",
+            "sha256": "7a2d192cef1e53dc5431a688b2e316251b017d25808190faed485903594a3fb9"
+        },
+        {
             "name": "3.6.5",
             "sha256": "98bff3d3c269f973f4bfbe29b4de834cd1d43f15b1c8d1941ee2bfe15e3d4f7f"
         },
@@ -11,7 +15,7 @@
             "sha256": "796ccceeb7af01938c2f74eab0724b228e9bf1978e32484aa3e227510f69ac59"
         }
     ],
-    "latest_version": "3.6.5",
+    "latest_version": "3.7.2",
     "build_system": "CMakePackage",
     "conflicts": [],
     "variants": [
@@ -34,10 +38,16 @@
             "name": "generator",
             "default": "make",
             "description": "the build system generator to use"
+        },
+        {
+            "name": "fismahigh",
+            "default": false,
+            "description": "Apply patching for FISMA-high compliance"
         }
     ],
     "homepage": "https://github.com/ecmwf/ecbuild",
     "maintainers": [
+        "climbfuji",
         "skosukhin"
     ],
     "patches": [],
@@ -63,12 +73,12 @@
     ],
     "dependent_to": [
         {
-            "name": "crtm",
-            "description": "The Community Radiative Transfer Model (CRTM) package. The CRTM is\ncomposed of four important modules for gaseous transmittance, surface\nemission and reflection, cloud and aerosol absorption and scattering,\nand a solver for a radiative transfer."
+            "name": "metkit",
+            "description": "Toolkit for manipulating and describing meteorological objects,\nimplementing the MARS language and associated processing and semantics."
         },
         {
-            "name": "fdb",
-            "description": "FDB (Fields DataBase) is a domain-specific object store developed at\nECMWF for storing, indexing and retrieving GRIB data."
+            "name": "eccodes",
+            "description": "ecCodes is a package developed by ECMWF for processing meteorological\ndata in GRIB (1/2), BUFR (3/4) and GTS header formats."
         },
         {
             "name": "eckit",
@@ -83,12 +93,28 @@
             "description": "MAPL is a foundation layer of the GEOS architecture, whose original\npurpose is to supplement the Earth System Modeling Framework (ESMF).\nMAPL fills in missing capabilities of ESMF, provides higher-level\ninterfaces for common boiler-plate logic, and enforces various\ncomponentization conventions across ESMF gridded components within GEOS."
         },
         {
-            "name": "metkit",
-            "description": "Toolkit for manipulating and describing meteorological objects,\nimplementing the MARS language and associated processing and semantics."
+            "name": "fdb",
+            "description": "FDB (Fields DataBase) is a domain-specific object store developed at\nECMWF for storing, indexing and retrieving GRIB data."
         },
         {
-            "name": "eccodes",
-            "description": "ecCodes is a package developed by ECMWF for processing meteorological\ndata in GRIB (1/2), BUFR (3/4) and GTS header formats."
+            "name": "ectrans",
+            "description": "Ectrans is the global spherical Harmonics transforms library, extracted\nfrom the IFS. It is using a hybrid of MPI and OpenMP parallelisation\nstrategies. The package contains both single- and double precision\nFortran libraries (trans_sp, trans_dp), as well as a C interface to the\ndouble-precision version (transi_dp)."
+        },
+        {
+            "name": "fiat",
+            "description": "FIAT (Fortran IFS and Arpege Toolkit) is a collection of selected\nFortran utility libraries, extracted from the IFS/Arpege model."
+        },
+        {
+            "name": "fckit",
+            "description": "A Fortran toolkit for interoperating Fortran with C/C++."
+        },
+        {
+            "name": "ecmwf-atlas",
+            "description": "A library for numerical weather prediction and climate modelling."
+        },
+        {
+            "name": "crtm",
+            "description": "The Community Radiative Transfer Model (CRTM) package. The CRTM is\ncomposed of four important modules for gaseous transmittance, surface\nemission and reflection, cloud and aerosol absorption and scattering,\nand a solver for a radiative transfer."
         }
     ]
 }

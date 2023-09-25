@@ -7,6 +7,10 @@
             "branch": "master"
         },
         {
+            "name": "2.1",
+            "sha256": "ab5076086eced78e4c6cf7736e7765ca1337dec95a881c9270a42b3251aeea19"
+        },
+        {
             "name": "2.0",
             "sha256": "67bd296f059cdfab303c62f674af3e1e858213d6945bd79cb8ede4a035c0c2d6"
         },
@@ -19,7 +23,7 @@
             "sha256": "63d1af2db38b04efa817614574f381e7536e12db06a2c75375d1795adda3d1d8"
         }
     ],
-    "latest_version": "2.0",
+    "latest_version": "2.1",
     "build_system": "Package",
     "conflicts": [
         {
@@ -33,6 +37,26 @@
             "name": "build_system",
             "default": "generic",
             "description": "Build systems supported by the package"
+        },
+        {
+            "name": "starpu",
+            "default": false,
+            "description": "Enable StarPU support"
+        },
+        {
+            "name": "cuda",
+            "default": false,
+            "description": "Enable CUDA support"
+        },
+        {
+            "name": "netcdf",
+            "default": false,
+            "description": "Enable NetCDF support"
+        },
+        {
+            "name": "pnetcdf",
+            "default": false,
+            "description": "Enable PNetCDF support"
         }
     ],
     "homepage": "https://gitlab.com/eztrace",
@@ -45,7 +69,7 @@
     "dependencies": [
         {
             "name": "mpi",
-            "description": "Mvapich is a High-Performance MPI Library for clusters with diverse\nnetworks (InfiniBand, Omni-Path, Ethernet/iWARP, and RoCE) and computing\nplatforms (x86 (Intel and AMD), ARM and OpenPOWER)"
+            "description": "There can only be one (MPI process)!"
         },
         {
             "name": "opari2",
@@ -74,6 +98,22 @@
         {
             "name": "otf2",
             "description": "The Open Trace Format 2 is a highly scalable, memory efficient event\ntrace data format plus support library."
+        },
+        {
+            "name": "starpu",
+            "description": "StarPU runtime system StarPU is a runtime support for scheduling\napplications written as task graphs on heterogeneous multi-core\narchitectures. Tasks may define several implementations, for different\narchitectures (e.g one implementation for CPUs, and one implementation\nfor CUDA). StarPU takes care of scheduling and executing those tasks as\nefficiently as possible over the entire machine. It also provides a\nhigh-level data management library which enforces memory coherency over\nthe differents processing units of the machine, and over a cluster when\nusing distributed computing. Various data structures are supported\nmainline (vectors, dense matrices, CSR/BCSR/COO sparse matrices, ...),\nbut application-specific data structures can also be supported."
+        },
+        {
+            "name": "cuda",
+            "description": "CUDA is a parallel computing platform and programming model invented by\nNVIDIA. It enables dramatic increases in computing performance by\nharnessing the power of the graphics processing unit (GPU). Note: This\npackage does not currently install the drivers necessary to run CUDA.\nThese will need to be installed manually. See:\nhttps://docs.nvidia.com/cuda/ for details."
+        },
+        {
+            "name": "netcdf-c",
+            "description": "NetCDF (network Common Data Form) is a set of software libraries and\nmachine-independent data formats that support the creation, access, and\nsharing of array-oriented scientific data. This is the C distribution."
+        },
+        {
+            "name": "parallel-netcdf",
+            "description": "PnetCDF (Parallel netCDF) is a high-performance parallel I/O library for\naccessing files in format compatibility with Unidata's NetCDF,\nspecifically the formats of CDF-1, 2, and 5."
         }
     ],
     "dependent_to": []
