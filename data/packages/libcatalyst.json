@@ -3,15 +3,15 @@
     "aliases": [],
     "versions": [
         {
-            "name": "2.0.0-rc3",
-            "sha256": "8862bd0a4d0be2176b4272f9affda1ea4e5092087acbb99a2fe2621c33834e05"
+            "name": "master",
+            "branch": "master"
         },
         {
-            "name": "0.20210512",
-            "commit": "8456ccd6015142b5a7705f79471361d4f5644fa7"
+            "name": "2.0.0-rc4",
+            "sha256": "cb491e4ccd344156cc2494f65b9f38885598c16d12e1016c36e2ee0bc3640863"
         }
     ],
-    "latest_version": "2.0.0-rc3",
+    "latest_version": "2.0.0-rc4",
     "build_system": "CMakePackage",
     "conflicts": [],
     "variants": [
@@ -39,10 +39,16 @@
             "name": "mpi",
             "default": false,
             "description": "Enable MPI support"
+        },
+        {
+            "name": "conduit",
+            "default": false,
+            "description": "Use external Conduit for Catalyst"
         }
     ],
     "homepage": "https://gitlab.kitware.com/paraview/catalyst",
     "maintainers": [
+        "ayenpure",
         "mathstuf"
     ],
     "patches": [],
@@ -63,17 +69,21 @@
         },
         {
             "name": "mpi",
-            "description": "Intel MPI Library is a multifabric message-passing library that\nimplements the open-source MPICH specification. Use the library to\ncreate, maintain, and test advanced, complex applications that perform\nbetter on high-performance computing (HPC) clusters based on Intel\nprocessors. LICENSE INFORMATION: By downloading and using this software,\nyou agree to the terms and conditions of the software license agreements\nat https://intel.ly/393CijO."
+            "description": "There can only be one (MPI process)!"
+        },
+        {
+            "name": "conduit",
+            "description": "Conduit is an open source project from Lawrence Livermore National\nLaboratory that provides an intuitive model for describing hierarchical\nscientific data in C++, C, Fortran, and Python. It is used for data\ncoupling between packages in-core, serialization, and I/O tasks."
         }
     ],
     "dependent_to": [
         {
-            "name": "adios2",
-            "description": "The Adaptable Input Output System version 2, developed in the Exascale\nComputing Program"
-        },
-        {
             "name": "ecp-data-vis-sdk",
             "description": "ECP Data & Vis SDK"
+        },
+        {
+            "name": "adios2",
+            "description": "The Adaptable Input Output System version 2, developed in the Exascale\nComputing Program"
         },
         {
             "name": "paraview",
