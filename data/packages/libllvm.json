@@ -32,6 +32,14 @@
             "branch": "amd-stg-open"
         },
         {
+            "name": "5.6.1",
+            "sha256": "045e43c0c4a3f4f2f1db9fb603a4f1ea3d56e128147e19ba17909eb57d7f08e5"
+        },
+        {
+            "name": "5.6.0",
+            "sha256": "e922bd492b54d99e56ed88c81e2009ed6472059a180b10cc56ce1f9bd2d7b6ed"
+        },
+        {
             "name": "5.5.1",
             "sha256": "7d7181f20f89cb0715191aa32914186c67a34258c13457055570d47e15296553"
         },
@@ -132,7 +140,7 @@
             "sha256": "4878fa85473b24d88edcc89938441edc85d2e8a785e567b7bd7ce274ecc2fd9c"
         }
     ],
-    "latest_version": "5.5.1",
+    "latest_version": "5.6.1",
     "build_system": "CMakePackage",
     "conflicts": [
         {
@@ -241,10 +249,30 @@
             "level": 1,
             "working_dir": ".",
             "relative_path": "patch-llvm-5.5.0.patch",
-            "version": "@5.5"
+            "version": "@5.5:"
+        },
+        {
+            "owner": "builtin.llvm-amdgpu",
+            "sha256": "d35aec93938e078bb6b85d8bbbb8215836f4582b8c8aa5dc5510c3ad16e4bd52",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "001-Add-i1-mul-patterns.patch",
+            "version": "@5.6:"
         }
     ],
     "resources": [
+        {
+            "version": "@5.6.1+rocm-device-libs",
+            "name": "rocm-device-libs",
+            "destination": "",
+            "placement": "rocm-device-libs"
+        },
+        {
+            "version": "@5.6.0+rocm-device-libs",
+            "name": "rocm-device-libs",
+            "destination": "",
+            "placement": "rocm-device-libs"
+        },
         {
             "version": "@5.5.1+rocm-device-libs",
             "name": "rocm-device-libs",
@@ -434,7 +462,7 @@
         },
         {
             "name": "pkgconfig",
-            "description": "pkg-config is a helper tool used when compiling applications and\nlibraries"
+            "description": "pkgconf is a program which helps to configure compiler and linker flags\nfor development frameworks. It is similar to pkg-config from\nfreedesktop.org, providing additional functionality while also\nmaintaining compatibility."
         },
         {
             "name": "perl-data-dumper",

@@ -263,6 +263,11 @@
             "description": "None"
         },
         {
+            "name": "%pgi",
+            "spec": "+sycl",
+            "description": "blaspp: blaspp+sycl must be compiled with %oneapi"
+        },
+        {
             "name": "%pgi@:16",
             "spec": "+cuda ^cuda@:9.1.185~allow-unsupported-compilers arch=None-None-ppc64le:",
             "description": "None"
@@ -395,7 +400,97 @@
         {
             "name": "+rocm",
             "spec": "+cuda",
-            "description": "blaspp: BLAS++ can only support one GPU backend at a time"
+            "description": "blaspp: BLAS++ supports only one GPU backend at a time"
+        },
+        {
+            "name": "+rocm",
+            "spec": "+sycl",
+            "description": "blaspp: BLAS++ supports only one GPU backend at a time"
+        },
+        {
+            "name": "+cuda",
+            "spec": "+sycl",
+            "description": "blaspp: BLAS++ supports only one GPU backend at a time"
+        },
+        {
+            "name": "+sycl",
+            "spec": "@:2023.6.0",
+            "description": "blaspp: SYCL support requires BLAS++ version 2023.08.25"
+        },
+        {
+            "name": "%aocc",
+            "spec": "+sycl",
+            "description": "blaspp: blaspp+sycl must be compiled with %oneapi"
+        },
+        {
+            "name": "%apple-clang",
+            "spec": "+sycl",
+            "description": "blaspp: blaspp+sycl must be compiled with %oneapi"
+        },
+        {
+            "name": "%arm",
+            "spec": "+sycl",
+            "description": "blaspp: blaspp+sycl must be compiled with %oneapi"
+        },
+        {
+            "name": "%cce",
+            "spec": "+sycl",
+            "description": "blaspp: blaspp+sycl must be compiled with %oneapi"
+        },
+        {
+            "name": "%clang",
+            "spec": "+sycl",
+            "description": "blaspp: blaspp+sycl must be compiled with %oneapi"
+        },
+        {
+            "name": "%dpcpp",
+            "spec": "+sycl",
+            "description": "blaspp: blaspp+sycl must be compiled with %oneapi"
+        },
+        {
+            "name": "%fj",
+            "spec": "+sycl",
+            "description": "blaspp: blaspp+sycl must be compiled with %oneapi"
+        },
+        {
+            "name": "%gcc",
+            "spec": "+sycl",
+            "description": "blaspp: blaspp+sycl must be compiled with %oneapi"
+        },
+        {
+            "name": "%intel",
+            "spec": "+sycl",
+            "description": "blaspp: blaspp+sycl must be compiled with %oneapi"
+        },
+        {
+            "name": "%msvc",
+            "spec": "+sycl",
+            "description": "blaspp: blaspp+sycl must be compiled with %oneapi"
+        },
+        {
+            "name": "%nag",
+            "spec": "+sycl",
+            "description": "blaspp: blaspp+sycl must be compiled with %oneapi"
+        },
+        {
+            "name": "%nvhpc",
+            "spec": "+sycl",
+            "description": "blaspp: blaspp+sycl must be compiled with %oneapi"
+        },
+        {
+            "name": "%rocmcc",
+            "spec": "+sycl",
+            "description": "blaspp: blaspp+sycl must be compiled with %oneapi"
+        },
+        {
+            "name": "%xl",
+            "spec": "+sycl",
+            "description": "blaspp: blaspp+sycl must be compiled with %oneapi"
+        },
+        {
+            "name": "%xl_r",
+            "spec": "+sycl",
+            "description": "blaspp: blaspp+sycl must be compiled with %oneapi"
         }
     ],
     "variants": [
@@ -448,6 +543,11 @@
             "name": "shared",
             "default": true,
             "description": "Build shared libraries"
+        },
+        {
+            "name": "sycl",
+            "default": false,
+            "description": "Build support for the SYCL backend"
         }
     ],
     "homepage": "https://github.com/icl-utk-edu/blaspp",
@@ -491,7 +591,7 @@
         },
         {
             "name": "blas",
-            "description": "LAPACK version 3.X is a comprehensive FORTRAN library that does linear\nalgebra operations including matrix inversions, least squared solutions\nto linear sets of equations, eigenvector analysis, singular value\ndecomposition, etc. It is a very comprehensive and reputable package\nthat has found extensive use in the scientific community."
+            "description": "Lightweight but flexible shim designed to rectify the incompatibilities\nbetween the Accelerate/vecLib BLAS and LAPACK libraries shipped with\nmacOS and FORTRAN code compiled with modern compilers such as GNU\nFortran."
         },
         {
             "name": "llvm-openmp",
@@ -500,6 +600,10 @@
         {
             "name": "rocblas",
             "description": "Radeon Open Compute BLAS library"
+        },
+        {
+            "name": "intel-oneapi-mkl",
+            "description": "Intel oneAPI Math Kernel Library (Intel oneMKL; formerly Intel Math\nKernel Library or Intel MKL), is a library of optimized math routines\nfor science, engineering, and financial applications. Core math\nfunctions include BLAS, LAPACK, ScaLAPACK, sparse solvers, fast Fourier\ntransforms, and vector math. LICENSE INFORMATION: By downloading and\nusing this software, you agree to the terms and conditions of the\nsoftware license agreements at https://intel.ly/393CijO."
         }
     ],
     "dependent_to": [
@@ -508,16 +612,16 @@
             "description": "LAPACK++: C++ API for the LAPACK Linear Algebra Package. Developed by\nthe Innovative Computing Laboratory at the University of Tennessee,\nKnoxville."
         },
         {
-            "name": "slate",
-            "description": "The Software for Linear Algebra Targeting Exascale (SLATE) project is to\nprovide fundamental dense linear algebra capabilities to the US\nDepartment of Energy and to the high-performance computing (HPC)\ncommunity at large. To this end, SLATE will provide basic dense matrix\noperations (e.g., matrix multiplication, rank-k update, triangular\nsolve), linear systems solvers, least square solvers, singular value and\neigenvalue solvers."
-        },
-        {
             "name": "dla-future",
             "description": "DLA-Future library: Distributed Linear Algebra with Future"
         },
         {
             "name": "warpx",
             "description": "WarpX is an advanced electromagnetic Particle-In-Cell code. It supports\nmany features including Perfectly-Matched Layers (PML) and mesh\nrefinement. In addition, WarpX is a highly-parallel and highly-optimized\ncode and features hybrid OpenMP/MPI parallelization, advanced\nvectorization techniques and load balancing capabilities. For WarpX'\nPython bindings and PICMI input support, see the 'py-warpx' package."
+        },
+        {
+            "name": "slate",
+            "description": "The Software for Linear Algebra Targeting Exascale (SLATE) project is to\nprovide fundamental dense linear algebra capabilities to the US\nDepartment of Energy and to the high-performance computing (HPC)\ncommunity at large. To this end, SLATE will provide basic dense matrix\noperations (e.g., matrix multiplication, rank-k update, triangular\nsolve), linear systems solvers, least square solvers, singular value and\neigenvalue solvers."
         }
     ]
 }

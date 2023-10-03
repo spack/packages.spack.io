@@ -3,6 +3,14 @@
     "aliases": [],
     "versions": [
         {
+            "name": "5.6.1",
+            "sha256": "41a5159ee1ad5fc411fe6220f37bd754e26d3883c24c0f2378f50ef628bc1b8f"
+        },
+        {
+            "name": "5.6.0",
+            "sha256": "78b6ab10fce71d10a9d762b2eaab3390eb13b05c764f47a3b0a303ec3d37acf8"
+        },
+        {
             "name": "5.5.1",
             "sha256": "ada30d5e52df5da0d3f4e212a25efb492dbedc129628f4db4ef4ed77667da228"
         },
@@ -39,7 +47,7 @@
             "sha256": "257ccd1cf2bc1d8064e72e78d276ef7446b2cb7e2dec05ff8331bb44eff2b7cb"
         }
     ],
-    "latest_version": "5.5.1",
+    "latest_version": "5.6.1",
     "build_system": "CMakePackage",
     "conflicts": [],
     "variants": [
@@ -74,7 +82,16 @@
         "renjithravindrankannath",
         "srekolam"
     ],
-    "patches": [],
+    "patches": [
+        {
+            "owner": "builtin.rocwmma",
+            "sha256": "3535a7153a28a6da8c87bd88b3a1d3e2b8d885517dbcd81e832e4b2b438ca858",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "0001-add-rocm-smi-lib-path-for-building-tests.patch",
+            "version": "@5.6:"
+        }
+    ],
     "resources": [],
     "description": "AMD's C++ library for accelerating mixed precision matrix multiplication\nand accumulation (MFMA) operations leveraging specialized GPU matrix\ncores. rocWMMA provides a C++ API to facilitate breaking down matrix\nmultiply-accumulate problems into fragments and using them in block-wise\noperations that are distributed in parallel across GPU wavefronts. The\nAPI is a header library of GPU device code meaning that matrix core\nacceleration may be compiled directly into your kernel device code. This\ncan benefit from compiler optimization in the generation of kernel\nassembly, and does not incur additional overhead costs of linking to\nexternal runtime libraries or having to launch separate kernels.\n",
     "dependencies": [
@@ -113,6 +130,10 @@
         {
             "name": "rocm-openmp-extras",
             "description": "OpenMP support for ROCm LLVM."
+        },
+        {
+            "name": "rocm-smi-lib",
+            "description": "It is a C library for Linux that provides a user space interface for\napplications to monitor and control GPU applications."
         }
     ],
     "dependent_to": []
