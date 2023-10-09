@@ -1,15 +1,7 @@
 # Spack Packages
 
-> What packages can I install with spack?
-
-While spack does have a [page for a list of packages](https://spack.readthedocs.io/en/latest/package_list.html) 
-it's a bit limited in metadata and hard to navigate. How about we instead create a richer search interface,
-and one that updates itself nightly? This is the spack packages repository!
-
-![img/portal.png](img/portal.png)
-
-
-⭐️ [See the Packages!](https://packages.spack.io) ⭐️
+This repository provides a rich search interface to currently available Spack packages. The metadata
+is updated nightly. ⭐️ [See the Packages!](https://packages.spack.io) ⭐️
 
 ## Usage
 
