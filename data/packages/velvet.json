@@ -21,17 +21,54 @@
             "name": "build_system",
             "default": "makefile",
             "description": "Build systems supported by the package"
+        },
+        {
+            "name": "categories",
+            "default": "2",
+            "description": "Number of channels which can be handled independently"
+        },
+        {
+            "name": "maxkmerlength",
+            "default": "31",
+            "description": "Longest kmer size you can use in an analysis"
+        },
+        {
+            "name": "bigassembly",
+            "default": false,
+            "description": "Allow assemblies with more than 2^31 reads"
+        },
+        {
+            "name": "vbigassembly",
+            "default": false,
+            "description": "Allow unsigned 64-bit array index values (also enables bigassembly)"
+        },
+        {
+            "name": "longsequences",
+            "default": false,
+            "description": "Allow assembling contigs longer than 32kb"
+        },
+        {
+            "name": "openmp",
+            "default": false,
+            "description": "Enable multithreading"
+        },
+        {
+            "name": "single_cov_cat",
+            "default": false,
+            "description": "Per-library coverage"
         }
     ],
     "homepage": "https://www.ebi.ac.uk/~zerbino/velvet/",
-    "maintainers": [],
+    "maintainers": [
+        "snehring"
+    ],
     "patches": [],
     "resources": [],
     "description": "Velvet is a de novo genomic assembler specially designed for short read\nsequencing technologies.\n",
     "dependencies": [
         {
             "name": "zlib-api",
-            "description": "A free, general-purpose, legally unencumbered lossless data-compression\nlibrary."
+            "description": "zlib replacement with optimizations for next generation systems."
         }
     ],
     "dependent_to": [
@@ -40,12 +77,12 @@
             "description": "The Biopieces are a collection of bioinformatics tools that can be\npieced together in a very easy and flexible manner to perform both\nsimple and complex tasks."
         },
         {
-            "name": "velvetoptimiser",
-            "description": "Automatically optimise three of Velvet's assembly parameters."
-        },
-        {
             "name": "phyluce",
             "description": "phyluce (phy-loo-chee) is a software package that was initially\ndeveloped for analyzing data collected from ultraconserved elements in\norganismal genomes"
+        },
+        {
+            "name": "velvetoptimiser",
+            "description": "Automatically optimise three of Velvet's assembly parameters."
         }
     ]
 }
