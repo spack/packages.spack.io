@@ -3,6 +3,14 @@
     "aliases": [],
     "versions": [
         {
+            "name": "2.12.0",
+            "sha256": "268b16952b2dd44da2a1e40d2065c960bc2442dd09b63ace8b65d3408f596301"
+        },
+        {
+            "name": "2.11.0",
+            "sha256": "55974e650d9b78989ee55adb81cffd8c6e39ce5d3cf0a3b3198c522bf36f6e81"
+        },
+        {
             "name": "2.10.0",
             "sha256": "bd478284f48d2cb775fc41a2855a9d9f5ea16c861abda0f8dc94e02ea7189cb8"
         },
@@ -27,9 +35,15 @@
             "sha256": "5efccd7eff5774b77f8894e68a6b803b535a0d12f32ab49edf13b954e2848f2e"
         }
     ],
-    "latest_version": "2.10.0",
+    "latest_version": "2.12.0",
     "build_system": "CMakePackage",
-    "conflicts": [],
+    "conflicts": [
+        {
+            "name": "~volumes",
+            "spec": "@:2.10",
+            "description": "None"
+        }
+    ],
     "variants": [
         {
             "name": "build_system",
@@ -70,6 +84,11 @@
             "name": "mpi",
             "default": true,
             "description": "Enable MPI support"
+        },
+        {
+            "name": "volumes",
+            "default": true,
+            "description": "Enable volumetric rendering with Open VKL"
         }
     ],
     "homepage": "https://www.ospray.org/",
@@ -112,11 +131,11 @@
         },
         {
             "name": "tbb",
-            "description": "Intel oneAPI Threading Building Blocks (oneTBB) is a flexible\nperformance library that simplifies the work of adding parallelism to\ncomplex applications across accelerated architectures, even if you are\nnot a threading expert. LICENSE INFORMATION: By downloading and using\nthis software, you agree to the terms and conditions of the software\nlicense agreements at https://intel.ly/393CijO."
+            "description": "Widely used C++ template library for task parallelism. Intel Threading\nBuilding Blocks (Intel TBB) lets you easily write parallel C++ programs\nthat take full advantage of multicore performance, that are portable and\ncomposable, and that have future-proof scalability."
         },
         {
             "name": "mpi",
-            "description": "The NVIDIA HPC SDK is a comprehensive suite of compilers, libraries and\ntools essential to maximizing developer productivity and the performance\nand portability of HPC applications. The NVIDIA HPC SDK C, C++, and\nFortran compilers support GPU acceleration of HPC modeling and\nsimulation applications with standard C++ and Fortran, OpenACC\ndirectives, and CUDA. GPU-accelerated math libraries maximize\nperformance on common HPC algorithms, and optimized communications\nlibraries enable standards-based multi-GPU and scalable systems\nprogramming. Performance profiling and debugging tools simplify porting\nand optimization of HPC applications."
+            "description": "Intel MPI. This package has been replaced by intel-oneapi-mpi. LICENSE\nINFORMATION: By downloading and using this software, you agree to the\nterms and conditions of the software license agreements at\nhttps://intel.ly/393CijO."
         },
         {
             "name": "snappy",
