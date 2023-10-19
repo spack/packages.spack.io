@@ -653,11 +653,11 @@
         },
         {
             "name": "blas",
-            "description": "XBLAS is a reference implementation for extra precision BLAS. XBLAS is a\nreference implementation for the dense and banded BLAS routines, along\nwith extended and mixed precision version. Extended precision is only\nused internally; input and output arguments remain the same as in the\nexisting BLAS. Extra precisions is implemented as double-double (i.e.,\n128-bit total, 106-bit significand). Mixed precision permits some\ninput/output arguments of different types (mixing real and complex) or\nprecisions (mixing single and double). This implementation is proof of\nconcept, and no attempt was made to optimize performance; performance\nshould be as good as straightforward but careful code written by hand."
+            "description": "AMD Optimized BLIS. BLIS is a portable software framework for\ninstantiating high-performance BLAS-like dense linear algebra libraries.\nThe framework was designed to isolate essential kernels of computation\nthat, when optimized, immediately enable optimized implementations of\nmost of its commonly used and computationally intensive operations.\nLICENSING INFORMATION: By downloading, installing and using this\nsoftware, you agree to the terms and conditions of the AMD AOCL-BLIS\nlicense agreement. You may obtain a copy of this license agreement from\nhttps://www.amd.com/en/developer/aocl/dense/eula/blas-4-1-eula.html\nhttps://www.amd.com/en/developer/aocl/dense/eula/blas-eula.html"
         },
         {
             "name": "lapack",
-            "description": "libFLAME (AMD Optimized version) is a portable library for dense matrix\ncomputations, providing much of the functionality present in Linear\nAlgebra Package (LAPACK). It includes a compatibility layer, FLAPACK,\nwhich includes complete LAPACK implementation. The library provides\nscientific and numerical computing communities with a modern, high-\nperformance dense linear algebra library that is extensible, easy to\nuse, and available under an open source license. libFLAME is a C-only\nimplementation and does not depend on any external FORTRAN libraries\nincluding LAPACK. There is an optional backward compatibility layer,\nlapack2flame that maps LAPACK routine invocations to their corresponding\nnative C implementations in libFLAME. This allows legacy applications to\nstart taking advantage of libFLAME with virtually no changes to their\nsource code. In combination with BLIS library which includes\noptimizations for the AMD EPYC processor family, libFLAME enables\nrunning high performing LAPACK functionalities on AMD platform.\nLICENSING INFORMATION: By downloading, installing and using this\nsoftware, you agree to the terms and conditions of the AMD AOCL-libFLAME\nlicense agreement. You may obtain a copy of this license agreement from\nhttps://www.amd.com/en/developer/aocl/dense/eula-\nlibflame/libflame-4-1-eula.html\nhttps://www.amd.com/en/developer/aocl/dense/eula-libflame/libflame-\neula.html"
+            "description": "LAPACK version 3.X is a comprehensive FORTRAN library that does linear\nalgebra operations including matrix inversions, least squared solutions\nto linear sets of equations, eigenvector analysis, singular value\ndecomposition, etc. It is a very comprehensive and reputable package\nthat has found extensive use in the scientific community."
         },
         {
             "name": "hipblas",
@@ -674,24 +674,12 @@
     ],
     "dependent_to": [
         {
-            "name": "fleur",
-            "description": "FLEUR (Full-potential Linearised augmented plane wave in EURope) is a\ncode family for calculating groundstate as well as excited-state\nproperties of solids within the context of density functional theory\n(DFT)."
+            "name": "libceed",
+            "description": "The CEED API Library: Code for Efficient Extensible Discretizations."
         },
         {
-            "name": "hiop",
-            "description": "HiOp is an optimization solver for solving certain mathematical\noptimization problems expressed as nonlinear programming problems. HiOp\nis a lightweight HPC solver that leverages application\"s existing data\nparallelism to parallelize the optimization iterations by using\nspecialized linear algebra kernels."
-        },
-        {
-            "name": "sirius",
-            "description": "Domain specific library for electronic structure calculations"
-        },
-        {
-            "name": "tasmanian",
-            "description": "The Toolkit for Adaptive Stochastic Modeling and Non-Intrusive\nApproximatioN is a robust library for high dimensional integration and\ninterpolation as well as parameter calibration."
-        },
-        {
-            "name": "amgx",
-            "description": "AmgX provides a simple path to accelerated core solver technology on\nNVIDIA GPUs. AmgX provides up to 10x acceleration to the computationally\nintense linear solver portion of simulations, and is especially well\nsuited for implicit unstructured methods. It is a high performance,\nstate-of-the-art library and includes a flexible solver composition\nsystem that allows a user to easily construct complex nested solvers and\npreconditioners."
+            "name": "strumpack",
+            "description": "STRUMPACK -- STRUctured Matrix PACKage - provides linear solvers for\nsparse matrices and for dense rank-structured matrices, i.e., matrices\nthat exhibit some kind of low-rank property. It provides a distributed\nmemory fully algebraic sparse solver and preconditioner. The\npreconditioner is mostly aimed at large sparse linear systems which\nresult from the discretization of a partial differential equation, but\nis not limited to any particular type of problem. STRUMPACK also\nprovides preconditioned GMRES and BiCGStab iterative solvers."
         },
         {
             "name": "py-torch",
@@ -706,36 +694,48 @@
             "description": "Xsdk is a suite of Department of Energy (DOE) packages for numerical\nsimulation. This is a Spack bundle package that installs the xSDK\npackages"
         },
         {
-            "name": "nlcglib",
-            "description": "Nonlinear CG methods for wave-function optimization in DFT."
-        },
-        {
             "name": "ceed",
             "description": "Ceed is a collection of benchmarks, miniapps, software libraries and\nAPIs for efficient high-order finite element and spectral element\ndiscretizations for exascale applications developed in the Department of\nEnergy (DOE) and partially supported by the Exascale Computing Project\n(ECP). This is a Spack bundle package that installs the CEED software\ncomponents."
         },
         {
-            "name": "sundials",
-            "description": "SUNDIALS (SUite of Nonlinear and DIfferential/ALgebraic equation\nSolvers)"
+            "name": "tasmanian",
+            "description": "The Toolkit for Adaptive Stochastic Modeling and Non-Intrusive\nApproximatioN is a robust library for high dimensional integration and\ninterpolation as well as parameter calibration."
         },
         {
-            "name": "libceed",
-            "description": "The CEED API Library: Code for Efficient Extensible Discretizations."
+            "name": "hiop",
+            "description": "HiOp is an optimization solver for solving certain mathematical\noptimization problems expressed as nonlinear programming problems. HiOp\nis a lightweight HPC solver that leverages application\"s existing data\nparallelism to parallelize the optimization iterations by using\nspecialized linear algebra kernels."
+        },
+        {
+            "name": "amgx",
+            "description": "AmgX provides a simple path to accelerated core solver technology on\nNVIDIA GPUs. AmgX provides up to 10x acceleration to the computationally\nintense linear solver portion of simulations, and is especially well\nsuited for implicit unstructured methods. It is a high performance,\nstate-of-the-art library and includes a flexible solver composition\nsystem that allows a user to easily construct complex nested solvers and\npreconditioners."
+        },
+        {
+            "name": "fleur",
+            "description": "FLEUR (Full-potential Linearised augmented plane wave in EURope) is a\ncode family for calculating groundstate as well as excited-state\nproperties of solids within the context of density functional theory\n(DFT)."
+        },
+        {
+            "name": "sirius",
+            "description": "Domain specific library for electronic structure calculations"
         },
         {
             "name": "hypre",
             "description": "Hypre is a library of high performance preconditioners that features\nparallel multigrid methods for both structured and unstructured grid\nproblems."
         },
         {
-            "name": "dftbplus",
-            "description": "DFTB+ is an implementation of the Density Functional based Tight Binding\n(DFTB) method, containing many extensions to the original method."
-        },
-        {
             "name": "exago",
             "description": "ExaGO is a package for solving large-scale power grid optimization\nproblems on parallel and distributed architectures, particularly\ntargeted for exascale machines."
         },
         {
-            "name": "strumpack",
-            "description": "STRUMPACK -- STRUctured Matrix PACKage - provides linear solvers for\nsparse matrices and for dense rank-structured matrices, i.e., matrices\nthat exhibit some kind of low-rank property. It provides a distributed\nmemory fully algebraic sparse solver and preconditioner. The\npreconditioner is mostly aimed at large sparse linear systems which\nresult from the discretization of a partial differential equation, but\nis not limited to any particular type of problem. STRUMPACK also\nprovides preconditioned GMRES and BiCGStab iterative solvers."
+            "name": "nlcglib",
+            "description": "Nonlinear CG methods for wave-function optimization in DFT."
+        },
+        {
+            "name": "dftbplus",
+            "description": "DFTB+ is an implementation of the Density Functional based Tight Binding\n(DFTB) method, containing many extensions to the original method."
+        },
+        {
+            "name": "sundials",
+            "description": "SUNDIALS (SUite of Nonlinear and DIfferential/ALgebraic equation\nSolvers)"
         }
     ]
 }
