@@ -3,6 +3,14 @@
     "aliases": [],
     "versions": [
         {
+            "name": "2.14.0",
+            "sha256": "ce357fd0728f0d1b0831d1653f475591662ec5bca736a94ff789e6b1944df19f"
+        },
+        {
+            "name": "2.13.1",
+            "sha256": "89c07aebd4f41fbe0d08cc88aef00305542134f2f16d3b62918dc3c1182f33e2"
+        },
+        {
             "name": "2.13.0",
             "sha256": "e58c939079588623e6fa1d054aec2f90f95018266e0a970fd353a5244f5173dc"
         },
@@ -356,7 +364,7 @@
             "sha256": "db8b3b8f4134b7c9c1b4165492ad5d5bb78889fcd99ffdffc325e97da3e8c677"
         }
     ],
-    "latest_version": "2.13.0",
+    "latest_version": "2.14.0",
     "build_system": "Package",
     "conflicts": [
         {
@@ -750,9 +758,19 @@
             "description": "None"
         },
         {
+            "name": "+opencl",
+            "spec": "arch=windows-None-None",
+            "description": "None"
+        },
+        {
             "name": "+computecpp",
             "spec": "~opencl",
             "description": "None"
+        },
+        {
+            "name": "+cuda",
+            "spec": "+rocm",
+            "description": "py-tensorflow: CUDA / ROCm are mututally exclusive. At most 1 GPU platform can be configured"
         },
         {
             "name": "+cuda",
@@ -823,6 +841,11 @@
             "name": "+nccl",
             "spec": "arch=cray-None-None",
             "description": "py-tensorflow: Currently NCCL is only supported on Linux platform"
+        },
+        {
+            "name": "+mpi",
+            "spec": "arch=windows-None-None",
+            "description": "None"
         },
         {
             "name": "+mpi",
@@ -1157,7 +1180,7 @@
         }
     ],
     "resources": [],
-    "description": "An Open Source Machine Learning Framework for Everyone. TensorFlow is an\nend-to-end open source platform for machine learning. It has a\ncomprehensive, flexible ecosystem of tools, libraries, and community\nresources that lets researchers push the state-of-the-art in ML and\ndevelopers easily build and deploy ML-powered applications. TensorFlow\nwas originally developed by researchers and engineers working on the\nGoogle Brain team within Google's Machine Intelligence Research\norganization to conduct machine learning and deep neural networks\nresearch. The system is general enough to be applicable in a wide\nvariety of other domains, as well.\n",
+    "description": "TensorFlow is an open source machine learning framework for everyone.\n",
     "dependencies": [
         {
             "name": "llvm-amdgpu",
@@ -1228,6 +1251,10 @@
             "description": "The repository contains code that taken from the LLVM project, to make\nit easier to install clang's python bindings."
         },
         {
+            "name": "py-ml-dtypes",
+            "description": "A stand-alone implementation of several NumPy dtype extensions used in\nmachine learning libraries."
+        },
+        {
             "name": "py-numpy",
             "description": "NumPy is the fundamental package for scientific computing with Python.\nIt contains among other things: a powerful N-dimensional array object,\nsophisticated (broadcasting) functions, tools for integrating C/C++ and\nFortran code, and useful linear algebra, Fourier transform, and random\nnumber capabilities"
         },
@@ -1262,6 +1289,66 @@
         {
             "name": "py-wrapt",
             "description": "Module for decorators, wrappers and monkey patching."
+        },
+        {
+            "name": "py-grpcio",
+            "description": "HTTP/2-based RPC framework."
+        },
+        {
+            "name": "py-tensorboard",
+            "description": "TensorBoard is a suite of web applications for inspecting and\nunderstanding your TensorFlow runs and graphs."
+        },
+        {
+            "name": "py-requests",
+            "description": "Python HTTP for Humans."
+        },
+        {
+            "name": "coreutils",
+            "description": "The GNU Core Utilities are the basic file, shell and text manipulation\nutilities of the GNU operating system. These are the core utilities\nwhich are expected to exist on every operating system."
+        },
+        {
+            "name": "py-astor",
+            "description": "astor is designed to allow easy manipulation of Python source via the\nAST."
+        },
+        {
+            "name": "py-backports-weakref",
+            "description": "Backports of new features in Python's weakref module"
+        },
+        {
+            "name": "py-jax",
+            "description": "JAX is Autograd and XLA, brought together for high-performance machine\nlearning research. With its updated version of Autograd, JAX can\nautomatically differentiate native Python and NumPy functions. It can\ndifferentiate through loops, branches, recursion, and closures, and it\ncan take derivatives of derivatives of derivatives. It supports reverse-\nmode differentiation (a.k.a. backpropagation) via grad as well as\nforward-mode differentiation, and the two can be composed arbitrarily to\nany order."
+        },
+        {
+            "name": "py-keras-applications",
+            "description": "Sample Deep Learning application in Keras. Keras depends on this package\nto run properly."
+        },
+        {
+            "name": "py-keras-preprocessing",
+            "description": "Utilities for working with image data, text data, and sequence data."
+        },
+        {
+            "name": "py-scipy",
+            "description": "SciPy (pronounced \"Sigh Pie\") is a Scientific Library for Python. It\nprovides many user-friendly and efficient numerical routines such as\nroutines for numerical integration and optimization."
+        },
+        {
+            "name": "mkl",
+            "description": "This is an earlier version of Intel parallel software development tools\nand has now been replaced by the Intel oneAPI Toolkits. LICENSE\nINFORMATION: By downloading and using this software, you agree to the\nterms and conditions of the software license agreements at\nhttps://intel.ly/393CijO."
+        },
+        {
+            "name": "curl",
+            "description": "cURL is an open source command line tool and library for transferring\ndata with URL syntax"
+        },
+        {
+            "name": "cudnn",
+            "description": "NVIDIA cuDNN is a GPU-accelerated library of primitives for deep neural\nnetworks"
+        },
+        {
+            "name": "nccl",
+            "description": "Optimized primitives for collective multi-GPU communication."
+        },
+        {
+            "name": "mpi",
+            "description": "There can only be one (MPI process)!"
         },
         {
             "name": "rocrand",
@@ -1306,80 +1393,36 @@
         {
             "name": "rocminfo",
             "description": "Radeon Open Compute (ROCm) Runtime rocminfo tool"
-        },
-        {
-            "name": "py-grpcio",
-            "description": "HTTP/2-based RPC framework."
-        },
-        {
-            "name": "py-tensorboard",
-            "description": "TensorBoard is a suite of web applications for inspecting and\nunderstanding your TensorFlow runs and graphs."
-        },
-        {
-            "name": "py-requests",
-            "description": "Python HTTP for Humans."
-        },
-        {
-            "name": "coreutils",
-            "description": "The GNU Core Utilities are the basic file, shell and text manipulation\nutilities of the GNU operating system. These are the core utilities\nwhich are expected to exist on every operating system."
-        },
-        {
-            "name": "py-astor",
-            "description": "astor is designed to allow easy manipulation of Python source via the\nAST."
-        },
-        {
-            "name": "py-backports-weakref",
-            "description": "Backports of new features in Python's weakref module"
-        },
-        {
-            "name": "py-jax",
-            "description": "JAX is Autograd and XLA, brought together for high-performance machine\nlearning research. With its updated version of Autograd, JAX can\nautomatically differentiate native Python and NumPy functions. It can\ndifferentiate through loops, branches, recursion, and closures, and it\ncan take derivatives of derivatives of derivatives. It supports reverse-\nmode differentiation (a.k.a. backpropagation) via grad as well as\nforward-mode differentiation, and the two can be composed arbitrarily to\nany order."
-        },
-        {
-            "name": "py-keras-applications",
-            "description": "Sample Deep Learning application in Keras. Keras depends on this package\nto run properly."
-        },
-        {
-            "name": "py-keras-preprocessing",
-            "description": "Utilities for working with image data, text data, and sequence data."
-        },
-        {
-            "name": "py-scipy",
-            "description": "SciPy (pronounced \"Sigh Pie\") is a Scientific Library for Python. It\nprovides many user-friendly and efficient numerical routines such as\nroutines for numerical integration and optimization."
-        },
-        {
-            "name": "mkl",
-            "description": "Intel oneAPI Math Kernel Library (Intel oneMKL; formerly Intel Math\nKernel Library or Intel MKL), is a library of optimized math routines\nfor science, engineering, and financial applications. Core math\nfunctions include BLAS, LAPACK, ScaLAPACK, sparse solvers, fast Fourier\ntransforms, and vector math. LICENSE INFORMATION: By downloading and\nusing this software, you agree to the terms and conditions of the\nsoftware license agreements at https://intel.ly/393CijO."
-        },
-        {
-            "name": "curl",
-            "description": "cURL is an open source command line tool and library for transferring\ndata with URL syntax"
-        },
-        {
-            "name": "cudnn",
-            "description": "NVIDIA cuDNN is a GPU-accelerated library of primitives for deep neural\nnetworks"
-        },
-        {
-            "name": "nccl",
-            "description": "Optimized primitives for collective multi-GPU communication."
-        },
-        {
-            "name": "mpi",
-            "description": "HPE MPI is HPE's implementation of the Message Passing Interface (MPI)\nstandard. Note: HPE MPI is proprietry software. Spack will search your\ncurrent directory for the download file. Alternatively, add this file to\na mirror so that Spack can find it. For instructions on how to set up a\nmirror, see https://spack.readthedocs.io/en/latest/mirrors.html"
         }
     ],
     "dependent_to": [
         {
-            "name": "py-exarl",
-            "description": "A scalable software framework for reinforcement learning environments\nand agents/policies used for the Design and Control applications"
+            "name": "cosmoflow-benchmark",
+            "description": "This is a an implementation of the CosmoFlow 3D convolutional neural\nnetwork for benchmarking. It is written in TensorFlow with the Keras API\nand uses Horovod for distributed training."
         },
         {
             "name": "py-tfdlpack",
             "description": "Tensorflow plugin for DLPack."
         },
         {
-            "name": "py-tensorflow-estimator",
-            "description": "TensorFlow Estimator is a high-level TensorFlow API that greatly\nsimplifies machine learning programming."
+            "name": "py-deepsig-biocomp",
+            "description": "DeepSig - Predictor of signal peptides in proteins based on deep\nlearning"
+        },
+        {
+            "name": "py-exarl",
+            "description": "A scalable software framework for reinforcement learning environments\nand agents/policies used for the Design and Control applications"
+        },
+        {
+            "name": "py-tensorflow-probability",
+            "description": "TensorFlow Probability (TFP) is a Python library built on TensorFlow\nthat makes it easy to combine probabilistic models and deep learning on\nmodern hardware (TPU, GPU). It's for data scientists, statisticians, ML\nresearchers, and practitioners who want to encode domain knowledge to\nunderstand data and make predictions."
+        },
+        {
+            "name": "py-imbalanced-learn",
+            "description": "imbalanced-learn is a python package offering a number of re-sampling\ntechniques commonly used in datasets showing strong between-class\nimbalance. It is compatible with scikit-learn and is part of scikit-\nlearn-contrib projects."
+        },
+        {
+            "name": "py-horovod",
+            "description": "Horovod is a distributed deep learning training framework for\nTensorFlow, Keras, PyTorch, and Apache MXNet."
         },
         {
             "name": "py-medaka",
@@ -1398,28 +1441,12 @@
             "description": "AlphaFold is an AI system developed by DeepMind that predicts a\nprotein's 3D structure from its amino acid sequence. It regularly\nachieves accuracy competitive with experiment."
         },
         {
+            "name": "py-tensorflow-estimator",
+            "description": "TensorFlow Estimator is a high-level TensorFlow API that greatly\nsimplifies machine learning programming."
+        },
+        {
             "name": "py-dgl",
             "description": "Deep Graph Library (DGL). DGL is an easy-to-use, high performance and\nscalable Python package for deep learning on graphs. DGL is framework\nagnostic, meaning if a deep graph model is a component of an end-to-end\napplication, the rest of the logics can be implemented in any major\nframeworks, such as PyTorch, Apache MXNet or TensorFlow."
-        },
-        {
-            "name": "py-imbalanced-learn",
-            "description": "imbalanced-learn is a python package offering a number of re-sampling\ntechniques commonly used in datasets showing strong between-class\nimbalance. It is compatible with scikit-learn and is part of scikit-\nlearn-contrib projects."
-        },
-        {
-            "name": "cosmoflow-benchmark",
-            "description": "This is a an implementation of the CosmoFlow 3D convolutional neural\nnetwork for benchmarking. It is written in TensorFlow with the Keras API\nand uses Horovod for distributed training."
-        },
-        {
-            "name": "py-tensorflow-probability",
-            "description": "TensorFlow Probability (TFP) is a Python library built on TensorFlow\nthat makes it easy to combine probabilistic models and deep learning on\nmodern hardware (TPU, GPU). It's for data scientists, statisticians, ML\nresearchers, and practitioners who want to encode domain knowledge to\nunderstand data and make predictions."
-        },
-        {
-            "name": "py-deepsig-biocomp",
-            "description": "DeepSig - Predictor of signal peptides in proteins based on deep\nlearning"
-        },
-        {
-            "name": "py-horovod",
-            "description": "Horovod is a distributed deep learning training framework for\nTensorFlow, Keras, PyTorch, and Apache MXNet."
         }
     ]
 }
