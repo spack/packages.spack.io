@@ -3,57 +3,21 @@
     "aliases": [],
     "versions": [
         {
+            "name": "5.2",
+            "sha256": "ba3de4eb4f2d664b3c2a54bef2eb66d1a498ac423179e97a5795d010161b1805"
+        },
+        {
             "name": "5.1",
             "sha256": "ae3eb8c2ef31af210e138336fd6edcd0e3a26ea9bae89fd6c0c6ea33e3a1517e"
         }
     ],
-    "latest_version": "5.1",
+    "latest_version": "5.2",
     "build_system": "Package",
     "conflicts": [
         {
-            "name": "target=aarch64:",
-            "spec": "",
-            "description": "ldak: libspot is available linux x86_64 only"
-        },
-        {
-            "name": "target=arm:",
-            "spec": "",
-            "description": "ldak: libspot is available linux x86_64 only"
-        },
-        {
-            "name": "target=ppc:",
-            "spec": "",
-            "description": "ldak: libspot is available linux x86_64 only"
-        },
-        {
-            "name": "target=ppc64:",
-            "spec": "",
-            "description": "ldak: libspot is available linux x86_64 only"
-        },
-        {
-            "name": "target=ppc64le:",
-            "spec": "",
-            "description": "ldak: libspot is available linux x86_64 only"
-        },
-        {
-            "name": "target=ppcle:",
-            "spec": "",
-            "description": "ldak: libspot is available linux x86_64 only"
-        },
-        {
-            "name": "target=sparc:",
-            "spec": "",
-            "description": "ldak: libspot is available linux x86_64 only"
-        },
-        {
-            "name": "target=sparc64:",
-            "spec": "",
-            "description": "ldak: libspot is available linux x86_64 only"
-        },
-        {
-            "name": "target=x86:",
-            "spec": "",
-            "description": "ldak: libspot is available linux x86_64 only"
+            "name": "platform=cray",
+            "spec": "~glpk",
+            "description": "ldak: bundled qsopt only for linux or mac"
         }
     ],
     "variants": [
@@ -63,32 +27,46 @@
             "description": "Build systems supported by the package"
         },
         {
-            "name": "mkl",
+            "name": "glpk",
             "default": false,
-            "description": "Use MKL"
+            "description": "Use glpk instead of vendored qsopt"
         }
     ],
     "homepage": "https://dougspeed.com/ldak/",
-    "maintainers": [],
+    "maintainers": [
+        "snehring"
+    ],
     "patches": [],
     "resources": [],
     "description": "LDAK is a software package for analyzing GWAS data\n",
     "dependencies": [
         {
             "name": "zlib-api",
-            "description": "A free, general-purpose, legally unencumbered lossless data-compression\nlibrary."
+            "description": "zlib replacement with optimizations for next generation systems."
         },
         {
             "name": "blas",
-            "description": "Automatically Tuned Linear Algebra Software, generic shared ATLAS is an\napproach for the automatic generation and optimization of numerical\nsoftware. Currently ATLAS supplies optimized versions for the complete\nset of linear algebra kernels known as the Basic Linear Algebra\nSubroutines (BLAS), and a subset of the linear algebra routines in the\nLAPACK library."
+            "description": "Intel oneAPI Math Kernel Library (Intel oneMKL; formerly Intel Math\nKernel Library or Intel MKL), is a library of optimized math routines\nfor science, engineering, and financial applications. Core math\nfunctions include BLAS, LAPACK, ScaLAPACK, sparse solvers, fast Fourier\ntransforms, and vector math. LICENSE INFORMATION: By downloading and\nusing this software, you agree to the terms and conditions of the\nsoftware license agreements at https://intel.ly/393CijO."
         },
         {
             "name": "lapack",
-            "description": "Automatically Tuned Linear Algebra Software, generic shared ATLAS is an\napproach for the automatic generation and optimization of numerical\nsoftware. Currently ATLAS supplies optimized versions for the complete\nset of linear algebra kernels known as the Basic Linear Algebra\nSubroutines (BLAS), and a subset of the linear algebra routines in the\nLAPACK library."
+            "description": "Intel oneAPI Math Kernel Library (Intel oneMKL; formerly Intel Math\nKernel Library or Intel MKL), is a library of optimized math routines\nfor science, engineering, and financial applications. Core math\nfunctions include BLAS, LAPACK, ScaLAPACK, sparse solvers, fast Fourier\ntransforms, and vector math. LICENSE INFORMATION: By downloading and\nusing this software, you agree to the terms and conditions of the\nsoftware license agreements at https://intel.ly/393CijO."
         },
         {
-            "name": "mkl",
+            "name": "openblas",
+            "description": "OpenBLAS: An optimized BLAS library"
+        },
+        {
+            "name": "intel-mkl",
             "description": "Intel Math Kernel Library. This package has been replaced by intel-\noneapi-mkl. LICENSE INFORMATION: By downloading and using this software,\nyou agree to the terms and conditions of the software license agreements\nat https://intel.ly/393CijO."
+        },
+        {
+            "name": "intel-oneapi-mkl",
+            "description": "Intel oneAPI Math Kernel Library (Intel oneMKL; formerly Intel Math\nKernel Library or Intel MKL), is a library of optimized math routines\nfor science, engineering, and financial applications. Core math\nfunctions include BLAS, LAPACK, ScaLAPACK, sparse solvers, fast Fourier\ntransforms, and vector math. LICENSE INFORMATION: By downloading and\nusing this software, you agree to the terms and conditions of the\nsoftware license agreements at https://intel.ly/393CijO."
+        },
+        {
+            "name": "glpk",
+            "description": "The GLPK (GNU Linear Programming Kit) package is intended for solving\nlarge-scale linear programming (LP), mixed integer programming (MIP),\nand other related problems. It is a set of routines written in ANSI C\nand organized in the form of a callable library."
         }
     ],
     "dependent_to": []
