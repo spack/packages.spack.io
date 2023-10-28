@@ -570,16 +570,6 @@
             "description": "gromacs: Enabling CP2K requires static build"
         },
         {
-            "name": "~lapack",
-            "spec": "+cp2k",
-            "description": "gromacs: GROMACS and CP2K should use the same lapack, please disable bundled lapack"
-        },
-        {
-            "name": "~blas",
-            "spec": "+cp2k",
-            "description": "gromacs: GROMACS and CP2K should use the same blas, please disable bundled blas"
-        },
-        {
             "name": "%intel",
             "spec": "@2022:",
             "description": "gromacs: GROMACS %intel support was removed in version 2022"
@@ -692,16 +682,6 @@
             "description": "Use the hwloc portable hardware locality library"
         },
         {
-            "name": "lapack",
-            "default": false,
-            "description": "Enables an external LAPACK library"
-        },
-        {
-            "name": "blas",
-            "default": false,
-            "description": "Enables an external BLAS library"
-        },
-        {
             "name": "cycle_subcounters",
             "default": false,
             "description": "Enables cycle subcounters"
@@ -775,7 +755,7 @@
         },
         {
             "name": "mpi",
-            "description": "This is an earlier version of Intel parallel software development tools\nand has now been replaced by the Intel oneAPI Toolkits. LICENSE\nINFORMATION: By downloading and using this software, you agree to the\nterms and conditions of the software license agreements at\nhttps://intel.ly/393CijO."
+            "description": "MSMPI is a Windows port of MPICH provided by the Windows team"
         },
         {
             "name": "plumed",
@@ -783,7 +763,7 @@
         },
         {
             "name": "fftw-api",
-            "description": "Intel oneAPI Math Kernel Library (Intel oneMKL; formerly Intel Math\nKernel Library or Intel MKL), is a library of optimized math routines\nfor science, engineering, and financial applications. Core math\nfunctions include BLAS, LAPACK, ScaLAPACK, sparse solvers, fast Fourier\ntransforms, and vector math. LICENSE INFORMATION: By downloading and\nusing this software, you agree to the terms and conditions of the\nsoftware license agreements at https://intel.ly/393CijO."
+            "description": "Arm Compiler combines the optimized tools and libraries from Arm with a\nmodern LLVM-based compiler framework."
         },
         {
             "name": "sycl",
@@ -791,11 +771,11 @@
         },
         {
             "name": "lapack",
-            "description": "Intel oneAPI Math Kernel Library (Intel oneMKL; formerly Intel Math\nKernel Library or Intel MKL), is a library of optimized math routines\nfor science, engineering, and financial applications. Core math\nfunctions include BLAS, LAPACK, ScaLAPACK, sparse solvers, fast Fourier\ntransforms, and vector math. LICENSE INFORMATION: By downloading and\nusing this software, you agree to the terms and conditions of the\nsoftware license agreements at https://intel.ly/393CijO."
+            "description": "libFLAME (AMD Optimized version) is a portable library for dense matrix\ncomputations, providing much of the functionality present in Linear\nAlgebra Package (LAPACK). It includes a compatibility layer, FLAPACK,\nwhich includes complete LAPACK implementation. The library provides\nscientific and numerical computing communities with a modern, high-\nperformance dense linear algebra library that is extensible, easy to\nuse, and available under an open source license. libFLAME is a C-only\nimplementation and does not depend on any external FORTRAN libraries\nincluding LAPACK. There is an optional backward compatibility layer,\nlapack2flame that maps LAPACK routine invocations to their corresponding\nnative C implementations in libFLAME. This allows legacy applications to\nstart taking advantage of libFLAME with virtually no changes to their\nsource code. In combination with BLIS library which includes\noptimizations for the AMD EPYC processor family, libFLAME enables\nrunning high performing LAPACK functionalities on AMD platform.\nLICENSING INFORMATION: By downloading, installing and using this\nsoftware, you agree to the terms and conditions of the AMD AOCL-libFLAME\nlicense agreement. You may obtain a copy of this license agreement from\nhttps://www.amd.com/en/developer/aocl/dense/eula-\nlibflame/libflame-4-1-eula.html\nhttps://www.amd.com/en/developer/aocl/dense/eula-libflame/libflame-\neula.html"
         },
         {
             "name": "blas",
-            "description": "Intel oneAPI Math Kernel Library (Intel oneMKL; formerly Intel Math\nKernel Library or Intel MKL), is a library of optimized math routines\nfor science, engineering, and financial applications. Core math\nfunctions include BLAS, LAPACK, ScaLAPACK, sparse solvers, fast Fourier\ntransforms, and vector math. LICENSE INFORMATION: By downloading and\nusing this software, you agree to the terms and conditions of the\nsoftware license agreements at https://intel.ly/393CijO."
+            "description": "The NVIDIA HPC SDK is a comprehensive suite of compilers, libraries and\ntools essential to maximizing developer productivity and the performance\nand portability of HPC applications. The NVIDIA HPC SDK C, C++, and\nFortran compilers support GPU acceleration of HPC modeling and\nsimulation applications with standard C++ and Fortran, OpenACC\ndirectives, and CUDA. GPU-accelerated math libraries maximize\nperformance on common HPC algorithms, and optimized communications\nlibraries enable standards-based multi-GPU and scalable systems\nprogramming. Performance profiling and debugging tools simplify porting\nand optimization of HPC applications."
         },
         {
             "name": "gcc",
@@ -816,12 +796,12 @@
     ],
     "dependent_to": [
         {
-            "name": "votca-csg",
-            "description": "Versatile Object-oriented Toolkit for Coarse-graining Applications\n(VOTCA) is a package intended to reduce the amount of routine work when\ndoing systematic coarse-graining of various systems. The core is written\nin C++. This package contains the VOTCA coarse-graining engine."
-        },
-        {
             "name": "py-gmxapi",
             "description": "Python bindings and ensemble workflow management for GROMACS. The\nGROMACS C++ API is affected by its package variants. You can specify a\nparticular GROMACS API by making the dependency variant explicit. E.g.\n``spack install gmxapi ^gromacs+mpi~double``"
+        },
+        {
+            "name": "votca-csg",
+            "description": "Versatile Object-oriented Toolkit for Coarse-graining Applications\n(VOTCA) is a package intended to reduce the amount of routine work when\ndoing systematic coarse-graining of various systems. The core is written\nin C++. This package contains the VOTCA coarse-graining engine."
         },
         {
             "name": "votca",
