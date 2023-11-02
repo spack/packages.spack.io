@@ -7,6 +7,10 @@
             "branch": "master"
         },
         {
+            "name": "2.4.0",
+            "sha256": "02310fb4f9688df02f7181667e61c3adb7e38baf79611d80919d47452ff7881d"
+        },
+        {
             "name": "2.3.0",
             "sha256": "63db8c9a8822211d23e29f7adf5aa88bb462c91d7a18c296c3ef3a06be8d6171"
         },
@@ -21,21 +25,9 @@
         {
             "name": "2.0.0",
             "sha256": "b575fafe19a635265904ca302d48e778341b1567c055ea7f2939c8c6718f7212"
-        },
-        {
-            "name": "1.0",
-            "sha256": "00e66cdff664ba90eeb26b4824f2a7341ba791b1d7220ece8180aba7623d36d5"
-        },
-        {
-            "name": "0.2",
-            "sha256": "6e606aa9de91912925ec49f463de4369459e509e0e21a97ca72dfa07651056e5"
-        },
-        {
-            "name": "0.1",
-            "sha256": "bcdc940c4cb254b178446d16c969b85ea6b5c69fdf4b6332bb3c8fbce00bccdf"
         }
     ],
-    "latest_version": "2.3.0",
+    "latest_version": "2.4.0",
     "build_system": "CMakePackage",
     "conflicts": [
         {
@@ -374,16 +366,6 @@
             "description": "None"
         },
         {
-            "name": "~fftw",
-            "spec": "@:2.1.0~cuda~mkl",
-            "description": "None"
-        },
-        {
-            "name": "+fftw",
-            "spec": "@:1.0+mkl",
-            "description": "None"
-        },
-        {
             "name": "^openmpi~cuda",
             "spec": "+cuda",
             "description": "None"
@@ -396,21 +378,6 @@
         {
             "name": "+rocm",
             "spec": "@:2.1.0",
-            "description": "None"
-        },
-        {
-            "name": "+python",
-            "spec": "@:1.0",
-            "description": "None"
-        },
-        {
-            "name": "+fortran",
-            "spec": "@:1.0",
-            "description": "None"
-        },
-        {
-            "name": "+magma",
-            "spec": "@:1.0",
             "description": "None"
         }
     ],
@@ -494,11 +461,11 @@
     "patches": [
         {
             "owner": "builtin.heffte",
-            "sha256": "6df7cf5e8c7fef7792436d3358eacf64510a9882ac017ed19f2c1826592d97ad",
+            "sha256": "6b8b8e81631b73d34fe1f5314f8837fe5bb1fc5e27817f11f5590cf91bfc12bb",
             "level": 1,
             "working_dir": ".",
-            "relative_path": "threads10.patch",
-            "version": "@1.0"
+            "relative_path": "cmake-magma-v230.patch",
+            "version": "@2.3.0"
         },
         {
             "owner": "builtin.heffte",
@@ -507,14 +474,6 @@
             "working_dir": ".",
             "relative_path": "fortran200.patch",
             "version": "@2.0.0"
-        },
-        {
-            "owner": "builtin.heffte",
-            "sha256": "6b8b8e81631b73d34fe1f5314f8837fe5bb1fc5e27817f11f5590cf91bfc12bb",
-            "level": 1,
-            "working_dir": ".",
-            "relative_path": "cmake-magma-v230.patch",
-            "version": "@2.3.0"
         }
     ],
     "resources": [],
@@ -566,7 +525,7 @@
         },
         {
             "name": "mpi",
-            "description": "Intel MPI Library is a multifabric message-passing library that\nimplements the open-source MPICH specification. Use the library to\ncreate, maintain, and test advanced, complex applications that perform\nbetter on high-performance computing (HPC) clusters based on Intel\nprocessors. LICENSE INFORMATION: By downloading and using this software,\nyou agree to the terms and conditions of the software license agreements\nat https://intel.ly/393CijO."
+            "description": "Cray/HPE packaging of MVAPICH2 for HPE Apollo systems"
         },
         {
             "name": "fftw",
@@ -603,16 +562,16 @@
     ],
     "dependent_to": [
         {
-            "name": "cabana",
-            "description": "The Exascale Co-Design Center for Particle Applications Toolkit"
+            "name": "beatnik",
+            "description": "Fluid interface model solver based on Pandya and Shkoller's Z-Model\nformulation."
         },
         {
             "name": "xsdk",
             "description": "Xsdk is a suite of Department of Energy (DOE) packages for numerical\nsimulation. This is a Spack bundle package that installs the xSDK\npackages"
         },
         {
-            "name": "beatnik",
-            "description": "Fluid interface model solver based on Pandya and Shkoller's Z-Model\nformulation."
+            "name": "cabana",
+            "description": "The Exascale Co-Design Center for Particle Applications Toolkit"
         }
     ]
 }
