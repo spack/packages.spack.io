@@ -11,6 +11,26 @@
             "branch": "main"
         },
         {
+            "name": "2.42.0",
+            "sha256": "9b6c3434919c14ef79004db5f76cb3dd8ef375584227101c230a372bb0470fdd"
+        },
+        {
+            "name": "2.41.2",
+            "sha256": "73e1f0961f1b70e8159c0a2ce3499eb5158f3ca6d081f4c7826af7854ebfb44d"
+        },
+        {
+            "name": "2.41.1",
+            "sha256": "2b384bd4fbaac1bff4ef009922c436c4ab54832172a5cd4d312ea44e32c1ae7c"
+        },
+        {
+            "name": "2.41.0",
+            "sha256": "1142f9395e161174e3ec1654fba8bda1d0bd93edc7438b1927d8f5d7b42a0a86"
+        },
+        {
+            "name": "2.40.4",
+            "sha256": "fb843b118d6e56cd4fc4b114c4d6f91956d5c8b3d9389ada56da1dfdbc58904f"
+        },
+        {
             "name": "2.40.3",
             "sha256": "4b82a314c88a035fc2b91395750aa7950d6bee838786178ed16a3f39a1e45519"
         },
@@ -207,9 +227,20 @@
             "sha256": "8239fdbebd2caa47a232c24927f7a91196704e35c8b7909e1bbbefccf0647ea6"
         }
     ],
-    "latest_version": "2.40.3",
+    "latest_version": "2.42.0",
     "build_system": "CMakePackage",
-    "conflicts": [],
+    "conflicts": [
+        {
+            "name": "mpich@:3",
+            "spec": "",
+            "description": "None"
+        },
+        {
+            "name": "mpich@4",
+            "spec": "@:2.41",
+            "description": "None"
+        }
+    ],
     "variants": [
         {
             "name": "build_system",
@@ -309,6 +340,12 @@
     ],
     "resources": [
         {
+            "version": "@2.42.0:",
+            "name": "esma_cmake",
+            "destination": "",
+            "placement": null
+        },
+        {
             "version": "@2.40.0:",
             "name": "esma_cmake",
             "destination": "",
@@ -355,7 +392,7 @@
         },
         {
             "name": "mpi",
-            "description": "HPE MPI is HPE's implementation of the Message Passing Interface (MPI)\nstandard. Note: HPE MPI is proprietry software. Spack will search your\ncurrent directory for the download file. Alternatively, add this file to\na mirror so that Spack can find it. For instructions on how to set up a\nmirror, see https://spack.readthedocs.io/en/latest/mirrors.html"
+            "description": "MPItrampoline: A forwarding MPI implementation that can use any other\nMPI implementation via an MPI ABI."
         },
         {
             "name": "hdf5",
