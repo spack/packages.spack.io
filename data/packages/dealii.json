@@ -7,6 +7,14 @@
             "branch": "master"
         },
         {
+            "name": "9.5.1",
+            "sha256": "a818b535e6488d3aef7853311657c7b4fadc29a9abe91b7b202b131aad630f5e"
+        },
+        {
+            "name": "9.5.0",
+            "sha256": "a81f41565f0d3a22d491ee687957dd48053225da72e8d6d628d210358f4a0464"
+        },
+        {
             "name": "9.4.2",
             "sha256": "45a76cb400bfcff25cc2d9093d9a5c91545c8367985e6798811c5e9d2a6a6fd4"
         },
@@ -87,7 +95,7 @@
             "sha256": "d666bbda2a17b41b80221d7029468246f2658051b8c00d9c5907cd6434c4df99"
         }
     ],
-    "latest_version": "9.4.2",
+    "latest_version": "9.5.1",
     "build_system": "CMakePackage",
     "conflicts": [
         {
@@ -421,7 +429,7 @@
             "description": "None"
         },
         {
-            "name": "generator=make",
+            "name": "generator=ninja",
             "spec": "",
             "description": "None"
         },
@@ -434,6 +442,11 @@
             "name": "cxxstd=14",
             "spec": "@9.4:+cgal",
             "description": "dealii: CGAL requires the C++ standard to be set to 17 or later."
+        },
+        {
+            "name": "cxxstd=14",
+            "spec": "@9.6:",
+            "description": "dealii: Deal.II 9.6 onwards requires the C++ standard to be set to 17 or later."
         },
         {
             "name": "cxxstd=default",
@@ -526,6 +539,16 @@
             "description": "dealii: The interface to arborx is supported from version 9.3.0 onwards. Please explicitly disable this variant via ~arborx"
         },
         {
+            "name": "+vtk",
+            "spec": "@:9.5",
+            "description": "dealii: The interface to vtk is supported from version 9.6.0 onwards. Please explicitly disable this variant via ~vtk"
+        },
+        {
+            "name": "+taskflow",
+            "spec": "@:9.5",
+            "description": "dealii: The interface to taskflow is supported from version 9.6.0 onwards. Please explicitly disable this variant via ~taskflow"
+        },
+        {
             "name": "^openblas+ilp64",
             "spec": "@:8.5.1",
             "description": "dealii: 64bit BLAS is only supported from 9.0.0"
@@ -609,7 +632,7 @@
         },
         {
             "name": "generator",
-            "default": "ninja",
+            "default": "make",
             "description": "the build system generator to use"
         },
         {
@@ -625,7 +648,7 @@
         {
             "name": "examples",
             "default": true,
-            "description": "Compile tutorial programs"
+            "description": "Compile and install tutorial programs"
         },
         {
             "name": "int64",
@@ -641,6 +664,11 @@
             "name": "optflags",
             "default": false,
             "description": "Compile using additional optimization flags"
+        },
+        {
+            "name": "platform-introspection",
+            "default": true,
+            "description": "Enable platform introspection"
         },
         {
             "name": "python",
@@ -691,6 +719,11 @@
             "name": "hdf5",
             "default": true,
             "description": "Compile with HDF5 (only with MPI)"
+        },
+        {
+            "name": "kokkos",
+            "default": true,
+            "description": "Compile with Kokkos"
         },
         {
             "name": "metis",
@@ -753,6 +786,11 @@
             "description": "Compile with Simplex support"
         },
         {
+            "name": "taskflow",
+            "default": true,
+            "description": "Compile with multi-threading via Taskflow"
+        },
+        {
             "name": "threads",
             "default": true,
             "description": "Compile with multi-threading via TBB"
@@ -763,9 +801,9 @@
             "description": "Compile with Trilinos (only with MPI)"
         },
         {
-            "name": "platform-introspection",
+            "name": "vtk",
             "default": true,
-            "description": "Enable platform introspection"
+            "description": "Compile with VTK"
         }
     ],
     "homepage": "https://www.dealii.org",
@@ -852,7 +890,7 @@
         },
         {
             "name": "blas",
-            "description": "Intel Math Kernel Library. This package has been replaced by intel-\noneapi-mkl. LICENSE INFORMATION: By downloading and using this software,\nyou agree to the terms and conditions of the software license agreements\nat https://intel.ly/393CijO."
+            "description": "XBLAS is a reference implementation for extra precision BLAS. XBLAS is a\nreference implementation for the dense and banded BLAS routines, along\nwith extended and mixed precision version. Extended precision is only\nused internally; input and output arguments remain the same as in the\nexisting BLAS. Extra precisions is implemented as double-double (i.e.,\n128-bit total, 106-bit significand). Mixed precision permits some\ninput/output arguments of different types (mixing real and complex) or\nprecisions (mixing single and double). This implementation is proof of\nconcept, and no attempt was made to optimize performance; performance\nshould be as good as straightforward but careful code written by hand."
         },
         {
             "name": "boost",
@@ -864,7 +902,7 @@
         },
         {
             "name": "lapack",
-            "description": "Intel Math Kernel Library. This package has been replaced by intel-\noneapi-mkl. LICENSE INFORMATION: By downloading and using this software,\nyou agree to the terms and conditions of the software license agreements\nat https://intel.ly/393CijO."
+            "description": "The NVIDIA HPC SDK is a comprehensive suite of compilers, libraries and\ntools essential to maximizing developer productivity and the performance\nand portability of HPC applications. The NVIDIA HPC SDK C, C++, and\nFortran compilers support GPU acceleration of HPC modeling and\nsimulation applications with standard C++ and Fortran, OpenACC\ndirectives, and CUDA. GPU-accelerated math libraries maximize\nperformance on common HPC algorithms, and optimized communications\nlibraries enable standards-based multi-GPU and scalable systems\nprogramming. Performance profiling and debugging tools simplify porting\nand optimization of HPC applications."
         },
         {
             "name": "suite-sparse",
@@ -872,11 +910,11 @@
         },
         {
             "name": "zlib-api",
-            "description": "A free, general-purpose, legally unencumbered lossless data-compression\nlibrary."
+            "description": "zlib replacement with optimizations for next generation systems."
         },
         {
             "name": "mpi",
-            "description": "Virtual package for the Message Passing Interface."
+            "description": "Mvapich is a High-Performance MPI Library for clusters with diverse\nnetworks (InfiniBand, Omni-Path, Ethernet/iWARP, and RoCE) and computing\nplatforms (x86 (Intel and AMD), ARM and OpenPOWER)"
         },
         {
             "name": "python",
@@ -927,6 +965,10 @@
             "description": "HDF5 is a data model, library, and file format for storing and managing\ndata. It supports an unlimited variety of datatypes, and is designed for\nflexible and efficient I/O and for high volume and complex data."
         },
         {
+            "name": "kokkos",
+            "description": "Kokkos implements a programming model in C++ for writing performance\nportable applications targeting all major HPC platforms."
+        },
+        {
             "name": "metis",
             "description": "METIS is a set of serial programs for partitioning graphs, partitioning\nfinite element meshes, and producing fill reducing orderings for sparse\nmatrices. The algorithms implemented in METIS are based on the\nmultilevel recursive-bisection, multilevel k-way, and multi-constraint\npartitioning schemes."
         },
@@ -960,7 +1002,7 @@
         },
         {
             "name": "scalapack",
-            "description": "Intel Math Kernel Library. This package has been replaced by intel-\noneapi-mkl. LICENSE INFORMATION: By downloading and using this software,\nyou agree to the terms and conditions of the software license agreements\nat https://intel.ly/393CijO."
+            "description": "The Cray Scientific Libraries package, LibSci, is a collection of\nnumerical routines optimized for best performance on Cray systems."
         },
         {
             "name": "slepc",
@@ -969,6 +1011,10 @@
         {
             "name": "sundials",
             "description": "SUNDIALS (SUite of Nonlinear and DIfferential/ALgebraic equation\nSolvers)"
+        },
+        {
+            "name": "taskflow",
+            "description": "Taskflow helps you quickly write parallel tasks programs in modern C++."
         },
         {
             "name": "trilinos",
@@ -980,21 +1026,25 @@
         },
         {
             "name": "tbb",
-            "description": "This is an earlier version of Intel parallel software development tools\nand has now been replaced by the Intel oneAPI Toolkits. LICENSE\nINFORMATION: By downloading and using this software, you agree to the\nterms and conditions of the software license agreements at\nhttps://intel.ly/393CijO."
+            "description": "Intel oneAPI Threading Building Blocks (oneTBB) is a flexible\nperformance library that simplifies the work of adding parallelism to\ncomplex applications across accelerated architectures, even if you are\nnot a threading expert. LICENSE INFORMATION: By downloading and using\nthis software, you agree to the terms and conditions of the software\nlicense agreements at https://intel.ly/393CijO."
+        },
+        {
+            "name": "vtk",
+            "description": "The Visualization Toolkit (VTK) is an open-source, freely available\nsoftware system for 3D computer graphics, image processing and\nvisualization."
         }
     ],
     "dependent_to": [
         {
-            "name": "dftfe",
-            "description": "Real-space DFT calculations using Finite Elements"
+            "name": "aspect",
+            "description": "Parallel and extensible Finite Element code to simulate convection in\nthe Earth's mantle and elsewhere."
         },
         {
             "name": "xsdk",
             "description": "Xsdk is a suite of Department of Energy (DOE) packages for numerical\nsimulation. This is a Spack bundle package that installs the xSDK\npackages"
         },
         {
-            "name": "aspect",
-            "description": "Parallel and extensible Finite Element code to simulate convection in\nthe Earth's mantle and elsewhere."
+            "name": "dftfe",
+            "description": "Real-space DFT calculations using Finite Elements"
         }
     ]
 }

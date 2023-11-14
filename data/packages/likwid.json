@@ -3,6 +3,10 @@
     "aliases": [],
     "versions": [
         {
+            "name": "5.3.0",
+            "sha256": "c290e554c4253124ac2ab8b056e14ee4d23966b8c9fbfa10ba81f75ae543ce4e"
+        },
+        {
             "name": "5.2.2",
             "sha256": "7dda6af722e04a6c40536fc9f89766ce10f595a8569b29e80563767a6a8f940e"
         },
@@ -55,7 +59,7 @@
             "sha256": "86fc5f82c80fcff1a643394627839ec79f1ca2bcfad30000eb7018da592588b4"
         }
     ],
-    "latest_version": "5.2.2",
+    "latest_version": "5.3.0",
     "build_system": "Package",
     "conflicts": [],
     "variants": [
@@ -73,6 +77,11 @@
             "name": "cuda",
             "default": false,
             "description": "with Nvidia GPU profiling support"
+        },
+        {
+            "name": "rocm",
+            "default": false,
+            "description": "with AMD GPU profiling support"
         },
         {
             "name": "accessmode",
@@ -142,30 +151,46 @@
             "description": "The Hardware Locality (hwloc) software project. The Portable Hardware\nLocality (hwloc) software package provides a portable abstraction\n(across OS, versions, architectures, ...) of the hierarchical topology\nof modern architectures, including NUMA memory nodes, sockets, shared\ncaches, cores and simultaneous multithreading. It also gathers various\nsystem attributes such as cache and memory information as well as the\nlocality of I/O devices such as network interfaces, InfiniBand HCAs or\nGPUs. It primarily aims at helping applications with gathering\ninformation about modern computing hardware so as to exploit it\naccordingly and efficiently."
         },
         {
+            "name": "rocprofiler-dev",
+            "description": "ROCPROFILER library for AMD HSA runtime API extension support"
+        },
+        {
+            "name": "rocm-core",
+            "description": "rocm-core is a utility which can be used to get ROCm release version. It\nalso provides the Lmod modules files for the ROCm release.\ngetROCmVersion function provides the ROCm version."
+        },
+        {
+            "name": "rocm-smi",
+            "description": "This tool exposes functionality for clock and temperature management of\nyour ROCm enabled system Note: After ROCm 3.9, this project moved to htt\nps://github.com/RadeonOpenCompute/rocm_smi_lib/tree/master/python_smi_to\nols The spack package is called: rocm-smi-lib"
+        },
+        {
+            "name": "rocm-smi-lib",
+            "description": "It is a C library for Linux that provides a user space interface for\napplications to monitor and control GPU applications."
+        },
+        {
             "name": "perl",
             "description": "Perl 5 is a highly capable, feature-rich programming language with over\n27 years of development."
         }
     ],
     "dependent_to": [
         {
+            "name": "octopus",
+            "description": "A real-space finite-difference (time-dependent) density-functional\ntheory code."
+        },
+        {
             "name": "timemory",
             "description": "Modular profiling toolkit and suite of libraries and tools for\nC/C++/Fortran/CUDA/Python"
+        },
+        {
+            "name": "py-pylikwid",
+            "description": "Python interface to the LIKWID tools library with calls for system\ntopology, process/thread affinity, hardware performance monitoring and\nthe manipulation of system features like frequencies and prefetchers."
         },
         {
             "name": "steps",
             "description": "STochastic Engine for Pathway Simulation"
         },
         {
-            "name": "octopus",
-            "description": "A real-space finite-difference (time-dependent) density-functional\ntheory code."
-        },
-        {
             "name": "tau",
             "description": "A portable profiling and tracing toolkit for performance analysis of\nparallel programs written in Fortran, C, C++, UPC, Java, Python."
-        },
-        {
-            "name": "py-pylikwid",
-            "description": "Python interface to the LIKWID tools library with calls for system\ntopology, process/thread affinity, hardware performance monitoring and\nthe manipulation of system features like frequencies and prefetchers."
         }
     ]
 }
