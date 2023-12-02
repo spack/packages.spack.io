@@ -3,6 +3,10 @@
     "aliases": [],
     "versions": [
         {
+            "name": "3.0.0",
+            "sha256": "82a9fa4b32a049b38151d11188ed15d74f21f853f163e78da0950dce1f244ccc"
+        },
+        {
             "name": "2.14.0",
             "sha256": "a845d446b6ae626f61dde5ab2fa952530b6c17b4f9ed03e9362bd20172d00cca"
         },
@@ -87,14 +91,25 @@
             "sha256": "5b8499d157af217f1a5ee33589e774127ebc3e266c833c22cb5afbb0ed1734bf"
         }
     ],
-    "latest_version": "2.14.0",
+    "latest_version": "3.0.0",
     "build_system": "PythonPackage",
-    "conflicts": [],
+    "conflicts": [
+        {
+            "name": "backend=tensorflow",
+            "spec": "",
+            "description": "py-keras: Requires TensorFlow 2.16, not yet released"
+        }
+    ],
     "variants": [
         {
             "name": "build_system",
             "default": "python_pip",
             "description": "Build systems supported by the package"
+        },
+        {
+            "name": "backend",
+            "default": "tensorflow",
+            "description": "backend library"
         }
     ],
     "homepage": "https://keras.io",
@@ -103,7 +118,7 @@
     ],
     "patches": [],
     "resources": [],
-    "description": "Deep Learning for humans. Keras is a deep learning API written in\nPython, running on top of the machine learning platform TensorFlow. It\nwas developed with a focus on enabling fast experimentation. Being able\nto go from idea to result as fast as possible is key to doing good\nresearch.\n",
+    "description": "Multi-backend Keras. Keras 3 is a new multi-backend implementation of\nthe Keras API, with support for TensorFlow, JAX, and PyTorch.\n",
     "dependencies": [
         {
             "name": "python",
@@ -126,16 +141,60 @@
             "description": "This repository is a collection of Python library code for building\nPython applications. The code is collected from Google's own Python code\nbase, and has been extensively tested and used in production."
         },
         {
-            "name": "py-h5py",
-            "description": "The h5py package provides both a high- and low-level interface to the\nHDF5 library from Python."
-        },
-        {
             "name": "py-numpy",
             "description": "Fundamental package for array computing in Python."
         },
         {
+            "name": "py-rich",
+            "description": "Rich is a Python library for rich text and beautiful formatting in the\nterminal."
+        },
+        {
+            "name": "py-namex",
+            "description": "A simple utility to separate the implementation of your Python package\nand its public API surface."
+        },
+        {
+            "name": "py-h5py",
+            "description": "The h5py package provides both a high- and low-level interface to the\nHDF5 library from Python."
+        },
+        {
+            "name": "py-dm-tree",
+            "description": "tree is a library for working with nested data structures. In a way,\ntree generalizes the builtin map() function which only supports flat\nsequences, and allows to apply a function to each leaf preserving the\noverall structure."
+        },
+        {
+            "name": "py-scipy",
+            "description": "Fundamental algorithms for scientific computing in Python."
+        },
+        {
             "name": "py-pandas",
             "description": "pandas is a fast, powerful, flexible and easy to use open source data\nanalysis and manipulation tool, built on top of the Python programming\nlanguage."
+        },
+        {
+            "name": "py-requests",
+            "description": "Python HTTP for Humans."
+        },
+        {
+            "name": "py-protobuf",
+            "description": "Protocol buffers are Google's language-neutral, platform-neutral,\nextensible mechanism for serializing structured data - think XML, but\nsmaller, faster, and simpler. You define how you want your data to be\nstructured once, then you can use special generated source code to\neasily write and read your structured data to and from a variety of data\nstreams and using a variety of languages."
+        },
+        {
+            "name": "py-jax",
+            "description": "JAX is Autograd and XLA, brought together for high-performance machine\nlearning research. With its updated version of Autograd, JAX can\nautomatically differentiate native Python and NumPy functions. It can\ndifferentiate through loops, branches, recursion, and closures, and it\ncan take derivatives of derivatives of derivatives. It supports reverse-\nmode differentiation (a.k.a. backpropagation) via grad as well as\nforward-mode differentiation, and the two can be composed arbitrarily to\nany order."
+        },
+        {
+            "name": "py-torch",
+            "description": "Tensors and Dynamic neural networks in Python with strong GPU\nacceleration."
+        },
+        {
+            "name": "py-torchvision",
+            "description": "Image and video datasets and models for torch deep learning."
+        },
+        {
+            "name": "bazel",
+            "description": "Bazel is an open-source build and test tool similar to Make, Maven, and\nGradle. It uses a human-readable, high-level build language. Bazel\nsupports projects in multiple languages and builds outputs for multiple\nplatforms. Bazel supports large codebases across multiple repositories,\nand large numbers of users."
+        },
+        {
+            "name": "protobuf",
+            "description": "Google's data interchange format."
         },
         {
             "name": "pil",
@@ -150,8 +209,8 @@
             "description": "Python interface to Graphviz's Dot language"
         },
         {
-            "name": "py-scipy",
-            "description": "Fundamental algorithms for scientific computing in Python."
+            "name": "py-pyyaml",
+            "description": "PyYAML is a YAML parser and emitter for Python."
         },
         {
             "name": "py-six",
@@ -164,29 +223,9 @@
         {
             "name": "py-tensorboard",
             "description": "TensorBoard is a suite of web applications for inspecting and\nunderstanding your TensorFlow runs and graphs."
-        },
-        {
-            "name": "py-pyyaml",
-            "description": "PyYAML is a YAML parser and emitter for Python."
-        },
-        {
-            "name": "bazel",
-            "description": "Bazel is an open-source build and test tool similar to Make, Maven, and\nGradle. It uses a human-readable, high-level build language. Bazel\nsupports projects in multiple languages and builds outputs for multiple\nplatforms. Bazel supports large codebases across multiple repositories,\nand large numbers of users."
-        },
-        {
-            "name": "protobuf",
-            "description": "Google's data interchange format."
         }
     ],
     "dependent_to": [
-        {
-            "name": "py-horovod",
-            "description": "Horovod is a distributed deep learning training framework for\nTensorFlow, Keras, PyTorch, and Apache MXNet."
-        },
-        {
-            "name": "py-deepsig-biocomp",
-            "description": "DeepSig - Predictor of signal peptides in proteins based on deep\nlearning"
-        },
         {
             "name": "py-exarl",
             "description": "A scalable software framework for reinforcement learning environments\nand agents/policies used for the Design and Control applications"
@@ -196,12 +235,20 @@
             "description": "TensorFlow Estimator is a high-level TensorFlow API that greatly\nsimplifies machine learning programming."
         },
         {
-            "name": "candle-benchmarks",
-            "description": "ECP-CANDLE Benchmarks"
+            "name": "py-deepsig-biocomp",
+            "description": "DeepSig - Predictor of signal peptides in proteins based on deep\nlearning"
         },
         {
             "name": "py-imbalanced-learn",
             "description": "imbalanced-learn is a python package offering a number of re-sampling\ntechniques commonly used in datasets showing strong between-class\nimbalance. It is compatible with scikit-learn and is part of scikit-\nlearn-contrib projects."
+        },
+        {
+            "name": "candle-benchmarks",
+            "description": "ECP-CANDLE Benchmarks"
+        },
+        {
+            "name": "py-horovod",
+            "description": "Horovod is a distributed deep learning training framework for\nTensorFlow, Keras, PyTorch, and Apache MXNet."
         }
     ]
 }

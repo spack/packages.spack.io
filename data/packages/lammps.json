@@ -7,6 +7,14 @@
             "branch": "develop"
         },
         {
+            "name": "20231121",
+            "sha256": "704d8a990874a425bcdfe0245faf13d712231ba23f014a3ebc27bc14398856f1"
+        },
+        {
+            "name": "20230802.1",
+            "sha256": "0e5568485e5ee080412dba44a1b7a93f864f1b5c75121f11d528854269953ed0"
+        },
+        {
             "name": "20230802",
             "sha256": "48dc8b0b0583689e80ea2052275acbc3e3fce89707ac557e120db5564257f7df"
         },
@@ -267,7 +275,7 @@
             "sha256": "5d88d4e92f4e0bb57c8ab30e0d20de556830af820223778b9967bec2184efd46"
         }
     ],
-    "latest_version": "20230802",
+    "latest_version": "20231121",
     "build_system": "CMakePackage",
     "conflicts": [
         {
@@ -737,8 +745,8 @@
         },
         {
             "name": "^kokkos@4:",
-            "spec": "@:20230802",
-            "description": "lammps: LAMMPS is incompatible with Kokkos 4.x until @20230802"
+            "spec": "@:20230802.1",
+            "description": "lammps: LAMMPS is incompatible with Kokkos 4.x until @20230802.1"
         }
     ],
     "variants": [
@@ -1500,6 +1508,7 @@
     ],
     "homepage": "https://www.lammps.org/",
     "maintainers": [
+        "adamjstewart",
         "rbberger"
     ],
     "patches": [
@@ -1560,7 +1569,16 @@
             "version": "@20220623:20221222~kokkos+rocm"
         }
     ],
-    "resources": [],
+    "resources": [
+        {
+            "version": "+mesont",
+            "name": "C_10_10.mesocnt",
+            "destination": "",
+            "placement": {
+                "C_10_10.mesocnt": "potentials/C_10_10.mesocnt"
+            }
+        }
+    ],
     "description": "LAMMPS stands for Large-scale Atomic/Molecular Massively Parallel\nSimulator.\n",
     "dependencies": [
         {
@@ -1593,11 +1611,11 @@
         },
         {
             "name": "mpi",
-            "description": "MVAPICH2-X is the advanced version of the MVAPICH2 MPI library with\nenhanced features (UMR, ODP, DC, Core-Direct, SHARP, XPMEM), OSU INAM\n(InifniBand Network Monitoring and Analysis),PGAS (OpenSHMEM, UPC,\nUPC++, and CAF), and MPI+PGAS programming models with unified\ncommunication runtime. MVAPICH2-X is not installable from source and is\nonly available through a binary mirror. If you do not find the binary\nyou're looking for, send us an email at mvapich@cse.ohio-state.edu. The\nbinary mirror url is: http://mvapich.cse.ohio-\nstate.edu/download/mvapich/spack-mirror/mvapich2x/"
+            "description": "Mvapich is a High-Performance MPI Library for clusters with diverse\nnetworks (InfiniBand, Omni-Path, Ethernet/iWARP, and RoCE) and computing\nplatforms (x86 (Intel and AMD), ARM and OpenPOWER)"
         },
         {
             "name": "fftw-api",
-            "description": "Arm Compiler combines the optimized tools and libraries from Arm with a\nmodern LLVM-based compiler framework."
+            "description": "Intel Math Kernel Library. This package has been replaced by intel-\noneapi-mkl. LICENSE INFORMATION: By downloading and using this software,\nyou agree to the terms and conditions of the software license agreements\nat https://intel.ly/393CijO."
         },
         {
             "name": "hipfft",
@@ -1613,15 +1631,15 @@
         },
         {
             "name": "blas",
-            "description": "Lightweight but flexible shim designed to rectify the incompatibilities\nbetween the Accelerate/vecLib BLAS and LAPACK libraries shipped with\nmacOS and FORTRAN code compiled with modern compilers such as GNU\nFortran."
+            "description": "Intel Math Kernel Library. This package has been replaced by intel-\noneapi-mkl. LICENSE INFORMATION: By downloading and using this software,\nyou agree to the terms and conditions of the software license agreements\nat https://intel.ly/393CijO."
         },
         {
             "name": "lapack",
-            "description": "libflame is a portable library for dense matrix computations, providing\nmuch of the functionality present in LAPACK, developed by current and\nformer members of the Science of High-Performance Computing (SHPC) group\nin the Institute for Computational Engineering and Sciences at The\nUniversity of Texas at Austin. libflame includes a compatibility layer,\nlapack2flame, which includes a complete LAPACK implementation."
+            "description": "Intel Math Kernel Library. This package has been replaced by intel-\noneapi-mkl. LICENSE INFORMATION: By downloading and using this software,\nyou agree to the terms and conditions of the software license agreements\nat https://intel.ly/393CijO."
         },
         {
             "name": "opencl",
-            "description": "CUDA is a parallel computing platform and programming model invented by\nNVIDIA. It enables dramatic increases in computing performance by\nharnessing the power of the graphics processing unit (GPU). Note: This\npackage does not currently install the drivers necessary to run CUDA.\nThese will need to be installed manually. See:\nhttps://docs.nvidia.com/cuda/ for details."
+            "description": "Portable Computing Language (pocl) is an open source implementation of\nthe OpenCL standard which can be easily adapted for new targets and\ndevices, both for homogeneous CPU and heterogeneous GPUs/accelerators."
         },
         {
             "name": "latte",
@@ -1637,7 +1655,7 @@
         },
         {
             "name": "jpeg",
-            "description": "MozJPEG is a patched version of libjpeg-turbo which improves JPEG\ncompression efficiency achieving higher visual quality and smaller file\nsizes at the same time"
+            "description": "libjpeg is a widely used free library with functions for handling the\nJPEG image data format. It implements a JPEG codec (encoding and\ndecoding) alongside various utilities for handling JPEG data."
         },
         {
             "name": "kim-api",
@@ -1676,6 +1694,18 @@
             "description": "The Cython compiler for writing C extensions for the Python language."
         },
         {
+            "name": "py-pip",
+            "description": "The PyPA recommended tool for installing Python packages."
+        },
+        {
+            "name": "py-wheel",
+            "description": "A built-package format for Python."
+        },
+        {
+            "name": "py-build",
+            "description": "A simple, correct PEP517 package builder."
+        },
+        {
             "name": "py-numpy",
             "description": "Fundamental package for array computing in Python."
         },
@@ -1710,12 +1740,12 @@
     ],
     "dependent_to": [
         {
-            "name": "parsplice",
-            "description": "ParSplice code implements the Parallel Trajectory Splicing algorithm"
-        },
-        {
             "name": "votca",
             "description": "VOTCA is a software package which focuses on the analysis of molecular\ndynamics data, the development of systematic coarse-graining techniques\nas well as methods used for simulating microscopic charge (and exciton)\ntransport in disordered semiconductors."
+        },
+        {
+            "name": "parsplice",
+            "description": "ParSplice code implements the Parallel Trajectory Splicing algorithm"
         }
     ]
 }
