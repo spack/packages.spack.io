@@ -106,6 +106,11 @@
             "description": "quantum-espresso: +elpa requires QE >= 6.0"
         },
         {
+            "name": "@:7.1",
+            "spec": "+fox",
+            "description": "quantum-espresso: +fox variant requires QE >= 7.2"
+        },
+        {
             "name": "hdf5=parallel",
             "spec": "@:6.0",
             "description": "quantum-espresso: parallel HDF5 support only in QE 6.1.0 and later"
@@ -163,7 +168,12 @@
         {
             "name": "@:6.2",
             "spec": "+gipaw",
-            "description": "quantum-espresso: gipaw standard support available for QE 6.3 or grater version only"
+            "description": "quantum-espresso: gipaw standard support available for QE 6.3 or greater version only"
+        },
+        {
+            "name": "~fox",
+            "spec": "@7.2:+gipaw",
+            "description": "quantum-espresso: gipaw plugin requires FoX"
         },
         {
             "name": "+gipaw build_system=cmake",
@@ -258,6 +268,11 @@
             "description": "Uses elpa as an eigenvalue solver"
         },
         {
+            "name": "fox",
+            "default": false,
+            "description": "Enables FoX library"
+        },
+        {
             "name": "hdf5",
             "default": "none",
             "description": "Orbital and density data I/O with HDF5"
@@ -296,7 +311,7 @@
             "level": 1,
             "working_dir": ".",
             "url": "https://gitlab.com/QEF/q-e/-/commit/4ca3afd4c6f27afcf3f42415a85a353a7be1bd37.diff",
-            "version": "@:7.1 build_system=cmake"
+            "version": "@7.1 build_system=cmake"
         },
         {
             "owner": "builtin.quantum-espresso",
@@ -304,7 +319,7 @@
             "level": 1,
             "working_dir": ".",
             "url": "https://gitlab.com/QEF/q-e/-/commit/481a001293de2f9eec8481e02d64f679ffd83ede.diff",
-            "version": "@:7.1 build_system=cmake"
+            "version": "@7.1 build_system=cmake"
         },
         {
             "owner": "builtin.quantum-espresso",
@@ -557,11 +572,11 @@
         },
         {
             "name": "mpi",
-            "description": "Mvapich is a High-Performance MPI Library for clusters with diverse\nnetworks (InfiniBand, Omni-Path, Ethernet/iWARP, and RoCE) and computing\nplatforms (x86 (Intel and AMD), ARM and OpenPOWER)"
+            "description": "MPICH is a high performance and widely portable implementation of the\nMessage Passing Interface (MPI) standard."
         },
         {
             "name": "scalapack",
-            "description": "Intel oneAPI Math Kernel Library (Intel oneMKL; formerly Intel Math\nKernel Library or Intel MKL), is a library of optimized math routines\nfor science, engineering, and financial applications. Core math\nfunctions include BLAS, LAPACK, ScaLAPACK, sparse solvers, fast Fourier\ntransforms, and vector math. LICENSE INFORMATION: By downloading and\nusing this software, you agree to the terms and conditions of the\nsoftware license agreements at https://intel.ly/393CijO."
+            "description": "ScaLAPACK is a library of high-performance linear algebra routines for\nparallel distributed memory machines"
         },
         {
             "name": "elpa",
@@ -573,11 +588,11 @@
         },
         {
             "name": "blas",
-            "description": "Automatically Tuned Linear Algebra Software, generic shared ATLAS is an\napproach for the automatic generation and optimization of numerical\nsoftware. Currently ATLAS supplies optimized versions for the complete\nset of linear algebra kernels known as the Basic Linear Algebra\nSubroutines (BLAS), and a subset of the linear algebra routines in the\nLAPACK library."
+            "description": "XBLAS is a reference implementation for extra precision BLAS. XBLAS is a\nreference implementation for the dense and banded BLAS routines, along\nwith extended and mixed precision version. Extended precision is only\nused internally; input and output arguments remain the same as in the\nexisting BLAS. Extra precisions is implemented as double-double (i.e.,\n128-bit total, 106-bit significand). Mixed precision permits some\ninput/output arguments of different types (mixing real and complex) or\nprecisions (mixing single and double). This implementation is proof of\nconcept, and no attempt was made to optimize performance; performance\nshould be as good as straightforward but careful code written by hand."
         },
         {
             "name": "lapack",
-            "description": "Automatically Tuned Linear Algebra Software, generic shared ATLAS is an\napproach for the automatic generation and optimization of numerical\nsoftware. Currently ATLAS supplies optimized versions for the complete\nset of linear algebra kernels known as the Basic Linear Algebra\nSubroutines (BLAS), and a subset of the linear algebra routines in the\nLAPACK library."
+            "description": "A BLAS and LAPACK wrapper library with runtime exchangable backends"
         },
         {
             "name": "fftw-api",
