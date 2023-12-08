@@ -3,6 +3,10 @@
     "aliases": [],
     "versions": [
         {
+            "name": "2.2.2.7",
+            "sha256": "407a1a56d352ba9c2152a1d708cd29db872a41c252fbdc7acd8e0de0da8af008"
+        },
+        {
             "name": "2.2.2",
             "sha256": "2e9ce79427b140bca5f48b31fb098f394a21a7c5116bbbada1e3eabdd6efe982"
         },
@@ -11,7 +15,7 @@
             "sha256": "3aaf5ac7f60d852ac8b733fb82832c049ca48b7203a6a865e99c5af359fcca5a"
         }
     ],
-    "latest_version": "2.2.2",
+    "latest_version": "2.2.2.7",
     "build_system": "CMakePackage",
     "conflicts": [],
     "variants": [
@@ -34,12 +38,24 @@
             "name": "generator",
             "default": "make",
             "description": "the build system generator to use"
+        },
+        {
+            "name": "lsd2",
+            "default": false,
+            "description": "Build with LSD2 support"
         }
     ],
     "homepage": "http://www.iqtree.org",
     "maintainers": [],
     "patches": [],
-    "resources": [],
+    "resources": [
+        {
+            "version": "+lsd2",
+            "name": "lsd2-rsrc",
+            "destination": "lsd2-rsrc",
+            "placement": null
+        }
+    ],
     "description": "Efficient and versatile phylogenomic software by maximum likelihood\n",
     "dependencies": [
         {
@@ -69,12 +85,12 @@
     ],
     "dependent_to": [
         {
-            "name": "py-phylophlan",
-            "description": "PhyloPhlAn 3.0 is an integrated pipeline for large-scale phylogenetic\nprofiling of genomes and metagenomes."
-        },
-        {
             "name": "orthofinder",
             "description": "OrthoFinder is a fast, accurate and comprehensive analysis tool for\ncomparative genomics. It finds orthologues and orthogroups infers rooted\ngene trees for all orthogroups and infers a rooted species tree for the\nspecies being analysed. OrthoFinder also provides comprehensive\nstatistics for comparative genomic analyses. OrthoFinder is simple to\nuse and all you need to run it is a set of protein sequence files (one\nper species) in FASTA format."
+        },
+        {
+            "name": "py-phylophlan",
+            "description": "PhyloPhlAn 3.0 is an integrated pipeline for large-scale phylogenetic\nprofiling of genomes and metagenomes."
         }
     ]
 }
