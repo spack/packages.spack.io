@@ -7,6 +7,14 @@
             "branch": "master"
         },
         {
+            "name": "5.7.1",
+            "sha256": "38bc3732886a52ca9cd477ec6fcde3ab17a0ba5dc8e2f7ac34c4de597bd00e8b"
+        },
+        {
+            "name": "5.7.0",
+            "sha256": "52293e40c4ba0c653d796e2f6109f5fb4c79f5fb82310ecbfd9a5432acf9da43"
+        },
+        {
             "name": "5.6.1",
             "sha256": "d60b355bfd21a08e0e36270fd56f98d052c3c6edca47da887fa32bf32759c29b"
         },
@@ -115,7 +123,7 @@
             "sha256": "d9f458c16cb62c3c611328fd2f2ba3615da81e45f3b526e45ff43ab4a67ee4aa"
         }
     ],
-    "latest_version": "5.6.1",
+    "latest_version": "5.7.1",
     "build_system": "CMakePackage",
     "conflicts": [],
     "variants": [
@@ -143,6 +151,11 @@
             "name": "shared",
             "default": true,
             "description": "Build shared or static library"
+        },
+        {
+            "name": "asan",
+            "default": false,
+            "description": "Build with address-sanitizer enabled or disabled"
         }
     ],
     "homepage": "https://github.com/RadeonOpenCompute/ROCT-Thunk-Interface",
@@ -185,7 +198,7 @@
         },
         {
             "name": "pkgconfig",
-            "description": "pkg-config is a helper tool used when compiling applications and\nlibraries"
+            "description": "pkgconf is a program which helps to configure compiler and linker flags\nfor development frameworks. It is similar to pkg-config from\nfreedesktop.org, providing additional functionality while also\nmaintaining compatibility."
         },
         {
             "name": "numactl",
@@ -206,24 +219,16 @@
     ],
     "dependent_to": [
         {
-            "name": "aomp",
-            "description": "llvm openmp compiler from AMD."
+            "name": "rocm-debug-agent",
+            "description": "Radeon Open Compute (ROCm) debug agent"
         },
         {
             "name": "hip-rocclr",
             "description": "Hip-ROCclr is a virtual device interface that compute runtimes interact\nwith to different backends such as ROCr or PAL This abstraction allows\nruntimes to work on Windows as well as on Linux without much effort."
         },
         {
-            "name": "rocm-bandwidth-test",
-            "description": "Test to measure PciE bandwidth on ROCm platforms"
-        },
-        {
-            "name": "rocm-debug-agent",
-            "description": "Radeon Open Compute (ROCm) debug agent"
-        },
-        {
-            "name": "rocminfo",
-            "description": "Radeon Open Compute (ROCm) Runtime rocminfo tool"
+            "name": "aomp",
+            "description": "llvm openmp compiler from AMD."
         },
         {
             "name": "hip",
@@ -234,16 +239,24 @@
             "description": "ROCPROFILER library for AMD HSA runtime API extension support"
         },
         {
+            "name": "hsa-rocr-dev",
+            "description": "This repository includes the user mode API nterfaces and libraries\nnecessary for host applications to launch computer kernels to available\nHSA ROCm kernel agents.AMD Heterogeneous System Architecture HSA - Linux\nHSA Runtime for Boltzmann (ROCm) platforms."
+        },
+        {
+            "name": "rocminfo",
+            "description": "Radeon Open Compute (ROCm) Runtime rocminfo tool"
+        },
+        {
             "name": "rocm-openmp-extras",
             "description": "OpenMP support for ROCm LLVM."
         },
         {
-            "name": "roctracer-dev",
-            "description": "ROC-tracer library: Runtimes Generic Callback/Activity APIs. The goal of\nthe implementation is to provide a generic independent from specific\nruntime profiler to trace API and asyncronous activity."
+            "name": "rocm-bandwidth-test",
+            "description": "Test to measure PciE bandwidth on ROCm platforms"
         },
         {
-            "name": "hsa-rocr-dev",
-            "description": "This repository includes the user mode API nterfaces and libraries\nnecessary for host applications to launch computer kernels to available\nHSA ROCm kernel agents.AMD Heterogeneous System Architecture HSA - Linux\nHSA Runtime for Boltzmann (ROCm) platforms."
+            "name": "roctracer-dev",
+            "description": "ROC-tracer library: Runtimes Generic Callback/Activity APIs. The goal of\nthe implementation is to provide a generic independent from specific\nruntime profiler to trace API and asyncronous activity."
         }
     ]
 }
