@@ -48,6 +48,21 @@
             "description": "timemory: +python requires building shared or static libraries"
         },
         {
+            "name": "+nccl",
+            "spec": "~shared~static",
+            "description": "timemory: +nccl requires building shared or static libraries"
+        },
+        {
+            "name": "+mpip_library",
+            "spec": "~shared~static",
+            "description": "timemory: +mpip_library requires building shared or static libraries"
+        },
+        {
+            "name": "+ompt_library",
+            "spec": "~shared~static",
+            "description": "timemory: +ompt_library requires building shared or static libraries"
+        },
+        {
             "name": "~pic",
             "spec": "+python~shared+static",
             "description": "timemory: Python bindings cannot be be linked to static libs w/o +pic"
@@ -55,7 +70,7 @@
         {
             "name": "+python_deps",
             "spec": "~python",
-            "description": "None"
+            "description": null
         },
         {
             "name": "+cupti",
@@ -93,9 +108,9 @@
             "description": "timemory: +nccl requires +gotcha"
         },
         {
-            "name": "+nccl",
-            "spec": "~shared~static",
-            "description": "timemory: +nccl requires building shared or static libraries"
+            "name": "+mpip_library",
+            "spec": "~gotcha",
+            "description": "timemory: +mpip_library requires +gotcha"
         },
         {
             "name": "+mpip_library",
@@ -103,24 +118,9 @@
             "description": "timemory: +mpip_library requires +mpi"
         },
         {
-            "name": "+mpip_library",
-            "spec": "~gotcha",
-            "description": "timemory: +mpip_library requires +gotcha"
-        },
-        {
-            "name": "+mpip_library",
-            "spec": "~shared~static",
-            "description": "timemory: +mpip_library requires building shared or static libraries"
-        },
-        {
             "name": "+ompt_library",
             "spec": "~ompt",
             "description": "timemory: +ompt_library requires +ompt"
-        },
-        {
-            "name": "+ompt_library",
-            "spec": "~shared~static",
-            "description": "timemory: +ompt_library requires building shared or static libraries"
         },
         {
             "name": "+likwid_nvmon",
@@ -380,32 +380,68 @@
     "description": "Modular profiling toolkit and suite of libraries and tools for\nC/C++/Fortran/CUDA/Python\n",
     "dependencies": [
         {
+            "name": "arm-forge",
+            "description": "Arm Forge is the complete toolsuite for software development - with\neverything needed to debug, profile, optimize, edit and build C, C++ and\nFortran applications on Linux for high performance - from single threads\nthrough to complex parallel HPC codes with MPI, OpenMP, threads or CUDA."
+        },
+        {
+            "name": "caliper",
+            "description": "Caliper is a program instrumentation and performance measurement\nframework. It is designed as a performance analysis toolbox in a\nlibrary, allowing one to bake performance analysis capabilities directly\ninto applications and activate them at runtime."
+        },
+        {
             "name": "cmake",
             "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
+        },
+        {
+            "name": "cuda",
+            "description": "CUDA is a parallel computing platform and programming model invented by\nNVIDIA. It enables dramatic increases in computing performance by\nharnessing the power of the graphics processing unit (GPU). Note: This\npackage does not currently install the drivers necessary to run CUDA.\nThese will need to be installed manually. See:\nhttps://docs.nvidia.com/cuda/ for details."
+        },
+        {
+            "name": "dyninst",
+            "description": "API for dynamic binary instrumentation. Modify programs while they are\nexecuting without recompiling, re-linking, or re-executing."
         },
         {
             "name": "gmake",
             "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files."
         },
         {
+            "name": "gotcha",
+            "description": "C software library for shared library function wrapping, enables tools\nto intercept calls into shared libraries"
+        },
+        {
+            "name": "gperftools",
+            "description": "Google's fast malloc/free implementation, especially for multi-threaded\napplications. Contains tcmalloc, heap-checker, heap-profiler, and cpu-\nprofiler."
+        },
+        {
+            "name": "intel-parallel-studio",
+            "description": "This is an earlier version of Intel parallel software development tools\nand has now been replaced by the Intel oneAPI Toolkits. LICENSE\nINFORMATION: By downloading and using this software, you agree to the\nterms and conditions of the software license agreements at\nhttps://intel.ly/393CijO."
+        },
+        {
+            "name": "likwid",
+            "description": "Likwid is a simple to install and use toolsuite of command line\napplications for performance oriented programmers. It works for Intel\nand AMD processors on the Linux operating system. This version uses the\nperf_event backend which reduces the feature set but allows user\ninstalls. See https://github.com/RRZE-\nHPC/likwid/wiki/TutorialLikwidPerf#feature-limitations for information."
+        },
+        {
+            "name": "mpi",
+            "description": "Cray/HPE packaging of MVAPICH2 for HPE Apollo systems"
+        },
+        {
+            "name": "nccl",
+            "description": "Optimized primitives for collective multi-GPU communication."
+        },
+        {
             "name": "ninja",
             "description": "Ninja is a small build system with a focus on speed. It differs from\nother build systems in two major respects: it is designed to have its\ninput files generated by a higher-level build system, and it is designed\nto run builds as fast as possible."
         },
         {
-            "name": "python",
-            "description": "The Python programming language."
-        },
-        {
-            "name": "py-cython",
-            "description": "The Cython compiler for writing C extensions for the Python language."
+            "name": "papi",
+            "description": "PAPI provides the tool designer and application engineer with a\nconsistent interface and methodology for use of the performance counter\nhardware found in most major microprocessors. PAPI enables software\nengineers to see, in near real time, the relation between software\nperformance and processor events. In addition Component PAPI provides\naccess to a collection of components that expose performance measurement\nopportunities across the hardware and software stack."
         },
         {
             "name": "pil",
             "description": "Pillow is a fork of the Python Imaging Library (PIL). It adds image\nprocessing capabilities to your Python interpreter. This library\nsupports many file formats, and provides powerful image processing and\ngraphics capabilities."
         },
         {
-            "name": "py-numpy",
-            "description": "Fundamental package for array computing in Python."
+            "name": "py-cython",
+            "description": "The Cython compiler for writing C extensions for the Python language."
         },
         {
             "name": "py-hatchet",
@@ -420,6 +456,14 @@
             "description": "This package provides Python bindings for the Message Passing Interface\n(MPI) standard. It is implemented on top of the MPI-1/MPI-2\nspecification and exposes an API which grounds on the standard MPI-2 C++\nbindings."
         },
         {
+            "name": "py-multiprocess",
+            "description": "Better multiprocessing and multithreading in Python"
+        },
+        {
+            "name": "py-numpy",
+            "description": "Fundamental package for array computing in Python."
+        },
+        {
             "name": "py-pandas",
             "description": "pandas is a fast, powerful, flexible and easy to use open source data\nanalysis and manipulation tool, built on top of the Python programming\nlanguage."
         },
@@ -432,60 +476,16 @@
             "description": "PyYAML is a YAML parser and emitter for Python."
         },
         {
-            "name": "py-multiprocess",
-            "description": "Better multiprocessing and multithreading in Python"
-        },
-        {
-            "name": "mpi",
-            "description": "MPItrampoline: A forwarding MPI implementation that can use any other\nMPI implementation via an MPI ABI."
-        },
-        {
-            "name": "nccl",
-            "description": "Optimized primitives for collective multi-GPU communication."
+            "name": "python",
+            "description": "The Python programming language."
         },
         {
             "name": "tau",
             "description": "A portable profiling and tracing toolkit for performance analysis of\nparallel programs written in Fortran, C, C++, UPC, Java, Python."
         },
         {
-            "name": "papi",
-            "description": "PAPI provides the tool designer and application engineer with a\nconsistent interface and methodology for use of the performance counter\nhardware found in most major microprocessors. PAPI enables software\nengineers to see, in near real time, the relation between software\nperformance and processor events. In addition Component PAPI provides\naccess to a collection of components that expose performance measurement\nopportunities across the hardware and software stack."
-        },
-        {
-            "name": "cuda",
-            "description": "CUDA is a parallel computing platform and programming model invented by\nNVIDIA. It enables dramatic increases in computing performance by\nharnessing the power of the graphics processing unit (GPU). Note: This\npackage does not currently install the drivers necessary to run CUDA.\nThese will need to be installed manually. See:\nhttps://docs.nvidia.com/cuda/ for details."
-        },
-        {
             "name": "upcxx",
             "description": "UPC++ is a C++ library that supports Partitioned Global Address Space\n(PGAS) programming, and is designed to interoperate smoothly and\nefficiently with MPI, OpenMP, CUDA, ROCm/HIP and AMTs. It leverages\nGASNet-EX to deliver low-overhead, fine-grained communication, including\nRemote Memory Access (RMA) and Remote Procedure Call (RPC)."
-        },
-        {
-            "name": "likwid",
-            "description": "Likwid is a simple to install and use toolsuite of command line\napplications for performance oriented programmers. It works for Intel\nand AMD processors on the Linux operating system. This version uses the\nperf_event backend which reduces the feature set but allows user\ninstalls. See https://github.com/RRZE-\nHPC/likwid/wiki/TutorialLikwidPerf#feature-limitations for information."
-        },
-        {
-            "name": "gotcha",
-            "description": "C software library for shared library function wrapping, enables tools\nto intercept calls into shared libraries"
-        },
-        {
-            "name": "caliper",
-            "description": "Caliper is a program instrumentation and performance measurement\nframework. It is designed as a performance analysis toolbox in a\nlibrary, allowing one to bake performance analysis capabilities directly\ninto applications and activate them at runtime."
-        },
-        {
-            "name": "dyninst",
-            "description": "API for dynamic binary instrumentation. Modify programs while they are\nexecuting without recompiling, re-linking, or re-executing."
-        },
-        {
-            "name": "gperftools",
-            "description": "Google's fast malloc/free implementation, especially for multi-threaded\napplications. Contains tcmalloc, heap-checker, heap-profiler, and cpu-\nprofiler."
-        },
-        {
-            "name": "intel-parallel-studio",
-            "description": "This is an earlier version of Intel parallel software development tools\nand has now been replaced by the Intel oneAPI Toolkits. LICENSE\nINFORMATION: By downloading and using this software, you agree to the\nterms and conditions of the software license agreements at\nhttps://intel.ly/393CijO."
-        },
-        {
-            "name": "arm-forge",
-            "description": "Arm Forge is the complete toolsuite for software development - with\neverything needed to debug, profile, optimize, edit and build C, C++ and\nFortran applications on Linux for high performance - from single threads\nthrough to complex parallel HPC codes with MPI, OpenMP, threads or CUDA."
         }
     ],
     "dependent_to": []

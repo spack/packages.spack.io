@@ -51,29 +51,29 @@
     "build_system": "MakefilePackage",
     "conflicts": [
         {
-            "name": "platform=windows",
+            "name": "arch=windows-None-None",
             "spec": "build_system=makefile",
-            "description": "None"
+            "description": null
         },
         {
             "name": "%gcc@6:",
             "spec": "@:2.3.1",
-            "description": "None"
+            "description": null
         },
         {
             "name": "^intel-oneapi-tbb",
             "spec": "@:2.3.5.1",
-            "description": "None"
+            "description": null
         },
         {
             "name": "@:2.3.5.0",
             "spec": "arch=None-None-aarch64:",
-            "description": "None"
+            "description": null
         },
         {
             "name": "@2.4.1",
             "spec": "arch=None-None-aarch64:",
-            "description": "None"
+            "description": null
         }
     ],
     "variants": [
@@ -119,14 +119,6 @@
             "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files."
         },
         {
-            "name": "tbb",
-            "description": "Widely used C++ template library for task parallelism. Intel Threading\nBuilding Blocks (Intel TBB) lets you easily write parallel C++ programs\nthat take full advantage of multicore performance, that are portable and\ncomposable, and that have future-proof scalability."
-        },
-        {
-            "name": "readline",
-            "description": "The GNU Readline library provides a set of functions for use by\napplications that allow users to edit command lines as they are typed\nin. Both Emacs and vi editing modes are available. The Readline library\nincludes additional functions to maintain a list of previously-entered\ncommand lines, to recall and perhaps reedit those lines, and perform\ncsh-like history expansion on previous commands."
-        },
-        {
             "name": "perl",
             "description": "Perl 5 is a highly capable, feature-rich programming language with over\n27 years of development."
         },
@@ -135,30 +127,42 @@
             "description": "The Python programming language."
         },
         {
-            "name": "zlib-api",
-            "description": "A free, general-purpose, legally unencumbered lossless data-compression\nlibrary."
+            "name": "readline",
+            "description": "The GNU Readline library provides a set of functions for use by\napplications that allow users to edit command lines as they are typed\nin. Both Emacs and vi editing modes are available. The Readline library\nincludes additional functions to maintain a list of previously-entered\ncommand lines, to recall and perhaps reedit those lines, and perform\ncsh-like history expansion on previous commands."
         },
         {
             "name": "simde",
             "description": "The SIMDe header-only library provides fast, portable implementations of\nSIMD intrinsics on hardware which doesn't natively support them, such as\ncalling SSE functions on ARM. There is no performance penalty if the\nhardware supports the native implementation (e.g., SSE/AVX runs at full\nspeed on x86, NEON on ARM, etc.)."
+        },
+        {
+            "name": "tbb",
+            "description": "Intel oneAPI Threading Building Blocks (oneTBB) is a flexible\nperformance library that simplifies the work of adding parallelism to\ncomplex applications across accelerated architectures, even if you are\nnot a threading expert. LICENSE INFORMATION: By downloading and using\nthis software, you agree to the terms and conditions of the software\nlicense agreements at https://intel.ly/393CijO."
+        },
+        {
+            "name": "zlib-api",
+            "description": "zlib replacement with optimizations for next generation systems."
         }
     ],
     "dependent_to": [
+        {
+            "name": "tophat",
+            "description": "Spliced read mapper for RNA-Seq."
+        },
+        {
+            "name": "fastq-screen",
+            "description": "FastQ Screen allows you to screen a library of sequences in FastQ format\nagainst a set of sequence databases so you can see if the composition of\nthe library matches with what you expect."
+        },
         {
             "name": "sparta",
             "description": "small RNA-PARE Target Analyzer (sPARTA) is a tool which utilizes high-\nthroughput sequencing to profile genome-wide cleavage products."
         },
         {
-            "name": "py-unicycler",
-            "description": "Unicycler is an assembly pipeline for bacterial genomes. It can assemble\nIllumina-only read sets where it functions as a SPAdes-optimiser. It can\nalso assembly long-read-only sets (PacBio or Nanopore) where it runs a\nminiasm+Racon pipeline. For the best possible assemblies, give it both\nIllumina reads and long reads, and it will conduct a hybrid assembly."
+            "name": "py-haphpipe",
+            "description": "HAplotype and PHylodynamics pipeline for viral assembly, population\ngenetics, and phylodynamics."
         },
         {
             "name": "trinity",
             "description": "Trinity, developed at the Broad Institute and the Hebrew University of\nJerusalem, represents a novel method for the efficient and robust de\nnovo reconstruction of transcriptomes from RNA-seq data. Trinity\ncombines three independent software modules: Inchworm, Chrysalis, and\nButterfly, applied sequentially to process large volumes of RNA-seq\nreads. Trinity partitions the sequence data into many individual de\nBruijn graphs, each representing the transcriptional complexity at a\ngiven gene or locus, and then processes each graph independently to\nextract full-length splicing isoforms and to tease apart transcripts\nderived from paralogous genes."
-        },
-        {
-            "name": "getorganelle",
-            "description": "Organelle Genome Assembly Toolkit (Chloroplast/Mitocondrial/ITS)"
         },
         {
             "name": "shapemapper",
@@ -173,20 +177,16 @@
             "description": "RSEM is a software package for estimating gene and isoform expression\nlevels from RNA-Seq data."
         },
         {
-            "name": "tophat",
-            "description": "Spliced read mapper for RNA-Seq."
-        },
-        {
             "name": "bismark",
             "description": "A tool to map bisulfite converted sequence reads and determine cytosine\nmethylation states"
         },
         {
-            "name": "fastq-screen",
-            "description": "FastQ Screen allows you to screen a library of sequences in FastQ format\nagainst a set of sequence databases so you can see if the composition of\nthe library matches with what you expect."
+            "name": "getorganelle",
+            "description": "Organelle Genome Assembly Toolkit (Chloroplast/Mitocondrial/ITS)"
         },
         {
-            "name": "py-haphpipe",
-            "description": "HAplotype and PHylodynamics pipeline for viral assembly, population\ngenetics, and phylodynamics."
+            "name": "py-unicycler",
+            "description": "Unicycler is an assembly pipeline for bacterial genomes. It can assemble\nIllumina-only read sets where it functions as a SPAdes-optimiser. It can\nalso assembly long-read-only sets (PacBio or Nanopore) where it runs a\nminiasm+Racon pipeline. For the best possible assemblies, give it both\nIllumina reads and long reads, and it will conduct a hybrid assembly."
         }
     ]
 }

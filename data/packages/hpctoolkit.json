@@ -88,9 +88,9 @@
     "build_system": "AutotoolsPackage",
     "conflicts": [
         {
-            "name": "platform=windows",
+            "name": "arch=windows-None-None",
             "spec": "build_system=autotools",
-            "description": "None"
+            "description": null
         },
         {
             "name": "%gcc@:7",
@@ -120,7 +120,7 @@
         {
             "name": "^intel-xed@2023.08:",
             "spec": "@:2023.9",
-            "description": "None"
+            "description": null
         },
         {
             "name": "+cray",
@@ -239,24 +239,12 @@
     "description": "HPCToolkit is an integrated suite of tools for measurement and analysis\nof program performance on computers ranging from multicore desktop\nsystems to the nation's largest supercomputers. By using statistical\nsampling of timers and hardware performance counters, HPCToolkit\ncollects accurate measurements of a program's work, resource\nconsumption, and inefficiency and attributes them to the full calling\ncontext in which they occur.\n",
     "dependencies": [
         {
-            "name": "gnuconfig",
-            "description": "The GNU config.guess and config.sub scripts versioned by timestamp.\nThis package can be used as a build dependency for autotools packages\nthat ship a tarball with outdated config.guess and config.sub files."
-        },
-        {
-            "name": "gmake",
-            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files."
-        },
-        {
             "name": "autoconf",
             "description": "Autoconf -- system configuration part of autotools"
         },
         {
             "name": "automake",
             "description": "Automake -- make file builder part of autotools"
-        },
-        {
-            "name": "libtool",
-            "description": "libtool -- library building part of autotools."
         },
         {
             "name": "binutils",
@@ -271,6 +259,10 @@
             "description": "bzip2 is a freely available, patent free high-quality data compressor.\nIt typically compresses files to within 10% to 15% of the best available\ntechniques (the PPM family of statistical compressors), whilst being\naround twice as fast at compression and six times faster at\ndecompression."
         },
         {
+            "name": "cuda",
+            "description": "CUDA is a parallel computing platform and programming model invented by\nNVIDIA. It enables dramatic increases in computing performance by\nharnessing the power of the graphics processing unit (GPU). Note: This\npackage does not currently install the drivers necessary to run CUDA.\nThese will need to be installed manually. See:\nhttps://docs.nvidia.com/cuda/ for details."
+        },
+        {
             "name": "dyninst",
             "description": "API for dynamic binary instrumentation. Modify programs while they are\nexecuting without recompiling, re-linking, or re-executing."
         },
@@ -279,12 +271,40 @@
             "description": "elfutils is a collection of various binary tools such as eu-objdump, eu-\nreadelf, and other utilities that allow you to inspect and manipulate\nELF files. Refer to Table 5.Tools Included in elfutils for Red Hat\nDeveloper for a complete list of binary tools that are distributed with\nthe Red Hat Developer Toolset version of elfutils."
         },
         {
+            "name": "gmake",
+            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files."
+        },
+        {
+            "name": "gnuconfig",
+            "description": "The GNU config.guess and config.sub scripts versioned by timestamp.\nThis package can be used as a build dependency for autotools packages\nthat ship a tarball with outdated config.guess and config.sub files."
+        },
+        {
             "name": "gotcha",
             "description": "C software library for shared library function wrapping, enables tools\nto intercept calls into shared libraries"
         },
         {
+            "name": "hip",
+            "description": "HIP is a C++ Runtime API and Kernel Language that allows developers to\ncreate portable applications for AMD and NVIDIA GPUs from single source\ncode."
+        },
+        {
+            "name": "hpcviewer",
+            "description": "Binary distribution of hpcviewer and integrated hpctraceviewer for the\nRice HPCToolkit (Linux x86_64, ppc64le and aarch64, and MacOSX x86_64\nand M1/M2). Note: hpctoolkit databases are platform independent, so you\ndon't need to install hpctoolkit to run the viewers and it's common to\nrun hpcrun and hpcviewer on different machines."
+        },
+        {
+            "name": "hsa-rocr-dev",
+            "description": "This repository includes the user mode API nterfaces and libraries\nnecessary for host applications to launch computer kernels to available\nHSA ROCm kernel agents.AMD Heterogeneous System Architecture HSA - Linux\nHSA Runtime for Boltzmann (ROCm) platforms."
+        },
+        {
+            "name": "intel-gtpin",
+            "description": "Intel(R) GtPin is a dynamic binary instrumentation framework for GEN\n(Intel(R) graphics) Architecture. It is a unique SW platform for\nprofiling a code running on GEN Execution Units (EUs). GTPin includes a\nbinary instrumentation engine for Intel(R) GPUs EUs, along with an API\nfor developing analysis tools, and many sample tools. GTPin allows you\nto capture a range of dynamic profiling data at the finest granularity\nof the specific GPU EU instruction. GTPin supports both compute and\ngraphics workloads. It operates on regular, real-world GPU applications,\nas well as on pre-captured API streams. The technology enables fast and\naccurate dynamic analysis of the code that is executing on the GPU EUs.\nGTPin opens up new opportunities to perform dynamic, low level workload\nand HW analysis on an Intel(R) GPU, with greater efficiency than other\ncurrent solutions. Some of the GTPin capabilities are integrated into\nIntel(R) VTune(TM) Profiler, Intel(R) Advisor, and the Intel(R) Graphics\nPerformance Analyzers (Intel(R) GPA). GTPin is available, along with a\nset of analysis tools based on the GTPin framework. It also enables more\nadvanced users to develop their own analysis tools. GTPin can analyze\nany GPU application. It also collects dynamic profiling data which the\napplication executes on the GPU."
+        },
+        {
             "name": "intel-tbb",
             "description": "Widely used C++ template library for task parallelism. Intel Threading\nBuilding Blocks (Intel TBB) lets you easily write parallel C++ programs\nthat take full advantage of multicore performance, that are portable and\ncomposable, and that have future-proof scalability."
+        },
+        {
+            "name": "intel-xed",
+            "description": "The Intel X86 Encoder Decoder library for encoding and decoding x86\nmachine instructions (64- and 32-bit). Also includes libxed-ild, a\nlightweight library for decoding the length of an instruction."
         },
         {
             "name": "libdwarf",
@@ -299,12 +319,56 @@
             "description": "Libmonitor is a library providing callback functions for the begin and\nend of processes and threads. It provides a layer on which to build\nprocess monitoring tools and profilers."
         },
         {
+            "name": "libpfm4",
+            "description": "libpfm4 is a userspace library to help setup performance events for use\nwith the perf_events Linux kernel interface."
+        },
+        {
+            "name": "libtool",
+            "description": "libtool -- library building part of autotools."
+        },
+        {
             "name": "libunwind",
             "description": "A portable and efficient C programming interface (API) to determine the\ncall-chain of a program."
         },
         {
             "name": "mbedtls",
             "description": "mbed TLS (formerly known as PolarSSL) makes it trivially easy for\ndevelopers to include cryptographic and SSL/TLS capabilities in their\n(embedded) products, facilitating this functionality with a minimal\ncoding footprint."
+        },
+        {
+            "name": "memkind",
+            "description": "The memkind library is a user extensible heap manager built on top of\njemalloc which enables control of memory characteristics and a\npartitioning of the heap between kinds of memory. The kinds of memory\nare defined by operating system memory policies that have been applied\nto virtual address ranges. Memory characteristics supported by memkind\nwithout user extension include control of NUMA and page size features.\nThe jemalloc non-standard interface has been extended to enable\nspecialized arenas to make requests for virtual memory from the\noperating system through the memkind partition interface. Through the\nother memkind interfaces the user can control and extend memory\npartition features and allocate memory while selecting enabled features."
+        },
+        {
+            "name": "mpi",
+            "description": "Cray/HPE packaging of MVAPICH2 for HPE Apollo systems"
+        },
+        {
+            "name": "oneapi-igc",
+            "description": "The Intel Graphics Compiler for OpenCL is an LLVM based compiler for\nOpenCL targeting Intel Gen graphics hardware architecture."
+        },
+        {
+            "name": "oneapi-level-zero",
+            "description": "oneAPI Level Zero Loader. Applications that need low-level control of a\noneAPI level zero device link against the loader. The loader depends on\na separately installed level zero driver. See https://dgpu-\ndocs.intel.com/technologies/level-zero.html for information on how to\ninstall the driver."
+        },
+        {
+            "name": "opencl-c-headers",
+            "description": "OpenCL (Open Computing Language) C header files"
+        },
+        {
+            "name": "papi",
+            "description": "PAPI provides the tool designer and application engineer with a\nconsistent interface and methodology for use of the performance counter\nhardware found in most major microprocessors. PAPI enables software\nengineers to see, in near real time, the relation between software\nperformance and processor events. In addition Component PAPI provides\naccess to a collection of components that expose performance measurement\nopportunities across the hardware and software stack."
+        },
+        {
+            "name": "python",
+            "description": "The Python programming language."
+        },
+        {
+            "name": "rocprofiler-dev",
+            "description": "ROCPROFILER library for AMD HSA runtime API extension support"
+        },
+        {
+            "name": "roctracer-dev",
+            "description": "ROC-tracer library: Runtimes Generic Callback/Activity APIs. The goal of\nthe implementation is to provide a generic independent from specific\nruntime profiler to trace API and asyncronous activity."
         },
         {
             "name": "xerces-c",
@@ -319,76 +383,12 @@
             "description": "A YAML parser and emitter in C++"
         },
         {
-            "name": "zlib-api",
-            "description": "A free, general-purpose, legally unencumbered lossless data-compression\nlibrary."
-        },
-        {
             "name": "zlib",
             "description": "A free, general-purpose, legally unencumbered lossless data-compression\nlibrary."
         },
         {
-            "name": "cuda",
-            "description": "CUDA is a parallel computing platform and programming model invented by\nNVIDIA. It enables dramatic increases in computing performance by\nharnessing the power of the graphics processing unit (GPU). Note: This\npackage does not currently install the drivers necessary to run CUDA.\nThese will need to be installed manually. See:\nhttps://docs.nvidia.com/cuda/ for details."
-        },
-        {
-            "name": "oneapi-level-zero",
-            "description": "oneAPI Level Zero Loader. Applications that need low-level control of a\noneAPI level zero device link against the loader. The loader depends on\na separately installed level zero driver. See https://dgpu-\ndocs.intel.com/technologies/level-zero.html for information on how to\ninstall the driver."
-        },
-        {
-            "name": "oneapi-igc",
-            "description": "The Intel Graphics Compiler for OpenCL is an LLVM based compiler for\nOpenCL targeting Intel Gen graphics hardware architecture."
-        },
-        {
-            "name": "intel-gtpin",
-            "description": "Intel(R) GtPin is a dynamic binary instrumentation framework for GEN\n(Intel(R) graphics) Architecture. It is a unique SW platform for\nprofiling a code running on GEN Execution Units (EUs). GTPin includes a\nbinary instrumentation engine for Intel(R) GPUs EUs, along with an API\nfor developing analysis tools, and many sample tools. GTPin allows you\nto capture a range of dynamic profiling data at the finest granularity\nof the specific GPU EU instruction. GTPin supports both compute and\ngraphics workloads. It operates on regular, real-world GPU applications,\nas well as on pre-captured API streams. The technology enables fast and\naccurate dynamic analysis of the code that is executing on the GPU EUs.\nGTPin opens up new opportunities to perform dynamic, low level workload\nand HW analysis on an Intel(R) GPU, with greater efficiency than other\ncurrent solutions. Some of the GTPin capabilities are integrated into\nIntel(R) VTune(TM) Profiler, Intel(R) Advisor, and the Intel(R) Graphics\nPerformance Analyzers (Intel(R) GPA). GTPin is available, along with a\nset of analysis tools based on the GTPin framework. It also enables more\nadvanced users to develop their own analysis tools. GTPin can analyze\nany GPU application. It also collects dynamic profiling data which the\napplication executes on the GPU."
-        },
-        {
-            "name": "opencl-c-headers",
-            "description": "OpenCL (Open Computing Language) C header files"
-        },
-        {
-            "name": "intel-xed",
-            "description": "The Intel X86 Encoder Decoder library for encoding and decoding x86\nmachine instructions (64- and 32-bit). Also includes libxed-ild, a\nlightweight library for decoding the length of an instruction."
-        },
-        {
-            "name": "memkind",
-            "description": "The memkind library is a user extensible heap manager built on top of\njemalloc which enables control of memory characteristics and a\npartitioning of the heap between kinds of memory. The kinds of memory\nare defined by operating system memory policies that have been applied\nto virtual address ranges. Memory characteristics supported by memkind\nwithout user extension include control of NUMA and page size features.\nThe jemalloc non-standard interface has been extended to enable\nspecialized arenas to make requests for virtual memory from the\noperating system through the memkind partition interface. Through the\nother memkind interfaces the user can control and extend memory\npartition features and allocate memory while selecting enabled features."
-        },
-        {
-            "name": "papi",
-            "description": "PAPI provides the tool designer and application engineer with a\nconsistent interface and methodology for use of the performance counter\nhardware found in most major microprocessors. PAPI enables software\nengineers to see, in near real time, the relation between software\nperformance and processor events. In addition Component PAPI provides\naccess to a collection of components that expose performance measurement\nopportunities across the hardware and software stack."
-        },
-        {
-            "name": "libpfm4",
-            "description": "libpfm4 is a userspace library to help setup performance events for use\nwith the perf_events Linux kernel interface."
-        },
-        {
-            "name": "mpi",
-            "description": "MPItrampoline: A forwarding MPI implementation that can use any other\nMPI implementation via an MPI ABI."
-        },
-        {
-            "name": "hpcviewer",
-            "description": "Binary distribution of hpcviewer and integrated hpctraceviewer for the\nRice HPCToolkit (Linux x86_64, ppc64le and aarch64, and MacOSX x86_64\nand M1/M2). Note: hpctoolkit databases are platform independent, so you\ndon't need to install hpctoolkit to run the viewers and it's common to\nrun hpcrun and hpcviewer on different machines."
-        },
-        {
-            "name": "python",
-            "description": "The Python programming language."
-        },
-        {
-            "name": "hip",
-            "description": "HIP is a C++ Runtime API and Kernel Language that allows developers to\ncreate portable applications for AMD and NVIDIA GPUs from single source\ncode."
-        },
-        {
-            "name": "hsa-rocr-dev",
-            "description": "This repository includes the user mode API nterfaces and libraries\nnecessary for host applications to launch computer kernels to available\nHSA ROCm kernel agents.AMD Heterogeneous System Architecture HSA - Linux\nHSA Runtime for Boltzmann (ROCm) platforms."
-        },
-        {
-            "name": "roctracer-dev",
-            "description": "ROC-tracer library: Runtimes Generic Callback/Activity APIs. The goal of\nthe implementation is to provide a generic independent from specific\nruntime profiler to trace API and asyncronous activity."
-        },
-        {
-            "name": "rocprofiler-dev",
-            "description": "ROCPROFILER library for AMD HSA runtime API extension support"
+            "name": "zlib-api",
+            "description": "zlib replacement with optimizations for next generation systems."
         }
     ],
     "dependent_to": []

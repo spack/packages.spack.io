@@ -3,11 +3,11 @@
     "aliases": [
         {
             "name": "luajit",
-            "alias_for": "{lua-luajit-openresty+lualinks}"
+            "alias_for": "lua-luajit-openresty+lualinks"
         },
         {
-            "name": "lua-lang@5.1",
-            "alias_for": "{lua-luajit-openresty+lualinks}"
+            "name": "lua-lang",
+            "alias_for": "lua-luajit-openresty+lualinks"
         }
     ],
     "versions": [
@@ -24,9 +24,9 @@
     "build_system": "MakefilePackage",
     "conflicts": [
         {
-            "name": "platform=windows",
+            "name": "arch=windows-None-None",
             "spec": "build_system=makefile",
-            "description": "None"
+            "description": null
         }
     ],
     "variants": [
@@ -60,6 +60,10 @@
     "description": "Flast flexible JITed lua - OpenResty maintained fork\n",
     "dependencies": [
         {
+            "name": "curl",
+            "description": "cURL is an open source command line tool and library for transferring\ndata with URL syntax"
+        },
+        {
             "name": "gmake",
             "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files."
         },
@@ -68,34 +72,14 @@
             "description": "Unzip is a compression and file packaging/archive utility."
         },
         {
-            "name": "curl",
-            "description": "cURL is an open source command line tool and library for transferring\ndata with URL syntax"
-        },
-        {
             "name": "wget",
             "description": "GNU Wget is a free software package for retrieving files using HTTP,\nHTTPS and FTP, the most widely-used Internet protocols. It is a non-\ninteractive commandline tool, so it may easily be called from scripts,\ncron jobs, terminals without X-Windows support, etc."
         }
     ],
     "dependent_to": [
         {
-            "name": "lua-luaposix",
-            "description": "Lua posix bindings, including ncurses"
-        },
-        {
-            "name": "lua-bit32",
-            "description": "Lua 5.2 bit operations for Lua 5.1"
-        },
-        {
             "name": "lua-bitlib",
             "description": "Lua-jit-like bitwise operations for lua"
-        },
-        {
-            "name": "lua-ffi",
-            "description": "luajit FFI for interpreted lua"
-        },
-        {
-            "name": "lua-luafilesystem",
-            "description": "LuaFileSystem is a Lua library developed to complement the set of\nfunctions related to file systems offered by the standard Lua\ndistribution. LuaFileSystem offers a portable way to access the\nunderlying directory structure and file attributes. LuaFileSystem is\nfree software and uses the same license as Lua 5.1"
         },
         {
             "name": "lua-mpack",
@@ -104,6 +88,22 @@
         {
             "name": "lua-lpeg",
             "description": "pattern-matching for lua"
+        },
+        {
+            "name": "lua-luafilesystem",
+            "description": "LuaFileSystem is a Lua library developed to complement the set of\nfunctions related to file systems offered by the standard Lua\ndistribution. LuaFileSystem offers a portable way to access the\nunderlying directory structure and file attributes. LuaFileSystem is\nfree software and uses the same license as Lua 5.1"
+        },
+        {
+            "name": "lua-ffi",
+            "description": "luajit FFI for interpreted lua"
+        },
+        {
+            "name": "lua-bit32",
+            "description": "Lua 5.2 bit operations for Lua 5.1"
+        },
+        {
+            "name": "lua-luaposix",
+            "description": "Lua posix bindings, including ncurses"
         }
     ]
 }

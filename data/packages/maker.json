@@ -62,16 +62,36 @@
     "description": "MAKER is a portable and easily configurable genome annotation pipeline.\nIt's purpose is to allow smaller eukaryotic and prokaryotic\ngenomeprojects to independently annotate their genomes and to create\ngenome databases. MAKER identifies repeats, aligns ESTs and proteins to\na genome, produces ab-initio gene predictions and automatically\nsynthesizes these data into gene annotations having evidence-based\nquality values. MAKER is also easily trainable: outputs of preliminary\nruns can be used to automatically retrain its gene prediction algorithm,\nproducing higher quality gene-models on subsequent runs. MAKER's inputs\nare minimal and its ouputs can be directly loaded into a GMOD database.\nThey can also be viewed in the Apollo genome browser; this feature of\nMAKER provides an easy means to annotate, view and edit individual\ncontigs and BACs without the overhead of a database. MAKER should prove\nespecially useful for emerging model organism projects with minimal\nbioinformatics expertise and computer resources. Note: MAKER requires\nregistration. Fill out the form at\nhttp://yandell.topaz.genetics.utah.edu/cgi-bin/maker_license.cgi to get\na download link. Spack will search your current directory for the\ndownload file. Alternatively, add this file to a mirror so that Spack\ncan find it. For instructions on how to set up a mirror, see\nhttps://spack.readthedocs.io/en/latest/mirrors.html\n",
     "dependencies": [
         {
+            "name": "augustus",
+            "description": "AUGUSTUS is a program that predicts genes in eukaryotic genomic\nsequences"
+        },
+        {
+            "name": "blast-plus",
+            "description": "Basic Local Alignment Search Tool."
+        },
+        {
+            "name": "exonerate",
+            "description": "Pairwise sequence alignment of DNA and proteins"
+        },
+        {
+            "name": "interproscan",
+            "description": "InterProScan is the software package that allows sequences (protein and\nnucleic) to be scanned against InterPro's signatures. Signatures are\npredictive models, provided by several different databases, that make up\nthe InterPro consortium. By default this does not download all the\ndatabases you likely want, you'll either want to build with +databases\nor download the data archive for the version you installed to a separate\nlocation and modify interproscan.properties"
+        },
+        {
+            "name": "mpi",
+            "description": "Cray/HPE packaging of MVAPICH2 for HPE Apollo systems"
+        },
+        {
             "name": "perl",
             "description": "Perl 5 is a highly capable, feature-rich programming language with over\n27 years of development."
         },
         {
-            "name": "perl-module-build",
-            "description": "Module::Build is a system for building, testing, and installing Perl\nmodules. It is meant to be an alternative to ExtUtils::MakeMaker.\nDevelopers may alter the behavior of the module through subclassing in a\nmuch more straightforward way than with MakeMaker. It also does not\nrequire a make on your system - most of the Module::Build code is pure-\nperl and written in a very cross-platform way."
+            "name": "perl-bioperl",
+            "description": "BioPerl is the product of a community effort to produce Perl code which\nis useful in biology. Examples include Sequence objects, Alignment\nobjects and database searching objects. These objects not only do what\nthey are advertised to do in the documentation, but they also interact -\nAlignment objects are made from the Sequence objects, Sequence objects\nhave access to Annotation and SeqFeature objects and databases, Blast\nobjects can be converted to Alignment objects, and so on. This means\nthat the objects provide a coordinated and extensible framework to do\ncomputational biology. BioPerl development focuses on Perl classes, or\ncode that is used to create objects representing biological entities.\nThere are scripts provided in the scripts/ and examples/ directories but\nscripts are not the main focus of the BioPerl developers. Of course, as\nthe objects do most of the hard work for you, all you have to do is\ncombine a number of objects together sensibly to make useful scripts.\nThe intent of the BioPerl development effort is to make reusable tools\nthat aid people in creating their own sites or job-specific\napplications. The BioPerl website at https://bioperl.org/ also attempts\nto maintain links and archives of standalone bio-related Perl tools that\nare not affiliated or related to the core BioPerl effort. Check the site\nfor useful code ideas and contribute your own if possible."
         },
         {
-            "name": "perl-dbi",
-            "description": "The DBI is the standard database interface module for Perl. It defines a\nset of methods, variables and conventions that provide a consistent\ndatabase interface independent of the actual database being used."
+            "name": "perl-bit-vector",
+            "description": "Efficient bit vector, set of integers and \"big int\" math library"
         },
         {
             "name": "perl-dbd-mysql",
@@ -86,20 +106,16 @@
             "description": "DBD::SQLite - Self-contained RDBMS in a DBI Driver"
         },
         {
-            "name": "perl-forks",
-            "description": "The \"forks\" pragma allows a developer to use threads without having to\nhave a threaded perl, or to even run 5.8.0 or higher."
+            "name": "perl-dbi",
+            "description": "The DBI is the standard database interface module for Perl. It defines a\nset of methods, variables and conventions that provide a consistent\ndatabase interface independent of the actual database being used."
         },
         {
             "name": "perl-file-which",
             "description": "Perl implementation of the which utility as an API"
         },
         {
-            "name": "perl-perl-unsafe-signals",
-            "description": "Quoting perl581delta: In Perl 5.8.0 the so-called \"safe signals\" were\nintroduced. This means that Perl no longer handles signals immediately\nbut instead \"between opcodes\", when it is safe to do so. The earlier\nimmediate handling easily could corrupt the internal state of Perl,\nresulting in mysterious crashes. It's possible since perl 5.8.1 to\nglobally disable this feature by using the PERL_SIGNALS environment\nvariables (as specified in \"PERL_SIGNALS\" in perlrun); but there's no\nway to disable it locally, for a short period of time. That's however\nsomething you might want to do, if, for example, your Perl program calls\na C routine that will potentially run for a long time and for which you\nwant to set a timeout. This module therefore allows you to define\nUNSAFE_SIGNALS blocks in which signals will be handled \"unsafely\". Note\nthat, no matter how short you make the unsafe block, it will still be\nunsafe. Use with caution."
-        },
-        {
-            "name": "perl-bit-vector",
-            "description": "Efficient bit vector, set of integers and \"big int\" math library"
+            "name": "perl-forks",
+            "description": "The \"forks\" pragma allows a developer to use threads without having to\nhave a threaded perl, or to even run 5.8.0 or higher."
         },
         {
             "name": "perl-inline-c",
@@ -114,36 +130,20 @@
             "description": "By default, this module exports a single function prompt. It prompts the\nuser to enter some input, and returns an object that represents the user\ninput. You may specify various flags to the function to affect its\nbehaviour; most notably, it defaults to automatically chomp the input,\nunless the -line flag is specified. Two other functions are exported at\nrequest: hand_print, which simulates hand-typing to the console; and\nget_input, which is the lower-level function that actually prompts the\nuser for a suitable input. Note that this is an interim re-release. A\nfull release with better documentation will follow in the near future.\nMeanwhile, please consult the examples directory from this module's CPAN\ndistribution to better understand how to make use of this module."
         },
         {
-            "name": "perl-bioperl",
-            "description": "BioPerl is the product of a community effort to produce Perl code which\nis useful in biology. Examples include Sequence objects, Alignment\nobjects and database searching objects. These objects not only do what\nthey are advertised to do in the documentation, but they also interact -\nAlignment objects are made from the Sequence objects, Sequence objects\nhave access to Annotation and SeqFeature objects and databases, Blast\nobjects can be converted to Alignment objects, and so on. This means\nthat the objects provide a coordinated and extensible framework to do\ncomputational biology. BioPerl development focuses on Perl classes, or\ncode that is used to create objects representing biological entities.\nThere are scripts provided in the scripts/ and examples/ directories but\nscripts are not the main focus of the BioPerl developers. Of course, as\nthe objects do most of the hard work for you, all you have to do is\ncombine a number of objects together sensibly to make useful scripts.\nThe intent of the BioPerl development effort is to make reusable tools\nthat aid people in creating their own sites or job-specific\napplications. The BioPerl website at https://bioperl.org/ also attempts\nto maintain links and archives of standalone bio-related Perl tools that\nare not affiliated or related to the core BioPerl effort. Check the site\nfor useful code ideas and contribute your own if possible."
+            "name": "perl-module-build",
+            "description": "Module::Build is a system for building, testing, and installing Perl\nmodules. It is meant to be an alternative to ExtUtils::MakeMaker.\nDevelopers may alter the behavior of the module through subclassing in a\nmuch more straightforward way than with MakeMaker. It also does not\nrequire a make on your system - most of the Module::Build code is pure-\nperl and written in a very cross-platform way."
         },
         {
-            "name": "blast-plus",
-            "description": "Basic Local Alignment Search Tool."
-        },
-        {
-            "name": "snap-korf",
-            "description": "SNAP is a general purpose gene finding program suitable for both\neukaryotic and prokaryotic genomes."
+            "name": "perl-perl-unsafe-signals",
+            "description": "Quoting perl581delta: In Perl 5.8.0 the so-called \"safe signals\" were\nintroduced. This means that Perl no longer handles signals immediately\nbut instead \"between opcodes\", when it is safe to do so. The earlier\nimmediate handling easily could corrupt the internal state of Perl,\nresulting in mysterious crashes. It's possible since perl 5.8.1 to\nglobally disable this feature by using the PERL_SIGNALS environment\nvariables (as specified in \"PERL_SIGNALS\" in perlrun); but there's no\nway to disable it locally, for a short period of time. That's however\nsomething you might want to do, if, for example, your Perl program calls\na C routine that will potentially run for a long time and for which you\nwant to set a timeout. This module therefore allows you to define\nUNSAFE_SIGNALS blocks in which signals will be handled \"unsafely\". Note\nthat, no matter how short you make the unsafe block, it will still be\nunsafe. Use with caution."
         },
         {
             "name": "repeatmasker",
             "description": "RepeatMasker is a program that screens DNA sequences for interspersed\nrepeats and low complexity DNA sequences."
         },
         {
-            "name": "exonerate",
-            "description": "Pairwise sequence alignment of DNA and proteins"
-        },
-        {
-            "name": "augustus",
-            "description": "AUGUSTUS is a program that predicts genes in eukaryotic genomic\nsequences"
-        },
-        {
-            "name": "interproscan",
-            "description": "InterProScan is the software package that allows sequences (protein and\nnucleic) to be scanned against InterPro's signatures. Signatures are\npredictive models, provided by several different databases, that make up\nthe InterPro consortium. By default this does not download all the\ndatabases you likely want, you'll either want to build with +databases\nor download the data archive for the version you installed to a separate\nlocation and modify interproscan.properties"
-        },
-        {
-            "name": "mpi",
-            "description": "MPItrampoline: A forwarding MPI implementation that can use any other\nMPI implementation via an MPI ABI."
+            "name": "snap-korf",
+            "description": "SNAP is a general purpose gene finding program suitable for both\neukaryotic and prokaryotic genomes."
         }
     ],
     "dependent_to": []

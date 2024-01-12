@@ -67,12 +67,12 @@
     "build_system": "AutotoolsPackage",
     "conflicts": [
         {
-            "name": "platform=windows",
+            "name": "arch=windows-None-None",
             "spec": "build_system=autotools",
-            "description": "None"
+            "description": null
         },
         {
-            "name": "%gcc platform=darwin",
+            "name": "%gcc arch=darwin-None-None",
             "spec": "@:1.37.9",
             "description": "libuv: libuv does not compile with GCC on macOS yet, use clang. See: https://github.com/libuv/libuv/issues/2805"
         }
@@ -91,20 +91,20 @@
     "description": "Multi-platform library with a focus on asynchronous IO\n",
     "dependencies": [
         {
-            "name": "gnuconfig",
-            "description": "The GNU config.guess and config.sub scripts versioned by timestamp.\nThis package can be used as a build dependency for autotools packages\nthat ship a tarball with outdated config.guess and config.sub files."
-        },
-        {
-            "name": "gmake",
-            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files."
+            "name": "autoconf",
+            "description": "Autoconf -- system configuration part of autotools"
         },
         {
             "name": "automake",
             "description": "Automake -- make file builder part of autotools"
         },
         {
-            "name": "autoconf",
-            "description": "Autoconf -- system configuration part of autotools"
+            "name": "gmake",
+            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files."
+        },
+        {
+            "name": "gnuconfig",
+            "description": "The GNU config.guess and config.sub scripts versioned by timestamp.\nThis package can be used as a build dependency for autotools packages\nthat ship a tarball with outdated config.guess and config.sub files."
         },
         {
             "name": "libtool",
@@ -117,12 +117,28 @@
     ],
     "dependent_to": [
         {
+            "name": "libluv",
+            "description": "This library makes libuv available to lua scripts. It was made for the\nluvit project but should usable from nearly any lua project."
+        },
+        {
+            "name": "julia",
+            "description": "The Julia Language: A fresh approach to technical computing"
+        },
+        {
+            "name": "c-raft",
+            "description": "C implementation of the Raft consensus protocol."
+        },
+        {
             "name": "uvw",
             "description": "uvw is a header-only, event based, tiny and easy to use libuv wrapper in\nmodern C++."
         },
         {
-            "name": "libluv",
-            "description": "This library makes libuv available to lua scripts. It was made for the\nluvit project but should usable from nearly any lua project."
+            "name": "bind9",
+            "description": "BIND 9 has evolved to be a very flexible, full-featured DNS system."
+        },
+        {
+            "name": "netdata",
+            "description": "Real-time performance monitoring, done right!"
         },
         {
             "name": "py-horovod",
@@ -139,22 +155,6 @@
         {
             "name": "tensorpipe",
             "description": "A tensor-aware point-to-point communication primitive for machine\nlearning."
-        },
-        {
-            "name": "bind9",
-            "description": "BIND 9 has evolved to be a very flexible, full-featured DNS system."
-        },
-        {
-            "name": "julia",
-            "description": "The Julia Language: A fresh approach to technical computing"
-        },
-        {
-            "name": "netdata",
-            "description": "Real-time performance monitoring, done right!"
-        },
-        {
-            "name": "c-raft",
-            "description": "C implementation of the Raft consensus protocol."
         }
     ]
 }

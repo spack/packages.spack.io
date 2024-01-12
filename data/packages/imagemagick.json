@@ -27,9 +27,9 @@
     "build_system": "AutotoolsPackage",
     "conflicts": [
         {
-            "name": "platform=windows",
+            "name": "arch=windows-None-None",
             "spec": "build_system=autotools",
-            "description": "None"
+            "description": null
         }
     ],
     "variants": [
@@ -42,6 +42,11 @@
             "name": "ghostscript",
             "default": false,
             "description": "Compile with Ghostscript support"
+        },
+        {
+            "name": "rsvg",
+            "default": false,
+            "description": "Enable RSVG support"
         }
     ],
     "homepage": "https://www.imagemagick.org",
@@ -51,40 +56,12 @@
     "description": "ImageMagick is a software suite to create, edit, compose, or convert\nbitmap images.\n",
     "dependencies": [
         {
-            "name": "gnuconfig",
-            "description": "The GNU config.guess and config.sub scripts versioned by timestamp.\nThis package can be used as a build dependency for autotools packages\nthat ship a tarball with outdated config.guess and config.sub files."
-        },
-        {
-            "name": "gmake",
-            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files."
-        },
-        {
-            "name": "jpeg",
-            "description": "libjpeg-turbo is a fork of the original IJG libjpeg which uses SIMD to\naccelerate baseline JPEG compression and decompression. libjpeg is a\nlibrary that implements JPEG image encoding, decoding and transcoding."
-        },
-        {
-            "name": "pango",
-            "description": "Pango is a library for laying out and rendering of text, with an\nemphasis on internationalization. It can be used anywhere that text\nlayout is needed, though most of the work on Pango so far has been done\nin the context of the GTK+ widget toolkit."
-        },
-        {
-            "name": "libtool",
-            "description": "libtool -- library building part of autotools."
-        },
-        {
-            "name": "libpng",
-            "description": "libpng is the official PNG reference library."
-        },
-        {
-            "name": "freetype",
-            "description": "FreeType is a freely available software library to render fonts. It is\nwritten in C, designed to be small, efficient, highly customizable, and\nportable while capable of producing high-quality output (glyph images)\nof most vector and bitmap font formats."
-        },
-        {
             "name": "fontconfig",
             "description": "Fontconfig is a library for configuring/customizing font access"
         },
         {
-            "name": "libtiff",
-            "description": "LibTIFF - Tag Image File Format (TIFF) Library and Utilities."
+            "name": "freetype",
+            "description": "FreeType is a freely available software library to render fonts. It is\nwritten in C, designed to be small, efficient, highly customizable, and\nportable while capable of producing high-quality output (glyph images)\nof most vector and bitmap font formats."
         },
         {
             "name": "ghostscript",
@@ -95,8 +72,40 @@
             "description": "Ghostscript Fonts"
         },
         {
+            "name": "gmake",
+            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files."
+        },
+        {
+            "name": "gnuconfig",
+            "description": "The GNU config.guess and config.sub scripts versioned by timestamp.\nThis package can be used as a build dependency for autotools packages\nthat ship a tarball with outdated config.guess and config.sub files."
+        },
+        {
+            "name": "jpeg",
+            "description": "libjpeg-turbo is a fork of the original IJG libjpeg which uses SIMD to\naccelerate baseline JPEG compression and decompression. libjpeg is a\nlibrary that implements JPEG image encoding, decoding and transcoding."
+        },
+        {
+            "name": "libpng",
+            "description": "libpng is the official PNG reference library."
+        },
+        {
+            "name": "librsvg",
+            "description": "Library to render SVG files using Cairo"
+        },
+        {
             "name": "libsm",
             "description": "libSM - X Session Management Library."
+        },
+        {
+            "name": "libtiff",
+            "description": "LibTIFF - Tag Image File Format (TIFF) Library and Utilities."
+        },
+        {
+            "name": "libtool",
+            "description": "libtool -- library building part of autotools."
+        },
+        {
+            "name": "pango",
+            "description": "Pango is a library for laying out and rendering of text, with an\nemphasis on internationalization. It can be used anywhere that text\nlayout is needed, though most of the work on Pango so far has been done\nin the context of the GTK+ widget toolkit."
         },
         {
             "name": "pkgconfig",
@@ -104,14 +113,6 @@
         }
     ],
     "dependent_to": [
-        {
-            "name": "meme",
-            "description": "The MEME Suite allows the biologist to discover novel motifs in\ncollections of unaligned nucleotide or protein sequences, and to perform\na wide variety of other motif-based analyses."
-        },
-        {
-            "name": "osu-micro-benchmarks",
-            "description": "The Ohio MicroBenchmark suite is a collection of independent MPI message\npassing performance microbenchmarks developed and written at The Ohio\nState University. It includes traditional benchmarks and performance\nmeasures such as latency, bandwidth and host overhead and can be used\nfor both traditional and GPU-enhanced nodes."
-        },
         {
             "name": "metplus",
             "description": "METplus is a verification framework that spans a wide range of temporal\n(warn-on-forecast to climate) and spatial (storm to global) scales."
@@ -121,28 +122,36 @@
             "description": "Take Screenshots of Web Pages. Takes screenshots of web pages, including\nShiny applications and R Markdown documents."
         },
         {
-            "name": "py-wand",
-            "description": "Wand is a ctypes-based simple ImageMagick binding for Python."
-        },
-        {
-            "name": "r-animation",
-            "description": "A Gallery of Animations in Statistics and Utilities to Create\nAnimations. Provides functions for animations in statistics, covering\ntopics in probability theory, mathematical statistics, multivariate\nstatistics, non-parametric statistics, sampling survey, linear models,\ntime series, computational statistics, data mining and machine learning.\nThese functions maybe helpful in teaching statistics and data analysis."
-        },
-        {
-            "name": "libpressio",
-            "description": "A generic abstraction for the compression of dense tensors"
-        },
-        {
-            "name": "r-magick",
-            "description": "Advanced Graphics and Image-Processing in R. Bindings to 'ImageMagick':\nthe most comprehensive open-source image processing library available.\nSupports many common formats (png, jpeg, tiff, pdf, etc) and\nmanipulations (rotate, scale, crop, trim, flip, blur, etc). All\noperations are vectorized via the Magick++ STL meaning they operate\neither on a single frame or a series of frames for working with layers,\ncollages, or animation. In RStudio images are automatically previewed\nwhen printed to the console, resulting in an interactive editing\nenvironment. The latest version of the package includes a native\ngraphics device for creating in-memory graphics or drawing onto images\nusing pixel coordinates."
+            "name": "py-matplotlib",
+            "description": "Matplotlib is a comprehensive library for creating static, animated, and\ninteractive visualizations in Python."
         },
         {
             "name": "octave",
             "description": "GNU Octave is a high-level language, primarily intended for numerical\ncomputations. It provides a convenient command line interface for\nsolving linear and nonlinear problems numerically, and for performing\nother numerical experiments using a language that is mostly compatible\nwith Matlab. It may also be used as a batch-oriented language."
         },
         {
-            "name": "py-matplotlib",
-            "description": "Matplotlib is a comprehensive library for creating static, animated, and\ninteractive visualizations in Python."
+            "name": "r-animation",
+            "description": "A Gallery of Animations in Statistics and Utilities to Create\nAnimations. Provides functions for animations in statistics, covering\ntopics in probability theory, mathematical statistics, multivariate\nstatistics, non-parametric statistics, sampling survey, linear models,\ntime series, computational statistics, data mining and machine learning.\nThese functions maybe helpful in teaching statistics and data analysis."
+        },
+        {
+            "name": "meme",
+            "description": "The MEME Suite allows the biologist to discover novel motifs in\ncollections of unaligned nucleotide or protein sequences, and to perform\na wide variety of other motif-based analyses."
+        },
+        {
+            "name": "r-magick",
+            "description": "Advanced Graphics and Image-Processing in R. Bindings to 'ImageMagick':\nthe most comprehensive open-source image processing library available.\nSupports many common formats (png, jpeg, tiff, pdf, etc) and\nmanipulations (rotate, scale, crop, trim, flip, blur, etc). All\noperations are vectorized via the Magick++ STL meaning they operate\neither on a single frame or a series of frames for working with layers,\ncollages, or animation. In RStudio images are automatically previewed\nwhen printed to the console, resulting in an interactive editing\nenvironment. The latest version of the package includes a native\ngraphics device for creating in-memory graphics or drawing onto images\nusing pixel coordinates."
+        },
+        {
+            "name": "py-wand",
+            "description": "Wand is a ctypes-based simple ImageMagick binding for Python."
+        },
+        {
+            "name": "osu-micro-benchmarks",
+            "description": "The Ohio MicroBenchmark suite is a collection of independent MPI message\npassing performance microbenchmarks developed and written at The Ohio\nState University. It includes traditional benchmarks and performance\nmeasures such as latency, bandwidth and host overhead and can be used\nfor both traditional and GPU-enhanced nodes."
+        },
+        {
+            "name": "libpressio",
+            "description": "A generic abstraction for the compression of dense tensors"
         }
     ]
 }

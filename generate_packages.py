@@ -155,24 +155,24 @@ def main():
 
         conflicts = []
         if pkg.conflicts:
-            for name, conflict_list in pkg.conflicts.items():
-                for conflict in conflict_list:
+            for when, conflict_list in pkg.conflicts.items():
+                for conflict, msg in conflict_list:
                     conflicts.append(
                         {
-                            "name": name,
-                            "spec": str(conflict[0]),
-                            "description": str(conflict[1]),
+                            "name": str(conflict),
+                            "spec": str(when),
+                            "description": msg,
                         }
                     )
 
         aliases = []
-        raw_aliases = []
+        raw_aliases = set()
         if pkg.provided:
-            for name, alias in pkg.provided.items():
-                splitup = str(name).split("@", 1)[0]
-                descriptions[splitup] = pkg.format_doc().strip()
-                aliases.append({"name": str(name), "alias_for": str(alias)})
-                raw_aliases.append(splitup)
+            for when, provided_specs in pkg.provided.items():
+                for provided in provided_specs:
+                    descriptions[provided.name] = pkg.format_doc().strip()
+                    aliases.append({"name": str(provided.name), "alias_for": str(when)})
+                    raw_aliases.add(provided.name)
 
         # Get latest version!
         latest_version = spack.version.VersionList(pkg.versions).preferred()
@@ -189,7 +189,7 @@ def main():
             "patches": patches,
             "resources": resources,
             "description": pkg.format_doc(),
-            "dependencies": list(pkg.dependencies.keys()),
+            "dependencies": pkg.dependency_names(),
         }
 
         # Keep master lookup of all dependents

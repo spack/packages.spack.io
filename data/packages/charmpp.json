@@ -65,7 +65,7 @@
         {
             "name": "~tracing",
             "spec": "+papi",
-            "description": "None"
+            "description": null
         },
         {
             "name": "backend=multicore",
@@ -75,22 +75,22 @@
         {
             "name": "backend=ucx",
             "spec": "@:6.9",
-            "description": "None"
+            "description": null
         },
         {
             "name": "+shared",
             "spec": "%gcc arch=darwin-None-None",
-            "description": "None"
+            "description": null
         },
         {
             "name": "@:6",
             "spec": "%apple-clang@7: arch=darwin-None-None",
-            "description": "None"
+            "description": null
         },
         {
             "name": "@:6",
             "spec": "%clang@7: arch=darwin-None-None",
-            "description": "None"
+            "description": null
         }
     ],
     "variants": [
@@ -106,7 +106,7 @@
         },
         {
             "name": "backend",
-            "default": "netlrts",
+            "default": "multicore",
             "description": "Set the backend to use"
         },
         {
@@ -223,40 +223,40 @@
     "description": "Charm++ is a parallel programming framework in C++ supported by an\nadaptive runtime system, which enhances user productivity and allows\nprograms to run portably from small multicore computers (your laptop) to\nthe largest supercomputers.\n",
     "dependencies": [
         {
-            "name": "cmake",
-            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
-        },
-        {
-            "name": "mpi",
-            "description": "MPItrampoline: A forwarding MPI implementation that can use any other\nMPI implementation via an MPI ABI."
-        },
-        {
-            "name": "papi",
-            "description": "PAPI provides the tool designer and application engineer with a\nconsistent interface and methodology for use of the performance counter\nhardware found in most major microprocessors. PAPI enables software\nengineers to see, in near real time, the relation between software\nperformance and processor events. In addition Component PAPI provides\naccess to a collection of components that expose performance measurement\nopportunities across the hardware and software stack."
-        },
-        {
-            "name": "cuda",
-            "description": "CUDA is a parallel computing platform and programming model invented by\nNVIDIA. It enables dramatic increases in computing performance by\nharnessing the power of the graphics processing unit (GPU). Note: This\npackage does not currently install the drivers necessary to run CUDA.\nThese will need to be installed manually. See:\nhttps://docs.nvidia.com/cuda/ for details."
-        },
-        {
-            "name": "ucx",
-            "description": "a communication library implementing high-performance messaging for\nMPI/PGAS frameworks"
-        },
-        {
-            "name": "slurm",
-            "description": "Slurm is an open source, fault-tolerant, and highly scalable cluster\nmanagement and job scheduling system for large and small Linux clusters.\nSlurm requires no kernel modifications for its operation and is\nrelatively self-contained. As a cluster workload manager, Slurm has\nthree key functions. First, it allocates exclusive and/or non-exclusive\naccess to resources (compute nodes) to users for some duration of time\nso they can perform work. Second, it provides a framework for starting,\nexecuting, and monitoring work (normally a parallel job) on the set of\nallocated nodes. Finally, it arbitrates contention for resources by\nmanaging a queue of pending work."
-        },
-        {
-            "name": "openmpi",
-            "description": "An open source Message Passing Interface implementation. The Open MPI\nProject is an open source Message Passing Interface implementation that\nis developed and maintained by a consortium of academic, research, and\nindustry partners. Open MPI is therefore able to combine the expertise,\ntechnologies, and resources from all across the High Performance\nComputing community in order to build the best MPI library available.\nOpen MPI offers advantages for system and software vendors, application\ndevelopers and computer science researchers."
+            "name": "autoconf",
+            "description": "Autoconf -- system configuration part of autotools"
         },
         {
             "name": "automake",
             "description": "Automake -- make file builder part of autotools"
         },
         {
-            "name": "autoconf",
-            "description": "Autoconf -- system configuration part of autotools"
+            "name": "cmake",
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
+        },
+        {
+            "name": "cuda",
+            "description": "CUDA is a parallel computing platform and programming model invented by\nNVIDIA. It enables dramatic increases in computing performance by\nharnessing the power of the graphics processing unit (GPU). Note: This\npackage does not currently install the drivers necessary to run CUDA.\nThese will need to be installed manually. See:\nhttps://docs.nvidia.com/cuda/ for details."
+        },
+        {
+            "name": "mpi",
+            "description": "Cray/HPE packaging of MVAPICH2 for HPE Apollo systems"
+        },
+        {
+            "name": "openmpi",
+            "description": "An open source Message Passing Interface implementation. The Open MPI\nProject is an open source Message Passing Interface implementation that\nis developed and maintained by a consortium of academic, research, and\nindustry partners. Open MPI is therefore able to combine the expertise,\ntechnologies, and resources from all across the High Performance\nComputing community in order to build the best MPI library available.\nOpen MPI offers advantages for system and software vendors, application\ndevelopers and computer science researchers."
+        },
+        {
+            "name": "papi",
+            "description": "PAPI provides the tool designer and application engineer with a\nconsistent interface and methodology for use of the performance counter\nhardware found in most major microprocessors. PAPI enables software\nengineers to see, in near real time, the relation between software\nperformance and processor events. In addition Component PAPI provides\naccess to a collection of components that expose performance measurement\nopportunities across the hardware and software stack."
+        },
+        {
+            "name": "slurm",
+            "description": "Slurm is an open source, fault-tolerant, and highly scalable cluster\nmanagement and job scheduling system for large and small Linux clusters.\nSlurm requires no kernel modifications for its operation and is\nrelatively self-contained. As a cluster workload manager, Slurm has\nthree key functions. First, it allocates exclusive and/or non-exclusive\naccess to resources (compute nodes) to users for some duration of time\nso they can perform work. Second, it provides a framework for starting,\nexecuting, and monitoring work (normally a parallel job) on the set of\nallocated nodes. Finally, it arbitrates contention for resources by\nmanaging a queue of pending work."
+        },
+        {
+            "name": "ucx",
+            "description": "a communication library implementing high-performance messaging for\nMPI/PGAS frameworks"
         }
     ],
     "dependent_to": [
@@ -265,12 +265,12 @@
             "description": "The SpECTRE numerical relativity code. SpECTRE is an open-source code\nfor multi-scale, multi-physics problems in astrophysics and\ngravitational physics. In the future, we hope that it can be applied to\nproblems across discipline boundaries in fluid dynamics, geoscience,\nplasma physics, nuclear physics, and engineering. It runs at petascale\nand is designed for future exascale computers. SpECTRE is being\ndeveloped in support of our collaborative Simulating eXtreme Spacetimes\n(SXS) research program into the multi-messenger astrophysics of neutron\nstar mergers, core-collapse supernovae, and gamma-ray bursts."
         },
         {
-            "name": "namd",
-            "description": "NAMD is a parallel molecular dynamics code designed for high-performance\nsimulation of large biomolecular systems."
-        },
-        {
             "name": "changa",
             "description": "ChaNGa (Charm N-body GrAvity solver) is a code to perform collisionless\nN-body simulations. It can perform cosmological simulations with\nperiodic boundary conditions in comoving coordinates or simulations of\nisolated stellar systems. It also can include hydrodynamics using the\nSmooth Particle Hydrodynamics (SPH) technique. It uses a Barnes-Hut tree\nto calculate gravity, with hexadecapole expansion of nodes and Ewald\nsummation for periodic forces. Timestepping is done with a leapfrog\nintegrator with individual timesteps for each particle."
+        },
+        {
+            "name": "namd",
+            "description": "NAMD is a parallel molecular dynamics code designed for high-performance\nsimulation of large biomolecular systems."
         }
     ]
 }

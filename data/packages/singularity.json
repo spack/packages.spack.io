@@ -91,12 +91,12 @@
     "build_system": "MakefilePackage",
     "conflicts": [
         {
-            "name": "platform=windows",
+            "name": "arch=windows-None-None",
             "spec": "build_system=makefile",
-            "description": "None"
+            "description": null
         },
         {
-            "name": "platform=darwin",
+            "name": "arch=darwin-None-None",
             "spec": "",
             "description": "singularity: singularity requires a Linux VM on Windows & Mac"
         }
@@ -134,28 +134,24 @@
     "description": "Singularity is a container technology focused on building portable\nencapsulated environments to support \"Mobility of Compute\" For older\nversions of Singularity (pre 3.0) you should use singularity-legacy,\nwhich has a different install base (Autotools). Needs post-install\nchmod/chown steps to enable full functionality. See package definition\nor `spack-build-out.txt` build log for details, e.g. tail -15 $(spack\nlocation -i singularity)/.spack/spack-build-out.txt\n",
     "dependencies": [
         {
-            "name": "gmake",
-            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files."
-        },
-        {
-            "name": "pkgconfig",
-            "description": "pkgconf is a program which helps to configure compiler and linker flags\nfor development frameworks. It is similar to pkg-config from\nfreedesktop.org, providing additional functionality while also\nmaintaining compatibility."
-        },
-        {
             "name": "conmon",
             "description": "An OCI container runtime monitor"
         },
         {
-            "name": "squashfs",
-            "description": "Squashfs - read only compressed filesystem"
+            "name": "cryptsetup",
+            "description": "Cryptsetup and LUKS - open-source disk encryption."
+        },
+        {
+            "name": "git",
+            "description": "Git is a free and open source distributed version control system\ndesigned to handle everything from small to very large projects with\nspeed and efficiency."
+        },
+        {
+            "name": "gmake",
+            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files."
         },
         {
             "name": "go",
             "description": "The golang compiler and build environment"
-        },
-        {
-            "name": "uuid",
-            "description": "Placeholder package for Apple's analogue to non-GNU libuuid"
         },
         {
             "name": "libgpg-error",
@@ -166,30 +162,34 @@
             "description": "The main libseccomp repository"
         },
         {
-            "name": "git",
-            "description": "Git is a free and open source distributed version control system\ndesigned to handle everything from small to very large projects with\nspeed and efficiency."
+            "name": "pkgconfig",
+            "description": "pkgconf is a program which helps to configure compiler and linker flags\nfor development frameworks. It is similar to pkg-config from\nfreedesktop.org, providing additional functionality while also\nmaintaining compatibility."
         },
         {
             "name": "shadow",
             "description": "Tools to help unprivileged users create uid and gid mappings in user\nnamespaces."
         },
         {
-            "name": "cryptsetup",
-            "description": "Cryptsetup and LUKS - open-source disk encryption."
+            "name": "squashfs",
+            "description": "Squashfs - read only compressed filesystem"
+        },
+        {
+            "name": "uuid",
+            "description": "Portable uuid C library"
         }
     ],
     "dependent_to": [
         {
-            "name": "singularity-hpc",
-            "description": "Local filesystem registry for containers (intended for HPC) using Lmod\nor Environment Modules. Works for users and admins."
+            "name": "openmpi",
+            "description": "An open source Message Passing Interface implementation. The Open MPI\nProject is an open source Message Passing Interface implementation that\nis developed and maintained by a consortium of academic, research, and\nindustry partners. Open MPI is therefore able to combine the expertise,\ntechnologies, and resources from all across the High Performance\nComputing community in order to build the best MPI library available.\nOpen MPI offers advantages for system and software vendors, application\ndevelopers and computer science researchers."
         },
         {
             "name": "py-spython",
             "description": "The Python API for working with Singularity containers."
         },
         {
-            "name": "openmpi",
-            "description": "An open source Message Passing Interface implementation. The Open MPI\nProject is an open source Message Passing Interface implementation that\nis developed and maintained by a consortium of academic, research, and\nindustry partners. Open MPI is therefore able to combine the expertise,\ntechnologies, and resources from all across the High Performance\nComputing community in order to build the best MPI library available.\nOpen MPI offers advantages for system and software vendors, application\ndevelopers and computer science researchers."
+            "name": "singularity-hpc",
+            "description": "Local filesystem registry for containers (intended for HPC) using Lmod\nor Environment Modules. Works for users and admins."
         }
     ]
 }

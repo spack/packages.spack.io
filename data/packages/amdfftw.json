@@ -2,8 +2,8 @@
     "name": "amdfftw",
     "aliases": [
         {
-            "name": "fftw-api@3",
-            "alias_for": "{amdfftw@2:}"
+            "name": "fftw-api",
+            "alias_for": "amdfftw@2:"
         }
     ],
     "versions": [
@@ -40,39 +40,19 @@
     "build_system": "AutotoolsPackage",
     "conflicts": [
         {
-            "name": "platform=windows",
+            "name": "arch=windows-None-None",
             "spec": "build_system=autotools",
-            "description": "None"
+            "description": null
         },
         {
             "name": "%gcc@8.0:8",
             "spec": "@3.3.7",
-            "description": "None"
+            "description": null
         },
         {
             "name": "precision=long_double",
             "spec": "@2.1.5",
             "description": "amdfftw: Long double precision is not supported in FFTW 2"
-        },
-        {
-            "name": "precision=long_double",
-            "spec": "+amd-fast-planner",
-            "description": "amdfftw: long_double precision is not supported with amd-fast-planner"
-        },
-        {
-            "name": "precision=long_double",
-            "spec": "+amd-top-n-planner",
-            "description": "amdfftw: long_double precision is not supported with amd-top-n-planner"
-        },
-        {
-            "name": "precision=long_double",
-            "spec": "+amd-trans",
-            "description": "amdfftw: long_double precision is not supported with amd-trans"
-        },
-        {
-            "name": "precision=long_double",
-            "spec": "+amd-app-opt",
-            "description": "amdfftw: long_double precision is not supported with amd-app-opt"
         },
         {
             "name": "precision=quad",
@@ -90,26 +70,6 @@
             "description": "amdfftw: Quad precision is not supported by AOCC clang version 2.2"
         },
         {
-            "name": "precision=quad",
-            "spec": "+amd-fast-planner",
-            "description": "amdfftw: Quad precision is not supported with amd-fast-planner"
-        },
-        {
-            "name": "precision=quad",
-            "spec": "+amd-top-n-planner",
-            "description": "amdfftw: Quad precision is not supported with amd-top-n-planner"
-        },
-        {
-            "name": "precision=quad",
-            "spec": "+amd-trans",
-            "description": "amdfftw: Quad precision is not supported with amd-trans"
-        },
-        {
-            "name": "precision=quad",
-            "spec": "+amd-app-opt",
-            "description": "amdfftw: Quad precision is not supported with amd-app-opt"
-        },
-        {
             "name": "+debug",
             "spec": "@2.2%aocc",
             "description": "amdfftw: debug mode is not supported by AOCC clang version 2.2"
@@ -120,9 +80,49 @@
             "description": "amdfftw: GCC version above 7.2 is required for AMDFFTW"
         },
         {
+            "name": "precision=quad",
+            "spec": "+amd-fast-planner",
+            "description": "amdfftw: Quad precision is not supported with amd-fast-planner"
+        },
+        {
+            "name": "precision=long_double",
+            "spec": "+amd-fast-planner",
+            "description": "amdfftw: long_double precision is not supported with amd-fast-planner"
+        },
+        {
+            "name": "precision=quad",
+            "spec": "+amd-top-n-planner",
+            "description": "amdfftw: Quad precision is not supported with amd-top-n-planner"
+        },
+        {
+            "name": "precision=long_double",
+            "spec": "+amd-top-n-planner",
+            "description": "amdfftw: long_double precision is not supported with amd-top-n-planner"
+        },
+        {
             "name": "+amd-mpi-vader-limit",
             "spec": "precision=quad",
             "description": "amdfftw: Quad precision is not supported with amd-mpi-vader-limit"
+        },
+        {
+            "name": "precision=long_double",
+            "spec": "+amd-trans",
+            "description": "amdfftw: long_double precision is not supported with amd-trans"
+        },
+        {
+            "name": "precision=quad",
+            "spec": "+amd-trans",
+            "description": "amdfftw: Quad precision is not supported with amd-trans"
+        },
+        {
+            "name": "precision=long_double",
+            "spec": "+amd-app-opt",
+            "description": "amdfftw: long_double precision is not supported with amd-app-opt"
+        },
+        {
+            "name": "precision=quad",
+            "spec": "+amd-app-opt",
+            "description": "amdfftw: Quad precision is not supported with amd-app-opt"
         }
     ],
     "variants": [
@@ -206,20 +206,20 @@
     "description": "FFTW (AMD Optimized version) is a comprehensive collection of fast C\nroutines for computing the Discrete Fourier Transform (DFT) and various\nspecial cases thereof. It is an open-source implementation of the Fast\nFourier transform algorithm. It can compute transforms of real and\ncomplex-values arrays of arbitrary size and dimension. AMD Optimized\nFFTW is the optimized FFTW implementation targeted for AMD CPUs. For\nsingle precision build, please use precision value as float. Example :\nspack install amdfftw precision=float LICENSING INFORMATION: By\ndownloading, installing and using this software, you agree to the terms\nand conditions of the AMD AOCL-FFTW license agreement. You may obtain a\ncopy of this license agreement from\nhttps://www.amd.com/en/developer/aocl/fftw/eula/fftw-\nlibraries-4-1-eula.html\nhttps://www.amd.com/en/developer/aocl/fftw/eula/fftw-libraries-eula.html\n",
     "dependencies": [
         {
-            "name": "gnuconfig",
-            "description": "The GNU config.guess and config.sub scripts versioned by timestamp.\nThis package can be used as a build dependency for autotools packages\nthat ship a tarball with outdated config.guess and config.sub files."
-        },
-        {
             "name": "gmake",
             "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files."
         },
         {
-            "name": "mpi",
-            "description": "MPItrampoline: A forwarding MPI implementation that can use any other\nMPI implementation via an MPI ABI."
+            "name": "gnuconfig",
+            "description": "The GNU config.guess and config.sub scripts versioned by timestamp.\nThis package can be used as a build dependency for autotools packages\nthat ship a tarball with outdated config.guess and config.sub files."
         },
         {
             "name": "llvm-openmp",
             "description": "The OpenMP subproject of LLVM contains the components required to build\nan executable OpenMP program that are outside the compiler itself."
+        },
+        {
+            "name": "mpi",
+            "description": "Cray/HPE packaging of MVAPICH2 for HPE Apollo systems"
         },
         {
             "name": "texinfo",
@@ -228,24 +228,24 @@
     ],
     "dependent_to": [
         {
-            "name": "ngspice",
-            "description": "ngspice is the open source spice simulator for electric and electronic\ncircuits."
-        },
-        {
-            "name": "quantum-espresso",
-            "description": "Quantum ESPRESSO is an integrated suite of Open-Source computer codes\nfor electronic-structure calculations and materials modeling at the\nnanoscale. It is based on density-functional theory, plane waves, and\npseudopotentials."
+            "name": "namd",
+            "description": "NAMD is a parallel molecular dynamics code designed for high-performance\nsimulation of large biomolecular systems."
         },
         {
             "name": "cp2k",
             "description": "CP2K is a quantum chemistry and solid state physics software package\nthat can perform atomistic simulations of solid state, liquid,\nmolecular, periodic, material, crystal, and biological systems"
         },
         {
-            "name": "berkeleygw",
-            "description": "BerkeleyGW is a many-body perturbation theory code for excited states,\nusing the GW method and the GW plus Bethe-Salpeter equation (GW-BSE)\nmethod to solve respectively for quasiparticle excitations and optical\nproperties of materials."
+            "name": "quantum-espresso",
+            "description": "Quantum ESPRESSO is an integrated suite of Open-Source computer codes\nfor electronic-structure calculations and materials modeling at the\nnanoscale. It is based on density-functional theory, plane waves, and\npseudopotentials."
         },
         {
-            "name": "namd",
-            "description": "NAMD is a parallel molecular dynamics code designed for high-performance\nsimulation of large biomolecular systems."
+            "name": "ngspice",
+            "description": "ngspice is the open source spice simulator for electric and electronic\ncircuits."
+        },
+        {
+            "name": "berkeleygw",
+            "description": "BerkeleyGW is a many-body perturbation theory code for excited states,\nusing the GW method and the GW plus Bethe-Salpeter equation (GW-BSE)\nmethod to solve respectively for quasiparticle excitations and optical\nproperties of materials."
         },
         {
             "name": "amd-aocl",

@@ -79,9 +79,9 @@
     "build_system": "AutotoolsPackage",
     "conflicts": [
         {
-            "name": "platform=windows",
+            "name": "arch=windows-None-None",
             "spec": "build_system=autotools",
-            "description": "None"
+            "description": null
         }
     ],
     "variants": [
@@ -219,44 +219,16 @@
     "description": "GNU Octave is a high-level language, primarily intended for numerical\ncomputations. It provides a convenient command line interface for\nsolving linear and nonlinear problems numerically, and for performing\nother numerical experiments using a language that is mostly compatible\nwith Matlab. It may also be used as a batch-oriented language.\n",
     "dependencies": [
         {
-            "name": "gnuconfig",
-            "description": "The GNU config.guess and config.sub scripts versioned by timestamp.\nThis package can be used as a build dependency for autotools packages\nthat ship a tarball with outdated config.guess and config.sub files."
-        },
-        {
-            "name": "gmake",
-            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files."
+            "name": "arpack-ng",
+            "description": "ARPACK-NG is a collection of Fortran77 subroutines designed to solve\nlarge scale eigenvalue problems. Important Features: * Reverse\nCommunication Interface. * Single and Double Precision Real Arithmetic\nVersions for Symmetric, Non-symmetric, Standard or Generalized Problems.\n* Single and Double Precision Complex Arithmetic Versions for Standard\nor Generalized Problems. * Routines for Banded Matrices - Standard or\nGeneralized Problems. * Routines for The Singular Value Decomposition. *\nExample driver routines that may be used as templates to implement\nnumerous Shift-Invert strategies for all problem types, data types and\nprecision. This project is a joint project between Debian, Octave and\nScilab in order to provide a common and maintained version of arpack.\nIndeed, no single release has been published by Rice university for the\nlast few years and since many software (Octave, Scilab, R, Matlab...)\nforked it and implemented their own modifications, arpack-ng aims to\ntackle this by providing a common repository and maintained versions.\narpack-ng is replacing arpack almost everywhere."
         },
         {
             "name": "blas",
-            "description": "BLIS is a portable software framework for instantiating high-performance\nBLAS-like dense linear algebra libraries. The framework was designed to\nisolate essential kernels of computation that, when optimized,\nimmediately enable optimized implementations of most of its commonly\nused and computationally intensive operations. BLIS is written in ISO\nC99 and available under a new/modified/3-clause BSD license. While BLIS\nexports a new BLAS-like API, it also includes a BLAS compatibility layer\nwhich gives application developers access to BLIS implementations via\ntraditional BLAS routine calls. An object-based API unique to BLIS is\nalso available."
-        },
-        {
-            "name": "lapack",
             "description": "The Cray Scientific Libraries package, LibSci, is a collection of\nnumerical routines optimized for best performance on Cray systems."
-        },
-        {
-            "name": "pcre",
-            "description": "The PCRE package contains Perl Compatible Regular Expression libraries.\nThese are useful for implementing regular expression pattern matching\nusing the same syntax and semantics as Perl 5."
-        },
-        {
-            "name": "pkgconfig",
-            "description": "pkgconf is a program which helps to configure compiler and linker flags\nfor development frameworks. It is similar to pkg-config from\nfreedesktop.org, providing additional functionality while also\nmaintaining compatibility."
-        },
-        {
-            "name": "texinfo",
-            "description": "Texinfo is the official documentation format of the GNU project. It was\ninvented by Richard Stallman and Bob Chassell many years ago, loosely\nbased on Brian Reid's Scribe and other formatting languages of the time.\nIt is used by many non-GNU projects as well."
-        },
-        {
-            "name": "readline",
-            "description": "The GNU Readline library provides a set of functions for use by\napplications that allow users to edit command lines as they are typed\nin. Both Emacs and vi editing modes are available. The Readline library\nincludes additional functions to maintain a list of previously-entered\ncommand lines, to recall and perhaps reedit those lines, and perform\ncsh-like history expansion on previous commands."
         },
         {
             "name": "bzip2",
             "description": "bzip2 is a freely available, patent free high-quality data compressor.\nIt typically compresses files to within 10% to 15% of the best available\ntechniques (the PPM family of statistical compressors), whilst being\naround twice as fast at compression and six times faster at\ndecompression."
-        },
-        {
-            "name": "arpack-ng",
-            "description": "ARPACK-NG is a collection of Fortran77 subroutines designed to solve\nlarge scale eigenvalue problems. Important Features: * Reverse\nCommunication Interface. * Single and Double Precision Real Arithmetic\nVersions for Symmetric, Non-symmetric, Standard or Generalized Problems.\n* Single and Double Precision Complex Arithmetic Versions for Standard\nor Generalized Problems. * Routines for Banded Matrices - Standard or\nGeneralized Problems. * Routines for The Singular Value Decomposition. *\nExample driver routines that may be used as templates to implement\nnumerous Shift-Invert strategies for all problem types, data types and\nprecision. This project is a joint project between Debian, Octave and\nScilab in order to provide a common and maintained version of arpack.\nIndeed, no single release has been published by Rice university for the\nlast few years and since many software (Octave, Scilab, R, Matlab...)\nforked it and implemented their own modifications, arpack-ng aims to\ntackle this by providing a common repository and maintained versions.\narpack-ng is replacing arpack almost everywhere."
         },
         {
             "name": "curl",
@@ -264,7 +236,7 @@
         },
         {
             "name": "fftw-api",
-            "description": "Arm Performance Libraries provides optimized standard core math\nlibraries for high-performance computing applications on Arm processors."
+            "description": "FFTW (Fujitsu Optimized version) is a comprehensive collection of fast C\nroutines for computing the Discrete Fourier Transform (DFT) and various\nspecial cases thereof. It is an open-source implementation of the Fast\nFourier transform algorithm. It can compute transforms of real and\ncomplex-values arrays of arbitrary size and dimension. Fujitsu Optimized\nFFTW is the optimized FFTW implementation targeted for A64FX CPUs. For\nsingle precision build, please use precision value as float. Example :\nspack install fujitsufftw precision=float"
         },
         {
             "name": "fltk",
@@ -279,36 +251,56 @@
             "description": "FreeType is a freely available software library to render fonts. It is\nwritten in C, designed to be small, efficient, highly customizable, and\nportable while capable of producing high-quality output (glyph images)\nof most vector and bitmap font formats."
         },
         {
-            "name": "glpk",
-            "description": "The GLPK (GNU Linear Programming Kit) package is intended for solving\nlarge-scale linear programming (LP), mixed integer programming (MIP),\nand other related problems. It is a set of routines written in ANSI C\nand organized in the form of a callable library."
+            "name": "gl",
+            "description": "Shim package for the GLX library."
         },
         {
             "name": "gl2ps",
             "description": "GL2PS is a C library providing high quality vector output for any OpenGL\napplication."
         },
         {
-            "name": "gnuplot",
-            "description": "Gnuplot is a portable command-line driven graphing utility for Linux,\nOS/2, MS Windows, OSX, VMS, and many other platforms. The source code is\ncopyrighted but freely distributed (i.e., you don't have to pay for it).\nIt was originally created to allow scientists and students to visualize\nmathematical functions and data interactively, but has grown to support\nmany non-interactive uses such as web scripting. It is also used as a\nplotting engine by third-party applications like Octave. Gnuplot has\nbeen supported and under active development since 1986"
+            "name": "glpk",
+            "description": "The GLPK (GNU Linear Programming Kit) package is intended for solving\nlarge-scale linear programming (LP), mixed integer programming (MIP),\nand other related problems. It is a set of routines written in ANSI C\nand organized in the form of a callable library."
         },
         {
-            "name": "imagemagick",
-            "description": "ImageMagick is a software suite to create, edit, compose, or convert\nbitmap images."
+            "name": "gmake",
+            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files."
+        },
+        {
+            "name": "gnuconfig",
+            "description": "The GNU config.guess and config.sub scripts versioned by timestamp.\nThis package can be used as a build dependency for autotools packages\nthat ship a tarball with outdated config.guess and config.sub files."
+        },
+        {
+            "name": "gnuplot",
+            "description": "Gnuplot is a portable command-line driven graphing utility for Linux,\nOS/2, MS Windows, OSX, VMS, and many other platforms. The source code is\ncopyrighted but freely distributed (i.e., you don't have to pay for it).\nIt was originally created to allow scientists and students to visualize\nmathematical functions and data interactively, but has grown to support\nmany non-interactive uses such as web scripting. It is also used as a\nplotting engine by third-party applications like Octave. Gnuplot has\nbeen supported and under active development since 1986"
         },
         {
             "name": "hdf5",
             "description": "HDF5 is a data model, library, and file format for storing and managing\ndata. It supports an unlimited variety of datatypes, and is designed for\nflexible and efficient I/O and for high volume and complex data."
         },
         {
+            "name": "imagemagick",
+            "description": "ImageMagick is a software suite to create, edit, compose, or convert\nbitmap images."
+        },
+        {
             "name": "java",
-            "description": "The Java Development Kit (JDK) released by Oracle Corporation in the\nform of a binary product aimed at Java developers. Includes a complete\nJRE plus tools for developing, debugging, and monitoring Java\napplications."
+            "description": "The IcedTea project provides a harness to build the source code from\nhttps://openjdk.java.net/ using Free Software build tools and adds a\nnumber of key features to the upstream OpenJDK codebase. IcedTea\nrequires an existing IcedTea or OpenJDK install to build."
+        },
+        {
+            "name": "lapack",
+            "description": "The Cray Scientific Libraries package, LibSci, is a collection of\nnumerical routines optimized for best performance on Cray systems."
         },
         {
             "name": "llvm",
             "description": "The LLVM Project is a collection of modular and reusable compiler and\ntoolchain technologies. Despite its name, LLVM has little to do with\ntraditional virtual machines, though it does provide helpful libraries\nthat can be used to build them. The name \"LLVM\" itself is not an\nacronym; it is the full name of the project."
         },
         {
-            "name": "gl",
-            "description": "Shim package for the core OpenGL library from Apple"
+            "name": "pcre",
+            "description": "The PCRE package contains Perl Compatible Regular Expression libraries.\nThese are useful for implementing regular expression pattern matching\nusing the same syntax and semantics as Perl 5."
+        },
+        {
+            "name": "pkgconfig",
+            "description": "pkgconf is a program which helps to configure compiler and linker flags\nfor development frameworks. It is similar to pkg-config from\nfreedesktop.org, providing additional functionality while also\nmaintaining compatibility."
         },
         {
             "name": "qhull",
@@ -327,62 +319,78 @@
             "description": "Qt is a comprehensive cross-platform C++ application framework."
         },
         {
+            "name": "readline",
+            "description": "The GNU Readline library provides a set of functions for use by\napplications that allow users to edit command lines as they are typed\nin. Both Emacs and vi editing modes are available. The Readline library\nincludes additional functions to maintain a list of previously-entered\ncommand lines, to recall and perhaps reedit those lines, and perform\ncsh-like history expansion on previous commands."
+        },
+        {
+            "name": "sed",
+            "description": "GNU implementation of the famous stream editor."
+        },
+        {
             "name": "suite-sparse",
             "description": "SuiteSparse is a suite of sparse matrix algorithms"
         },
         {
+            "name": "texinfo",
+            "description": "Texinfo is the official documentation format of the GNU project. It was\ninvented by Richard Stallman and Bob Chassell many years ago, loosely\nbased on Brian Reid's Scribe and other formatting languages of the time.\nIt is used by many non-GNU projects as well."
+        },
+        {
             "name": "zlib-api",
-            "description": "A free, general-purpose, legally unencumbered lossless data-compression\nlibrary."
+            "description": "zlib replacement with optimizations for next generation systems."
         }
     ],
     "dependent_to": [
         {
-            "name": "octave-struct",
-            "description": "Additional structure manipulation functions for Octave."
-        },
-        {
-            "name": "octave-splines",
-            "description": "Additional spline functions."
+            "name": "octave-instrctl",
+            "description": "Instrument-Control is a package for interfacing the outside world of\nhardware via Serial, i2c or Parallel interfaces."
         },
         {
             "name": "octave-quaternion",
             "description": "Quaternion package for GNU Octave, includes a quaternion class with\noverloaded operators."
         },
         {
-            "name": "octave-arduino",
-            "description": "Provides an Octave look-alike implementation of the Arduino extension\nfor Matlab."
-        },
-        {
-            "name": "nlopt",
-            "description": "NLopt is a free/open-source library for nonlinear optimization,\nproviding a common interface for a number of different free optimization\nroutines available online as well as original implementations of various\nother algorithms."
-        },
-        {
-            "name": "octave-symbolic",
-            "description": "Adds symbolic calculation features to GNU Octave. These include common\nComputer Algebra System tools such as algebraic operations, calculus,\nequation solving, Fourier and Laplace transforms, variable precision\narithmetic and other features. Compatibility with other symbolic\ntoolboxes is intended."
+            "name": "octave-struct",
+            "description": "Additional structure manipulation functions for Octave."
         },
         {
             "name": "octave-control",
             "description": "Computer-Aided Control System Design (CACSD) Tools for GNU Octave, based\non the proven SLICOT Library"
         },
         {
-            "name": "octave-optim",
-            "description": "Non-linear optimization toolkit for Octave."
+            "name": "nlopt",
+            "description": "NLopt is a free/open-source library for nonlinear optimization,\nproviding a common interface for a number of different free optimization\nroutines available online as well as original implementations of various\nother algorithms."
         },
         {
             "name": "octave-statistics",
             "description": "Additional statistics functions for Octave."
         },
         {
-            "name": "h5utils",
-            "description": "h5utils is a set of utilities for visualization and conversion of\nscientific data in the free, portable HDF5 format."
+            "name": "octave-optim",
+            "description": "Non-linear optimization toolkit for Octave."
         },
         {
-            "name": "octave-instrctl",
-            "description": "Instrument-Control is a package for interfacing the outside world of\nhardware via Serial, i2c or Parallel interfaces."
+            "name": "octave-arduino",
+            "description": "Provides an Octave look-alike implementation of the Arduino extension\nfor Matlab."
         },
         {
             "name": "octave-signal",
             "description": "Signal processing tools, including filtering, windowing and display\nfunctions."
+        },
+        {
+            "name": "octave-symbolic",
+            "description": "Adds symbolic calculation features to GNU Octave. These include common\nComputer Algebra System tools such as algebraic operations, calculus,\nequation solving, Fourier and Laplace transforms, variable precision\narithmetic and other features. Compatibility with other symbolic\ntoolboxes is intended."
+        },
+        {
+            "name": "h5utils",
+            "description": "h5utils is a set of utilities for visualization and conversion of\nscientific data in the free, portable HDF5 format."
+        },
+        {
+            "name": "octave-io",
+            "description": "The IO package is part of the Octave Forge project and provides\ninput/output from/in external formats."
+        },
+        {
+            "name": "octave-splines",
+            "description": "Additional spline functions."
         },
         {
             "name": "octave-gsl",
@@ -391,10 +399,6 @@
         {
             "name": "sbml",
             "description": "Library for the Systems Biology Markup Language"
-        },
-        {
-            "name": "octave-io",
-            "description": "The IO package is part of the Octave Forge project and provides\ninput/output from/in external formats."
         }
     ]
 }

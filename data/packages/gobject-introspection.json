@@ -31,14 +31,14 @@
     "build_system": "MesonPackage",
     "conflicts": [
         {
-            "name": "platform=windows",
+            "name": "arch=windows-None-None",
             "spec": "build_system=autotools",
-            "description": "None"
+            "description": null
         },
         {
             "name": "^python@3.12:",
             "spec": "build_system=meson ^meson@:1.0",
-            "description": "None"
+            "description": null
         }
     ],
     "variants": [
@@ -89,12 +89,32 @@
     "description": "The GObject Introspection is used to describe the program APIs and\ncollect them in a uniform, machine readable format.Cairo is a 2D\ngraphics library with support for multiple output\n",
     "dependencies": [
         {
-            "name": "gnuconfig",
-            "description": "The GNU config.guess and config.sub scripts versioned by timestamp.\nThis package can be used as a build dependency for autotools packages\nthat ship a tarball with outdated config.guess and config.sub files."
+            "name": "bison",
+            "description": "Bison is a general-purpose parser generator that converts an annotated\ncontext-free grammar into a deterministic LR or generalized LR (GLR)\nparser employing LALR(1) parser tables."
+        },
+        {
+            "name": "cairo",
+            "description": "Cairo is a 2D graphics library with support for multiple output devices."
+        },
+        {
+            "name": "flex",
+            "description": "Flex is a tool for generating scanners."
+        },
+        {
+            "name": "glib",
+            "description": "GLib provides the core application building blocks for libraries and\napplications written in C. The GLib package contains a low-level\nlibraries useful for providing data structure handling for C,\nportability wrappers and interfaces for such runtime functionality as an\nevent loop, threads, dynamic loading and an object system."
         },
         {
             "name": "gmake",
             "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files."
+        },
+        {
+            "name": "gnuconfig",
+            "description": "The GNU config.guess and config.sub scripts versioned by timestamp.\nThis package can be used as a build dependency for autotools packages\nthat ship a tarball with outdated config.guess and config.sub files."
+        },
+        {
+            "name": "libffi",
+            "description": "The libffi library provides a portable, high level programming interface\nto various calling conventions. This allows a programmer to call any\nfunction specified by a call interface description at run time."
         },
         {
             "name": "meson",
@@ -109,94 +129,50 @@
             "description": "pkgconf is a program which helps to configure compiler and linker flags\nfor development frameworks. It is similar to pkg-config from\nfreedesktop.org, providing additional functionality while also\nmaintaining compatibility."
         },
         {
-            "name": "bison",
-            "description": "Bison is a general-purpose parser generator that converts an annotated\ncontext-free grammar into a deterministic LR or generalized LR (GLR)\nparser employing LALR(1) parser tables."
-        },
-        {
-            "name": "flex",
-            "description": "Flex is a tool for generating scanners."
+            "name": "python",
+            "description": "The Python programming language."
         },
         {
             "name": "sed",
             "description": "GNU implementation of the famous stream editor."
-        },
-        {
-            "name": "cairo",
-            "description": "Cairo is a 2D graphics library with support for multiple output devices."
-        },
-        {
-            "name": "glib",
-            "description": "GLib provides the core application building blocks for libraries and\napplications written in C. The GLib package contains a low-level\nlibraries useful for providing data structure handling for C,\nportability wrappers and interfaces for such runtime functionality as an\nevent loop, threads, dynamic loading and an object system."
-        },
-        {
-            "name": "libffi",
-            "description": "The libffi library provides a portable, high level programming interface\nto various calling conventions. This allows a programmer to call any\nfunction specified by a call interface description at run time."
-        },
-        {
-            "name": "python",
-            "description": "The Python programming language."
         }
     ],
     "dependent_to": [
         {
-            "name": "gtksourceview",
-            "description": "GtkSourceView is a GNOME library that extends GtkTextView, the standard\nGTK+ widget for multiline text editing. GtkSourceView adds support for\nsyntax highlighting, undo/redo, file loading and saving, search and\nreplace, a completion system, printing, displaying line numbers, and\nother features typical of a source code editor."
+            "name": "harfbuzz",
+            "description": "The Harfbuzz package contains an OpenType text shaping engine."
         },
         {
-            "name": "libnotify",
-            "description": "libnotify is a library for sending desktop notifications"
+            "name": "librsvg",
+            "description": "Library to render SVG files using Cairo"
         },
         {
             "name": "json-glib",
             "description": "JSON-GLib is a library for reading and parsing JSON using GLib and\nGObject data types and API."
         },
         {
-            "name": "py-pygobject",
-            "description": "bindings for the GLib, and GObject, to be used in Python."
-        },
-        {
-            "name": "at-spi2-core",
-            "description": "The At-Spi2 Core package provides a Service Provider Interface for the\nAssistive Technologies available on the GNOME platform and a library\nagainst which applications can be linked."
-        },
-        {
             "name": "gexiv2",
             "description": "gexiv2 is a GObject wrapper around the Exiv2 photo metadata library. It\nallows for GNOME applications to easily inspect and update EXIF, IPTC,\nand XMP metadata in photo and video files of various formats."
-        },
-        {
-            "name": "libmypaint",
-            "description": "libmypaint - MyPaint brush engine library. This is the brush library\nused by MyPaint. A number of other painting programs use it too."
-        },
-        {
-            "name": "atk",
-            "description": "ATK provides the set of accessibility interfaces that are implemented by\nother toolkits and applications. Using the ATK interfaces, accessibility\ntools have full access to view and control running applications."
-        },
-        {
-            "name": "gegl",
-            "description": "GEGL (Generic Graphics Library) is a data flow based image processing\nframework, providing floating point processing and non-destructive image\nprocessing capabilities to GNU Image Manipulation Program and other\nprojects (imgflo, GNOME Photos, iconographer, ...)"
         },
         {
             "name": "pango",
             "description": "Pango is a library for laying out and rendering of text, with an\nemphasis on internationalization. It can be used anywhere that text\nlayout is needed, though most of the work on Pango so far has been done\nin the context of the GTK+ widget toolkit."
         },
         {
-            "name": "harfbuzz",
-            "description": "The Harfbuzz package contains an OpenType text shaping engine."
+            "name": "libmypaint",
+            "description": "libmypaint - MyPaint brush engine library. This is the brush library\nused by MyPaint. A number of other painting programs use it too."
         },
         {
-            "name": "gdk-pixbuf",
-            "description": "The Gdk Pixbuf is a toolkit for image loading and pixel buffer\nmanipulation. It is used by GTK+ 2 and GTK+ 3 to load and manipulate\nimages. In the past it was distributed as part of GTK+ 2 but it was\nsplit off into a separate package in preparation for the change to GTK+\n3."
+            "name": "libnotify",
+            "description": "libnotify is a library for sending desktop notifications"
         },
         {
-            "name": "poppler",
-            "description": "Poppler is a PDF rendering library based on the xpdf-3.0 code base."
+            "name": "atk",
+            "description": "ATK provides the set of accessibility interfaces that are implemented by\nother toolkits and applications. Using the ATK interfaces, accessibility\ntools have full access to view and control running applications."
         },
         {
-            "name": "gsettings-desktop-schemas",
-            "description": "gsettings-desktop-schemas contains a collection of GSettings schemas for\nsettings shared by various components of a desktop."
-        },
-        {
-            "name": "librsvg",
-            "description": "Library to render SVG files using Cairo"
+            "name": "at-spi2-core",
+            "description": "The At-Spi2 Core package provides a Service Provider Interface for the\nAssistive Technologies available on the GNOME platform and a library\nagainst which applications can be linked."
         },
         {
             "name": "libsecret",
@@ -207,8 +183,32 @@
             "description": "The GTK+ package contains libraries used for creating graphical user\ninterfaces for applications."
         },
         {
+            "name": "gegl",
+            "description": "GEGL (Generic Graphics Library) is a data flow based image processing\nframework, providing floating point processing and non-destructive image\nprocessing capabilities to GNU Image Manipulation Program and other\nprojects (imgflo, GNOME Photos, iconographer, ...)"
+        },
+        {
+            "name": "py-pygobject",
+            "description": "bindings for the GLib, and GObject, to be used in Python."
+        },
+        {
+            "name": "gdk-pixbuf",
+            "description": "The Gdk Pixbuf is a toolkit for image loading and pixel buffer\nmanipulation. It is used by GTK+ 2 and GTK+ 3 to load and manipulate\nimages. In the past it was distributed as part of GTK+ 2 but it was\nsplit off into a separate package in preparation for the change to GTK+\n3."
+        },
+        {
             "name": "babl",
             "description": "babl is pixel encoding and color space conversion engine in C. It allows\nconverting between different methods of storing pixels known as pixel\nformats that have with different bitdepths and other data\nrepresentations, color models, color spaces and component permutations."
+        },
+        {
+            "name": "gsettings-desktop-schemas",
+            "description": "gsettings-desktop-schemas contains a collection of GSettings schemas for\nsettings shared by various components of a desktop."
+        },
+        {
+            "name": "gtksourceview",
+            "description": "GtkSourceView is a GNOME library that extends GtkTextView, the standard\nGTK+ widget for multiline text editing. GtkSourceView adds support for\nsyntax highlighting, undo/redo, file loading and saving, search and\nreplace, a completion system, printing, displaying line numbers, and\nother features typical of a source code editor."
+        },
+        {
+            "name": "poppler",
+            "description": "Poppler is a PDF rendering library based on the xpdf-3.0 code base."
         }
     ]
 }

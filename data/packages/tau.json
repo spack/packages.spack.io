@@ -113,27 +113,27 @@
         {
             "name": "+elf",
             "spec": "@:2.28.0",
-            "description": "None"
+            "description": null
         },
         {
             "name": "+libdwarf",
             "spec": "@:2.28.0",
-            "description": "None"
+            "description": null
         },
         {
             "name": "+adios2",
             "spec": "@:2.29.1",
-            "description": "None"
+            "description": null
         },
         {
             "name": "+sqlite",
             "spec": "@:2.29.1",
-            "description": "None"
+            "description": null
         },
         {
             "name": "+dyninst",
             "spec": "@:2.32.1",
-            "description": "None"
+            "description": null
         }
     ],
     "variants": [
@@ -169,7 +169,7 @@
         },
         {
             "name": "papi",
-            "default": true,
+            "default": false,
             "description": "Activates Performance API"
         },
         {
@@ -179,17 +179,17 @@
         },
         {
             "name": "libdwarf",
-            "default": true,
+            "default": false,
             "description": "Activates support of libdwarf"
         },
         {
             "name": "elf",
-            "default": true,
+            "default": false,
             "description": "Activates support of elf"
         },
         {
             "name": "libunwind",
-            "default": true,
+            "default": false,
             "description": "Activates support of libunwind"
         },
         {
@@ -269,7 +269,7 @@
         },
         {
             "name": "fortran",
-            "default": true,
+            "default": false,
             "description": "Activates Fortran support"
         },
         {
@@ -339,76 +339,84 @@
     "description": "A portable profiling and tracing toolkit for performance analysis of\nparallel programs written in Fortran, C, C++, UPC, Java, Python.\n",
     "dependencies": [
         {
-            "name": "cmake",
-            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
-        },
-        {
-            "name": "zlib-api",
-            "description": "A free, general-purpose, legally unencumbered lossless data-compression\nlibrary."
-        },
-        {
-            "name": "pdt",
-            "description": "Program Database Toolkit (PDT) is a framework for analyzing source code\nwritten in several programming languages and for making rich program\nknowledge accessible to developers of static and dynamic analysis tools.\nPDT implements a standard program representation, the program database\n(PDB), that can be accessed in a uniform way through a class library\nsupporting common PDB operations."
-        },
-        {
-            "name": "scorep",
-            "description": "The Score-P measurement infrastructure is a highly scalable and easy-to-\nuse tool suite for profiling, event tracing, and online analysis of HPC\napplications."
-        },
-        {
-            "name": "otf2",
-            "description": "The Open Trace Format 2 is a highly scalable, memory efficient event\ntrace data format plus support library."
-        },
-        {
-            "name": "likwid",
-            "description": "Likwid is a simple to install and use toolsuite of command line\napplications for performance oriented programmers. It works for Intel\nand AMD processors on the Linux operating system. This version uses the\nperf_event backend which reduces the feature set but allows user\ninstalls. See https://github.com/RRZE-\nHPC/likwid/wiki/TutorialLikwidPerf#feature-limitations for information."
-        },
-        {
-            "name": "papi",
-            "description": "PAPI provides the tool designer and application engineer with a\nconsistent interface and methodology for use of the performance counter\nhardware found in most major microprocessors. PAPI enables software\nengineers to see, in near real time, the relation between software\nperformance and processor events. In addition Component PAPI provides\naccess to a collection of components that expose performance measurement\nopportunities across the hardware and software stack."
-        },
-        {
-            "name": "libdwarf",
-            "description": "The DWARF Debugging Information Format is of interest to programmers\nworking on compilers and debuggers (and any one interested in reading or\nwriting DWARF information). It was developed by a committee (known as\nthe PLSIG at the time) starting around 1991. Starting around 1991 SGI\ndeveloped the libdwarf and dwarfdump tools for internal use and as part\nof SGI IRIX developer tools. Since that time dwarfdump and libdwarf have\nbeen shipped (as an executable and archive respectively, not source)\nwith every release of the SGI MIPS/IRIX C compiler."
-        },
-        {
-            "name": "elf",
-            "description": "elfutils is a collection of various binary tools such as eu-objdump, eu-\nreadelf, and other utilities that allow you to inspect and manipulate\nELF files. Refer to Table 5.Tools Included in elfutils for Red Hat\nDeveloper for a complete list of binary tools that are distributed with\nthe Red Hat Developer Toolset version of elfutils."
+            "name": "adios2",
+            "description": "The Adaptable Input Output System version 2, developed in the Exascale\nComputing Program"
         },
         {
             "name": "binutils",
             "description": "GNU binutils, which contain the linker, assembler, objdump and others"
         },
         {
-            "name": "python",
-            "description": "The Python programming language."
-        },
-        {
-            "name": "libunwind",
-            "description": "A portable and efficient C programming interface (API) to determine the\ncall-chain of a program."
-        },
-        {
-            "name": "mpi",
-            "description": "MPItrampoline: A forwarding MPI implementation that can use any other\nMPI implementation via an MPI ABI."
+            "name": "cmake",
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
         },
         {
             "name": "cuda",
             "description": "CUDA is a parallel computing platform and programming model invented by\nNVIDIA. It enables dramatic increases in computing performance by\nharnessing the power of the graphics processing unit (GPU). Note: This\npackage does not currently install the drivers necessary to run CUDA.\nThese will need to be installed manually. See:\nhttps://docs.nvidia.com/cuda/ for details."
         },
         {
+            "name": "dyninst",
+            "description": "API for dynamic binary instrumentation. Modify programs while they are\nexecuting without recompiling, re-linking, or re-executing."
+        },
+        {
+            "name": "elf",
+            "description": "libelf lets you read, modify or create ELF object files in an\narchitecture-independent way. The library takes care of size and endian\nissues, e.g. you can process a file for SPARC processors on an Intel-\nbased system. Note: libelf is no longer maintained and packages that\ndepend on libelf should migrate to elfutils."
+        },
+        {
             "name": "gasnet",
             "description": "GASNet is a language-independent, networking middleware layer that\nprovides network-independent, high-performance communication primitives\nincluding Remote Memory Access (RMA) and Active Messages (AM). It has\nbeen used to implement parallel programming models and libraries such as\nUPC, UPC++, Co-Array Fortran, Legion, Chapel, and many others. The\ninterface is primarily intended as a compilation target and for use by\nruntime library writers (as opposed to end users), and the primary goals\nare high performance, interface portability, and expressiveness.\n***NOTICE***: The GASNet library built by this Spack package is ONLY\nintended for unit-testing purposes, and is generally UNSUITABLE FOR\nPRODUCTION USE. The RECOMMENDED way to build GASNet is as an embedded\nlibrary as configured by the higher-level client runtime package (UPC++,\nLegion, etc), including system-specific configuration."
         },
         {
-            "name": "adios2",
-            "description": "The Adaptable Input Output System version 2, developed in the Exascale\nComputing Program"
-        },
-        {
-            "name": "sqlite",
-            "description": "SQLite is a C-language library that implements a small, fast, self-\ncontained, high-reliability, full-featured, SQL database engine."
+            "name": "hsa-rocr-dev",
+            "description": "This repository includes the user mode API nterfaces and libraries\nnecessary for host applications to launch computer kernels to available\nHSA ROCm kernel agents.AMD Heterogeneous System Architecture HSA - Linux\nHSA Runtime for Boltzmann (ROCm) platforms."
         },
         {
             "name": "hwloc",
             "description": "The Hardware Locality (hwloc) software project. The Portable Hardware\nLocality (hwloc) software package provides a portable abstraction\n(across OS, versions, architectures, ...) of the hierarchical topology\nof modern architectures, including NUMA memory nodes, sockets, shared\ncaches, cores and simultaneous multithreading. It also gathers various\nsystem attributes such as cache and memory information as well as the\nlocality of I/O devices such as network interfaces, InfiniBand HCAs or\nGPUs. It primarily aims at helping applications with gathering\ninformation about modern computing hardware so as to exploit it\naccordingly and efficiently."
+        },
+        {
+            "name": "java",
+            "description": "The IcedTea project provides a harness to build the source code from\nhttps://openjdk.java.net/ using Free Software build tools and adds a\nnumber of key features to the upstream OpenJDK codebase. IcedTea\nrequires an existing IcedTea or OpenJDK install to build."
+        },
+        {
+            "name": "libdwarf",
+            "description": "The DWARF Debugging Information Format is of interest to programmers\nworking on compilers and debuggers (and any one interested in reading or\nwriting DWARF information). It was developed by a committee (known as\nthe PLSIG at the time) starting around 1991. Starting around 1991 SGI\ndeveloped the libdwarf and dwarfdump tools for internal use and as part\nof SGI IRIX developer tools. Since that time dwarfdump and libdwarf have\nbeen shipped (as an executable and archive respectively, not source)\nwith every release of the SGI MIPS/IRIX C compiler."
+        },
+        {
+            "name": "libunwind",
+            "description": "A portable and efficient C programming interface (API) to determine the\ncall-chain of a program."
+        },
+        {
+            "name": "likwid",
+            "description": "Likwid is a simple to install and use toolsuite of command line\napplications for performance oriented programmers. It works for Intel\nand AMD processors on the Linux operating system. This version uses the\nperf_event backend which reduces the feature set but allows user\ninstalls. See https://github.com/RRZE-\nHPC/likwid/wiki/TutorialLikwidPerf#feature-limitations for information."
+        },
+        {
+            "name": "mpi",
+            "description": "Cray/HPE packaging of MVAPICH2 for HPE Apollo systems"
+        },
+        {
+            "name": "oneapi-level-zero",
+            "description": "oneAPI Level Zero Loader. Applications that need low-level control of a\noneAPI level zero device link against the loader. The loader depends on\na separately installed level zero driver. See https://dgpu-\ndocs.intel.com/technologies/level-zero.html for information on how to\ninstall the driver."
+        },
+        {
+            "name": "otf2",
+            "description": "The Open Trace Format 2 is a highly scalable, memory efficient event\ntrace data format plus support library."
+        },
+        {
+            "name": "papi",
+            "description": "PAPI provides the tool designer and application engineer with a\nconsistent interface and methodology for use of the performance counter\nhardware found in most major microprocessors. PAPI enables software\nengineers to see, in near real time, the relation between software\nperformance and processor events. In addition Component PAPI provides\naccess to a collection of components that expose performance measurement\nopportunities across the hardware and software stack."
+        },
+        {
+            "name": "pdt",
+            "description": "Program Database Toolkit (PDT) is a framework for analyzing source code\nwritten in several programming languages and for making rich program\nknowledge accessible to developers of static and dynamic analysis tools.\nPDT implements a standard program representation, the program database\n(PDB), that can be accessed in a uniform way through a class library\nsupporting common PDB operations."
+        },
+        {
+            "name": "python",
+            "description": "The Python programming language."
+        },
+        {
+            "name": "rocm-smi-lib",
+            "description": "It is a C library for Linux that provides a user space interface for\napplications to monitor and control GPU applications."
         },
         {
             "name": "rocprofiler-dev",
@@ -419,34 +427,26 @@
             "description": "ROC-tracer library: Runtimes Generic Callback/Activity APIs. The goal of\nthe implementation is to provide a generic independent from specific\nruntime profiler to trace API and asyncronous activity."
         },
         {
-            "name": "hsa-rocr-dev",
-            "description": "This repository includes the user mode API nterfaces and libraries\nnecessary for host applications to launch computer kernels to available\nHSA ROCm kernel agents.AMD Heterogeneous System Architecture HSA - Linux\nHSA Runtime for Boltzmann (ROCm) platforms."
+            "name": "scorep",
+            "description": "The Score-P measurement infrastructure is a highly scalable and easy-to-\nuse tool suite for profiling, event tracing, and online analysis of HPC\napplications."
         },
         {
-            "name": "rocm-smi-lib",
-            "description": "It is a C library for Linux that provides a user space interface for\napplications to monitor and control GPU applications."
+            "name": "sqlite",
+            "description": "SQLite is a C-language library that implements a small, fast, self-\ncontained, high-reliability, full-featured, SQL database engine."
         },
         {
-            "name": "java",
-            "description": "The Java Development Kit (JDK) released by Oracle Corporation in the\nform of a binary product aimed at Java developers. Includes a complete\nJRE plus tools for developing, debugging, and monitoring Java\napplications."
-        },
-        {
-            "name": "oneapi-level-zero",
-            "description": "oneAPI Level Zero Loader. Applications that need low-level control of a\noneAPI level zero device link against the loader. The loader depends on\na separately installed level zero driver. See https://dgpu-\ndocs.intel.com/technologies/level-zero.html for information on how to\ninstall the driver."
-        },
-        {
-            "name": "dyninst",
-            "description": "API for dynamic binary instrumentation. Modify programs while they are\nexecuting without recompiling, re-linking, or re-executing."
+            "name": "zlib-api",
+            "description": "zlib replacement with optimizations for next generation systems."
         }
     ],
     "dependent_to": [
         {
-            "name": "savanna",
-            "description": "CODARcode Savanna runtime framework for high performance, workflow\nmanagement using Swift/T and ADIOS."
-        },
-        {
             "name": "timemory",
             "description": "Modular profiling toolkit and suite of libraries and tools for\nC/C++/Fortran/CUDA/Python"
+        },
+        {
+            "name": "savanna",
+            "description": "CODARcode Savanna runtime framework for high performance, workflow\nmanagement using Swift/T and ADIOS."
         },
         {
             "name": "vite",

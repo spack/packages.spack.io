@@ -78,12 +78,7 @@
         {
             "name": "@:6.5",
             "spec": "%nvhpc+cuda",
-            "description": "None"
-        },
-        {
-            "name": "%nvhpc@21.11:22.3",
-            "spec": "%nvhpc+cuda+openmp",
-            "description": "quantum-espresso: bugs with NVHPCSDK from v21.11 to v22.3, OpenMP and GPU"
+            "description": null
         },
         {
             "name": "build_system=generic",
@@ -91,14 +86,9 @@
             "description": "quantum-espresso: Only CMake supported for GPU-enabled version"
         },
         {
-            "name": "build_system=generic",
-            "spec": "@7.0.1:+qmcpack",
-            "description": "quantum-espresso: QE-to-QMCPACK wave function converter requires cmake"
-        },
-        {
-            "name": "build_system=generic",
-            "spec": "@6.8:%aocc",
-            "description": "quantum-espresso: Please use CMake to build with AOCC"
+            "name": "%nvhpc@21.11:22.3",
+            "spec": "%nvhpc+cuda+openmp",
+            "description": "quantum-espresso: bugs with NVHPCSDK from v21.11 to v22.3, OpenMP and GPU"
         },
         {
             "name": "@:5.4.0",
@@ -116,14 +106,14 @@
             "description": "quantum-espresso: parallel HDF5 support only in QE 6.1.0 and later"
         },
         {
-            "name": "hdf5=parallel",
-            "spec": "~mpi",
-            "description": "quantum-espresso: parallel HDF5 requires MPI support"
-        },
-        {
             "name": "hdf5=serial",
             "spec": "@:6.4.0",
             "description": "quantum-espresso: serial HDF5 support only in QE 6.4.1 and later"
+        },
+        {
+            "name": "hdf5=parallel",
+            "spec": "~mpi",
+            "description": "quantum-espresso: parallel HDF5 requires MPI support"
         },
         {
             "name": "@6.4+patch",
@@ -141,6 +131,16 @@
             "description": "quantum-espresso: QE-to-QMCPACK wave function converter requires HDF5"
         },
         {
+            "name": "@:6.2,6.5:6.6",
+            "spec": "+qmcpack",
+            "description": "quantum-espresso: QMCPACK converter NOT available for this version of QE"
+        },
+        {
+            "name": "build_system=generic",
+            "spec": "@7.0.1:+qmcpack",
+            "description": "quantum-espresso: QE-to-QMCPACK wave function converter requires cmake"
+        },
+        {
             "name": "~epw",
             "spec": "build_system=cmake",
             "description": "quantum-espresso: epw cannot be turned off when using CMake"
@@ -151,11 +151,6 @@
             "description": "quantum-espresso: EPW only available from version 6.0.0 and on"
         },
         {
-            "name": "~mpi",
-            "spec": "+epw build_system=generic",
-            "description": "quantum-espresso: EPW needs MPI when build_system=generic"
-        },
-        {
             "name": "^openmpi@2.0.0:2",
             "spec": "+epw",
             "description": "quantum-espresso: OpenMPI version incompatible with EPW"
@@ -164,6 +159,11 @@
             "name": "^openmpi@1.10.7%pgi@17.0:17.12",
             "spec": "+epw",
             "description": "quantum-espresso: PGI+OpenMPI version combo incompatible with EPW"
+        },
+        {
+            "name": "~mpi",
+            "spec": "+epw build_system=generic",
+            "description": "quantum-espresso: EPW needs MPI when build_system=generic"
         },
         {
             "name": "@:6.2",
@@ -178,17 +178,17 @@
         {
             "name": "+gipaw build_system=cmake",
             "spec": "@:7.1",
-            "description": "None"
+            "description": null
+        },
+        {
+            "name": "build_system=generic",
+            "spec": "@6.8:%aocc",
+            "description": "quantum-espresso: Please use CMake to build with AOCC"
         },
         {
             "name": "~openmp",
             "spec": "^amdlibflame",
             "description": "quantum-espresso: amdlibflame requires OpenMP"
-        },
-        {
-            "name": "@:6.2,6.5:6.6",
-            "spec": "+qmcpack",
-            "description": "quantum-espresso: QMCPACK converter NOT available for this version of QE"
         },
         {
             "name": "@5.3:",
@@ -523,88 +523,88 @@
     "description": "Quantum ESPRESSO is an integrated suite of Open-Source computer codes\nfor electronic-structure calculations and materials modeling at the\nnanoscale. It is based on density-functional theory, plane waves, and\npseudopotentials.\n",
     "dependencies": [
         {
-            "name": "cmake",
-            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
-        },
-        {
-            "name": "gmake",
-            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files."
-        },
-        {
-            "name": "ninja",
-            "description": "Ninja is a small build system with a focus on speed. It differs from\nother build systems in two major respects: it is designed to have its\ninput files generated by a higher-level build system, and it is designed\nto run builds as fast as possible."
-        },
-        {
-            "name": "libxc",
-            "description": "Libxc is a library of exchange-correlation functionals for density-\nfunctional theory."
-        },
-        {
-            "name": "fftw",
-            "description": "FFTW is a C subroutine library for computing the discrete Fourier\ntransform (DFT) in one or more dimensions, of arbitrary input size, and\nof both real and complex data (as well as of even/odd data, i.e. the\ndiscrete cosine/sine transforms or DCT/DST). We believe that FFTW, which\nis free software, should become the FFT library of choice for most\napplications."
-        },
-        {
-            "name": "amdfftw",
-            "description": "FFTW (AMD Optimized version) is a comprehensive collection of fast C\nroutines for computing the Discrete Fourier Transform (DFT) and various\nspecial cases thereof. It is an open-source implementation of the Fast\nFourier transform algorithm. It can compute transforms of real and\ncomplex-values arrays of arbitrary size and dimension. AMD Optimized\nFFTW is the optimized FFTW implementation targeted for AMD CPUs. For\nsingle precision build, please use precision value as float. Example :\nspack install amdfftw precision=float LICENSING INFORMATION: By\ndownloading, installing and using this software, you agree to the terms\nand conditions of the AMD AOCL-FFTW license agreement. You may obtain a\ncopy of this license agreement from\nhttps://www.amd.com/en/developer/aocl/fftw/eula/fftw-\nlibraries-4-1-eula.html\nhttps://www.amd.com/en/developer/aocl/fftw/eula/fftw-libraries-eula.html"
-        },
-        {
-            "name": "openblas",
-            "description": "OpenBLAS: An optimized BLAS library"
+            "name": "acfl",
+            "description": "Arm Compiler combines the optimized tools and libraries from Arm with a\nmodern LLVM-based compiler framework."
         },
         {
             "name": "amdblis",
             "description": "AMD Optimized BLIS. BLIS is a portable software framework for\ninstantiating high-performance BLAS-like dense linear algebra libraries.\nThe framework was designed to isolate essential kernels of computation\nthat, when optimized, immediately enable optimized implementations of\nmost of its commonly used and computationally intensive operations.\nLICENSING INFORMATION: By downloading, installing and using this\nsoftware, you agree to the terms and conditions of the AMD AOCL-BLIS\nlicense agreement. You may obtain a copy of this license agreement from\nhttps://www.amd.com/en/developer/aocl/dense/eula/blas-4-1-eula.html\nhttps://www.amd.com/en/developer/aocl/dense/eula/blas-eula.html"
         },
         {
-            "name": "intel-mkl",
-            "description": "Intel Math Kernel Library. This package has been replaced by intel-\noneapi-mkl. LICENSE INFORMATION: By downloading and using this software,\nyou agree to the terms and conditions of the software license agreements\nat https://intel.ly/393CijO."
+            "name": "amdfftw",
+            "description": "FFTW (AMD Optimized version) is a comprehensive collection of fast C\nroutines for computing the Discrete Fourier Transform (DFT) and various\nspecial cases thereof. It is an open-source implementation of the Fast\nFourier transform algorithm. It can compute transforms of real and\ncomplex-values arrays of arbitrary size and dimension. AMD Optimized\nFFTW is the optimized FFTW implementation targeted for AMD CPUs. For\nsingle precision build, please use precision value as float. Example :\nspack install amdfftw precision=float LICENSING INFORMATION: By\ndownloading, installing and using this software, you agree to the terms\nand conditions of the AMD AOCL-FFTW license agreement. You may obtain a\ncopy of this license agreement from\nhttps://www.amd.com/en/developer/aocl/fftw/eula/fftw-\nlibraries-4-1-eula.html\nhttps://www.amd.com/en/developer/aocl/fftw/eula/fftw-libraries-eula.html"
         },
         {
             "name": "armpl-gcc",
             "description": "Arm Performance Libraries provides optimized standard core math\nlibraries for high-performance computing applications on Arm processors."
         },
         {
-            "name": "acfl",
-            "description": "Arm Compiler combines the optimized tools and libraries from Arm with a\nmodern LLVM-based compiler framework."
+            "name": "blas",
+            "description": "The Cray Scientific Libraries package, LibSci, is a collection of\nnumerical routines optimized for best performance on Cray systems."
+        },
+        {
+            "name": "cmake",
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
         },
         {
             "name": "cuda",
             "description": "CUDA is a parallel computing platform and programming model invented by\nNVIDIA. It enables dramatic increases in computing performance by\nharnessing the power of the graphics processing unit (GPU). Note: This\npackage does not currently install the drivers necessary to run CUDA.\nThese will need to be installed manually. See:\nhttps://docs.nvidia.com/cuda/ for details."
         },
         {
-            "name": "mpi",
-            "description": "MPItrampoline: A forwarding MPI implementation that can use any other\nMPI implementation via an MPI ABI."
-        },
-        {
-            "name": "scalapack",
-            "description": "The Cray Scientific Libraries package, LibSci, is a collection of\nnumerical routines optimized for best performance on Cray systems."
-        },
-        {
             "name": "elpa",
             "description": "Eigenvalue solvers for Petaflop-Applications (ELPA)"
         },
         {
-            "name": "hdf5",
-            "description": "HDF5 is a data model, library, and file format for storing and managing\ndata. It supports an unlimited variety of datatypes, and is designed for\nflexible and efficient I/O and for high volume and complex data."
-        },
-        {
-            "name": "blas",
-            "description": "BLIS is a portable software framework for instantiating high-performance\nBLAS-like dense linear algebra libraries. The framework was designed to\nisolate essential kernels of computation that, when optimized,\nimmediately enable optimized implementations of most of its commonly\nused and computationally intensive operations. BLIS is written in ISO\nC99 and available under a new/modified/3-clause BSD license. While BLIS\nexports a new BLAS-like API, it also includes a BLAS compatibility layer\nwhich gives application developers access to BLIS implementations via\ntraditional BLAS routine calls. An object-based API unique to BLIS is\nalso available."
-        },
-        {
-            "name": "lapack",
-            "description": "The Cray Scientific Libraries package, LibSci, is a collection of\nnumerical routines optimized for best performance on Cray systems."
+            "name": "fftw",
+            "description": "FFTW is a C subroutine library for computing the discrete Fourier\ntransform (DFT) in one or more dimensions, of arbitrary input size, and\nof both real and complex data (as well as of even/odd data, i.e. the\ndiscrete cosine/sine transforms or DCT/DST). We believe that FFTW, which\nis free software, should become the FFT library of choice for most\napplications."
         },
         {
             "name": "fftw-api",
-            "description": "Arm Performance Libraries provides optimized standard core math\nlibraries for high-performance computing applications on Arm processors."
+            "description": "FFTW (Fujitsu Optimized version) is a comprehensive collection of fast C\nroutines for computing the Discrete Fourier Transform (DFT) and various\nspecial cases thereof. It is an open-source implementation of the Fast\nFourier transform algorithm. It can compute transforms of real and\ncomplex-values arrays of arbitrary size and dimension. Fujitsu Optimized\nFFTW is the optimized FFTW implementation targeted for A64FX CPUs. For\nsingle precision build, please use precision value as float. Example :\nspack install fujitsufftw precision=float"
         },
         {
             "name": "git",
             "description": "Git is a free and open source distributed version control system\ndesigned to handle everything from small to very large projects with\nspeed and efficiency."
         },
         {
+            "name": "gmake",
+            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files."
+        },
+        {
+            "name": "hdf5",
+            "description": "HDF5 is a data model, library, and file format for storing and managing\ndata. It supports an unlimited variety of datatypes, and is designed for\nflexible and efficient I/O and for high volume and complex data."
+        },
+        {
+            "name": "intel-mkl",
+            "description": "Intel Math Kernel Library. This package has been replaced by intel-\noneapi-mkl. LICENSE INFORMATION: By downloading and using this software,\nyou agree to the terms and conditions of the software license agreements\nat https://intel.ly/393CijO."
+        },
+        {
+            "name": "lapack",
+            "description": "The Cray Scientific Libraries package, LibSci, is a collection of\nnumerical routines optimized for best performance on Cray systems."
+        },
+        {
+            "name": "libxc",
+            "description": "Libxc is a library of exchange-correlation functionals for density-\nfunctional theory."
+        },
+        {
             "name": "m4",
             "description": "GNU M4 is an implementation of the traditional Unix macro processor."
+        },
+        {
+            "name": "mpi",
+            "description": "Cray/HPE packaging of MVAPICH2 for HPE Apollo systems"
+        },
+        {
+            "name": "ninja",
+            "description": "Ninja is a small build system with a focus on speed. It differs from\nother build systems in two major respects: it is designed to have its\ninput files generated by a higher-level build system, and it is designed\nto run builds as fast as possible."
+        },
+        {
+            "name": "openblas",
+            "description": "OpenBLAS: An optimized BLAS library"
+        },
+        {
+            "name": "scalapack",
+            "description": "The Cray Scientific Libraries package, LibSci, is a collection of\nnumerical routines optimized for best performance on Cray systems."
         }
     ],
     "dependent_to": []

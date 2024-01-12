@@ -36,8 +36,24 @@
     "description": "The Uniform Manifold Approximation and Projection (UMAP) Method for\nDimensionality Reduction. An implementation of the Uniform Manifold\nApproximation and Projection dimensionality reduction by McInnes et al.\n(2018) <arXiv:1802.03426>. It also provides means to transform new data\nand to carry out supervised dimensionality reduction. An implementation\nof the related LargeVis method of Tang et al. (2016) <arXiv:1602.00370>\nis also provided. This is a complete re-implementation in R (and C++,\nvia the 'Rcpp' package): no Python installation is required. See the\nuwot website (<https://github.com/jlmelville/uwot>) for more\ndocumentation and examples.\n",
     "dependencies": [
         {
+            "name": "gmake",
+            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files."
+        },
+        {
             "name": "r",
             "description": "R is 'GNU S', a freely available language and environment for\nstatistical computing and graphics which provides a wide variety of\nstatistical and graphical techniques: linear and nonlinear modelling,\nstatistical tests, time series analysis, classification, clustering,\netc. Please consult the R project homepage for further information."
+        },
+        {
+            "name": "r-dqrng",
+            "description": "Fast Pseudo Random Number Generators. Several fast random number\ngenerators are provided as C++ header only libraries: The PCG family by\nO'Neill (2014 <https://www.cs.hmc.edu/tr/hmc-cs-2014-0905.pdf>) as well\nas Xoroshiro128+ and Xoshiro256+ by Blackman and Vigna (2018\n<arXiv:1805.01407>). In addition fast functions for generating random\nnumbers according to a uniform, normal and exponential distribution are\nincluded. The latter two use the Ziggurat algorithm originally proposed\nby Marsaglia and Tsang (2000, <doi:10.18637/jss.v005.i08>). These\nfunctions are exported to R and as a C++ interface and are enabled for\nuse with the default 64 bit generator from the PCG family, Xoroshiro128+\nand Xoshiro256+ as well as the 64 bit version of the 20 rounds Threefry\nengine (Salmon et al., 2011 <doi:10.1145/2063384.2063405>) as provided\nby the package 'sitmo'."
+        },
+        {
+            "name": "r-fnn",
+            "description": "Fast Nearest Neighbor Search Algorithms and Applications. Cover-tree and\nkd-tree fast k-nearest neighbor search algorithms and related\napplications including KNN classification, regression and information\nmeasures are implemented."
+        },
+        {
+            "name": "r-irlba",
+            "description": "Fast Truncated Singular Value Decomposition and Principal Components\nAnalysis for Large Dense and Sparse Matrices. Fast and memory efficient\nmethods for truncated singular value decomposition and principal\ncomponents analysis of large sparse and dense matrices."
         },
         {
             "name": "r-matrix",
@@ -48,32 +64,16 @@
             "description": "Seamless R and C++ Integration. The 'Rcpp' package provides R functions\nas well as C++ classes which; offer a seamless integration of R and C++.\nMany R data types and objects can be; mapped back and forth to C++\nequivalents which facilitates both writing of new; code as well as\neasier integration of third-party libraries. Documentation; about 'Rcpp'\nis provided by several vignettes included in this package, via the;\n'Rcpp Gallery' site at <https://gallery.rcpp.org>, the paper by\nEddelbuettel and; Francois (2011, <doi:10.18637/jss.v040.i08>), the book\nby Eddelbuettel (2013,; <doi:10.1007/978-1-4614-6868-4>) and the paper\nby Eddelbuettel and Balamuta (2018,;\n<doi:10.1080/00031305.2017.1375990>); see 'citation(\"Rcpp\")' for\ndetails."
         },
         {
-            "name": "r-fnn",
-            "description": "Fast Nearest Neighbor Search Algorithms and Applications. Cover-tree and\nkd-tree fast k-nearest neighbor search algorithms and related\napplications including KNN classification, regression and information\nmeasures are implemented."
-        },
-        {
             "name": "r-rcppannoy",
             "description": "'Rcpp' Bindings for 'Annoy', a Library for Approximate Nearest\nNeighbors. 'Annoy' is a small C++ library for Approximate Nearest\nNeighbors written for efficient memory usage as well an ability to load\nfrom / save to disk. This package provides an R interface by relying on\nthe 'Rcpp' package, exposing the same interface as the original Python\nwrapper to 'Annoy'. See <https://github.com/spotify/annoy> for more on\n'Annoy'. 'Annoy' is released under Version 2.0 of the Apache License.\nAlso included is a small Windows port of 'mmap' which is released under\nthe MIT license."
-        },
-        {
-            "name": "r-irlba",
-            "description": "Fast Truncated Singular Value Decomposition and Principal Components\nAnalysis for Large Dense and Sparse Matrices. Fast and memory efficient\nmethods for truncated singular value decomposition and principal\ncomponents analysis of large sparse and dense matrices."
-        },
-        {
-            "name": "r-rcppprogress",
-            "description": "An Interruptible Progress Bar with OpenMP Support for C++ in R Packages.\nAllows to display a progress bar in the R console for long running\ncomputations taking place in c++ code, and support for interrupting\nthose computations even in multithreaded code, typically using OpenMP."
-        },
-        {
-            "name": "r-dqrng",
-            "description": "Fast Pseudo Random Number Generators. Several fast random number\ngenerators are provided as C++ header only libraries: The PCG family by\nO'Neill (2014 <https://www.cs.hmc.edu/tr/hmc-cs-2014-0905.pdf>) as well\nas Xoroshiro128+ and Xoshiro256+ by Blackman and Vigna (2018\n<arXiv:1805.01407>). In addition fast functions for generating random\nnumbers according to a uniform, normal and exponential distribution are\nincluded. The latter two use the Ziggurat algorithm originally proposed\nby Marsaglia and Tsang (2000, <doi:10.18637/jss.v005.i08>). These\nfunctions are exported to R and as a C++ interface and are enabled for\nuse with the default 64 bit generator from the PCG family, Xoroshiro128+\nand Xoshiro256+ as well as the 64 bit version of the 20 rounds Threefry\nengine (Salmon et al., 2011 <doi:10.1145/2063384.2063405>) as provided\nby the package 'sitmo'."
         },
         {
             "name": "r-rcppparallel",
             "description": "Parallel Programming Tools for 'Rcpp'. High level functions for parallel\nprogramming with 'Rcpp'. For example, the 'parallelFor()' function can\nbe used to convert the work of a standard serial \"for\" loop into a\nparallel one and the 'parallelReduce()' function can be used for\naccumulating aggregate or other values."
         },
         {
-            "name": "gmake",
-            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files."
+            "name": "r-rcppprogress",
+            "description": "An Interruptible Progress Bar with OpenMP Support for C++ in R Packages.\nAllows to display a progress bar in the R console for long running\ncomputations taking place in c++ code, and support for interrupting\nthose computations even in multithreaded code, typically using OpenMP."
         },
         {
             "name": "r-rspectra",

@@ -83,14 +83,14 @@
     "build_system": "MesonPackage",
     "conflicts": [
         {
-            "name": "platform=windows",
+            "name": "arch=windows-None-None",
             "spec": "build_system=autotools",
-            "description": "None"
+            "description": null
         },
         {
             "name": "^python@3.12:",
             "spec": "build_system=meson ^meson@:1.0",
-            "description": "None"
+            "description": null
         },
         {
             "name": "%intel",
@@ -137,12 +137,36 @@
     "description": "The Harfbuzz package contains an OpenType text shaping engine.\n",
     "dependencies": [
         {
-            "name": "gnuconfig",
-            "description": "The GNU config.guess and config.sub scripts versioned by timestamp.\nThis package can be used as a build dependency for autotools packages\nthat ship a tarball with outdated config.guess and config.sub files."
+            "name": "cairo",
+            "description": "Cairo is a 2D graphics library with support for multiple output devices."
+        },
+        {
+            "name": "freetype",
+            "description": "FreeType is a freely available software library to render fonts. It is\nwritten in C, designed to be small, efficient, highly customizable, and\nportable while capable of producing high-quality output (glyph images)\nof most vector and bitmap font formats."
+        },
+        {
+            "name": "glib",
+            "description": "GLib provides the core application building blocks for libraries and\napplications written in C. The GLib package contains a low-level\nlibraries useful for providing data structure handling for C,\nportability wrappers and interfaces for such runtime functionality as an\nevent loop, threads, dynamic loading and an object system."
         },
         {
             "name": "gmake",
             "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files."
+        },
+        {
+            "name": "gnuconfig",
+            "description": "The GNU config.guess and config.sub scripts versioned by timestamp.\nThis package can be used as a build dependency for autotools packages\nthat ship a tarball with outdated config.guess and config.sub files."
+        },
+        {
+            "name": "gobject-introspection",
+            "description": "The GObject Introspection is used to describe the program APIs and\ncollect them in a uniform, machine readable format.Cairo is a 2D\ngraphics library with support for multiple output"
+        },
+        {
+            "name": "graphite2",
+            "description": "Graphite is a system that can be used to create \"smart fonts\" capable of\ndisplaying writing systems with various complex behaviors. A smart font\ncontains not only letter shapes but also additional instructions\nindicating how to combine and position the letters in complex ways."
+        },
+        {
+            "name": "icu4c",
+            "description": "ICU is a mature, widely used set of C/C++ and Java libraries providing\nUnicode and Globalization support for software applications. ICU4C is\nthe C/C++ interface."
         },
         {
             "name": "meson",
@@ -157,82 +181,58 @@
             "description": "pkgconf is a program which helps to configure compiler and linker flags\nfor development frameworks. It is similar to pkg-config from\nfreedesktop.org, providing additional functionality while also\nmaintaining compatibility."
         },
         {
-            "name": "glib",
-            "description": "GLib provides the core application building blocks for libraries and\napplications written in C. The GLib package contains a low-level\nlibraries useful for providing data structure handling for C,\nportability wrappers and interfaces for such runtime functionality as an\nevent loop, threads, dynamic loading and an object system."
-        },
-        {
-            "name": "gobject-introspection",
-            "description": "The GObject Introspection is used to describe the program APIs and\ncollect them in a uniform, machine readable format.Cairo is a 2D\ngraphics library with support for multiple output"
-        },
-        {
-            "name": "icu4c",
-            "description": "ICU is a mature, widely used set of C/C++ and Java libraries providing\nUnicode and Globalization support for software applications. ICU4C is\nthe C/C++ interface."
-        },
-        {
-            "name": "freetype",
-            "description": "FreeType is a freely available software library to render fonts. It is\nwritten in C, designed to be small, efficient, highly customizable, and\nportable while capable of producing high-quality output (glyph images)\nof most vector and bitmap font formats."
-        },
-        {
-            "name": "cairo",
-            "description": "Cairo is a 2D graphics library with support for multiple output devices."
-        },
-        {
             "name": "zlib-api",
-            "description": "A free, general-purpose, legally unencumbered lossless data-compression\nlibrary."
-        },
-        {
-            "name": "graphite2",
-            "description": "Graphite is a system that can be used to create \"smart fonts\" capable of\ndisplaying writing systems with various complex behaviors. A smart font\ncontains not only letter shapes but also additional instructions\nindicating how to combine and position the letters in complex ways."
+            "description": "zlib replacement with optimizations for next generation systems."
         }
     ],
     "dependent_to": [
         {
-            "name": "mapnik",
-            "description": "mapnik combines pixel-perfect image output with lightning-fast\ncartographic algorithms, and exposes interfaces in C++, Python, and Node"
-        },
-        {
-            "name": "texlive",
-            "description": "TeX Live is an easy (we hope) way to get up and running with the TeX\ndocument production system. It provides a comprehensive TeX system with\nbinaries for most flavors of Unix, including GNU/Linux, macOS, and also\nWindows. It includes all the major TeX-related programs, macro packages,\nand fonts that are free software, including support for many languages\naround the world."
-        },
-        {
-            "name": "r-textshaping",
-            "description": "Bindings to the 'HarfBuzz' and 'Fribidi' Libraries for Text Shaping.\nProvides access to the text shaping functionality in the 'HarfBuzz'\nlibrary and the bidirectional algorithm in the 'Fribidi' library.\n'textshaping' is a low-level utility package mainly for graphic devices\nthat expands upon the font tool-set provided by the 'systemfonts'\npackage."
-        },
-        {
-            "name": "pango",
-            "description": "Pango is a library for laying out and rendering of text, with an\nemphasis on internationalization. It can be used anywhere that text\nlayout is needed, though most of the work on Pango so far has been done\nin the context of the GTK+ widget toolkit."
-        },
-        {
-            "name": "libraqm",
-            "description": "Raqm provides a convenient API for the logic of complex text layout."
-        },
-        {
-            "name": "r",
-            "description": "R is 'GNU S', a freely available language and environment for\nstatistical computing and graphics which provides a wide variety of\nstatistical and graphical techniques: linear and nonlinear modelling,\nstatistical tests, time series analysis, classification, clustering,\netc. Please consult the R project homepage for further information."
-        },
-        {
-            "name": "qt-base",
-            "description": "Qt Base (Core, Gui, Widgets, Network, ...)"
+            "name": "librsvg",
+            "description": "Library to render SVG files using Cairo"
         },
         {
             "name": "kitty",
             "description": "fast, featureful, cross-platform, GPU-based terminal emulator"
         },
         {
-            "name": "librsvg",
-            "description": "Library to render SVG files using Cairo"
+            "name": "opencv",
+            "description": "OpenCV (Open Source Computer Vision Library) is an open source computer\nvision and machine learning software library."
         },
         {
-            "name": "qt",
-            "description": "Qt is a comprehensive cross-platform C++ application framework."
+            "name": "pango",
+            "description": "Pango is a library for laying out and rendering of text, with an\nemphasis on internationalization. It can be used anywhere that text\nlayout is needed, though most of the work on Pango so far has been done\nin the context of the GTK+ widget toolkit."
+        },
+        {
+            "name": "texlive",
+            "description": "TeX Live is an easy (we hope) way to get up and running with the TeX\ndocument production system. It provides a comprehensive TeX system with\nbinaries for most flavors of Unix, including GNU/Linux, macOS, and also\nWindows. It includes all the major TeX-related programs, macro packages,\nand fonts that are free software, including support for many languages\naround the world."
+        },
+        {
+            "name": "libraqm",
+            "description": "Raqm provides a convenient API for the logic of complex text layout."
+        },
+        {
+            "name": "qt-base",
+            "description": "Qt Base (Core, Gui, Widgets, Network, ...)"
+        },
+        {
+            "name": "r",
+            "description": "R is 'GNU S', a freely available language and environment for\nstatistical computing and graphics which provides a wide variety of\nstatistical and graphical techniques: linear and nonlinear modelling,\nstatistical tests, time series analysis, classification, clustering,\netc. Please consult the R project homepage for further information."
+        },
+        {
+            "name": "mapnik",
+            "description": "mapnik combines pixel-perfect image output with lightning-fast\ncartographic algorithms, and exposes interfaces in C++, Python, and Node"
         },
         {
             "name": "py-xdot",
             "description": "xdot.py is an interactive viewer for graphs written in Graphviz's dot\nlanguage."
         },
         {
-            "name": "opencv",
-            "description": "OpenCV (Open Source Computer Vision Library) is an open source computer\nvision and machine learning software library."
+            "name": "qt",
+            "description": "Qt is a comprehensive cross-platform C++ application framework."
+        },
+        {
+            "name": "r-textshaping",
+            "description": "Bindings to the 'HarfBuzz' and 'Fribidi' Libraries for Text Shaping.\nProvides access to the text shaping functionality in the 'HarfBuzz'\nlibrary and the bidirectional algorithm in the 'Fribidi' library.\n'textshaping' is a low-level utility package mainly for graphic devices\nthat expands upon the font tool-set provided by the 'systemfonts'\npackage."
         }
     ]
 }

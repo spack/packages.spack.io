@@ -3,15 +3,15 @@
     "aliases": [
         {
             "name": "mpi",
-            "alias_for": "{mvapich2}"
+            "alias_for": "mvapich2"
         },
         {
-            "name": "mpi@:3.1",
-            "alias_for": "{mvapich2@2.3:}"
+            "name": "mpi",
+            "alias_for": "mvapich2@2.3:"
         },
         {
-            "name": "mpi@:3.0",
-            "alias_for": "{mvapich2@2.1:}"
+            "name": "mpi",
+            "alias_for": "mvapich2@2.1:"
         }
     ],
     "versions": [
@@ -76,14 +76,14 @@
     "build_system": "AutotoolsPackage",
     "conflicts": [
         {
-            "name": "platform=windows",
+            "name": "arch=windows-None-None",
             "spec": "build_system=autotools",
-            "description": "None"
+            "description": null
         },
         {
             "name": "fabrics=psm2",
             "spec": "@:2.1",
-            "description": "None"
+            "description": null
         }
     ],
     "variants": [
@@ -181,82 +181,78 @@
     "description": "Mvapich2 is a High-Performance MPI Library for clusters with diverse\nnetworks (InfiniBand, Omni-Path, Ethernet/iWARP, and RoCE) and computing\nplatforms (x86 (Intel and AMD), ARM and OpenPOWER)\n",
     "dependencies": [
         {
-            "name": "gnuconfig",
-            "description": "The GNU config.guess and config.sub scripts versioned by timestamp.\nThis package can be used as a build dependency for autotools packages\nthat ship a tarball with outdated config.guess and config.sub files."
-        },
-        {
-            "name": "gmake",
-            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files."
-        },
-        {
             "name": "automake",
             "description": "Automake -- make file builder part of autotools"
-        },
-        {
-            "name": "findutils",
-            "description": "The GNU Find Utilities are the basic directory searching utilities of\nthe GNU operating system."
         },
         {
             "name": "bison",
             "description": "Bison is a general-purpose parser generator that converts an annotated\ncontext-free grammar into a deterministic LR or generalized LR (GLR)\nparser employing LALR(1) parser tables."
         },
         {
-            "name": "pkgconfig",
-            "description": "pkgconf is a program which helps to configure compiler and linker flags\nfor development frameworks. It is similar to pkg-config from\nfreedesktop.org, providing additional functionality while also\nmaintaining compatibility."
-        },
-        {
-            "name": "zlib-api",
-            "description": "A free, general-purpose, legally unencumbered lossless data-compression\nlibrary."
-        },
-        {
-            "name": "libpciaccess",
-            "description": "Generic PCI access library."
-        },
-        {
-            "name": "libxml2",
-            "description": "Libxml2 is the XML C parser and toolkit developed for the Gnome project\n(but usable outside of the Gnome platform), it is free software\navailable under the MIT License."
-        },
-        {
             "name": "cuda",
             "description": "CUDA is a parallel computing platform and programming model invented by\nNVIDIA. It enables dramatic increases in computing performance by\nharnessing the power of the graphics processing unit (GPU). Note: This\npackage does not currently install the drivers necessary to run CUDA.\nThese will need to be installed manually. See:\nhttps://docs.nvidia.com/cuda/ for details."
         },
         {
-            "name": "psm",
-            "description": "Intel Performance scaled messaging library"
+            "name": "findutils",
+            "description": "The GNU Find Utilities are the basic directory searching utilities of\nthe GNU operating system."
         },
         {
-            "name": "opa-psm2",
-            "description": "Omni-Path Performance Scaled Messaging 2 (PSM2) library"
+            "name": "gmake",
+            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files."
         },
         {
-            "name": "rdma-core",
-            "description": "RDMA core userspace libraries and daemons"
+            "name": "gnuconfig",
+            "description": "The GNU config.guess and config.sub scripts versioned by timestamp.\nThis package can be used as a build dependency for autotools packages\nthat ship a tarball with outdated config.guess and config.sub files."
         },
         {
             "name": "libfabric",
             "description": "The Open Fabrics Interfaces (OFI) is a framework focused on exporting\nfabric communication services to applications."
         },
         {
+            "name": "libxml2",
+            "description": "Libxml2 is the XML C parser and toolkit developed for the Gnome project\n(but usable outside of the Gnome platform), it is free software\navailable under the MIT License."
+        },
+        {
+            "name": "opa-psm2",
+            "description": "Omni-Path Performance Scaled Messaging 2 (PSM2) library"
+        },
+        {
+            "name": "pkgconfig",
+            "description": "pkgconf is a program which helps to configure compiler and linker flags\nfor development frameworks. It is similar to pkg-config from\nfreedesktop.org, providing additional functionality while also\nmaintaining compatibility."
+        },
+        {
+            "name": "psm",
+            "description": "Intel Performance scaled messaging library"
+        },
+        {
+            "name": "rdma-core",
+            "description": "RDMA core userspace libraries and daemons"
+        },
+        {
             "name": "slurm",
             "description": "Slurm is an open source, fault-tolerant, and highly scalable cluster\nmanagement and job scheduling system for large and small Linux clusters.\nSlurm requires no kernel modifications for its operation and is\nrelatively self-contained. As a cluster workload manager, Slurm has\nthree key functions. First, it allocates exclusive and/or non-exclusive\naccess to resources (compute nodes) to users for some duration of time\nso they can perform work. Second, it provides a framework for starting,\nexecuting, and monitoring work (normally a parallel job) on the set of\nallocated nodes. Finally, it arbitrates contention for resources by\nmanaging a queue of pending work."
+        },
+        {
+            "name": "zlib-api",
+            "description": "zlib replacement with optimizations for next generation systems."
         }
     ],
     "dependent_to": [
-        {
-            "name": "hdf5-vol-async",
-            "description": "This package enables asynchronous IO in HDF5. Usage: Set the\nHDF5_VOL_CONNECTOR environment variable to enable this adaptor, i.e.\n$export HDF5_VOL_CONNECTOR=\"async under_vol=0;under_info={}\" ref.\nhttps://hdf5-vol-async.readthedocs.io/en/latest/gettingstarted.html#set-\nenvironmental-variables"
-        },
         {
             "name": "rose",
             "description": "A compiler infrastructure to build source-to-source program\ntransformation and analysis tools. (Developed at Lawrence Livermore\nNational Lab)"
         },
         {
-            "name": "beatnik",
-            "description": "Fluid interface model solver based on Pandya and Shkoller's Z-Model\nformulation."
-        },
-        {
             "name": "cbtf-krell",
             "description": "CBTF Krell project contains collector and runtime contributions to the\nCBTF project. These contributions include many performance data\ncollectors and support libraries as well as some example tools that\ndrive the data collection at HPC levels of scale."
+        },
+        {
+            "name": "hdf5-vol-async",
+            "description": "This package enables asynchronous IO in HDF5. Usage: Set the\nHDF5_VOL_CONNECTOR environment variable to enable this adaptor, i.e.\n$export HDF5_VOL_CONNECTOR=\"async under_vol=0;under_info={}\" ref.\nhttps://hdf5-vol-async.readthedocs.io/en/latest/gettingstarted.html#set-\nenvironmental-variables"
+        },
+        {
+            "name": "beatnik",
+            "description": "Fluid interface model solver based on Pandya and Shkoller's Z-Model\nformulation."
         }
     ]
 }

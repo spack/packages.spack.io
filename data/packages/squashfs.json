@@ -40,9 +40,9 @@
     "build_system": "MakefilePackage",
     "conflicts": [
         {
-            "name": "platform=windows",
+            "name": "arch=windows-None-None",
             "spec": "build_system=makefile",
-            "description": "None"
+            "description": null
         },
         {
             "name": "squashfs~gzip default_compression=gzip",
@@ -140,10 +140,6 @@
             "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files."
         },
         {
-            "name": "zlib-api",
-            "description": "A free, general-purpose, legally unencumbered lossless data-compression\nlibrary."
-        },
-        {
             "name": "lz4",
             "description": "LZ4 is lossless compression algorithm, providing compression speed at\n400 MB/s per core, scalable with multi-cores CPU. It also features an\nextremely fast decoder, with speed in multiple GB/s per core, typically\nreaching RAM speed limits on multi-core systems."
         },
@@ -156,14 +152,26 @@
             "description": "XZ Utils is free general-purpose data compression software with high\ncompression ratio. XZ Utils were written for POSIX-like systems, but\nalso work on some not-so-POSIX systems. XZ Utils are the successor to\nLZMA Utils."
         },
         {
+            "name": "zlib-api",
+            "description": "zlib replacement with optimizations for next generation systems."
+        },
+        {
             "name": "zstd",
             "description": "Zstandard, or zstd as short version, is a fast lossless compression\nalgorithm, targeting real-time compression scenarios at zlib-level and\nbetter compression ratios."
         }
     ],
     "dependent_to": [
         {
+            "name": "singularityce",
+            "description": "Singularity is a container technology focused on building portable\nencapsulated environments to support \"Mobility of Compute\" For older\nversions of Singularity (pre 3.0) you should use singularity-legacy,\nwhich has a different install base (Autotools). Needs post-install\nchmod/chown steps to enable full functionality. See package definition\nor `spack-build-out.txt` build log for details, e.g. tail -15 $(spack\nlocation -i singularityce)/.spack/spack-build-out.txt"
+        },
+        {
             "name": "charliecloud",
             "description": "Lightweight user-defined software stacks for HPC."
+        },
+        {
+            "name": "apptainer",
+            "description": "Apptainer is an open source container platform designed to be simple,\nfast, and secure. Many container platforms are available, but Apptainer\nis designed for ease-of-use on shared systems and in high performance\ncomputing (HPC) environments. Needs post-install chmod/chown steps to\nenable full functionality. See package definition or `spack-build-\nout.txt` build log for details, e.g.: tail -15 $(spack location -i\napptainer)/.spack/spack-build-out.txt"
         },
         {
             "name": "singularity",
@@ -172,14 +180,6 @@
         {
             "name": "sarus",
             "description": "Sarus is an OCI-compliant container engine for HPC systems."
-        },
-        {
-            "name": "apptainer",
-            "description": "Apptainer is an open source container platform designed to be simple,\nfast, and secure. Many container platforms are available, but Apptainer\nis designed for ease-of-use on shared systems and in high performance\ncomputing (HPC) environments. Needs post-install chmod/chown steps to\nenable full functionality. See package definition or `spack-build-\nout.txt` build log for details, e.g.: tail -15 $(spack location -i\napptainer)/.spack/spack-build-out.txt"
-        },
-        {
-            "name": "singularityce",
-            "description": "Singularity is a container technology focused on building portable\nencapsulated environments to support \"Mobility of Compute\" For older\nversions of Singularity (pre 3.0) you should use singularity-legacy,\nwhich has a different install base (Autotools). Needs post-install\nchmod/chown steps to enable full functionality. See package definition\nor `spack-build-out.txt` build log for details, e.g. tail -15 $(spack\nlocation -i singularityce)/.spack/spack-build-out.txt"
         }
     ]
 }

@@ -4,27 +4,26 @@
     "versions": [
         {
             "name": "2.19.2",
-            "sha256": "9d55c7afb6a244e8a615451ed9cb02e6a6f187ad4d169c6d5a123fa74adb4830"
+            "sha256": "af0cda69e31e42f01ba6adc0aa779d3e5853e6c092beeb420a4fc22712d2110b"
         },
         {
             "name": "2.14.0.3",
-            "sha256": "3ed8bf98126fb68fa6ce05861ab866f5100edc38bcf47bc0bb000692453344c0"
+            "sha256": "c6c1addd968699733c7d597cf269cc66d692371995703c32e5262f84a125c27b"
         },
         {
             "name": "2.11.4",
-            "sha256": "b15ce6009ab833fb51fc472bf8bb9683cd2bd7f8ac948f3ddeb6b8f9a366d69a"
+            "sha256": "13b8597860afa6ab802993a684b340be3f31f4d2a06c50b6601f9e726cf76f71"
         },
         {
             "name": "2.7.3",
-            "sha256": "eb775fd42ec50329004d00f0c9b13076e707cdd44745517c8ce2581fb8abdb75",
-            "url": "https://github.com/jgm/pandoc/releases/download/2.7.3/pandoc-2.7.3-linux.tar.gz"
+            "sha256": "fb93800c90f3fab05dbd418ee6180d086b619c9179b822ddfecb608874554ff0"
         }
     ],
     "latest_version": "2.19.2",
     "build_system": "Package",
     "conflicts": [
         {
-            "name": "target=aarch64:",
+            "name": "arch=None-None-aarch64:",
             "spec": "@:2.11",
             "description": "pandoc: aarch64 is not supported."
         }
@@ -54,12 +53,40 @@
     ],
     "dependent_to": [
         {
-            "name": "r-pkgdown",
-            "description": "Make Static HTML Documentation for a Package. Generate an attractive and\nuseful website from a source package. 'pkgdown' converts your\ndocumentation, vignettes, 'README', and more to 'HTML' making it easy to\nshare information about your package online."
+            "name": "r-bookdown",
+            "description": "Authoring Books and Technical Documents with R Markdown. Output formats\nand utilities for authoring books and technical documents with R\nMarkdown."
         },
         {
-            "name": "r-bayesplot",
-            "description": "Plotting for Bayesian Models. Plotting functions for posterior analysis,\nMCMC diagnostics, prior and posterior predictive checks, and other\nvisualizations to support the applied Bayesian workflow advocated in\nGabry, Simpson, Vehtari, Betancourt, and Gelman (2019)\n<doi:10.1111/rssa.12378>. The package is designed not only to provide\nconvenient functionality for users, but also a common set of functions\nthat can be easily used by developers working on a variety of R packages\nfor Bayesian modeling, particularly (but not exclusively) packages\ninterfacing with 'Stan'."
+            "name": "r-rstan",
+            "description": "R Interface to Stan. User-facing R functions are provided to parse,\ncompile, test, estimate, and analyze Stan models by accessing the\nheader-only Stan library provided by the 'StanHeaders' package. The Stan\nproject develops a probabilistic programming language that implements\nfull Bayesian statistical inference via Markov Chain Monte Carlo, rough\nBayesian inference via variational approximation, and (optionally\npenalized) maximum likelihood estimation via optimization. In all three\ncases, automatic differentiation is used to quickly and accurately\nevaluate gradients without burdening the user with the need to derive\nthe partial derivatives."
+        },
+        {
+            "name": "r-stanheaders",
+            "description": "C++ Header Files for Stan. The C++ header files of the Stan project are\nprovided by this package, but it contains no R code, vignettes, or\nfunction documentation. There is a shared object containing part of the\nCVODES library, but it is not accessible from R. StanHeaders is only\nuseful for developers who want to utilize the LinkingTo directive of\ntheir package's DESCRIPTION file to build on the Stan library without\nincurring unnecessary dependencies. The Stan project develops a\nprobabilistic programming language that implements full or approximate\nBayesian statistical inference via Markov Chain Monte Carlo or\nvariational methods and implements (optionally penalized) maximum\nlikelihood estimation via optimization. The Stan library includes an\nadvanced automatic differentiation scheme, templated statistical and\nlinear algebra functions that can handle the automatically\ndifferentiable scalar types (and doubles, ints, etc.), and a parser for\nthe Stan language. The 'rstan' package provides user-facing R functions\nto parse, compile, test, estimate, and analyze Stan models."
+        },
+        {
+            "name": "r-shinyjs",
+            "description": "Easily Improve the User Experience of Your Shiny Apps in Seconds.\nPerform common useful JavaScript operations in Shiny apps that will\ngreatly improve your apps without having to know any JavaScript.\nExamples include: hiding an element, disabling an input, resetting an\ninput back to its original value, delaying code execution by a few\nseconds, and many more useful functions for both the end user and the\ndeveloper. 'shinyjs' can also be used to easily call your own custom\nJavaScript functions from R."
+        },
+        {
+            "name": "r-rstantools",
+            "description": "Tools for Developing R Packages Interfacing with 'Stan'. Provides\nvarious tools for developers of R packages interfacing with 'Stan'\n<https://mc-stan.org>, including functions to set up the required\npackage structure, S3 generics and default methods to unify function\nnaming across 'Stan'-based R packages, and vignettes with\nrecommendations for developers."
+        },
+        {
+            "name": "r-reprex",
+            "description": "Prepare Reproducible Example Code via the Clipboard. Convenience wrapper\nthat uses the 'rmarkdown' package to render small snippets of code to\ntarget formats that include both code and output. The goal is to\nencourage the sharing of small, reproducible, and runnable examples on\ncode-oriented websites, such as <https://stackoverflow.com/> and\n<https://github.com>, or in email. 'reprex' also extracts clean,\nrunnable R code from various common formats, such as copy/paste from an\nR session."
+        },
+        {
+            "name": "uftrace",
+            "description": "Dynamic function graph tracer for Linux which demangles C, C++ and Rust\ncalls"
+        },
+        {
+            "name": "r-rmarkdown",
+            "description": "Dynamic Documents for R. Convert R Markdown documents into a variety of\nformats."
+        },
+        {
+            "name": "r-knitr",
+            "description": "A General-Purpose Package for Dynamic Report Generation in R. Provides a\ngeneral-purpose tool for dynamic report generation in R using Literate\nProgramming techniques."
         },
         {
             "name": "r-prettydoc",
@@ -70,60 +97,32 @@
             "description": "3D Visualization Using OpenGL. Provides medium to high level functions\nfor 3D interactive graphics, including functions modelled on base\ngraphics (plot3d(), etc.) as well as functions for constructing\nrepresentations of geometric objects (cube3d(), etc.). Output may be on\nscreen using OpenGL, or to various standard 3D file formats including\nWebGL, PLY, OBJ, STL as well as 2D image formats, including PNG,\nPostscript, SVG, PGF."
         },
         {
-            "name": "r-knitr",
-            "description": "A General-Purpose Package for Dynamic Report Generation in R. Provides a\ngeneral-purpose tool for dynamic report generation in R using Literate\nProgramming techniques."
-        },
-        {
-            "name": "uftrace",
-            "description": "Dynamic function graph tracer for Linux which demangles C, C++ and Rust\ncalls"
-        },
-        {
-            "name": "py-ocp-models",
-            "description": "Reference implementation for the MLPerf HPC OpenCatalyst DimeNet++\nbenchmark"
-        },
-        {
-            "name": "r-rstantools",
-            "description": "Tools for Developing R Packages Interfacing with 'Stan'. Provides\nvarious tools for developers of R packages interfacing with 'Stan'\n<https://mc-stan.org>, including functions to set up the required\npackage structure, S3 generics and default methods to unify function\nnaming across 'Stan'-based R packages, and vignettes with\nrecommendations for developers."
-        },
-        {
             "name": "rstudio",
             "description": "RStudio is an integrated development environment (IDE) for R."
-        },
-        {
-            "name": "r-shinyjs",
-            "description": "Easily Improve the User Experience of Your Shiny Apps in Seconds.\nPerform common useful JavaScript operations in Shiny apps that will\ngreatly improve your apps without having to know any JavaScript.\nExamples include: hiding an element, disabling an input, resetting an\ninput back to its original value, delaying code execution by a few\nseconds, and many more useful functions for both the end user and the\ndeveloper. 'shinyjs' can also be used to easily call your own custom\nJavaScript functions from R."
-        },
-        {
-            "name": "r-bookdown",
-            "description": "Authoring Books and Technical Documents with R Markdown. Output formats\nand utilities for authoring books and technical documents with R\nMarkdown."
-        },
-        {
-            "name": "r-rstan",
-            "description": "R Interface to Stan. User-facing R functions are provided to parse,\ncompile, test, estimate, and analyze Stan models by accessing the\nheader-only Stan library provided by the 'StanHeaders' package. The Stan\nproject develops a probabilistic programming language that implements\nfull Bayesian statistical inference via Markov Chain Monte Carlo, rough\nBayesian inference via variational approximation, and (optionally\npenalized) maximum likelihood estimation via optimization. In all three\ncases, automatic differentiation is used to quickly and accurately\nevaluate gradients without burdening the user with the need to derive\nthe partial derivatives."
         },
         {
             "name": "r-loo",
             "description": "Efficient Leave-One-Out Cross-Validation and WAIC for BayesianModels.\nEfficient approximate leave-one-out cross-validation (LOO) for Bayesian\nmodels fit using Markov chain Monte Carlo, as described in Vehtari,\nGelman, and Gabry (2017) <doi:10.1007/s11222-016-9696-4>. The\napproximation uses Pareto smoothed importance sampling (PSIS), a new\nprocedure for regularizing importance weights. As a byproduct of the\ncalculations, we also obtain approximate standard errors for estimated\npredictive errors and for the comparison of predictive errors between\nmodels. The package also provides methods for using stacking and other\nmodel weighting techniques to average Bayesian predictive distributions."
         },
         {
-            "name": "py-nbsphinx",
-            "description": "nbsphinx is a Sphinx extension that provides a source parser for *.ipynb\nfiles."
-        },
-        {
-            "name": "r-rmarkdown",
-            "description": "Dynamic Documents for R. Convert R Markdown documents into a variety of\nformats."
-        },
-        {
-            "name": "r-reprex",
-            "description": "Prepare Reproducible Example Code via the Clipboard. Convenience wrapper\nthat uses the 'rmarkdown' package to render small snippets of code to\ntarget formats that include both code and output. The goal is to\nencourage the sharing of small, reproducible, and runnable examples on\ncode-oriented websites, such as <https://stackoverflow.com/> and\n<https://github.com>, or in email. 'reprex' also extracts clean,\nrunnable R code from various common formats, such as copy/paste from an\nR session."
+            "name": "r-bayesplot",
+            "description": "Plotting for Bayesian Models. Plotting functions for posterior analysis,\nMCMC diagnostics, prior and posterior predictive checks, and other\nvisualizations to support the applied Bayesian workflow advocated in\nGabry, Simpson, Vehtari, Betancourt, and Gelman (2019)\n<doi:10.1111/rssa.12378>. The package is designed not only to provide\nconvenient functionality for users, but also a common set of functions\nthat can be easily used by developers working on a variety of R packages\nfor Bayesian modeling, particularly (but not exclusively) packages\ninterfacing with 'Stan'."
         },
         {
             "name": "pmix",
             "description": "The Process Management Interface (PMI) has been used for quite some time\nas a means of exchanging wireup information needed for interprocess\ncommunication. However, meeting the significant orchestration challenges\npresented by exascale systems requires that the process-to-system\ninterface evolve to permit a tighter integration between the different\ncomponents of the parallel application and existing and future SMS\nsolutions. PMI Exascale (PMIx) addresses these needs by providing an\nextended version of the PMI definitions specifically designed to support\nexascale and beyond environments by: (a) adding flexibility to the\nfunctionality expressed in the existing APIs, (b) augmenting the\ninterfaces with new APIs that provide extended capabilities, (c) forging\na collaboration between subsystem providers including resource manager,\nfabric, file system, and programming library developers, (d)\nestablishing a standards-like body for maintaining the definitions, and\n(e) providing a reference implementation of the PMIx standard that\ndemonstrates the desired level of scalability while maintaining strict\nseparation between it and the standard itself."
         },
         {
-            "name": "r-stanheaders",
-            "description": "C++ Header Files for Stan. The C++ header files of the Stan project are\nprovided by this package, but it contains no R code, vignettes, or\nfunction documentation. There is a shared object containing part of the\nCVODES library, but it is not accessible from R. StanHeaders is only\nuseful for developers who want to utilize the LinkingTo directive of\ntheir package's DESCRIPTION file to build on the Stan library without\nincurring unnecessary dependencies. The Stan project develops a\nprobabilistic programming language that implements full or approximate\nBayesian statistical inference via Markov Chain Monte Carlo or\nvariational methods and implements (optionally penalized) maximum\nlikelihood estimation via optimization. The Stan library includes an\nadvanced automatic differentiation scheme, templated statistical and\nlinear algebra functions that can handle the automatically\ndifferentiable scalar types (and doubles, ints, etc.), and a parser for\nthe Stan language. The 'rstan' package provides user-facing R functions\nto parse, compile, test, estimate, and analyze Stan models."
+            "name": "py-nbsphinx",
+            "description": "nbsphinx is a Sphinx extension that provides a source parser for *.ipynb\nfiles."
+        },
+        {
+            "name": "r-pkgdown",
+            "description": "Make Static HTML Documentation for a Package. Generate an attractive and\nuseful website from a source package. 'pkgdown' converts your\ndocumentation, vignettes, 'README', and more to 'HTML' making it easy to\nshare information about your package online."
+        },
+        {
+            "name": "py-ocp-models",
+            "description": "Reference implementation for the MLPerf HPC OpenCatalyst DimeNet++\nbenchmark"
         }
     ]
 }
