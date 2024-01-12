@@ -2,11 +2,11 @@
     "name": "gcc",
     "aliases": [
         {
-            "name": "golang",
+            "name": "go-or-gccgo-bootstrap",
             "alias_for": "gcc@4.7.1: languages=go"
         },
         {
-            "name": "go-or-gccgo-bootstrap",
+            "name": "golang",
             "alias_for": "gcc@4.7.1: languages=go"
         },
         {
@@ -18,11 +18,11 @@
             "alias_for": "gcc@4.9: languages=go"
         },
         {
-            "name": "golang",
+            "name": "go-or-gccgo-bootstrap",
             "alias_for": "gcc@5: languages=go"
         },
         {
-            "name": "go-or-gccgo-bootstrap",
+            "name": "golang",
             "alias_for": "gcc@5: languages=go"
         },
         {
@@ -34,11 +34,11 @@
             "alias_for": "gcc@6: languages=go"
         },
         {
-            "name": "golang",
+            "name": "go-or-gccgo-bootstrap",
             "alias_for": "gcc@7: languages=go"
         },
         {
-            "name": "go-or-gccgo-bootstrap",
+            "name": "golang",
             "alias_for": "gcc@7: languages=go"
         },
         {
@@ -58,19 +58,19 @@
             "alias_for": "gcc@9: languages=go"
         },
         {
+            "name": "golang",
+            "alias_for": "gcc@10: languages=go"
+        },
+        {
             "name": "go-or-gccgo-bootstrap",
             "alias_for": "gcc@10: languages=go"
         },
         {
-            "name": "golang",
-            "alias_for": "gcc@10: languages=go"
-        },
-        {
-            "name": "golang",
+            "name": "go-or-gccgo-bootstrap",
             "alias_for": "gcc@11: languages=go"
         },
         {
-            "name": "go-or-gccgo-bootstrap",
+            "name": "golang",
             "alias_for": "gcc@11: languages=go"
         },
         {
@@ -423,11 +423,6 @@
             "name": "@:12",
             "spec": "%apple-clang@14:14.0",
             "description": null
-        },
-        {
-            "name": "+bootstrap",
-            "spec": "@11.3.0,13.1: arch=None-None-aarch64:",
-            "description": null
         }
     ],
     "variants": [
@@ -488,126 +483,6 @@
         "michaelkuhn"
     ],
     "patches": [
-        {
-            "owner": "builtin.gcc",
-            "sha256": "f7772a6ba73f44a6b378e4fe3548e0284f48ae2d02c701df1be93780c1607074",
-            "level": 1,
-            "working_dir": ".",
-            "relative_path": "darwin/apfs.patch",
-            "version": "@5.5.0,6.1:6.4,7.1:7.3"
-        },
-        {
-            "owner": "builtin.gcc",
-            "sha256": "399e55a071852ebe5f2a56dd603431cc6c78f212d6a02955ad077a44b3530b20",
-            "level": 1,
-            "working_dir": ".",
-            "relative_path": "darwin/headers-10.13-fix.patch",
-            "version": "@5.5.0"
-        },
-        {
-            "owner": "builtin.gcc",
-            "sha256": "33ee92bf678586357ee8ab9d2faddf807e671ad37b97afdd102d5d153d03ca84",
-            "level": 1,
-            "working_dir": ".",
-            "url": "https://raw.githubusercontent.com/Homebrew/formula-patches/b8b8e65e/gcc/8.3.0-xcode-bug-_Atomic-fix.patch",
-            "version": "@6:8.3"
-        },
-        {
-            "owner": "builtin.gcc",
-            "sha256": "0b8d14a7f3c6a2f0d2498526e86e088926671b5da50a554ffa6b7f73ac4f132b",
-            "level": 1,
-            "working_dir": ".",
-            "url": "https://raw.githubusercontent.com/Homebrew/formula-patches/b8b8e65e/gcc/9.2.0-catalina.patch",
-            "version": "@9.2.0"
-        },
-        {
-            "owner": "builtin.gcc",
-            "sha256": "c0605179a856ca046d093c13cea4d2e024809ec2ad4bf3708543fc3d2e60504b",
-            "level": 1,
-            "working_dir": ".",
-            "url": "https://github.com/iains/gcc-darwin-arm64/commit/20f61faaed3b335d792e38892d826054d2ac9f15.patch?full_index=1",
-            "version": "@11.2.0"
-        },
-        {
-            "owner": "builtin.gcc",
-            "sha256": "e02006b7ec917cc1390645d95735a6a866caed0dfe506d5bef742f7862cab218",
-            "level": 1,
-            "working_dir": ".",
-            "url": "https://raw.githubusercontent.com/Homebrew/formula-patches/22dec3fc/gcc/gcc-11.3.0-arm.diff",
-            "version": "@11.3.0 arch=None-None-aarch64:"
-        },
-        {
-            "owner": "builtin.gcc",
-            "sha256": "a000f1d9cb1dd98c7c4ef00df31435cd5d712d2f9d037ddc044f8bf82a16cf35",
-            "level": 1,
-            "working_dir": ".",
-            "url": "https://raw.githubusercontent.com/Homebrew/formula-patches/76677f2b/gcc/gcc-12.1.0-arm.diff",
-            "version": "@12.1.0 arch=None-None-aarch64:"
-        },
-        {
-            "owner": "builtin.gcc",
-            "sha256": "a7843b5c6bf1401e40c20c72af69c8f6fc9754ae980bb4a5f0540220b3dcb62d",
-            "level": 1,
-            "working_dir": ".",
-            "url": "https://raw.githubusercontent.com/Homebrew/formula-patches/1d184289/gcc/gcc-12.2.0-arm.diff",
-            "version": "@12.2.0 arch=None-None-aarch64:"
-        },
-        {
-            "owner": "builtin.gcc",
-            "sha256": "cb4e8a89387f748a744da0273025d0dc2e3c76780cc390b18ada704676afea11",
-            "level": 1,
-            "working_dir": ".",
-            "url": "https://raw.githubusercontent.com/Homebrew/formula-patches/5c206c47/gcc/gcc-13.1.0.diff",
-            "version": "@13.1.0 arch=None-None-aarch64:"
-        },
-        {
-            "owner": "builtin.gcc",
-            "sha256": "2df7ef067871a30b2531a2013b3db661ec9e61037341977bfc451e30bf2c1035",
-            "level": 1,
-            "working_dir": ".",
-            "url": "https://raw.githubusercontent.com/Homebrew/formula-patches/3c5cbc8e9cf444a1967786af48e430588e1eb481/gcc/gcc-13.2.0.diff",
-            "version": "@13.2.0 arch=None-None-aarch64:"
-        },
-        {
-            "owner": "builtin.gcc",
-            "sha256": "ecc5ac43951b34cbc5db15f585b4e704c42e2e487f9ed4c24fadef3f3857930b",
-            "level": 1,
-            "working_dir": ".",
-            "relative_path": "darwin/gcc-7.1.0-headerpad.patch",
-            "version": "@5:11.2"
-        },
-        {
-            "owner": "builtin.gcc",
-            "sha256": "d72db78262ecde2d471c83f7c6f440838bd362b29f4f1115d6f339a79b110715",
-            "level": 1,
-            "working_dir": ".",
-            "relative_path": "darwin/gcc-6.1.0-jit.patch",
-            "version": "@5:7"
-        },
-        {
-            "owner": "builtin.gcc",
-            "sha256": "636b65a160ccb7417cc4ffc263fc815382f8bb895e32262205cd10d65ea7804a",
-            "level": 1,
-            "working_dir": ".",
-            "relative_path": "darwin/gcc-4.9.patch1",
-            "version": "@4.9.0:4.9.3"
-        },
-        {
-            "owner": "builtin.gcc",
-            "sha256": "db4966ade190fff4ed39976be8d13e84839098711713eff1d08920d37a58f5ec",
-            "level": 1,
-            "working_dir": ".",
-            "relative_path": "darwin/gcc-4.9.patch2",
-            "version": "@4.9.0:4.9.3"
-        },
-        {
-            "owner": "builtin.gcc",
-            "sha256": "73481a8f1dca0653aa5dab88b1a83239260305b55f59401aaeb9cf1c8f73bb90",
-            "level": 1,
-            "working_dir": ".",
-            "relative_path": "darwin/clang13.patch",
-            "version": "@:11.1%apple-clang@13"
-        },
         {
             "owner": "builtin.gcc",
             "sha256": "de02757db510055a149390f95c3e06f62992ff61ff65e74642f8b4d4a4438320",
@@ -871,7 +746,7 @@
         },
         {
             "name": "iconv",
-            "description": "Dummy package to provide interfaces available in libc."
+            "description": "GNU libiconv provides an implementation of the iconv() function and the\niconv program for character set conversion."
         },
         {
             "name": "isl",
@@ -920,12 +795,12 @@
     ],
     "dependent_to": [
         {
-            "name": "emacs",
-            "description": "The Emacs programmable text editor."
-        },
-        {
             "name": "gromacs-swaxs",
             "description": "Modified Gromacs for small-angle scattering calculations\n(SAXS/WAXS/SANS)"
+        },
+        {
+            "name": "yade",
+            "description": "Yade is an free software for particle based simulations."
         },
         {
             "name": "mosesdecoder",
@@ -936,12 +811,12 @@
             "description": "A modification of GROMACS that implements the \"chain coordinate\", a\nreaction coordinate for pore formation in membranes and stalk formation\nbetween membranes."
         },
         {
-            "name": "gromacs",
-            "description": "GROMACS is a molecular dynamics package primarily designed for\nsimulations of proteins, lipids and nucleic acids. It was originally\ndeveloped in the Biophysical Chemistry department of University of\nGroningen, and is now maintained by contributors in universities and\nresearch centers across the world. GROMACS is one of the fastest and\nmost popular software packages available and can run on CPUs as well as\nGPUs. It is free, open source released under the GNU Lesser General\nPublic License. Before the version 4.6, GROMACS was released under the\nGNU General Public License."
+            "name": "emacs",
+            "description": "The Emacs programmable text editor."
         },
         {
-            "name": "yade",
-            "description": "Yade is an free software for particle based simulations."
+            "name": "gromacs",
+            "description": "GROMACS is a molecular dynamics package primarily designed for\nsimulations of proteins, lipids and nucleic acids. It was originally\ndeveloped in the Biophysical Chemistry department of University of\nGroningen, and is now maintained by contributors in universities and\nresearch centers across the world. GROMACS is one of the fastest and\nmost popular software packages available and can run on CPUs as well as\nGPUs. It is free, open source released under the GNU Lesser General\nPublic License. Before the version 4.6, GROMACS was released under the\nGNU General Public License."
         }
     ]
 }
