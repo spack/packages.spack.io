@@ -3,6 +3,10 @@
     "aliases": [],
     "versions": [
         {
+            "name": "2.53.3",
+            "sha256": "aaea04fc5bc76dcfe8627683c9659ee4c194d4f992cc8aaa15bbb2820fc8de46"
+        },
+        {
             "name": "2.51.2",
             "sha256": "a2efcbeab651be6df69cc9b253011a07955ecb91fb407a219719451197849d5e"
         },
@@ -11,13 +15,19 @@
             "sha256": "f8c7e982634bbe1ed6510fe5b36b6c5c55c06caefddafdd9edc08812305fdeec"
         }
     ],
-    "latest_version": "2.51.2",
-    "build_system": "Package",
-    "conflicts": [],
+    "latest_version": "2.53.3",
+    "build_system": "MakefilePackage",
+    "conflicts": [
+        {
+            "name": "arch=windows-None-None",
+            "spec": "build_system=makefile",
+            "description": null
+        }
+    ],
     "variants": [
         {
             "name": "build_system",
-            "default": "generic",
+            "default": "makefile",
             "description": "Build systems supported by the package"
         }
     ],
@@ -32,7 +42,7 @@
             "level": 0,
             "working_dir": ".",
             "relative_path": "large.patch",
-            "version": ""
+            "version": "@:2.51.2"
         },
         {
             "owner": "builtin.unison",
@@ -40,12 +50,16 @@
             "level": 1,
             "working_dir": ".",
             "relative_path": "4.08-compatibility.patch",
-            "version": "^ocaml@4.08:"
+            "version": "@:2.51.2 ^ocaml@4.08:"
         }
     ],
     "resources": [],
     "description": "Unison is a file-synchronization tool for OSX, Unix, and Windows. It\nallows two replicas of a collection of files and directories to be\nstored on different hosts (or different disks on the same host),\nmodified separately, and then brought up to date by propagating the\nchanges in each replica to the other.\n",
     "dependencies": [
+        {
+            "name": "gmake",
+            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files."
+        },
         {
             "name": "ocaml",
             "description": "OCaml is an industrial strength programming language supporting\nfunctional, imperative and object-oriented styles"
