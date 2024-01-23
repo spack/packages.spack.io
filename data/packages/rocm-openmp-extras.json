@@ -3,6 +3,10 @@
     "aliases": [],
     "versions": [
         {
+            "name": "6.0.0",
+            "sha256": "1b2c0934ef16e17b2377944fae8c9b3db6dc64b7e43932ddfe2eeefdf6821410"
+        },
+        {
             "name": "5.7.1",
             "sha256": "ed7bbf92230b6535a353ed032a39a9f16e9987397798100392fc25e40c8a1a4e"
         },
@@ -107,7 +111,7 @@
             "sha256": "377ab59b685a73b3f95fba95f5e028678ec5aafabc4177b7f0ffb78da095d679"
         }
     ],
-    "latest_version": "5.7.1",
+    "latest_version": "6.0.0",
     "build_system": "Package",
     "conflicts": [],
     "variants": [
@@ -117,7 +121,7 @@
             "description": "Build systems supported by the package"
         }
     ],
-    "homepage": "https://github.com/ROCm-Developer-Tools/aomp",
+    "homepage": "https://github.com/ROCm/aomp",
     "maintainers": [
         "estewart08",
         "renjithravindrankannath",
@@ -130,7 +134,7 @@
             "level": 1,
             "working_dir": ".",
             "relative_path": "0001-Linking-hsakmt-libdrm-and-numactl-libraries.patch",
-            "version": "@5.7"
+            "version": "@5.7:6.0"
         }
     ],
     "resources": [
@@ -277,13 +281,37 @@
             "name": "llvm-project",
             "destination": "rocm-openmp-extras",
             "placement": "llvm-project"
+        },
+        {
+            "version": "@6.0.0",
+            "name": "rocm-device-libs",
+            "destination": "rocm-openmp-extras",
+            "placement": "rocm-device-libs"
+        },
+        {
+            "version": "@6.0.0",
+            "name": "flang",
+            "destination": "rocm-openmp-extras",
+            "placement": "flang"
+        },
+        {
+            "version": "@6.0.0",
+            "name": "aomp-extras",
+            "destination": "rocm-openmp-extras",
+            "placement": "aomp-extras"
+        },
+        {
+            "version": "@6.0.0",
+            "name": "llvm-project",
+            "destination": "rocm-openmp-extras",
+            "placement": "llvm-project"
         }
     ],
     "description": "OpenMP support for ROCm LLVM.\n",
     "dependencies": [
         {
             "name": "awk",
-            "description": "mawk is an interpreter for the AWK Programming Language."
+            "description": "If you are like many computer users, you would frequently like to make\nchanges in various text files wherever certain patterns appear, or\nextract data from parts of certain lines while discarding the rest. To\nwrite a program to do this in a language such as C or Pascal is a time-\nconsuming inconvenience that may take many lines of code. The job is\neasy with awk, especially the GNU implementation: gawk. The awk utility\ninterprets a special-purpose programming language that makes it possible\nto handle simple data-reformatting jobs with just a few lines of code."
         },
         {
             "name": "cmake",
@@ -340,28 +368,28 @@
     ],
     "dependent_to": [
         {
-            "name": "rpp",
-            "description": "Radeon Performance Primitives (RPP) library is a comprehensive high-\nperformance computer vision library for AMD (CPU and GPU) with HIP and\nOPENCL back-ends"
-        },
-        {
-            "name": "rocblas",
-            "description": "Radeon Open Compute BLAS library"
-        },
-        {
-            "name": "rocfft",
-            "description": "Radeon Open Compute FFT library"
+            "name": "rocm-tensile",
+            "description": "Radeon Open Compute Tensile library"
         },
         {
             "name": "hip-examples",
             "description": "Examples for HIP"
         },
         {
+            "name": "rpp",
+            "description": "Radeon Performance Primitives (RPP) library is a comprehensive high-\nperformance computer vision library for AMD (CPU and GPU) with HIP and\nOPENCL back-ends"
+        },
+        {
             "name": "rocwmma",
             "description": "AMD's C++ library for accelerating mixed precision matrix multiplication\nand accumulation (MFMA) operations leveraging specialized GPU matrix\ncores. rocWMMA provides a C++ API to facilitate breaking down matrix\nmultiply-accumulate problems into fragments and using them in block-wise\noperations that are distributed in parallel across GPU wavefronts. The\nAPI is a header library of GPU device code meaning that matrix core\nacceleration may be compiled directly into your kernel device code. This\ncan benefit from compiler optimization in the generation of kernel\nassembly, and does not incur additional overhead costs of linking to\nexternal runtime libraries or having to launch separate kernels."
         },
         {
-            "name": "rocm-tensile",
-            "description": "Radeon Open Compute Tensile library"
+            "name": "rocfft",
+            "description": "Radeon Open Compute FFT library"
+        },
+        {
+            "name": "rocblas",
+            "description": "Radeon Open Compute BLAS library"
         }
     ]
 }

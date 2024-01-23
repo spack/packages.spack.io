@@ -3,6 +3,10 @@
     "aliases": [],
     "versions": [
         {
+            "name": "6.0.0",
+            "sha256": "fb8ba56572702e77e4383d922cd1fee4ad3fa5f63a5ebdb3d9c354439a446992"
+        },
+        {
             "name": "5.7.1",
             "sha256": "202f11f60dc8738e29bbd1b397d419e032794f8bffb7f48f2b31f09cc5f08bc2"
         },
@@ -119,7 +123,7 @@
             "sha256": "629f02cfecb7de5ad2517b6a8aac6ed4de60d3a9c620413c4d9db46081ac2c88"
         }
     ],
-    "latest_version": "5.7.1",
+    "latest_version": "6.0.0",
     "build_system": "CMakePackage",
     "conflicts": [],
     "variants": [
@@ -154,7 +158,7 @@
             "description": "AMD GPU architecture"
         }
     ],
-    "homepage": "https://github.com/ROCmSoftwarePlatform/rocFFT/",
+    "homepage": "https://github.com/ROCm/rocFFT/",
     "maintainers": [
         "cgmb",
         "haampie",
@@ -193,6 +197,14 @@
             "working_dir": ".",
             "relative_path": "0004-fix-missing-sqlite-include-paths.patch",
             "version": "@5.4.0:5.5"
+        },
+        {
+            "owner": "builtin.rocfft",
+            "sha256": "bac7873185ac60f2aaa50e278f0b8d52b4d79d586bf7f52db1da33559569ba54",
+            "level": 1,
+            "working_dir": ".",
+            "url": "https://github.com/ROCm/rocFFT/commit/0ec78f1daac2d7fa1415f4deff0d129252c1c9de.patch?full_index=1",
+            "version": "@6.0.0"
         }
     ],
     "resources": [],
@@ -249,36 +261,24 @@
     ],
     "dependent_to": [
         {
+            "name": "warpx",
+            "description": "WarpX is an advanced electromagnetic Particle-In-Cell code. It supports\nmany features including Perfectly-Matched Layers (PML) and mesh\nrefinement. In addition, WarpX is a highly-parallel and highly-optimized\ncode and features hybrid OpenMP/MPI parallelization, advanced\nvectorization techniques and load balancing capabilities. For WarpX'\nPython bindings and PICMI input support, see the 'py-warpx' package."
+        },
+        {
             "name": "hipace",
             "description": "Highly efficient Plasma Accelerator Emulation, quasistatic particle-in-\ncell code"
-        },
-        {
-            "name": "heffte",
-            "description": "Highly Efficient FFT for Exascale"
-        },
-        {
-            "name": "py-torch",
-            "description": "Tensors and Dynamic neural networks in Python with strong GPU\nacceleration."
-        },
-        {
-            "name": "redis-ai",
-            "description": "A Redis module for serving tensors and executing deep learning graphs"
         },
         {
             "name": "spfft",
             "description": "Sparse 3D FFT library with MPI, OpenMP, CUDA and ROCm support."
         },
         {
+            "name": "redis-ai",
+            "description": "A Redis module for serving tensors and executing deep learning graphs"
+        },
+        {
             "name": "rmgdft",
             "description": "RMGDFT is a high performance real-space density functional code designed\nfor large scale electronic structure calculations."
-        },
-        {
-            "name": "warpx",
-            "description": "WarpX is an advanced electromagnetic Particle-In-Cell code. It supports\nmany features including Perfectly-Matched Layers (PML) and mesh\nrefinement. In addition, WarpX is a highly-parallel and highly-optimized\ncode and features hybrid OpenMP/MPI parallelization, advanced\nvectorization techniques and load balancing capabilities. For WarpX'\nPython bindings and PICMI input support, see the 'py-warpx' package."
-        },
-        {
-            "name": "gearshifft",
-            "description": "Benchmark Suite for Heterogenuous FFT Implementations"
         },
         {
             "name": "py-tensorflow",
@@ -287,6 +287,18 @@
         {
             "name": "hipfft",
             "description": "hipFFT is an FFT marshalling library. Currently, hipFFT supports either\nrocFFT or cuFFT as backends.hipFFT exports an interface that does not\nrequire the client to change, regardless of the chosen backend. It sits\nbetween the application and the backend FFT library, marshalling inputs\ninto the backend and results back to the application."
+        },
+        {
+            "name": "gearshifft",
+            "description": "Benchmark Suite for Heterogenuous FFT Implementations"
+        },
+        {
+            "name": "py-torch",
+            "description": "Tensors and Dynamic neural networks in Python with strong GPU\nacceleration."
+        },
+        {
+            "name": "heffte",
+            "description": "Highly Efficient FFT for Exascale"
         }
     ]
 }

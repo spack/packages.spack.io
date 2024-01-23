@@ -36,6 +36,10 @@
             "branch": "amd-stg-open"
         },
         {
+            "name": "6.0.0",
+            "sha256": "c673708d413d60ca8606ee75c77e9871b6953c59029c987b92f2f6e85f683626"
+        },
+        {
             "name": "5.7.1",
             "sha256": "6b54c422e45ad19c9bf5ab090ec21753e7f7d854ca78132c30eb146657b168eb"
         },
@@ -152,7 +156,7 @@
             "sha256": "4878fa85473b24d88edcc89938441edc85d2e8a785e567b7bd7ce274ecc2fd9c"
         }
     ],
-    "latest_version": "5.7.1",
+    "latest_version": "6.0.0",
     "build_system": "CMakePackage",
     "conflicts": [
         {
@@ -208,7 +212,7 @@
             "description": "Link LLVM tools against the LLVM shared library"
         }
     ],
-    "homepage": "https://github.com/RadeonOpenCompute/llvm-project",
+    "homepage": "https://github.com/ROCm/llvm-project",
     "maintainers": [
         "haampie",
         "renjithravindrankannath",
@@ -261,7 +265,7 @@
             "level": 1,
             "working_dir": ".",
             "relative_path": "0001-update-HIP_PATH-deduction-for-5.7.0.patch",
-            "version": "@5.7.0:5.7"
+            "version": "@5.7.0:6.0"
         },
         {
             "owner": "builtin.llvm-amdgpu",
@@ -269,7 +273,7 @@
             "level": 1,
             "working_dir": ".",
             "relative_path": "patch-llvm-5.5.0.patch",
-            "version": "@5.5:+rocm-device-libs"
+            "version": "@5.5:5.7+rocm-device-libs"
         },
         {
             "owner": "builtin.llvm-amdgpu",
@@ -289,6 +293,12 @@
         }
     ],
     "resources": [
+        {
+            "version": "@6.0.0+rocm-device-libs",
+            "name": "rocm-device-libs",
+            "destination": "",
+            "placement": "rocm-device-libs"
+        },
         {
             "version": "@5.7.1+rocm-device-libs",
             "name": "rocm-device-libs",
@@ -470,6 +480,18 @@
             "placement": "rocm-device-libs"
         },
         {
+            "version": "@6.0.0",
+            "name": "hsa-runtime",
+            "destination": "",
+            "placement": "hsa-runtime"
+        },
+        {
+            "version": "@6.0.0",
+            "name": "comgr",
+            "destination": "",
+            "placement": "comgr"
+        },
+        {
             "version": "@5.7.1",
             "name": "hsa-runtime",
             "destination": "",
@@ -562,7 +584,7 @@
         },
         {
             "name": "pkgconfig",
-            "description": "pkgconf is a program which helps to configure compiler and linker flags\nfor development frameworks. It is similar to pkg-config from\nfreedesktop.org, providing additional functionality while also\nmaintaining compatibility."
+            "description": "pkg-config is a helper tool used when compiling applications and\nlibraries"
         },
         {
             "name": "python",
@@ -574,16 +596,16 @@
         },
         {
             "name": "zlib-api",
-            "description": "zlib replacement with optimizations for next generation systems."
+            "description": "A free, general-purpose, legally unencumbered lossless data-compression\nlibrary."
         }
     ],
     "dependent_to": [
         {
-            "name": "mesa18",
+            "name": "mesa",
             "description": "Mesa is an open-source implementation of the OpenGL specification - a\nsystem for rendering interactive 3D graphics."
         },
         {
-            "name": "mesa",
+            "name": "mesa18",
             "description": "Mesa is an open-source implementation of the OpenGL specification - a\nsystem for rendering interactive 3D graphics."
         }
     ]
