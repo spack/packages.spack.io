@@ -53,11 +53,25 @@
             "name": "doc",
             "default": false,
             "description": "Generate documentation using pdflatex"
+        },
+        {
+            "name": "shared",
+            "default": true,
+            "description": "Enable building shared libraries"
         }
     ],
     "homepage": "https://www.geuz.org/gl2ps/",
     "maintainers": [],
-    "patches": [],
+    "patches": [
+        {
+            "owner": "builtin.gl2ps",
+            "sha256": "30767cb57a587d6d3d64c6808f23b23c9805bd8a5a44179f8710fcde001355e0",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "prevent-ninja-target-clash.patch",
+            "version": "arch=windows-None-None"
+        }
+    ],
     "resources": [],
     "description": "GL2PS is a C library providing high quality vector output for any OpenGL\napplication.\n",
     "dependencies": [
@@ -67,7 +81,7 @@
         },
         {
             "name": "gl",
-            "description": "Placeholder for external EGL(OpenGL) libraries from hardware vendors"
+            "description": "Shim package for the GLX library."
         },
         {
             "name": "gmake",
@@ -92,10 +106,6 @@
     ],
     "dependent_to": [
         {
-            "name": "root",
-            "description": "ROOT is a data analysis framework."
-        },
-        {
             "name": "octave",
             "description": "GNU Octave is a high-level language, primarily intended for numerical\ncomputations. It provides a convenient command line interface for\nsolving linear and nonlinear problems numerically, and for performing\nother numerical experiments using a language that is mostly compatible\nwith Matlab. It may also be used as a batch-oriented language."
         },
@@ -106,6 +116,10 @@
         {
             "name": "vtk",
             "description": "The Visualization Toolkit (VTK) is an open-source, freely available\nsoftware system for 3D computer graphics, image processing and\nvisualization."
+        },
+        {
+            "name": "root",
+            "description": "ROOT is a data analysis framework."
         }
     ]
 }

@@ -8,6 +8,18 @@
             "submodules": "True"
         },
         {
+            "name": "8.2.3",
+            "submodules": "True",
+            "commit": "f0ed3701059aa53ce93387f3d73d13c45de6d87f",
+            "tag": "8.2.3"
+        },
+        {
+            "name": "8.1.0",
+            "submodules": "True",
+            "commit": "047dd8240c2badadf5ea154b563b29369db1303f",
+            "tag": "8.1.0"
+        },
+        {
             "name": "8.0.0",
             "submodules": "True",
             "commit": "429d11ef34b1d860b3ddbfffc9f7960acb399b0c",
@@ -18,20 +30,14 @@
             "submodules": "True",
             "commit": "09b151ecb2b3984335c265932dc6ba3e4fcb318e",
             "tag": "7.8.2"
-        },
-        {
-            "name": "7.8.1",
-            "submodules": "True",
-            "commit": "47cd8c85aa3fde5dbb7319facd6f475438235d7d",
-            "tag": "7.8.1"
         }
     ],
-    "latest_version": "8.0.0",
+    "latest_version": "8.2.3",
     "build_system": "CMakePackage",
     "conflicts": [
         {
-            "name": "+rx3d",
-            "spec": "~python",
+            "name": "generator=make",
+            "spec": "",
             "description": null
         }
     ],
@@ -53,18 +59,13 @@
         },
         {
             "name": "generator",
-            "default": "make",
+            "default": "ninja",
             "description": "the build system generator to use"
         },
         {
-            "name": "coreneuron",
+            "name": "backtrace",
             "default": false,
-            "description": "Enable CoreNEURON as submodule"
-        },
-        {
-            "name": "cross-compile",
-            "default": false,
-            "description": "Build for cross-compile environment"
+            "description": "Enable printing backtraces on failure"
         },
         {
             "name": "interviews",
@@ -87,26 +88,52 @@
             "description": "Enable python"
         },
         {
-            "name": "rx3d",
-            "default": false,
-            "description": "Enable cython translated 3-d rxd"
+            "name": "shared",
+            "default": true,
+            "description": "Build shared library (CoreNEURON)"
         },
         {
             "name": "tests",
             "default": false,
-            "description": "Enable unit tests"
+            "description": "Enable building tests"
+        },
+        {
+            "name": "rx3d",
+            "default": false,
+            "description": "Enable cython translated 3-d rxd."
+        },
+        {
+            "name": "coreneuron",
+            "default": true,
+            "description": "Enable CoreNEURON support"
+        },
+        {
+            "name": "gpu",
+            "default": false,
+            "description": "Enable GPU build (with NVHPC)"
+        },
+        {
+            "name": "openmp",
+            "default": false,
+            "description": "Enable CoreNEURON OpenMP support"
+        },
+        {
+            "name": "sympy",
+            "default": false,
+            "description": "Use NMODL with SymPy to solve ODEs"
         },
         {
             "name": "caliper",
             "default": false,
-            "description": "Add LLNL/Caliper support"
+            "description": "Add Caliper support"
         }
     ],
     "homepage": "https://www.neuron.yale.edu/",
     "maintainers": [
-        "alexsavulescu",
         "iomaganaris",
+        "matz-e",
         "nrnhines",
+        "ohm314",
         "pramodk"
     ],
     "patches": [
@@ -127,12 +154,20 @@
             "description": "Bison is a general-purpose parser generator that converts an annotated\ncontext-free grammar into a deterministic LR or generalized LR (GLR)\nparser employing LALR(1) parser tables."
         },
         {
+            "name": "boost",
+            "description": "Boost provides free peer-reviewed portable C++ source libraries,\nemphasizing libraries that work well with the C++ Standard Library.\nBoost libraries are intended to be widely useful, and usable across a\nbroad spectrum of applications. The Boost license encourages both\ncommercial and non-commercial use."
+        },
+        {
             "name": "caliper",
             "description": "Caliper is a program instrumentation and performance measurement\nframework. It is designed as a performance analysis toolbox in a\nlibrary, allowing one to bake performance analysis capabilities directly\ninto applications and activate them at runtime."
         },
         {
             "name": "cmake",
             "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
+        },
+        {
+            "name": "cuda",
+            "description": "CUDA is a parallel computing platform and programming model invented by\nNVIDIA. It enables dramatic increases in computing performance by\nharnessing the power of the graphics processing unit (GPU). Note: This\npackage does not currently install the drivers necessary to run CUDA.\nThese will need to be installed manually. See:\nhttps://docs.nvidia.com/cuda/ for details."
         },
         {
             "name": "flex",
@@ -147,8 +182,12 @@
             "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files."
         },
         {
+            "name": "libdwarf",
+            "description": "The DWARF Debugging Information Format is of interest to programmers\nworking on compilers and debuggers (and any one interested in reading or\nwriting DWARF information). It was developed by a committee (known as\nthe PLSIG at the time) starting around 1991. Starting around 1991 SGI\ndeveloped the libdwarf and dwarfdump tools for internal use and as part\nof SGI IRIX developer tools. Since that time dwarfdump and libdwarf have\nbeen shipped (as an executable and archive respectively, not source)\nwith every release of the SGI MIPS/IRIX C compiler."
+        },
+        {
             "name": "mpi",
-            "description": "MSMPI is a Windows port of MPICH provided by the Windows team"
+            "description": "MPItrampoline: A forwarding MPI implementation that can use any other\nMPI implementation via an MPI ABI."
         },
         {
             "name": "ncurses",
@@ -171,8 +210,28 @@
             "description": "Fundamental package for array computing in Python."
         },
         {
+            "name": "py-packaging",
+            "description": "Core utilities for Python packages."
+        },
+        {
+            "name": "py-pip",
+            "description": "The PyPA recommended tool for installing Python packages."
+        },
+        {
             "name": "py-pytest",
             "description": "pytest: simple powerful testing with Python."
+        },
+        {
+            "name": "py-pytest-cov",
+            "description": "Pytest plugin for measuring coverage."
+        },
+        {
+            "name": "py-setuptools",
+            "description": "A Python utility that aids in the process of downloading, building,\nupgrading, installing, and uninstalling Python packages."
+        },
+        {
+            "name": "py-sympy",
+            "description": "SymPy is a Python library for symbolic mathematics."
         },
         {
             "name": "python",
@@ -185,16 +244,16 @@
     ],
     "dependent_to": [
         {
+            "name": "py-morph-tool",
+            "description": "Python morphology manipulation toolkit"
+        },
+        {
             "name": "py-bluepyemodel",
             "description": "Python library to optimize and evaluate electrical models."
         },
         {
             "name": "py-bluepyopt",
             "description": "Bluebrain Python Optimisation Library"
-        },
-        {
-            "name": "py-morph-tool",
-            "description": "Python morphology manipulation toolkit"
         }
     ]
 }
