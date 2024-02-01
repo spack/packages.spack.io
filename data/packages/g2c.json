@@ -7,6 +7,10 @@
             "branch": "develop"
         },
         {
+            "name": "1.8.0",
+            "sha256": "4ce9f5a7cb0950699fe08ebc5a463ab4d09ef550c050391a319308a2494f971f"
+        },
+        {
             "name": "1.7.0",
             "sha256": "73afba9da382fed73ed8692d77fa037bb313280879cd4012a5e5697dccf55175"
         },
@@ -19,7 +23,7 @@
             "sha256": "b5384b48e108293d7f764cdad458ac8ce436f26be330b02c69c2a75bb7eb9a2c"
         }
     ],
-    "latest_version": "1.7.0",
+    "latest_version": "1.8.0",
     "build_system": "CMakePackage",
     "conflicts": [
         {
@@ -48,6 +52,11 @@
             "name": "generator",
             "default": "make",
             "description": "the build system generator to use"
+        },
+        {
+            "name": "aec",
+            "default": true,
+            "description": "Use AEC library"
         },
         {
             "name": "png",
@@ -86,6 +95,11 @@
             "name": "utils",
             "default": true,
             "description": "Build and install some utility programs"
+        },
+        {
+            "name": "build_v2_api",
+            "default": false,
+            "description": "Build new g2c API, experimental until 2.0.0 release"
         }
     ],
     "homepage": "https://github.com/NOAA-EMC/NCEPLIBS-g2c",
@@ -111,8 +125,16 @@
             "description": "Library for manipulating JPEG-2000 images"
         },
         {
+            "name": "libaec",
+            "description": "Libaec provides fast lossless compression of 1 up to 32 bit wide signed\nor unsigned integers (samples). It implements Golomb-Rice compression\nmethod under the BSD license and includes a free drop-in replacement for\nthe SZIP library."
+        },
+        {
             "name": "libpng",
             "description": "libpng is the official PNG reference library."
+        },
+        {
+            "name": "libxml2",
+            "description": "Libxml2 is the XML C parser and toolkit developed for the Gnome project\n(but usable outside of the Gnome platform), it is free software\navailable under the MIT License."
         },
         {
             "name": "ninja",
@@ -125,12 +147,12 @@
     ],
     "dependent_to": [
         {
-            "name": "met",
-            "description": "Statistical tool that matches up grids with either gridded analyses or\npoint observations and applies configurable methods to compute\nstatistics and diagnostics"
-        },
-        {
             "name": "grads",
             "description": "The Grid Analysis and Display System (GrADS) is an interactive desktop\ntool that is used for easy access, manipulation, and visualization of\nearth science data. GrADS has two data models for handling gridded and\nstation data. GrADS supports many data file formats, including binary\n(stream or sequential), GRIB (version 1 and 2), NetCDF, HDF (version 4\nand 5), and BUFR (for station data)."
+        },
+        {
+            "name": "met",
+            "description": "Statistical tool that matches up grids with either gridded analyses or\npoint observations and applies configurable methods to compute\nstatistics and diagnostics"
         }
     ]
 }

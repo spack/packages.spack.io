@@ -7,16 +7,26 @@
             "branch": "main"
         },
         {
+            "name": "0.12.0",
+            "commit": "8c192071206466638d5818048ee712e1fada386f",
+            "tag": "v0.12.0"
+        },
+        {
             "name": "0.11.2",
             "commit": "6c3aa5f84a934a6ddd58022b2945a1bdb5fa329d",
             "tag": "v0.11.2"
         }
     ],
-    "latest_version": "0.11.2",
+    "latest_version": "0.12.0",
     "build_system": "CMakePackage",
     "conflicts": [
         {
             "name": "mfem",
+            "spec": "",
+            "description": null
+        },
+        {
+            "name": "libceed",
             "spec": "",
             "description": null
         },
@@ -65,7 +75,7 @@
         {
             "name": "shared",
             "default": true,
-            "description": "Enables the build of shared libraries"
+            "description": "Build shared libraries"
         },
         {
             "name": "int64",
@@ -75,12 +85,7 @@
         {
             "name": "openmp",
             "default": false,
-            "description": "Use OpenMP"
-        },
-        {
-            "name": "gslib",
-            "default": true,
-            "description": "Build with GSLIB library for high-order field interpolation"
+            "description": "Use OpenMP for shared-memory parallelism"
         },
         {
             "name": "superlu-dist",
@@ -106,6 +111,21 @@
             "name": "arpack",
             "default": false,
             "description": "Build with ARPACK eigenvalue solver"
+        },
+        {
+            "name": "libxsmm",
+            "default": true,
+            "description": "Build with LIBXSMM backend for libCEED"
+        },
+        {
+            "name": "magma",
+            "default": true,
+            "description": "Build with MAGMA backend for libCEED"
+        },
+        {
+            "name": "gslib",
+            "default": true,
+            "description": "Build with GSLIB library for high-order field interpolation"
         }
     ],
     "homepage": "https://github.com/awslabs/palace",
@@ -141,12 +161,20 @@
             "description": "Hypre is a library of high performance preconditioners that features\nparallel multigrid methods for both structured and unstructured grid\nproblems."
         },
         {
+            "name": "libxsmm",
+            "description": "Library for specialized dense and sparse matrix operations, and deep\nlearning primitives."
+        },
+        {
+            "name": "magma",
+            "description": "The MAGMA project aims to develop a dense linear algebra library similar\nto LAPACK but for heterogeneous/hybrid architectures, starting with\ncurrent \"Multicore+GPU\" systems."
+        },
+        {
             "name": "metis",
             "description": "METIS is a set of serial programs for partitioning graphs, partitioning\nfinite element meshes, and producing fill reducing orderings for sparse\nmatrices. The algorithms implemented in METIS are based on the\nmultilevel recursive-bisection, multilevel k-way, and multi-constraint\npartitioning schemes."
         },
         {
             "name": "mpi",
-            "description": "Cray's MPICH is a high performance and widely portable implementation of\nthe Message Passing Interface (MPI) standard."
+            "description": "Intel MPI Library is a multifabric message-passing library that\nimplements the open-source MPICH specification. Use the library to\ncreate, maintain, and test advanced, complex applications that perform\nbetter on high-performance computing (HPC) clusters based on Intel\nprocessors. LICENSE INFORMATION: By downloading and using this software,\nyou agree to the terms and conditions of the software license agreements\nat https://intel.ly/393CijO."
         },
         {
             "name": "mumps",
@@ -166,7 +194,7 @@
         },
         {
             "name": "pkgconfig",
-            "description": "pkg-config is a helper tool used when compiling applications and\nlibraries"
+            "description": "pkgconf is a program which helps to configure compiler and linker flags\nfor development frameworks. It is similar to pkg-config from\nfreedesktop.org, providing additional functionality while also\nmaintaining compatibility."
         },
         {
             "name": "slepc",
@@ -182,7 +210,7 @@
         },
         {
             "name": "zlib-api",
-            "description": "A free, general-purpose, legally unencumbered lossless data-compression\nlibrary."
+            "description": "zlib replacement with optimizations for next generation systems."
         }
     ],
     "dependent_to": []
