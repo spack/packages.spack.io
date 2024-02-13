@@ -1,0 +1,60 @@
+{
+    "name": "psipred",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "4.02",
+            "sha256": "b4009b6a5f8b76c6d60ac91c4a743512d844864cf015c492fb6d1dc0d092c467"
+        }
+    ],
+    "latest_version": "4.02",
+    "build_system": "MakefilePackage",
+    "conflicts": [
+        {
+            "name": "arch=windows-None-None",
+            "spec": "build_system=makefile",
+            "description": null
+        }
+    ],
+    "variants": [
+        {
+            "name": "build_system",
+            "default": "makefile",
+            "description": "Build systems supported by the package"
+        },
+        {
+            "name": "blast-plus",
+            "default": false,
+            "description": "Use blast-plus in place of blast-legacy"
+        }
+    ],
+    "homepage": "http://bioinf.cs.ucl.ac.uk/psipred/",
+    "maintainers": [],
+    "patches": [
+        {
+            "owner": "builtin.psipred",
+            "sha256": "ef75999f688eaf7984e17f663c17c13e4eaba98912a904be128f562a7eaf8315",
+            "level": 1,
+            "working_dir": ".",
+            "url": "https://github.com/psipred/psipred/commit/cee0f2c.patch?full_index=1",
+            "version": "@:1.10.1%gcc@13:"
+        }
+    ],
+    "resources": [],
+    "description": "PSIPRED is a simple and accurate secondary structure prediction method,\nincorporating two feed-forward neural networks which perform an analysis\non output obtained from PSI-BLAST (Position Specific Iterated - BLAST).\nUsing a very stringent cross validation method to evaluate the methods\nperformance\n",
+    "dependencies": [
+        {
+            "name": "blast-legacy",
+            "description": "Legacy NCBI BLAST distribution -- no longer supported. Contains older\nprograms including `blastall'"
+        },
+        {
+            "name": "blast-plus",
+            "description": "Basic Local Alignment Search Tool."
+        },
+        {
+            "name": "gmake",
+            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files."
+        }
+    ],
+    "dependent_to": []
+}
