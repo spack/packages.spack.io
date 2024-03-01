@@ -3,6 +3,50 @@
     "aliases": [],
     "versions": [
         {
+            "name": "7.0.2",
+            "sha256": "dea2b90575d43ef3e41c402f64c2481844ecbf0b40f8548b75a204a4d504e035"
+        },
+        {
+            "name": "7.0.1",
+            "sha256": "596b13e071d27c43343ec8f5d263cb5312fafe7ef8702401f7ed492f182f4e6c"
+        },
+        {
+            "name": "7.0.0",
+            "sha256": "477e54f6374001f439a9471ba1de9d7824daf129db95510849ecc5e19ce88170"
+        },
+        {
+            "name": "6.5.0",
+            "sha256": "fc89da919415289f29e4ff18a5e01270ece9a6fe83cb60967218bac4a3bb3ed2"
+        },
+        {
+            "name": "6.4.0",
+            "sha256": "bd88ff602c8bbb29ee82ba2a6b12ad092d51ec668c6577f9628f18e48ff4e51e"
+        },
+        {
+            "name": "6.3.2",
+            "sha256": "8cd7feac58193be2bcba451ba6688a46824d37ca6359ff58e0d44eb98f042948"
+        },
+        {
+            "name": "6.3.1",
+            "sha256": "2676319e86c5aeab142dccd42434364a33aa330a091c13562b7de87a10e68775"
+        },
+        {
+            "name": "6.3.0",
+            "sha256": "902198981b1d26112fc05913e79f1b3e9772c3f95594caf85619d041ba06ede0"
+        },
+        {
+            "name": "6.2.1",
+            "sha256": "4cf4d264bff388ee0012735728630d23832d3c9d021383b2fadceadb0775dd6b"
+        },
+        {
+            "name": "6.2.0",
+            "sha256": "f1e8f788637ac574d471d619d2096baaca04a19b57a034399e079633db441945"
+        },
+        {
+            "name": "6.1.2",
+            "sha256": "6fb3ee22fe9fa86d82e173572d504c089f10825d749725592626e090b38c9679"
+        },
+        {
             "name": "6.1.1",
             "sha256": "6b900f26d676c7eca1d2e7dff9b71890dabd3ff59cab2a2d2178bc8a0395342a"
         },
@@ -45,6 +89,10 @@
         {
             "name": "5.0.0",
             "sha256": "072dd62d237dbc11e0bac02e118d8c2db4d0ba3ba09f1a0eb1e2a460fb8419db"
+        },
+        {
+            "name": "4.2.4",
+            "sha256": "d5ba2ef28da5275f22e832aaa7f9319c61ea5db9b6a3e23b28a6a64ad03078f3"
         },
         {
             "name": "4.2.3",
@@ -143,7 +191,7 @@
             "sha256": "724da3c656f68e787a86ebb9844773aa1c2e3a873cc39462a8f1b336153d6cbb"
         }
     ],
-    "latest_version": "6.1.1",
+    "latest_version": "7.0.2",
     "build_system": "Package",
     "conflicts": [
         {
@@ -208,11 +256,19 @@
         },
         {
             "owner": "builtin.bazel",
+            "sha256": "6ae2b8080e965e08acae79699d43b546763f18fdcb79d2b32a17aea2675a015e",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "cppcompileaction-7.0.0.patch",
+            "version": "@7:+nodepfail"
+        },
+        {
+            "owner": "builtin.bazel",
             "sha256": "604423c717a5e58cdd76ba8a9ce1d313faf13885be838f4e33dd37845b3940cb",
             "level": 1,
             "working_dir": ".",
             "relative_path": "cppcompileaction-0.3.2.patch",
-            "version": "+nodepfail"
+            "version": "@:6+nodepfail"
         },
         {
             "owner": "builtin.bazel",
@@ -220,7 +276,7 @@
             "level": 1,
             "working_dir": ".",
             "relative_path": "apple-clang-14.0.3.patch",
-            "version": "@:5.4.0,6.0:6.1"
+            "version": "@:5.4.0,6.0:6.1.1"
         },
         {
             "owner": "builtin.bazel",
@@ -333,7 +389,7 @@
     "dependencies": [
         {
             "name": "java",
-            "description": "The Java Development Kit (JDK) released by Oracle Corporation in the\nform of a binary product aimed at Java developers. Includes a complete\nJRE plus tools for developing, debugging, and monitoring Java\napplications."
+            "description": "The free and opensource java implementation"
         },
         {
             "name": "python",
@@ -346,52 +402,52 @@
     ],
     "dependent_to": [
         {
-            "name": "py-dm-tree",
-            "description": "tree is a library for working with nested data structures. In a way,\ntree generalizes the builtin map() function which only supports flat\nsequences, and allows to apply a function to each leaf preserving the\noverall structure."
-        },
-        {
             "name": "py-tensorflow",
             "description": "TensorFlow is an open source machine learning framework for everyone."
         },
         {
-            "name": "py-keras",
-            "description": "Multi-backend Keras. Keras 3 is a new multi-backend implementation of\nthe Keras API, with support for TensorFlow, JAX, and PyTorch."
-        },
-        {
-            "name": "verible",
-            "description": "The Verible project\u2019s main mission is to parse SystemVerilog (IEEE\n1800-2017) (as standardized in the [SV-LRM]) for a wide variety of\napplications, including developer tools. It was born out of a need to\nparse un-preprocessed source files, which is suitable for single-file\napplications like style-linting and formatting. In doing so, it can be\nadapted to parse preprocessed source files, which is what real compilers\nand toolchains require. The spirit of the project is that no-one should\never have to develop a SystemVerilog parser for their own application,\nbecause developing a standard-compliant parser is an enormous task due\nto the syntactic complexity of the language. Verible\u2019s parser is also\nregularly tested against an ever-growing suite of (tool-independent)\nlanguage compliance tests at https://symbiflow.github.io/sv-tests/. A\nlesser (but notable) objective is that the language-agnostic components\nof Verible be usable for rapidly developing language support tools for\nother languages."
-        },
-        {
-            "name": "py-tensorflow-estimator",
-            "description": "TensorFlow Estimator is a high-level TensorFlow API that greatly\nsimplifies machine learning programming."
-        },
-        {
-            "name": "py-jaxlib",
-            "description": "XLA library for Jax"
-        },
-        {
-            "name": "distbench",
-            "description": "Distbench is a tool for synthesizing a variety of network traffic\npatterns used in distributed systems, and evaluating their performance\nacross multiple networking stacks."
-        },
-        {
-            "name": "py-ray",
-            "description": "Ray provides a simple, universal API for building distributed\napplications."
+            "name": "py-tensorflow-hub",
+            "description": "TensorFlow Hub is a library to foster the publication, discovery, and\nconsumption of reusable parts of machine learning models."
         },
         {
             "name": "nccl-fastsocket",
             "description": "NCCL Fast Socket GCP Net plugin for NCCL"
         },
         {
-            "name": "py-tensorflow-probability",
-            "description": "TensorFlow Probability (TFP) is a Python library built on TensorFlow\nthat makes it easy to combine probabilistic models and deep learning on\nmodern hardware (TPU, GPU). It's for data scientists, statisticians, ML\nresearchers, and practitioners who want to encode domain knowledge to\nunderstand data and make predictions."
+            "name": "py-dm-tree",
+            "description": "tree is a library for working with nested data structures. In a way,\ntree generalizes the builtin map() function which only supports flat\nsequences, and allows to apply a function to each leaf preserving the\noverall structure."
+        },
+        {
+            "name": "py-tensorflow-estimator",
+            "description": "TensorFlow Estimator is a high-level TensorFlow API that greatly\nsimplifies machine learning programming."
         },
         {
             "name": "py-tensorflow-metadata",
             "description": "Library and standards for schema and statistics. TensorFlow Metadata\nprovides standard representations for metadata that are useful when\ntraining machine learning models with TensorFlow."
         },
         {
-            "name": "py-tensorflow-hub",
-            "description": "TensorFlow Hub is a library to foster the publication, discovery, and\nconsumption of reusable parts of machine learning models."
+            "name": "py-tensorflow-probability",
+            "description": "TensorFlow Probability (TFP) is a Python library built on TensorFlow\nthat makes it easy to combine probabilistic models and deep learning on\nmodern hardware (TPU, GPU). It's for data scientists, statisticians, ML\nresearchers, and practitioners who want to encode domain knowledge to\nunderstand data and make predictions."
+        },
+        {
+            "name": "verible",
+            "description": "The Verible project\u2019s main mission is to parse SystemVerilog (IEEE\n1800-2017) (as standardized in the [SV-LRM]) for a wide variety of\napplications, including developer tools. It was born out of a need to\nparse un-preprocessed source files, which is suitable for single-file\napplications like style-linting and formatting. In doing so, it can be\nadapted to parse preprocessed source files, which is what real compilers\nand toolchains require. The spirit of the project is that no-one should\never have to develop a SystemVerilog parser for their own application,\nbecause developing a standard-compliant parser is an enormous task due\nto the syntactic complexity of the language. Verible\u2019s parser is also\nregularly tested against an ever-growing suite of (tool-independent)\nlanguage compliance tests at https://symbiflow.github.io/sv-tests/. A\nlesser (but notable) objective is that the language-agnostic components\nof Verible be usable for rapidly developing language support tools for\nother languages."
+        },
+        {
+            "name": "distbench",
+            "description": "Distbench is a tool for synthesizing a variety of network traffic\npatterns used in distributed systems, and evaluating their performance\nacross multiple networking stacks."
+        },
+        {
+            "name": "py-jaxlib",
+            "description": "XLA library for Jax"
+        },
+        {
+            "name": "py-keras",
+            "description": "Multi-backend Keras. Keras 3 is a new multi-backend implementation of\nthe Keras API, with support for TensorFlow, JAX, and PyTorch."
+        },
+        {
+            "name": "py-ray",
+            "description": "Ray provides a simple, universal API for building distributed\napplications."
         }
     ]
 }
