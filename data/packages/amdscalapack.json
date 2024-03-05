@@ -8,6 +8,10 @@
     ],
     "versions": [
         {
+            "name": "4.2",
+            "sha256": "c6e9a846c05cdc05252b0b5f264164329812800bf13f9d97c77114dc138e6ccb"
+        },
+        {
             "name": "4.1",
             "sha256": "b2e51c3604e5869d1faaef2e52c92071fcb3de1345aebb2ea172206622067ad9"
         },
@@ -32,7 +36,7 @@
             "sha256": "2d64926864fc6d12157b86e3f88eb1a5205e7fc157bf67e7577d0f18b9a7484c"
         }
     ],
-    "latest_version": "4.1",
+    "latest_version": "4.2",
     "build_system": "CMakePackage",
     "conflicts": [
         {
@@ -130,14 +134,22 @@
             "working_dir": ".",
             "relative_path": "fix-build-macos.patch",
             "version": "@2.2.0"
+        },
+        {
+            "owner": "builtin.amdscalapack",
+            "sha256": "59cd98ac2ccc73a546279264969d36cef165e9ed8c8ee1d0826b19ae8cf6bb75",
+            "level": 1,
+            "working_dir": ".",
+            "relative_path": "clang-hollerith.patch",
+            "version": "%clang@16:"
         }
     ],
     "resources": [],
-    "description": " ScaLAPACK is a library of high-performance linear algebra routines for\nparallel distributed memory machines. It depends on external libraries\nincluding BLAS and LAPACK for Linear Algebra computations. AMD's\noptimized version of ScaLAPACK enables using BLIS and LibFLAME library\nthat have optimized dense matrix functions and solvers for AMD EPYC\nprocessor family CPUs. LICENSING INFORMATION: By downloading, installing\nand using this software, you agree to the terms and conditions of the\nAMD AOCL-ScaLAPACK license agreement. You may obtain a copy of this\nlicense agreement from\nhttps://www.amd.com/en/developer/aocl/scalapack/eula/scalapack-\nlibraries-4-1-eula.html\nhttps://www.amd.com/en/developer/aocl/scalapack/eula/scalapack-\nlibraries-eula.html\n",
+    "description": " ScaLAPACK is a library of high-performance linear algebra routines for\nparallel distributed memory machines. It depends on external libraries\nincluding BLAS and LAPACK for Linear Algebra computations. AMD's\noptimized version of ScaLAPACK enables using BLIS and LibFLAME library\nthat have optimized dense matrix functions and solvers for AMD EPYC\nprocessor family CPUs. LICENSING INFORMATION: By downloading, installing\nand using this software, you agree to the terms and conditions of the\nAMD AOCL-ScaLAPACK license agreement. You may obtain a copy of this\nlicense agreement from\nhttps://www.amd.com/en/developer/aocl/scalapack/eula/scalapack-\nlibraries-4-2-eula.html\nhttps://www.amd.com/en/developer/aocl/scalapack/eula/scalapack-\nlibraries-eula.html\n",
     "dependencies": [
         {
             "name": "blas",
-            "description": "CLBlast is a modern, lightweight, performant and tunable OpenCL BLAS\nlibrary written in C++11. It is designed to leverage the full\nperformance potential of a wide variety of OpenCL devices from different\nvendors, including desktop and laptop GPUs, embedded GPUs, and other\naccelerators. CLBlast implements BLAS routines: basic linear algebra\nsubprograms operating on vectors and matrices."
+            "description": "XBLAS is a reference implementation for extra precision BLAS. XBLAS is a\nreference implementation for the dense and banded BLAS routines, along\nwith extended and mixed precision version. Extended precision is only\nused internally; input and output arguments remain the same as in the\nexisting BLAS. Extra precisions is implemented as double-double (i.e.,\n128-bit total, 106-bit significand). Mixed precision permits some\ninput/output arguments of different types (mixing real and complex) or\nprecisions (mixing single and double). This implementation is proof of\nconcept, and no attempt was made to optimize performance; performance\nshould be as good as straightforward but careful code written by hand."
         },
         {
             "name": "cmake",
@@ -149,11 +161,11 @@
         },
         {
             "name": "lapack",
-            "description": "This is an earlier version of Intel parallel software development tools\nand has now been replaced by the Intel oneAPI Toolkits. LICENSE\nINFORMATION: By downloading and using this software, you agree to the\nterms and conditions of the software license agreements at\nhttps://intel.ly/393CijO."
+            "description": "libflame is a portable library for dense matrix computations, providing\nmuch of the functionality present in LAPACK, developed by current and\nformer members of the Science of High-Performance Computing (SHPC) group\nin the Institute for Computational Engineering and Sciences at The\nUniversity of Texas at Austin. libflame includes a compatibility layer,\nlapack2flame, which includes a complete LAPACK implementation."
         },
         {
             "name": "mpi",
-            "description": "This is an earlier version of Intel parallel software development tools\nand has now been replaced by the Intel oneAPI Toolkits. LICENSE\nINFORMATION: By downloading and using this software, you agree to the\nterms and conditions of the software license agreements at\nhttps://intel.ly/393CijO."
+            "description": "MVAPICH2-X is the advanced version of the MVAPICH2 MPI library with\nenhanced features (UMR, ODP, DC, Core-Direct, SHARP, XPMEM), OSU INAM\n(InifniBand Network Monitoring and Analysis),PGAS (OpenSHMEM, UPC,\nUPC++, and CAF), and MPI+PGAS programming models with unified\ncommunication runtime. MVAPICH2-X is not installable from source and is\nonly available through a binary mirror. If you do not find the binary\nyou're looking for, send us an email at mvapich@cse.ohio-state.edu. The\nbinary mirror url is: http://mvapich.cse.ohio-\nstate.edu/download/mvapich/spack-mirror/mvapich2x/"
         },
         {
             "name": "ninja",

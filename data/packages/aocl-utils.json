@@ -3,11 +3,15 @@
     "aliases": [],
     "versions": [
         {
+            "name": "4.2",
+            "sha256": "48ce7fae592f5c73a1c3d2c18752f43c939451ed5d3f7a154551f738af440d77"
+        },
+        {
             "name": "4.1",
             "sha256": "a2f271f5eef07da366dae421af3c89286ebb6239047a31a46451758d4a06bc85"
         }
     ],
-    "latest_version": "4.1",
+    "latest_version": "4.2",
     "build_system": "CMakePackage",
     "conflicts": [],
     "variants": [
@@ -42,6 +46,11 @@
             "description": "enable testing"
         },
         {
+            "name": "shared",
+            "default": true,
+            "description": "build shared library"
+        },
+        {
             "name": "examples",
             "default": false,
             "description": "enable examples"
@@ -53,7 +62,7 @@
     ],
     "patches": [],
     "resources": [],
-    "description": "The library AOCL-Utils is intended to provide a uniform interface to all\nAOCL libraries to access CPU features, especially for AMD CPUs. The\nlibrary provides the following features: * Core details * Flags\navailable/usable * ISA available/usable * Topology about L1/L2/L3 AOCL-\nUtils is designed to be integrated into other AMD AOCL libraries. Each\nproject has their own mechanism to identify CPU and provide necessary\nfeatures such as \"dynamic dispatch\".The main purpose of this library is\nto provide a centralized mechanism to update/validate and provide\ninformation to the users of this library. LICENSING INFORMATION: By\ndownloading, installing and using this software, you agree to the terms\nand conditions of the AMD AOCL-Utils license agreement. You may obtain a\ncopy of this license agreement from\nhttps://www.amd.com/en/developer/aocl/utils/utils-eula/utils-\neula-4-1.html\n",
+    "description": "The library AOCL-Utils is intended to provide a uniform interface to all\nAOCL libraries to access CPU features, especially for AMD CPUs. The\nlibrary provides the following features: * Core details * Flags\navailable/usable * ISA available/usable * Topology about L1/L2/L3 AOCL-\nUtils is designed to be integrated into other AMD AOCL libraries. Each\nproject has their own mechanism to identify CPU and provide necessary\nfeatures such as \"dynamic dispatch\".The main purpose of this library is\nto provide a centralized mechanism to update/validate and provide\ninformation to the users of this library. LICENSING INFORMATION: By\ndownloading, installing and using this software, you agree to the terms\nand conditions of the AMD AOCL-Utils license agreement. You may obtain a\ncopy of this license agreement from https://www.amd.com/content/dam/amd/\nen/documents/developer/version-4-2-eulas/utils-elua-4-2.pdf\n",
     "dependencies": [
         {
             "name": "cmake",
@@ -74,12 +83,20 @@
     ],
     "dependent_to": [
         {
+            "name": "aocl-crypto",
+            "description": "AOCL-Crypto is a library consisting of basic cryptographic functions\noptimized and tuned for AMD Zen\u2122 based microarchitecture. This library\nprovides a unified solution for Cryptographic routines such as AES\n(Advanced Encryption Standard) encryption/decryption routines (CFB, CTR,\nCBC, CCM, GCM, OFB, SIV, XTS), SHA (Secure Hash Algorithms) routines\n(SHA2, SHA3, SHAKE), Message Authentication Code (CMAC, HMAC), ECDH\n(Elliptic-curve Diffie\u2013Hellman) and RSA (Rivest, Shamir, and Adleman)\nkey generation functions, etc. AOCL Crypto supports a dynamic dispatcher\nfeature that executes the most optimal function variant implemented\nusing Function Multi-versioning thereby offering a single optimized\nlibrary portable across different x86 CPU architectures. AOCL Crypto\nframework is developed in C / C++ for Unix and Windows based systems.\nLICENSING INFORMATION: By downloading, installing and using this\nsoftware, you agree to the terms and conditions of the AMD AOCL-\nCryptography license agreement. You may obtain a copy of this license\nagreement from https://www.amd.com/en/developer/aocl/cryptography/eula/c\nryptography-4-2-eula.html"
+        },
+        {
+            "name": "aocl-sparse",
+            "description": "AOCL-Sparse is a library that contains basic linear algebra subroutines\nfor sparse matrices and vectors optimized for AMD EPYC family of\nprocessors. It is designed to be used with C and C++. Current\nfunctionality of sparse library supports SPMV function with CSR and\nELLPACK formats. LICENSING INFORMATION: By downloading, installing and\nusing this software, you agree to the terms and conditions of the AMD\nAOCL-Sparse license agreement. You may obtain a copy of this license\nagreement from https://www.amd.com/en/developer/aocl/sparse/eula/sparse-\nlibraries-4-2-eula.html\nhttps://www.amd.com/en/developer/aocl/sparse/eula/sparse-libraries-\neula.html"
+        },
+        {
             "name": "amdlibm",
-            "description": "AMD LibM is a software library containing a collection of basic math\nfunctions optimized for x86-64 processor-based machines. It provides\nmany routines from the list of standard C99 math functions. Applications\ncan link into AMD LibM library and invoke math functions instead of\ncompiler's math functions for better accuracy and performance. LICENSING\nINFORMATION: By downloading, installing and using this software, you\nagree to the terms and conditions of the AMD AOCL-FFTW license\nagreement. You may obtain a copy of this license agreement from\nhttps://www.amd.com/en/developer/aocl/libm/eula/libm-4-1-eula.html\nhttps://www.amd.com/en/developer/aocl/libm/libm-eula.html"
+            "description": "AMD LibM is a software library containing a collection of basic math\nfunctions optimized for x86-64 processor-based machines. It provides\nmany routines from the list of standard C99 math functions. Applications\ncan link into AMD LibM library and invoke math functions instead of\ncompiler's math functions for better accuracy and performance. LICENSING\nINFORMATION: By downloading, installing and using this software, you\nagree to the terms and conditions of the AMD AOCL-FFTW license\nagreement. You may obtain a copy of this license agreement from\nhttps://www.amd.com/en/developer/aocl/libm/eula/libm-4-2-eula.html\nhttps://www.amd.com/en/developer/aocl/libm/libm-eula.html"
         },
         {
             "name": "amdlibflame",
-            "description": "libFLAME (AMD Optimized version) is a portable library for dense matrix\ncomputations, providing much of the functionality present in Linear\nAlgebra Package (LAPACK). It includes a compatibility layer, FLAPACK,\nwhich includes complete LAPACK implementation. The library provides\nscientific and numerical computing communities with a modern, high-\nperformance dense linear algebra library that is extensible, easy to\nuse, and available under an open source license. libFLAME is a C-only\nimplementation and does not depend on any external FORTRAN libraries\nincluding LAPACK. There is an optional backward compatibility layer,\nlapack2flame that maps LAPACK routine invocations to their corresponding\nnative C implementations in libFLAME. This allows legacy applications to\nstart taking advantage of libFLAME with virtually no changes to their\nsource code. In combination with BLIS library which includes\noptimizations for the AMD EPYC processor family, libFLAME enables\nrunning high performing LAPACK functionalities on AMD platform.\nLICENSING INFORMATION: By downloading, installing and using this\nsoftware, you agree to the terms and conditions of the AMD AOCL-libFLAME\nlicense agreement. You may obtain a copy of this license agreement from\nhttps://www.amd.com/en/developer/aocl/dense/eula-\nlibflame/libflame-4-1-eula.html\nhttps://www.amd.com/en/developer/aocl/dense/eula-libflame/libflame-\neula.html"
+            "description": "libFLAME (AMD Optimized version) is a portable library for dense matrix\ncomputations, providing much of the functionality present in Linear\nAlgebra Package (LAPACK). It includes a compatibility layer, FLAPACK,\nwhich includes complete LAPACK implementation. The library provides\nscientific and numerical computing communities with a modern, high-\nperformance dense linear algebra library that is extensible, easy to\nuse, and available under an open source license. libFLAME is a C-only\nimplementation and does not depend on any external FORTRAN libraries\nincluding LAPACK. There is an optional backward compatibility layer,\nlapack2flame that maps LAPACK routine invocations to their corresponding\nnative C implementations in libFLAME. This allows legacy applications to\nstart taking advantage of libFLAME with virtually no changes to their\nsource code. In combination with BLIS library which includes\noptimizations for the AMD EPYC processor family, libFLAME enables\nrunning high performing LAPACK functionalities on AMD platform.\nLICENSING INFORMATION: By downloading, installing and using this\nsoftware, you agree to the terms and conditions of the AMD AOCL-libFLAME\nlicense agreement. You may obtain a copy of this license agreement from\nhttps://www.amd.com/en/developer/aocl/dense/eula-\nlibflame/libflame-4-2-eula.html\nhttps://www.amd.com/en/developer/aocl/dense/eula-libflame/libflame-\neula.html"
         }
     ]
 }
