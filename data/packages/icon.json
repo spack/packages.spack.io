@@ -1,0 +1,220 @@
+{
+    "name": "icon",
+    "aliases": [],
+    "versions": [
+        {
+            "name": "2024.01",
+            "sha256": "d9408fdd6a9ebf5990298e9a09c826e8c15b1e79b45be228f7a5670a3091a613"
+        }
+    ],
+    "latest_version": "2024.01",
+    "build_system": "AutotoolsPackage",
+    "conflicts": [
+        {
+            "name": "arch=windows-None-None",
+            "spec": "build_system=autotools",
+            "description": null
+        },
+        {
+            "name": "gpu=none",
+            "spec": "+mpi-gpu",
+            "description": null
+        }
+    ],
+    "variants": [
+        {
+            "name": "build_system",
+            "default": "autotools",
+            "description": "Build systems supported by the package"
+        },
+        {
+            "name": "atmo",
+            "default": true,
+            "description": "Enable the atmosphere component"
+        },
+        {
+            "name": "les",
+            "default": true,
+            "description": "Enable the Large-Eddy Simulation component"
+        },
+        {
+            "name": "upatmo",
+            "default": true,
+            "description": "Enable the upper atmosphere component"
+        },
+        {
+            "name": "ocean",
+            "default": true,
+            "description": "Enable the ocean component"
+        },
+        {
+            "name": "jsbach",
+            "default": true,
+            "description": "Enable the land component JSBACH"
+        },
+        {
+            "name": "waves",
+            "default": true,
+            "description": "Enable the ocean surface wave component"
+        },
+        {
+            "name": "coupling",
+            "default": true,
+            "description": "Enable the coupling"
+        },
+        {
+            "name": "aes",
+            "default": true,
+            "description": "Enable the AES physics package"
+        },
+        {
+            "name": "nwp",
+            "default": true,
+            "description": "Enable the NWP physics package"
+        },
+        {
+            "name": "ecrad",
+            "default": false,
+            "description": "Enable usage of the ECMWF radiation scheme (ECRAD)"
+        },
+        {
+            "name": "rte-rrtmgp",
+            "default": true,
+            "description": "Enable usage of the RTE+RRTMGP toolbox for radiation calculations"
+        },
+        {
+            "name": "art",
+            "default": false,
+            "description": "Enable the aerosols and reactive trace component ART"
+        },
+        {
+            "name": "mpi",
+            "default": true,
+            "description": "Enable MPI (parallelization) support"
+        },
+        {
+            "name": "openmp",
+            "default": false,
+            "description": "Enable OpenMP support"
+        },
+        {
+            "name": "gpu",
+            "default": "none",
+            "description": "Enable GPU support for the specified architecture"
+        },
+        {
+            "name": "mpi-gpu",
+            "default": true,
+            "description": "Enable usage of the GPU-aware MPI features"
+        },
+        {
+            "name": "grib2",
+            "default": false,
+            "description": "Enable GRIB2 I/O"
+        },
+        {
+            "name": "parallel-netcdf",
+            "default": false,
+            "description": "Enable usage of the parallel features of NetCDF"
+        },
+        {
+            "name": "cdi-pio",
+            "default": false,
+            "description": "Enable usage of the parallel features of CDI"
+        },
+        {
+            "name": "yaxt",
+            "default": false,
+            "description": "Enable the YAXT data exchange"
+        },
+        {
+            "name": "serialization",
+            "default": "none",
+            "description": "Enable the Serialbox2 serialization"
+        },
+        {
+            "name": "comin",
+            "default": false,
+            "description": "Enable the ICON community interfaces"
+        },
+        {
+            "name": "mixed-precision",
+            "default": false,
+            "description": "Enable mixed-precision dynamical core"
+        }
+    ],
+    "homepage": "https://www.icon-model.org",
+    "maintainers": [
+        "skosukhin"
+    ],
+    "patches": [],
+    "resources": [],
+    "description": "ICON - is a modeling framework for weather, climate, and environmental\nprediction. It solves the full three-dimensional non-hydrostatic and\ncompressible Navier-Stokes equations on an icosahedral grid and allows\nseamless predictions from local to global scales.\n",
+    "dependencies": [
+        {
+            "name": "blas",
+            "description": "LAPACK version 3.X is a comprehensive FORTRAN library that does linear\nalgebra operations including matrix inversions, least squared solutions\nto linear sets of equations, eigenvector analysis, singular value\ndecomposition, etc. It is a very comprehensive and reputable package\nthat has found extensive use in the scientific community."
+        },
+        {
+            "name": "cmake",
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
+        },
+        {
+            "name": "cuda",
+            "description": "CUDA is a parallel computing platform and programming model invented by\nNVIDIA. It enables dramatic increases in computing performance by\nharnessing the power of the graphics processing unit (GPU). Note: This\npackage does not currently install the drivers necessary to run CUDA.\nThese will need to be installed manually. See:\nhttps://docs.nvidia.com/cuda/ for details."
+        },
+        {
+            "name": "eccodes",
+            "description": "ecCodes is a package developed by ECMWF for processing meteorological\ndata in GRIB (1/2), BUFR (3/4) and GTS header formats."
+        },
+        {
+            "name": "findutils",
+            "description": "The GNU Find Utilities are the basic directory searching utilities of\nthe GNU operating system."
+        },
+        {
+            "name": "gmake",
+            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files."
+        },
+        {
+            "name": "gnuconfig",
+            "description": "The GNU config.guess and config.sub scripts versioned by timestamp.\nThis package can be used as a build dependency for autotools packages\nthat ship a tarball with outdated config.guess and config.sub files."
+        },
+        {
+            "name": "lapack",
+            "description": "libFLAME (AMD Optimized version) is a portable library for dense matrix\ncomputations, providing much of the functionality present in Linear\nAlgebra Package (LAPACK). It includes a compatibility layer, FLAPACK,\nwhich includes complete LAPACK implementation. The library provides\nscientific and numerical computing communities with a modern, high-\nperformance dense linear algebra library that is extensible, easy to\nuse, and available under an open source license. libFLAME is a C-only\nimplementation and does not depend on any external FORTRAN libraries\nincluding LAPACK. There is an optional backward compatibility layer,\nlapack2flame that maps LAPACK routine invocations to their corresponding\nnative C implementations in libFLAME. This allows legacy applications to\nstart taking advantage of libFLAME with virtually no changes to their\nsource code. In combination with BLIS library which includes\noptimizations for the AMD EPYC processor family, libFLAME enables\nrunning high performing LAPACK functionalities on AMD platform.\nLICENSING INFORMATION: By downloading, installing and using this\nsoftware, you agree to the terms and conditions of the AMD AOCL-libFLAME\nlicense agreement. You may obtain a copy of this license agreement from\nhttps://www.amd.com/en/developer/aocl/dense/eula-\nlibflame/libflame-4-2-eula.html\nhttps://www.amd.com/en/developer/aocl/dense/eula-libflame/libflame-\neula.html"
+        },
+        {
+            "name": "libfyaml",
+            "description": "Fully feature complete YAML parser and emitter, supporting the latest\nYAML spec and passing the full YAML testsuite."
+        },
+        {
+            "name": "libxml2",
+            "description": "Libxml2 is the XML C parser and toolkit developed for the Gnome project\n(but usable outside of the Gnome platform), it is free software\navailable under the MIT License."
+        },
+        {
+            "name": "mpi",
+            "description": "MVAPICH2-GDR is an optimized version of the MVAPICH2 MPI library for\nGPU-enabled HPC and Deep Learning Applications. MVAPICH2-GDR is not\ninstallable from source and is only available through a binary mirror.\nIf you do not find the binary you're looking for, send us an email at\nmvapich@cse.ohio-state.edu. The binary mirror url is:\nhttp://mvapich.cse.ohio-state.edu/download/mvapich/spack-\nmirror/mvapich2-gdr/"
+        },
+        {
+            "name": "netcdf-c",
+            "description": "NetCDF (network Common Data Form) is a set of software libraries and\nmachine-independent data formats that support the creation, access, and\nsharing of array-oriented scientific data. This is the C distribution."
+        },
+        {
+            "name": "netcdf-fortran",
+            "description": "NetCDF (network Common Data Form) is a set of software libraries and\nmachine-independent data formats that support the creation, access, and\nsharing of array-oriented scientific data. This is the Fortran\ndistribution."
+        },
+        {
+            "name": "perl",
+            "description": "Perl 5 is a highly capable, feature-rich programming language with over\n27 years of development."
+        },
+        {
+            "name": "python",
+            "description": "The Python programming language."
+        },
+        {
+            "name": "serialbox",
+            "description": "Serialbox is a serialization library and tools for C/C++, Python3 and\nFortran. Serialbox is used in several projects for building validation\nframeworks against reference runs."
+        }
+    ],
+    "dependent_to": []
+}
