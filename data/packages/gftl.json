@@ -11,6 +11,10 @@
             "branch": "main"
         },
         {
+            "name": "1.12.0",
+            "sha256": "b50e17cb2109372819b3ee676e6e61fd3a517dc4c1ea293937c8a83f03b0cbd6"
+        },
+        {
             "name": "1.11.0",
             "sha256": "b28935bc077749823b1505ad8c1208360a5ba7e961d7593c17a33b11455a32a4"
         },
@@ -67,9 +71,15 @@
             "sha256": "4c53e932ba8d82616b65500f403a33a14957b9266b5e931e2448f1f005990750"
         }
     ],
-    "latest_version": "1.11.0",
+    "latest_version": "1.12.0",
     "build_system": "CMakePackage",
-    "conflicts": [],
+    "conflicts": [
+        {
+            "name": "%fj",
+            "spec": "@:1.11.0",
+            "description": "gftl: gftl only works with the Fujitsu compiler from 1.12 onwards"
+        }
+    ],
     "variants": [
         {
             "name": "build_system",
@@ -120,24 +130,24 @@
     ],
     "dependent_to": [
         {
+            "name": "fargparse",
+            "description": "Command line argument parsing for Fortran"
+        },
+        {
             "name": "yafyaml",
             "description": "yet another Fortran (implementation of) YAML There is at least one\nother open source Fortran-based YAML parser. The rationale for this one\nis simply to be compatible with the containers in gFTL. It is not\nintended to be a complete YAML parser, just the subset needed by my own\nprojects."
-        },
-        {
-            "name": "gftl-shared",
-            "description": "Provides common gFTL containers of Fortran intrinsic types that are\nencountered frequently."
-        },
-        {
-            "name": "mapl",
-            "description": "MAPL is a foundation layer of the GEOS architecture, whose original\npurpose is to supplement the Earth System Modeling Framework (ESMF).\nMAPL fills in missing capabilities of ESMF, provides higher-level\ninterfaces for common boiler-plate logic, and enforces various\ncomponentization conventions across ESMF gridded components within GEOS."
         },
         {
             "name": "pflogger",
             "description": "A parallel Fortran logger (based on the design of the Python logger)"
         },
         {
-            "name": "fargparse",
-            "description": "Command line argument parsing for Fortran"
+            "name": "mapl",
+            "description": "MAPL is a foundation layer of the GEOS architecture, whose original\npurpose is to supplement the Earth System Modeling Framework (ESMF).\nMAPL fills in missing capabilities of ESMF, provides higher-level\ninterfaces for common boiler-plate logic, and enforces various\ncomponentization conventions across ESMF gridded components within GEOS."
+        },
+        {
+            "name": "gftl-shared",
+            "description": "Provides common gFTL containers of Fortran intrinsic types that are\nencountered frequently."
         }
     ]
 }
