@@ -3,6 +3,10 @@
     "aliases": [],
     "versions": [
         {
+            "name": "0.0.12",
+            "sha256": "ba0b3acf71433156737fe342c486da11727e5e6c9e054245f4f9b8f0b53eb608"
+        },
+        {
             "name": "0.0.7",
             "sha256": "86c34af6952a305a4bbfda6b9925998577acc4aa2ad9333da3d6047f4f8ed7c1"
         },
@@ -11,14 +15,25 @@
             "sha256": "e986237e1f840aa3bd26217ecad84b611bf1456e2139f0f79ea71f9c6222d231"
         }
     ],
-    "latest_version": "0.0.7",
+    "latest_version": "0.0.12",
     "build_system": "PythonPackage",
-    "conflicts": [],
+    "conflicts": [
+        {
+            "name": "^py-jax@0.4.14:",
+            "spec": "@:0.0.7",
+            "description": null
+        }
+    ],
     "variants": [
         {
             "name": "build_system",
             "default": "python_pip",
             "description": "Build systems supported by the package"
+        },
+        {
+            "name": "jax",
+            "default": false,
+            "description": "Build with JAX support"
         }
     ],
     "homepage": "https://github.com/deepmind/dm-haiku",
@@ -32,8 +47,16 @@
             "description": "This repository is a collection of Python library code for building\nPython applications. The code is collected from Google's own Python code\nbase, and has been extensively tested and used in production."
         },
         {
+            "name": "py-flax",
+            "description": "Flax: A neural network library for JAX designed for flexibility."
+        },
+        {
             "name": "py-jax",
             "description": "JAX is Autograd and XLA, brought together for high-performance machine\nlearning research. With its updated version of Autograd, JAX can\nautomatically differentiate native Python and NumPy functions. It can\ndifferentiate through loops, branches, recursion, and closures, and it\ncan take derivatives of derivatives of derivatives. It supports reverse-\nmode differentiation (a.k.a. backpropagation) via grad as well as\nforward-mode differentiation, and the two can be composed arbitrarily to\nany order."
+        },
+        {
+            "name": "py-jaxlib",
+            "description": "XLA library for Jax"
         },
         {
             "name": "py-jmp",
@@ -70,8 +93,16 @@
     ],
     "dependent_to": [
         {
+            "name": "py-graphcast",
+            "description": "GraphCast: Learning skillful medium-range global weather forecasting."
+        },
+        {
             "name": "py-alphafold",
             "description": "AlphaFold is an AI system developed by DeepMind that predicts a\nprotein's 3D structure from its amino acid sequence. It regularly\nachieves accuracy competitive with experiment."
+        },
+        {
+            "name": "py-neuralgcm",
+            "description": "NeuralGCM: Hybrid ML + Physics model of Earth's atmosphere."
         }
     ]
 }

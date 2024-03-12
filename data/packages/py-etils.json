@@ -3,13 +3,23 @@
     "aliases": [],
     "versions": [
         {
+            "name": "1.7.0",
+            "sha256": "97b68fd25e185683215286ef3a54e38199b6245f5fe8be6bedc1189be4256350"
+        },
+        {
             "name": "0.9.0",
             "sha256": "489103e9e499a566765c60458ee15d185cf0065f2060a4d16a68f8f46962ed0d"
         }
     ],
-    "latest_version": "0.9.0",
+    "latest_version": "1.7.0",
     "build_system": "PythonPackage",
-    "conflicts": [],
+    "conflicts": [
+        {
+            "name": "~epy",
+            "spec": "+epath",
+            "description": null
+        }
+    ],
     "variants": [
         {
             "name": "build_system",
@@ -20,6 +30,11 @@
             "name": "epath",
             "default": false,
             "description": "with epath module"
+        },
+        {
+            "name": "epy",
+            "default": false,
+            "description": "with epy module"
         }
     ],
     "homepage": "https://github.com/google/etils",
@@ -31,6 +46,10 @@
         {
             "name": "py-flit-core",
             "description": "Distribution-building parts of Flit."
+        },
+        {
+            "name": "py-fsspec",
+            "description": "A specification for pythonic filesystems."
         },
         {
             "name": "py-importlib-resources",
@@ -58,6 +77,10 @@
         }
     ],
     "dependent_to": [
+        {
+            "name": "py-orbax-checkpoint",
+            "description": "Orbax includes a checkpointing library oriented towards JAX users,\nsupporting a variety of different features required by different\nframeworks, including asynchronous checkpointing various types, and\nvarious storage formats. We aim to provide a highly customizable and\ncomposable API which maximizes flexibility for diverse use cases."
+        },
         {
             "name": "py-jax",
             "description": "JAX is Autograd and XLA, brought together for high-performance machine\nlearning research. With its updated version of Autograd, JAX can\nautomatically differentiate native Python and NumPy functions. It can\ndifferentiate through loops, branches, recursion, and closures, and it\ncan take derivatives of derivatives of derivatives. It supports reverse-\nmode differentiation (a.k.a. backpropagation) via grad as well as\nforward-mode differentiation, and the two can be composed arbitrarily to\nany order."

@@ -3,6 +3,22 @@
     "aliases": [],
     "versions": [
         {
+            "name": "2.16.1",
+            "sha256": "c729e56efc945c6df08efe5c9f5b8b89329c7c91b8f40ad2bb3e13900bd4876d"
+        },
+        {
+            "name": "2.15.1",
+            "sha256": "f36416d831f06fe866e149c7cd752da410a11178b01ff5620e9f265511ed57cf"
+        },
+        {
+            "name": "2.15.0",
+            "sha256": "9cec5acb0ecf2d47b16891f8bc5bc6fbfdffe1700bdadc0d9ebe27ea34f0c220"
+        },
+        {
+            "name": "2.14.1",
+            "sha256": "6b31ed347ed7a03c45b906aa41628ac91c3db7c84cb816971400d470e58ba494"
+        },
+        {
             "name": "2.14.0",
             "sha256": "ce357fd0728f0d1b0831d1653f475591662ec5bca736a94ff789e6b1944df19f"
         },
@@ -201,7 +217,7 @@
             "sha256": "69cd836f87b8c53506c4f706f655d423270f5a563b76dc1cfa60fbc3184185a3"
         }
     ],
-    "latest_version": "2.14.0",
+    "latest_version": "2.16.1",
     "build_system": "Package",
     "conflicts": [
         {
@@ -906,15 +922,19 @@
         },
         {
             "name": "mkl",
-            "description": "This is an earlier version of Intel parallel software development tools\nand has now been replaced by the Intel oneAPI Toolkits. LICENSE\nINFORMATION: By downloading and using this software, you agree to the\nterms and conditions of the software license agreements at\nhttps://intel.ly/393CijO."
+            "description": "Intel oneAPI Math Kernel Library (Intel oneMKL; formerly Intel Math\nKernel Library or Intel MKL), is a library of optimized math routines\nfor science, engineering, and financial applications. Core math\nfunctions include BLAS, LAPACK, ScaLAPACK, sparse solvers, fast Fourier\ntransforms, and vector math. LICENSE INFORMATION: By downloading and\nusing this software, you agree to the terms and conditions of the\nsoftware license agreements at https://intel.ly/393CijO."
         },
         {
             "name": "mpi",
-            "description": "MSMPI is a Windows port of MPICH provided by the Windows team"
+            "description": "MVAPICH2-X is the advanced version of the MVAPICH2 MPI library with\nenhanced features (UMR, ODP, DC, Core-Direct, SHARP, XPMEM), OSU INAM\n(InifniBand Network Monitoring and Analysis),PGAS (OpenSHMEM, UPC,\nUPC++, and CAF), and MPI+PGAS programming models with unified\ncommunication runtime. MVAPICH2-X is not installable from source and is\nonly available through a binary mirror. If you do not find the binary\nyou're looking for, send us an email at mvapich@cse.ohio-state.edu. The\nbinary mirror url is: http://mvapich.cse.ohio-\nstate.edu/download/mvapich/spack-mirror/mvapich2x/"
         },
         {
             "name": "nccl",
             "description": "Optimized primitives for collective multi-GPU communication."
+        },
+        {
+            "name": "patchelf",
+            "description": "PatchELF is a small utility to modify the dynamic linker and RPATH of\nELF executables."
         },
         {
             "name": "py-absl-py",
@@ -1055,8 +1075,48 @@
     ],
     "dependent_to": [
         {
+            "name": "py-smote-variants",
+            "description": "Variants of the synthetic minority oversampling technique (SMOTE) for\nimbalanced learning"
+        },
+        {
+            "name": "py-exarl",
+            "description": "A scalable software framework for reinforcement learning environments\nand agents/policies used for the Design and Control applications"
+        },
+        {
             "name": "py-alphafold",
             "description": "AlphaFold is an AI system developed by DeepMind that predicts a\nprotein's 3D structure from its amino acid sequence. It regularly\nachieves accuracy competitive with experiment."
+        },
+        {
+            "name": "cosmoflow-benchmark",
+            "description": "This is a an implementation of the CosmoFlow 3D convolutional neural\nnetwork for benchmarking. It is written in TensorFlow with the Keras API\nand uses Horovod for distributed training."
+        },
+        {
+            "name": "py-zfit",
+            "description": "scalable pythonic model fitting for high energy physics"
+        },
+        {
+            "name": "py-melissa-core",
+            "description": "Melissa is a file-avoiding, adaptive, fault-tolerant and elastic\nframework, to run large-scale sensitivity analysis or deep-surrogate\ntraining on supercomputers. This package builds the launcher and server\nmodules."
+        },
+        {
+            "name": "py-dgl",
+            "description": "Deep Graph Library (DGL). DGL is an easy-to-use, high performance and\nscalable Python package for deep learning on graphs. DGL is framework\nagnostic, meaning if a deep graph model is a component of an end-to-end\napplication, the rest of the logics can be implemented in any major\nframeworks, such as PyTorch, Apache MXNet or TensorFlow."
+        },
+        {
+            "name": "py-tensorflow-probability",
+            "description": "TensorFlow Probability (TFP) is a Python library built on TensorFlow\nthat makes it easy to combine probabilistic models and deep learning on\nmodern hardware (TPU, GPU). It's for data scientists, statisticians, ML\nresearchers, and practitioners who want to encode domain knowledge to\nunderstand data and make predictions."
+        },
+        {
+            "name": "py-imbalanced-learn",
+            "description": "imbalanced-learn is a python package offering a number of re-sampling\ntechniques commonly used in datasets showing strong between-class\nimbalance. It is compatible with scikit-learn and is part of scikit-\nlearn-contrib projects."
+        },
+        {
+            "name": "py-tfdlpack",
+            "description": "Tensorflow plugin for DLPack."
+        },
+        {
+            "name": "py-medaka",
+            "description": "medaka is a tool to create consensus sequences and variant calls from\nnanopore sequencing data. This task is performed using neural networks\napplied a pileup of individual sequencing reads against a draft\nassembly. It provides state-of-the-art results outperforming sequence-\ngraph based methods and signal-based methods, whilst also being faster."
         },
         {
             "name": "py-horovod",
@@ -1069,46 +1129,6 @@
         {
             "name": "py-tensorflow-estimator",
             "description": "TensorFlow Estimator is a high-level TensorFlow API that greatly\nsimplifies machine learning programming."
-        },
-        {
-            "name": "cosmoflow-benchmark",
-            "description": "This is a an implementation of the CosmoFlow 3D convolutional neural\nnetwork for benchmarking. It is written in TensorFlow with the Keras API\nand uses Horovod for distributed training."
-        },
-        {
-            "name": "py-melissa-core",
-            "description": "Melissa is a file-avoiding, adaptive, fault-tolerant and elastic\nframework, to run large-scale sensitivity analysis or deep-surrogate\ntraining on supercomputers. This package builds the launcher and server\nmodules."
-        },
-        {
-            "name": "py-smote-variants",
-            "description": "Variants of the synthetic minority oversampling technique (SMOTE) for\nimbalanced learning"
-        },
-        {
-            "name": "py-imbalanced-learn",
-            "description": "imbalanced-learn is a python package offering a number of re-sampling\ntechniques commonly used in datasets showing strong between-class\nimbalance. It is compatible with scikit-learn and is part of scikit-\nlearn-contrib projects."
-        },
-        {
-            "name": "py-medaka",
-            "description": "medaka is a tool to create consensus sequences and variant calls from\nnanopore sequencing data. This task is performed using neural networks\napplied a pileup of individual sequencing reads against a draft\nassembly. It provides state-of-the-art results outperforming sequence-\ngraph based methods and signal-based methods, whilst also being faster."
-        },
-        {
-            "name": "py-tensorflow-probability",
-            "description": "TensorFlow Probability (TFP) is a Python library built on TensorFlow\nthat makes it easy to combine probabilistic models and deep learning on\nmodern hardware (TPU, GPU). It's for data scientists, statisticians, ML\nresearchers, and practitioners who want to encode domain knowledge to\nunderstand data and make predictions."
-        },
-        {
-            "name": "py-zfit",
-            "description": "scalable pythonic model fitting for high energy physics"
-        },
-        {
-            "name": "py-exarl",
-            "description": "A scalable software framework for reinforcement learning environments\nand agents/policies used for the Design and Control applications"
-        },
-        {
-            "name": "py-tfdlpack",
-            "description": "Tensorflow plugin for DLPack."
-        },
-        {
-            "name": "py-dgl",
-            "description": "Deep Graph Library (DGL). DGL is an easy-to-use, high performance and\nscalable Python package for deep learning on graphs. DGL is framework\nagnostic, meaning if a deep graph model is a component of an end-to-end\napplication, the rest of the logics can be implemented in any major\nframeworks, such as PyTorch, Apache MXNet or TensorFlow."
         },
         {
             "name": "py-deepsig-biocomp",
