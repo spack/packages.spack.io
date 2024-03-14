@@ -165,6 +165,7 @@
             "sha256": "c8877bc9325012de77cd1612d59b6dd4b296c88d2ef5548463e7db6a39fc4070",
             "level": 1,
             "working_dir": ".",
+            "reverse": false,
             "relative_path": "stat_dysect.patch",
             "version": "+stat_dysect"
         },
@@ -173,6 +174,7 @@
             "sha256": "ce22229b99331105cd194cd73f469d5a0cc0ecc16afd91855f05a8f2eb037277",
             "level": 1,
             "working_dir": ".",
+            "reverse": false,
             "relative_path": "stackanalysis_h.patch",
             "version": "@9.2.0"
         },
@@ -181,6 +183,7 @@
             "sha256": "397f1596753f6da95ec3fc37f915bc9739f73b07cc677ee6bbda40669903bc00",
             "level": 1,
             "working_dir": ".",
+            "reverse": false,
             "relative_path": "v9.3.2-auto.patch",
             "version": "@9.3.2%gcc@:4.7"
         },
@@ -189,6 +192,7 @@
             "sha256": "9c2c333787895bd49dbf53a8e5cfcb6d5d070b79f31814110062a273f9110d2e",
             "level": 1,
             "working_dir": ".",
+            "reverse": false,
             "relative_path": "tribool.patch",
             "version": "@9.3.0:10.0.0 ^boost@1.69:"
         }
@@ -234,17 +238,49 @@
         },
         {
             "name": "tbb",
-            "description": "This is an earlier version of Intel parallel software development tools\nand has now been replaced by the Intel oneAPI Toolkits. LICENSE\nINFORMATION: By downloading and using this software, you agree to the\nterms and conditions of the software license agreements at\nhttps://intel.ly/393CijO."
+            "description": "Widely used C++ template library for task parallelism. Intel Threading\nBuilding Blocks (Intel TBB) lets you easily write parallel C++ programs\nthat take full advantage of multicore performance, that are portable and\ncomposable, and that have future-proof scalability."
         }
     ],
     "dependent_to": [
         {
-            "name": "openspeedshop",
-            "description": "OpenSpeedShop is a community effort led by Trenza, Inc. It builds on top\nof a broad list of community infrastructures, most notably Dyninst and\nMRNet from UW, libmonitor from Rice, and PAPI from UTK. OpenSpeedShop is\nan open source multi platform Linux performance tool which is targeted\nto support performance analysis of applications running on both single\nnode and large scale IA64, IA32, EM64T, AMD64, PPC, ARM, Power8, Intel\nPhi, Blue Gene and Cray platforms. OpenSpeedShop development is hosted\nby Trenza Inc.. The infrastructure and base components of OpenSpeedShop\nare released as open source code primarily under LGPL."
+            "name": "openspeedshop-utils",
+            "description": "OpenSpeedShop is a community effort led by Trenza, Inc. It builds on top\nof a broad list of community infrastructures, most notably Dyninst and\nMRNet from UW, libmonitor from Rice, and PAPI from UTK. OpenSpeedShop is\nan open source multi platform Linux performance tool which is targeted\nto support performance analysis of applications running on both single\nnode and large scale IA64, IA32, EM64T, AMD64, PPC, ARM, Power8, Intel\nPhi, Blue Gene and Cray platforms. OpenSpeedShop development is hosted\nby Trenza Inc.. The infrastructure and base components of OpenSpeedShop\nare released as open source code primarily under LGPL. openspeedshop-\nutils is a package that does not have the qt3 gui. It was created to\navoid a conflict between openspeedshop and cbtf-argonavis-gui based on\nthe fact that spack will not allow a qt3 and qt4/qt5 dependency in a\npackages dependency tree."
         },
         {
             "name": "must",
             "description": "MUST detects usage errors of the Message Passing Interface (MPI) and\nreports them to the user. As MPI calls are complex and usage errors\ncommon, this functionality is extremely helpful for application\ndevelopers that want to develop correct MPI applications. This includes\nerrors that already manifest: segmentation faults or incorrect results\nas well as many errors that are not visible to the application developer\nor do not manifest on a certain system or MPI implementation."
+        },
+        {
+            "name": "mitos",
+            "description": "Mitos is a library and a tool for collecting sampled memory performance\ndata to view with MemAxes"
+        },
+        {
+            "name": "callpath",
+            "description": "Library for representing callpaths consistently in distributed-memory\nperformance tools."
+        },
+        {
+            "name": "omnitrace",
+            "description": "Application Profiling, Tracing, and Analysis"
+        },
+        {
+            "name": "tau",
+            "description": "A portable profiling and tracing toolkit for performance analysis of\nparallel programs written in Fortran, C, C++, UPC, Java, Python."
+        },
+        {
+            "name": "timemory",
+            "description": "Modular profiling toolkit and suite of libraries and tools for\nC/C++/Fortran/CUDA/Python"
+        },
+        {
+            "name": "hpctoolkit",
+            "description": "HPCToolkit is an integrated suite of tools for measurement and analysis\nof program performance on computers ranging from multicore desktop\nsystems to the nation's largest supercomputers. By using statistical\nsampling of timers and hardware performance counters, HPCToolkit\ncollects accurate measurements of a program's work, resource\nconsumption, and inefficiency and attributes them to the full calling\ncontext in which they occur."
+        },
+        {
+            "name": "cbtf-krell",
+            "description": "CBTF Krell project contains collector and runtime contributions to the\nCBTF project. These contributions include many performance data\ncollectors and support libraries as well as some example tools that\ndrive the data collection at HPC levels of scale."
+        },
+        {
+            "name": "openspeedshop",
+            "description": "OpenSpeedShop is a community effort led by Trenza, Inc. It builds on top\nof a broad list of community infrastructures, most notably Dyninst and\nMRNet from UW, libmonitor from Rice, and PAPI from UTK. OpenSpeedShop is\nan open source multi platform Linux performance tool which is targeted\nto support performance analysis of applications running on both single\nnode and large scale IA64, IA32, EM64T, AMD64, PPC, ARM, Power8, Intel\nPhi, Blue Gene and Cray platforms. OpenSpeedShop development is hosted\nby Trenza Inc.. The infrastructure and base components of OpenSpeedShop\nare released as open source code primarily under LGPL."
         },
         {
             "name": "extrae",
@@ -253,38 +289,6 @@
         {
             "name": "stat",
             "description": "Library to create, manipulate, and export graphs Graphlib."
-        },
-        {
-            "name": "openspeedshop-utils",
-            "description": "OpenSpeedShop is a community effort led by Trenza, Inc. It builds on top\nof a broad list of community infrastructures, most notably Dyninst and\nMRNet from UW, libmonitor from Rice, and PAPI from UTK. OpenSpeedShop is\nan open source multi platform Linux performance tool which is targeted\nto support performance analysis of applications running on both single\nnode and large scale IA64, IA32, EM64T, AMD64, PPC, ARM, Power8, Intel\nPhi, Blue Gene and Cray platforms. OpenSpeedShop development is hosted\nby Trenza Inc.. The infrastructure and base components of OpenSpeedShop\nare released as open source code primarily under LGPL. openspeedshop-\nutils is a package that does not have the qt3 gui. It was created to\navoid a conflict between openspeedshop and cbtf-argonavis-gui based on\nthe fact that spack will not allow a qt3 and qt4/qt5 dependency in a\npackages dependency tree."
-        },
-        {
-            "name": "cbtf-krell",
-            "description": "CBTF Krell project contains collector and runtime contributions to the\nCBTF project. These contributions include many performance data\ncollectors and support libraries as well as some example tools that\ndrive the data collection at HPC levels of scale."
-        },
-        {
-            "name": "mitos",
-            "description": "Mitos is a library and a tool for collecting sampled memory performance\ndata to view with MemAxes"
-        },
-        {
-            "name": "hpctoolkit",
-            "description": "HPCToolkit is an integrated suite of tools for measurement and analysis\nof program performance on computers ranging from multicore desktop\nsystems to the nation's largest supercomputers. By using statistical\nsampling of timers and hardware performance counters, HPCToolkit\ncollects accurate measurements of a program's work, resource\nconsumption, and inefficiency and attributes them to the full calling\ncontext in which they occur."
-        },
-        {
-            "name": "omnitrace",
-            "description": "Application Profiling, Tracing, and Analysis"
-        },
-        {
-            "name": "callpath",
-            "description": "Library for representing callpaths consistently in distributed-memory\nperformance tools."
-        },
-        {
-            "name": "timemory",
-            "description": "Modular profiling toolkit and suite of libraries and tools for\nC/C++/Fortran/CUDA/Python"
-        },
-        {
-            "name": "tau",
-            "description": "A portable profiling and tracing toolkit for performance analysis of\nparallel programs written in Fortran, C, C++, UPC, Java, Python."
         }
     ]
 }

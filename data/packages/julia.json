@@ -113,6 +113,7 @@
             "sha256": "f72949c6a07c3aa99af97de4d8f6b34c8f3094ba433491ccef9de5d5e03f5412",
             "level": 1,
             "working_dir": ".",
+            "reverse": false,
             "relative_path": "julia-1.6-system-libwhich-and-p7zip-symlink.patch",
             "version": "@1.6.0:1.6"
         },
@@ -121,6 +122,7 @@
             "sha256": "8b993a2b96afd0a5b54c1618d50834740f86f89c3471c9ca2faff5c1110d95f5",
             "level": 1,
             "working_dir": ".",
+            "reverse": false,
             "relative_path": "use-add-rpath.patch",
             "version": "@:1.8.0"
         },
@@ -129,6 +131,7 @@
             "sha256": "12e8f412416951ce3320cd3b3425e1a9fd3ae30f56fd486721561ecfdca03456",
             "level": 1,
             "working_dir": ".",
+            "reverse": false,
             "relative_path": "use-add-rpath-2.patch",
             "version": "@1.8.1:1.8"
         },
@@ -137,6 +140,7 @@
             "sha256": "00569f40e1845329060a714813e509677949e633a0e833c40a3c70dcf9269cc1",
             "level": 1,
             "working_dir": ".",
+            "reverse": false,
             "url": "https://github.com/JuliaLang/julia/commit/55c13d234c1523861b278f7989b1af105ef0e88f.patch?full_index=1",
             "version": "@1.9:1.10"
         },
@@ -145,6 +149,7 @@
             "sha256": "10f7cab89c8353b2648a968d2c8e8ed8bd90961df3227084f1d69d3d482933d7",
             "level": 1,
             "working_dir": ".",
+            "reverse": false,
             "url": "https://github.com/JuliaLang/julia/pull/48342.patch?full_index=1",
             "version": "@1.8.4:1.8.5"
         },
@@ -153,6 +158,7 @@
             "sha256": "7fa53516b97d83ccf06f6d387c04d337849808f7e8ee2bdc2e79894d84578afc",
             "level": 1,
             "working_dir": ".",
+            "reverse": false,
             "url": "https://github.com/JuliaLang/julia/pull/49909.patch?full_index=1",
             "version": "@1.6.4:1.9.0"
         },
@@ -161,6 +167,7 @@
             "sha256": "89a3101f8ea944f9220ae95d8da62737c583fac8156b19b8eb7a21c24f002290",
             "level": 1,
             "working_dir": ".",
+            "reverse": false,
             "relative_path": "fix-gfortran.patch",
             "version": "@1.7.0:1.7.2"
         },
@@ -169,6 +176,7 @@
             "sha256": "3a5243c4af009945f280668aa534377abd95e89ad27eb4e055b5d3b032ca3143",
             "level": 1,
             "working_dir": ".",
+            "reverse": false,
             "relative_path": "revert-fix-rpath-of-libllvm.patch",
             "version": "@1.7.0:1.7.2"
         },
@@ -177,6 +185,7 @@
             "sha256": "5ac49651efa77ae331dfe3fe64f8faf539bdeaf67c8f93cbe1fe70567338d56c",
             "level": 1,
             "working_dir": ".",
+            "reverse": false,
             "relative_path": "gcc-ifdef.patch",
             "version": "@1.7.0:1.7"
         },
@@ -185,6 +194,7 @@
             "sha256": "ba7ab190056c7b330d0d71cb4c84cc81bc7526c1466752ddee9849f51193c063",
             "level": 1,
             "working_dir": ".",
+            "reverse": false,
             "relative_path": "llvm-NDEBUG.patch",
             "version": "@1.7.0:1.7"
         }
@@ -194,7 +204,7 @@
     "dependencies": [
         {
             "name": "blas",
-            "description": "LAPACK version 3.X is a comprehensive FORTRAN library that does linear\nalgebra operations including matrix inversions, least squared solutions\nto linear sets of equations, eigenvector analysis, singular value\ndecomposition, etc. It is a very comprehensive and reputable package\nthat has found extensive use in the scientific community."
+            "description": "CLBlast is a modern, lightweight, performant and tunable OpenCL BLAS\nlibrary written in C++11. It is designed to leverage the full\nperformance potential of a wide variety of OpenCL devices from different\nvendors, including desktop and laptop GPUs, embedded GPUs, and other\naccelerators. CLBlast implements BLAS routines: basic linear algebra\nsubprograms operating on vectors and matrices."
         },
         {
             "name": "curl",
@@ -214,7 +224,7 @@
         },
         {
             "name": "lapack",
-            "description": "LAPACK version 3.X is a comprehensive FORTRAN library that does linear\nalgebra operations including matrix inversions, least squared solutions\nto linear sets of equations, eigenvector analysis, singular value\ndecomposition, etc. It is a very comprehensive and reputable package\nthat has found extensive use in the scientific community."
+            "description": "The Cray Scientific Libraries package, LibSci, is a collection of\nnumerical routines optimized for best performance on Cray systems."
         },
         {
             "name": "libblastrampoline",
@@ -306,14 +316,10 @@
         },
         {
             "name": "zlib-api",
-            "description": "zlib replacement with optimizations for next generation systems."
+            "description": "A free, general-purpose, legally unencumbered lossless data-compression\nlibrary."
         }
     ],
     "dependent_to": [
-        {
-            "name": "simulationio",
-            "description": "SimulationIO: Efficient and convenient I/O for large PDE simulations"
-        },
         {
             "name": "libcxxwrap-julia",
             "description": "This is the C++ library component of the CxxWrap.jl package, distributed\nas a regular CMake library for use in other C++ projects."
@@ -321,6 +327,10 @@
         {
             "name": "mlpack",
             "description": "mlpack is an intuitive, fast, and flexible header-only C++ machine\nlearning library with bindings to other languages. It is meant to be a\nmachine learning analog to LAPACK, and aims to implement a wide array of\nmachine learning methods and functions as a \"swiss army knife\" for\nmachine learning researchers."
+        },
+        {
+            "name": "simulationio",
+            "description": "SimulationIO: Efficient and convenient I/O for large PDE simulations"
         }
     ]
 }

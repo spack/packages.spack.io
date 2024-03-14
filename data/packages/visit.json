@@ -145,6 +145,7 @@
             "sha256": "9ae276981f12ab2accafdcb9a8d9e18cee7d8b3c44586bd91b10478cac220faf",
             "level": 1,
             "working_dir": ".",
+            "reverse": false,
             "relative_path": "spack-changes-3.1.patch",
             "version": "@3.1.0:3.2.2"
         },
@@ -153,6 +154,7 @@
             "sha256": "70b2f94c958186ca76c1588081e2cb134696449a69b8a3d6707be19ee3f4d8d6",
             "level": 1,
             "working_dir": ".",
+            "reverse": false,
             "relative_path": "cmake-findjpeg.patch",
             "version": "@3.1.0:3.2.2"
         },
@@ -161,6 +163,7 @@
             "sha256": "b1c10e8f99fd869cc488e7c17e135849c7f0d4ca4414d18a6760247188114031",
             "level": 1,
             "working_dir": ".",
+            "reverse": false,
             "relative_path": "spack-changes-3.0.1.patch",
             "version": "@3.0.1"
         },
@@ -169,6 +172,7 @@
             "sha256": "81fd707305a9ba245bc5d8108d738f5229513eedddf7d683d0c4f3fdcc55e887",
             "level": 1,
             "working_dir": ".",
+            "reverse": false,
             "relative_path": "nonframework-qwt.patch",
             "version": "^qt~framework arch=darwin-None-None"
         },
@@ -177,6 +181,7 @@
             "sha256": "f36275861eb55350bd54eadb5087afef6380ac02ed22afce906ec69393607968",
             "level": 1,
             "working_dir": ".",
+            "reverse": false,
             "relative_path": "parallel-hdf5.patch",
             "version": "@3.0.1:3.2.2+hdf5+mpi"
         },
@@ -185,6 +190,7 @@
             "sha256": "bd43c002a5ea767435d4eefaf02d09ed25e9511b9918a9e15a195c78d58a0781",
             "level": 1,
             "working_dir": ".",
+            "reverse": false,
             "relative_path": "parallel-hdf5-3.3.patch",
             "version": "@3.3.0:+hdf5+mpi"
         },
@@ -193,6 +199,7 @@
             "sha256": "8c86d79efc4c74dec2c51feddfd3c867de525441fafd9417a12393a589e08d2c",
             "level": 1,
             "working_dir": ".",
+            "reverse": false,
             "relative_path": "cmake-findvtkh-3.3.patch",
             "version": "@3.3.0:3.3.2+vtkm"
         },
@@ -201,6 +208,7 @@
             "sha256": "c85b7cda821192f0e857f310e22c86782627062fdccd7adbbbb87117cfa32b01",
             "level": 1,
             "working_dir": ".",
+            "reverse": false,
             "relative_path": "cmake-findjpeg-3.3.patch",
             "version": "@3.3.0"
         },
@@ -209,6 +217,7 @@
             "sha256": "ea46f78264f021755e1090be5dbc18706f5b2be0cc4f209c0bb1cac1d96fb992",
             "level": 1,
             "working_dir": ".",
+            "reverse": false,
             "relative_path": "0001-fix-missing-header-includes-for-QSurfaceFormat.patch",
             "version": "@3.3.3+gui"
         },
@@ -217,6 +226,7 @@
             "sha256": "2c4c27f1b2629e8f83bb3a16270550ea35962875de661c43a565db6d6ab21d60",
             "level": 1,
             "working_dir": ".",
+            "reverse": false,
             "relative_path": "visit32-missing-link-libs.patch",
             "version": "@3.2"
         },
@@ -225,6 +235,7 @@
             "sha256": "8fb2ef291bd82759827352c1902a90e24c49ac20c1ac6369be70ad631577a649",
             "level": 1,
             "working_dir": ".",
+            "reverse": false,
             "relative_path": "vtk-8.2-constcorrect.patch",
             "version": "@3.3.3 ^vtk@8.2.1a"
         }
@@ -246,7 +257,7 @@
         },
         {
             "name": "glu",
-            "description": "This package provides the Mesa OpenGL Utility library."
+            "description": "Shim package for Apple implementation of OpenGL Utility Libray (GLU)"
         },
         {
             "name": "gmake",
@@ -266,7 +277,7 @@
         },
         {
             "name": "mpi",
-            "description": "There can only be one (MPI process)!"
+            "description": "Mvapich is a High-Performance MPI Library for clusters with diverse\nnetworks (InfiniBand, Omni-Path, Ethernet/iWARP, and RoCE) and computing\nplatforms (x86 (Intel and AMD), ARM and OpenPOWER)"
         },
         {
             "name": "netcdf-c",
@@ -310,10 +321,22 @@
         },
         {
             "name": "zlib-api",
-            "description": "zlib replacement with optimizations for next generation systems."
+            "description": "A free, general-purpose, legally unencumbered lossless data-compression\nlibrary."
         }
     ],
     "dependent_to": [
+        {
+            "name": "visit-unv",
+            "description": "This is the UNV Plug-In for VisIt."
+        },
+        {
+            "name": "ecp-data-vis-sdk",
+            "description": "ECP Data & Vis SDK"
+        },
+        {
+            "name": "visit-mfem",
+            "description": "This is the MFEM Plug-In for VisIt. It can be installed after VisIt is\ninstalled along MFEM library."
+        },
         {
             "name": "visit-silo",
             "description": "This is the Silo Plug-In for VisIt. It can be installed after VisIt is\ninstalled along SILO library. It is made as an extension to VisIt that\ncan be activated or as an environment with a view: ~/.visit Complete\nexplanation at:\nhttps://github.com/spack/spack/pull/22907#issuecomment-824218296"
@@ -323,32 +346,20 @@
             "description": "This is the CGNS Plug-In for VisIt. It can be installed after VisIt is\ninstalled along CGNS library."
         },
         {
-            "name": "ecp-data-vis-sdk",
-            "description": "ECP Data & Vis SDK"
+            "name": "nektools",
+            "description": "Tools required by Nek5000"
         },
         {
             "name": "damaris",
             "description": "Damaris is a middleware for I/O and in situ analytics targeting large-\nscale, MPI-based HPC simulations."
         },
         {
-            "name": "nektools",
-            "description": "Tools required by Nek5000"
+            "name": "visit-ffp",
+            "description": "This is the FFP Plug-In for VisIt. Can be installed after VisIt is\ninstalled with/without the STRIPACK library."
         },
         {
             "name": "sensei",
             "description": "SENSEI is a platform for scalable in-situ analysis and visualization.\nIts design motto is \"Write once, run everywhere\", this means that once\nthe application is instrumented with SENSEI it can use existing and\nfuture analysis backends. Existing backends include: Paraview/Catalyst,\nVisit/Libsim, ADIOS, Python scripts, and so on."
-        },
-        {
-            "name": "visit-unv",
-            "description": "This is the UNV Plug-In for VisIt."
-        },
-        {
-            "name": "visit-mfem",
-            "description": "This is the MFEM Plug-In for VisIt. It can be installed after VisIt is\ninstalled along MFEM library."
-        },
-        {
-            "name": "visit-ffp",
-            "description": "This is the FFP Plug-In for VisIt. Can be installed after VisIt is\ninstalled with/without the STRIPACK library."
         }
     ]
 }

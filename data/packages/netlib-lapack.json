@@ -187,6 +187,7 @@
             "sha256": "16f0781985a67c86d56580380f5303a07dcd89ea404d413e5355124be52c8cfc",
             "level": 1,
             "working_dir": ".",
+            "reverse": false,
             "relative_path": "ibm-xl.patch",
             "version": "@3.7:3.8%xl"
         },
@@ -195,6 +196,7 @@
             "sha256": "16f0781985a67c86d56580380f5303a07dcd89ea404d413e5355124be52c8cfc",
             "level": 1,
             "working_dir": ".",
+            "reverse": false,
             "relative_path": "ibm-xl.patch",
             "version": "@3.7:3.8%xl_r"
         },
@@ -203,6 +205,7 @@
             "sha256": "16f0781985a67c86d56580380f5303a07dcd89ea404d413e5355124be52c8cfc",
             "level": 1,
             "working_dir": ".",
+            "reverse": false,
             "relative_path": "ibm-xl.patch",
             "version": "@3.7:3.8%cce@9:"
         },
@@ -211,6 +214,7 @@
             "sha256": "8bde92b76b345b440802fed370cc240d27c7a151af03920e17fbc55cb9048e6f",
             "level": 1,
             "working_dir": ".",
+            "reverse": false,
             "relative_path": "ibm-xl-3.9.1.patch",
             "version": "@3.9.1%xl"
         },
@@ -219,6 +223,7 @@
             "sha256": "8bde92b76b345b440802fed370cc240d27c7a151af03920e17fbc55cb9048e6f",
             "level": 1,
             "working_dir": ".",
+            "reverse": false,
             "relative_path": "ibm-xl-3.9.1.patch",
             "version": "@3.9.1%xl_r"
         },
@@ -227,6 +232,7 @@
             "sha256": "8bde92b76b345b440802fed370cc240d27c7a151af03920e17fbc55cb9048e6f",
             "level": 1,
             "working_dir": ".",
+            "reverse": false,
             "relative_path": "ibm-xl-3.9.1.patch",
             "version": "@3.9.1%cce@13:"
         },
@@ -235,6 +241,7 @@
             "sha256": "5c79286f3d08a0b0f1f3acba2a92ee698647716ba8c6c0ae20c9cc2713e6f139",
             "level": 1,
             "working_dir": ".",
+            "reverse": false,
             "relative_path": "undefined_declarations.patch",
             "version": "@3.8.0:3.8"
         },
@@ -243,6 +250,7 @@
             "sha256": "ad3d41fe9ff94b7661e09fceaf2b2e4b8c83510c1465c016e161541b4429b5ee",
             "level": 1,
             "working_dir": ".",
+            "reverse": false,
             "relative_path": "testing.patch",
             "version": "@3.7.0:3.8"
         }
@@ -252,7 +260,7 @@
     "dependencies": [
         {
             "name": "blas",
-            "description": "LAPACK version 3.X is a comprehensive FORTRAN library that does linear\nalgebra operations including matrix inversions, least squared solutions\nto linear sets of equations, eigenvector analysis, singular value\ndecomposition, etc. It is a very comprehensive and reputable package\nthat has found extensive use in the scientific community."
+            "description": "CLBlast is a modern, lightweight, performant and tunable OpenCL BLAS\nlibrary written in C++11. It is designed to leverage the full\nperformance potential of a wide variety of OpenCL devices from different\nvendors, including desktop and laptop GPUs, embedded GPUs, and other\naccelerators. CLBlast implements BLAS routines: basic linear algebra\nsubprograms operating on vectors and matrices."
         },
         {
             "name": "cmake",
@@ -277,44 +285,28 @@
     ],
     "dependent_to": [
         {
-            "name": "wonton",
-            "description": "Wonton is a support package for the Portage\n(https://github.com/laristra/portage) and Tangram\n(https://github.com/laristra/tangram) libraries. It contains some\nmesh/state classes, wrappers for other mesh/state libraries and some\nutilities required by Portage and Tangram."
-        },
-        {
-            "name": "elemental",
-            "description": "Elemental: Distributed-memory dense and sparse-direct linear algebra and\noptimization library."
+            "name": "freefem",
+            "description": "FreeFEM is a popular 2D and 3D partial differential equations (PDE)\nsolver. It allows you to easily implement your own physics modules using\nthe provided FreeFEM language. FreeFEM offers a large list of finite\nelements, like the Lagrange, Taylor-Hood, etc., usable in the continuous\nand discontinuous Galerkin method framework."
         },
         {
             "name": "xyce",
             "description": "Xyce (rhymes with 'spice') is an open source, SPICE-compatible, high-\nperformance analog circuit simulator, Xyce supports the standard\nanalysis capabilities found in other SPICE-like codes, such as DC,\ntransient, AC, and small-signal noise analyses; it also has less common\ncapabilities, such as harmonic balance, sensitivity analysis, and\nuncertainty propagation techniques. Xyce supplies industry-standard\ncompact models and can support custom models via its Verilog-A model\ncompiler. Foundry process-development kits (PDKs) in other SPICE syntax\ncan be used via the XDM netlist translator, which is included as part of\nthe Xyce package. In addition to supporting use on all common desktop\nplatforms (Mac, Windows, Linux), Xyce can also be compiled to run in a\nlarge-scale parallel mode to provide scalable, numerically accurate\nanalog simulation of circuits containing millions of devices, or more."
         },
         {
-            "name": "hydrogen",
-            "description": "Hydrogen: Distributed-memory dense and sparse-direct linear algebra and\noptimization library. Based on the Elemental library."
+            "name": "truchas",
+            "description": "Physics-based modeling and simulation of manufacturing processes.\nTruchas includes coupled physics models for incompressible multi-\nmaterial flow with interface tracking, heat transfer, phase change, view\nfactor thermal radiation, species advection-diffusion, elastic/plastic\nmechanics with contact, and electromagnetics. It employs finite volume,\nfinite element, and mimetic finite difference discretizations on 3-D\nunstructured meshes composed of mixed cell types."
+        },
+        {
+            "name": "elemental",
+            "description": "Elemental: Distributed-memory dense and sparse-direct linear algebra and\noptimization library."
         },
         {
             "name": "dakota",
             "description": "The Dakota toolkit provides a flexible, extensible interface between\nanalysis codes and iterative systems analysis methods. Dakota contains\nalgorithms for: - optimization with gradient and non gradient-based\nmethods; - uncertainty quantification with sampling, reliability,\nstochastic - expansion, and epistemic methods; - parameter estimation\nwith nonlinear least squares methods; - sensitivity/variance analysis\nwith design of experiments and - parameter study methods. These\ncapabilities may be used on their own or as components within advanced\nstrategies such as hybrid optimization, surrogate-based optimization,\nmixed integer nonlinear programming, or optimization under uncertainty."
         },
         {
-            "name": "truchas",
-            "description": "Physics-based modeling and simulation of manufacturing processes.\nTruchas includes coupled physics models for incompressible multi-\nmaterial flow with interface tracking, heat transfer, phase change, view\nfactor thermal radiation, species advection-diffusion, elastic/plastic\nmechanics with contact, and electromagnetics. It employs finite volume,\nfinite element, and mimetic finite difference discretizations on 3-D\nunstructured meshes composed of mixed cell types."
-        },
-        {
-            "name": "freefem",
-            "description": "FreeFEM is a popular 2D and 3D partial differential equations (PDE)\nsolver. It allows you to easily implement your own physics modules using\nthe provided FreeFEM language. FreeFEM offers a large list of finite\nelements, like the Lagrange, Taylor-Hood, etc., usable in the continuous\nand discontinuous Galerkin method framework."
-        },
-        {
             "name": "rocsolver",
             "description": "rocSOLVER is a work-in-progress implementation of a subset of LAPACK\nfunctionality on the ROCm platform."
-        },
-        {
-            "name": "bohrium",
-            "description": "Library for automatic acceleration of array operations"
-        },
-        {
-            "name": "hipsolver",
-            "description": "hipSOLVER is a LAPACK marshalling library, with multiple supported\nbackends. It sits between the application and a 'worker' LAPACK library,\nmarshalling inputs into the backend library and marshalling results back\nto the application. hipSOLVER exports an interface that does not require\nthe client to change, regardless of the chosen backend. Currently,\nhipSOLVER supports rocSOLVER and cuSOLVER as backends."
         },
         {
             "name": "plink",
@@ -323,6 +315,22 @@
         {
             "name": "hipblas",
             "description": "hipBLAS is a BLAS marshalling library, with multiple supported backends"
+        },
+        {
+            "name": "hipsolver",
+            "description": "hipSOLVER is a LAPACK marshalling library, with multiple supported\nbackends. It sits between the application and a 'worker' LAPACK library,\nmarshalling inputs into the backend library and marshalling results back\nto the application. hipSOLVER exports an interface that does not require\nthe client to change, regardless of the chosen backend. Currently,\nhipSOLVER supports rocSOLVER and cuSOLVER as backends."
+        },
+        {
+            "name": "wonton",
+            "description": "Wonton is a support package for the Portage\n(https://github.com/laristra/portage) and Tangram\n(https://github.com/laristra/tangram) libraries. It contains some\nmesh/state classes, wrappers for other mesh/state libraries and some\nutilities required by Portage and Tangram."
+        },
+        {
+            "name": "bohrium",
+            "description": "Library for automatic acceleration of array operations"
+        },
+        {
+            "name": "hydrogen",
+            "description": "Hydrogen: Distributed-memory dense and sparse-direct linear algebra and\noptimization library. Based on the Elemental library."
         }
     ]
 }
