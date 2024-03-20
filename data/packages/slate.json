@@ -7,6 +7,10 @@
             "branch": "master"
         },
         {
+            "name": "2023.11.05",
+            "sha256": "d3d925adec137ef4b7d876b2d7d0f8f2ff9d8485fa4125454a42f5da4ac026f3"
+        },
+        {
             "name": "2023.08.25",
             "sha256": "0894d8669ed88358cc7c4cb7b77d8467336613245a7b843f3504e9224632ce0e"
         },
@@ -35,7 +39,7 @@
             "sha256": "ff58840cdbae2991d100dfbaf3ef2f133fc2f43fc05f207dc5e38a41137882ab"
         }
     ],
-    "latest_version": "2023.08.25",
+    "latest_version": "2023.11.05",
     "build_system": "CMakePackage",
     "conflicts": [
         {
@@ -417,6 +421,11 @@
             "name": "+sycl",
             "spec": "@:2022.7.0",
             "description": "slate: SYCL support requires SLATE version 2023.08.25"
+        },
+        {
+            "name": "^hip@5.6.0:",
+            "spec": "@:2023.8.25",
+            "description": "slate: Incompatible version of HIP/ROCm"
         }
     ],
     "variants": [
@@ -486,13 +495,23 @@
         "G-Ragghianti",
         "mgates3"
     ],
-    "patches": [],
+    "patches": [
+        {
+            "owner": "builtin.slate",
+            "sha256": "5f81562a7d4174b02602b9bf8b0d4b799e6eaeaa301c85aff25e801b313bff1c",
+            "level": 1,
+            "working_dir": ".",
+            "reverse": false,
+            "relative_path": "omp.patch",
+            "version": "@2023.11.05"
+        }
+    ],
     "resources": [],
     "description": "The Software for Linear Algebra Targeting Exascale (SLATE) project is to\nprovide fundamental dense linear algebra capabilities to the US\nDepartment of Energy and to the high-performance computing (HPC)\ncommunity at large. To this end, SLATE will provide basic dense matrix\noperations (e.g., matrix multiplication, rank-k update, triangular\nsolve), linear systems solvers, least square solvers, singular value and\neigenvalue solvers.\n",
     "dependencies": [
         {
             "name": "blas",
-            "description": "NVPL BLAS (NVIDIA Performance Libraries BLAS) is part of NVIDIA\nPerformance Libraries that provides standard Fortran 77 BLAS APIs as\nwell as C (CBLAS)."
+            "description": "LAPACK version 3.X is a comprehensive FORTRAN library that does linear\nalgebra operations including matrix inversions, least squared solutions\nto linear sets of equations, eigenvector analysis, singular value\ndecomposition, etc. It is a very comprehensive and reputable package\nthat has found extensive use in the scientific community."
         },
         {
             "name": "blaspp",
@@ -536,7 +555,7 @@
         },
         {
             "name": "mpi",
-            "description": "This is an earlier version of Intel parallel software development tools\nand has now been replaced by the Intel oneAPI Toolkits. LICENSE\nINFORMATION: By downloading and using this software, you agree to the\nterms and conditions of the software license agreements at\nhttps://intel.ly/393CijO."
+            "description": "MPItrampoline: A forwarding MPI implementation that can use any other\nMPI implementation via an MPI ABI."
         },
         {
             "name": "ninja",
@@ -544,7 +563,7 @@
         },
         {
             "name": "scalapack",
-            "description": "This is an earlier version of Intel parallel software development tools\nand has now been replaced by the Intel oneAPI Toolkits. LICENSE\nINFORMATION: By downloading and using this software, you agree to the\nterms and conditions of the software license agreements at\nhttps://intel.ly/393CijO."
+            "description": "ScaLAPACK is a library of high-performance linear algebra routines for\nparallel distributed memory machines"
         }
     ],
     "dependent_to": [
