@@ -55,14 +55,33 @@
             "name": "build_system",
             "default": "python_pip",
             "description": "Build systems supported by the package"
+        },
+        {
+            "name": "typescript",
+            "default": false,
+            "description": "Build the typescript code"
         }
     ],
     "homepage": "https://github.com/jupyter-server/jupyter_server",
     "maintainers": [],
-    "patches": [],
+    "patches": [
+        {
+            "owner": "builtin.py-jupyter-server",
+            "sha256": "0430f63c7ed70ed25d529c694582d1da978c122ab6225d00a254b149095f5814",
+            "level": 1,
+            "working_dir": ".",
+            "reverse": false,
+            "relative_path": "no_npm_node.patch",
+            "version": "@1.10.2:1~typescript"
+        }
+    ],
     "resources": [],
     "description": "The Jupyter Server provides the backend (i.e. the core services, APIs,\nand REST endpoints) for Jupyter web applications like Jupyter notebook,\nJupyterLab, and Voila.\n",
     "dependencies": [
+        {
+            "name": "npm",
+            "description": "npm: A package manager for javascript."
+        },
         {
             "name": "py-anyio",
             "description": "High level compatibility layer for multiple asynchronous event loop\nimplementations."
@@ -182,36 +201,36 @@
             "description": "JupyterLab is the next-generation web-based user interface for Project\nJupyter."
         },
         {
-            "name": "py-nbdime",
-            "description": "Diff and merge of Jupyter Notebooks"
-        },
-        {
-            "name": "py-jupyterlab-server",
-            "description": "A set of server components for JupyterLab and JupyterLab like\napplications"
-        },
-        {
-            "name": "py-nbclassic",
-            "description": "Jupyter Notebook as a Jupyter Server Extension."
-        },
-        {
             "name": "py-jupyter-server-mathjax",
             "description": "MathJax resources as a Jupyter Server Extension."
-        },
-        {
-            "name": "py-notebook-shim",
-            "description": "A shim layer for notebook traits and config."
         },
         {
             "name": "py-jupyter-lsp",
             "description": "Multi-Language Server WebSocket proxy for Jupyter Notebook/Lab server."
         },
         {
-            "name": "py-jupyter-server-proxy",
-            "description": "Jupyter Server Proxy lets you run arbitrary external processes (such as\nRStudio, Shiny Server, Syncthing, PostgreSQL, Code Server, etc)\nalongside your notebook server and provide authenticated web access to\nthem using a path like /rstudio next to others like /lab."
+            "name": "py-jupyterlab-server",
+            "description": "A set of server components for JupyterLab and JupyterLab like\napplications"
+        },
+        {
+            "name": "py-notebook-shim",
+            "description": "A shim layer for notebook traits and config."
+        },
+        {
+            "name": "py-nbclassic",
+            "description": "Jupyter Notebook as a Jupyter Server Extension."
         },
         {
             "name": "py-cylc-uiserver",
             "description": "Cylc UI Server."
+        },
+        {
+            "name": "py-jupyter-server-proxy",
+            "description": "Jupyter Server Proxy lets you run arbitrary external processes (such as\nRStudio, Shiny Server, Syncthing, PostgreSQL, Code Server, etc)\nalongside your notebook server and provide authenticated web access to\nthem using a path like /rstudio next to others like /lab."
+        },
+        {
+            "name": "py-nbdime",
+            "description": "Diff and merge of Jupyter Notebooks"
         }
     ]
 }
