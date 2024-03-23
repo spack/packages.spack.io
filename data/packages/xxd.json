@@ -1,227 +1,54 @@
 {
-    "name": "vim",
+    "name": "xxd-standalone",
     "aliases": [
         {
             "name": "xxd",
-            "alias_for": "vim"
+            "alias_for": "xxd-standalone"
         }
     ],
     "versions": [
         {
-            "name": "9.0.0045",
-            "sha256": "594a31e96e3eda07a358db305de939ca749693b4684de9e027bfa70311b1994d"
-        },
-        {
-            "name": "9.0.0000",
-            "sha256": "1b3cd3732eb7039cf58a9321de26ab1a12d81c2f6760eb03c5d7b60d548f4587"
-        },
-        {
-            "name": "8.2.2541",
-            "sha256": "2699dfe87b524169e7390f0b383c406cb77a9fde7431665d3b9b80964d8d5daf"
-        },
-        {
             "name": "8.2.1201",
             "sha256": "39032fe866f44724b104468038dc9ac4ff2c00a4b18c9a1e2c27064ab1f1143d"
-        },
-        {
-            "name": "8.2.0752",
-            "sha256": "d616945810dac5a1fab2f23b003d22bdecd34861b31f208d5d0012a609821c0f"
-        },
-        {
-            "name": "8.1.2141",
-            "sha256": "7be3c3d88a6c871121230ffb9b7371b1d2ab462118dedb967c7265473af1144b"
-        },
-        {
-            "name": "8.1.0338",
-            "sha256": "3febcc4e49eaca458be1a1e8055a3a52887aa2054b03e24d5f38d192c3de51a0"
-        },
-        {
-            "name": "8.1.0001",
-            "sha256": "c342acaa26589f371fa34a5ca213b95811f26185c12443f8f48ad2868dee2935"
-        },
-        {
-            "name": "8.0.1376",
-            "sha256": "1ad8b5a0b9b63df5abc3f8050e31e1cb49379ffcfd2662a56daeff8bd3d780b9"
-        },
-        {
-            "name": "8.0.0503",
-            "sha256": "f2a316a7ae83eccfecf4a700e631094fce9df873358e3d5f112134faa74082ac"
-        },
-        {
-            "name": "8.0.0454",
-            "sha256": "e1f683c4a0e3fa56fa02769bbca576e4960850b0ca8640514a7b114b88c27b89"
-        },
-        {
-            "name": "8.0.0134",
-            "sha256": "1b3e3e7d187eed55cbdb0a1dae6b8f3b885005fbae84222420877d7afa3b2310"
-        },
-        {
-            "name": "7.4.2367",
-            "sha256": "a9ae4031ccd73cc60e771e8bf9b3c8b7f10f63a67efce7f61cd694cd8d7cda5c"
         }
     ],
-    "latest_version": "9.0.0045",
-    "build_system": "AutotoolsPackage",
+    "latest_version": "8.2.1201",
+    "build_system": "MakefilePackage",
     "conflicts": [
         {
             "name": "arch=windows-None-None",
-            "spec": "build_system=autotools",
+            "spec": "build_system=makefile",
             "description": null
-        },
-        {
-            "name": "+gui",
-            "spec": "features=big",
-            "description": "vim: +gui requires features=huge"
-        },
-        {
-            "name": "+gui",
-            "spec": "features=normal",
-            "description": "vim: +gui requires features=huge"
-        },
-        {
-            "name": "+gui",
-            "spec": "features=small",
-            "description": "vim: +gui requires features=huge"
-        },
-        {
-            "name": "+gui",
-            "spec": "features=tiny",
-            "description": "vim: +gui requires features=huge"
         }
     ],
     "variants": [
         {
             "name": "build_system",
-            "default": "autotools",
+            "default": "makefile",
             "description": "Build systems supported by the package"
-        },
-        {
-            "name": "cscope",
-            "default": false,
-            "description": "build with cscope support"
-        },
-        {
-            "name": "features",
-            "default": "normal",
-            "description": "feature set"
-        },
-        {
-            "name": "gui",
-            "default": false,
-            "description": "build with gui (gvim)"
-        },
-        {
-            "name": "lua",
-            "default": false,
-            "description": "build with Lua"
-        },
-        {
-            "name": "perl",
-            "default": false,
-            "description": "build with Perl"
-        },
-        {
-            "name": "python",
-            "default": false,
-            "description": "build with Python"
-        },
-        {
-            "name": "ruby",
-            "default": false,
-            "description": "build with Ruby"
-        },
-        {
-            "name": "x",
-            "default": false,
-            "description": "use the X Window System"
-        },
-        {
-            "name": "gtk",
-            "default": false,
-            "description": "use the GTKv3 gui."
         }
     ],
-    "homepage": "https://www.vim.org",
+    "homepage": "https://www.vim.org/",
     "maintainers": [
-        "sethrj"
+        "haampie"
     ],
     "patches": [],
     "resources": [],
-    "description": "Vim is a highly configurable text editor built to enable efficient text\nediting. It is an improved version of the vi editor distributed with\nmost UNIX systems. Vim is often called a \"programmer's editor,\" and so\nuseful for programming that many consider it an entire IDE. It's not\njust for programmers, though. Vim is perfect for all kinds of text\nediting, from composing email to editing configuration files.\n",
+    "description": "xxd creates a hex dump of a given file or standard input. It is bundled\nwith vim, but as xxd is used in build scripts, it makes sense to have it\navailable as a standalone package.\n",
     "dependencies": [
-        {
-            "name": "cscope",
-            "description": "Cscope is a developer's tool for browsing source code."
-        },
-        {
-            "name": "findutils",
-            "description": "The GNU Find Utilities are the basic directory searching utilities of\nthe GNU operating system."
-        },
-        {
-            "name": "fontconfig",
-            "description": "Fontconfig is a library for configuring/customizing font access"
-        },
         {
             "name": "gmake",
             "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files."
-        },
-        {
-            "name": "gnuconfig",
-            "description": "The GNU config.guess and config.sub scripts versioned by timestamp.\nThis package can be used as a build dependency for autotools packages\nthat ship a tarball with outdated config.guess and config.sub files."
-        },
-        {
-            "name": "gtkplus",
-            "description": "The GTK+ package contains libraries used for creating graphical user\ninterfaces for applications."
-        },
-        {
-            "name": "libsm",
-            "description": "libSM - X Session Management Library."
-        },
-        {
-            "name": "libx11",
-            "description": "libX11 - Core X11 protocol client library."
-        },
-        {
-            "name": "libxpm",
-            "description": "libXpm - X Pixmap (XPM) image file format library."
-        },
-        {
-            "name": "libxt",
-            "description": "libXt - X Toolkit Intrinsics library."
-        },
-        {
-            "name": "libxtst",
-            "description": "libXtst provides the Xlib-based client API for the XTEST & RECORD\nextensions. The XTEST extension is a minimal set of client and server\nextensions required to completely test the X11 server with no user\nintervention. This extension is not intended to support general\njournaling and playback of user actions. The RECORD extension supports\nthe recording and reporting of all core X protocol and arbitrary X\nextension protocol."
-        },
-        {
-            "name": "lua",
-            "description": "The Lua programming language interpreter and library."
-        },
-        {
-            "name": "ncurses",
-            "description": "The ncurses (new curses) library is a free software emulation of curses\nin System V Release 4.0, and more. It uses terminfo format, supports\npads and color and multiple highlights and forms characters and\nfunction-key mapping, and has all the other SYSV-curses enhancements\nover BSD curses."
-        },
-        {
-            "name": "perl",
-            "description": "Perl 5 is a highly capable, feature-rich programming language with over\n27 years of development."
-        },
-        {
-            "name": "python",
-            "description": "The Python programming language."
-        },
-        {
-            "name": "ruby",
-            "description": "A dynamic, open source programming language with a focus on simplicity\nand productivity."
         }
     ],
     "dependent_to": [
         {
-            "name": "hsa-rocr-dev",
-            "description": "This repository includes the user mode API nterfaces and libraries\nnecessary for host applications to launch computer kernels to available\nHSA ROCm kernel agents.AMD Heterogeneous System Architecture HSA - Linux\nHSA Runtime for Boltzmann (ROCm) platforms."
-        },
-        {
             "name": "star",
             "description": "STAR is an ultrafast universal RNA-seq aligner."
+        },
+        {
+            "name": "hsa-rocr-dev",
+            "description": "This repository includes the user mode API nterfaces and libraries\nnecessary for host applications to launch computer kernels to available\nHSA ROCm kernel agents.AMD Heterogeneous System Architecture HSA - Linux\nHSA Runtime for Boltzmann (ROCm) platforms."
         },
         {
             "name": "glvis",
