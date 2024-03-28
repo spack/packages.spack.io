@@ -3,6 +3,50 @@
     "aliases": [],
     "versions": [
         {
+            "name": "master",
+            "branch": "master"
+        },
+        {
+            "name": "2024-03-11",
+            "sha256": "5d417aa652e4ec8d66e27714c63b8cb5a7f878fb7b2ec55f629636fcff7c0f00"
+        },
+        {
+            "name": "2023-11-27",
+            "sha256": "00c444b2def2c9cf5694bee5bb0284ce289e83f7c84ac28c6701c746cfde9a4c"
+        },
+        {
+            "name": "2023-05-30",
+            "sha256": "d2cbd43596ed3ad77186f865fe8aa81a2efe389ff345b24622ac76c16614b532"
+        },
+        {
+            "name": "2022-10-14",
+            "sha256": "a96f29de3b69e7e3f5f344396c8cf791fe277dab0217fc0b90b02e38e75bbdc1"
+        },
+        {
+            "name": "2022-08-01",
+            "sha256": "c12a677ba2178cf5161d63fef3b1da4d3888622199cea3e611f59649085681dc"
+        },
+        {
+            "name": "2022-05-16",
+            "sha256": "80f6b0dee91766ab207a366b8eea546cc1afa33cea24deebaa6583f283d80fab"
+        },
+        {
+            "name": "2022-03-04",
+            "sha256": "b2e09f0f64d75634b7d3f9844c2cea7acbc877c4ceebb6b91e8e494bb3653166"
+        },
+        {
+            "name": "2022-02-16",
+            "sha256": "e1907f6831d9a0dd2c65879ca5746b9a0ef57d7ccce0036d55c0c6c5628ac981"
+        },
+        {
+            "name": "2022-01-27",
+            "sha256": "d21c14b9b30f773cef8e2029773f3cc35da021eebe9060298231f95021eb814f"
+        },
+        {
+            "name": "2021-10-11",
+            "sha256": "5c04d252e1c4a10b037aa352b89487e581ec6b52bdb46e9e85f101bbdcd9c388"
+        },
+        {
             "name": "2021-04-05",
             "sha256": "f40d318674753287b8b28d2b4e5cca872cd772d4c7383af4a8f3eeb48fcc7ec0"
         },
@@ -45,15 +89,17 @@
         {
             "name": "2016-08-09",
             "commit": "2ffeb1bd39454ad5aa230e12969ce976f3d1c92b"
-        },
-        {
-            "name": "master",
-            "branch": "master"
         }
     ],
-    "latest_version": "2021-04-05",
+    "latest_version": "2024-03-11",
     "build_system": "CMakePackage",
-    "conflicts": [],
+    "conflicts": [
+        {
+            "name": "+shared",
+            "spec": "arch=windows-None-None",
+            "description": null
+        }
+    ],
     "variants": [
         {
             "name": "build_system",
@@ -76,21 +122,43 @@
             "description": "the build system generator to use"
         },
         {
+            "name": "fortran",
+            "default": false,
+            "description": "Compile with Fortran support"
+        },
+        {
+            "name": "shared",
+            "default": true,
+            "description": "Enables the build of shared libraries"
+        },
+        {
             "name": "mpi",
             "default": true,
             "description": "Enables MPI parallelism."
         },
         {
-            "name": "fortran",
+            "name": "thread_safe",
             "default": false,
-            "description": "Build Fortran wrapper libraries."
+            "description": "Enable thread-safe exodus library"
         }
     ],
-    "homepage": "https://github.com/gsjaardema/seacas",
-    "maintainers": [],
-    "patches": [],
+    "homepage": "https://sandialabs.github.io/seacas/",
+    "maintainers": [
+        "gsjaardema"
+    ],
+    "patches": [
+        {
+            "owner": "builtin.exodusii",
+            "sha256": "2add13531db51d18aca8b6a1f085e45a2f9b640cd2bc48718b01a98b52697744",
+            "level": 1,
+            "working_dir": ".",
+            "reverse": false,
+            "relative_path": "Fix-ioss-tpl.patch",
+            "version": "@2021-10-11:"
+        }
+    ],
     "resources": [],
-    "description": "Exodus II is a C++/Fortran library developed to store and retrieve data\nfor finite element analyses. It's used for preprocessing (problem\ndefinition), postprocessing (results visualization), and data transfer\nbetween codes. An Exodus II data file is a random access, machine\nindependent, binary file that is written and read via C, C++, or Fortran\nAPI routines.\n",
+    "description": "Exodus II is a C++/Fortran library developed to store and retrieve data\nfor finite element analyses. It's used for preprocessing (problem\ndefinition), postprocessing (results visualization), and data transfer\nbetween codes. An Exodus II data file is a random access, machine\nindependent, binary file that is written and read via C, C++, or Fortran\nAPI routines. This package *only* installs the C and optionally Fortran\nlibrary for exodus. If you want the full suite of exodus-releated tools\nincluding the IOSS library, install the seacas package instead of this\npackage.\n",
     "dependencies": [
         {
             "name": "cmake",
@@ -101,8 +169,12 @@
             "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files."
         },
         {
+            "name": "hdf5",
+            "description": "HDF5 is a data model, library, and file format for storing and managing\ndata. It supports an unlimited variety of datatypes, and is designed for\nflexible and efficient I/O and for high volume and complex data."
+        },
+        {
             "name": "mpi",
-            "description": "Intel MPI. This package has been deprecated. Use intel-oneapi-mpi\ninstead. LICENSE INFORMATION: By downloading and using this software,\nyou agree to the terms and conditions of the software license agreements\nat https://intel.ly/393CijO."
+            "description": "This is an earlier version of Intel parallel software development tools\nand has now been replaced by the Intel oneAPI Toolkits. LICENSE\nINFORMATION: By downloading and using this software, you agree to the\nterms and conditions of the software license agreements at\nhttps://intel.ly/393CijO."
         },
         {
             "name": "netcdf-c",
@@ -119,20 +191,20 @@
     ],
     "dependent_to": [
         {
-            "name": "petsc",
-            "description": "PETSc is a suite of data structures and routines for the scalable\n(parallel) solution of scientific applications modeled by partial\ndifferential equations."
-        },
-        {
-            "name": "mstk",
-            "description": "MSTK is a mesh framework that allows users to represent, manipulate and\nquery unstructured 3D arbitrary topology meshes in a general manner\nwithout the need to code their own data structures. MSTK is a flexible\nframework in that it allows a variety of underlying representations for\nthe mesh while maintaining a common interface. It allows users to choose\nfrom different mesh representations either at initialization\n(implemented) or during the program execution (not yet implemented) so\nthat the optimal data structures are used for the particular algorithm.\nThe interaction of users and applications with MSTK is through a\nfunctional interface that acts as though the mesh always contains\nvertices, edges, faces and regions and maintains connectivity between\nall these entities."
+            "name": "truchas",
+            "description": "Physics-based modeling and simulation of manufacturing processes.\nTruchas includes coupled physics models for incompressible multi-\nmaterial flow with interface tracking, heat transfer, phase change, view\nfactor thermal radiation, species advection-diffusion, elastic/plastic\nmechanics with contact, and electromagnetics. It employs finite volume,\nfinite element, and mimetic finite difference discretizations on 3-D\nunstructured meshes composed of mixed cell types."
         },
         {
             "name": "jali",
             "description": "Jali is a parallel, unstructured mesh infrastructure library designed\nfor use by multi-physics simulations."
         },
         {
-            "name": "truchas",
-            "description": "Physics-based modeling and simulation of manufacturing processes.\nTruchas includes coupled physics models for incompressible multi-\nmaterial flow with interface tracking, heat transfer, phase change, view\nfactor thermal radiation, species advection-diffusion, elastic/plastic\nmechanics with contact, and electromagnetics. It employs finite volume,\nfinite element, and mimetic finite difference discretizations on 3-D\nunstructured meshes composed of mixed cell types."
+            "name": "petsc",
+            "description": "PETSc is a suite of data structures and routines for the scalable\n(parallel) solution of scientific applications modeled by partial\ndifferential equations."
+        },
+        {
+            "name": "mstk",
+            "description": "MSTK is a mesh framework that allows users to represent, manipulate and\nquery unstructured 3D arbitrary topology meshes in a general manner\nwithout the need to code their own data structures. MSTK is a flexible\nframework in that it allows a variety of underlying representations for\nthe mesh while maintaining a common interface. It allows users to choose\nfrom different mesh representations either at initialization\n(implemented) or during the program execution (not yet implemented) so\nthat the optimal data structures are used for the particular algorithm.\nThe interaction of users and applications with MSTK is through a\nfunctional interface that acts as though the mesh always contains\nvertices, edges, faces and regions and maintains connectivity between\nall these entities."
         },
         {
             "name": "flecsale",
