@@ -2,15 +2,15 @@
     "name": "intel-oneapi-mkl",
     "aliases": [
         {
-            "name": "mkl",
-            "alias_for": "intel-oneapi-mkl"
-        },
-        {
             "name": "fftw-api",
             "alias_for": "intel-oneapi-mkl"
         },
         {
             "name": "blas",
+            "alias_for": "intel-oneapi-mkl"
+        },
+        {
+            "name": "mkl",
             "alias_for": "intel-oneapi-mkl"
         },
         {
@@ -23,6 +23,11 @@
         }
     ],
     "versions": [
+        {
+            "name": "2024.1.0",
+            "sha256": "b121bc70d3493ef1fbd05f077b1cd27ac4eb2fd1099f44e9f4b8a1366995fb92",
+            "url": "https://registrationcenter-download.intel.com/akdlm/IRC_NAS/2f3a5785-1c41-4f65-a2f9-ddf9e0db3ea0/l_onemkl_p_2024.1.0.695_offline.sh"
+        },
         {
             "name": "2024.0.0",
             "sha256": "2a3be7d01d75ba8cc3059f9a32ae72e5bfc93e68e72e94e79d7fa6ea2f7814de",
@@ -89,7 +94,7 @@
             "url": "https://registrationcenter-download.intel.com/akdlm/IRC_NAS/17402/l_onemkl_p_2021.1.1.52_offline.sh"
         }
     ],
-    "latest_version": "2024.0.0",
+    "latest_version": "2024.1.0",
     "build_system": "Package",
     "conflicts": [
         {
@@ -170,14 +175,42 @@
     "dependencies": [
         {
             "name": "mpi",
-            "description": "This is an earlier version of Intel parallel software development tools\nand has now been replaced by the Intel oneAPI Toolkits. LICENSE\nINFORMATION: By downloading and using this software, you agree to the\nterms and conditions of the software license agreements at\nhttps://intel.ly/393CijO."
+            "description": "MPICH is a high performance and widely portable implementation of the\nMessage Passing Interface (MPI) standard."
         },
         {
             "name": "tbb",
-            "description": "This is an earlier version of Intel parallel software development tools\nand has now been replaced by the Intel oneAPI Toolkits. LICENSE\nINFORMATION: By downloading and using this software, you agree to the\nterms and conditions of the software license agreements at\nhttps://intel.ly/393CijO."
+            "description": "Intel oneAPI Threading Building Blocks (oneTBB) is a flexible\nperformance library that simplifies the work of adding parallelism to\ncomplex applications across accelerated architectures, even if you are\nnot a threading expert. LICENSE INFORMATION: By downloading and using\nthis software, you agree to the terms and conditions of the software\nlicense agreements at https://intel.ly/393CijO."
         }
     ],
     "dependent_to": [
+        {
+            "name": "su2",
+            "description": "SU2 is a suite of open-source software tools written in C++ for the\nnumerical solution of partial differential equations (PDE) and\nperforming PDE constrained optimization."
+        },
+        {
+            "name": "lapackpp",
+            "description": "LAPACK++: C++ API for the LAPACK Linear Algebra Package. Developed by\nthe Innovative Computing Laboratory at the University of Tennessee,\nKnoxville."
+        },
+        {
+            "name": "berkeleygw",
+            "description": "BerkeleyGW is a many-body perturbation theory code for excited states,\nusing the GW method and the GW plus Bethe-Salpeter equation (GW-BSE)\nmethod to solve respectively for quasiparticle excitations and optical\nproperties of materials."
+        },
+        {
+            "name": "dla-future",
+            "description": "DLA-Future library: Distributed Linear Algebra with Future"
+        },
+        {
+            "name": "blaspp",
+            "description": "C++ API for the Basic Linear Algebra Subroutines. Developed by the\nInnovative Computing Laboratory at the University of Tennessee,\nKnoxville."
+        },
+        {
+            "name": "molgw",
+            "description": "MOLGW is a quantum chemistry code that implements the many-body\nperturbation theory (MBPT) to describe the excited electronic states in\nfinite systems (atoms, molecules, clusters). MOLGW implements the GW\napproximation for the self-energy (ionization and affinity) and the\nBethe-Salpeter equation for the optical excitations. MOLGW also applies\nthe real-time time-dependent density-functional theory (RT-TDDFT). MOLGW\nemploys standard Gaussian basis set."
+        },
+        {
+            "name": "amrex",
+            "description": "AMReX is a publicly available software framework designed for building\nmassively parallel block- structured adaptive mesh refinement (AMR)\napplications."
+        },
         {
             "name": "ldak",
             "description": "LDAK is a software package for analyzing GWAS data"
@@ -187,32 +220,8 @@
             "description": "High-performance linear algebra library for manycore systems, with a\nfocus on sparse solution of linear systems."
         },
         {
-            "name": "dla-future",
-            "description": "DLA-Future library: Distributed Linear Algebra with Future"
-        },
-        {
             "name": "elk",
             "description": "An all-electron full-potential linearised augmented-plane wave (FP-LAPW)\ncode with many advanced features."
-        },
-        {
-            "name": "blaspp",
-            "description": "C++ API for the Basic Linear Algebra Subroutines. Developed by the\nInnovative Computing Laboratory at the University of Tennessee,\nKnoxville."
-        },
-        {
-            "name": "amrex",
-            "description": "AMReX is a publicly available software framework designed for building\nmassively parallel block- structured adaptive mesh refinement (AMR)\napplications."
-        },
-        {
-            "name": "lapackpp",
-            "description": "LAPACK++: C++ API for the LAPACK Linear Algebra Package. Developed by\nthe Innovative Computing Laboratory at the University of Tennessee,\nKnoxville."
-        },
-        {
-            "name": "scine-qcmaquis",
-            "description": "Scine QCMaquis DMRG Solver"
-        },
-        {
-            "name": "berkeleygw",
-            "description": "BerkeleyGW is a many-body perturbation theory code for excited states,\nusing the GW method and the GW plus Bethe-Salpeter equation (GW-BSE)\nmethod to solve respectively for quasiparticle excitations and optical\nproperties of materials."
         },
         {
             "name": "xyce",
@@ -223,16 +232,12 @@
             "description": "The Software for Linear Algebra Targeting Exascale (SLATE) project is to\nprovide fundamental dense linear algebra capabilities to the US\nDepartment of Energy and to the high-performance computing (HPC)\ncommunity at large. To this end, SLATE will provide basic dense matrix\noperations (e.g., matrix multiplication, rank-k update, triangular\nsolve), linear systems solvers, least square solvers, singular value and\neigenvalue solvers."
         },
         {
-            "name": "su2",
-            "description": "SU2 is a suite of open-source software tools written in C++ for the\nnumerical solution of partial differential equations (PDE) and\nperforming PDE constrained optimization."
-        },
-        {
-            "name": "molgw",
-            "description": "MOLGW is a quantum chemistry code that implements the many-body\nperturbation theory (MBPT) to describe the excited electronic states in\nfinite systems (atoms, molecules, clusters). MOLGW implements the GW\napproximation for the self-energy (ionization and affinity) and the\nBethe-Salpeter equation for the optical excitations. MOLGW also applies\nthe real-time time-dependent density-functional theory (RT-TDDFT). MOLGW\nemploys standard Gaussian basis set."
-        },
-        {
             "name": "heffte",
             "description": "Highly Efficient FFT for Exascale"
+        },
+        {
+            "name": "scine-qcmaquis",
+            "description": "Scine QCMaquis DMRG Solver"
         },
         {
             "name": "ngspice",
