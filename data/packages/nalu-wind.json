@@ -5,11 +5,30 @@
         {
             "name": "master",
             "branch": "master"
+        },
+        {
+            "name": "2.0.0",
+            "tag": "v2.0.0"
         }
     ],
-    "latest_version": "master",
+    "latest_version": "2.0.0",
     "build_system": "CMakePackage",
     "conflicts": [
+        {
+            "name": "amdgpu_target=none",
+            "spec": "+rocm",
+            "description": null
+        },
+        {
+            "name": "+shared",
+            "spec": "+rocm",
+            "description": "nalu-wind: invalid device functions are generated with shared libs and rocm"
+        },
+        {
+            "name": "+cuda",
+            "spec": "+rocm",
+            "description": null
+        },
         {
             "name": "%gcc@:4",
             "spec": "+cuda ^cuda@11.0:~allow-unsupported-compilers",
@@ -341,12 +360,32 @@
             "description": null
         },
         {
+            "name": "+shared",
+            "spec": "+cuda",
+            "description": "nalu-wind: invalid device functions are generated with shared libs and cuda"
+        },
+        {
+            "name": "+rocm",
+            "spec": "+cuda",
+            "description": null
+        },
+        {
             "name": "~hypre~trilinos-solvers",
             "spec": "",
             "description": "nalu-wind: nalu-wind: Must enable at least one of the linear-solvers: hypre or trilinos-solvers"
         }
     ],
     "variants": [
+        {
+            "name": "rocm",
+            "default": false,
+            "description": "Enable ROCm support"
+        },
+        {
+            "name": "amdgpu_target",
+            "default": "none",
+            "description": "AMD GPU architecture"
+        },
         {
             "name": "cuda",
             "default": false,
@@ -418,9 +457,19 @@
             "description": "Compile with Catalyst support"
         },
         {
+            "name": "shared",
+            "default": true,
+            "description": "Build shared libraries"
+        },
+        {
             "name": "fftw",
             "default": false,
             "description": "Compile with FFTW support"
+        },
+        {
+            "name": "fsi",
+            "default": false,
+            "description": "Enable fluid-structure-interaction models"
         },
         {
             "name": "boost",
@@ -428,9 +477,24 @@
             "description": "Enable Boost integration"
         },
         {
+            "name": "gpu-aware-mpi",
+            "default": false,
+            "description": "gpu-aware-mpi"
+        },
+        {
             "name": "wind-utils",
             "default": false,
             "description": "Build wind-utils"
+        },
+        {
+            "name": "umpire",
+            "default": false,
+            "description": "Enable Umpire"
+        },
+        {
+            "name": "cxxstd",
+            "default": "17",
+            "description": "cxx standard"
         }
     ],
     "homepage": "https://nalu-wind.readthedocs.io",
@@ -463,6 +527,14 @@
             "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files."
         },
         {
+            "name": "hip",
+            "description": "HIP is a C++ Runtime API and Kernel Language that allows developers to\ncreate portable applications for AMD and NVIDIA GPUs from single source\ncode."
+        },
+        {
+            "name": "hsa-rocr-dev",
+            "description": "This repository includes the user mode API nterfaces and libraries\nnecessary for host applications to launch computer kernels to available\nHSA ROCm kernel agents.AMD Heterogeneous System Architecture HSA - Linux\nHSA Runtime for Boltzmann (ROCm) platforms."
+        },
+        {
             "name": "hypre",
             "description": "Hypre is a library of high performance preconditioners that features\nparallel multigrid methods for both structured and unstructured grid\nproblems."
         },
@@ -471,8 +543,12 @@
             "description": "The NVCC wrapper provides a wrapper around NVCC to make it a 'full' C++\ncompiler that accepts all flags"
         },
         {
+            "name": "llvm-amdgpu",
+            "description": "Toolkit for the construction of highly optimized compilers, optimizers,\nand run-time environments."
+        },
+        {
             "name": "mpi",
-            "description": "There can only be one (MPI process)!"
+            "description": "Intel MPI Library is a multifabric message-passing library that\nimplements the open-source MPICH specification. Use the library to\ncreate, maintain, and test advanced, complex applications that perform\nbetter on high-performance computing (HPC) clusters based on Intel\nprocessors. LICENSE INFORMATION: By downloading and using this software,\nyou agree to the terms and conditions of the software license agreements\nat https://intel.ly/393CijO."
         },
         {
             "name": "nccmp",
