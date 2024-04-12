@@ -11,6 +11,10 @@
             "branch": "master"
         },
         {
+            "name": "4.3.00",
+            "sha256": "03c3226ee97dbca4fa56fe69bc4eefa0673e23c37f2741943d9362424a63950e"
+        },
+        {
             "name": "4.2.01",
             "sha256": "058052b3a40f5d4e447b7ded5c480f1b0d4aa78373b0bc7e43804d0447c34ca8"
         },
@@ -83,7 +87,7 @@
             "sha256": "e4b832aed3f8e785de24298f312af71217a26067aea2de51531e8c1e597ef0e6"
         }
     ],
-    "latest_version": "4.2.01",
+    "latest_version": "4.3.00",
     "build_system": "CMakePackage",
     "conflicts": [
         {
@@ -564,6 +568,16 @@
             "description": "Link to AMD sparse library"
         },
         {
+            "name": "cusolver",
+            "default": false,
+            "description": "Link to CUDA solver library"
+        },
+        {
+            "name": "rocsolver",
+            "default": false,
+            "description": "Link to AMD solver library"
+        },
+        {
             "name": "shared",
             "default": true,
             "description": "Build shared libraries"
@@ -581,7 +595,7 @@
     "dependencies": [
         {
             "name": "blas",
-            "description": "Arm Compiler combines the optimized tools and libraries from Arm with a\nmodern LLVM-based compiler framework."
+            "description": "XBLAS is a reference implementation for extra precision BLAS. XBLAS is a\nreference implementation for the dense and banded BLAS routines, along\nwith extended and mixed precision version. Extended precision is only\nused internally; input and output arguments remain the same as in the\nexisting BLAS. Extra precisions is implemented as double-double (i.e.,\n128-bit total, 106-bit significand). Mixed precision permits some\ninput/output arguments of different types (mixing real and complex) or\nprecisions (mixing single and double). This implementation is proof of\nconcept, and no attempt was made to optimize performance; performance\nshould be as good as straightforward but careful code written by hand."
         },
         {
             "name": "cblas",
@@ -609,11 +623,11 @@
         },
         {
             "name": "lapack",
-            "description": "Arm Compiler combines the optimized tools and libraries from Arm with a\nmodern LLVM-based compiler framework."
+            "description": "NVPL LAPACK (NVIDIA Performance Libraries LAPACK) is part of NVIDIA\nPerformance Libraries that provides standard Fortran 90 LAPACK APIs."
         },
         {
             "name": "mkl",
-            "description": "Intel Math Kernel Library. This package has been replaced by intel-\noneapi-mkl. LICENSE INFORMATION: By downloading and using this software,\nyou agree to the terms and conditions of the software license agreements\nat https://intel.ly/393CijO."
+            "description": "This is an earlier version of Intel parallel software development tools\nand has now been replaced by the Intel oneAPI Toolkits. LICENSE\nINFORMATION: By downloading and using this software, you agree to the\nterms and conditions of the software license agreements at\nhttps://intel.ly/393CijO."
         },
         {
             "name": "ninja",
@@ -622,6 +636,10 @@
         {
             "name": "rocblas",
             "description": "Radeon Open Compute BLAS library"
+        },
+        {
+            "name": "rocsolver",
+            "description": "rocSOLVER is a work-in-progress implementation of a subset of LAPACK\nfunctionality on the ROCm platform."
         },
         {
             "name": "rocsparse",
@@ -634,20 +652,20 @@
     ],
     "dependent_to": [
         {
-            "name": "sundials",
-            "description": "SUNDIALS (SUite of Nonlinear and DIfferential/ALgebraic equation\nSolvers)"
-        },
-        {
             "name": "petsc",
             "description": "PETSc is a suite of data structures and routines for the scalable\n(parallel) solution of scientific applications modeled by partial\ndifferential equations."
+        },
+        {
+            "name": "py-pennylane-lightning",
+            "description": "The PennyLane-Lightning plugin provides a fast state-vector simulator\nwritten in C++."
         },
         {
             "name": "compadre",
             "description": "The Compadre Toolkit provides a performance portable solution for the\nparallel evaluation of computationally dense kernels. The toolkit\nspecifically targets the Generalized Moving Least Squares (GMLS)\napproach, which requires the inversion of small dense matrices. The\nresult is a set of weights that provide the information needed for remap\nor entries that constitute the rows of some globally sparse matrix."
         },
         {
-            "name": "py-pennylane-lightning",
-            "description": "The PennyLane-Lightning plugin provides a fast state-vector simulator\nwritten in C++."
+            "name": "sundials",
+            "description": "SUNDIALS (SUite of Nonlinear and DIfferential/ALgebraic equation\nSolvers)"
         },
         {
             "name": "singularity-eos",
