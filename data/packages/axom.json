@@ -11,6 +11,11 @@
             "branch": "develop"
         },
         {
+            "name": "0.9.0",
+            "commit": "5f531595d941d16fa3b8583bfc347a845d9feb6d",
+            "tag": "v0.9.0"
+        },
+        {
             "name": "0.8.1",
             "commit": "0da8a5b1be596887158ac2fcd321524ba5259e15",
             "tag": "v0.8.1"
@@ -71,7 +76,7 @@
             "tag": "v0.2.9"
         }
     ],
-    "latest_version": "0.8.1",
+    "latest_version": "0.9.0",
     "build_system": "CMakePackage",
     "conflicts": [
         {
@@ -522,6 +527,11 @@
             "description": "Turn on OpenMP support."
         },
         {
+            "name": "profiling",
+            "default": false,
+            "description": "Build with hooks for Adiak/Caliper performance analysis"
+        },
+        {
             "name": "mfem",
             "default": false,
             "description": "Build with mfem"
@@ -594,8 +604,16 @@
     "description": "Axom provides a robust, flexible software infrastructure for the\ndevelopment of multi-physics applications and computational tools.\n",
     "dependencies": [
         {
+            "name": "adiak",
+            "description": "Adiak collects metadata about HPC application runs and provides it to\ntools."
+        },
+        {
             "name": "blt",
             "description": "BLT is a streamlined CMake-based foundation for Building, Linking and\nTesting large-scale high performance computing (HPC) applications."
+        },
+        {
+            "name": "caliper",
+            "description": "Caliper is a program instrumentation and performance measurement\nframework. It is designed as a performance analysis toolbox in a\nlibrary, allowing one to bake performance analysis capabilities directly\ninto applications and activate them at runtime."
         },
         {
             "name": "cmake",
@@ -655,7 +673,7 @@
         },
         {
             "name": "mpi",
-            "description": "An open source Message Passing Interface implementation. The Open MPI\nProject is an open source Message Passing Interface implementation that\nis developed and maintained by a consortium of academic, research, and\nindustry partners. Open MPI is therefore able to combine the expertise,\ntechnologies, and resources from all across the High Performance\nComputing community in order to build the best MPI library available.\nOpen MPI offers advantages for system and software vendors, application\ndevelopers and computer science researchers."
+            "description": "MVAPICH2-X is the advanced version of the MVAPICH2 MPI library with\nenhanced features (UMR, ODP, DC, Core-Direct, SHARP, XPMEM), OSU INAM\n(InifniBand Network Monitoring and Analysis),PGAS (OpenSHMEM, UPC,\nUPC++, and CAF), and MPI+PGAS programming models with unified\ncommunication runtime. MVAPICH2-X is not installable from source and is\nonly available through a binary mirror. If you do not find the binary\nyou're looking for, send us an email at mvapich@cse.ohio-state.edu. The\nbinary mirror url is: http://mvapich.cse.ohio-\nstate.edu/download/mvapich/spack-mirror/mvapich2x/"
         },
         {
             "name": "ninja",
