@@ -147,6 +147,11 @@
             "name": "+disable-no-pie",
             "spec": "@:2.33.2",
             "description": null
+        },
+        {
+            "name": "+rocprofiler",
+            "spec": "+roctracer",
+            "description": "tau: Use either rocprofiler or roctracer"
         }
     ],
     "variants": [
@@ -379,11 +384,15 @@
         },
         {
             "name": "elf",
-            "description": "elfutils is a collection of various binary tools such as eu-objdump, eu-\nreadelf, and other utilities that allow you to inspect and manipulate\nELF files. Refer to Table 5.Tools Included in elfutils for Red Hat\nDeveloper for a complete list of binary tools that are distributed with\nthe Red Hat Developer Toolset version of elfutils."
+            "description": "libelf lets you read, modify or create ELF object files in an\narchitecture-independent way. The library takes care of size and endian\nissues, e.g. you can process a file for SPARC processors on an Intel-\nbased system. Note: libelf is no longer maintained and packages that\ndepend on libelf should migrate to elfutils."
         },
         {
             "name": "gasnet",
             "description": "GASNet is a language-independent, networking middleware layer that\nprovides network-independent, high-performance communication primitives\nincluding Remote Memory Access (RMA) and Active Messages (AM). It has\nbeen used to implement parallel programming models and libraries such as\nUPC, UPC++, Co-Array Fortran, Legion, Chapel, and many others. The\ninterface is primarily intended as a compilation target and for use by\nruntime library writers (as opposed to end users), and the primary goals\nare high performance, interface portability, and expressiveness.\n***NOTICE***: The GASNet library built by this Spack package is ONLY\nintended for unit-testing purposes, and is generally UNSUITABLE FOR\nPRODUCTION USE. The RECOMMENDED way to build GASNet is as an embedded\nlibrary as configured by the higher-level client runtime package (UPC++,\nLegion, etc), including system-specific configuration."
+        },
+        {
+            "name": "hip",
+            "description": "HIP is a C++ Runtime API and Kernel Language that allows developers to\ncreate portable applications for AMD and NVIDIA GPUs from single source\ncode."
         },
         {
             "name": "hsa-rocr-dev",
@@ -395,7 +404,7 @@
         },
         {
             "name": "java",
-            "description": "The Java Development Kit (JDK) released by Oracle Corporation in the\nform of a binary product aimed at Java developers. Includes a complete\nJRE plus tools for developing, debugging, and monitoring Java\napplications."
+            "description": "The IcedTea project provides a harness to build the source code from\nhttps://openjdk.java.net/ using Free Software build tools and adds a\nnumber of key features to the upstream OpenJDK codebase. IcedTea\nrequires an existing IcedTea or OpenJDK install to build."
         },
         {
             "name": "libdwarf",
@@ -411,7 +420,7 @@
         },
         {
             "name": "mpi",
-            "description": "Cray/HPE packaging of MVAPICH2 for HPE Apollo systems"
+            "description": "A single processor implementation of the mpi library."
         },
         {
             "name": "oneapi-level-zero",
@@ -432,6 +441,10 @@
         {
             "name": "python",
             "description": "The Python programming language."
+        },
+        {
+            "name": "rocm-core",
+            "description": "rocm-core is a utility which can be used to get ROCm release version. It\nalso provides the Lmod modules files for the ROCm release.\ngetROCmVersion function provides the ROCm version."
         },
         {
             "name": "rocm-smi-lib",
@@ -455,7 +468,7 @@
         },
         {
             "name": "zlib-api",
-            "description": "zlib replacement with optimizations for next generation systems."
+            "description": "A free, general-purpose, legally unencumbered lossless data-compression\nlibrary."
         }
     ],
     "dependent_to": [
@@ -468,12 +481,12 @@
             "description": "Application Profiling, Tracing, and Analysis"
         },
         {
-            "name": "savanna",
-            "description": "CODARcode Savanna runtime framework for high performance, workflow\nmanagement using Swift/T and ADIOS."
-        },
-        {
             "name": "timemory",
             "description": "Modular profiling toolkit and suite of libraries and tools for\nC/C++/Fortran/CUDA/Python"
+        },
+        {
+            "name": "savanna",
+            "description": "CODARcode Savanna runtime framework for high performance, workflow\nmanagement using Swift/T and ADIOS."
         }
     ]
 }
