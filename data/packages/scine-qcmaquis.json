@@ -7,6 +7,10 @@
             "branch": "master"
         },
         {
+            "name": "3.1.4",
+            "branch": "release-3.1.4"
+        },
+        {
             "name": "3.1.3",
             "branch": "release-3.1.3"
         },
@@ -15,7 +19,7 @@
             "branch": "release-3.1.2"
         }
     ],
-    "latest_version": "3.1.3",
+    "latest_version": "3.1.4",
     "build_system": "CMakePackage",
     "conflicts": [],
     "variants": [
@@ -40,18 +44,18 @@
             "description": "the build system generator to use"
         },
         {
-            "name": "blas",
-            "default": "openblas",
-            "description": "Which blas library to use."
-        },
-        {
             "name": "symmetries",
             "default": "SU2U1PG,TwoU1PG",
             "description": "Wave functions symmetries to compile (e.g. \"SU2U1PG,TwoU1PG\")"
         },
         {
+            "name": "openmolcas",
+            "default": false,
+            "description": "Build the OpenMOLCAS Fortran interface."
+        },
+        {
             "name": "build_tests",
-            "default": true,
+            "default": false,
             "description": "Whether to build unit tests using gtest and gmock"
         }
     ],
@@ -59,10 +63,24 @@
     "maintainers": [
         "adam-grofe"
     ],
-    "patches": [],
+    "patches": [
+        {
+            "owner": "builtin.scine-qcmaquis",
+            "sha256": "2ea08148938cfcc12b432f4913276a50e0c2485c23d4626b9cf0ab4f9ee90a61",
+            "level": 1,
+            "working_dir": ".",
+            "reverse": false,
+            "relative_path": "cmake_molcas_interface.patch",
+            "version": ""
+        }
+    ],
     "resources": [],
     "description": "Scine QCMaquis DMRG Solver\n",
     "dependencies": [
+        {
+            "name": "blas",
+            "description": "LAPACK version 3.X is a comprehensive FORTRAN library that does linear\nalgebra operations including matrix inversions, least squared solutions\nto linear sets of equations, eigenvector analysis, singular value\ndecomposition, etc. It is a very comprehensive and reputable package\nthat has found extensive use in the scientific community."
+        },
         {
             "name": "boost",
             "description": "Boost provides free peer-reviewed portable C++ source libraries,\nemphasizing libraries that work well with the C++ Standard Library.\nBoost libraries are intended to be widely useful, and usable across a\nbroad spectrum of applications. The Boost license encourages both\ncommercial and non-commercial use."
@@ -70,6 +88,10 @@
         {
             "name": "cmake",
             "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
+        },
+        {
+            "name": "globalarrays",
+            "description": "Global Arrays (GA) is a Partitioned Global Address Space (PGAS)\nprogramming model. It provides primitives for one-sided communication\n(Get, Put, Accumulate) and Atomic Operations (read increment). It\nsupports blocking and non-blocking primtives, and supports location\nconsistency."
         },
         {
             "name": "gmake",
@@ -88,12 +110,20 @@
             "description": "HDF5 is a data model, library, and file format for storing and managing\ndata. It supports an unlimited variety of datatypes, and is designed for\nflexible and efficient I/O and for high volume and complex data."
         },
         {
+            "name": "intel-mkl",
+            "description": "Intel Math Kernel Library. This package has been replaced by intel-\noneapi-mkl. LICENSE INFORMATION: By downloading and using this software,\nyou agree to the terms and conditions of the software license agreements\nat https://intel.ly/393CijO."
+        },
+        {
             "name": "intel-oneapi-mkl",
             "description": "Intel oneAPI Math Kernel Library (Intel oneMKL; formerly Intel Math\nKernel Library or Intel MKL), is a library of optimized math routines\nfor science, engineering, and financial applications. Core math\nfunctions include BLAS, LAPACK, ScaLAPACK, sparse solvers, fast Fourier\ntransforms, and vector math. LICENSE INFORMATION: By downloading and\nusing this software, you agree to the terms and conditions of the\nsoftware license agreements at https://intel.ly/393CijO."
         },
         {
-            "name": "lapack",
+            "name": "intel-parallel-studio",
             "description": "This is an earlier version of Intel parallel software development tools\nand has now been replaced by the Intel oneAPI Toolkits. LICENSE\nINFORMATION: By downloading and using this software, you agree to the\nterms and conditions of the software license agreements at\nhttps://intel.ly/393CijO."
+        },
+        {
+            "name": "lapack",
+            "description": "LAPACK version 3.X is a comprehensive FORTRAN library that does linear\nalgebra operations including matrix inversions, least squared solutions\nto linear sets of equations, eigenvector analysis, singular value\ndecomposition, etc. It is a very comprehensive and reputable package\nthat has found extensive use in the scientific community."
         },
         {
             "name": "ninja",
