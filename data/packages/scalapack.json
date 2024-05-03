@@ -1,40 +1,50 @@
 {
-    "name": "netlib-scalapack",
+    "name": "amdscalapack",
     "aliases": [
         {
             "name": "scalapack",
-            "alias_for": "netlib-scalapack"
+            "alias_for": "amdscalapack"
         }
     ],
     "versions": [
         {
-            "name": "2.2.0",
-            "sha256": "40b9406c20735a9a3009d863318cb8d3e496fb073d201c5463df810e01ab2a57"
+            "name": "4.2",
+            "sha256": "c6e9a846c05cdc05252b0b5f264164329812800bf13f9d97c77114dc138e6ccb"
         },
         {
-            "name": "2.1.0",
-            "sha256": "61d9216cf81d246944720cfce96255878a3f85dec13b9351f1fa0fd6768220a6"
+            "name": "4.1",
+            "sha256": "b2e51c3604e5869d1faaef2e52c92071fcb3de1345aebb2ea172206622067ad9"
         },
         {
-            "name": "2.0.2",
-            "sha256": "0c74aeae690fe5ee4db7926f49c5d0bb69ce09eea75beb915e00bba07530395c"
+            "name": "4.0",
+            "sha256": "f02913b5984597b22cdb9a36198ed61039a1bf130308e778dc31b2a7eb88b33b"
         },
         {
-            "name": "2.0.1",
-            "sha256": "a9b34278d4e10b40cbe084c6d87d09af8845e874250719bfbbc497b2a88bfde1"
+            "name": "3.2",
+            "sha256": "9e00979bb1be39d627bdacb01774bc043029840d542fafc934d16fec3e3b0892"
         },
         {
-            "name": "2.0.0",
-            "sha256": "e51fbd9c3ef3a0dbd81385b868e2355900148eea689bf915c5383d72daf73114"
+            "name": "3.1",
+            "sha256": "4c2ee2c44644a0feec0c6fc1b1a413fa9028f14d7035d43a398f5afcfdbacb98"
         },
         {
-            "name": "master",
-            "branch": "master"
+            "name": "3.0",
+            "sha256": "6e6f3578f44a8e64518d276e7580530599ecfa8729f568303ed2590688e7096f"
+        },
+        {
+            "name": "2.2",
+            "sha256": "2d64926864fc6d12157b86e3f88eb1a5205e7fc157bf67e7577d0f18b9a7484c"
         }
     ],
-    "latest_version": "2.2.0",
+    "latest_version": "4.2",
     "build_system": "CMakePackage",
-    "conflicts": [],
+    "conflicts": [
+        {
+            "name": "+ilp64",
+            "spec": "@:3.0",
+            "description": "amdscalapack: ILP64 is supported from 3.1 onwards"
+        }
+    ],
     "variants": [
         {
             "name": "build_system",
@@ -65,13 +75,20 @@
             "name": "pic",
             "default": false,
             "description": "Build position independent code"
+        },
+        {
+            "name": "ilp64",
+            "default": false,
+            "description": "Build with ILP64 support"
         }
     ],
-    "homepage": "https://www.netlib.org/scalapack/",
-    "maintainers": [],
+    "homepage": "https://www.amd.com/en/developer/aocl/scalapack.html",
+    "maintainers": [
+        "amd-toolchain-support"
+    ],
     "patches": [
         {
-            "owner": "builtin.netlib-scalapack",
+            "owner": "builtin.amdscalapack",
             "sha256": "e8f30dd1f26e523dfb552f8d7b8ad26ac88fc0c8d72e3d4f9a9717a3383e0b33",
             "level": 1,
             "working_dir": ".",
@@ -80,7 +97,7 @@
             "version": "@2.0.2:2.0"
         },
         {
-            "owner": "builtin.netlib-scalapack",
+            "owner": "builtin.amdscalapack",
             "sha256": "22ebf4e3d5a6356cd6086ea65bfdf30f9d0a2038136127590cd269d15bdb03af",
             "level": 1,
             "working_dir": ".",
@@ -89,7 +106,7 @@
             "version": "@2.0.2:2.0"
         },
         {
-            "owner": "builtin.netlib-scalapack",
+            "owner": "builtin.amdscalapack",
             "sha256": "f2baedde688ffe4c20943c334f580eb298e04d6f35c86b90a1f4e8cb7ae344a2",
             "level": 1,
             "working_dir": ".",
@@ -98,7 +115,7 @@
             "version": "@2.0.0:2.1.0"
         },
         {
-            "owner": "builtin.netlib-scalapack",
+            "owner": "builtin.amdscalapack",
             "sha256": "1c9ce5fee1451a08c2de3cc87f446aeda0b818ebbce4ad0d980ddf2f2a0b2dc4",
             "level": 1,
             "working_dir": ".",
@@ -107,7 +124,7 @@
             "version": "@2.0.0:2.2.0"
         },
         {
-            "owner": "builtin.netlib-scalapack",
+            "owner": "builtin.amdscalapack",
             "sha256": "072b006e485f0ca4cba56096912a986e4d3da73aae51c2205928aa5eb842cefd",
             "level": 1,
             "working_dir": ".",
@@ -116,21 +133,30 @@
             "version": "@2.2.0"
         },
         {
-            "owner": "builtin.netlib-scalapack",
+            "owner": "builtin.amdscalapack",
             "sha256": "244a9aadb1b1e212ed1390f492afa827189c940524b7ab17053d00130a12577b",
             "level": 1,
             "working_dir": ".",
             "reverse": false,
             "relative_path": "fix-build-macos.patch",
             "version": "@2.2.0"
+        },
+        {
+            "owner": "builtin.amdscalapack",
+            "sha256": "59cd98ac2ccc73a546279264969d36cef165e9ed8c8ee1d0826b19ae8cf6bb75",
+            "level": 1,
+            "working_dir": ".",
+            "reverse": false,
+            "relative_path": "clang-hollerith.patch",
+            "version": "%clang@16:"
         }
     ],
     "resources": [],
-    "description": "ScaLAPACK is a library of high-performance linear algebra routines for\nparallel distributed memory machines\n",
+    "description": " ScaLAPACK is a library of high-performance linear algebra routines for\nparallel distributed memory machines. It depends on external libraries\nincluding BLAS and LAPACK for Linear Algebra computations. AMD's\noptimized version of ScaLAPACK enables using BLIS and LibFLAME library\nthat have optimized dense matrix functions and solvers for AMD EPYC\nprocessor family CPUs. LICENSING INFORMATION: By downloading, installing\nand using this software, you agree to the terms and conditions of the\nAMD AOCL-ScaLAPACK license agreement. You may obtain a copy of this\nlicense agreement from\nhttps://www.amd.com/en/developer/aocl/scalapack/eula/scalapack-\nlibraries-4-2-eula.html\nhttps://www.amd.com/en/developer/aocl/scalapack/eula/scalapack-\nlibraries-eula.html\n",
     "dependencies": [
         {
             "name": "blas",
-            "description": "The NVIDIA HPC SDK is a comprehensive suite of compilers, libraries and\ntools essential to maximizing developer productivity and the performance\nand portability of HPC applications. The NVIDIA HPC SDK C, C++, and\nFortran compilers support GPU acceleration of HPC modeling and\nsimulation applications with standard C++ and Fortran, OpenACC\ndirectives, and CUDA. GPU-accelerated math libraries maximize\nperformance on common HPC algorithms, and optimized communications\nlibraries enable standards-based multi-GPU and scalable systems\nprogramming. Performance profiling and debugging tools simplify porting\nand optimization of HPC applications."
+            "description": "CLBlast is a modern, lightweight, performant and tunable OpenCL BLAS\nlibrary written in C++11. It is designed to leverage the full\nperformance potential of a wide variety of OpenCL devices from different\nvendors, including desktop and laptop GPUs, embedded GPUs, and other\naccelerators. CLBlast implements BLAS routines: basic linear algebra\nsubprograms operating on vectors and matrices."
         },
         {
             "name": "cmake",
@@ -142,11 +168,11 @@
         },
         {
             "name": "lapack",
-            "description": "The NVIDIA HPC SDK is a comprehensive suite of compilers, libraries and\ntools essential to maximizing developer productivity and the performance\nand portability of HPC applications. The NVIDIA HPC SDK C, C++, and\nFortran compilers support GPU acceleration of HPC modeling and\nsimulation applications with standard C++ and Fortran, OpenACC\ndirectives, and CUDA. GPU-accelerated math libraries maximize\nperformance on common HPC algorithms, and optimized communications\nlibraries enable standards-based multi-GPU and scalable systems\nprogramming. Performance profiling and debugging tools simplify porting\nand optimization of HPC applications."
+            "description": "The Cray Scientific Libraries package, LibSci, is a collection of\nnumerical routines optimized for best performance on Cray systems."
         },
         {
             "name": "mpi",
-            "description": "The NVIDIA HPC SDK is a comprehensive suite of compilers, libraries and\ntools essential to maximizing developer productivity and the performance\nand portability of HPC applications. The NVIDIA HPC SDK C, C++, and\nFortran compilers support GPU acceleration of HPC modeling and\nsimulation applications with standard C++ and Fortran, OpenACC\ndirectives, and CUDA. GPU-accelerated math libraries maximize\nperformance on common HPC algorithms, and optimized communications\nlibraries enable standards-based multi-GPU and scalable systems\nprogramming. Performance profiling and debugging tools simplify porting\nand optimization of HPC applications."
+            "description": "MPICH is a high performance and widely portable implementation of the\nMessage Passing Interface (MPI) standard."
         },
         {
             "name": "ninja",
@@ -155,68 +181,24 @@
     ],
     "dependent_to": [
         {
-            "name": "mumps",
-            "description": "MUMPS: a MUltifrontal Massively Parallel sparse direct Solver"
-        },
-        {
-            "name": "fleur",
-            "description": "FLEUR (Full-potential Linearised augmented plane wave in EURope) is a\ncode family for calculating groundstate as well as excited-state\nproperties of solids within the context of density functional theory\n(DFT)."
-        },
-        {
-            "name": "salmon-tddft",
-            "description": "SALMON is an open-source computer program for ab-initio quantum-\nmechanical calculations of electron dynamics at the nanoscale that takes\nplace in various situations of light-matter interactions. It is based on\ntime-dependent density functional theory, solving time-dependent Kohn-\nSham equation in real time and real space with norm-conserving\npseudopotentials."
-        },
-        {
-            "name": "trilinos",
-            "description": "The Trilinos Project is an effort to develop algorithms and enabling\ntechnologies within an object-oriented software framework for the\nsolution of large-scale, complex multi-physics engineering and\nscientific problems. A unique design feature of Trilinos is its focus on\npackages."
-        },
-        {
-            "name": "berkeleygw",
-            "description": "BerkeleyGW is a many-body perturbation theory code for excited states,\nusing the GW method and the GW plus Bethe-Salpeter equation (GW-BSE)\nmethod to solve respectively for quasiparticle excitations and optical\nproperties of materials."
-        },
-        {
-            "name": "butterflypack",
-            "description": "ButterflyPACK is a mathematical software for rapidly solving large-scale\ndense linear systems that exhibit off-diagonal rank-deficiency. These\nsystems arise frequently from boundary element methods, or factorization\nphases in finite-difference/finite-element methods. ButterflyPACK relies\non low-rank or butterfly formats under Hierarchical matrix, HODLR or\nother hierarchically nested frameworks to compress, factor and solve the\nlinear system in quasi-linear time. The computationally most intensive\nphase, factorization, is accelerated via randomized linear algebras. The\nbutterfly format, originally inspired by the butterfly data flow in fast\nFourier Transform, is a linear algebra tool well-suited for compressing\nmatrices arising from high-frequency wave equations or highly\noscillatory integral operators."
-        },
-        {
-            "name": "yambo",
-            "description": "Yambo is a FORTRAN/C code for Many-Body calculations in solid state and\nmolecular physics. Yambo relies on the Kohn-Sham wavefunctions generated\nby two DFT public codes: abinit, and PWscf. The code was originally\ndeveloped in the Condensed Matter Theoretical Group of the Physics\nDepartment at the University of Rome \"Tor Vergata\" by Andrea Marini.\nPrevious to its release under the GPL license, yambo was known as SELF."
-        },
-        {
-            "name": "molgw",
-            "description": "MOLGW is a quantum chemistry code that implements the many-body\nperturbation theory (MBPT) to describe the excited electronic states in\nfinite systems (atoms, molecules, clusters). MOLGW implements the GW\napproximation for the self-energy (ionization and affinity) and the\nBethe-Salpeter equation for the optical excitations. MOLGW also applies\nthe real-time time-dependent density-functional theory (RT-TDDFT). MOLGW\nemploys standard Gaussian basis set."
-        },
-        {
-            "name": "costa",
-            "description": "Distributed Communication-Optimal Matrix Transpose and Reshuffle\nLibrary Based on the paper: https://arxiv.org/abs/2106.06601"
-        },
-        {
-            "name": "q-e-sirius",
-            "description": "SIRIUS enabled fork of QuantumESPRESSO."
-        },
-        {
-            "name": "bigdft-psolver",
-            "description": "BigDFT-Psolver: a flexible real-space Poisson Solver based on\nInterpolating Scaling Functions. It constitutes a fundamental building\nblock of BigDFT code, and it can also be used separately and linked to\nother codes."
-        },
-        {
-            "name": "selalib",
-            "description": "SeLaLib is a modular library for the kinetic and gyrokinetic simulation\nof tokamak plasmas by the semi-lagrangian or particle-in-cell methods"
+            "name": "py-gpaw",
+            "description": "GPAW is a density-functional theory (DFT) Python code based on the\nprojector-augmented wave (PAW) method and the atomic simulation\nenvironment (ASE)."
         },
         {
             "name": "kadath",
             "description": "KADATH SPECTRAL SOLVER. The Frankfurt University/Kadath (FUKA) Initial\nData solver branch is a collection of ID solvers aimed at delivering\nconsistent initial data (ID) solutions to the eXtended Conformal Thin-\nSandwich (XCTS) formulation of Einstein's field equations for a variety\nof compact object configurations to include extremely compact,\nasymmetric, and mixed spin binaries."
         },
         {
-            "name": "ffb",
-            "description": "Computational Fluid Dynamics Software for aeroacoustics"
+            "name": "berkeleygw",
+            "description": "BerkeleyGW is a many-body perturbation theory code for excited states,\nusing the GW method and the GW plus Bethe-Salpeter equation (GW-BSE)\nmethod to solve respectively for quasiparticle excitations and optical\nproperties of materials."
         },
         {
-            "name": "bigdft-core",
-            "description": "BigDFT-core: the core components of BigDFT, an electronic structure\ncalculation based on Daubechies wavelets."
+            "name": "slate",
+            "description": "The Software for Linear Algebra Targeting Exascale (SLATE) project is to\nprovide fundamental dense linear algebra capabilities to the US\nDepartment of Energy and to the high-performance computing (HPC)\ncommunity at large. To this end, SLATE will provide basic dense matrix\noperations (e.g., matrix multiplication, rank-k update, triangular\nsolve), linear systems solvers, least square solvers, singular value and\neigenvalue solvers."
         },
         {
-            "name": "cosma",
-            "description": "Distributed Communication-Optimal Matrix-Matrix Multiplication Library"
+            "name": "conquest",
+            "description": "CONQUEST is a DFT code designed for large-scale calculations, with\nexcellent parallelisation."
         },
         {
             "name": "abinit",
@@ -227,32 +209,32 @@
             "description": "Domain specific library for electronic structure calculations"
         },
         {
-            "name": "elmerfem",
-            "description": "Elmer is an open source multiphysical simulation software. It includes\nphysical models of fluid dynamics, structural mechanics,\nelectromagnetics, heat transfer and acoustics."
+            "name": "mptensor",
+            "description": "mptensor is parallel C++ libarary for tensor calculations. It provides\nsimilar interfaces as Numpy and Scipy in Python."
         },
         {
-            "name": "octopus",
-            "description": "A real-space finite-difference (time-dependent) density-functional\ntheory code."
-        },
-        {
-            "name": "elemental",
-            "description": "Elemental: Distributed-memory dense and sparse-direct linear algebra and\noptimization library."
-        },
-        {
-            "name": "linsys-v",
-            "description": "LINSYS_V: Verified Solution of Linear Systems"
+            "name": "hpddm",
+            "description": "High-performance unified framework for domain decomposition methods."
         },
         {
             "name": "bigdft-spred",
             "description": "BigDFT-spred: a library for structure prediction tools, that is compiled\non top of BigDFT routines."
         },
         {
-            "name": "globalarrays",
-            "description": "Global Arrays (GA) is a Partitioned Global Address Space (PGAS)\nprogramming model. It provides primitives for one-sided communication\n(Get, Put, Accumulate) and Atomic Operations (read increment). It\nsupports blocking and non-blocking primtives, and supports location\nconsistency."
+            "name": "butterflypack",
+            "description": "ButterflyPACK is a mathematical software for rapidly solving large-scale\ndense linear systems that exhibit off-diagonal rank-deficiency. These\nsystems arise frequently from boundary element methods, or factorization\nphases in finite-difference/finite-element methods. ButterflyPACK relies\non low-rank or butterfly formats under Hierarchical matrix, HODLR or\nother hierarchically nested frameworks to compress, factor and solve the\nlinear system in quasi-linear time. The computationally most intensive\nphase, factorization, is accelerated via randomized linear algebras. The\nbutterfly format, originally inspired by the butterfly data flow in fast\nFourier Transform, is a linear algebra tool well-suited for compressing\nmatrices arising from high-frequency wave equations or highly\noscillatory integral operators."
         },
         {
-            "name": "cp2k",
-            "description": "CP2K is a quantum chemistry and solid state physics software package\nthat can perform atomistic simulations of solid state, liquid,\nmolecular, periodic, material, crystal, and biological systems"
+            "name": "gptune",
+            "description": "GPTune is an autotuning framework that relies on multitask and transfer\nlearnings to help solve the underlying black-box optimization problem\nusing Bayesian optimization methodologies."
+        },
+        {
+            "name": "elsi",
+            "description": "ELSI provides a unified interface for electronic structure codes to a\nvariety of eigenvalue solvers."
+        },
+        {
+            "name": "elpa",
+            "description": "Eigenvalue solvers for Petaflop-Applications (ELPA)"
         },
         {
             "name": "petsc",
@@ -263,24 +245,60 @@
             "description": "Open-Source Large-Scale Parallel FEM Program for Nonlinear Structural\nAnalysis"
         },
         {
-            "name": "hpddm",
-            "description": "High-performance unified framework for domain decomposition methods."
+            "name": "salmon-tddft",
+            "description": "SALMON is an open-source computer program for ab-initio quantum-\nmechanical calculations of electron dynamics at the nanoscale that takes\nplace in various situations of light-matter interactions. It is based on\ntime-dependent density functional theory, solving time-dependent Kohn-\nSham equation in real time and real space with norm-conserving\npseudopotentials."
         },
         {
-            "name": "nwchem",
-            "description": "High-performance computational chemistry software"
+            "name": "eigenexa",
+            "description": "EigenExa is a high-performance eigenvalue solver."
+        },
+        {
+            "name": "costa",
+            "description": "Distributed Communication-Optimal Matrix Transpose and Reshuffle\nLibrary Based on the paper: https://arxiv.org/abs/2106.06601"
         },
         {
             "name": "fujitsu-frontistr",
             "description": "This is a fork repository of the FrontISTR tuned for A64FX."
         },
         {
-            "name": "exciting",
-            "description": "exciting is a full-potential all-electron density-functional-theory\npackage implementing the families of linearized augmented planewave\nmethods. It can be applied to all kinds of materials, irrespective of\nthe atomic species in volved, and also allows for exploring the physics\nof core electrons. A particular focus are excited states within many-\nbody perturbation theory."
+            "name": "dftbplus",
+            "description": "DFTB+ is an implementation of the Density Functional based Tight Binding\n(DFTB) method, containing many extensions to the original method."
         },
         {
-            "name": "vasp",
-            "description": "The Vienna Ab initio Simulation Package (VASP) is a computer program\nfor atomic scale materials modelling, e.g. electronic structure\ncalculations and quantum-mechanical molecular dynamics, from first\nprinciples."
+            "name": "hypar",
+            "description": "HyPar is a finite-difference algorithm to solve hyperbolic-parabolic\npartial differential equations (with source terms) on Cartesian grids.\nIt is a unified framework that can handle systems of PDEs with arbitrary\nnumber of spatial dimensions and solution components. It provides the\nspatial discretization and time integration functions, functions to read\nand write solutions from/to files, as well as functions required to\nsolve the system on parallel (MPI) platforms. The physical models define\nthe physics-specific functions such as the exact forms of the hyperbolic\nflux, parabolic flux, source terms, upwinding functions, etc."
+        },
+        {
+            "name": "q-e-sirius",
+            "description": "SIRIUS enabled fork of QuantumESPRESSO."
+        },
+        {
+            "name": "selalib",
+            "description": "SeLaLib is a modular library for the kinetic and gyrokinetic simulation\nof tokamak plasmas by the semi-lagrangian or particle-in-cell methods"
+        },
+        {
+            "name": "linsys-v",
+            "description": "LINSYS_V: Verified Solution of Linear Systems"
+        },
+        {
+            "name": "trilinos",
+            "description": "The Trilinos Project is an effort to develop algorithms and enabling\ntechnologies within an object-oriented software framework for the\nsolution of large-scale, complex multi-physics engineering and\nscientific problems. A unique design feature of Trilinos is its focus on\npackages."
+        },
+        {
+            "name": "dftfe",
+            "description": "Real-space DFT calculations using Finite Elements"
+        },
+        {
+            "name": "globalarrays",
+            "description": "Global Arrays (GA) is a Partitioned Global Address Space (PGAS)\nprogramming model. It provides primitives for one-sided communication\n(Get, Put, Accumulate) and Atomic Operations (read increment). It\nsupports blocking and non-blocking primtives, and supports location\nconsistency."
+        },
+        {
+            "name": "yambo",
+            "description": "Yambo is a FORTRAN/C code for Many-Body calculations in solid state and\nmolecular physics. Yambo relies on the Kohn-Sham wavefunctions generated\nby two DFT public codes: abinit, and PWscf. The code was originally\ndeveloped in the Condensed Matter Theoretical Group of the Physics\nDepartment at the University of Rome \"Tor Vergata\" by Andrea Marini.\nPrevious to its release under the GPL license, yambo was known as SELF."
+        },
+        {
+            "name": "bigdft-psolver",
+            "description": "BigDFT-Psolver: a flexible real-space Poisson Solver based on\nInterpolating Scaling Functions. It constitutes a fundamental building\nblock of BigDFT code, and it can also be used separately and linked to\nother codes."
         },
         {
             "name": "bigdft-chess",
@@ -291,72 +309,80 @@
             "description": "Quantum ESPRESSO is an integrated suite of Open-Source computer codes\nfor electronic-structure calculations and materials modeling at the\nnanoscale. It is based on density-functional theory, plane waves, and\npseudopotentials."
         },
         {
-            "name": "slate",
-            "description": "The Software for Linear Algebra Targeting Exascale (SLATE) project is to\nprovide fundamental dense linear algebra capabilities to the US\nDepartment of Energy and to the high-performance computing (HPC)\ncommunity at large. To this end, SLATE will provide basic dense matrix\noperations (e.g., matrix multiplication, rank-k update, triangular\nsolve), linear systems solvers, least square solvers, singular value and\neigenvalue solvers."
+            "name": "strumpack",
+            "description": "STRUMPACK -- STRUctured Matrix PACKage - provides linear solvers for\nsparse matrices and for dense rank-structured matrices, i.e., matrices\nthat exhibit some kind of low-rank property. It provides a distributed\nmemory fully algebraic sparse solver and preconditioner. The\npreconditioner is mostly aimed at large sparse linear systems which\nresult from the discretization of a partial differential equation, but\nis not limited to any particular type of problem. STRUMPACK also\nprovides preconditioned GMRES and BiCGStab iterative solvers."
+        },
+        {
+            "name": "elemental",
+            "description": "Elemental: Distributed-memory dense and sparse-direct linear algebra and\noptimization library."
+        },
+        {
+            "name": "elmerfem",
+            "description": "Elmer is an open source multiphysical simulation software. It includes\nphysical models of fluid dynamics, structural mechanics,\nelectromagnetics, heat transfer and acoustics."
+        },
+        {
+            "name": "bigdft-core",
+            "description": "BigDFT-core: the core components of BigDFT, an electronic structure\ncalculation based on Daubechies wavelets."
+        },
+        {
+            "name": "nwchem",
+            "description": "High-performance computational chemistry software"
+        },
+        {
+            "name": "exciting",
+            "description": "exciting is a full-potential all-electron density-functional-theory\npackage implementing the families of linearized augmented planewave\nmethods. It can be applied to all kinds of materials, irrespective of\nthe atomic species in volved, and also allows for exploring the physics\nof core electrons. A particular focus are excited states within many-\nbody perturbation theory."
         },
         {
             "name": "siesta",
             "description": "SIESTA performs electronic structure calculations and ab initio\nmolecular dynamics simulations of molecules and solids."
         },
         {
-            "name": "elpa",
-            "description": "Eigenvalue solvers for Petaflop-Applications (ELPA)"
+            "name": "mumps",
+            "description": "MUMPS: a MUltifrontal Massively Parallel sparse direct Solver"
         },
         {
-            "name": "elsi",
-            "description": "ELSI provides a unified interface for electronic structure codes to a\nvariety of eigenvalue solvers."
+            "name": "vasp",
+            "description": "The Vienna Ab initio Simulation Package (VASP) is a computer program\nfor atomic scale materials modelling, e.g. electronic structure\ncalculations and quantum-mechanical molecular dynamics, from first\nprinciples."
         },
         {
-            "name": "dla-future",
-            "description": "DLA-Future library: Distributed Linear Algebra with Future"
+            "name": "molgw",
+            "description": "MOLGW is a quantum chemistry code that implements the many-body\nperturbation theory (MBPT) to describe the excited electronic states in\nfinite systems (atoms, molecules, clusters). MOLGW implements the GW\napproximation for the self-energy (ionization and affinity) and the\nBethe-Salpeter equation for the optical excitations. MOLGW also applies\nthe real-time time-dependent density-functional theory (RT-TDDFT). MOLGW\nemploys standard Gaussian basis set."
+        },
+        {
+            "name": "fleur",
+            "description": "FLEUR (Full-potential Linearised augmented plane wave in EURope) is a\ncode family for calculating groundstate as well as excited-state\nproperties of solids within the context of density functional theory\n(DFT)."
         },
         {
             "name": "openmx",
             "description": "OpenMX (Open source package for Material eXplorer) is a software package\nfor nano-scale material simulations based on density functional theories\n(DFT), norm-conserving pseudopotentials, and pseudo-atomic localized\nbasis functions."
         },
         {
-            "name": "eigenexa",
-            "description": "EigenExa is a high-performance eigenvalue solver."
-        },
-        {
-            "name": "hypar",
-            "description": "HyPar is a finite-difference algorithm to solve hyperbolic-parabolic\npartial differential equations (with source terms) on Cartesian grids.\nIt is a unified framework that can handle systems of PDEs with arbitrary\nnumber of spatial dimensions and solution components. It provides the\nspatial discretization and time integration functions, functions to read\nand write solutions from/to files, as well as functions required to\nsolve the system on parallel (MPI) platforms. The physical models define\nthe physics-specific functions such as the exact forms of the hyperbolic\nflux, parabolic flux, source terms, upwinding functions, etc."
-        },
-        {
-            "name": "conquest",
-            "description": "CONQUEST is a DFT code designed for large-scale calculations, with\nexcellent parallelisation."
-        },
-        {
             "name": "omm-bundle",
             "description": "Omm-bundle is a library implementing the orbital minimization method for\nsolving the Kohn-Sham equation as a generalized eigenvalue problem and a\nbundle of four separate libraries: pspBLAS, MatrixSwitch, libOMM,\ntomato."
         },
         {
-            "name": "dftfe",
-            "description": "Real-space DFT calculations using Finite Elements"
+            "name": "cp2k",
+            "description": "CP2K is a quantum chemistry and solid state physics software package\nthat can perform atomistic simulations of solid state, liquid,\nmolecular, periodic, material, crystal, and biological systems"
         },
         {
-            "name": "dftbplus",
-            "description": "DFTB+ is an implementation of the Density Functional based Tight Binding\n(DFTB) method, containing many extensions to the original method."
+            "name": "ffb",
+            "description": "Computational Fluid Dynamics Software for aeroacoustics"
         },
         {
-            "name": "gptune",
-            "description": "GPTune is an autotuning framework that relies on multitask and transfer\nlearnings to help solve the underlying black-box optimization problem\nusing Bayesian optimization methodologies."
+            "name": "octopus",
+            "description": "A real-space finite-difference (time-dependent) density-functional\ntheory code."
         },
         {
-            "name": "py-gpaw",
-            "description": "GPAW is a density-functional theory (DFT) Python code based on the\nprojector-augmented wave (PAW) method and the atomic simulation\nenvironment (ASE)."
+            "name": "cosma",
+            "description": "Distributed Communication-Optimal Matrix-Matrix Multiplication Library"
         },
         {
-            "name": "strumpack",
-            "description": "STRUMPACK -- STRUctured Matrix PACKage - provides linear solvers for\nsparse matrices and for dense rank-structured matrices, i.e., matrices\nthat exhibit some kind of low-rank property. It provides a distributed\nmemory fully algebraic sparse solver and preconditioner. The\npreconditioner is mostly aimed at large sparse linear systems which\nresult from the discretization of a partial differential equation, but\nis not limited to any particular type of problem. STRUMPACK also\nprovides preconditioned GMRES and BiCGStab iterative solvers."
+            "name": "dla-future",
+            "description": "DLA-Future library: Distributed Linear Algebra with Future"
         },
         {
             "name": "dealii",
             "description": "C++ software library providing well-documented tools to build finite\nelement codes for a broad variety of PDEs."
-        },
-        {
-            "name": "mptensor",
-            "description": "mptensor is parallel C++ libarary for tensor calculations. It provides\nsimilar interfaces as Numpy and Scipy in Python."
         }
     ]
 }
