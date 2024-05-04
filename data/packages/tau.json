@@ -152,6 +152,16 @@
             "name": "+rocprofiler",
             "spec": "+roctracer",
             "description": "tau: Use either rocprofiler or roctracer"
+        },
+        {
+            "name": "+rocprofv2",
+            "spec": "+roctracer",
+            "description": "tau: Rocprofv2 does not need roctracer"
+        },
+        {
+            "name": "+rocprofv2",
+            "spec": "+rocprofiler",
+            "description": "tau: Rocprofv2 does not need rocprofiler"
         }
     ],
     "variants": [
@@ -281,6 +291,11 @@
             "description": "Activates ROCm roctracer support"
         },
         {
+            "name": "rocprofv2",
+            "default": false,
+            "description": "Activates ROCm rocprofiler support"
+        },
+        {
             "name": "opencl",
             "default": false,
             "description": "Activates OpenCL support"
@@ -391,6 +406,10 @@
             "description": "GASNet is a language-independent, networking middleware layer that\nprovides network-independent, high-performance communication primitives\nincluding Remote Memory Access (RMA) and Active Messages (AM). It has\nbeen used to implement parallel programming models and libraries such as\nUPC, UPC++, Co-Array Fortran, Legion, Chapel, and many others. The\ninterface is primarily intended as a compilation target and for use by\nruntime library writers (as opposed to end users), and the primary goals\nare high performance, interface portability, and expressiveness.\n***NOTICE***: The GASNet library built by this Spack package is ONLY\nintended for unit-testing purposes, and is generally UNSUITABLE FOR\nPRODUCTION USE. The RECOMMENDED way to build GASNet is as an embedded\nlibrary as configured by the higher-level client runtime package (UPC++,\nLegion, etc), including system-specific configuration."
         },
         {
+            "name": "gmake",
+            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files."
+        },
+        {
             "name": "hip",
             "description": "HIP is a C++ Runtime API and Kernel Language that allows developers to\ncreate portable applications for AMD and NVIDIA GPUs from single source\ncode."
         },
@@ -420,7 +439,7 @@
         },
         {
             "name": "mpi",
-            "description": "MPICH is a high performance and widely portable implementation of the\nMessage Passing Interface (MPI) standard."
+            "description": "MVAPICH2-GDR is an optimized version of the MVAPICH2 MPI library for\nGPU-enabled HPC and Deep Learning Applications. MVAPICH2-GDR is not\ninstallable from source and is only available through a binary mirror.\nIf you do not find the binary you're looking for, send us an email at\nmvapich@cse.ohio-state.edu. The binary mirror url is:\nhttp://mvapich.cse.ohio-state.edu/download/mvapich/spack-\nmirror/mvapich2-gdr/"
         },
         {
             "name": "oneapi-level-zero",
@@ -468,18 +487,10 @@
         },
         {
             "name": "zlib-api",
-            "description": "zlib replacement with optimizations for next generation systems."
+            "description": "A free, general-purpose, legally unencumbered lossless data-compression\nlibrary."
         }
     ],
     "dependent_to": [
-        {
-            "name": "omnitrace",
-            "description": "Application Profiling, Tracing, and Analysis"
-        },
-        {
-            "name": "timemory",
-            "description": "Modular profiling toolkit and suite of libraries and tools for\nC/C++/Fortran/CUDA/Python"
-        },
         {
             "name": "savanna",
             "description": "CODARcode Savanna runtime framework for high performance, workflow\nmanagement using Swift/T and ADIOS."
@@ -487,6 +498,14 @@
         {
             "name": "vite",
             "description": "ViTE is a trace explorer. It is a tool to visualize execution traces in\nPaje or OTF2 format for debugging and profiling parallel or distributed\napplications."
+        },
+        {
+            "name": "omnitrace",
+            "description": "Application Profiling, Tracing, and Analysis"
+        },
+        {
+            "name": "timemory",
+            "description": "Modular profiling toolkit and suite of libraries and tools for\nC/C++/Fortran/CUDA/Python"
         }
     ]
 }
