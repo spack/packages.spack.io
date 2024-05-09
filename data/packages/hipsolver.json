@@ -11,6 +11,10 @@
             "branch": "master"
         },
         {
+            "name": "6.1.0",
+            "sha256": "3cb89ca486cdbdfcb1a07c35ee65f60219ef7bc62a5b0f94ca1a3206a0106495"
+        },
+        {
             "name": "6.0.2",
             "sha256": "8215e55c3a5bc9c7eeb141cefdc6a6eeba94d8bc3aeae9e685ab7904965040d4"
         },
@@ -79,7 +83,7 @@
             "sha256": "697ba2b2814e7ac6f79680e6455b4b5e0def1bee2014b6940f47be7d13c0ae74"
         }
     ],
-    "latest_version": "6.0.2",
+    "latest_version": "6.1.0",
     "build_system": "CMakePackage",
     "conflicts": [
         {
@@ -481,7 +485,17 @@
         "renjithravindrankannath",
         "srekolam"
     ],
-    "patches": [],
+    "patches": [
+        {
+            "owner": "builtin.hipsolver",
+            "sha256": "0e7240a3f943deda3f8ab558d07477de181aca9d89e376992c8d28a53a5deebf",
+            "level": 1,
+            "working_dir": ".",
+            "reverse": false,
+            "relative_path": "001-suite-sparse-include-path.patch",
+            "version": "@6.1"
+        }
+    ],
     "resources": [],
     "description": "hipSOLVER is a LAPACK marshalling library, with multiple supported\nbackends. It sits between the application and a 'worker' LAPACK library,\nmarshalling inputs into the backend library and marshalling results back\nto the application. hipSOLVER exports an interface that does not require\nthe client to change, regardless of the chosen backend. Currently,\nhipSOLVER supports rocSOLVER and cuSOLVER as backends.\n",
     "dependencies": [
@@ -532,6 +546,10 @@
         {
             "name": "rocsolver",
             "description": "rocSOLVER is a work-in-progress implementation of a subset of LAPACK\nfunctionality on the ROCm platform."
+        },
+        {
+            "name": "suite-sparse",
+            "description": "SuiteSparse is a suite of sparse matrix algorithms"
         }
     ],
     "dependent_to": [
