@@ -20,6 +20,11 @@
             "description": null
         },
         {
+            "name": "+sycl",
+            "spec": "+rocm",
+            "description": null
+        },
+        {
             "name": "%gcc@:4",
             "spec": "+cuda ^cuda@11.0:~allow-unsupported-compilers",
             "description": null
@@ -350,8 +355,78 @@
             "description": null
         },
         {
-            "name": "amr-wind+hypre",
+            "name": "+cuda",
+            "spec": "~amr_wind_gpu~nalu_wind_gpu",
+            "description": null
+        },
+        {
+            "name": "+rocm",
+            "spec": "~amr_wind_gpu~nalu_wind_gpu",
+            "description": null
+        },
+        {
+            "name": "+sycl",
+            "spec": "~amr_wind_gpu~nalu_wind_gpu",
+            "description": null
+        },
+        {
+            "name": "^nalu-wind+cuda",
+            "spec": "~nalu_wind_gpu",
+            "description": null
+        },
+        {
+            "name": "^nalu-wind+rocm",
+            "spec": "~nalu_wind_gpu",
+            "description": null
+        },
+        {
+            "name": "^amr-wind+cuda",
+            "spec": "~amr_wind_gpu",
+            "description": null
+        },
+        {
+            "name": "^amr-wind+rocm",
+            "spec": "~amr_wind_gpu",
+            "description": null
+        },
+        {
+            "name": "^amr-wind+sycl",
+            "spec": "~amr_wind_gpu",
+            "description": null
+        },
+        {
+            "name": "+amr_wind_gpu",
+            "spec": "~cuda~rocm~sycl",
+            "description": null
+        },
+        {
+            "name": "+nalu_wind_gpu",
+            "spec": "~cuda~rocm",
+            "description": null
+        },
+        {
+            "name": "+nalu_wind_gpu",
             "spec": "+sycl",
+            "description": null
+        },
+        {
+            "name": "^amr-wind+hypre",
+            "spec": "~amr_wind_gpu+nalu_wind_gpu",
+            "description": null
+        },
+        {
+            "name": "^amr-wind+hypre",
+            "spec": "+amr_wind_gpu~nalu_wind_gpu",
+            "description": null
+        },
+        {
+            "name": "+sycl",
+            "spec": "+cuda",
+            "description": null
+        },
+        {
+            "name": "+rocm",
+            "spec": "+cuda",
             "description": null
         }
     ],
@@ -397,29 +472,14 @@
             "description": "the build system generator to use"
         },
         {
-            "name": "openfast",
+            "name": "amr_wind_gpu",
             "default": false,
-            "description": "Enable OpenFAST integration"
+            "description": "Enable AMR-Wind on the GPU"
         },
         {
-            "name": "hypre",
-            "default": true,
-            "description": "Enable hypre solver"
-        },
-        {
-            "name": "stk_simd",
+            "name": "nalu_wind_gpu",
             "default": false,
-            "description": "Enable SIMD in STK"
-        },
-        {
-            "name": "umpire",
-            "default": false,
-            "description": "Enable Umpire"
-        },
-        {
-            "name": "tiny_profile",
-            "default": false,
-            "description": "Turn on AMR-wind with tiny profile"
+            "description": "Enable Nalu-Wind on the GPU"
         },
         {
             "name": "sycl",
@@ -465,8 +525,16 @@
             "description": "This repository includes the user mode API nterfaces and libraries\nnecessary for host applications to launch computer kernels to available\nHSA ROCm kernel agents.AMD Heterogeneous System Architecture HSA - Linux\nHSA Runtime for Boltzmann (ROCm) platforms."
         },
         {
+            "name": "kokkos-nvcc-wrapper",
+            "description": "The NVCC wrapper provides a wrapper around NVCC to make it a 'full' C++\ncompiler that accepts all flags"
+        },
+        {
             "name": "llvm-amdgpu",
             "description": "Toolkit for the construction of highly optimized compilers, optimizers,\nand run-time environments."
+        },
+        {
+            "name": "mpi",
+            "description": "MVAPICH2-X is the advanced version of the MVAPICH2 MPI library with\nenhanced features (UMR, ODP, DC, Core-Direct, SHARP, XPMEM), OSU INAM\n(InifniBand Network Monitoring and Analysis),PGAS (OpenSHMEM, UPC,\nUPC++, and CAF), and MPI+PGAS programming models with unified\ncommunication runtime. MVAPICH2-X is not installable from source and is\nonly available through a binary mirror. If you do not find the binary\nyou're looking for, send us an email at mvapich@cse.ohio-state.edu. The\nbinary mirror url is: http://mvapich.cse.ohio-\nstate.edu/download/mvapich/spack-mirror/mvapich2x/"
         },
         {
             "name": "nalu-wind",
@@ -477,8 +545,16 @@
             "description": "Ninja is a small build system with a focus on speed. It differs from\nother build systems in two major respects: it is designed to have its\ninput files generated by a higher-level build system, and it is designed\nto run builds as fast as possible."
         },
         {
+            "name": "openfast",
+            "description": "Wind turbine simulation package from NREL"
+        },
+        {
             "name": "tioga",
             "description": "Topology Independent Overset Grid Assembly (TIOGA)"
+        },
+        {
+            "name": "trilinos",
+            "description": "The Trilinos Project is an effort to develop algorithms and enabling\ntechnologies within an object-oriented software framework for the\nsolution of large-scale, complex multi-physics engineering and\nscientific problems. A unique design feature of Trilinos is its focus on\npackages."
         },
         {
             "name": "yaml-cpp",
