@@ -3,8 +3,16 @@
     "aliases": [],
     "versions": [
         {
-            "name": "develop",
-            "branch": "trunk"
+            "name": "main",
+            "branch": "main"
+        },
+        {
+            "name": "3.1.2",
+            "sha256": "fdb3a431a37464834acff3bdc145f4fe8d0f951dd5327c4c6f93f4cbac5c2700"
+        },
+        {
+            "name": "3.0.1",
+            "sha256": "7b311a00503a863881eb8177dbeb84322f29399f3d7d72f3b1a4c9ba1d5794b4"
         },
         {
             "name": "2.5.2",
@@ -15,29 +23,39 @@
             "sha256": "e489354df00f0d84976ccdd0477028693977c87ccd14f3924a89f848bb0e01e3"
         }
     ],
-    "latest_version": "2.5.2",
-    "build_system": "Package",
-    "conflicts": [],
+    "latest_version": "3.1.2",
+    "build_system": "AutotoolsPackage",
+    "conflicts": [
+        {
+            "name": "arch=windows-None-None",
+            "spec": "build_system=autotools",
+            "description": null
+        }
+    ],
     "variants": [
         {
             "name": "build_system",
-            "default": "generic",
+            "default": "autotools",
             "description": "Build systems supported by the package"
         }
     ],
-    "homepage": "https://www.flintlib.org",
+    "homepage": "https://flintlib.org",
     "maintainers": [],
     "patches": [],
     "resources": [],
     "description": "FLINT (Fast Library for Number Theory).\n",
     "dependencies": [
         {
-            "name": "autoconf",
-            "description": "Autoconf -- system configuration part of autotools"
+            "name": "gmake",
+            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files."
         },
         {
             "name": "gmp",
             "description": "GMP is a free library for arbitrary precision arithmetic, operating on\nsigned integers, rational numbers, and floating-point numbers."
+        },
+        {
+            "name": "gnuconfig",
+            "description": "The GNU config.guess and config.sub scripts versioned by timestamp.\nThis package can be used as a build dependency for autotools packages\nthat ship a tarball with outdated config.guess and config.sub files."
         },
         {
             "name": "mpfr",

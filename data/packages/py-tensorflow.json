@@ -7,6 +7,11 @@
             "sha256": "c729e56efc945c6df08efe5c9f5b8b89329c7c91b8f40ad2bb3e13900bd4876d"
         },
         {
+            "name": "2.16-rocm-enhanced",
+            "git": "https://github.com/ROCm/tensorflow-upstream.git",
+            "branch": "r2.16-rocm-enhanced"
+        },
+        {
             "name": "2.15.1",
             "sha256": "f36416d831f06fe866e149c7cd752da410a11178b01ff5620e9f265511ed57cf"
         },
@@ -17,6 +22,11 @@
         {
             "name": "2.14.1",
             "sha256": "6b31ed347ed7a03c45b906aa41628ac91c3db7c84cb816971400d470e58ba494"
+        },
+        {
+            "name": "2.14-rocm-enhanced",
+            "git": "https://github.com/ROCm/tensorflow-upstream.git",
+            "branch": "r2.14-rocm-enhanced-nohipblaslt-build"
         },
         {
             "name": "2.14.0",
@@ -677,12 +687,12 @@
         },
         {
             "name": "~rocm",
-            "spec": "@2.7.4-rocm-enhanced,2.11.0-rocm-enhanced",
+            "spec": "@2.7.4-rocm-enhanced,2.11.0-rocm-enhanced,2.14-rocm-enhanced,2.16-rocm-enhanced",
             "description": null
         },
         {
             "name": "+rocm",
-            "spec": "@:2.7.4-a,2.7.4.0:2.11.0-a,2.11.0.0:",
+            "spec": "@:2.7.4-a,2.7.4.0:2.11.0-a,2.11.0.0:2.14-a,2.14-z:2.16-a,2.16-z:",
             "description": null
         },
         {
@@ -877,6 +887,33 @@
             "reverse": false,
             "relative_path": "absl_neon.patch",
             "version": "@2.16.1: arch=None-None-aarch64:"
+        },
+        {
+            "owner": "builtin.py-tensorflow",
+            "sha256": "e2cd9b6afd52a6470a7990bd573728504f13de6864bd2a72bd8da14e2de52693",
+            "level": 1,
+            "working_dir": ".",
+            "reverse": false,
+            "relative_path": "Find_ROCm_Components_Individiually.2.16.patch",
+            "version": "@2.16-rocm-enhanced+rocm"
+        },
+        {
+            "owner": "builtin.py-tensorflow",
+            "sha256": "fa25b2acfaf3a13ff7ed0ec678392732e509075f6788d2cd7748c2da77ad016b",
+            "level": 1,
+            "working_dir": ".",
+            "reverse": false,
+            "relative_path": "Find_ROCm_Components_Individiually.patch",
+            "version": "@2.14-rocm-enhanced+rocm"
+        },
+        {
+            "owner": "builtin.py-tensorflow",
+            "sha256": "36ca74b8a507ed237fc099e7952b3bc41534392de6b6072175b707a9b913b71c",
+            "level": 1,
+            "working_dir": ".",
+            "reverse": false,
+            "relative_path": "set_jit_trueLT_false.patch",
+            "version": "@2.14-rocm-enhanced:+rocm"
         }
     ],
     "resources": [],
@@ -911,12 +948,24 @@
             "description": "HIP is a C++ Runtime API and Kernel Language that allows developers to\ncreate portable applications for AMD and NVIDIA GPUs from single source\ncode."
         },
         {
+            "name": "hipblas",
+            "description": "hipBLAS is a BLAS marshalling library, with multiple supported backends"
+        },
+        {
             "name": "hipcub",
             "description": "Radeon Open Compute Parallel Primitives Library"
         },
         {
             "name": "hipfft",
             "description": "hipFFT is an FFT marshalling library. Currently, hipFFT supports either\nrocFFT or cuFFT as backends.hipFFT exports an interface that does not\nrequire the client to change, regardless of the chosen backend. It sits\nbetween the application and the backend FFT library, marshalling inputs\ninto the backend and results back to the application."
+        },
+        {
+            "name": "hiprand",
+            "description": "The hipRAND project provides an interface for generating pseudo-random\nand quasi-random numbers with either cuRAND or rocRAND backends."
+        },
+        {
+            "name": "hipsolver",
+            "description": "hipSOLVER is a LAPACK marshalling library, with multiple supported\nbackends. It sits between the application and a 'worker' LAPACK library,\nmarshalling inputs into the backend library and marshalling results back\nto the application. hipSOLVER exports an interface that does not require\nthe client to change, regardless of the chosen backend. Currently,\nhipSOLVER supports rocSOLVER and cuSOLVER as backends."
         },
         {
             "name": "hipsparse",
@@ -936,11 +985,11 @@
         },
         {
             "name": "mkl",
-            "description": "This is an earlier version of Intel parallel software development tools\nand has now been replaced by the Intel oneAPI Toolkits. LICENSE\nINFORMATION: By downloading and using this software, you agree to the\nterms and conditions of the software license agreements at\nhttps://intel.ly/393CijO."
+            "description": "Intel oneAPI Math Kernel Library (Intel oneMKL; formerly Intel Math\nKernel Library or Intel MKL), is a library of optimized math routines\nfor science, engineering, and financial applications. Core math\nfunctions include BLAS, LAPACK, ScaLAPACK, sparse solvers, fast Fourier\ntransforms, and vector math. LICENSE INFORMATION: By downloading and\nusing this software, you agree to the terms and conditions of the\nsoftware license agreements at https://intel.ly/393CijO."
         },
         {
             "name": "mpi",
-            "description": "MVAPICH2-X is the advanced version of the MVAPICH2 MPI library with\nenhanced features (UMR, ODP, DC, Core-Direct, SHARP, XPMEM), OSU INAM\n(InifniBand Network Monitoring and Analysis),PGAS (OpenSHMEM, UPC,\nUPC++, and CAF), and MPI+PGAS programming models with unified\ncommunication runtime. MVAPICH2-X is not installable from source and is\nonly available through a binary mirror. If you do not find the binary\nyou're looking for, send us an email at mvapich@cse.ohio-state.edu. The\nbinary mirror url is: http://mvapich.cse.ohio-\nstate.edu/download/mvapich/spack-mirror/mvapich2x/"
+            "description": "Cray's MPICH is a high performance and widely portable implementation of\nthe Message Passing Interface (MPI) standard."
         },
         {
             "name": "nccl",
@@ -1071,6 +1120,10 @@
             "description": "Radeon Open Compute FFT library"
         },
         {
+            "name": "rocm-core",
+            "description": "rocm-core is a utility which can be used to get ROCm release version. It\nalso provides the Lmod modules files for the ROCm release.\ngetROCmVersion function provides the ROCm version."
+        },
+        {
             "name": "rocminfo",
             "description": "Radeon Open Compute (ROCm) Runtime rocminfo tool"
         },
@@ -1087,30 +1140,50 @@
             "description": "rocSOLVER is a work-in-progress implementation of a subset of LAPACK\nfunctionality on the ROCm platform."
         },
         {
+            "name": "roctracer-dev",
+            "description": "ROC-tracer library: Runtimes Generic Callback/Activity APIs. The goal of\nthe implementation is to provide a generic independent from specific\nruntime profiler to trace API and asyncronous activity."
+        },
+        {
             "name": "swig",
             "description": "SWIG is an interface compiler that connects programs written in C and\nC++ with scripting languages such as Perl, Python, Ruby, and Tcl. It\nworks by taking the declarations found in C/C++ header files and using\nthem to generate the wrapper code that scripting languages need to\naccess the underlying C/C++ code. In addition, SWIG provides a variety\nof customization features that let you tailor the wrapping process to\nsuit your application."
         }
     ],
     "dependent_to": [
         {
-            "name": "py-exarl",
-            "description": "A scalable software framework for reinforcement learning environments\nand agents/policies used for the Design and Control applications"
-        },
-        {
-            "name": "py-dgl",
-            "description": "Deep Graph Library (DGL). DGL is an easy-to-use, high performance and\nscalable Python package for deep learning on graphs. DGL is framework\nagnostic, meaning if a deep graph model is a component of an end-to-end\napplication, the rest of the logics can be implemented in any major\nframeworks, such as PyTorch, Apache MXNet or TensorFlow."
+            "name": "py-zfit",
+            "description": "scalable pythonic model fitting for high energy physics"
         },
         {
             "name": "py-imbalanced-learn",
             "description": "imbalanced-learn is a python package offering a number of re-sampling\ntechniques commonly used in datasets showing strong between-class\nimbalance. It is compatible with scikit-learn and is part of scikit-\nlearn-contrib projects."
         },
         {
-            "name": "py-keras",
-            "description": "Multi-backend Keras. Keras 3 is a new multi-backend implementation of\nthe Keras API, with support for TensorFlow, JAX, and PyTorch."
+            "name": "py-tensorflow-estimator",
+            "description": "TensorFlow Estimator is a high-level TensorFlow API that greatly\nsimplifies machine learning programming."
+        },
+        {
+            "name": "py-exarl",
+            "description": "A scalable software framework for reinforcement learning environments\nand agents/policies used for the Design and Control applications"
         },
         {
             "name": "py-deepsig-biocomp",
             "description": "DeepSig - Predictor of signal peptides in proteins based on deep\nlearning"
+        },
+        {
+            "name": "py-keras",
+            "description": "Multi-backend Keras. Keras 3 is a new multi-backend implementation of\nthe Keras API, with support for TensorFlow, JAX, and PyTorch."
+        },
+        {
+            "name": "py-smote-variants",
+            "description": "Variants of the synthetic minority oversampling technique (SMOTE) for\nimbalanced learning"
+        },
+        {
+            "name": "cosmoflow-benchmark",
+            "description": "This is a an implementation of the CosmoFlow 3D convolutional neural\nnetwork for benchmarking. It is written in TensorFlow with the Keras API\nand uses Horovod for distributed training."
+        },
+        {
+            "name": "py-tensorflow-probability",
+            "description": "TensorFlow Probability (TFP) is a Python library built on TensorFlow\nthat makes it easy to combine probabilistic models and deep learning on\nmodern hardware (TPU, GPU). It's for data scientists, statisticians, ML\nresearchers, and practitioners who want to encode domain knowledge to\nunderstand data and make predictions."
         },
         {
             "name": "py-alphafold",
@@ -1121,36 +1194,20 @@
             "description": "Tensorflow plugin for DLPack."
         },
         {
-            "name": "py-zfit",
-            "description": "scalable pythonic model fitting for high energy physics"
-        },
-        {
-            "name": "py-smote-variants",
-            "description": "Variants of the synthetic minority oversampling technique (SMOTE) for\nimbalanced learning"
+            "name": "py-melissa-core",
+            "description": "Melissa is a file-avoiding, adaptive, fault-tolerant and elastic\nframework, to run large-scale sensitivity analysis or deep-surrogate\ntraining on supercomputers. This package builds the launcher and server\nmodules."
         },
         {
             "name": "py-medaka",
             "description": "medaka is a tool to create consensus sequences and variant calls from\nnanopore sequencing data. This task is performed using neural networks\napplied a pileup of individual sequencing reads against a draft\nassembly. It provides state-of-the-art results outperforming sequence-\ngraph based methods and signal-based methods, whilst also being faster."
         },
         {
-            "name": "py-tensorflow-estimator",
-            "description": "TensorFlow Estimator is a high-level TensorFlow API that greatly\nsimplifies machine learning programming."
-        },
-        {
             "name": "py-horovod",
             "description": "Horovod is a distributed deep learning training framework for\nTensorFlow, Keras, PyTorch, and Apache MXNet."
         },
         {
-            "name": "py-tensorflow-probability",
-            "description": "TensorFlow Probability (TFP) is a Python library built on TensorFlow\nthat makes it easy to combine probabilistic models and deep learning on\nmodern hardware (TPU, GPU). It's for data scientists, statisticians, ML\nresearchers, and practitioners who want to encode domain knowledge to\nunderstand data and make predictions."
-        },
-        {
-            "name": "py-melissa-core",
-            "description": "Melissa is a file-avoiding, adaptive, fault-tolerant and elastic\nframework, to run large-scale sensitivity analysis or deep-surrogate\ntraining on supercomputers. This package builds the launcher and server\nmodules."
-        },
-        {
-            "name": "cosmoflow-benchmark",
-            "description": "This is a an implementation of the CosmoFlow 3D convolutional neural\nnetwork for benchmarking. It is written in TensorFlow with the Keras API\nand uses Horovod for distributed training."
+            "name": "py-dgl",
+            "description": "Deep Graph Library (DGL). DGL is an easy-to-use, high performance and\nscalable Python package for deep learning on graphs. DGL is framework\nagnostic, meaning if a deep graph model is a component of an end-to-end\napplication, the rest of the logics can be implemented in any major\nframeworks, such as PyTorch, Apache MXNet or TensorFlow."
         }
     ]
 }
