@@ -1,221 +1,241 @@
 {
-    "name": "pocl",
+    "name": "ocl-icd",
     "aliases": [
         {
             "name": "opencl",
-            "alias_for": "pocl ^llvm@:13"
+            "alias_for": "ocl-icd@2.2.13:+headers"
         },
         {
             "name": "opencl",
-            "alias_for": "pocl@3: ^llvm@14:"
+            "alias_for": "ocl-icd@2.2.12+headers"
+        },
+        {
+            "name": "opencl",
+            "alias_for": "ocl-icd@2.2.8:2.2.11+headers"
+        },
+        {
+            "name": "opencl",
+            "alias_for": "ocl-icd@2.2.3:2.2.7+headers"
         }
     ],
     "versions": [
         {
-            "name": "master",
-            "branch": "master"
+            "name": "2.3.1",
+            "sha256": "a32b67c2d52ffbaf490be9fc18b46428ab807ab11eff7664d7ff75e06cfafd6d"
         },
         {
-            "name": "3.0",
-            "sha256": "a3fd3889ef7854b90b8e4c7899c5de48b7494bf770e39fba5ad268a5cbcc719d"
+            "name": "2.3.0",
+            "sha256": "469f592ccd9b0547fb7212b17e1553b203d178634c20d3416640c0209e3ddd50"
         },
         {
-            "name": "1.8",
-            "sha256": "0f63377ae1826e16e90038fc8e7f65029be4ff6f9b059f6907174b5c0d1f8ab2"
+            "name": "2.2.14",
+            "sha256": "46df23608605ad548e80b11f4ba0e590cef6397a079d2f19adf707a7c2fbfe1b"
         },
         {
-            "name": "1.7",
-            "sha256": "5f6bbc391ba144bc7becc3b90888b25468460d5aa6830f63a3b066137e7bfac3"
+            "name": "2.2.13",
+            "sha256": "f85d59f3e8327f15637b91e4ae8df0829e94daeff68c647b2927b8376b1f8d92"
         },
         {
-            "name": "1.6",
-            "sha256": "b0a4c0c056371b6f0db726b88fbb76bbee94948fb2abd4dbc8d958f7c42f766c"
+            "name": "2.2.12",
+            "sha256": "17500e5788304eef5b52dbe784cec197bdae64e05eecf38317840d2d05484272"
         },
         {
-            "name": "1.5",
-            "sha256": "4fcf4618171727d165fc044d465a66e3119217bb4577a97374f94fcd8aed330e"
+            "name": "2.2.11",
+            "sha256": "c1865ef7701b8201ebc6930ed3ac757c7e5cb30f3aa4c1e742a6bc022f4f2292"
         },
         {
-            "name": "1.4",
-            "sha256": "ec237faa83bb1c803fbdf7c6e83d8a2ad68b6f0ed1879c3aa16c0e1dcc478742"
+            "name": "2.2.10",
+            "sha256": "d0459fa1421e8d86aaf0a4df092185ea63bc4e1a7682d3af261ae5d3fae063c7"
         },
         {
-            "name": "1.3",
-            "sha256": "6527e3f47fab7c21e96bc757c4ae3303901f35e23f64642d6da5cc4c4fcc915a"
+            "name": "2.2.9",
+            "sha256": "88da749bc2bd75149f0bb6e72eb4a9d74401a54f4508bc730f13cc03c57a17ed"
         },
         {
-            "name": "1.2",
-            "sha256": "0c43e68f336892f3a64cba19beb99d9212f529bedb77f7879c0331450b982d46"
+            "name": "2.2.8",
+            "sha256": "8a8a405c7d659b905757a358dc467f4aa3d7e4dff1d1624779065764d962a246"
         },
         {
-            "name": "1.1",
-            "sha256": "1e8dd0693a88c84937754df947b202871a40545b1b0a97ebefa370b0281c3c53"
+            "name": "2.2.7",
+            "sha256": "b8e68435904e1a95661c385f24d6924ed28f416985c6db5a3c7448698ad5fea2"
         },
         {
-            "name": "1.0",
-            "sha256": "94bd86a2f9847c03e6c3bf8dca12af3734f8b272ffeacbc3fa8fcca58844b1d4"
+            "name": "2.2.6",
+            "sha256": "4567cae92f58c1d6ecfc771c456fa95f206d8a5c7c5d6c9010ec688a9fd83750"
+        },
+        {
+            "name": "2.2.5",
+            "sha256": "50bf51f4544f83e69a5a2f564732a2adca63fbe9511430aba12f8d6f3a53ae59"
+        },
+        {
+            "name": "2.2.4",
+            "sha256": "92853137ffff393cc74f829357fdd80ac46a82b46c970e80195db86164cca316"
+        },
+        {
+            "name": "2.2.3",
+            "sha256": "46b8355d90f8cc240555e4e077f223c47b950abeadf3e1af52d6e68d2efc2ff3"
         }
     ],
-    "latest_version": "3.0",
-    "build_system": "CMakePackage",
+    "latest_version": "2.3.1",
+    "build_system": "AutotoolsPackage",
     "conflicts": [
         {
-            "name": "@:1.5",
-            "spec": "arch=None-None-a64fx",
-            "description": "pocl: a64fx is supported by pocl v1.6 and above."
+            "name": "arch=windows-None-None",
+            "spec": "build_system=autotools",
+            "description": null
         }
     ],
     "variants": [
         {
             "name": "build_system",
-            "default": "cmake",
+            "default": "autotools",
             "description": "Build systems supported by the package"
         },
         {
-            "name": "build_type",
-            "default": "Release",
-            "description": "CMake build type"
-        },
-        {
-            "name": "ipo",
+            "name": "headers",
             "default": false,
-            "description": "CMake interprocedural optimization"
-        },
-        {
-            "name": "generator",
-            "default": "make",
-            "description": "the build system generator to use"
-        },
-        {
-            "name": "distro",
-            "default": false,
-            "description": "Support several CPU architectures, suitable e.g. in a build that will be made available for download"
-        },
-        {
-            "name": "icd",
-            "default": false,
-            "description": "Support a system-wide ICD loader"
+            "description": "Install also OpenCL headers to use this as OpenCL provider"
         }
     ],
-    "homepage": "http://portablecl.org",
-    "maintainers": [],
-    "patches": [],
+    "homepage": "https://github.com/OCL-dev/ocl-icd",
+    "maintainers": [
+        "lorddavidiii"
+    ],
+    "patches": [
+        {
+            "owner": "builtin.ocl-icd",
+            "sha256": "90fef5c4b341848c82d484a2329339c4762c2451259378fbda60cc86b3216616",
+            "level": 1,
+            "working_dir": ".",
+            "reverse": false,
+            "url": "https://github.com/OCL-dev/ocl-icd/commit/aed1832c81c0971ea001e12d41e04df834257f94.patch?full_index=1",
+            "version": "@2.3.0"
+        }
+    ],
     "resources": [],
-    "description": "Portable Computing Language (pocl) is an open source implementation of\nthe OpenCL standard which can be easily adapted for new targets and\ndevices, both for homogeneous CPU and heterogeneous GPUs/accelerators.\n",
+    "description": "This package aims at creating an Open Source alternative to vendor\nspecific OpenCL ICD loaders.\n",
     "dependencies": [
         {
-            "name": "cmake",
-            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
+            "name": "asciidoc-py3",
+            "description": "Python 3 port of Asciidoc Python. AsciiDoc is a text document format for\nwriting notes, documentation, articles, books, ebooks, slideshows, web\npages, man pages and blogs. AsciiDoc files can be translated to many\nformats including HTML, PDF, EPUB, man page."
+        },
+        {
+            "name": "autoconf",
+            "description": "Autoconf -- system configuration part of autotools"
+        },
+        {
+            "name": "automake",
+            "description": "Automake -- make file builder part of autotools"
         },
         {
             "name": "gmake",
             "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files."
         },
         {
-            "name": "hwloc",
-            "description": "The Hardware Locality (hwloc) software project. The Portable Hardware\nLocality (hwloc) software package provides a portable abstraction\n(across OS, versions, architectures, ...) of the hierarchical topology\nof modern architectures, including NUMA memory nodes, sockets, shared\ncaches, cores and simultaneous multithreading. It also gathers various\nsystem attributes such as cache and memory information as well as the\nlocality of I/O devices such as network interfaces, InfiniBand HCAs or\nGPUs. It primarily aims at helping applications with gathering\ninformation about modern computing hardware so as to exploit it\naccordingly and efficiently."
+            "name": "gnuconfig",
+            "description": "The GNU config.guess and config.sub scripts versioned by timestamp.\nThis package can be used as a build dependency for autotools packages\nthat ship a tarball with outdated config.guess and config.sub files."
         },
         {
             "name": "libtool",
             "description": "libtool -- library building part of autotools."
         },
         {
-            "name": "llvm",
-            "description": "The LLVM Project is a collection of modular and reusable compiler and\ntoolchain technologies. Despite its name, LLVM has little to do with\ntraditional virtual machines, though it does provide helpful libraries\nthat can be used to build them. The name \"LLVM\" itself is not an\nacronym; it is the full name of the project."
+            "name": "m4",
+            "description": "GNU M4 is an implementation of the traditional Unix macro processor."
         },
         {
-            "name": "ninja",
-            "description": "Ninja is a small build system with a focus on speed. It differs from\nother build systems in two major respects: it is designed to have its\ninput files generated by a higher-level build system, and it is designed\nto run builds as fast as possible."
+            "name": "opencl-headers",
+            "description": "Bundled OpenCL (Open Computing Language) header files"
         },
         {
-            "name": "ocl-icd",
-            "description": "This package aims at creating an Open Source alternative to vendor\nspecific OpenCL ICD loaders."
+            "name": "ruby",
+            "description": "A dynamic, open source programming language with a focus on simplicity\nand productivity."
         },
         {
-            "name": "pkgconfig",
-            "description": "pkg-config is a helper tool used when compiling applications and\nlibraries"
+            "name": "xmlto",
+            "description": "Utility xmlto is a simple shell script for converting XML files to\nvarious formats. It serves as easy to use command line frontend to make\nfine output without remembering many long options and searching for the\nsyntax of the backends."
         }
     ],
     "dependent_to": [
         {
-            "name": "bohrium",
-            "description": "Library for automatic acceleration of array operations"
-        },
-        {
-            "name": "cmdstan",
-            "description": "CmdStan is the command line interface to Stan."
-        },
-        {
-            "name": "kassiopeia",
-            "description": "Simulation of electric and magnetic fields and particle tracking."
-        },
-        {
-            "name": "lammps",
-            "description": "LAMMPS stands for Large-scale Atomic/Molecular Massively Parallel\nSimulator."
-        },
-        {
-            "name": "libbeagle",
-            "description": "Beagle performs genotype calling, genotype phasing, imputation of\nungenotyped markers, and identity-by-descent segment detection."
+            "name": "specfem3d-globe",
+            "description": "Program specfem3D from SPECFEM3D_GLOBE is a 3-D spectral-element solver\nfor the Earth. It uses a mesh generated by program meshfem3D."
         },
         {
             "name": "gdal",
             "description": "GDAL: Geospatial Data Abstraction Library. GDAL is a translator library\nfor raster and vector geospatial data formats that is released under an\nMIT style Open Source License by the Open Source Geospatial Foundation.\nAs a library, it presents a single raster abstract data model and single\nvector abstract data model to the calling application for all supported\nformats. It also comes with a variety of useful command line utilities\nfor data translation and processing."
         },
         {
+            "name": "grass",
+            "description": "GRASS GIS (Geographic Resources Analysis Support System), is a free and\nopen source Geographic Information System (GIS) software suite used for\ngeospatial data management and analysis, image processing, graphics and\nmaps production, spatial modeling, and visualization."
+        },
+        {
             "name": "dbcsr",
             "description": "Distributed Block Compressed Sparse Row matrix library."
         },
         {
-            "name": "grass",
-            "description": "GRASS GIS (Geographic Resources Analysis Support System), is a free and\nopen source Geographic Information System (GIS) software suite used for\ngeospatial data management and analysis, image processing, graphics and\nmaps production, spatial modeling, and visualization."
+            "name": "double-batched-fft-library",
+            "description": "A library for computing the Discrete Fourier Transform; targeting\nGraphics Processing Units; supporting OpenCL, Level Zero, and SYCL; with\ndouble-batching."
         },
         {
             "name": "sgpp",
             "description": "SGpp is a library and framework for sparse grids in different flavors.\nSGpp supports both hierarchical spatially-adaptive sparse grids and the\ndimensionally-adaptive sparse grid combination technique."
         },
         {
-            "name": "onednn",
-            "description": "oneAPI Deep Neural Network Library (oneDNN). Formerly known as Intel\nMKL-DNN and DNNL."
-        },
-        {
-            "name": "opencv",
-            "description": "OpenCV (Open Source Computer Vision Library) is an open source computer\nvision and machine learning software library."
-        },
-        {
-            "name": "specfem3d-globe",
-            "description": "Program specfem3D from SPECFEM3D_GLOBE is a 3-D spectral-element solver\nfor the Earth. It uses a mesh generated by program meshfem3D."
-        },
-        {
-            "name": "arrayfire",
-            "description": "ArrayFire is a high performance software library for parallel computing\nwith an easy-to-use API. Its array based function set makes parallel\nprogramming more accessible."
-        },
-        {
             "name": "gearshifft",
             "description": "Benchmark Suite for Heterogenuous FFT Implementations"
-        },
-        {
-            "name": "py-pyopencl",
-            "description": "Python wrapper for OpenCL."
         },
         {
             "name": "clinfo",
             "description": "Print all known information about all available OpenCL platforms and\ndevices in the system."
         },
         {
-            "name": "clblast",
-            "description": "CLBlast is a modern, lightweight, performant and tunable OpenCL BLAS\nlibrary written in C++11. It is designed to leverage the full\nperformance potential of a wide variety of OpenCL devices from different\nvendors, including desktop and laptop GPUs, embedded GPUs, and other\naccelerators. CLBlast implements BLAS routines: basic linear algebra\nsubprograms operating on vectors and matrices."
+            "name": "clfft",
+            "description": "a software library containing FFT functions written in OpenCL"
+        },
+        {
+            "name": "libbeagle",
+            "description": "Beagle performs genotype calling, genotype phasing, imputation of\nungenotyped markers, and identity-by-descent segment detection."
+        },
+        {
+            "name": "cmdstan",
+            "description": "CmdStan is the command line interface to Stan."
         },
         {
             "name": "hpx5",
             "description": "The HPX-5 Runtime System. HPX-5 (High Performance ParalleX) is an open\nsource, portable, performance-oriented runtime developed at CREST\n(Indiana University). HPX-5 provides a distributed programming model\nallowing programs to run unmodified on systems from a single SMP to\nlarge clusters and supercomputers with thousands of nodes. HPX-5\nsupports a wide variety of Intel and ARM platforms. It is being used by\na broad range of scientific applications enabling scientists to write\ncode that performs and scales better than contemporary runtimes."
         },
         {
-            "name": "clfft",
-            "description": "a software library containing FFT functions written in OpenCL"
+            "name": "bohrium",
+            "description": "Library for automatic acceleration of array operations"
         },
         {
-            "name": "double-batched-fft-library",
-            "description": "A library for computing the Discrete Fourier Transform; targeting\nGraphics Processing Units; supporting OpenCL, Level Zero, and SYCL; with\ndouble-batching."
+            "name": "opencv",
+            "description": "OpenCV (Open Source Computer Vision Library) is an open source computer\nvision and machine learning software library."
+        },
+        {
+            "name": "kassiopeia",
+            "description": "Simulation of electric and magnetic fields and particle tracking."
+        },
+        {
+            "name": "clblast",
+            "description": "CLBlast is a modern, lightweight, performant and tunable OpenCL BLAS\nlibrary written in C++11. It is designed to leverage the full\nperformance potential of a wide variety of OpenCL devices from different\nvendors, including desktop and laptop GPUs, embedded GPUs, and other\naccelerators. CLBlast implements BLAS routines: basic linear algebra\nsubprograms operating on vectors and matrices."
+        },
+        {
+            "name": "onednn",
+            "description": "oneAPI Deep Neural Network Library (oneDNN). Formerly known as Intel\nMKL-DNN and DNNL."
+        },
+        {
+            "name": "lammps",
+            "description": "LAMMPS stands for Large-scale Atomic/Molecular Massively Parallel\nSimulator."
+        },
+        {
+            "name": "py-pyopencl",
+            "description": "Python wrapper for OpenCL."
+        },
+        {
+            "name": "arrayfire",
+            "description": "ArrayFire is a high performance software library for parallel computing\nwith an easy-to-use API. Its array based function set makes parallel\nprogramming more accessible."
         }
     ]
 }
