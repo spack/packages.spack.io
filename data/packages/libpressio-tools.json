@@ -3,8 +3,24 @@
     "aliases": [],
     "versions": [
         {
-            "name": "master",
-            "branch": "master"
+            "name": "0.4.7",
+            "sha256": "02052025529bcae6125bbcb6c1513776f06164324379d936175fc574188d4d7c"
+        },
+        {
+            "name": "0.4.6",
+            "sha256": "b1253d49bd16669c41332146e3c441f5a6363cad73262e91a945831ec2bc76e0"
+        },
+        {
+            "name": "0.4.5",
+            "sha256": "4f296e4b31f6880f388cb95823864f2c76244e40bb6a94d7918234d189f799ed"
+        },
+        {
+            "name": "0.4.4",
+            "sha256": "edbff72b0dba11b145b4d61d507b869ef976c5a8941afb817a533b923a9d7a41"
+        },
+        {
+            "name": "0.4.3",
+            "sha256": "2122e2c5212325a54bb6a80f4b7fb56060a1d2d0fa5733ac5757109ea892c9f9"
         },
         {
             "name": "0.3.0",
@@ -83,13 +99,13 @@
             "sha256": "bcdf865d77969a34e2d747034ceeccf5cb766a4c11bcc856630d837f442ee33e"
         }
     ],
-    "latest_version": "0.3.0",
+    "latest_version": "0.4.7",
     "build_system": "CMakePackage",
     "conflicts": [
         {
             "name": "+opt",
             "spec": "~mpi",
-            "description": null
+            "description": "libpressio-tools: opt support requires MPI"
         }
     ],
     "variants": [
@@ -157,6 +173,36 @@
             "name": "nvcomp",
             "default": false,
             "description": "depend on nvcomp"
+        },
+        {
+            "name": "adios1",
+            "default": false,
+            "description": "depend on adios1"
+        },
+        {
+            "name": "lc",
+            "default": false,
+            "description": "depend on lc"
+        },
+        {
+            "name": "dctz",
+            "default": false,
+            "description": "depend on dctz"
+        },
+        {
+            "name": "dataset",
+            "default": false,
+            "description": "depend on libpressio-dataset"
+        },
+        {
+            "name": "predict",
+            "default": false,
+            "description": "depend on libpressio-predict"
+        },
+        {
+            "name": "jit",
+            "default": false,
+            "description": "depend on libpressio-jit"
         }
     ],
     "homepage": "https://github.com/robertu94/pressio-tools",
@@ -176,20 +222,40 @@
             "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
         },
         {
+            "name": "dctz",
+            "description": "DCTZ is a compressor based on FFTs"
+        },
+        {
             "name": "gmake",
             "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files."
+        },
+        {
+            "name": "lc-framework",
+            "description": "a framework for automatically creating high-speed lossless and error-\nbounded lossy data compression and decompression algorithms."
         },
         {
             "name": "libpressio",
             "description": "A generic abstraction for the compression of dense tensors"
         },
         {
+            "name": "libpressio-adios1",
+            "description": "LibPressio file reader for legacy ADIOS1 files not supported by ADIOS2"
+        },
+        {
             "name": "libpressio-adios2",
             "description": "An IO plugin to read/write ADIOS2 files for LibPressio"
         },
         {
+            "name": "libpressio-dataset",
+            "description": "A set of libraries for LibPressio to easily load datasets"
+        },
+        {
             "name": "libpressio-errorinjector",
             "description": "LibPressioErrorInjector injects errors into data for sensitivity studies"
+        },
+        {
+            "name": "libpressio-jit",
+            "description": "the FZ module compiler"
         },
         {
             "name": "libpressio-nvcomp",
@@ -198,6 +264,10 @@
         {
             "name": "libpressio-opt",
             "description": "Metacompressor which preforms optimization of compressor settings for\nLibPressio"
+        },
+        {
+            "name": "libpressio-predict",
+            "description": "High Fidelity Proxy Models for Compression"
         },
         {
             "name": "libpressio-rmetric",
@@ -213,7 +283,7 @@
         },
         {
             "name": "mpi",
-            "description": "IBM MPI implementation from Spectrum MPI."
+            "description": "There can only be one (MPI process)!"
         },
         {
             "name": "ninja",
@@ -221,6 +291,10 @@
         }
     ],
     "dependent_to": [
+        {
+            "name": "libpressio-predict",
+            "description": "High Fidelity Proxy Models for Compression"
+        },
         {
             "name": "r-libpressio",
             "description": "R package for libpressio"

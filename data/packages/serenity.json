@@ -7,11 +7,15 @@
             "branch": "master"
         },
         {
+            "name": "1.6.1",
+            "sha256": "cc04b13c2e8a010d07389b2fed98981deacf085778d5375b3b6e89b967c3a5e6"
+        },
+        {
             "name": "1.4.0",
             "sha256": "c7a87fc8e6f8ca21685a27e08d09d49824d9a1e9947fc6abb40d20fbba0cc6e8"
         }
     ],
-    "latest_version": "1.4.0",
+    "latest_version": "1.6.1",
     "build_system": "CMakePackage",
     "conflicts": [],
     "variants": [
@@ -49,17 +53,37 @@
             "name": "python",
             "default": false,
             "description": "Build Python bindings"
+        },
+        {
+            "name": "prefer_xcfun",
+            "default": true,
+            "description": "Prefer XCFun instead of LibXC"
+        },
+        {
+            "name": "laplace_minimax",
+            "default": false,
+            "description": "Download and use Laplace-Minimax"
         }
     ],
     "homepage": "https://www.uni-muenster.de/Chemie.oc/neugebauer/softwareAKN.html",
     "maintainers": [],
-    "patches": [],
+    "patches": [
+        {
+            "owner": "builtin.serenity",
+            "sha256": "45cce5e4d47b681891e78725b2cf5031d306337a5c7b8e62cd4891beb4a7b8b6",
+            "level": 1,
+            "working_dir": ".",
+            "reverse": false,
+            "url": "https://github.com/qcserenity/serenity/commit/af9f76d013e240d971337a467a03640cb9aabfb7.patch?full_index=1",
+            "version": "@1.6.1:"
+        }
+    ],
     "resources": [],
     "description": "Subsystem focused quantum chemistry code Serenity\n",
     "dependencies": [
         {
             "name": "blas",
-            "description": "AMD Optimized BLIS. BLIS is a portable software framework for\ninstantiating high-performance BLAS-like dense linear algebra libraries.\nThe framework was designed to isolate essential kernels of computation\nthat, when optimized, immediately enable optimized implementations of\nmost of its commonly used and computationally intensive operations.\nLICENSING INFORMATION: By downloading, installing and using this\nsoftware, you agree to the terms and conditions of the AMD AOCL-BLIS\nlicense agreement. You may obtain a copy of this license agreement from\nhttps://www.amd.com/en/developer/aocl/dense/eula/blas-4-2-eula.html\nhttps://www.amd.com/en/developer/aocl/dense/eula/blas-eula.html"
+            "description": "Automatically Tuned Linear Algebra Software, generic shared ATLAS is an\napproach for the automatic generation and optimization of numerical\nsoftware. Currently ATLAS supplies optimized versions for the complete\nset of linear algebra kernels known as the Basic Linear Algebra\nSubroutines (BLAS), and a subset of the linear algebra routines in the\nLAPACK library."
         },
         {
             "name": "boost",
@@ -87,7 +111,7 @@
         },
         {
             "name": "lapack",
-            "description": "IBM's Engineering and Scientific Subroutine Library (ESSL)."
+            "description": "NVPL LAPACK (NVIDIA Performance Libraries LAPACK) is part of NVIDIA\nPerformance Libraries that provides standard Fortran 90 LAPACK APIs."
         },
         {
             "name": "libecpint",

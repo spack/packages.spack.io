@@ -11,6 +11,66 @@
             "branch": "develop"
         },
         {
+            "name": "0.99.4",
+            "sha256": "091e4bac2cedca5fb9495a22eee7be718c2d04d899d56c65fc088936884eac0e"
+        },
+        {
+            "name": "0.99.2",
+            "sha256": "556d157097b2168fefde1fe3b5e2da06a952346357d46c55548d92c77d1da878"
+        },
+        {
+            "name": "0.99.1",
+            "sha256": "c9b19deaac4df5eaeecd938fea4c1752d86474f453880c0ba984ceee6bf15d35"
+        },
+        {
+            "name": "0.99.0",
+            "sha256": "b95916c4851a7ec952e5f29284e4f7477eaeff0e52a2e5b593481c72edf733d6"
+        },
+        {
+            "name": "0.98.1",
+            "sha256": "5246271fdf2e4ba99eeadfccd6224b75bf3af278a812ded74ec9adc11f6cabba"
+        },
+        {
+            "name": "0.98.0",
+            "sha256": "6b6507bf1489ff2cbeaf4c507d34e1015495c811730aa809e778f111213062db"
+        },
+        {
+            "name": "0.97.3",
+            "sha256": "631111253ec4cfd3138773eaf8280921e220b0d260985da762f0a0152e5b1b17"
+        },
+        {
+            "name": "0.97.2",
+            "sha256": "70d549ef457d5192c084fbf6304cb362d367786afe88d7b8db4eea263f9c7d43"
+        },
+        {
+            "name": "0.96.6",
+            "sha256": "a8d3269f0f5289d46471a5b85e5cd32e370edb8df45d04f5e707e0a1f64eccd8"
+        },
+        {
+            "name": "0.96.5",
+            "sha256": "7cca6f3f98dde2dbd1c9ff7462d09975f6a3630704bd01b6bef6163418a0521b"
+        },
+        {
+            "name": "0.96.4",
+            "sha256": "7f012b01ce1a6c9f5897487089266de5b60659ed6b220eadba51d63613620404"
+        },
+        {
+            "name": "0.96.3",
+            "sha256": "e8f4af028d34df2f3c8eb61cfc2f93fadab7a2e2d072a30ee6a085fb344a3be4"
+        },
+        {
+            "name": "0.96.2",
+            "sha256": "2c904ec16900b67ab0188ea96d27fa4efca2c9efc1b214119451becaaeaa2d18"
+        },
+        {
+            "name": "0.96.1",
+            "sha256": "2305d04b57c1b49ecd5a4bda117f1252a57529c98e6bd260bfe5166a4f4d4043"
+        },
+        {
+            "name": "0.96.0",
+            "sha256": "42f563b70c4f77abffb430284f0c5bc9adba2666412ee4072d6f97da88f0c1a0"
+        },
+        {
             "name": "0.95.1",
             "sha256": "c2e4f81d1491781cd47f2baba64acfbba9a7d6203c9b01369f8b1a8f94e0bb2b"
         },
@@ -563,7 +623,7 @@
             "sha256": "c451591d106d1671c9ddbb5c304979dd2d083e0616b2aeede62e7a6b568f828c"
         }
     ],
-    "latest_version": "0.95.1",
+    "latest_version": "0.99.4",
     "build_system": "CMakePackage",
     "conflicts": [
         {
@@ -904,12 +964,32 @@
         {
             "name": "+mgardx",
             "spec": "+szauto",
-            "description": null
+            "description": "libpressio: SZ auto and MGARDx cause symbol conflicts with each other"
         },
         {
             "name": "~json",
             "spec": "@0.57.0:+remote",
             "description": "libpressio: JSON support required for remote after version 0.57.0"
+        },
+        {
+            "name": "~cuda+cusz ^cusz+cuda",
+            "spec": "",
+            "description": "libpressio: compiling a CUDA compressor without a CUDA support makes no sense"
+        },
+        {
+            "name": "~cuda+mgard ^mgard+cuda",
+            "spec": "",
+            "description": "libpressio: compiling a CUDA compressor without a CUDA support makes no sense"
+        },
+        {
+            "name": "~cuda+zfp ^zfp+cuda",
+            "spec": "",
+            "description": "libpressio: compiling a CUDA compressor without a CUDA support makes no sense"
+        },
+        {
+            "name": "~cuda+ndzip ^ndzip+cuda",
+            "spec": "",
+            "description": "libpressio: compiling a CUDA compressor without a CUDA support makes no sense"
         }
     ],
     "variants": [
@@ -942,6 +1022,36 @@
             "name": "generator",
             "default": "make",
             "description": "the build system generator to use"
+        },
+        {
+            "name": "pybind",
+            "default": false,
+            "description": "build support for pybind metrics"
+        },
+        {
+            "name": "openssl",
+            "default": false,
+            "description": "build support for hashing options"
+        },
+        {
+            "name": "szx",
+            "default": false,
+            "description": "build support for SZx"
+        },
+        {
+            "name": "blosc2",
+            "default": false,
+            "description": "build support for blosc2"
+        },
+        {
+            "name": "matio",
+            "default": false,
+            "description": "build support for matio"
+        },
+        {
+            "name": "clang",
+            "default": false,
+            "description": "build migration tools"
         },
         {
             "name": "blosc",
@@ -1184,8 +1294,16 @@
             "description": "A compatibility header for C++14, 17, and 20 for C++11"
         },
         {
+            "name": "llvm",
+            "description": "The LLVM Project is a collection of modular and reusable compiler and\ntoolchain technologies. Despite its name, LLVM has little to do with\ntraditional virtual machines, though it does provide helpful libraries\nthat can be used to build them. The name \"LLVM\" itself is not an\nacronym; it is the full name of the project."
+        },
+        {
             "name": "lua-sol2",
             "description": "sol2 is a C++ library binding to Lua."
+        },
+        {
+            "name": "matio",
+            "description": "matio is an C library for reading and writing Matlab MAT files"
         },
         {
             "name": "mgard",
@@ -1197,7 +1315,7 @@
         },
         {
             "name": "mpi",
-            "description": "IBM MPI implementation from Spectrum MPI."
+            "description": "There can only be one (MPI process)!"
         },
         {
             "name": "ndzip",
@@ -1214,6 +1332,10 @@
         {
             "name": "nlohmann-json",
             "description": "JSON for Modern C++"
+        },
+        {
+            "name": "openssl",
+            "description": "OpenSSL is an open source project that provides a robust, commercial-\ngrade, and full-featured toolkit for the Transport Layer Security (TLS)\nand Secure Sockets Layer (SSL) protocols. It is also a general-purpose\ncryptography library."
         },
         {
             "name": "petsc",
@@ -1234,6 +1356,10 @@
         {
             "name": "py-numpy",
             "description": "Fundamental package for array computing in Python."
+        },
+        {
+            "name": "py-pybind11",
+            "description": "pybind11 -- Seamless operability between C++11 and Python. pybind11 is a\nlightweight header-only library that exposes C++ types in Python and\nvice versa, mainly to create Python bindings of existing C++ code. Its\ngoals and syntax are similar to the excellent Boost.Python library by\nDavid Abrahams: to minimize boilerplate code in traditional extension\nmodules by inferring type information using compile-time introspection."
         },
         {
             "name": "python",
@@ -1264,54 +1390,82 @@
             "description": "SZauto: SZ C++ Version that Supports Second-Order Prediction and\nParameter Optimization"
         },
         {
+            "name": "szx",
+            "description": "An ultra fast error bounded compressor for scientific datasets"
+        },
+        {
             "name": "zfp",
             "description": "zfp is a compressed number format for multidimensional floating-point\nand integer arrays. zfp provides compressed-array classes that support\nhigh throughput read and write random access to individual array\nelements. zfp also supports serial and parallel (OpenMP and CUDA)\ncompression of whole arrays."
         }
     ],
     "dependent_to": [
         {
+            "name": "libpressio-dataset",
+            "description": "A set of libraries for LibPressio to easily load datasets"
+        },
+        {
+            "name": "lc-framework",
+            "description": "a framework for automatically creating high-speed lossless and error-\nbounded lossy data compression and decompression algorithms."
+        },
+        {
             "name": "libpressio-rmetric",
             "description": "LibPressio metric that runs R code"
-        },
-        {
-            "name": "libpressio-adios2",
-            "description": "An IO plugin to read/write ADIOS2 files for LibPressio"
-        },
-        {
-            "name": "adios2",
-            "description": "The Adaptable Input Output System version 2, developed in the Exascale\nComputing Program"
         },
         {
             "name": "arc",
             "description": "ARC is an automatic resiliency library designed to provide security to\nlossy compressed data or other uint8_t data arrays forked from:\nhttps://github.com/FTHPC/ARC to support Spack after developer left grad\nschool"
         },
         {
-            "name": "libpressio-tools",
-            "description": "General Utilities for LibPressio"
+            "name": "libpressio-adios1",
+            "description": "LibPressio file reader for legacy ADIOS1 files not supported by ADIOS2"
         },
         {
             "name": "libpressio-nvcomp",
             "description": "LibPressio Bindings for NVCOMP"
         },
         {
+            "name": "libpressio-jit",
+            "description": "the FZ module compiler"
+        },
+        {
+            "name": "libpressio-sperr",
+            "description": "A LibPressio plugin for Sperr"
+        },
+        {
+            "name": "dctz",
+            "description": "DCTZ is a compressor based on FFTs"
+        },
+        {
             "name": "r-libpressio",
             "description": "R package for libpressio"
         },
         {
-            "name": "libpressio-opt",
-            "description": "Metacompressor which preforms optimization of compressor settings for\nLibPressio"
+            "name": "libpressio-tools",
+            "description": "General Utilities for LibPressio"
         },
         {
             "name": "libpressio-errorinjector",
             "description": "LibPressioErrorInjector injects errors into data for sensitivity studies"
         },
         {
+            "name": "libpressio-opt",
+            "description": "Metacompressor which preforms optimization of compressor settings for\nLibPressio"
+        },
+        {
+            "name": "adios2",
+            "description": "The Adaptable Input Output System version 2, developed in the Exascale\nComputing Program"
+        },
+        {
             "name": "libpressio-tthresh",
             "description": "A tthresh implementation for libpressio"
         },
         {
-            "name": "libpressio-sperr",
-            "description": "A LibPressio plugin for Sperr"
+            "name": "libpressio-predict",
+            "description": "High Fidelity Proxy Models for Compression"
+        },
+        {
+            "name": "libpressio-adios2",
+            "description": "An IO plugin to read/write ADIOS2 files for LibPressio"
         }
     ]
 }
