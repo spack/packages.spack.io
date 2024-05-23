@@ -238,7 +238,7 @@
         },
         {
             "name": "blas",
-            "description": "Intel oneAPI Math Kernel Library (Intel oneMKL; formerly Intel Math\nKernel Library or Intel MKL), is a library of optimized math routines\nfor science, engineering, and financial applications. Core math\nfunctions include BLAS, LAPACK, ScaLAPACK, sparse solvers, fast Fourier\ntransforms, and vector math. LICENSE INFORMATION: By downloading and\nusing this software, you agree to the terms and conditions of the\nsoftware license agreements at https://intel.ly/393CijO."
+            "description": "AMD Optimized BLIS. BLIS is a portable software framework for\ninstantiating high-performance BLAS-like dense linear algebra libraries.\nThe framework was designed to isolate essential kernels of computation\nthat, when optimized, immediately enable optimized implementations of\nmost of its commonly used and computationally intensive operations.\nLICENSING INFORMATION: By downloading, installing and using this\nsoftware, you agree to the terms and conditions of the AMD AOCL-BLIS\nlicense agreement. You may obtain a copy of this license agreement from\nhttps://www.amd.com/en/developer/aocl/dense/eula/blas-4-2-eula.html\nhttps://www.amd.com/en/developer/aocl/dense/eula/blas-eula.html"
         },
         {
             "name": "bzip2",
@@ -250,7 +250,7 @@
         },
         {
             "name": "fftw-api",
-            "description": "FFTW is a C subroutine library for computing the discrete Fourier\ntransform (DFT) in one or more dimensions, of arbitrary input size, and\nof both real and complex data (as well as of even/odd data, i.e. the\ndiscrete cosine/sine transforms or DCT/DST). We believe that FFTW, which\nis free software, should become the FFT library of choice for most\napplications."
+            "description": "FFTW is a C subroutine library for computing the discrete Fourier\ntransform (DFT) in one or more dimensions, of arbitrary input size, and\nof both real and complex data (as well as of even/odd data, i.e. the\ndiscrete cosine/sine transforms or DCT/DST). This package is a wrapper\nfor Cray's version of FFTW. To install this package, list it as an\nexternal package in packages.yaml, and make sure to load the correct\ncray-fftw module. In some cases you need to load cray-mpich before cray-\nfftw."
         },
         {
             "name": "fltk",
@@ -266,7 +266,7 @@
         },
         {
             "name": "gl",
-            "description": "Placeholder for external EGL(OpenGL) libraries from hardware vendors"
+            "description": "External WGl and Windows OpenGL emulation representation in Spack"
         },
         {
             "name": "gl2ps",
@@ -302,7 +302,7 @@
         },
         {
             "name": "lapack",
-            "description": "Intel oneAPI Math Kernel Library (Intel oneMKL; formerly Intel Math\nKernel Library or Intel MKL), is a library of optimized math routines\nfor science, engineering, and financial applications. Core math\nfunctions include BLAS, LAPACK, ScaLAPACK, sparse solvers, fast Fourier\ntransforms, and vector math. LICENSE INFORMATION: By downloading and\nusing this software, you agree to the terms and conditions of the\nsoftware license agreements at https://intel.ly/393CijO."
+            "description": "The NVIDIA HPC SDK is a comprehensive suite of compilers, libraries and\ntools essential to maximizing developer productivity and the performance\nand portability of HPC applications. The NVIDIA HPC SDK C, C++, and\nFortran compilers support GPU acceleration of HPC modeling and\nsimulation applications with standard C++ and Fortran, OpenACC\ndirectives, and CUDA. GPU-accelerated math libraries maximize\nperformance on common HPC algorithms, and optimized communications\nlibraries enable standards-based multi-GPU and scalable systems\nprogramming. Performance profiling and debugging tools simplify porting\nand optimization of HPC applications."
         },
         {
             "name": "llvm",
@@ -350,21 +350,25 @@
         },
         {
             "name": "zlib-api",
-            "description": "A free, general-purpose, legally unencumbered lossless data-compression\nlibrary."
+            "description": "zlib replacement with optimizations for next generation systems."
         }
     ],
     "dependent_to": [
+        {
+            "name": "nlopt",
+            "description": "NLopt is a free/open-source library for nonlinear optimization,\nproviding a common interface for a number of different free optimization\nroutines available online as well as original implementations of various\nother algorithms."
+        },
         {
             "name": "octave-quaternion",
             "description": "Quaternion package for GNU Octave, includes a quaternion class with\noverloaded operators."
         },
         {
-            "name": "octave-struct",
-            "description": "Additional structure manipulation functions for Octave."
+            "name": "octave-control",
+            "description": "Computer-Aided Control System Design (CACSD) Tools for GNU Octave, based\non the proven SLICOT Library"
         },
         {
-            "name": "octave-arduino",
-            "description": "Provides an Octave look-alike implementation of the Arduino extension\nfor Matlab."
+            "name": "octave-signal",
+            "description": "Signal processing tools, including filtering, windowing and display\nfunctions."
         },
         {
             "name": "octave-symbolic",
@@ -375,44 +379,40 @@
             "description": "Non-linear optimization toolkit for Octave."
         },
         {
-            "name": "octave-splines",
-            "description": "Additional spline functions."
-        },
-        {
-            "name": "octave-signal",
-            "description": "Signal processing tools, including filtering, windowing and display\nfunctions."
-        },
-        {
-            "name": "octave-gsl",
-            "description": "Octave bindings to the GNU Scientific Library"
+            "name": "sbml",
+            "description": "Library for the Systems Biology Markup Language"
         },
         {
             "name": "h5utils",
             "description": "h5utils is a set of utilities for visualization and conversion of\nscientific data in the free, portable HDF5 format."
         },
         {
-            "name": "octave-instrctl",
-            "description": "Instrument-Control is a package for interfacing the outside world of\nhardware via Serial, i2c or Parallel interfaces."
+            "name": "octave-statistics",
+            "description": "Additional statistics functions for Octave."
+        },
+        {
+            "name": "octave-arduino",
+            "description": "Provides an Octave look-alike implementation of the Arduino extension\nfor Matlab."
+        },
+        {
+            "name": "octave-struct",
+            "description": "Additional structure manipulation functions for Octave."
+        },
+        {
+            "name": "octave-gsl",
+            "description": "Octave bindings to the GNU Scientific Library"
         },
         {
             "name": "octave-io",
             "description": "The IO package is part of the Octave Forge project and provides\ninput/output from/in external formats."
         },
         {
-            "name": "sbml",
-            "description": "Library for the Systems Biology Markup Language"
+            "name": "octave-splines",
+            "description": "Additional spline functions."
         },
         {
-            "name": "nlopt",
-            "description": "NLopt is a free/open-source library for nonlinear optimization,\nproviding a common interface for a number of different free optimization\nroutines available online as well as original implementations of various\nother algorithms."
-        },
-        {
-            "name": "octave-statistics",
-            "description": "Additional statistics functions for Octave."
-        },
-        {
-            "name": "octave-control",
-            "description": "Computer-Aided Control System Design (CACSD) Tools for GNU Octave, based\non the proven SLICOT Library"
+            "name": "octave-instrctl",
+            "description": "Instrument-Control is a package for interfacing the outside world of\nhardware via Serial, i2c or Parallel interfaces."
         }
     ]
 }

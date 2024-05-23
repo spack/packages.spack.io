@@ -3,6 +3,10 @@
     "aliases": [],
     "versions": [
         {
+            "name": "develop",
+            "branch": "develop"
+        },
+        {
             "name": "2.0.0",
             "commit": "e3cb92f1cd8941c019ee5ef7da5c9aef67d55cf8",
             "tag": "ufs-v2.0.0"
@@ -15,7 +19,13 @@
     ],
     "latest_version": "2.0.0",
     "build_system": "CMakePackage",
-    "conflicts": [],
+    "conflicts": [
+        {
+            "name": "%gcc@:8",
+            "spec": "@develop",
+            "description": null
+        }
+    ],
     "variants": [
         {
             "name": "build_system",
@@ -38,29 +48,34 @@
             "description": "the build system generator to use"
         },
         {
+            "name": "mpi",
+            "default": true,
+            "description": "Enable MPI"
+        },
+        {
             "name": "32bit",
             "default": true,
             "description": "Enable 32-bit single precision arithmetic in dycore"
         },
         {
-            "name": "avx2",
+            "name": "ccpp_32bit",
             "default": false,
-            "description": "Enable AVX2 instructions"
+            "description": "Enable CCPP_32BIT (single precision arithmetic in slow physics)"
         },
         {
-            "name": "ccpp",
+            "name": "debug",
+            "default": false,
+            "description": "Enable DEBUG mode"
+        },
+        {
+            "name": "debug_linkmpi",
             "default": true,
-            "description": "Enable the Common Community Physics Package (CCPP))"
-        },
-        {
-            "name": "ccpp_suites",
-            "default": "FV3_GFS_v15p2,FV3_RRFS_v1alpha",
-            "description": "CCPP suites to compile"
+            "description": "Enable linkmpi option when DEBUG mode is on"
         },
         {
             "name": "inline_post",
             "default": false,
-            "description": "Compile post processing inline"
+            "description": "Enable inline post"
         },
         {
             "name": "multi_gases",
@@ -68,14 +83,44 @@
             "description": "Enable multi gases in physics routines"
         },
         {
+            "name": "moving_nest",
+            "default": false,
+            "description": "Enable moving nest code"
+        },
+        {
             "name": "openmp",
             "default": true,
             "description": "Enable OpenMP"
         },
         {
+            "name": "pdlib",
+            "default": false,
+            "description": "Enable PDLIB (WW3)"
+        },
+        {
             "name": "parallel_netcdf",
             "default": true,
-            "description": "Enable parallel I/O in netCDF"
+            "description": "Enable parallel NetCDF"
+        },
+        {
+            "name": "jedi_driver",
+            "default": false,
+            "description": "Enable JEDI as top level driver"
+        },
+        {
+            "name": "cmeps_aoflux",
+            "default": false,
+            "description": "Enable atmosphere-ocean flux calculation in mediator"
+        },
+        {
+            "name": "ccpp",
+            "default": true,
+            "description": "Enable the Common Community Physics Package (CCPP)"
+        },
+        {
+            "name": "ccpp_suites",
+            "default": "FV3_GFS_v16,FV3_GFS_v16_flake,FV3_GFS_v17_p8,FV3_GFS_v17_p8_rrtmgp,FV3_GFS_v15_thompson_mynn_lam3km,FV3_WoFS_v0,FV3_GFS_v17_p8_mynn,FV3_GFS_v17_p8_ugwpv1",
+            "description": "CCPP suites to compile"
         },
         {
             "name": "quad_precision",
@@ -83,14 +128,19 @@
             "description": "Enable quad precision for certain grid metric terms in dycore"
         },
         {
-            "name": "simdmultiarch",
+            "name": "mom6solo",
             "default": false,
-            "description": "Enable multi-target SIMD instruction sets"
+            "description": "Build MOM6 solo executable"
+        },
+        {
+            "name": "app",
+            "default": "ATM",
+            "description": "UFS application"
         }
     ],
     "homepage": "https://ufs-weather-model.readthedocs.io/en/latest/",
     "maintainers": [
-        "t-brown"
+        "AlexanderRichert-NOAA"
     ],
     "patches": [],
     "resources": [],
@@ -105,16 +155,48 @@
             "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
         },
         {
+            "name": "crtm",
+            "description": "The Community Radiative Transfer Model (CRTM) package. The CRTM is\ncomposed of four important modules for gaseous transmittance, surface\nemission and reflection, cloud and aerosol absorption and scattering,\nand a solver for a radiative transfer."
+        },
+        {
             "name": "esmf",
             "description": "The Earth System Modeling Framework (ESMF) is high-performance, flexible\nsoftware infrastructure for building and coupling weather, climate, and\nrelated Earth science applications. The ESMF defines an architecture for\ncomposing complex, coupled modeling systems and includes data structures\nand utilities for developing individual models. The National Unified\nOperational Prediction Capability (NUOPC) Layer defines a common model\narchitecture to support interoperable ESMF components. The NUOPC Layer\nis included with the ESMF package."
+        },
+        {
+            "name": "fms",
+            "description": "GFDL's Flexible Modeling System (FMS) is a software environment that\nsupports the efficient development, construction, execution, and\nscientific interpretation of atmospheric, oceanic, and climate system\nmodels."
+        },
+        {
+            "name": "g2",
+            "description": "Utilities for coding/decoding GRIB2 messages. This library contains\nFortran 90 decoder/encoder routines for GRIB edition 2, as well as\nindexing/searching utility routines. This is part of the NCEPLIBS\nproject."
+        },
+        {
+            "name": "g2tmpl",
+            "description": "Utilities for GRIB2 templates. This is part of NOAA's NCEPLIBS project."
+        },
+        {
+            "name": "gftl-shared",
+            "description": "Provides common gFTL containers of Fortran intrinsic types that are\nencountered frequently."
         },
         {
             "name": "gmake",
             "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files."
         },
         {
+            "name": "hdf5",
+            "description": "HDF5 is a data model, library, and file format for storing and managing\ndata. It supports an unlimited variety of datatypes, and is designed for\nflexible and efficient I/O and for high volume and complex data."
+        },
+        {
+            "name": "ip",
+            "description": "The NCEP general interpolation library (iplib) contains Fortran 90\nsubprograms to be used for interpolating between nearly all grids used\nat NCEP. This is part of the NCEPLIBS project."
+        },
+        {
+            "name": "mapl",
+            "description": "MAPL is a foundation layer of the GEOS architecture, whose original\npurpose is to supplement the Earth System Modeling Framework (ESMF).\nMAPL fills in missing capabilities of ESMF, provides higher-level\ninterfaces for common boiler-plate logic, and enforces various\ncomponentization conventions across ESMF gridded components within GEOS."
+        },
+        {
             "name": "mpi",
-            "description": "A single processor implementation of the mpi library."
+            "description": "HPE MPI is HPE's implementation of the Message Passing Interface (MPI)\nstandard. Note: HPE MPI is proprietry software. Spack will search your\ncurrent directory for the download file. Alternatively, add this file to\na mirror so that Spack can find it. For instructions on how to set up a\nmirror, see https://spack.readthedocs.io/en/latest/mirrors.html"
         },
         {
             "name": "nemsio",
@@ -133,8 +215,16 @@
             "description": "Ninja is a small build system with a focus on speed. It differs from\nother build systems in two major respects: it is designed to have its\ninput files generated by a higher-level build system, and it is designed\nto run builds as fast as possible."
         },
         {
+            "name": "parallelio",
+            "description": "The Parallel IO libraries (PIO) are high-level parallel I/O C and\nFortran libraries for applications that need to do netCDF I/O from large\nnumbers of processors on a HPC system."
+        },
+        {
             "name": "python",
             "description": "The Python programming language."
+        },
+        {
+            "name": "scotch",
+            "description": "Scotch is a software package for graph and mesh/hypergraph partitioning,\ngraph clustering, and sparse matrix ordering."
         },
         {
             "name": "sp",
