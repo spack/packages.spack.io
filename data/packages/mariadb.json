@@ -2,15 +2,27 @@
     "name": "mariadb",
     "aliases": [
         {
-            "name": "mariadb-client",
+            "name": "mysql-client",
             "alias_for": "mariadb"
         },
         {
-            "name": "mysql-client",
+            "name": "mariadb-client",
             "alias_for": "mariadb"
         }
     ],
     "versions": [
+        {
+            "name": "11.3.2",
+            "sha256": "5570778f0a2c27af726c751cda1a943f3f8de96d11d107791be5b44a0ce3fb5c"
+        },
+        {
+            "name": "10.9.6",
+            "sha256": "fe6f5287fccc6a65b8bbccae09e841e05dc076fcc13017078854ca387eab8ae9"
+        },
+        {
+            "name": "10.8.8",
+            "sha256": "8de1a151842976a492d6331b543d0ed87259febbbc03b9ebce07c80d754d6361"
+        },
         {
             "name": "10.8.2",
             "sha256": "14e0f7f8817a41bbcb5ebdd2345a9bd44035fde7db45c028b6d4c35887ae956c"
@@ -48,12 +60,17 @@
             "sha256": "2c82f2af71b88a7940d5ff647498ed78922c92e88004942caa213131e20f4706"
         }
     ],
-    "latest_version": "10.8.2",
+    "latest_version": "11.3.2",
     "build_system": "CMakePackage",
     "conflicts": [
         {
             "name": "%gcc@9.1.0:",
             "spec": "@:5.5",
+            "description": null
+        },
+        {
+            "name": "%gcc@13:",
+            "spec": "@:10.8.7",
             "description": null
         }
     ],
@@ -170,17 +187,21 @@
         },
         {
             "name": "pkgconfig",
-            "description": "pkg-config is a helper tool used when compiling applications and\nlibraries"
+            "description": "pkgconf is a program which helps to configure compiler and linker flags\nfor development frameworks. It is similar to pkg-config from\nfreedesktop.org, providing additional functionality while also\nmaintaining compatibility."
         },
         {
             "name": "zlib-api",
-            "description": "zlib replacement with optimizations for next generation systems."
+            "description": "A free, general-purpose, legally unencumbered lossless data-compression\nlibrary."
         }
     ],
     "dependent_to": [
         {
-            "name": "slurm",
-            "description": "Slurm is an open source, fault-tolerant, and highly scalable cluster\nmanagement and job scheduling system for large and small Linux clusters.\nSlurm requires no kernel modifications for its operation and is\nrelatively self-contained. As a cluster workload manager, Slurm has\nthree key functions. First, it allocates exclusive and/or non-exclusive\naccess to resources (compute nodes) to users for some duration of time\nso they can perform work. Second, it provides a framework for starting,\nexecuting, and monitoring work (normally a parallel job) on the set of\nallocated nodes. Finally, it arbitrates contention for resources by\nmanaging a queue of pending work."
+            "name": "coral",
+            "description": "CORAL is an abstraction layer with an SQL-free API to access data stored\nusing relational database technologies. It is used directly by\nexperiment-specific applications and internally by COOL."
+        },
+        {
+            "name": "wt",
+            "description": "Wt, C++ Web Toolkit. Wt is a C++ library for developing web\napplications."
         },
         {
             "name": "orthomcl",
@@ -191,16 +212,12 @@
             "description": "Jim Kent command line bioinformatic utilities"
         },
         {
-            "name": "wt",
-            "description": "Wt, C++ Web Toolkit. Wt is a C++ library for developing web\napplications."
-        },
-        {
             "name": "grass",
             "description": "GRASS GIS (Geographic Resources Analysis Support System), is a free and\nopen source Geographic Information System (GIS) software suite used for\ngeospatial data management and analysis, image processing, graphics and\nmaps production, spatial modeling, and visualization."
         },
         {
-            "name": "coral",
-            "description": "CORAL is an abstraction layer with an SQL-free API to access data stored\nusing relational database technologies. It is used directly by\nexperiment-specific applications and internally by COOL."
+            "name": "slurm",
+            "description": "Slurm is an open source, fault-tolerant, and highly scalable cluster\nmanagement and job scheduling system for large and small Linux clusters.\nSlurm requires no kernel modifications for its operation and is\nrelatively self-contained. As a cluster workload manager, Slurm has\nthree key functions. First, it allocates exclusive and/or non-exclusive\naccess to resources (compute nodes) to users for some duration of time\nso they can perform work. Second, it provides a framework for starting,\nexecuting, and monitoring work (normally a parallel job) on the set of\nallocated nodes. Finally, it arbitrates contention for resources by\nmanaging a queue of pending work."
         }
     ]
 }
