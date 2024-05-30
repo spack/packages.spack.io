@@ -150,6 +150,11 @@
             "name": "^hip@5.3:",
             "spec": "@:2022.12",
             "description": "hpctoolkit: rocm 5.3 requires hpctoolkit 2023.03.01 or later"
+        },
+        {
+            "name": "^hip@6:",
+            "spec": "@:2023",
+            "description": "hpctoolkit: rocm 6.0 requires hpctoolkit 2024.01.1 or later"
         }
     ],
     "variants": [
@@ -268,12 +273,12 @@
         },
         {
             "owner": "builtin.hpctoolkit",
-            "sha256": "7d9ee78d2e117bb5e117b983a9bcfb8a9d1b4f20f0df0d8b9260bf84036ec657",
+            "sha256": "cfbd41ad911c4daff0606b14e9ca5296f920da97859526c16c511501b8cde501",
             "level": 1,
             "working_dir": ".",
             "reverse": false,
-            "relative_path": "define-hip-platform-as-amd.patch",
-            "version": "^hip@6:"
+            "relative_path": "correcting-hsa-include-path.patch",
+            "version": "@2024.01 ^hip@6.0:"
         }
     ],
     "resources": [],
@@ -393,7 +398,7 @@
         },
         {
             "name": "mpi",
-            "description": "MVAPICH2-GDR is an optimized version of the MVAPICH2 MPI library for\nGPU-enabled HPC and Deep Learning Applications. MVAPICH2-GDR is not\ninstallable from source and is only available through a binary mirror.\nIf you do not find the binary you're looking for, send us an email at\nmvapich@cse.ohio-state.edu. The binary mirror url is:\nhttp://mvapich.cse.ohio-state.edu/download/mvapich/spack-\nmirror/mvapich2-gdr/"
+            "description": "HPE MPI is HPE's implementation of the Message Passing Interface (MPI)\nstandard. Note: HPE MPI is proprietry software. Spack will search your\ncurrent directory for the download file. Alternatively, add this file to\na mirror so that Spack can find it. For instructions on how to set up a\nmirror, see https://spack.readthedocs.io/en/latest/mirrors.html"
         },
         {
             "name": "ninja",
@@ -417,7 +422,7 @@
         },
         {
             "name": "pkgconfig",
-            "description": "pkgconf is a program which helps to configure compiler and linker flags\nfor development frameworks. It is similar to pkg-config from\nfreedesktop.org, providing additional functionality while also\nmaintaining compatibility."
+            "description": "pkg-config is a helper tool used when compiling applications and\nlibraries"
         },
         {
             "name": "python",
@@ -433,7 +438,7 @@
         },
         {
             "name": "tbb",
-            "description": "Intel oneAPI Threading Building Blocks (oneTBB) is a flexible\nperformance library that simplifies the work of adding parallelism to\ncomplex applications across accelerated architectures, even if you are\nnot a threading expert. LICENSE INFORMATION: By downloading and using\nthis software, you agree to the terms and conditions of the software\nlicense agreements at https://intel.ly/393CijO."
+            "description": "Widely used C++ template library for task parallelism. Intel Threading\nBuilding Blocks (Intel TBB) lets you easily write parallel C++ programs\nthat take full advantage of multicore performance, that are portable and\ncomposable, and that have future-proof scalability."
         },
         {
             "name": "xerces-c",
@@ -457,7 +462,7 @@
         },
         {
             "name": "zlib-api",
-            "description": "A free, general-purpose, legally unencumbered lossless data-compression\nlibrary."
+            "description": "zlib replacement with optimizations for next generation systems."
         }
     ],
     "dependent_to": []
