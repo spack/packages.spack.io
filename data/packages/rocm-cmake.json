@@ -7,6 +7,10 @@
             "branch": "master"
         },
         {
+            "name": "6.1.1",
+            "sha256": "0eb81245f7573a3cadf9e91a854d9a0a014ce93610e4e7ea4d8309867a470bf6"
+        },
+        {
             "name": "6.1.0",
             "sha256": "8b37d458e801b486521f12d18ca2103125173dd0f1130d37c8c36e795d34772b"
         },
@@ -79,7 +83,7 @@
             "sha256": "2eff47b7cf5bd56d465ff3c110eb936d31860df60182a82ba511ba11bbcf23fc"
         }
     ],
-    "latest_version": "6.1.0",
+    "latest_version": "6.1.1",
     "build_system": "CMakePackage",
     "conflicts": [],
     "variants": [
@@ -132,80 +136,52 @@
     ],
     "dependent_to": [
         {
-            "name": "rocsparse",
-            "description": "rocSPARSE exposes a common interface that provides Basic Linear Algebra\nSubroutines for sparse computation implemented on top of AMD's Radeon\nOpen eCosystem Platform ROCm runtime and toolchains. rocSPARSE is\ncreated using the HIP programming language and optimized for AMD's\nlatest discrete GPUs."
+            "name": "miopengemm",
+            "description": "An OpenCL general matrix multiplication (GEMM) API and kernel generator"
         },
         {
             "name": "rocsolver",
             "description": "rocSOLVER is a work-in-progress implementation of a subset of LAPACK\nfunctionality on the ROCm platform."
         },
         {
-            "name": "migraphx",
-            "description": "AMD's graph optimization engine."
-        },
-        {
-            "name": "rocalution",
-            "description": "rocALUTION is a sparse linear algebra library with focus on exploring\nfine-grained parallelism on top of AMD's Radeon Open eCosystem Platform\nROCm runtime and toolchains, targeting modern CPU and GPU platforms.\nBased on C++ and HIP, it provides a portable, generic and flexible\ndesign that allows seamless integration with other scientific software\npackages."
-        },
-        {
-            "name": "mlirmiopen",
-            "description": "Multi-Level Intermediate Representation for rocm miopen project."
-        },
-        {
-            "name": "rocfft",
-            "description": "Radeon Open Compute FFT library"
-        },
-        {
-            "name": "rocblas",
-            "description": "Radeon Open Compute BLAS library"
-        },
-        {
-            "name": "rccl",
-            "description": "RCCL (pronounced \"Rickle\") is a stand-alone library of standard\ncollective communication routines for GPUs, implementing all-reduce,\nall-gather, reduce, broadcast, and reduce-scatter."
-        },
-        {
-            "name": "rocprim",
-            "description": "Radeon Open Compute Parallel Primitives Library"
-        },
-        {
-            "name": "rocm-device-libs",
-            "description": "set of AMD specific device-side language runtime libraries"
-        },
-        {
-            "name": "miopengemm",
-            "description": "An OpenCL general matrix multiplication (GEMM) API and kernel generator"
-        },
-        {
-            "name": "hipblas",
-            "description": "hipBLAS is a BLAS marshalling library, with multiple supported backends"
-        },
-        {
-            "name": "rocm-clang-ocl",
-            "description": "OpenCL compilation with clang compiler"
-        },
-        {
-            "name": "rocwmma",
-            "description": "AMD's C++ library for accelerating mixed precision matrix multiplication\nand accumulation (MFMA) operations leveraging specialized GPU matrix\ncores. rocWMMA provides a C++ API to facilitate breaking down matrix\nmultiply-accumulate problems into fragments and using them in block-wise\noperations that are distributed in parallel across GPU wavefronts. The\nAPI is a header library of GPU device code meaning that matrix core\nacceleration may be compiled directly into your kernel device code. This\ncan benefit from compiler optimization in the generation of kernel\nassembly, and does not incur additional overhead costs of linking to\nexternal runtime libraries or having to launch separate kernels."
-        },
-        {
-            "name": "miopen-opencl",
-            "description": "AMD's library for high performance machine learning primitives."
-        },
-        {
-            "name": "hipsparse",
-            "description": "hipSPARSE is a SPARSE marshalling library, with multiple supported\nbackends"
-        },
-        {
-            "name": "hipfft",
-            "description": "hipFFT is an FFT marshalling library. Currently, hipFFT supports either\nrocFFT or cuFFT as backends.hipFFT exports an interface that does not\nrequire the client to change, regardless of the chosen backend. It sits\nbetween the application and the backend FFT library, marshalling inputs\ninto the backend and results back to the application."
+            "name": "rocmlir",
+            "description": "This is the repository for a MLIR-based convolution and GEMM kernel\ngenerator targetting AMD hardware. This generator is mainly used from\nMIOpen and MIGraphX, but it can be used on a standalone basis."
         },
         {
             "name": "hipsolver",
             "description": "hipSOLVER is a LAPACK marshalling library, with multiple supported\nbackends. It sits between the application and a 'worker' LAPACK library,\nmarshalling inputs into the backend library and marshalling results back\nto the application. hipSOLVER exports an interface that does not require\nthe client to change, regardless of the chosen backend. Currently,\nhipSOLVER supports rocSOLVER and cuSOLVER as backends."
         },
         {
-            "name": "hipfort",
+            "name": "rocwmma",
+            "description": "AMD's C++ library for accelerating mixed precision matrix multiplication\nand accumulation (MFMA) operations leveraging specialized GPU matrix\ncores. rocWMMA provides a C++ API to facilitate breaking down matrix\nmultiply-accumulate problems into fragments and using them in block-wise\noperations that are distributed in parallel across GPU wavefronts. The\nAPI is a header library of GPU device code meaning that matrix core\nacceleration may be compiled directly into your kernel device code. This\ncan benefit from compiler optimization in the generation of kernel\nassembly, and does not incur additional overhead costs of linking to\nexternal runtime libraries or having to launch separate kernels."
+        },
+        {
+            "name": "rocm-clang-ocl",
+            "description": "OpenCL compilation with clang compiler"
+        },
+        {
+            "name": "migraphx",
+            "description": "AMD's graph optimization engine."
+        },
+        {
+            "name": "rocprim",
             "description": "Radeon Open Compute Parallel Primitives Library"
+        },
+        {
+            "name": "rocthrust",
+            "description": "Thrust is a parallel algorithm library. This library has been ported to\nHIP/ROCm platform, which uses the rocPRIM library. The HIP ported\nlibrary works on HIP/ROCm platforms"
+        },
+        {
+            "name": "rocfft",
+            "description": "Radeon Open Compute FFT library"
+        },
+        {
+            "name": "miopen-opencl",
+            "description": "AMD's library for high performance machine learning primitives."
+        },
+        {
+            "name": "miopen-hip",
+            "description": "AMD's library for high performance machine learning primitives."
         },
         {
             "name": "rocrand",
@@ -216,40 +192,68 @@
             "description": "AMD\u2019s C++ library for accelerating tensor primitives"
         },
         {
-            "name": "composable-kernel",
-            "description": "Composable Kernel: Performance Portable Programming Model for Machine\nLearning Tensor Operators."
+            "name": "hipfort",
+            "description": "Radeon Open Compute Parallel Primitives Library"
         },
         {
-            "name": "miopen-tensile",
-            "description": "MIOpenTensile provides host-callable interfaces to Tensile library.\nMIOpenTensile supports one programming model: HIP"
-        },
-        {
-            "name": "hiprand",
-            "description": "The hipRAND project provides an interface for generating pseudo-random\nand quasi-random numbers with either cuRAND or rocRAND backends."
-        },
-        {
-            "name": "comgr",
-            "description": "This provides various Lightning Compiler related services. It currently\ncontains one library, the Code Object Manager (Comgr)"
-        },
-        {
-            "name": "miopen-hip",
-            "description": "AMD's library for high performance machine learning primitives."
-        },
-        {
-            "name": "rocmlir",
-            "description": "This is the repository for a MLIR-based convolution and GEMM kernel\ngenerator targetting AMD hardware. This generator is mainly used from\nMIOpen and MIGraphX, but it can be used on a standalone basis."
+            "name": "rccl",
+            "description": "RCCL (pronounced \"Rickle\") is a stand-alone library of standard\ncollective communication routines for GPUs, implementing all-reduce,\nall-gather, reduce, broadcast, and reduce-scatter."
         },
         {
             "name": "rocm-tensile",
             "description": "Radeon Open Compute Tensile library"
         },
         {
-            "name": "rocthrust",
-            "description": "Thrust is a parallel algorithm library. This library has been ported to\nHIP/ROCm platform, which uses the rocPRIM library. The HIP ported\nlibrary works on HIP/ROCm platforms"
+            "name": "hiprand",
+            "description": "The hipRAND project provides an interface for generating pseudo-random\nand quasi-random numbers with either cuRAND or rocRAND backends."
+        },
+        {
+            "name": "miopen-tensile",
+            "description": "MIOpenTensile provides host-callable interfaces to Tensile library.\nMIOpenTensile supports one programming model: HIP"
+        },
+        {
+            "name": "rocblas",
+            "description": "Radeon Open Compute BLAS library"
+        },
+        {
+            "name": "comgr",
+            "description": "This provides various Lightning Compiler related services. It currently\ncontains one library, the Code Object Manager (Comgr)"
+        },
+        {
+            "name": "rocalution",
+            "description": "rocALUTION is a sparse linear algebra library with focus on exploring\nfine-grained parallelism on top of AMD's Radeon Open eCosystem Platform\nROCm runtime and toolchains, targeting modern CPU and GPU platforms.\nBased on C++ and HIP, it provides a portable, generic and flexible\ndesign that allows seamless integration with other scientific software\npackages."
+        },
+        {
+            "name": "hipfft",
+            "description": "hipFFT is an FFT marshalling library. Currently, hipFFT supports either\nrocFFT or cuFFT as backends.hipFFT exports an interface that does not\nrequire the client to change, regardless of the chosen backend. It sits\nbetween the application and the backend FFT library, marshalling inputs\ninto the backend and results back to the application."
+        },
+        {
+            "name": "mlirmiopen",
+            "description": "Multi-Level Intermediate Representation for rocm miopen project."
+        },
+        {
+            "name": "hipsparse",
+            "description": "hipSPARSE is a SPARSE marshalling library, with multiple supported\nbackends"
+        },
+        {
+            "name": "composable-kernel",
+            "description": "Composable Kernel: Performance Portable Programming Model for Machine\nLearning Tensor Operators."
         },
         {
             "name": "hipcub",
             "description": "Radeon Open Compute Parallel Primitives Library"
+        },
+        {
+            "name": "rocm-device-libs",
+            "description": "set of AMD specific device-side language runtime libraries"
+        },
+        {
+            "name": "hipblas",
+            "description": "hipBLAS is a BLAS marshalling library, with multiple supported backends"
+        },
+        {
+            "name": "rocsparse",
+            "description": "rocSPARSE exposes a common interface that provides Basic Linear Algebra\nSubroutines for sparse computation implemented on top of AMD's Radeon\nOpen eCosystem Platform ROCm runtime and toolchains. rocSPARSE is\ncreated using the HIP programming language and optimized for AMD's\nlatest discrete GPUs."
         }
     ]
 }
