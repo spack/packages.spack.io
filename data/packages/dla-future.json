@@ -3,6 +3,10 @@
     "aliases": [],
     "versions": [
         {
+            "name": "0.5.0",
+            "sha256": "f964ee2a96bb58b3f0ee4563ae65fcd136e409a7c0e66beda33f926fc9515a8e"
+        },
+        {
             "name": "0.4.1",
             "sha256": "ba95f26475ad68da1f3a24d091dc1b925525e269e4c83c1eaf1d37d29b526666"
         },
@@ -35,7 +39,7 @@
             "branch": "master"
         }
     ],
-    "latest_version": "0.4.1",
+    "latest_version": "0.5.0",
     "build_system": "CMakePackage",
     "conflicts": [
         {
@@ -394,6 +398,11 @@
             "description": null
         },
         {
+            "name": "+mpi_gpu_aware",
+            "spec": "~cuda~rocm",
+            "description": "dla-future: GPU-aware MPI requires +cuda or +rocm"
+        },
+        {
             "name": "generator=make",
             "spec": "",
             "description": null
@@ -489,6 +498,16 @@
             "name": "scalapack",
             "default": false,
             "description": "Build C API compatible with ScaLAPACK"
+        },
+        {
+            "name": "mpi_gpu_aware",
+            "default": false,
+            "description": "Use GPU-aware MPI."
+        },
+        {
+            "name": "mpi_gpu_force_contiguous",
+            "default": true,
+            "description": "Force GPU communication buffers to be contiguous before communicating."
         }
     ],
     "homepage": "https://github.com/eth-cscs/DLA-Future",
@@ -523,7 +542,7 @@
     "dependencies": [
         {
             "name": "blas",
-            "description": "NVPL BLAS (NVIDIA Performance Libraries BLAS) is part of NVIDIA\nPerformance Libraries that provides standard Fortran 77 BLAS APIs as\nwell as C (CBLAS)."
+            "description": "BLIS is a portable software framework for instantiating high-performance\nBLAS-like dense linear algebra libraries. The framework was designed to\nisolate essential kernels of computation that, when optimized,\nimmediately enable optimized implementations of most of its commonly\nused and computationally intensive operations. BLIS is written in ISO\nC99 and available under a new/modified/3-clause BSD license. While BLIS\nexports a new BLAS-like API, it also includes a BLAS compatibility layer\nwhich gives application developers access to BLIS implementations via\ntraditional BLAS routine calls. An object-based API unique to BLIS is\nalso available."
         },
         {
             "name": "blaspp",
@@ -563,7 +582,7 @@
         },
         {
             "name": "lapack",
-            "description": "libFLAME (AMD Optimized version) is a portable library for dense matrix\ncomputations, providing much of the functionality present in Linear\nAlgebra Package (LAPACK). It includes a compatibility layer, FLAPACK,\nwhich includes complete LAPACK implementation. The library provides\nscientific and numerical computing communities with a modern, high-\nperformance dense linear algebra library that is extensible, easy to\nuse, and available under an open source license. libFLAME is a C-only\nimplementation and does not depend on any external FORTRAN libraries\nincluding LAPACK. There is an optional backward compatibility layer,\nlapack2flame that maps LAPACK routine invocations to their corresponding\nnative C implementations in libFLAME. This allows legacy applications to\nstart taking advantage of libFLAME with virtually no changes to their\nsource code. In combination with BLIS library which includes\noptimizations for the AMD EPYC processor family, libFLAME enables\nrunning high performing LAPACK functionalities on AMD platform.\nLICENSING INFORMATION: By downloading, installing and using this\nsoftware, you agree to the terms and conditions of the AMD AOCL-libFLAME\nlicense agreement. You may obtain a copy of this license agreement from\nhttps://www.amd.com/en/developer/aocl/dense/eula-\nlibflame/libflame-4-2-eula.html\nhttps://www.amd.com/en/developer/aocl/dense/eula-libflame/libflame-\neula.html"
+            "description": "libflame is a portable library for dense matrix computations, providing\nmuch of the functionality present in LAPACK, developed by current and\nformer members of the Science of High-Performance Computing (SHPC) group\nin the Institute for Computational Engineering and Sciences at The\nUniversity of Texas at Austin. libflame includes a compatibility layer,\nlapack2flame, which includes a complete LAPACK implementation."
         },
         {
             "name": "lapackpp",
@@ -575,7 +594,7 @@
         },
         {
             "name": "mpi",
-            "description": "MPItrampoline: A forwarding MPI implementation that can use any other\nMPI implementation via an MPI ABI."
+            "description": "MSMPI is a Windows port of MPICH provided by the Windows team"
         },
         {
             "name": "ninja",
