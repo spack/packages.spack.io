@@ -15,6 +15,10 @@
             "branch": "master"
         },
         {
+            "name": "2024.5.0",
+            "sha256": "f945e80f71d340664766b66290496d230e021df5e5cd88f404d101258446daa9"
+        },
+        {
             "name": "2023.9.0",
             "sha256": "2d9f15a794e10683579ce494cd458b0dd97e2d3327c4d17e1fea79bd95576ce6"
         },
@@ -55,7 +59,7 @@
             "sha256": "117f5fdb16e53d0fa8a47a1e28cccab1d8020ed4f6e50163d985dc90226aaa2c"
         }
     ],
-    "latest_version": "2023.9.0",
+    "latest_version": "2024.5.0",
     "build_system": "Package",
     "conflicts": [
         {
@@ -422,6 +426,11 @@
             "name": "+rocm",
             "spec": "@:2021.8",
             "description": "gasnet: GASNet version 2021.9.0 or newer required for ROCm support"
+        },
+        {
+            "name": "^hip@6:",
+            "spec": "@:2024.4+rocm",
+            "description": null
         }
     ],
     "variants": [
@@ -453,7 +462,7 @@
         {
             "name": "conduits",
             "default": "smp",
-            "description": "The hardware-dependent network backends to enable.\n(smp) = SMP conduit for single-node operation ;\n(ibv) = Native InfiniBand verbs conduit ;\n(ofi) = OFI conduit over libfabric, for HPE Cray Slingshot and Intel Omni-Path ;\n(udp) = Portable UDP conduit, for Ethernet networks ;\n(mpi) = Low-performance/portable MPI conduit ;\n(ucx) = EXPERIMENTAL UCX conduit for Mellanox IB/RoCE ConnectX-5+ ;\nFor detailed recommendations, consult https://gasnet.lbl.gov"
+            "description": "The hardware-dependent network backends to enable.\n(smp) = SMP conduit for single-node operation\n(ibv) = Native InfiniBand verbs conduit\n(ofi) = OFI conduit over libfabric, for HPE Cray Slingshot and Intel Omni-Path\n(udp) = Portable UDP conduit, for Ethernet networks\n(mpi) = Low-performance/portable MPI conduit\n(ucx) = EXPERIMENTAL UCX conduit for Mellanox IB/RoCE ConnectX-5+\nFor detailed recommendations, consult https://gasnet.lbl.gov"
         },
         {
             "name": "debug",
@@ -496,12 +505,16 @@
             "description": "This repository includes the user mode API nterfaces and libraries\nnecessary for host applications to launch computer kernels to available\nHSA ROCm kernel agents.AMD Heterogeneous System Architecture HSA - Linux\nHSA Runtime for Boltzmann (ROCm) platforms."
         },
         {
+            "name": "libfabric",
+            "description": "The Open Fabrics Interfaces (OFI) is a framework focused on exporting\nfabric communication services to applications."
+        },
+        {
             "name": "llvm-amdgpu",
             "description": "Toolkit for the construction of highly optimized compilers, optimizers,\nand run-time environments."
         },
         {
             "name": "mpi",
-            "description": "MSMPI is a Windows port of MPICH provided by the Windows team"
+            "description": "An open source Message Passing Interface implementation. The Open MPI\nProject is an open source Message Passing Interface implementation that\nis developed and maintained by a consortium of academic, research, and\nindustry partners. Open MPI is therefore able to combine the expertise,\ntechnologies, and resources from all across the High Performance\nComputing community in order to build the best MPI library available.\nOpen MPI offers advantages for system and software vendors, application\ndevelopers and computer science researchers."
         },
         {
             "name": "oneapi-level-zero",
