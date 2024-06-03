@@ -464,15 +464,25 @@
         },
         {
             "name": "gasnet",
-            "default": false,
-            "description": "Override embedded GASNet-EX version"
+            "default": true,
+            "description": "Override embedded GASNet-EX with Spack's"
         }
     ],
     "homepage": "https://upcxx.lbl.gov",
     "maintainers": [
         "bonachea"
     ],
-    "patches": [],
+    "patches": [
+        {
+            "owner": "builtin.upcxx",
+            "sha256": "89a2eebecdc6d2184bbd7eaf0731e0650185286cb05042d3ceb5a3eb344798f0",
+            "level": 1,
+            "working_dir": ".",
+            "reverse": false,
+            "relative_path": "fix_configure_ldflags.patch",
+            "version": "@2021.9.0:master"
+        }
+    ],
     "resources": [],
     "description": "UPC++ is a C++ library that supports Partitioned Global Address Space\n(PGAS) programming, and is designed to interoperate smoothly and\nefficiently with MPI, OpenMP, CUDA, ROCm/HIP and AMTs. It leverages\nGASNet-EX to deliver low-overhead, fine-grained communication, including\nRemote Memory Access (RMA) and Remote Procedure Call (RPC).\n",
     "dependencies": [
@@ -498,7 +508,7 @@
         },
         {
             "name": "mpi",
-            "description": "An open source Message Passing Interface implementation. The Open MPI\nProject is an open source Message Passing Interface implementation that\nis developed and maintained by a consortium of academic, research, and\nindustry partners. Open MPI is therefore able to combine the expertise,\ntechnologies, and resources from all across the High Performance\nComputing community in order to build the best MPI library available.\nOpen MPI offers advantages for system and software vendors, application\ndevelopers and computer science researchers."
+            "description": "Intel MPI Library is a multifabric message-passing library that\nimplements the open-source MPICH specification. Use the library to\ncreate, maintain, and test advanced, complex applications that perform\nbetter on high-performance computing (HPC) clusters based on Intel\nprocessors. LICENSE INFORMATION: By downloading and using this software,\nyou agree to the terms and conditions of the software license agreements\nat https://intel.ly/393CijO."
         },
         {
             "name": "oneapi-level-zero",
