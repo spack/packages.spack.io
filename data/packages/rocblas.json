@@ -65,26 +65,6 @@
         {
             "name": "5.3.0",
             "sha256": "8ea7269604cba949a6ea84b78dc92a44fa890427db88334da6358813f6512e34"
-        },
-        {
-            "name": "5.2.3",
-            "sha256": "36f74ce53b82331a756c42f95f3138498d6f4a66f2fd370cff9ab18281bb12d5"
-        },
-        {
-            "name": "5.2.1",
-            "sha256": "6be804ba8d9e491a85063c220cd0ddbf3d13e3b481eee31041c35a938723f4c6"
-        },
-        {
-            "name": "5.2.0",
-            "sha256": "b178b7db5f0af55b21b5f744b8825f5e002daec69b4688e50df2bca2fac155bd"
-        },
-        {
-            "name": "5.1.3",
-            "sha256": "915374431db8f0cecdc2bf318a0ad33c3a8eceedc461d7a06b92ccb02b07313c"
-        },
-        {
-            "name": "5.1.0",
-            "sha256": "efa0c424b5ada697314aa8a78c19c93ade15f1612c4bfc8c53d71d1c9719aaa3"
         }
     ],
     "latest_version": "6.1.1",
@@ -138,15 +118,6 @@
     "patches": [
         {
             "owner": "builtin.rocblas",
-            "sha256": "6a52b2899a94c6b5d0268aa783fc03e36663e0f06d61336d75d8943c7183f8db",
-            "level": 1,
-            "working_dir": ".",
-            "reverse": false,
-            "relative_path": "0003-Fix-rocblas-gentest.patch",
-            "version": "@:5.1"
-        },
-        {
-            "owner": "builtin.rocblas",
             "sha256": "81591d9aa564cd84d105a30e6d0ed7ad1d24ca6e492dd6506efae864dc959208",
             "level": 1,
             "working_dir": ".",
@@ -174,36 +145,6 @@
         }
     ],
     "resources": [
-        {
-            "version": "@5.1.0+tensile",
-            "name": "Tensile",
-            "destination": "",
-            "placement": null
-        },
-        {
-            "version": "@5.1.3+tensile",
-            "name": "Tensile",
-            "destination": "",
-            "placement": null
-        },
-        {
-            "version": "@5.2.0+tensile",
-            "name": "Tensile",
-            "destination": "",
-            "placement": null
-        },
-        {
-            "version": "@5.2.1+tensile",
-            "name": "Tensile",
-            "destination": "",
-            "placement": null
-        },
-        {
-            "version": "@5.2.3+tensile",
-            "name": "Tensile",
-            "destination": "",
-            "placement": null
-        },
         {
             "version": "@5.3.0+tensile",
             "name": "Tensile",
@@ -386,120 +327,120 @@
     ],
     "dependent_to": [
         {
-            "name": "pika",
-            "description": "C++ runtime system for parallellism and concurrency."
-        },
-        {
-            "name": "py-tensorflow",
-            "description": "TensorFlow is an open source machine learning framework for everyone."
-        },
-        {
-            "name": "spla",
-            "description": "Specialized Parallel Linear Algebra, providing distributed GEMM\nfunctionality for specific matrix distributions with optional GPU\nacceleration."
-        },
-        {
-            "name": "py-torch",
-            "description": "Tensors and Dynamic neural networks in Python with strong GPU\nacceleration."
-        },
-        {
-            "name": "rocm-validation-suite",
-            "description": "The ROCm Validation Suite (RVS) is a system administrators and cluster\nmanager's tool for detecting and troubleshooting common problems\naffecting AMD GPU(s) running in a high-performance computing\nenvironment, enabled using the ROCm software stack on a compatible\nplatform."
-        },
-        {
-            "name": "elpa",
-            "description": "Eigenvalue solvers for Petaflop-Applications (ELPA)"
+            "name": "rocsolver",
+            "description": "rocSOLVER is a work-in-progress implementation of a subset of LAPACK\nfunctionality on the ROCm platform."
         },
         {
             "name": "kokkos-kernels",
             "description": "Kokkos Kernels provides math kernels, often BLAS or LAPACK for small\nmatrices, that can be used in larger Kokkos parallel routines"
         },
         {
-            "name": "slate",
-            "description": "The Software for Linear Algebra Targeting Exascale (SLATE) project is to\nprovide fundamental dense linear algebra capabilities to the US\nDepartment of Energy and to the high-performance computing (HPC)\ncommunity at large. To this end, SLATE will provide basic dense matrix\noperations (e.g., matrix multiplication, rank-k update, triangular\nsolve), linear systems solvers, least square solvers, singular value and\neigenvalue solvers."
-        },
-        {
-            "name": "blaspp",
-            "description": "C++ API for the Basic Linear Algebra Subroutines. Developed by the\nInnovative Computing Laboratory at the University of Tennessee,\nKnoxville."
-        },
-        {
-            "name": "nlcglib",
-            "description": "Nonlinear CG methods for wave-function optimization in DFT."
-        },
-        {
-            "name": "sirius",
-            "description": "Domain specific library for electronic structure calculations"
-        },
-        {
-            "name": "cosma",
-            "description": "Distributed Communication-Optimal Matrix-Matrix Multiplication Library"
-        },
-        {
-            "name": "miopen-hip",
-            "description": "AMD's library for high performance machine learning primitives."
-        },
-        {
-            "name": "petsc",
-            "description": "PETSc is a suite of data structures and routines for the scalable\n(parallel) solution of scientific applications modeled by partial\ndifferential equations."
+            "name": "tiled-mm",
+            "description": "Matrix multiplication on GPUs for matrices stored on a CPU. Similar to\ncublasXt, but ported to both NVIDIA and AMD GPUs."
         },
         {
             "name": "rocwmma",
             "description": "AMD's C++ library for accelerating mixed precision matrix multiplication\nand accumulation (MFMA) operations leveraging specialized GPU matrix\ncores. rocWMMA provides a C++ API to facilitate breaking down matrix\nmultiply-accumulate problems into fragments and using them in block-wise\noperations that are distributed in parallel across GPU wavefronts. The\nAPI is a header library of GPU device code meaning that matrix core\nacceleration may be compiled directly into your kernel device code. This\ncan benefit from compiler optimization in the generation of kernel\nassembly, and does not incur additional overhead costs of linking to\nexternal runtime libraries or having to launch separate kernels."
         },
         {
-            "name": "hipsolver",
-            "description": "hipSOLVER is a LAPACK marshalling library, with multiple supported\nbackends. It sits between the application and a 'worker' LAPACK library,\nmarshalling inputs into the backend library and marshalling results back\nto the application. hipSOLVER exports an interface that does not require\nthe client to change, regardless of the chosen backend. Currently,\nhipSOLVER supports rocSOLVER and cuSOLVER as backends."
-        },
-        {
             "name": "miopen-opencl",
             "description": "AMD's library for high performance machine learning primitives."
-        },
-        {
-            "name": "tasmanian",
-            "description": "The Toolkit for Adaptive Stochastic Modeling and Non-Intrusive\nApproximatioN is a robust library for high dimensional integration and\ninterpolation as well as parameter calibration."
-        },
-        {
-            "name": "resolve",
-            "description": "ReSolve is a library of GPU-resident sparse linear solvers. It contains\niterative and direct solvers designed to run on NVIDIA and AMD GPUs, as\nwell as CPU devices."
-        },
-        {
-            "name": "rocalution",
-            "description": "rocALUTION is a sparse linear algebra library with focus on exploring\nfine-grained parallelism on top of AMD's Radeon Open eCosystem Platform\nROCm runtime and toolchains, targeting modern CPU and GPU platforms.\nBased on C++ and HIP, it provides a portable, generic and flexible\ndesign that allows seamless integration with other scientific software\npackages."
-        },
-        {
-            "name": "rocsolver",
-            "description": "rocSOLVER is a work-in-progress implementation of a subset of LAPACK\nfunctionality on the ROCm platform."
-        },
-        {
-            "name": "py-pyfr",
-            "description": "PyFR is an open-source Python based framework for solving advection-\ndiffusion type problems on streaming architectures using the Flux\nReconstruction approach of Huynh."
-        },
-        {
-            "name": "lapackpp",
-            "description": "LAPACK++: C++ API for the LAPACK Linear Algebra Package. Developed by\nthe Innovative Computing Laboratory at the University of Tennessee,\nKnoxville."
         },
         {
             "name": "dla-future",
             "description": "DLA-Future library: Distributed Linear Algebra with Future"
         },
         {
-            "name": "redis-ai",
-            "description": "A Redis module for serving tensors and executing deep learning graphs"
+            "name": "py-torch",
+            "description": "Tensors and Dynamic neural networks in Python with strong GPU\nacceleration."
         },
         {
-            "name": "tiled-mm",
-            "description": "Matrix multiplication on GPUs for matrices stored on a CPU. Similar to\ncublasXt, but ported to both NVIDIA and AMD GPUs."
+            "name": "miopen-hip",
+            "description": "AMD's library for high performance machine learning primitives."
+        },
+        {
+            "name": "py-tensorflow",
+            "description": "TensorFlow is an open source machine learning framework for everyone."
+        },
+        {
+            "name": "blaspp",
+            "description": "C++ API for the Basic Linear Algebra Subroutines. Developed by the\nInnovative Computing Laboratory at the University of Tennessee,\nKnoxville."
+        },
+        {
+            "name": "migraphx",
+            "description": "AMD's graph optimization engine."
+        },
+        {
+            "name": "slate",
+            "description": "The Software for Linear Algebra Targeting Exascale (SLATE) project is to\nprovide fundamental dense linear algebra capabilities to the US\nDepartment of Energy and to the high-performance computing (HPC)\ncommunity at large. To this end, SLATE will provide basic dense matrix\noperations (e.g., matrix multiplication, rank-k update, triangular\nsolve), linear systems solvers, least square solvers, singular value and\neigenvalue solvers."
+        },
+        {
+            "name": "lapackpp",
+            "description": "LAPACK++: C++ API for the LAPACK Linear Algebra Package. Developed by\nthe Innovative Computing Laboratory at the University of Tennessee,\nKnoxville."
+        },
+        {
+            "name": "spla",
+            "description": "Specialized Parallel Linear Algebra, providing distributed GEMM\nfunctionality for specific matrix distributions with optional GPU\nacceleration."
         },
         {
             "name": "hipblas",
             "description": "hipBLAS is a BLAS marshalling library, with multiple supported backends"
         },
         {
+            "name": "rocalution",
+            "description": "rocALUTION is a sparse linear algebra library with focus on exploring\nfine-grained parallelism on top of AMD's Radeon Open eCosystem Platform\nROCm runtime and toolchains, targeting modern CPU and GPU platforms.\nBased on C++ and HIP, it provides a portable, generic and flexible\ndesign that allows seamless integration with other scientific software\npackages."
+        },
+        {
+            "name": "py-pyfr",
+            "description": "PyFR is an open-source Python based framework for solving advection-\ndiffusion type problems on streaming architectures using the Flux\nReconstruction approach of Huynh."
+        },
+        {
+            "name": "sirius",
+            "description": "Domain specific library for electronic structure calculations"
+        },
+        {
+            "name": "petsc",
+            "description": "PETSc is a suite of data structures and routines for the scalable\n(parallel) solution of scientific applications modeled by partial\ndifferential equations."
+        },
+        {
+            "name": "rocm-validation-suite",
+            "description": "The ROCm Validation Suite (RVS) is a system administrators and cluster\nmanager's tool for detecting and troubleshooting common problems\naffecting AMD GPU(s) running in a high-performance computing\nenvironment, enabled using the ROCm software stack on a compatible\nplatform."
+        },
+        {
+            "name": "pika",
+            "description": "C++ runtime system for parallellism and concurrency."
+        },
+        {
+            "name": "hipsolver",
+            "description": "hipSOLVER is a LAPACK marshalling library, with multiple supported\nbackends. It sits between the application and a 'worker' LAPACK library,\nmarshalling inputs into the backend library and marshalling results back\nto the application. hipSOLVER exports an interface that does not require\nthe client to change, regardless of the chosen backend. Currently,\nhipSOLVER supports rocSOLVER and cuSOLVER as backends."
+        },
+        {
+            "name": "cosma",
+            "description": "Distributed Communication-Optimal Matrix-Matrix Multiplication Library"
+        },
+        {
+            "name": "redis-ai",
+            "description": "A Redis module for serving tensors and executing deep learning graphs"
+        },
+        {
+            "name": "resolve",
+            "description": "ReSolve is a library of GPU-resident sparse linear solvers. It contains\niterative and direct solvers designed to run on NVIDIA and AMD GPUs, as\nwell as CPU devices."
+        },
+        {
+            "name": "nlcglib",
+            "description": "Nonlinear CG methods for wave-function optimization in DFT."
+        },
+        {
             "name": "heffte",
             "description": "Highly Efficient FFT for Exascale"
         },
         {
-            "name": "migraphx",
-            "description": "AMD's graph optimization engine."
+            "name": "elpa",
+            "description": "Eigenvalue solvers for Petaflop-Applications (ELPA)"
+        },
+        {
+            "name": "tasmanian",
+            "description": "The Toolkit for Adaptive Stochastic Modeling and Non-Intrusive\nApproximatioN is a robust library for high dimensional integration and\ninterpolation as well as parameter calibration."
         }
     ]
 }
