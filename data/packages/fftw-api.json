@@ -1,29 +1,64 @@
 {
-    "name": "cray-fftw",
+    "name": "fujitsu-fftw",
     "aliases": [
         {
             "name": "fftw-api",
-            "alias_for": "cray-fftw"
+            "alias_for": "fujitsu-fftw"
         }
     ],
     "versions": [
         {
-            "name": "3.3.8.12"
+            "name": "1.1.0",
+            "sha256": "47b01a20846802041a9533a115f816b973cc9b15b3e827a2f0caffaae34a6c9d"
         },
         {
-            "name": "3.3.8.8"
-        },
-        {
-            "name": "3.3.8.7"
+            "name": "1.0.0",
+            "sha256": "b5931e352355d8d1ffeb215922f4b96de11b8585c423fceeaffbf3d5436f6f2f"
         }
     ],
-    "latest_version": "3.3.8.12",
-    "build_system": "Package",
-    "conflicts": [],
+    "latest_version": "1.1.0",
+    "build_system": "AutotoolsPackage",
+    "conflicts": [
+        {
+            "name": "arch=windows-None-None",
+            "spec": "build_system=autotools",
+            "description": null
+        },
+        {
+            "name": "%gcc@8.0:8",
+            "spec": "@3.3.7",
+            "description": null
+        },
+        {
+            "name": "precision=long_double",
+            "spec": "@2.1.5",
+            "description": "fujitsu-fftw: Long double precision is not supported in FFTW 2"
+        },
+        {
+            "name": "precision=quad",
+            "spec": "@2.1.5",
+            "description": "fujitsu-fftw: Quad precision is not supported in FFTW 2"
+        },
+        {
+            "name": "precision=quad",
+            "spec": "+mpi",
+            "description": "fujitsu-fftw: Quad precision is not supported in MPI"
+        },
+        {
+            "name": "precision=quad",
+            "spec": "%fj",
+            "description": "fujitsu-fftw: Fujitsu Compiler doesn't support quad precision"
+        },
+        {
+            "name": "precision=long_double",
+            "spec": "%fj",
+            "description": "fujitsu-fftw: ARM-SVE vector instructions only works in single or double precision"
+        }
+    ],
     "variants": [
         {
             "name": "build_system",
-            "default": "generic",
+            "default": "autotools",
             "description": "Build systems supported by the package"
         },
         {
@@ -33,125 +68,184 @@
         },
         {
             "name": "openmp",
-            "default": false,
-            "description": "Enable OpenMP support."
+            "default": true,
+            "description": "Enable OpenMP support"
         },
         {
             "name": "mpi",
             "default": true,
             "description": "Activate MPI support"
+        },
+        {
+            "name": "shared",
+            "default": true,
+            "description": "Builds a shared version of the library"
+        },
+        {
+            "name": "debug",
+            "default": false,
+            "description": "Builds a debug version of the library"
         }
     ],
-    "homepage": "https://support.hpe.com/",
-    "maintainers": [
-        "haampie",
-        "lukebroskop"
-    ],
+    "homepage": "https://github.com/fujitsu/fftw3",
+    "maintainers": [],
     "patches": [],
     "resources": [],
-    "description": "FFTW is a C subroutine library for computing the discrete Fourier\ntransform (DFT) in one or more dimensions, of arbitrary input size, and\nof both real and complex data (as well as of even/odd data, i.e. the\ndiscrete cosine/sine transforms or DCT/DST). This package is a wrapper\nfor Cray's version of FFTW. To install this package, list it as an\nexternal package in packages.yaml, and make sure to load the correct\ncray-fftw module. In some cases you need to load cray-mpich before cray-\nfftw.\n",
+    "description": "FFTW (Fujitsu Optimized version) is a comprehensive collection of fast C\nroutines for computing the Discrete Fourier Transform (DFT) and various\nspecial cases thereof. It is an open-source implementation of the Fast\nFourier transform algorithm. It can compute transforms of real and\ncomplex-values arrays of arbitrary size and dimension. Fujitsu Optimized\nFFTW is the optimized FFTW implementation targeted for A64FX CPUs. For\nsingle precision build, please use precision value as float. Example :\nspack install fujitsufftw precision=float\n",
     "dependencies": [
         {
+            "name": "gmake",
+            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files."
+        },
+        {
+            "name": "gnuconfig",
+            "description": "The GNU config.guess and config.sub scripts versioned by timestamp.\nThis package can be used as a build dependency for autotools packages\nthat ship a tarball with outdated config.guess and config.sub files."
+        },
+        {
+            "name": "llvm-openmp",
+            "description": "The OpenMP subproject of LLVM contains the components required to build\nan executable OpenMP program that are outside the compiler itself."
+        },
+        {
             "name": "mpi",
-            "description": "A single processor implementation of the mpi library."
+            "description": "Cray's MPICH is a high performance and widely portable implementation of\nthe Message Passing Interface (MPI) standard."
+        },
+        {
+            "name": "texinfo",
+            "description": "Texinfo is the official documentation format of the GNU project. It was\ninvented by Richard Stallman and Bob Chassell many years ago, loosely\nbased on Brian Reid's Scribe and other formatting languages of the time.\nIt is used by many non-GNU projects as well."
         }
     ],
     "dependent_to": [
+        {
+            "name": "spfft",
+            "description": "Sparse 3D FFT library with MPI, OpenMP, CUDA and ROCm support."
+        },
+        {
+            "name": "octopus",
+            "description": "A real-space finite-difference (time-dependent) density-functional\ntheory code."
+        },
         {
             "name": "castep",
             "description": "CASTEP is a leading code for calculating the properties of materials\nfrom first principles. Using density functional theory, it can simulate\na wide range of properties of materials proprieties including\nenergetics, structure at the atomic level, vibrational properties,\nelectronic response properties etc."
         },
         {
-            "name": "rmgdft",
-            "description": "RMGDFT is a high performance real-space density functional code designed\nfor large scale electronic structure calculations."
-        },
-        {
-            "name": "ecmwf-atlas",
-            "description": "A library for numerical weather prediction and climate modelling."
-        },
-        {
-            "name": "sirius",
-            "description": "Domain specific library for electronic structure calculations"
+            "name": "ngspice",
+            "description": "ngspice is the open source spice simulator for electric and electronic\ncircuits."
         },
         {
             "name": "rayleigh",
             "description": "Rayleigh is a 3-D convection code designed for the study of dynamo\nbehavior in spherical geometry."
         },
         {
-            "name": "gromacs-swaxs",
-            "description": "Modified Gromacs for small-angle scattering calculations\n(SAXS/WAXS/SANS)"
-        },
-        {
-            "name": "votca",
-            "description": "VOTCA is a software package which focuses on the analysis of molecular\ndynamics data, the development of systematic coarse-graining techniques\nas well as methods used for simulating microscopic charge (and exciton)\ntransport in disordered semiconductors."
+            "name": "ctffind",
+            "description": "Fast and accurate defocus estimation from electron micrographs."
         },
         {
             "name": "mpb",
             "description": "MPB is a free and open-source software package for computing\nelectromagnetic band structures and modes."
         },
         {
-            "name": "arrayfire",
-            "description": "ArrayFire is a high performance software library for parallel computing\nwith an easy-to-use API. Its array based function set makes parallel\nprogramming more accessible."
+            "name": "sleef",
+            "description": "SIMD Library for Evaluating Elementary Functions, vectorized libm and\nDFT."
         },
         {
-            "name": "kadath",
-            "description": "KADATH SPECTRAL SOLVER. The Frankfurt University/Kadath (FUKA) Initial\nData solver branch is a collection of ID solvers aimed at delivering\nconsistent initial data (ID) solutions to the eXtended Conformal Thin-\nSandwich (XCTS) formulation of Einstein's field equations for a variety\nof compact object configurations to include extremely compact,\nasymmetric, and mixed spin binaries."
-        },
-        {
-            "name": "gromacs-chain-coordinate",
-            "description": "A modification of GROMACS that implements the \"chain coordinate\", a\nreaction coordinate for pore formation in membranes and stalk formation\nbetween membranes."
-        },
-        {
-            "name": "cdo",
-            "description": "CDO is a collection of command line Operators to manipulate and analyse\nClimate and NWP model Data."
-        },
-        {
-            "name": "quantum-espresso",
-            "description": "Quantum ESPRESSO is an integrated suite of Open-Source computer codes\nfor electronic-structure calculations and materials modeling at the\nnanoscale. It is based on density-functional theory, plane waves, and\npseudopotentials."
-        },
-        {
-            "name": "conquest",
-            "description": "CONQUEST is a DFT code designed for large-scale calculations, with\nexcellent parallelisation."
-        },
-        {
-            "name": "fleur",
-            "description": "FLEUR (Full-potential Linearised augmented plane wave in EURope) is a\ncode family for calculating groundstate as well as excited-state\nproperties of solids within the context of density functional theory\n(DFT)."
-        },
-        {
-            "name": "votca-tools",
-            "description": "Versatile Object-oriented Toolkit for Coarse-graining Applications\n(VOTCA) is a package intended to reduce the amount of routine work when\ndoing systematic coarse-graining of various systems. The core is written\nin C++. This package contains the basic tools library of VOTCA."
+            "name": "vasp",
+            "description": "The Vienna Ab initio Simulation Package (VASP) is a computer program\nfor atomic scale materials modelling, e.g. electronic structure\ncalculations and quantum-mechanical molecular dynamics, from first\nprinciples."
         },
         {
             "name": "speexdsp",
             "description": "SpeexDSP is a patent-free, Open Source/Free Software DSP library."
         },
         {
-            "name": "nwchem",
-            "description": "High-performance computational chemistry software"
+            "name": "tamaas",
+            "description": "Tamaas is a C++ library with a Python interface that efficiently solves\ncontact mechanics problems with periodic rough surfaces, plasticity,\nadhesion and friction."
+        },
+        {
+            "name": "lammps",
+            "description": "LAMMPS stands for Large-scale Atomic/Molecular Massively Parallel\nSimulator."
         },
         {
             "name": "grid",
             "description": "Data parallel C++ mathematical object library."
         },
         {
-            "name": "itk",
-            "description": "The Insight Toolkit (ITK) is an open-source, cross-platform toolkit for\nN-dimensional scientific image processing, segmentation, and\nregistration. The Insight Toolkit (ITK) is an open-source, cross-\nplatform toolkit for N-dimensional scientific image processing,\nsegmentation, and registration. Segmentation is the process of\nidentifying and classifying data found in a digitally sampled\nrepresentation. Typically the sampled representation is an image\nacquired from such medical instrumentation as CT or MRI scanners.\nRegistration is the task of aligning or developing correspondences\nbetween data. For example, in the medical environment, a CT scan may be\naligned with a MRI scan in order to combine the information contained in\nboth."
+            "name": "ecmwf-atlas",
+            "description": "A library for numerical weather prediction and climate modelling."
         },
         {
-            "name": "abinit",
-            "description": "ABINIT is a package whose main program allows one to find the total\nenergy, charge density and electronic structure of systems made of\nelectrons and nuclei (molecules and periodic solids) within Density\nFunctional Theory (DFT), using pseudopotentials and a planewave or\nwavelet basis. ABINIT also includes options to optimize the geometry\naccording to the DFT forces and stresses, or to perform molecular\ndynamics simulations using these forces, or to generate dynamical\nmatrices, Born effective charges, and dielectric tensors, based on\nDensity-Functional Perturbation Theory, and many more properties.\nExcited states can be computed within the Many-Body Perturbation Theory\n(the GW approximation and the Bethe-Salpeter equation), and Time-\nDependent Density Functional Theory (for molecules). In addition to the\nmain ABINIT code, different utility programs are provided."
+            "name": "rmgdft",
+            "description": "RMGDFT is a high performance real-space density functional code designed\nfor large scale electronic structure calculations."
         },
         {
-            "name": "ctffind",
-            "description": "Fast and accurate defocus estimation from electron micrographs."
+            "name": "nwchem",
+            "description": "High-performance computational chemistry software"
+        },
+        {
+            "name": "sirius",
+            "description": "Domain specific library for electronic structure calculations"
+        },
+        {
+            "name": "votca",
+            "description": "VOTCA is a software package which focuses on the analysis of molecular\ndynamics data, the development of systematic coarse-graining techniques\nas well as methods used for simulating microscopic charge (and exciton)\ntransport in disordered semiconductors."
+        },
+        {
+            "name": "arrayfire",
+            "description": "ArrayFire is a high performance software library for parallel computing\nwith an easy-to-use API. Its array based function set makes parallel\nprogramming more accessible."
+        },
+        {
+            "name": "gromacs-swaxs",
+            "description": "Modified Gromacs for small-angle scattering calculations\n(SAXS/WAXS/SANS)"
+        },
+        {
+            "name": "cp2k",
+            "description": "CP2K is a quantum chemistry and solid state physics software package\nthat can perform atomistic simulations of solid state, liquid,\nmolecular, periodic, material, crystal, and biological systems"
+        },
+        {
+            "name": "idg",
+            "description": "Image Domain Gridding (IDG) is a fast method for convolutional\nresampling (gridding/degridding) of radio astronomical data\n(visibilities). Direction-dependent effects (DDEs) or A-tems can be\napplied in the gridding process."
+        },
+        {
+            "name": "gromacs-chain-coordinate",
+            "description": "A modification of GROMACS that implements the \"chain coordinate\", a\nreaction coordinate for pore formation in membranes and stalk formation\nbetween membranes."
+        },
+        {
+            "name": "fleur",
+            "description": "FLEUR (Full-potential Linearised augmented plane wave in EURope) is a\ncode family for calculating groundstate as well as excited-state\nproperties of solids within the context of density functional theory\n(DFT)."
+        },
+        {
+            "name": "cdo",
+            "description": "CDO is a collection of command line Operators to manipulate and analyse\nClimate and NWP model Data."
+        },
+        {
+            "name": "gromacs",
+            "description": "GROMACS is a molecular dynamics package primarily designed for\nsimulations of proteins, lipids and nucleic acids. It was originally\ndeveloped in the Biophysical Chemistry department of University of\nGroningen, and is now maintained by contributors in universities and\nresearch centers across the world. GROMACS is one of the fastest and\nmost popular software packages available and can run on CPUs as well as\nGPUs. It is free, open source released under the GNU Lesser General\nPublic License. Before the version 4.6, GROMACS was released under the\nGNU General Public License."
+        },
+        {
+            "name": "octave",
+            "description": "GNU Octave is a high-level language, primarily intended for numerical\ncomputations. It provides a convenient command line interface for\nsolving linear and nonlinear problems numerically, and for performing\nother numerical experiments using a language that is mostly compatible\nwith Matlab. It may also be used as a batch-oriented language."
+        },
+        {
+            "name": "quantum-espresso",
+            "description": "Quantum ESPRESSO is an integrated suite of Open-Source computer codes\nfor electronic-structure calculations and materials modeling at the\nnanoscale. It is based on density-functional theory, plane waves, and\npseudopotentials."
         },
         {
             "name": "openfoam",
             "description": "OpenFOAM is a GPL-opensource C++ CFD-toolbox. This offering is supported\nby OpenCFD Ltd, producer and distributor of the OpenFOAM software via\nwww.openfoam.com, and owner of the OPENFOAM trademark. OpenCFD Ltd has\nbeen developing and releasing OpenFOAM since its debut in 2004."
         },
         {
-            "name": "libvdwxc",
-            "description": "Portable C library of density functionals with van der Waals\ninteractions for density functional theory"
+            "name": "conquest",
+            "description": "CONQUEST is a DFT code designed for large-scale calculations, with\nexcellent parallelisation."
+        },
+        {
+            "name": "q-e-sirius",
+            "description": "SIRIUS enabled fork of QuantumESPRESSO."
+        },
+        {
+            "name": "itk",
+            "description": "The Insight Toolkit (ITK) is an open-source, cross-platform toolkit for\nN-dimensional scientific image processing, segmentation, and\nregistration. The Insight Toolkit (ITK) is an open-source, cross-\nplatform toolkit for N-dimensional scientific image processing,\nsegmentation, and registration. Segmentation is the process of\nidentifying and classifying data found in a digitally sampled\nrepresentation. Typically the sampled representation is an image\nacquired from such medical instrumentation as CT or MRI scanners.\nRegistration is the task of aligning or developing correspondences\nbetween data. For example, in the medical environment, a CT scan may be\naligned with a MRI scan in order to combine the information contained in\nboth."
+        },
+        {
+            "name": "ectrans",
+            "description": "Ectrans is the global spherical Harmonics transforms library, extracted\nfrom the IFS. It is using a hybrid of MPI and OpenMP parallelisation\nstrategies. The package contains both single- and double precision\nFortran libraries (trans_sp, trans_dp), as well as a C interface to the\ndouble-precision version (transi_dp)."
         },
         {
             "name": "openmx",
@@ -162,60 +256,24 @@
             "description": "QMCPACK, is a modern high-performance open-source Quantum Monte Carlo\n(QMC) simulation code."
         },
         {
-            "name": "octave",
-            "description": "GNU Octave is a high-level language, primarily intended for numerical\ncomputations. It provides a convenient command line interface for\nsolving linear and nonlinear problems numerically, and for performing\nother numerical experiments using a language that is mostly compatible\nwith Matlab. It may also be used as a batch-oriented language."
+            "name": "votca-tools",
+            "description": "Versatile Object-oriented Toolkit for Coarse-graining Applications\n(VOTCA) is a package intended to reduce the amount of routine work when\ndoing systematic coarse-graining of various systems. The core is written\nin C++. This package contains the basic tools library of VOTCA."
         },
         {
-            "name": "sleef",
-            "description": "SIMD Library for Evaluating Elementary Functions, vectorized libm and\nDFT."
-        },
-        {
-            "name": "q-e-sirius",
-            "description": "SIRIUS enabled fork of QuantumESPRESSO."
-        },
-        {
-            "name": "tamaas",
-            "description": "Tamaas is a C++ library with a Python interface that efficiently solves\ncontact mechanics problems with periodic rough surfaces, plasticity,\nadhesion and friction."
-        },
-        {
-            "name": "vasp",
-            "description": "The Vienna Ab initio Simulation Package (VASP) is a computer program\nfor atomic scale materials modelling, e.g. electronic structure\ncalculations and quantum-mechanical molecular dynamics, from first\nprinciples."
-        },
-        {
-            "name": "gromacs",
-            "description": "GROMACS is a molecular dynamics package primarily designed for\nsimulations of proteins, lipids and nucleic acids. It was originally\ndeveloped in the Biophysical Chemistry department of University of\nGroningen, and is now maintained by contributors in universities and\nresearch centers across the world. GROMACS is one of the fastest and\nmost popular software packages available and can run on CPUs as well as\nGPUs. It is free, open source released under the GNU Lesser General\nPublic License. Before the version 4.6, GROMACS was released under the\nGNU General Public License."
-        },
-        {
-            "name": "spfft",
-            "description": "Sparse 3D FFT library with MPI, OpenMP, CUDA and ROCm support."
-        },
-        {
-            "name": "cp2k",
-            "description": "CP2K is a quantum chemistry and solid state physics software package\nthat can perform atomistic simulations of solid state, liquid,\nmolecular, periodic, material, crystal, and biological systems"
-        },
-        {
-            "name": "octopus",
-            "description": "A real-space finite-difference (time-dependent) density-functional\ntheory code."
-        },
-        {
-            "name": "ngspice",
-            "description": "ngspice is the open source spice simulator for electric and electronic\ncircuits."
-        },
-        {
-            "name": "ectrans",
-            "description": "Ectrans is the global spherical Harmonics transforms library, extracted\nfrom the IFS. It is using a hybrid of MPI and OpenMP parallelisation\nstrategies. The package contains both single- and double precision\nFortran libraries (trans_sp, trans_dp), as well as a C interface to the\ndouble-precision version (transi_dp)."
-        },
-        {
-            "name": "idg",
-            "description": "Image Domain Gridding (IDG) is a fast method for convolutional\nresampling (gridding/degridding) of radio astronomical data\n(visibilities). Direction-dependent effects (DDEs) or A-tems can be\napplied in the gridding process."
-        },
-        {
-            "name": "lammps",
-            "description": "LAMMPS stands for Large-scale Atomic/Molecular Massively Parallel\nSimulator."
+            "name": "abinit",
+            "description": "ABINIT is a package whose main program allows one to find the total\nenergy, charge density and electronic structure of systems made of\nelectrons and nuclei (molecules and periodic solids) within Density\nFunctional Theory (DFT), using pseudopotentials and a planewave or\nwavelet basis. ABINIT also includes options to optimize the geometry\naccording to the DFT forces and stresses, or to perform molecular\ndynamics simulations using these forces, or to generate dynamical\nmatrices, Born effective charges, and dielectric tensors, based on\nDensity-Functional Perturbation Theory, and many more properties.\nExcited states can be computed within the Many-Body Perturbation Theory\n(the GW approximation and the Bethe-Salpeter equation), and Time-\nDependent Density Functional Theory (for molecules). In addition to the\nmain ABINIT code, different utility programs are provided."
         },
         {
             "name": "berkeleygw",
             "description": "BerkeleyGW is a many-body perturbation theory code for excited states,\nusing the GW method and the GW plus Bethe-Salpeter equation (GW-BSE)\nmethod to solve respectively for quasiparticle excitations and optical\nproperties of materials."
+        },
+        {
+            "name": "kadath",
+            "description": "KADATH SPECTRAL SOLVER. The Frankfurt University/Kadath (FUKA) Initial\nData solver branch is a collection of ID solvers aimed at delivering\nconsistent initial data (ID) solutions to the eXtended Conformal Thin-\nSandwich (XCTS) formulation of Einstein's field equations for a variety\nof compact object configurations to include extremely compact,\nasymmetric, and mixed spin binaries."
+        },
+        {
+            "name": "libvdwxc",
+            "description": "Portable C library of density functionals with van der Waals\ninteractions for density functional theory"
         }
     ]
 }
