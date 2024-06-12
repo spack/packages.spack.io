@@ -7,6 +7,12 @@
             "branch": "master"
         },
         {
+            "name": "4.7.0",
+            "sha256": "5e889493f5f79848f7b2d16afaae307c59880ac2a7ff2315551c60ca54717751",
+            "url": "https://bit.ly/mfem-4-7",
+            "extension": "tar.gz"
+        },
+        {
             "name": "4.6.0",
             "sha256": "5fa9465b5bec56bfb777a4d2826fba48d85fbace4aed8b64a2fd4059bf075b15",
             "url": "https://bit.ly/mfem-4-6",
@@ -99,7 +105,7 @@
             "extension": "tar.gz"
         }
     ],
-    "latest_version": "4.6.0",
+    "latest_version": "4.7.0",
     "build_system": "Package",
     "conflicts": [
         {
@@ -658,6 +664,16 @@
             "description": null
         },
         {
+            "name": "cxxstd=11",
+            "spec": "^sundials@6.4.0:",
+            "description": null
+        },
+        {
+            "name": "cxxstd=11",
+            "spec": "^ginkgo",
+            "description": null
+        },
+        {
             "name": "+superlu-dist",
             "spec": "mfem@:4.0 ^hypre@2.16.0: ^superlu-dist@6:",
             "description": null
@@ -665,6 +681,16 @@
         {
             "name": "+strumpack",
             "spec": "mfem@4.0.0:4.1 ^hypre@2.16.0:",
+            "description": null
+        },
+        {
+            "name": "cxxstd=11",
+            "spec": "^raja@2022.03.0:",
+            "description": null
+        },
+        {
+            "name": "cxxstd=11",
+            "spec": "^umpire@2022.03.0:",
             "description": null
         }
     ],
@@ -868,6 +894,16 @@
             "name": "exceptions",
             "default": false,
             "description": "Enable the use of exceptions"
+        },
+        {
+            "name": "precision",
+            "default": "double",
+            "description": "Floating point precision"
+        },
+        {
+            "name": "cxxstd",
+            "default": "auto",
+            "description": "C++ language standard"
         }
     ],
     "homepage": "http://www.mfem.org",
@@ -988,12 +1024,12 @@
         },
         {
             "owner": "builtin.mfem",
-            "sha256": "99e1ef8cd78a49c88ac9103a33e01717b0389d9b5a5312986c122f279cbf5d9e",
+            "sha256": "71ce9ee35a08db17ad37484eca2e8f49e090ccf4a066d3d8c0e9b0af8eadfd73",
             "level": 1,
             "working_dir": ".",
             "reverse": false,
-            "relative_path": "mfem-hip.patch",
-            "version": "+rocm ^hip@6.0:"
+            "relative_path": "mfem-4.7.patch",
+            "version": "@4.7.0"
         }
     ],
     "resources": [],
@@ -1005,7 +1041,7 @@
         },
         {
             "name": "blas",
-            "description": "The Cray Scientific Libraries package, LibSci, is a collection of\nnumerical routines optimized for best performance on Cray systems."
+            "description": "The NVIDIA HPC SDK is a comprehensive suite of compilers, libraries and\ntools essential to maximizing developer productivity and the performance\nand portability of HPC applications. The NVIDIA HPC SDK C, C++, and\nFortran compilers support GPU acceleration of HPC modeling and\nsimulation applications with standard C++ and Fortran, OpenACC\ndirectives, and CUDA. GPU-accelerated math libraries maximize\nperformance on common HPC algorithms, and optimized communications\nlibraries enable standards-based multi-GPU and scalable systems\nprogramming. Performance profiling and debugging tools simplify porting\nand optimization of HPC applications."
         },
         {
             "name": "conduit",
@@ -1049,7 +1085,7 @@
         },
         {
             "name": "lapack",
-            "description": "The Cray Scientific Libraries package, LibSci, is a collection of\nnumerical routines optimized for best performance on Cray systems."
+            "description": "The NVIDIA HPC SDK is a comprehensive suite of compilers, libraries and\ntools essential to maximizing developer productivity and the performance\nand portability of HPC applications. The NVIDIA HPC SDK C, C++, and\nFortran compilers support GPU acceleration of HPC modeling and\nsimulation applications with standard C++ and Fortran, OpenACC\ndirectives, and CUDA. GPU-accelerated math libraries maximize\nperformance on common HPC algorithms, and optimized communications\nlibraries enable standards-based multi-GPU and scalable systems\nprogramming. Performance profiling and debugging tools simplify porting\nand optimization of HPC applications."
         },
         {
             "name": "libceed",
@@ -1073,7 +1109,7 @@
         },
         {
             "name": "mpi",
-            "description": "Cray's MPICH is a high performance and widely portable implementation of\nthe Message Passing Interface (MPI) standard."
+            "description": "The NVIDIA HPC SDK is a comprehensive suite of compilers, libraries and\ntools essential to maximizing developer productivity and the performance\nand portability of HPC applications. The NVIDIA HPC SDK C, C++, and\nFortran compilers support GPU acceleration of HPC modeling and\nsimulation applications with standard C++ and Fortran, OpenACC\ndirectives, and CUDA. GPU-accelerated math libraries maximize\nperformance on common HPC algorithms, and optimized communications\nlibraries enable standards-based multi-GPU and scalable systems\nprogramming. Performance profiling and debugging tools simplify porting\nand optimization of HPC applications."
         },
         {
             "name": "mumps",
@@ -1134,40 +1170,20 @@
     ],
     "dependent_to": [
         {
-            "name": "cardioid",
-            "description": "Cardiac simulation suite."
-        },
-        {
-            "name": "dray",
-            "description": "High-Order Mesh Ray Tracer."
-        },
-        {
-            "name": "axom",
-            "description": "Axom provides a robust, flexible software infrastructure for the\ndevelopment of multi-physics applications and computational tools."
+            "name": "remhos",
+            "description": "Remhos (REMap High-Order Solver) is a CEED miniapp that performs\nmonotonic and conservative high-order discontinuous field interpolation\n(remap) using DG advection-based spatial discretization and explicit\nhigh-order time-stepping."
         },
         {
             "name": "laghos",
             "description": "Laghos (LAGrangian High-Order Solver) is a CEED miniapp that solves the\ntime-dependent Euler equations of compressible gas dynamics in a moving\nLagrangian frame using unstructured high-order finite element spatial\ndiscretization and explicit high-order time-stepping."
         },
         {
-            "name": "ceed",
-            "description": "Ceed is a collection of benchmarks, miniapps, software libraries and\nAPIs for efficient high-order finite element and spectral element\ndiscretizations for exascale applications developed in the Department of\nEnergy (DOE) and partially supported by the Exascale Computing Project\n(ECP). This is a Spack bundle package that installs the CEED software\ncomponents."
+            "name": "xsdk-examples",
+            "description": "xSDK Examples show usage of libraries in the xSDK package."
         },
         {
-            "name": "xsdk",
-            "description": "Xsdk is a suite of Department of Energy (DOE) packages for numerical\nsimulation. This is a Spack bundle package that installs the xSDK\npackages"
-        },
-        {
-            "name": "ascent",
-            "description": "Ascent is an open source many-core capable lightweight in situ\nvisualization and analysis infrastructure for multi-physics HPC\nsimulations."
-        },
-        {
-            "name": "remhos",
-            "description": "Remhos (REMap High-Order Solver) is a CEED miniapp that performs\nmonotonic and conservative high-order discontinuous field interpolation\n(remap) using DG advection-based spatial discretization and explicit\nhigh-order time-stepping."
-        },
-        {
-            "name": "glvis",
-            "description": "GLVis: an OpenGL tool for visualization of FEM meshes and functions"
+            "name": "dray",
+            "description": "High-Order Mesh Ray Tracer."
         },
         {
             "name": "ams",
@@ -1178,12 +1194,32 @@
             "description": "This is the MFEM Plug-In for VisIt. It can be installed after VisIt is\ninstalled along MFEM library."
         },
         {
+            "name": "xsdk",
+            "description": "Xsdk is a suite of Department of Energy (DOE) packages for numerical\nsimulation. This is a Spack bundle package that installs the xSDK\npackages"
+        },
+        {
+            "name": "glvis",
+            "description": "GLVis: an OpenGL tool for visualization of FEM meshes and functions"
+        },
+        {
             "name": "visit",
             "description": "VisIt is an Open Source, interactive, scalable, visualization, animation\nand analysis tool."
         },
         {
-            "name": "xsdk-examples",
-            "description": "xSDK Examples show usage of libraries in the xSDK package."
+            "name": "ascent",
+            "description": "Ascent is an open source many-core capable lightweight in situ\nvisualization and analysis infrastructure for multi-physics HPC\nsimulations."
+        },
+        {
+            "name": "ceed",
+            "description": "Ceed is a collection of benchmarks, miniapps, software libraries and\nAPIs for efficient high-order finite element and spectral element\ndiscretizations for exascale applications developed in the Department of\nEnergy (DOE) and partially supported by the Exascale Computing Project\n(ECP). This is a Spack bundle package that installs the CEED software\ncomponents."
+        },
+        {
+            "name": "cardioid",
+            "description": "Cardiac simulation suite."
+        },
+        {
+            "name": "axom",
+            "description": "Axom provides a robust, flexible software infrastructure for the\ndevelopment of multi-physics applications and computational tools."
         }
     ]
 }
