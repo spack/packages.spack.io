@@ -7,6 +7,10 @@
             "branch": "master"
         },
         {
+            "name": "2024.03.001",
+            "sha256": "41c6cbf56d2dac26443faaba8a77307d261bf511682a64b96e24def77c813622"
+        },
+        {
             "name": "2023.11.001-patched",
             "sha256": "62ee109afc06539507f459c08b958dc4db65b757dbd77f927678c77f7687415e",
             "url": "https://elpa.mpcdf.mpg.de/software/tarball-archive/Releases/2023.11.001/elpa-2023.11.001-patched.tar.gz"
@@ -32,7 +36,7 @@
             "sha256": "a4f1a4e3964f2473a5f8177f2091a9da5c6b5ef9280b8272dfefcbc3aad44d41"
         }
     ],
-    "latest_version": "2023.11.001-patched",
+    "latest_version": "2024.03.001",
     "build_system": "AutotoolsPackage",
     "conflicts": [
         {
@@ -402,7 +406,7 @@
         },
         {
             "name": "+gpu_streams",
-            "spec": "+openmp",
+            "spec": "@:2023.11.1-patched+openmp",
             "description": "elpa: GPU streams currently not supported in combination with OpenMP"
         }
     ],
@@ -443,14 +447,14 @@
             "description": "Activates MPI support"
         },
         {
-            "name": "gpu_streams",
-            "default": true,
-            "description": "Activates GPU streams support"
-        },
-        {
             "name": "autotune",
             "default": false,
             "description": "Enables autotuning for matrix restribution"
+        },
+        {
+            "name": "gpu_streams",
+            "default": true,
+            "description": "Activates GPU streams support"
         }
     ],
     "homepage": "https://elpa.mpcdf.mpg.de/",
@@ -479,7 +483,7 @@
         },
         {
             "name": "blas",
-            "description": "Arm Compiler combines the optimized tools and libraries from Arm with a\nmodern LLVM-based compiler framework."
+            "description": "LAPACK version 3.X is a comprehensive FORTRAN library that does linear\nalgebra operations including matrix inversions, least squared solutions\nto linear sets of equations, eigenvector analysis, singular value\ndecomposition, etc. It is a very comprehensive and reputable package\nthat has found extensive use in the scientific community."
         },
         {
             "name": "cuda",
@@ -503,7 +507,7 @@
         },
         {
             "name": "lapack",
-            "description": "Arm Compiler combines the optimized tools and libraries from Arm with a\nmodern LLVM-based compiler framework."
+            "description": "LAPACK version 3.X is a comprehensive FORTRAN library that does linear\nalgebra operations including matrix inversions, least squared solutions\nto linear sets of equations, eigenvector analysis, singular value\ndecomposition, etc. It is a very comprehensive and reputable package\nthat has found extensive use in the scientific community."
         },
         {
             "name": "libtool",
@@ -515,7 +519,7 @@
         },
         {
             "name": "mpi",
-            "description": "Intel MPI Library is a multifabric message-passing library that\nimplements the open-source MPICH specification. Use the library to\ncreate, maintain, and test advanced, complex applications that perform\nbetter on high-performance computing (HPC) clusters based on Intel\nprocessors. LICENSE INFORMATION: By downloading and using this software,\nyou agree to the terms and conditions of the software license agreements\nat https://intel.ly/393CijO."
+            "description": "MPICH is a high performance and widely portable implementation of the\nMessage Passing Interface (MPI) standard."
         },
         {
             "name": "python",
@@ -527,25 +531,21 @@
         },
         {
             "name": "scalapack",
-            "description": "Intel oneAPI Math Kernel Library (Intel oneMKL; formerly Intel Math\nKernel Library or Intel MKL), is a library of optimized math routines\nfor science, engineering, and financial applications. Core math\nfunctions include BLAS, LAPACK, ScaLAPACK, sparse solvers, fast Fourier\ntransforms, and vector math. LICENSE INFORMATION: By downloading and\nusing this software, you agree to the terms and conditions of the\nsoftware license agreements at https://intel.ly/393CijO."
+            "description": "Intel Math Kernel Library. This package has been replaced by intel-\noneapi-mkl. LICENSE INFORMATION: By downloading and using this software,\nyou agree to the terms and conditions of the software license agreements\nat https://intel.ly/393CijO."
         }
     ],
     "dependent_to": [
         {
-            "name": "q-e-sirius",
-            "description": "SIRIUS enabled fork of QuantumESPRESSO."
+            "name": "cp2k",
+            "description": "CP2K is a quantum chemistry and solid state physics software package\nthat can perform atomistic simulations of solid state, liquid,\nmolecular, periodic, material, crystal, and biological systems"
         },
         {
-            "name": "fleur",
-            "description": "FLEUR (Full-potential Linearised augmented plane wave in EURope) is a\ncode family for calculating groundstate as well as excited-state\nproperties of solids within the context of density functional theory\n(DFT)."
+            "name": "nwchem",
+            "description": "High-performance computational chemistry software"
         },
         {
-            "name": "quantum-espresso",
-            "description": "Quantum ESPRESSO is an integrated suite of Open-Source computer codes\nfor electronic-structure calculations and materials modeling at the\nnanoscale. It is based on density-functional theory, plane waves, and\npseudopotentials."
-        },
-        {
-            "name": "octopus",
-            "description": "A real-space finite-difference (time-dependent) density-functional\ntheory code."
+            "name": "abacus",
+            "description": "ABACUS (Atomic-orbital Based Ab-initio Computation at UStc) is an open-\nsource computer code package aiming for large-scale electronic-structure\nsimulations from first principles"
         },
         {
             "name": "berkeleygw",
@@ -556,20 +556,24 @@
             "description": "ELSI provides a unified interface for electronic structure codes to a\nvariety of eigenvalue solvers."
         },
         {
-            "name": "abacus",
-            "description": "ABACUS (Atomic-orbital Based Ab-initio Computation at UStc) is an open-\nsource computer code package aiming for large-scale electronic-structure\nsimulations from first principles"
+            "name": "fleur",
+            "description": "FLEUR (Full-potential Linearised augmented plane wave in EURope) is a\ncode family for calculating groundstate as well as excited-state\nproperties of solids within the context of density functional theory\n(DFT)."
         },
         {
-            "name": "cp2k",
-            "description": "CP2K is a quantum chemistry and solid state physics software package\nthat can perform atomistic simulations of solid state, liquid,\nmolecular, periodic, material, crystal, and biological systems"
+            "name": "quantum-espresso",
+            "description": "Quantum ESPRESSO is an integrated suite of Open-Source computer codes\nfor electronic-structure calculations and materials modeling at the\nnanoscale. It is based on density-functional theory, plane waves, and\npseudopotentials."
+        },
+        {
+            "name": "q-e-sirius",
+            "description": "SIRIUS enabled fork of QuantumESPRESSO."
         },
         {
             "name": "sirius",
             "description": "Domain specific library for electronic structure calculations"
         },
         {
-            "name": "nwchem",
-            "description": "High-performance computational chemistry software"
+            "name": "octopus",
+            "description": "A real-space finite-difference (time-dependent) density-functional\ntheory code."
         }
     ]
 }
