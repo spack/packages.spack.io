@@ -30,11 +30,6 @@
             "name": "2.0.0",
             "commit": "5ceebadf75d1c98999ea9e9446926722d061ec22",
             "tag": "v2.0.0"
-        },
-        {
-            "name": "1.4.1",
-            "commit": "ab974c3164056e6c406917c8ca771ffd43c5a031",
-            "tag": "v1.4.1"
         }
     ],
     "latest_version": "2.3.0",
@@ -102,12 +97,12 @@
         },
         {
             "name": "%gcc@14:",
-            "spec": "+cuda ^cuda@:12.4~allow-unsupported-compilers",
+            "spec": "+cuda ^cuda@:12.5~allow-unsupported-compilers",
             "description": null
         },
         {
             "name": "%clang@18:",
-            "spec": "+cuda ^cuda@:12.4~allow-unsupported-compilers",
+            "spec": "+cuda ^cuda@:12.5~allow-unsupported-compilers",
             "description": null
         },
         {
@@ -391,88 +386,13 @@
             "description": null
         },
         {
-            "name": "^caliper@2.6",
-            "spec": "@2.0: caliper_detail=low",
-            "description": null
-        },
-        {
-            "name": "^caliper@2.7",
-            "spec": "@2.0: caliper_detail=low",
-            "description": null
-        },
-        {
-            "name": "^caliper@2.6",
-            "spec": "@2.0: caliper_detail=medium",
-            "description": null
-        },
-        {
-            "name": "^caliper@2.7",
-            "spec": "@2.0: caliper_detail=medium",
-            "description": null
-        },
-        {
-            "name": "^caliper@2.6",
-            "spec": "@2.0: caliper_detail=high",
-            "description": null
-        },
-        {
-            "name": "^caliper@2.7",
-            "spec": "@2.0: caliper_detail=high",
-            "description": null
-        },
-        {
-            "name": "+tutorial",
-            "spec": "backend=hpx",
-            "description": null
-        },
-        {
-            "name": "backend=serial",
-            "spec": "@2.0:",
-            "description": null
-        },
-        {
-            "name": "backend=charmpp",
-            "spec": "@2.0:",
-            "description": null
-        },
-        {
-            "name": "+kokkos",
-            "spec": "@:1.4",
-            "description": null
-        },
-        {
-            "name": "+openmp",
-            "spec": "@:1.4",
-            "description": null
-        },
-        {
-            "name": "+cuda",
-            "spec": "@:1.4",
-            "description": null
-        },
-        {
-            "name": "+rocm",
-            "spec": "@:1.4",
-            "description": null
-        },
-        {
-            "name": "backend=legion",
-            "spec": "@:1.4",
-            "description": null
-        },
-        {
-            "name": "+unit_tests",
-            "spec": "~flog",
-            "description": null
-        },
-        {
             "name": "^legion conduit=none",
             "spec": "backend=legion",
             "description": null
         },
         {
             "name": "+hdf5",
-            "spec": "@2: backend=hpx",
+            "spec": "backend=hpx",
             "description": "flecsi: HPX backend doesn't support HDF5"
         }
     ],
@@ -561,51 +481,11 @@
             "name": "openmp",
             "default": false,
             "description": "Enable OpenMP Support"
-        },
-        {
-            "name": "coverage",
-            "default": false,
-            "description": "Enable coverage build"
-        },
-        {
-            "name": "debug_backend",
-            "default": false,
-            "description": "Build Backend with Debug Mode"
-        },
-        {
-            "name": "disable_metis",
-            "default": false,
-            "description": "Disable FindPackageMetis"
-        },
-        {
-            "name": "doxygen",
-            "default": false,
-            "description": "Enable doxygen"
-        },
-        {
-            "name": "tutorial",
-            "default": false,
-            "description": "Build FleCSI Tutorials"
-        },
-        {
-            "name": "flecstan",
-            "default": false,
-            "description": "Build FleCSI Static Analyzer"
-        },
-        {
-            "name": "external_cinch",
-            "default": false,
-            "description": "Enable External Cinch"
-        },
-        {
-            "name": "unit_tests",
-            "default": false,
-            "description": "Build with Unit Tests Enabled"
         }
     ],
     "homepage": "http://flecsi.org/",
     "maintainers": [
-        "ktsai7",
+        "opensdh",
         "rbberger"
     ],
     "patches": [],
@@ -619,10 +499,6 @@
         {
             "name": "caliper",
             "description": "Caliper is a program instrumentation and performance measurement\nframework. It is designed as a performance analysis toolbox in a\nlibrary, allowing one to bake performance analysis capabilities directly\ninto applications and activate them at runtime."
-        },
-        {
-            "name": "cinch",
-            "description": "Cinch is a set of utilities and configuration options designed to make\ncmake builds easy to use and manage."
         },
         {
             "name": "cmake",
@@ -639,10 +515,6 @@
         {
             "name": "gmake",
             "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files."
-        },
-        {
-            "name": "googletest",
-            "description": "Google test framework for C++. Also called gtest."
         },
         {
             "name": "graphviz",
@@ -673,10 +545,6 @@
             "description": "Legion is a data-centric parallel programming system for writing\nportable high performance programs targeted at distributed heterogeneous\narchitectures. Legion presents abstractions which allow programmers to\ndescribe properties of program data (e.g. independence, locality). By\nmaking the Legion programming system aware of the structure of program\ndata, it can automate many of the tedious tasks programmers currently\nface, including correctly extracting task- and data-level parallelism\nand moving data around complex memory hierarchies. A novel mapping\ninterface provides explicit programmer controlled placement of data in\nthe memory hierarchy and assignment of tasks to processors in a way that\nis orthogonal to correctness, thereby enabling easy porting and tuning\nof Legion applications to new architectures."
         },
         {
-            "name": "llvm",
-            "description": "The LLVM Project is a collection of modular and reusable compiler and\ntoolchain technologies. Despite its name, LLVM has little to do with\ntraditional virtual machines, though it does provide helpful libraries\nthat can be used to build them. The name \"LLVM\" itself is not an\nacronym; it is the full name of the project."
-        },
-        {
             "name": "llvm-amdgpu",
             "description": "Toolkit for the construction of highly optimized compilers, optimizers,\nand run-time environments."
         },
@@ -686,7 +554,7 @@
         },
         {
             "name": "mpi",
-            "description": "This is an earlier version of Intel parallel software development tools\nand has now been replaced by the Intel oneAPI Toolkits. LICENSE\nINFORMATION: By downloading and using this software, you agree to the\nterms and conditions of the software license agreements at\nhttps://intel.ly/393CijO."
+            "description": "A single processor implementation of the mpi library."
         },
         {
             "name": "mpich",
@@ -705,14 +573,6 @@
             "description": "ParMETIS is an MPI-based parallel library that implements a variety of\nalgorithms for partitioning unstructured graphs, meshes, and for\ncomputing fill-reducing orderings of sparse matrices."
         },
         {
-            "name": "pfunit",
-            "description": "pFUnit is a unit testing framework enabling JUnit-like testing of serial\nand MPI-parallel software written in Fortran."
-        },
-        {
-            "name": "py-gcovr",
-            "description": "Gcovr provides a utility for managing the use of the GNU gcov utility\nand generating summarized code coverage results. This command is\ninspired by the Python coverage.py package, which provides a similar\nutility for Python."
-        },
-        {
             "name": "py-recommonmark",
             "description": "A docutils-compatibility bridge to CommonMark. This allows you to write\nCommonMark inside of Docutils & Sphinx projects. Documentation is\navailable on Read the Docs: http://recommonmark.readthedocs.org"
         },
@@ -723,20 +583,12 @@
         {
             "name": "py-sphinx-rtd-theme",
             "description": "ReadTheDocs.org theme for Sphinx."
-        },
-        {
-            "name": "python",
-            "description": "The Python programming language."
         }
     ],
     "dependent_to": [
         {
             "name": "flecsph",
             "description": "FleCSPH is a multi-physics compact application that exercises FleCSI\nparallel data structures for tree-based particle methods. In particular,\nFleCSPH implements a smoothed-particle hydrodynamics (SPH) solver for\nthe solution of Lagrangian problems in astrophysics and cosmology.\nFleCSPH includes support for gravitational forces using the fast\nmultipole method (FMM)."
-        },
-        {
-            "name": "flecsale",
-            "description": "Flecsale is an ALE code based on FleCSI"
         },
         {
             "name": "wonton",
