@@ -3,21 +3,42 @@
     "aliases": [],
     "versions": [
         {
-            "name": "459",
-            "sha256": "0b6e89a183e6385c713cf010a7aeead9da6626d8d2f78c363a4f1bc56ccccebb"
+            "name": "465",
+            "sha256": "eef17b1f3182d1d9dc99b5c73a6b0468d5d3bd80470f25d3f7706cc1372e04b0"
         },
         {
-            "name": "302.1",
-            "git": "https://github.com/ENCODE-DCC/kentUtils.git",
-            "commit": "d8376c5d52a161f2267346ed3dc94b5dce74c2f9"
+            "name": "464",
+            "sha256": "24e20fe68e2a2894d802c87662f69a62f71b3c15fafb2e4d6c3c425c63638bb2"
+        },
+        {
+            "name": "460",
+            "sha256": "b955e56ee880074521ef1ab1371491f47e66dc6fdd93b05328386dd675a635fa"
+        },
+        {
+            "name": "455",
+            "sha256": "e458cadad7c4a5c1b8385edafffa1b29380ac725a0c20535bf5a3bab99fe80db"
+        },
+        {
+            "name": "459",
+            "sha256": "0b6e89a183e6385c713cf010a7aeead9da6626d8d2f78c363a4f1bc56ccccebb"
         }
     ],
-    "latest_version": "459",
+    "latest_version": "465",
     "build_system": "MakefilePackage",
     "conflicts": [
         {
             "name": "arch=windows-None-None",
             "spec": "build_system=makefile",
+            "description": null
+        },
+        {
+            "name": "zlib-ng",
+            "spec": "",
+            "description": null
+        },
+        {
+            "name": "mariadb-c-client",
+            "spec": "",
             "description": null
         }
     ],
@@ -26,13 +47,39 @@
             "name": "build_system",
             "default": "makefile",
             "description": "Build systems supported by the package"
+        },
+        {
+            "name": "builtin_htslib",
+            "default": false,
+            "description": "Build with bundled htslib (using an external htslib may lead to errors)"
         }
     ],
     "homepage": "https://genome.cse.ucsc.edu/",
-    "maintainers": [],
-    "patches": [],
+    "maintainers": [
+        "teaguesterling"
+    ],
+    "patches": [
+        {
+            "owner": "builtin.kentutils",
+            "sha256": "b70890b6abe0df172e36d7ae17646c7c4b3b7be2dd07de5619d2f0c148a3733f",
+            "level": 1,
+            "working_dir": ".",
+            "reverse": false,
+            "relative_path": "fix-mysql-options-gcc13.patch",
+            "version": "%gcc@13: ^mysql"
+        },
+        {
+            "owner": "builtin.kentutils",
+            "sha256": "61f2042071faa5a7fde01948702fbdee6c73c29238a2a7b53d5dd21320a9b77a",
+            "level": 1,
+            "working_dir": ".",
+            "reverse": false,
+            "relative_path": "mysql-zlib-workaround.patch",
+            "version": "%gcc ^mysql"
+        }
+    ],
     "resources": [],
-    "description": "Jim Kent command line bioinformatic utilities\n",
+    "description": " Jim Kent command line bioinformatic utilities and libraries This\nbundles a custom version of htslib, but can be overridden with ~htslib.\nConsider adding the ^mysql+client_only dependency to avoid building all\nmysql/mariadb.\n",
     "dependencies": [
         {
             "name": "freetype",
@@ -43,6 +90,10 @@
             "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files."
         },
         {
+            "name": "htslib",
+            "description": "C library for high-throughput sequencing data formats."
+        },
+        {
             "name": "libiconv",
             "description": "GNU libiconv provides an implementation of the iconv() function and the\niconv program for character set conversion."
         },
@@ -51,7 +102,7 @@
             "description": "libpng is the official PNG reference library."
         },
         {
-            "name": "mariadb",
+            "name": "mysql-client",
             "description": "MariaDB Server is one of the most popular database servers in the world.\nMariaDB turns data into structured information in a wide array of\napplications, ranging from banking to websites. It is an enhanced, drop-\nin replacement for MySQL. MariaDB is used because it is fast, scalable\nand robust, with a rich ecosystem of storage engines, plugins and many\nother tools make it very versatile for a wide variety of use cases."
         },
         {
@@ -60,11 +111,11 @@
         },
         {
             "name": "uuid",
-            "description": "Placeholder package for Apple's analogue to non-GNU libuuid"
+            "description": "Portable uuid C library"
         },
         {
             "name": "zlib-api",
-            "description": "A free, general-purpose, legally unencumbered lossless data-compression\nlibrary."
+            "description": "zlib replacement with optimizations for next generation systems."
         }
     ],
     "dependent_to": []
