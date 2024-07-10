@@ -2,7 +2,11 @@
     "name": "intel-oneapi-mkl",
     "aliases": [
         {
-            "name": "fftw-api",
+            "name": "mkl",
+            "alias_for": "intel-oneapi-mkl"
+        },
+        {
+            "name": "lapack",
             "alias_for": "intel-oneapi-mkl"
         },
         {
@@ -10,11 +14,7 @@
             "alias_for": "intel-oneapi-mkl"
         },
         {
-            "name": "mkl",
-            "alias_for": "intel-oneapi-mkl"
-        },
-        {
-            "name": "lapack",
+            "name": "fftw-api",
             "alias_for": "intel-oneapi-mkl"
         },
         {
@@ -185,14 +185,54 @@
     "dependencies": [
         {
             "name": "mpi",
-            "description": "A single processor implementation of the mpi library."
+            "description": "MVAPICH2-X is the advanced version of the MVAPICH2 MPI library with\nenhanced features (UMR, ODP, DC, Core-Direct, SHARP, XPMEM), OSU INAM\n(InifniBand Network Monitoring and Analysis),PGAS (OpenSHMEM, UPC,\nUPC++, and CAF), and MPI+PGAS programming models with unified\ncommunication runtime. MVAPICH2-X is not installable from source and is\nonly available through a binary mirror. If you do not find the binary\nyou're looking for, send us an email at mvapich@cse.ohio-state.edu. The\nbinary mirror url is: http://mvapich.cse.ohio-\nstate.edu/download/mvapich/spack-mirror/mvapich2x/"
         },
         {
             "name": "tbb",
-            "description": "This is an earlier version of Intel parallel software development tools\nand has now been replaced by the Intel oneAPI Toolkits. LICENSE\nINFORMATION: By downloading and using this software, you agree to the\nterms and conditions of the software license agreements at\nhttps://intel.ly/393CijO."
+            "description": "Intel oneAPI Threading Building Blocks (oneTBB) is a flexible\nperformance library that simplifies the work of adding parallelism to\ncomplex applications across accelerated architectures, even if you are\nnot a threading expert. LICENSE INFORMATION: By downloading and using\nthis software, you agree to the terms and conditions of the software\nlicense agreements at https://intel.ly/393CijO."
         }
     ],
     "dependent_to": [
+        {
+            "name": "su2",
+            "description": "SU2 is a suite of open-source software tools written in C++ for the\nnumerical solution of partial differential equations (PDE) and\nperforming PDE constrained optimization."
+        },
+        {
+            "name": "ginkgo",
+            "description": "High-performance linear algebra library for manycore systems, with a\nfocus on sparse solution of linear systems."
+        },
+        {
+            "name": "scine-qcmaquis",
+            "description": "Scine QCMaquis DMRG Solver"
+        },
+        {
+            "name": "heffte",
+            "description": "Highly Efficient FFT for Exascale"
+        },
+        {
+            "name": "lapackpp",
+            "description": "LAPACK++: C++ API for the LAPACK Linear Algebra Package. Developed by\nthe Innovative Computing Laboratory at the University of Tennessee,\nKnoxville."
+        },
+        {
+            "name": "geopm-runtime",
+            "description": "The Global Extensible Open Power Manager (GEOPM) Runtime is designed to\nenhance energy efficiency of applications through active hardware\nconfiguration."
+        },
+        {
+            "name": "ngspice",
+            "description": "ngspice is the open source spice simulator for electric and electronic\ncircuits."
+        },
+        {
+            "name": "dla-future",
+            "description": "DLA-Future library: Distributed Linear Algebra with Future"
+        },
+        {
+            "name": "sirius",
+            "description": "Domain specific library for electronic structure calculations"
+        },
+        {
+            "name": "amrex",
+            "description": "AMReX is a publicly available software framework designed for building\nmassively parallel block- structured adaptive mesh refinement (AMR)\napplications."
+        },
         {
             "name": "elk",
             "description": "An all-electron full-potential linearised augmented-plane wave (FP-LAPW)\ncode with many advanced features."
@@ -202,64 +242,24 @@
             "description": "BerkeleyGW is a many-body perturbation theory code for excited states,\nusing the GW method and the GW plus Bethe-Salpeter equation (GW-BSE)\nmethod to solve respectively for quasiparticle excitations and optical\nproperties of materials."
         },
         {
-            "name": "molgw",
-            "description": "MOLGW is a quantum chemistry code that implements the many-body\nperturbation theory (MBPT) to describe the excited electronic states in\nfinite systems (atoms, molecules, clusters). MOLGW implements the GW\napproximation for the self-energy (ionization and affinity) and the\nBethe-Salpeter equation for the optical excitations. MOLGW also applies\nthe real-time time-dependent density-functional theory (RT-TDDFT). MOLGW\nemploys standard Gaussian basis set."
-        },
-        {
-            "name": "xyce",
-            "description": "Xyce (rhymes with 'spice') is an open source, SPICE-compatible, high-\nperformance analog circuit simulator, Xyce supports the standard\nanalysis capabilities found in other SPICE-like codes, such as DC,\ntransient, AC, and small-signal noise analyses; it also has less common\ncapabilities, such as harmonic balance, sensitivity analysis, and\nuncertainty propagation techniques. Xyce supplies industry-standard\ncompact models and can support custom models via its Verilog-A model\ncompiler. Foundry process-development kits (PDKs) in other SPICE syntax\ncan be used via the XDM netlist translator, which is included as part of\nthe Xyce package. In addition to supporting use on all common desktop\nplatforms (Mac, Windows, Linux), Xyce can also be compiled to run in a\nlarge-scale parallel mode to provide scalable, numerically accurate\nanalog simulation of circuits containing millions of devices, or more."
-        },
-        {
-            "name": "amrex",
-            "description": "AMReX is a publicly available software framework designed for building\nmassively parallel block- structured adaptive mesh refinement (AMR)\napplications."
-        },
-        {
-            "name": "sirius",
-            "description": "Domain specific library for electronic structure calculations"
-        },
-        {
-            "name": "ginkgo",
-            "description": "High-performance linear algebra library for manycore systems, with a\nfocus on sparse solution of linear systems."
-        },
-        {
             "name": "ldak",
             "description": "LDAK is a software package for analyzing GWAS data"
-        },
-        {
-            "name": "su2",
-            "description": "SU2 is a suite of open-source software tools written in C++ for the\nnumerical solution of partial differential equations (PDE) and\nperforming PDE constrained optimization."
-        },
-        {
-            "name": "heffte",
-            "description": "Highly Efficient FFT for Exascale"
         },
         {
             "name": "blaspp",
             "description": "C++ API for the Basic Linear Algebra Subroutines. Developed by the\nInnovative Computing Laboratory at the University of Tennessee,\nKnoxville."
         },
         {
-            "name": "scine-qcmaquis",
-            "description": "Scine QCMaquis DMRG Solver"
+            "name": "xyce",
+            "description": "Xyce (rhymes with 'spice') is an open source, SPICE-compatible, high-\nperformance analog circuit simulator, Xyce supports the standard\nanalysis capabilities found in other SPICE-like codes, such as DC,\ntransient, AC, and small-signal noise analyses; it also has less common\ncapabilities, such as harmonic balance, sensitivity analysis, and\nuncertainty propagation techniques. Xyce supplies industry-standard\ncompact models and can support custom models via its Verilog-A model\ncompiler. Foundry process-development kits (PDKs) in other SPICE syntax\ncan be used via the XDM netlist translator, which is included as part of\nthe Xyce package. In addition to supporting use on all common desktop\nplatforms (Mac, Windows, Linux), Xyce can also be compiled to run in a\nlarge-scale parallel mode to provide scalable, numerically accurate\nanalog simulation of circuits containing millions of devices, or more."
         },
         {
-            "name": "dla-future",
-            "description": "DLA-Future library: Distributed Linear Algebra with Future"
-        },
-        {
-            "name": "lapackpp",
-            "description": "LAPACK++: C++ API for the LAPACK Linear Algebra Package. Developed by\nthe Innovative Computing Laboratory at the University of Tennessee,\nKnoxville."
-        },
-        {
-            "name": "ngspice",
-            "description": "ngspice is the open source spice simulator for electric and electronic\ncircuits."
+            "name": "molgw",
+            "description": "MOLGW is a quantum chemistry code that implements the many-body\nperturbation theory (MBPT) to describe the excited electronic states in\nfinite systems (atoms, molecules, clusters). MOLGW implements the GW\napproximation for the self-energy (ionization and affinity) and the\nBethe-Salpeter equation for the optical excitations. MOLGW also applies\nthe real-time time-dependent density-functional theory (RT-TDDFT). MOLGW\nemploys standard Gaussian basis set."
         },
         {
             "name": "slate",
             "description": "The Software for Linear Algebra Targeting Exascale (SLATE) project is to\nprovide fundamental dense linear algebra capabilities to the US\nDepartment of Energy and to the high-performance computing (HPC)\ncommunity at large. To this end, SLATE will provide basic dense matrix\noperations (e.g., matrix multiplication, rank-k update, triangular\nsolve), linear systems solvers, least square solvers, singular value and\neigenvalue solvers."
-        },
-        {
-            "name": "geopm-runtime",
-            "description": "The Global Extensible Open Power Manager (GEOPM) Runtime is designed to\nenhance energy efficiency of applications through active hardware\nconfiguration."
         }
     ]
 }
