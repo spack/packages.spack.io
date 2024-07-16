@@ -138,6 +138,16 @@
             "description": null
         },
         {
+            "name": "%gcc@:7.2",
+            "spec": "+cuda ^cuda@12.4:~allow-unsupported-compilers",
+            "description": null
+        },
+        {
+            "name": "%clang@:6",
+            "spec": "+cuda ^cuda@12.2:~allow-unsupported-compilers",
+            "description": null
+        },
+        {
             "name": "%gcc@10:",
             "spec": "+cuda ^cuda@:11.0~allow-unsupported-compilers",
             "description": null
@@ -154,6 +164,11 @@
         },
         {
             "name": "%gcc@10",
+            "spec": "+cuda ^cuda@:11.4.0~allow-unsupported-compilers",
+            "description": null
+        },
+        {
+            "name": "%intel@2021:",
             "spec": "+cuda ^cuda@:11.4.0~allow-unsupported-compilers",
             "description": null
         },
@@ -465,6 +480,11 @@
         {
             "name": "%xl@:12,14:15,17:",
             "spec": "+cuda ^cuda@9.2~allow-unsupported-compilers",
+            "description": null
+        },
+        {
+            "name": "arch=None-None-ppc64le",
+            "spec": "+cuda ^cuda@12.5:~allow-unsupported-compilers",
             "description": null
         },
         {
@@ -783,7 +803,7 @@
     "dependencies": [
         {
             "name": "blas",
-            "description": "Lightweight but flexible shim designed to rectify the incompatibilities\nbetween the Accelerate/vecLib BLAS and LAPACK libraries shipped with\nmacOS and FORTRAN code compiled with modern compilers such as GNU\nFortran."
+            "description": "A BLAS and LAPACK wrapper library with runtime exchangable backends"
         },
         {
             "name": "caliper",
@@ -815,7 +835,7 @@
         },
         {
             "name": "lapack",
-            "description": "Lightweight but flexible shim designed to rectify the incompatibilities\nbetween the Accelerate/vecLib BLAS and LAPACK libraries shipped with\nmacOS and FORTRAN code compiled with modern compilers such as GNU\nFortran."
+            "description": "A BLAS and LAPACK wrapper library with runtime exchangable backends"
         },
         {
             "name": "llvm-amdgpu",
@@ -827,7 +847,7 @@
         },
         {
             "name": "mpi",
-            "description": "A single processor implementation of the mpi library."
+            "description": "MVAPICH2-X is the advanced version of the MVAPICH2 MPI library with\nenhanced features (UMR, ODP, DC, Core-Direct, SHARP, XPMEM), OSU INAM\n(InifniBand Network Monitoring and Analysis),PGAS (OpenSHMEM, UPC,\nUPC++, and CAF), and MPI+PGAS programming models with unified\ncommunication runtime. MVAPICH2-X is not installable from source and is\nonly available through a binary mirror. If you do not find the binary\nyou're looking for, send us an email at mvapich@cse.ohio-state.edu. The\nbinary mirror url is: http://mvapich.cse.ohio-\nstate.edu/download/mvapich/spack-mirror/mvapich2x/"
         },
         {
             "name": "rocprim",
@@ -856,16 +876,68 @@
     ],
     "dependent_to": [
         {
+            "name": "cardioid",
+            "description": "Cardiac simulation suite."
+        },
+        {
+            "name": "palace",
+            "description": "3D finite element solver for computational electromagnetics"
+        },
+        {
+            "name": "amrex",
+            "description": "AMReX is a publicly available software framework designed for building\nmassively parallel block- structured adaptive mesh refinement (AMR)\napplications."
+        },
+        {
             "name": "ceed",
             "description": "Ceed is a collection of benchmarks, miniapps, software libraries and\nAPIs for efficient high-order finite element and spectral element\ndiscretizations for exascale applications developed in the Department of\nEnergy (DOE) and partially supported by the Exascale Computing Project\n(ECP). This is a Spack bundle package that installs the CEED software\ncomponents."
+        },
+        {
+            "name": "elmerfem",
+            "description": "Elmer is an open source multiphysical simulation software. It includes\nphysical models of fluid dynamics, structural mechanics,\nelectromagnetics, heat transfer and acoustics."
+        },
+        {
+            "name": "amp",
+            "description": "The Advanced Multi-Physics (AMP) package. The Advanced Multi-Physics\n(AMP) package is an open source parallel object-oriented computational\nframework that is designed with single and multi-domain multi-physics\napplications in mind."
+        },
+        {
+            "name": "xsdk",
+            "description": "Xsdk is a suite of Department of Energy (DOE) packages for numerical\nsimulation. This is a Spack bundle package that installs the xSDK\npackages"
+        },
+        {
+            "name": "truchas",
+            "description": "Physics-based modeling and simulation of manufacturing processes.\nTruchas includes coupled physics models for incompressible multi-\nmaterial flow with interface tracking, heat transfer, phase change, view\nfactor thermal radiation, species advection-diffusion, elastic/plastic\nmechanics with contact, and electromagnetics. It employs finite volume,\nfinite element, and mimetic finite difference discretizations on 3-D\nunstructured meshes composed of mixed cell types."
+        },
+        {
+            "name": "amg2023",
+            "description": "AMG2023 is a parallel algebraic multigrid solver for linear systems\narising from problems on unstructured grids. The driver provided here\nbuilds linear systems for various 3-dimensional problems. It requires an\ninstallation of hypre-2.27.0 or higher."
+        },
+        {
+            "name": "hpddm",
+            "description": "High-performance unified framework for domain decomposition methods."
+        },
+        {
+            "name": "nalu-wind",
+            "description": "Nalu-Wind: Wind energy focused variant of Nalu."
+        },
+        {
+            "name": "fastmath",
+            "description": "FASTMath is a suite of ~15 numerical libraries frequently used together\nin various SciDAC and CSE applications. The suite includes\ndiscretization libraries for structured, AMR and unstructured grids as\nwell as solver libraries for ODE's, Time Integrators, Iterative, Non-\nLinear, and Direct Solvers."
+        },
+        {
+            "name": "trilinos",
+            "description": "The Trilinos Project is an effort to develop algorithms and enabling\ntechnologies within an object-oriented software framework for the\nsolution of large-scale, complex multi-physics engineering and\nscientific problems. A unique design feature of Trilinos is its focus on\npackages."
+        },
+        {
+            "name": "amr-wind",
+            "description": "AMR-Wind is a massively parallel, block-structured adaptive-mesh,\nincompressible flow sover for wind turbine and wind farm simulations."
         },
         {
             "name": "petsc",
             "description": "PETSc is a suite of data structures and routines for the scalable\n(parallel) solution of scientific applications modeled by partial\ndifferential equations."
         },
         {
-            "name": "amrex",
-            "description": "AMReX is a publicly available software framework designed for building\nmassively parallel block- structured adaptive mesh refinement (AMR)\napplications."
+            "name": "mfem",
+            "description": "Free, lightweight, scalable C++ library for finite element methods."
         },
         {
             "name": "sundials",
@@ -876,64 +948,12 @@
             "description": "The Exascale Co-Design Center for Particle Applications Toolkit"
         },
         {
-            "name": "cardioid",
-            "description": "Cardiac simulation suite."
-        },
-        {
-            "name": "fastmath",
-            "description": "FASTMath is a suite of ~15 numerical libraries frequently used together\nin various SciDAC and CSE applications. The suite includes\ndiscretization libraries for structured, AMR and unstructured grids as\nwell as solver libraries for ODE's, Time Integrators, Iterative, Non-\nLinear, and Direct Solvers."
-        },
-        {
-            "name": "gptune",
-            "description": "GPTune is an autotuning framework that relies on multitask and transfer\nlearnings to help solve the underlying black-box optimization problem\nusing Bayesian optimization methodologies."
-        },
-        {
-            "name": "amr-wind",
-            "description": "AMR-Wind is a massively parallel, block-structured adaptive-mesh,\nincompressible flow sover for wind turbine and wind farm simulations."
-        },
-        {
             "name": "parflow",
             "description": "ParFlow is an open-source parallel watershed simulator which includes\noverland flow, complex topology, heterogeneity and coupled land-surface\nprocesses."
         },
         {
-            "name": "nalu-wind",
-            "description": "Nalu-Wind: Wind energy focused variant of Nalu."
-        },
-        {
-            "name": "palace",
-            "description": "3D finite element solver for computational electromagnetics"
-        },
-        {
-            "name": "trilinos",
-            "description": "The Trilinos Project is an effort to develop algorithms and enabling\ntechnologies within an object-oriented software framework for the\nsolution of large-scale, complex multi-physics engineering and\nscientific problems. A unique design feature of Trilinos is its focus on\npackages."
-        },
-        {
-            "name": "amp",
-            "description": "The Advanced Multi-Physics (AMP) package. The Advanced Multi-Physics\n(AMP) package is an open source parallel object-oriented computational\nframework that is designed with single and multi-domain multi-physics\napplications in mind."
-        },
-        {
-            "name": "mfem",
-            "description": "Free, lightweight, scalable C++ library for finite element methods."
-        },
-        {
-            "name": "xsdk",
-            "description": "Xsdk is a suite of Department of Energy (DOE) packages for numerical\nsimulation. This is a Spack bundle package that installs the xSDK\npackages"
-        },
-        {
-            "name": "hpddm",
-            "description": "High-performance unified framework for domain decomposition methods."
-        },
-        {
-            "name": "elmerfem",
-            "description": "Elmer is an open source multiphysical simulation software. It includes\nphysical models of fluid dynamics, structural mechanics,\nelectromagnetics, heat transfer and acoustics."
-        },
-        {
-            "name": "truchas",
-            "description": "Physics-based modeling and simulation of manufacturing processes.\nTruchas includes coupled physics models for incompressible multi-\nmaterial flow with interface tracking, heat transfer, phase change, view\nfactor thermal radiation, species advection-diffusion, elastic/plastic\nmechanics with contact, and electromagnetics. It employs finite volume,\nfinite element, and mimetic finite difference discretizations on 3-D\nunstructured meshes composed of mixed cell types."
-        },
-        {
-            "name": "amg2023",
-            "description": "AMG2023 is a parallel algebraic multigrid solver for linear systems\narising from problems on unstructured grids. The driver provided here\nbuilds linear systems for various 3-dimensional problems. It requires an\ninstallation of hypre-2.27.0 or higher."
+            "name": "gptune",
+            "description": "GPTune is an autotuning framework that relies on multitask and transfer\nlearnings to help solve the underlying black-box optimization problem\nusing Bayesian optimization methodologies."
         }
     ]
 }
