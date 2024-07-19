@@ -3,6 +3,10 @@
     "aliases": [],
     "versions": [
         {
+            "name": "4.0.0",
+            "sha256": "07c02eb1d9d90f611ac73bdd30ddc242ed51b00c8a3757189e8a8137ad8cfb8b"
+        },
+        {
             "name": "3.15.5",
             "sha256": "155c3640d571f2e7b19a05031d1fd0d19bd82df785d38870fb93bd241b12bbfa"
         },
@@ -35,7 +39,7 @@
             "sha256": "d49dd9eb947767a14a9896072a1bce107fb8bf39ed64133a9e2f24fb1f240d96"
         }
     ],
-    "latest_version": "3.15.5",
+    "latest_version": "4.0.0",
     "build_system": "CMakePackage",
     "conflicts": [
         {
@@ -69,10 +73,22 @@
             "name": "generator",
             "default": "make",
             "description": "the build system generator to use"
+        },
+        {
+            "name": "sra",
+            "default": true,
+            "description": "Build with ncbi sra file support"
+        },
+        {
+            "name": "tools",
+            "default": true,
+            "description": "Build additional tools"
         }
     ],
     "homepage": "https://cab.spbu.ru/software/spades/",
-    "maintainers": [],
+    "maintainers": [
+        "snehring"
+    ],
     "patches": [],
     "resources": [],
     "description": "SPAdes - St. Petersburg genome assembler - is intended for both standard\nisolates and single-cell MDA bacteria assemblies.\n",
@@ -99,7 +115,7 @@
         },
         {
             "name": "zlib-api",
-            "description": "A free, general-purpose, legally unencumbered lossless data-compression\nlibrary."
+            "description": "zlib replacement with optimizations for next generation systems."
         }
     ],
     "dependent_to": [
@@ -108,16 +124,16 @@
             "description": "HybPiper was designed for targeted sequence capture, in which DNA\nsequencing libraries are enriched for gene regions of interest,\nespecially for phylogenetics. HybPiper is a suite of Python scripts that\nwrap and connect bioinformatics tools in order to extract target\nsequences from high-throughput DNA sequencing reads"
         },
         {
+            "name": "getorganelle",
+            "description": "Organelle Genome Assembly Toolkit (Chloroplast/Mitocondrial/ITS)"
+        },
+        {
             "name": "py-unicycler",
             "description": "Unicycler is an assembly pipeline for bacterial genomes. It can assemble\nIllumina-only read sets where it functions as a SPAdes-optimiser. It can\nalso assembly long-read-only sets (PacBio or Nanopore) where it runs a\nminiasm+Racon pipeline. For the best possible assemblies, give it both\nIllumina reads and long reads, and it will conduct a hybrid assembly."
         },
         {
             "name": "phyluce",
             "description": "phyluce (phy-loo-chee) is a software package that was initially\ndeveloped for analyzing data collected from ultraconserved elements in\norganismal genomes"
-        },
-        {
-            "name": "getorganelle",
-            "description": "Organelle Genome Assembly Toolkit (Chloroplast/Mitocondrial/ITS)"
         },
         {
             "name": "py-haphpipe",
