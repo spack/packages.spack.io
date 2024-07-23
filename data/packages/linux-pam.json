@@ -3,12 +3,24 @@
     "aliases": [],
     "versions": [
         {
-            "name": "1.5.1",
-            "sha256": "201d40730b1135b1b3cdea09f2c28ac634d73181ccd0172ceddee3649c5792fc"
+            "name": "1.6.1",
+            "sha256": "f8923c740159052d719dbfc2a2f81942d68dd34fcaf61c706a02c9b80feeef8e"
+        },
+        {
+            "name": "1.6.0",
+            "sha256": "fff4a34e5bbee77e2e8f1992f27631e2329bcbf8a0563ddeb5c3389b4e3169ad"
+        },
+        {
+            "name": "1.5.3",
+            "sha256": "7ac4b50feee004a9fa88f1dfd2d2fa738a82896763050cd773b3c54b0a818283"
         },
         {
             "name": "1.5.2",
             "sha256": "e4ec7131a91da44512574268f493c6d8ca105c87091691b8e9b56ca685d4f94d"
+        },
+        {
+            "name": "1.5.1",
+            "sha256": "201d40730b1135b1b3cdea09f2c28ac634d73181ccd0172ceddee3649c5792fc"
         },
         {
             "name": "1.5.0",
@@ -23,7 +35,7 @@
             "sha256": "eff47a4ecd833fbf18de9686632a70ee8d0794b79aecb217ebd0ce11db4cd0db"
         }
     ],
-    "latest_version": "1.5.2",
+    "latest_version": "1.6.1",
     "build_system": "AutotoolsPackage",
     "conflicts": [
         {
@@ -37,6 +49,41 @@
             "name": "build_system",
             "default": "autotools",
             "description": "Build systems supported by the package"
+        },
+        {
+            "name": "unix",
+            "default": true,
+            "description": "Build pam_unix model"
+        },
+        {
+            "name": "selinux",
+            "default": false,
+            "description": "Build with selinux support"
+        },
+        {
+            "name": "nls",
+            "default": false,
+            "description": "Build with natural language support"
+        },
+        {
+            "name": "xauth",
+            "default": false,
+            "description": "Build with xauth support"
+        },
+        {
+            "name": "openssl",
+            "default": false,
+            "description": "Build with openssl support"
+        },
+        {
+            "name": "lastlog",
+            "default": false,
+            "description": "Build pam_lastlog model"
+        },
+        {
+            "name": "regenerate-docu",
+            "default": false,
+            "description": "Regenerate docs"
         }
     ],
     "homepage": "http://www.linux-pam.org/",
@@ -45,6 +92,26 @@
     "resources": [],
     "description": "Linux PAM (Pluggable Authentication Modules for Linux) project.\n",
     "dependencies": [
+        {
+            "name": "autoconf",
+            "description": "Autoconf -- system configuration part of autotools"
+        },
+        {
+            "name": "automake",
+            "description": "Automake -- make file builder part of autotools"
+        },
+        {
+            "name": "bison",
+            "description": "Bison is a general-purpose parser generator that converts an annotated\ncontext-free grammar into a deterministic LR or generalized LR (GLR)\nparser employing LALR(1) parser tables."
+        },
+        {
+            "name": "flex",
+            "description": "Flex is a tool for generating scanners."
+        },
+        {
+            "name": "gettext",
+            "description": "GNU internationalization (i18n) and localization (l10n) library."
+        },
         {
             "name": "gmake",
             "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files."
@@ -58,26 +125,42 @@
             "description": "Libtirpc is a port of Suns Transport-Independent RPC library to Linux."
         },
         {
+            "name": "libtool",
+            "description": "libtool -- library building part of autotools."
+        },
+        {
             "name": "libxcrypt",
             "description": "libxcrypt is a modern library for one-way hashing of passwords."
+        },
+        {
+            "name": "m4",
+            "description": "GNU M4 is an implementation of the traditional Unix macro processor."
+        },
+        {
+            "name": "xauth",
+            "description": "The xauth program is used to edit and display the authorization\ninformation used in connecting to the X server."
+        },
+        {
+            "name": "yacc",
+            "description": "Bison is a general-purpose parser generator that converts an annotated\ncontext-free grammar into a deterministic LR or generalized LR (GLR)\nparser employing LALR(1) parser tables."
         }
     ],
     "dependent_to": [
         {
-            "name": "libcgroup",
-            "description": "Library of control groups."
-        },
-        {
             "name": "libuser",
             "description": "A user and group account administration library."
+        },
+        {
+            "name": "libpam",
+            "description": "Example PAM module demonstrating two-factor authentication for logging\ninto servers via SSH, OpenVPN, etc"
         },
         {
             "name": "slurm",
             "description": "Slurm is an open source, fault-tolerant, and highly scalable cluster\nmanagement and job scheduling system for large and small Linux clusters.\nSlurm requires no kernel modifications for its operation and is\nrelatively self-contained. As a cluster workload manager, Slurm has\nthree key functions. First, it allocates exclusive and/or non-exclusive\naccess to resources (compute nodes) to users for some duration of time\nso they can perform work. Second, it provides a framework for starting,\nexecuting, and monitoring work (normally a parallel job) on the set of\nallocated nodes. Finally, it arbitrates contention for resources by\nmanaging a queue of pending work."
         },
         {
-            "name": "libpam",
-            "description": "Example PAM module demonstrating two-factor authentication for logging\ninto servers via SSH, OpenVPN, etc"
+            "name": "libcgroup",
+            "description": "Library of control groups."
         }
     ]
 }
