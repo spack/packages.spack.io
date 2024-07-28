@@ -58,11 +58,11 @@
             "alias_for": "netlib-lapack@3.3.1"
         },
         {
-            "name": "blas",
+            "name": "lapack",
             "alias_for": "netlib-lapack~external-blas"
         },
         {
-            "name": "lapack",
+            "name": "blas",
             "alias_for": "netlib-lapack~external-blas"
         },
         {
@@ -269,7 +269,7 @@
     "dependencies": [
         {
             "name": "blas",
-            "description": "Automatically Tuned Linear Algebra Software, generic shared ATLAS is an\napproach for the automatic generation and optimization of numerical\nsoftware. Currently ATLAS supplies optimized versions for the complete\nset of linear algebra kernels known as the Basic Linear Algebra\nSubroutines (BLAS), and a subset of the linear algebra routines in the\nLAPACK library."
+            "description": "XBLAS is a reference implementation for extra precision BLAS. XBLAS is a\nreference implementation for the dense and banded BLAS routines, along\nwith extended and mixed precision version. Extended precision is only\nused internally; input and output arguments remain the same as in the\nexisting BLAS. Extra precisions is implemented as double-double (i.e.,\n128-bit total, 106-bit significand). Mixed precision permits some\ninput/output arguments of different types (mixing real and complex) or\nprecisions (mixing single and double). This implementation is proof of\nconcept, and no attempt was made to optimize performance; performance\nshould be as good as straightforward but careful code written by hand."
         },
         {
             "name": "cmake",
@@ -294,48 +294,24 @@
     ],
     "dependent_to": [
         {
-            "name": "hipblas",
-            "description": "hipBLAS is a BLAS marshalling library, with multiple supported backends"
-        },
-        {
-            "name": "elemental",
-            "description": "Elemental: Distributed-memory dense and sparse-direct linear algebra and\noptimization library."
-        },
-        {
-            "name": "plink",
-            "description": "PLINK is a free, open-source whole genome association analysis toolset,\ndesigned to perform a range of basic, large-scale analyses in a\ncomputationally efficient manner."
-        },
-        {
-            "name": "hipsolver",
-            "description": "hipSOLVER is a LAPACK marshalling library, with multiple supported\nbackends. It sits between the application and a 'worker' LAPACK library,\nmarshalling inputs into the backend library and marshalling results back\nto the application. hipSOLVER exports an interface that does not require\nthe client to change, regardless of the chosen backend. Currently,\nhipSOLVER supports rocSOLVER and cuSOLVER as backends."
+            "name": "wonton",
+            "description": "Wonton is a support package for the Portage\n(https://github.com/laristra/portage) and Tangram\n(https://github.com/laristra/tangram) libraries. It contains some\nmesh/state classes, wrappers for other mesh/state libraries and some\nutilities required by Portage and Tangram."
         },
         {
             "name": "dakota",
             "description": "The Dakota toolkit provides a flexible, extensible interface between\nanalysis codes and iterative systems analysis methods. Dakota contains\nalgorithms for: - optimization with gradient and non gradient-based\nmethods; - uncertainty quantification with sampling, reliability,\nstochastic - expansion, and epistemic methods; - parameter estimation\nwith nonlinear least squares methods; - sensitivity/variance analysis\nwith design of experiments and - parameter study methods. These\ncapabilities may be used on their own or as components within advanced\nstrategies such as hybrid optimization, surrogate-based optimization,\nmixed integer nonlinear programming, or optimization under uncertainty."
         },
         {
-            "name": "freefem",
-            "description": "FreeFEM is a popular 2D and 3D partial differential equations (PDE)\nsolver. It allows you to easily implement your own physics modules using\nthe provided FreeFEM language. FreeFEM offers a large list of finite\nelements, like the Lagrange, Taylor-Hood, etc., usable in the continuous\nand discontinuous Galerkin method framework."
-        },
-        {
-            "name": "truchas",
-            "description": "Physics-based modeling and simulation of manufacturing processes.\nTruchas includes coupled physics models for incompressible multi-\nmaterial flow with interface tracking, heat transfer, phase change, view\nfactor thermal radiation, species advection-diffusion, elastic/plastic\nmechanics with contact, and electromagnetics. It employs finite volume,\nfinite element, and mimetic finite difference discretizations on 3-D\nunstructured meshes composed of mixed cell types."
-        },
-        {
-            "name": "xyce",
-            "description": "Xyce (rhymes with 'spice') is an open source, SPICE-compatible, high-\nperformance analog circuit simulator, Xyce supports the standard\nanalysis capabilities found in other SPICE-like codes, such as DC,\ntransient, AC, and small-signal noise analyses; it also has less common\ncapabilities, such as harmonic balance, sensitivity analysis, and\nuncertainty propagation techniques. Xyce supplies industry-standard\ncompact models and can support custom models via its Verilog-A model\ncompiler. Foundry process-development kits (PDKs) in other SPICE syntax\ncan be used via the XDM netlist translator, which is included as part of\nthe Xyce package. In addition to supporting use on all common desktop\nplatforms (Mac, Windows, Linux), Xyce can also be compiled to run in a\nlarge-scale parallel mode to provide scalable, numerically accurate\nanalog simulation of circuits containing millions of devices, or more."
-        },
-        {
-            "name": "wonton",
-            "description": "Wonton is a support package for the Portage\n(https://github.com/laristra/portage) and Tangram\n(https://github.com/laristra/tangram) libraries. It contains some\nmesh/state classes, wrappers for other mesh/state libraries and some\nutilities required by Portage and Tangram."
-        },
-        {
-            "name": "hipsparselt",
-            "description": "hipSPARSELt is a SPARSE marshalling library, with multiple supported\nbackends. It sits between the application and a 'worker' SPARSE library,\nmarshalling inputs into the backend library and marshalling results back\nto the application. hipSPARSELt exports an interface that does not\nrequire the client to change, regardless of the chosen backend.\nCurrently, hipSPARSELt supports rocSPARSELt and cuSPARSELt v0.4 as\nbackends."
-        },
-        {
             "name": "hipblaslt",
             "description": "hipBLASLt is a library that provides general matrix-matrix operations\nwith a flexible API and extends functionalities beyond a traditional\nBLAS library"
+        },
+        {
+            "name": "plink",
+            "description": "PLINK is a free, open-source whole genome association analysis toolset,\ndesigned to perform a range of basic, large-scale analyses in a\ncomputationally efficient manner."
+        },
+        {
+            "name": "hipblas",
+            "description": "hipBLAS is a BLAS marshalling library, with multiple supported backends"
         },
         {
             "name": "rocsolver",
@@ -346,8 +322,32 @@
             "description": "Library for automatic acceleration of array operations"
         },
         {
+            "name": "hipsolver",
+            "description": "hipSOLVER is a LAPACK marshalling library, with multiple supported\nbackends. It sits between the application and a 'worker' LAPACK library,\nmarshalling inputs into the backend library and marshalling results back\nto the application. hipSOLVER exports an interface that does not require\nthe client to change, regardless of the chosen backend. Currently,\nhipSOLVER supports rocSOLVER and cuSOLVER as backends."
+        },
+        {
+            "name": "xyce",
+            "description": "Xyce (rhymes with 'spice') is an open source, SPICE-compatible, high-\nperformance analog circuit simulator, Xyce supports the standard\nanalysis capabilities found in other SPICE-like codes, such as DC,\ntransient, AC, and small-signal noise analyses; it also has less common\ncapabilities, such as harmonic balance, sensitivity analysis, and\nuncertainty propagation techniques. Xyce supplies industry-standard\ncompact models and can support custom models via its Verilog-A model\ncompiler. Foundry process-development kits (PDKs) in other SPICE syntax\ncan be used via the XDM netlist translator, which is included as part of\nthe Xyce package. In addition to supporting use on all common desktop\nplatforms (Mac, Windows, Linux), Xyce can also be compiled to run in a\nlarge-scale parallel mode to provide scalable, numerically accurate\nanalog simulation of circuits containing millions of devices, or more."
+        },
+        {
+            "name": "elemental",
+            "description": "Elemental: Distributed-memory dense and sparse-direct linear algebra and\noptimization library."
+        },
+        {
             "name": "hydrogen",
             "description": "Hydrogen: Distributed-memory dense and sparse-direct linear algebra and\noptimization library. Based on the Elemental library."
+        },
+        {
+            "name": "truchas",
+            "description": "Physics-based modeling and simulation of manufacturing processes.\nTruchas includes coupled physics models for incompressible multi-\nmaterial flow with interface tracking, heat transfer, phase change, view\nfactor thermal radiation, species advection-diffusion, elastic/plastic\nmechanics with contact, and electromagnetics. It employs finite volume,\nfinite element, and mimetic finite difference discretizations on 3-D\nunstructured meshes composed of mixed cell types."
+        },
+        {
+            "name": "hipsparselt",
+            "description": "hipSPARSELt is a SPARSE marshalling library, with multiple supported\nbackends. It sits between the application and a 'worker' SPARSE library,\nmarshalling inputs into the backend library and marshalling results back\nto the application. hipSPARSELt exports an interface that does not\nrequire the client to change, regardless of the chosen backend.\nCurrently, hipSPARSELt supports rocSPARSELt and cuSPARSELt v0.4 as\nbackends."
+        },
+        {
+            "name": "freefem",
+            "description": "FreeFEM is a popular 2D and 3D partial differential equations (PDE)\nsolver. It allows you to easily implement your own physics modules using\nthe provided FreeFEM language. FreeFEM offers a large list of finite\nelements, like the Lagrange, Taylor-Hood, etc., usable in the continuous\nand discontinuous Galerkin method framework."
         }
     ]
 }
