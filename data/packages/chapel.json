@@ -409,7 +409,7 @@
         },
         {
             "name": "+rocm",
-            "spec": "@:2.0.0",
+            "spec": "@:1.99.99",
             "description": "chapel: ROCm support in spack requires Chapel 2.0.0 or later"
         },
         {
@@ -418,8 +418,13 @@
             "description": "chapel: comm=gasnet requires you to also set comm_substrate= to the appropriate network"
         },
         {
+            "name": "gasnet_segment=everything",
+            "spec": "+pshm",
+            "description": "chapel: gasnet_segment=everything does not support +pshm"
+        },
+        {
             "name": "^python@3.12:",
-            "spec": "@:2.1.0",
+            "spec": "@:2.0.99",
             "description": "chapel: Chapel versions prior to 2.1.0 may produce SyntaxWarnings with Python >= 3.12"
         },
         {
@@ -495,6 +500,11 @@
             "description": "Build Chapel with GASNet multi-locale support using the supplied CHPL_COMM_SUBSTRATE"
         },
         {
+            "name": "pshm",
+            "default": false,
+            "description": "Build Chapel with fast shared-memory comms between co-locales"
+        },
+        {
             "name": "gasnet",
             "default": "bundled",
             "description": "Control the GASNet library version used"
@@ -552,7 +562,7 @@
         {
             "name": "libfabric",
             "default": "unset",
-            "description": "When building with ofi support, specify libfabric option"
+            "description": "Control the libfabric version used for multi-locale communication"
         },
         {
             "name": "llvm",
