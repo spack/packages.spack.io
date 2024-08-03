@@ -7,6 +7,10 @@
             "branch": "develop"
         },
         {
+            "name": "2.12.0",
+            "sha256": "77c0732541ade1deb381f5a208547ccc36e65efa91c8f7021b299b20a6ae0d27"
+        },
+        {
             "name": "2.11.0",
             "sha256": "53a03d03421c5da699b026ca220512ed494a531b83284693f66d2579d570c43b"
         },
@@ -35,13 +39,18 @@
             "sha256": "eace811a1365f69b85fdf2bcd93a9d963ba72de5a7111e6fa7c0e6578b69bfbc"
         }
     ],
-    "latest_version": "2.11.0",
+    "latest_version": "2.12.0",
     "build_system": "CMakePackage",
     "conflicts": [
         {
             "name": "+extradeps+shared",
             "spec": "",
             "description": "w3emc: Shared library cannot be built with unknown dependencies"
+        },
+        {
+            "name": "~pic+shared",
+            "spec": "",
+            "description": "w3emc: Shared library requires PIC"
         }
     ],
     "variants": [
@@ -92,6 +101,11 @@
             "name": "extradeps",
             "default": false,
             "description": "Build w3emc with subprograms which call unknown dependencies"
+        },
+        {
+            "name": "build_deprecated",
+            "default": false,
+            "description": "Build deprecated subroutines"
         }
     ],
     "homepage": "https://noaa-emc.github.io/NCEPLIBS-w3emc/",
@@ -106,7 +120,7 @@
     "dependencies": [
         {
             "name": "bacio",
-            "description": "The bacio ibrary performs binary I/O for the NCEP models, processing\nunformatted byte-addressable data records, and transforming the little\nendian files and big endian files."
+            "description": "The bacio library performs binary I/O for the NCEP models, processing\nunformatted byte-addressable data records, and transforming the little\nendian files and big endian files."
         },
         {
             "name": "bufr",
@@ -143,16 +157,12 @@
             "description": "Product utilities for the NCEP models. This is part of NOAA's NCEPLIBS\nproject."
         },
         {
-            "name": "grib-util",
-            "description": "This is a collection of NCEP GRIB related utilities. This is related to\nNOAA's NCEPLIBS project."
-        },
-        {
-            "name": "g2",
-            "description": "Utilities for coding/decoding GRIB2 messages. This library contains\nFortran 90 decoder/encoder routines for GRIB edition 2, as well as\nindexing/searching utility routines. This is part of the NCEPLIBS\nproject."
-        },
-        {
             "name": "ufs-utils",
             "description": "The UFS Utilities package contains programs set up the model grid and\ncreate coldstart initial conditions. This is related to NOAA's NCEPLIBS\nproject."
+        },
+        {
+            "name": "grib-util",
+            "description": "This is a collection of NCEP GRIB related utilities. This is related to\nNOAA's NCEPLIBS project."
         },
         {
             "name": "ufs-weather-model",
@@ -161,6 +171,10 @@
         {
             "name": "nemsio",
             "description": "The NOAA Environmental Modeling System I/O (NEMSIO) library. The basic\nfunctions it provides are to read and write data sets for all the NEMS\napplications. This is part of NOAA's NCEPLIBS project."
+        },
+        {
+            "name": "g2",
+            "description": "Utilities for coding/decoding GRIB2 messages. This library contains\nFortran 90 decoder/encoder routines for GRIB edition 2, as well as\nindexing/searching utility routines. This is part of the NCEPLIBS\nproject."
         }
     ]
 }
