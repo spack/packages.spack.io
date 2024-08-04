@@ -7,6 +7,10 @@
             "branch": "develop"
         },
         {
+            "name": "12.1.0",
+            "sha256": "b5eae61b50d4132b2933b6e6dfc607e5392727cdc4f46ec7a94a19109d91dcf3"
+        },
+        {
             "name": "12.0.1",
             "sha256": "525f26238dba6511a453fc71cecc05f59e4800a603de2abbbbfb8cbb5adf5708"
         },
@@ -35,9 +39,15 @@
             "sha256": "946482405e675b99e8e0c221d137768f246076f5e9ba92eed6cae47fb68b7a26"
         }
     ],
-    "latest_version": "12.0.1",
+    "latest_version": "12.1.0",
     "build_system": "CMakePackage",
-    "conflicts": [],
+    "conflicts": [
+        {
+            "name": "%oneapi@:2024.1",
+            "spec": "",
+            "description": "bufr: Requires oneapi 2024.2 or later"
+        }
+    ],
     "variants": [
         {
             "name": "build_system",
@@ -62,12 +72,22 @@
         {
             "name": "python",
             "default": false,
-            "description": "Enable Python interface?"
+            "description": "Enable Python interface"
         },
         {
             "name": "shared",
             "default": true,
             "description": "Build shared libraries"
+        },
+        {
+            "name": "test_files",
+            "default": "none",
+            "description": "Path to test files"
+        },
+        {
+            "name": "utils",
+            "default": true,
+            "description": "Build utilities"
         }
     ],
     "homepage": "https://noaa-emc.github.io/NCEPLIBS-bufr",
@@ -148,12 +168,12 @@
     ],
     "dependent_to": [
         {
-            "name": "w3emc",
-            "description": "This library contains Fortran 90 decoder/encoder routines for GRIB\nedition 1 with EMC changes. This is part of the NCEPLIBS project."
-        },
-        {
             "name": "met",
             "description": "Statistical tool that matches up grids with either gridded analyses or\npoint observations and applies configurable methods to compute\nstatistics and diagnostics"
+        },
+        {
+            "name": "w3emc",
+            "description": "This library contains Fortran 90 decoder/encoder routines for GRIB\nedition 1 with EMC changes. This is part of the NCEPLIBS project."
         }
     ]
 }
