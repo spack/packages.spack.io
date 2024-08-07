@@ -108,6 +108,21 @@
             "name": "generator",
             "default": "make",
             "description": "the build system generator to use"
+        },
+        {
+            "name": "zstd",
+            "default": false,
+            "description": "Bulid with zstd support"
+        },
+        {
+            "name": "blast",
+            "default": true,
+            "description": "Build with blast db support"
+        },
+        {
+            "name": "eigen",
+            "default": false,
+            "description": "Build with Eigen support"
         }
     ],
     "homepage": "https://ab.inf.uni-tuebingen.de/software/diamond",
@@ -129,12 +144,28 @@
     "description": "DIAMOND is a sequence aligner for protein and translated DNA searches,\ndesigned for high performance analysis of big sequence data.\n",
     "dependencies": [
         {
+            "name": "blas",
+            "description": "CLBlast is a modern, lightweight, performant and tunable OpenCL BLAS\nlibrary written in C++11. It is designed to leverage the full\nperformance potential of a wide variety of OpenCL devices from different\nvendors, including desktop and laptop GPUs, embedded GPUs, and other\naccelerators. CLBlast implements BLAS routines: basic linear algebra\nsubprograms operating on vectors and matrices."
+        },
+        {
+            "name": "blast-plus",
+            "description": "Basic Local Alignment Search Tool."
+        },
+        {
             "name": "cmake",
             "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
         },
         {
+            "name": "eigen",
+            "description": "Eigen is a C++ template library for linear algebra matrices, vectors,\nnumerical solvers, and related algorithms."
+        },
+        {
             "name": "gmake",
             "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files."
+        },
+        {
+            "name": "lapack",
+            "description": "Arm Compiler combines the optimized tools and libraries from Arm with a\nmodern LLVM-based compiler framework."
         },
         {
             "name": "ninja",
@@ -143,28 +174,32 @@
         {
             "name": "zlib-api",
             "description": "zlib replacement with optimizations for next generation systems."
+        },
+        {
+            "name": "zstd",
+            "description": "Zstandard, or zstd as short version, is a fast lossless compression\nalgorithm, targeting real-time compression scenarios at zlib-level and\nbetter compression ratios."
         }
     ],
     "dependent_to": [
         {
-            "name": "orthofinder",
-            "description": "OrthoFinder is a fast, accurate and comprehensive analysis tool for\ncomparative genomics. It finds orthologues and orthogroups infers rooted\ngene trees for all orthogroups and infers a rooted species tree for the\nspecies being analysed. OrthoFinder also provides comprehensive\nstatistics for comparative genomic analyses. OrthoFinder is simple to\nuse and all you need to run it is a set of protein sequence files (one\nper species) in FASTA format."
+            "name": "py-phylophlan",
+            "description": "PhyloPhlAn 3.0 is an integrated pipeline for large-scale phylogenetic\nprofiling of genomes and metagenomes."
+        },
+        {
+            "name": "py-bakta",
+            "description": "Bakta: rapid & standardized annotation of bacterial genomes, MAGs &\nplasmids"
         },
         {
             "name": "braker",
             "description": "BRAKER is a pipeline for unsupervised RNA-Seq-based genome annotation\nthat combines the advantages of GeneMark-ET and AUGUSTUS"
         },
         {
-            "name": "py-phylophlan",
-            "description": "PhyloPhlAn 3.0 is an integrated pipeline for large-scale phylogenetic\nprofiling of genomes and metagenomes."
-        },
-        {
             "name": "hybpiper",
             "description": "HybPiper was designed for targeted sequence capture, in which DNA\nsequencing libraries are enriched for gene regions of interest,\nespecially for phylogenetics. HybPiper is a suite of Python scripts that\nwrap and connect bioinformatics tools in order to extract target\nsequences from high-throughput DNA sequencing reads"
         },
         {
-            "name": "py-bakta",
-            "description": "Bakta: rapid & standardized annotation of bacterial genomes, MAGs &\nplasmids"
+            "name": "orthofinder",
+            "description": "OrthoFinder is a fast, accurate and comprehensive analysis tool for\ncomparative genomics. It finds orthologues and orthogroups infers rooted\ngene trees for all orthogroups and infers a rooted species tree for the\nspecies being analysed. OrthoFinder also provides comprehensive\nstatistics for comparative genomic analyses. OrthoFinder is simple to\nuse and all you need to run it is a set of protein sequence files (one\nper species) in FASTA format."
         }
     ]
 }
