@@ -52,6 +52,11 @@
     "build_system": "MakefilePackage",
     "conflicts": [
         {
+            "name": "amdgpu_target=none",
+            "spec": "+rocm",
+            "description": null
+        },
+        {
             "name": "%gcc@:4",
             "spec": "+cuda ^cuda@11.0:~allow-unsupported-compilers",
             "description": null
@@ -425,9 +430,34 @@
             "name": "+avxtiles",
             "spec": "@:2.14,3:",
             "description": "namd: AVXTiles algorithm requires NAMD 2.15"
+        },
+        {
+            "name": "+rocm",
+            "spec": "~single_node_gpu",
+            "description": null
+        },
+        {
+            "name": "+rocm",
+            "spec": "+cuda",
+            "description": "namd: NAMD supports only one GPU backend at a time"
+        },
+        {
+            "name": "+single_node_gpu",
+            "spec": "~cuda~rocm",
+            "description": null
         }
     ],
     "variants": [
+        {
+            "name": "rocm",
+            "default": false,
+            "description": "Enable ROCm support"
+        },
+        {
+            "name": "amdgpu_target",
+            "default": "none",
+            "description": "AMD GPU architecture"
+        },
         {
             "name": "cuda",
             "default": false,
@@ -519,6 +549,18 @@
         {
             "name": "gmake",
             "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files."
+        },
+        {
+            "name": "hip",
+            "description": "HIP is a C++ Runtime API and Kernel Language that allows developers to\ncreate portable applications for AMD and NVIDIA GPUs from single source\ncode."
+        },
+        {
+            "name": "hsa-rocr-dev",
+            "description": "This repository includes the user mode API nterfaces and libraries\nnecessary for host applications to launch computer kernels to available\nHSA ROCm kernel agents.AMD Heterogeneous System Architecture HSA - Linux\nHSA Runtime for Boltzmann (ROCm) platforms."
+        },
+        {
+            "name": "llvm-amdgpu",
+            "description": "Toolkit for the construction of highly optimized compilers, optimizers,\nand run-time environments."
         },
         {
             "name": "mkl",

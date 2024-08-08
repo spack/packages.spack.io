@@ -12,6 +12,10 @@
             "branch": "stable"
         },
         {
+            "name": "24.02.0",
+            "commit": "974adc33ea5a35dd8b5be68c7a744b37482b8b64"
+        },
+        {
             "name": "23.10.0",
             "commit": "3952b468c9da89edad9dff953cdcab0a3c3bf78c"
         },
@@ -40,9 +44,14 @@
             "branch": "develop"
         }
     ],
-    "latest_version": "23.10.0",
+    "latest_version": "24.02.0",
     "build_system": "CMakePackage",
     "conflicts": [
+        {
+            "name": "amdgpu_target=none",
+            "spec": "+rocm",
+            "description": null
+        },
         {
             "name": "^llvm@16:",
             "spec": "@:0.9.4",
@@ -65,6 +74,16 @@
         }
     ],
     "variants": [
+        {
+            "name": "rocm",
+            "default": false,
+            "description": "Enable ROCM backend for SYCL kernels"
+        },
+        {
+            "name": "amdgpu_target",
+            "default": "none",
+            "description": "AMD GPU architecture"
+        },
         {
             "name": "build_system",
             "default": "cmake",
@@ -92,9 +111,7 @@
         }
     ],
     "homepage": "https://github.com/illuhad/hipSYCL",
-    "maintainers": [
-        "nazavode"
-    ],
+    "maintainers": [],
     "patches": [],
     "resources": [],
     "description": "hipSYCL is an implementation of the SYCL standard programming model over\nNVIDIA CUDA/AMD HIP\n",
@@ -116,8 +133,20 @@
             "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files."
         },
         {
+            "name": "hip",
+            "description": "HIP is a C++ Runtime API and Kernel Language that allows developers to\ncreate portable applications for AMD and NVIDIA GPUs from single source\ncode."
+        },
+        {
+            "name": "hsa-rocr-dev",
+            "description": "This repository includes the user mode API nterfaces and libraries\nnecessary for host applications to launch computer kernels to available\nHSA ROCm kernel agents.AMD Heterogeneous System Architecture HSA - Linux\nHSA Runtime for Boltzmann (ROCm) platforms."
+        },
+        {
             "name": "llvm",
             "description": "The LLVM Project is a collection of modular and reusable compiler and\ntoolchain technologies. Despite its name, LLVM has little to do with\ntraditional virtual machines, though it does provide helpful libraries\nthat can be used to build them. The name \"LLVM\" itself is not an\nacronym; it is the full name of the project."
+        },
+        {
+            "name": "llvm-amdgpu",
+            "description": "Toolkit for the construction of highly optimized compilers, optimizers,\nand run-time environments."
         },
         {
             "name": "ninja",
