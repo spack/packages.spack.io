@@ -117,15 +117,18 @@ def main():
         # Repology wants a completely different format for versions
         repology_versions = []
         for version, version_meta in pkg.versions.items():
+            meta = {"version": str(version)}
+
             try:
                 url = pkg.url_for_version(version)
             except BaseException as e:
                 url = pkg.all_urls
-            meta = {"version": str(version), "downloads": [url]}
 
             # Is there a develop branch?
             if version.isdevelop():
                 meta["branch"] = str(version)
+            else:
+                meta["downloads"] = [url]
 
             # We can only get specific deps with concretization, which doesn't always work
             # try:
@@ -216,11 +219,11 @@ def main():
             "version": repology_versions,
             "summary": meta["description"],
             "maintainers": meta["maintainers"],
-            "licenses": {},
+            "licenses": list(pkg.licenses.values()),
             "downloads": urls,
             "homepages": [pkg.homepage],
             "patches": patches_repology,
-            "categories": [],
+            "categories": getattr(pkg, "tags", []),
             "dependencies": meta["dependencies"],
             "alias": meta["aliases"],
         }
