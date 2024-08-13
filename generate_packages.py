@@ -219,11 +219,11 @@ def main():
             "version": repology_versions,
             "summary": meta["description"],
             "maintainers": meta["maintainers"],
-            "licenses": pkg.licenses,
+            "licenses": list(pkg.licenses.values()),
             "downloads": urls,
             "homepages": [pkg.homepage],
             "patches": patches_repology,
-            "categories": pkg.tags,
+            "categories": getattr(pkg, "tags", []),
             "dependencies": meta["dependencies"],
             "alias": meta["aliases"],
         }
