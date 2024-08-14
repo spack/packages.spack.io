@@ -69,7 +69,23 @@
     ],
     "latest_version": "6.1.2",
     "build_system": "CMakePackage",
-    "conflicts": [],
+    "conflicts": [
+        {
+            "name": "+asan",
+            "spec": "arch=None-rhel9-None",
+            "description": null
+        },
+        {
+            "name": "+asan",
+            "spec": "arch=None-centos7-None",
+            "description": null
+        },
+        {
+            "name": "+asan",
+            "spec": "arch=None-centos8-None",
+            "description": null
+        }
+    ],
     "variants": [
         {
             "name": "build_system",
@@ -90,6 +106,11 @@
             "name": "generator",
             "default": "make",
             "description": "the build system generator to use"
+        },
+        {
+            "name": "asan",
+            "default": false,
+            "description": "Build with address-sanitizer enabled or disabled"
         }
     ],
     "homepage": "https://github.com/ROCm/ROCm-OpenCL-Runtime",
@@ -192,7 +213,7 @@
         },
         {
             "name": "gl",
-            "description": "Shim package for the GLX library."
+            "description": "External WGl and Windows OpenGL emulation representation in Spack"
         },
         {
             "name": "gmake",
@@ -201,6 +222,10 @@
         {
             "name": "hsa-rocr-dev",
             "description": "This repository includes the user mode API nterfaces and libraries\nnecessary for host applications to launch computer kernels to available\nHSA ROCm kernel agents.AMD Heterogeneous System Architecture HSA - Linux\nHSA Runtime for Boltzmann (ROCm) platforms."
+        },
+        {
+            "name": "libx11",
+            "description": "libX11 - Core X11 protocol client library."
         },
         {
             "name": "ninja",
@@ -213,32 +238,36 @@
         {
             "name": "rocm-core",
             "description": "rocm-core is a utility which can be used to get ROCm release version. It\nalso provides the Lmod modules files for the ROCm release.\ngetROCmVersion function provides the ROCm version."
+        },
+        {
+            "name": "xproto",
+            "description": "X Window System Core Protocol. This package provides the headers and\nspecification documents defining the X Window System Core Protocol,\nVersion 11. It also includes a number of headers that aren't purely\nprotocol related, but are depended upon by many other X Window System\npackages to provide common definitions and porting layer."
         }
     ],
     "dependent_to": [
         {
+            "name": "hwloc",
+            "description": "The Hardware Locality (hwloc) software project. The Portable Hardware\nLocality (hwloc) software package provides a portable abstraction\n(across OS, versions, architectures, ...) of the hierarchical topology\nof modern architectures, including NUMA memory nodes, sockets, shared\ncaches, cores and simultaneous multithreading. It also gathers various\nsystem attributes such as cache and memory information as well as the\nlocality of I/O devices such as network interfaces, InfiniBand HCAs or\nGPUs. It primarily aims at helping applications with gathering\ninformation about modern computing hardware so as to exploit it\naccordingly and efficiently."
+        },
+        {
             "name": "mivisionx",
             "description": "MIVisionX toolkit is a set of comprehensive computer vision and machine\nintelligence libraries, utilities, and applications bundled into a\nsingle toolkit."
-        },
-        {
-            "name": "babelstream",
-            "description": "Measure memory transfer rates to/from global device memory on GPUs. This\nbenchmark is similar in spirit, and based on, the STREAM benchmark for\nCPUs."
-        },
-        {
-            "name": "rpp",
-            "description": "Radeon Performance Primitives (RPP) library is a comprehensive high-\nperformance computer vision library for AMD (CPU and GPU) with HIP and\nOPENCL back-ends"
-        },
-        {
-            "name": "miopen-opencl",
-            "description": "AMD's library for high performance machine learning primitives."
         },
         {
             "name": "miopengemm",
             "description": "An OpenCL general matrix multiplication (GEMM) API and kernel generator"
         },
         {
-            "name": "hwloc",
-            "description": "The Hardware Locality (hwloc) software project. The Portable Hardware\nLocality (hwloc) software package provides a portable abstraction\n(across OS, versions, architectures, ...) of the hierarchical topology\nof modern architectures, including NUMA memory nodes, sockets, shared\ncaches, cores and simultaneous multithreading. It also gathers various\nsystem attributes such as cache and memory information as well as the\nlocality of I/O devices such as network interfaces, InfiniBand HCAs or\nGPUs. It primarily aims at helping applications with gathering\ninformation about modern computing hardware so as to exploit it\naccordingly and efficiently."
+            "name": "rpp",
+            "description": "Radeon Performance Primitives (RPP) library is a comprehensive high-\nperformance computer vision library for AMD (CPU and GPU) with HIP and\nOPENCL back-ends"
+        },
+        {
+            "name": "babelstream",
+            "description": "Measure memory transfer rates to/from global device memory on GPUs. This\nbenchmark is similar in spirit, and based on, the STREAM benchmark for\nCPUs."
+        },
+        {
+            "name": "miopen-opencl",
+            "description": "AMD's library for high performance machine learning primitives."
         }
     ]
 }

@@ -65,7 +65,23 @@
     ],
     "latest_version": "6.1.2",
     "build_system": "CMakePackage",
-    "conflicts": [],
+    "conflicts": [
+        {
+            "name": "+asan",
+            "spec": "arch=None-rhel9-None",
+            "description": null
+        },
+        {
+            "name": "+asan",
+            "spec": "arch=None-centos7-None",
+            "description": null
+        },
+        {
+            "name": "+asan",
+            "spec": "arch=None-centos8-None",
+            "description": null
+        }
+    ],
     "variants": [
         {
             "name": "build_system",
@@ -96,6 +112,11 @@
             "name": "test",
             "default": false,
             "description": "Build rocsparse-test client"
+        },
+        {
+            "name": "asan",
+            "default": false,
+            "description": "Build with address-sanitizer enabled or disabled"
         }
     ],
     "homepage": "https://github.com/ROCm/rocSPARSE",
@@ -311,40 +332,40 @@
     ],
     "dependent_to": [
         {
-            "name": "hipsparse",
-            "description": "hipSPARSE is a SPARSE marshalling library, with multiple supported\nbackends"
-        },
-        {
-            "name": "rocalution",
-            "description": "rocALUTION is a sparse linear algebra library with focus on exploring\nfine-grained parallelism on top of AMD's Radeon Open eCosystem Platform\nROCm runtime and toolchains, targeting modern CPU and GPU platforms.\nBased on C++ and HIP, it provides a portable, generic and flexible\ndesign that allows seamless integration with other scientific software\npackages."
-        },
-        {
-            "name": "heffte",
-            "description": "Highly Efficient FFT for Exascale"
+            "name": "kokkos-kernels",
+            "description": "Kokkos Kernels provides math kernels, often BLAS or LAPACK for small\nmatrices, that can be used in larger Kokkos parallel routines"
         },
         {
             "name": "resolve",
             "description": "ReSolve is a library of GPU-resident sparse linear solvers. It contains\niterative and direct solvers designed to run on NVIDIA and AMD GPUs, as\nwell as CPU devices."
         },
         {
-            "name": "hypre",
-            "description": "Hypre is a library of high performance preconditioners that features\nparallel multigrid methods for both structured and unstructured grid\nproblems."
-        },
-        {
-            "name": "kokkos-kernels",
-            "description": "Kokkos Kernels provides math kernels, often BLAS or LAPACK for small\nmatrices, that can be used in larger Kokkos parallel routines"
-        },
-        {
-            "name": "petsc",
-            "description": "PETSc is a suite of data structures and routines for the scalable\n(parallel) solution of scientific applications modeled by partial\ndifferential equations."
+            "name": "heffte",
+            "description": "Highly Efficient FFT for Exascale"
         },
         {
             "name": "tasmanian",
             "description": "The Toolkit for Adaptive Stochastic Modeling and Non-Intrusive\nApproximatioN is a robust library for high dimensional integration and\ninterpolation as well as parameter calibration."
         },
         {
+            "name": "rocalution",
+            "description": "rocALUTION is a sparse linear algebra library with focus on exploring\nfine-grained parallelism on top of AMD's Radeon Open eCosystem Platform\nROCm runtime and toolchains, targeting modern CPU and GPU platforms.\nBased on C++ and HIP, it provides a portable, generic and flexible\ndesign that allows seamless integration with other scientific software\npackages."
+        },
+        {
+            "name": "petsc",
+            "description": "PETSc is a suite of data structures and routines for the scalable\n(parallel) solution of scientific applications modeled by partial\ndifferential equations."
+        },
+        {
+            "name": "hipsparse",
+            "description": "hipSPARSE is a SPARSE marshalling library, with multiple supported\nbackends"
+        },
+        {
             "name": "rocsolver",
             "description": "rocSOLVER is a work-in-progress implementation of a subset of LAPACK\nfunctionality on the ROCm platform."
+        },
+        {
+            "name": "hypre",
+            "description": "Hypre is a library of high performance preconditioners that features\nparallel multigrid methods for both structured and unstructured grid\nproblems."
         }
     ]
 }

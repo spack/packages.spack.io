@@ -65,7 +65,23 @@
     ],
     "latest_version": "6.1.2",
     "build_system": "CMakePackage",
-    "conflicts": [],
+    "conflicts": [
+        {
+            "name": "+asan",
+            "spec": "arch=None-rhel9-None",
+            "description": null
+        },
+        {
+            "name": "+asan",
+            "spec": "arch=None-centos7-None",
+            "description": null
+        },
+        {
+            "name": "+asan",
+            "spec": "arch=None-centos8-None",
+            "description": null
+        }
+    ],
     "variants": [
         {
             "name": "build_system",
@@ -86,6 +102,11 @@
             "name": "generator",
             "default": "make",
             "description": "the build system generator to use"
+        },
+        {
+            "name": "asan",
+            "default": false,
+            "description": "Build with address-sanitizer enabled or disabled"
         }
     ],
     "homepage": "https://github.com/ROCm/MIOpen",
@@ -180,7 +201,7 @@
         },
         {
             "name": "pkgconfig",
-            "description": "pkgconf is a program which helps to configure compiler and linker flags\nfor development frameworks. It is similar to pkg-config from\nfreedesktop.org, providing additional functionality while also\nmaintaining compatibility."
+            "description": "pkg-config is a helper tool used when compiling applications and\nlibraries"
         },
         {
             "name": "rocblas",
@@ -213,24 +234,24 @@
     ],
     "dependent_to": [
         {
-            "name": "mivisionx",
-            "description": "MIVisionX toolkit is a set of comprehensive computer vision and machine\nintelligence libraries, utilities, and applications bundled into a\nsingle toolkit."
-        },
-        {
-            "name": "dihydrogen",
-            "description": "DiHydrogen is the second version of the Hydrogen fork of the well-known\ndistributed linear algebra library, Elemental. DiHydrogen aims to be a\nbasic distributed multilinear algebra interface with a particular\nemphasis on the needs of the distributed machine learning effort, LBANN."
+            "name": "redis-ai",
+            "description": "A Redis module for serving tensors and executing deep learning graphs"
         },
         {
             "name": "migraphx",
             "description": "AMD's graph optimization engine."
         },
         {
+            "name": "mivisionx",
+            "description": "MIVisionX toolkit is a set of comprehensive computer vision and machine\nintelligence libraries, utilities, and applications bundled into a\nsingle toolkit."
+        },
+        {
             "name": "py-tensorflow",
             "description": "TensorFlow is an open source machine learning framework for everyone."
         },
         {
-            "name": "redis-ai",
-            "description": "A Redis module for serving tensors and executing deep learning graphs"
+            "name": "dihydrogen",
+            "description": "DiHydrogen is the second version of the Hydrogen fork of the well-known\ndistributed linear algebra library, Elemental. DiHydrogen aims to be a\nbasic distributed multilinear algebra interface with a particular\nemphasis on the needs of the distributed machine learning effort, LBANN."
         },
         {
             "name": "py-torch",
