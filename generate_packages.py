@@ -127,6 +127,7 @@ def main():
             # Is there a develop branch?
             if version.isdevelop():
                 meta["branch"] = str(version)
+                meta["downloads"] = getattr(pkg, "git", "")
             else:
                 meta["downloads"] = [url]
 
@@ -212,6 +213,10 @@ def main():
             urls = [pkg.url_for_version(x["name"]) for x in versions]
         except:
             urls = pkg.all_urls
+
+        # Add git repository to urls if specified
+        if hasattr(pkg, "git"):
+            urls.append(pkg.git)
 
         # Add to repology
         repology_pkg = {
