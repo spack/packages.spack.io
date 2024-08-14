@@ -127,7 +127,8 @@ def main():
             # Is there a develop branch?
             if version.isdevelop():
                 meta["branch"] = str(version)
-                meta["downloads"] = getattr(pkg, "git", "")
+                if hasattr(pkg, "git"):
+                    meta["downloads"] = pkg.git
             else:
                 meta["downloads"] = [url]
 
