@@ -31,7 +31,7 @@ if not os.path.exists(__file__):
 
 def write_json(content, filename):
     with open(filename, "w") as outfile:
-        outfile.write(json.dumps(content, indent=4))
+        outfile.write(json.dumps(content, indent=4, sort_keys=True))
 
 
 def main():
@@ -43,7 +43,7 @@ def main():
     package_variants = {}
 
     # Iterate through consistent order
-    pkgs = set(sorted(pkgs))
+    pkgs = sorted(pkgs)
 
     # Prepre to create repology output alongside packages files
     repology = {
@@ -113,6 +113,7 @@ def main():
                 if isinstance(key, str) and isinstance(h, str):
                     meta[key] = h
             versions.append(meta)
+        versions.sort(key=lambda x: x["name"])
 
         # Repology wants a completely different format for versions
         repology_versions = []
@@ -141,6 +142,7 @@ def main():
             #    deps = []
             # meta['dependencies'] = deps
             repology_versions.append(meta)
+        repology_versions.sort(key=lambda x: x["version"])
 
         variants = []
         if pkg.variants:
@@ -157,6 +159,7 @@ def main():
                         "description": variant[0].description,
                     }
                 )
+        variants.sort(key=lambda x: x["name"])
 
         conflicts = []
         if pkg.conflicts:
@@ -169,6 +172,7 @@ def main():
                             "description": msg,
                         }
                     )
+        conflicts.sort(key=lambda x: x["spec"] + x["name"] + getattr(x, "description", ""))
 
         aliases = []
         raw_aliases = set()
@@ -178,6 +182,7 @@ def main():
                     descriptions[provided.name] = pkg.format_doc().strip()
                     aliases.append({"name": str(provided.name), "alias_for": str(when)})
                     raw_aliases.add(provided.name)
+        aliases.sort(key=lambda x: x["alias_for"] + x["name"])
 
         # Get latest version!
         latest_version = spack.version.VersionList(pkg.versions).preferred()
@@ -206,7 +211,7 @@ def main():
         metas[pkg.name] = meta
 
         # Aliases can be linked too
-        for alias in raw_aliases:
+        for alias in sorted(list(raw_aliases)):
             metas[alias] = meta
 
         # Best effort to get urls for versions
@@ -237,6 +242,10 @@ def main():
         repology["packages"][pkg.name] = repology_pkg
         for alias in raw_aliases:
             repology["packages"][alias] = repology_pkg
+
+    # Sort package variants
+    for name in package_variants.keys():
+        package_variants[name].sort(key=lambda x: x["package"])
 
     # Save package variants
     outfile = os.path.join(here, "data", "variants.json")
@@ -274,6 +283,8 @@ def main():
             meta["dependent_to"].append(
                 {"name": dep, "description": descriptions.get(dep, "")}
             )
+        meta["dependencies"].sort(key=lambda x: x["name"])
+        meta["dependent_to"].sort(key=lambda x: x["name"])
         outfile = os.path.join(here, "data", "packages", "%s.json" % pkg)
         try:
             write_json(meta, outfile)
