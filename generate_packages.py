@@ -13,7 +13,6 @@ import subprocess
 import shutil
 import sys
 import os
-from collections import OrderedDict
 from datetime import datetime
 
 import spack.repo
@@ -38,20 +37,20 @@ def write_json(content, filename):
 def main():
 
     pkgs = spack.repo.all_package_names(include_virtuals=True)
-    deps_of = OrderedDict()
-    descriptions = OrderedDict()
-    metas = OrderedDict()
-    package_variants = OrderedDict()
+    deps_of = {}
+    descriptions = {}
+    metas = {}
+    package_variants = {}
 
     # Iterate through consistent order
-    pkgs = set(sorted(pkgs))
+    pkgs = sorted(pkgs)
 
     # Prepre to create repology output alongside packages files
     repology = {
         "repository_name": "spack",
         "num_packages": len(pkgs),
         "last_update": str(datetime.now()),
-        "packages": OrderedDict(),
+        "packages": {},
     }
 
     for i, package in enumerate(pkgs):
@@ -173,7 +172,7 @@ def main():
                             "description": msg,
                         }
                     )
-        conflicts.sort(key=lambda x: x["spec"] + x["name"])
+        conflicts.sort(key=lambda x: x["spec"] + x["name"] + getattr(x, "description", ""))
 
         aliases = []
         raw_aliases = set()
@@ -212,7 +211,7 @@ def main():
         metas[pkg.name] = meta
 
         # Aliases can be linked too
-        for alias in raw_aliases:
+        for alias in sorted(list(raw_aliases)):
             metas[alias] = meta
 
         # Best effort to get urls for versions
@@ -243,6 +242,10 @@ def main():
         repology["packages"][pkg.name] = repology_pkg
         for alias in raw_aliases:
             repology["packages"][alias] = repology_pkg
+
+    # Sort package variants
+    for name in package_variants.keys():
+        package_variants[name].sort(key=lambda x: x["package"])
 
     # Save package variants
     outfile = os.path.join(here, "data", "variants.json")
