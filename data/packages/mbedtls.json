@@ -1,183 +1,183 @@
 {
-    "name": "mbedtls",
     "aliases": [],
+    "build_system": "MakefilePackage",
+    "conflicts": [
+        {
+            "description": null,
+            "name": "%clang@12:",
+            "spec": "@:2.16.11,2.17:2.27,2.29:3.0"
+        },
+        {
+            "description": null,
+            "name": "arch=windows-None-None",
+            "spec": "build_system=makefile"
+        }
+    ],
+    "dependencies": [
+        {
+            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files.",
+            "name": "gmake"
+        },
+        {
+            "description": "Perl 5 is a highly capable, feature-rich programming language with over\n27 years of development.",
+            "name": "perl"
+        },
+        {
+            "description": "The Python programming language.",
+            "name": "python"
+        }
+    ],
+    "dependent_to": [
+        {
+            "description": "cURL is an open source command line tool and library for transferring\ndata with URL syntax",
+            "name": "curl"
+        },
+        {
+            "description": "HPCToolkit is an integrated suite of tools for measurement and analysis\nof program performance on computers ranging from multicore desktop\nsystems to the nation's largest supercomputers. By using statistical\nsampling of timers and hardware performance counters, HPCToolkit\ncollects accurate measurements of a program's work, resource\nconsumption, and inefficiency and attributes them to the full calling\ncontext in which they occur.",
+            "name": "hpctoolkit"
+        },
+        {
+            "description": "The Julia Language: A fresh approach to technical computing",
+            "name": "julia"
+        },
+        {
+            "description": "libarchive: C library and command-line tools for reading and writing\ntar, cpio, zip, ISO, and other archive formats.",
+            "name": "libarchive"
+        },
+        {
+            "description": "libssh2 is a client-side C library implementing the SSH2 protocol",
+            "name": "libssh2"
+        }
+    ],
+    "description": "mbed TLS (formerly known as PolarSSL) makes it trivially easy for\ndevelopers to include cryptographic and SSL/TLS capabilities in their\n(embedded) products, facilitating this functionality with a minimal\ncoding footprint.\n",
+    "homepage": "https://tls.mbed.org",
+    "latest_version": "3.3.0",
+    "maintainers": [
+        "haampie"
+    ],
+    "name": "mbedtls",
+    "patches": [
+        {
+            "level": 1,
+            "owner": "builtin.mbedtls",
+            "relative_path": "fix-dt-needed-shared-libs.patch",
+            "reverse": false,
+            "sha256": "ab3db2ce6c3d6d8c87f7c9e9c4c86745081876105e38ad9ccde1444db21b2d08",
+            "version": "@2.7:2.27,3.0.0",
+            "working_dir": "."
+        }
+    ],
+    "resources": [],
+    "variants": [
+        {
+            "default": "makefile",
+            "description": "Build systems supported by the package",
+            "name": "build_system"
+        },
+        {
+            "default": "Release",
+            "description": "Build type",
+            "name": "build_type"
+        },
+        {
+            "default": "static",
+            "description": "What libraries to build",
+            "name": "libs"
+        },
+        {
+            "default": false,
+            "description": "Compile with position independent code.",
+            "name": "pic"
+        }
+    ],
     "versions": [
         {
-            "name": "3.3.0",
-            "sha256": "a22ff38512697b9cd8472faa2ea2d35e320657f6d268def3a64765548b81c3ec"
-        },
-        {
-            "name": "3.2.1",
-            "sha256": "5850089672560eeaca03dc36678ee8573bb48ef6e38c94f5ce349af60c16da33"
-        },
-        {
-            "name": "3.1.0",
-            "sha256": "64d01a3b22b91cf3a25630257f268f11bc7bfa37981ae6d397802dd4ccec4690"
-        },
-        {
-            "name": "3.0.0",
-            "sha256": "377d376919be19f07c7e7adeeded088a525be40353f6d938a78e4f986bce2ae0"
-        },
-        {
-            "name": "2.28.2",
-            "sha256": "1db6d4196178fa9f8264bef5940611cd9febcd5d54ec05f52f1e8400f792b5a4"
-        },
-        {
-            "name": "2.28.1",
-            "sha256": "82ff5fda18ecbdee9053bdbeed6059c89e487f3024227131657d4c4536735ed1"
-        },
-        {
-            "name": "2.28.0",
-            "sha256": "f644248f23cf04315cf9bb58d88c4c9471c16ca0533ecf33f86fb7749a3e5fa6"
-        },
-        {
-            "name": "2.27.0",
-            "sha256": "4f6a43f06ded62aa20ef582436a39b65902e1126cbbe2fb17f394e9e9a552767"
-        },
-        {
-            "name": "2.24.0",
-            "sha256": "b5a779b5f36d5fc4cba55faa410685f89128702423ad07b36c5665441a06a5f3"
-        },
-        {
-            "name": "2.16.12",
-            "sha256": "0afb4a4ce5b771f2fb86daee786362fbe48285f05b73cd205f46a224ec031783"
-        },
-        {
-            "name": "2.16.11",
-            "sha256": "51bb9685c4f4ff9255da5659ff346b89dcaf129e3ba0f3b2b0c48a1a7495e701"
-        },
-        {
-            "name": "2.16.9",
-            "sha256": "b7ca99ee10551b5b13242b7effebefd2a5cc38c287e5f5be1267d51ee45effe3"
-        },
-        {
-            "name": "2.16.7",
-            "sha256": "4786b7d1676f5e4d248f3a7f2d28446876d64962634f060ff21b92c690cfbe86"
-        },
-        {
-            "name": "2.16.1",
-            "sha256": "daf0d40f3016c34eb42d1e4b3b52be047e976d566aba8668977723c829af72f3"
-        },
-        {
-            "name": "2.7.19",
-            "sha256": "3da12b1cebe1a25da8365d5349f67db514aefcaa75e26082d7cb2fa3ce9608aa"
-        },
-        {
-            "name": "2.7.10",
-            "sha256": "42b19b30b86a798bdb69c5da2f8bbd7d72ffede9a35b888ab986a29480f9dc3e"
-        },
-        {
-            "name": "2.3.0",
-            "sha256": "1614ee70be99a18ca8298148308fb725aad4ad31c569438bb51655a4999b14f9"
-        },
-        {
-            "name": "2.2.1",
-            "sha256": "32819c62c20e8740a11b49daa5d09ac6f179edf120a87ac559cd63120b66b699"
-        },
-        {
-            "name": "2.2.0",
-            "sha256": "75494361e412444b38ebb9c908b7e17a5fb582eb9c3fadb2fe9b21e96f1bf8cb"
-        },
-        {
-            "name": "2.1.4",
-            "sha256": "a0ee4d3dd135baf67a3cf5ad9e70d67575561704325d6c93d8f087181f4db338"
+            "name": "1.3.16",
+            "sha256": "0c2666222b66cf09c4630fa60a715aafd7decb1a09933b75c0c540b0625ac5df"
         },
         {
             "name": "2.1.3",
             "sha256": "94da4618d5a518b99f7914a5e348be436e3571113d9a9978d130725a1fc7bfac"
         },
         {
-            "name": "1.3.16",
-            "sha256": "0c2666222b66cf09c4630fa60a715aafd7decb1a09933b75c0c540b0625ac5df"
-        }
-    ],
-    "latest_version": "3.3.0",
-    "build_system": "MakefilePackage",
-    "conflicts": [
-        {
-            "name": "arch=windows-None-None",
-            "spec": "build_system=makefile",
-            "description": null
+            "name": "2.1.4",
+            "sha256": "a0ee4d3dd135baf67a3cf5ad9e70d67575561704325d6c93d8f087181f4db338"
         },
         {
-            "name": "%clang@12:",
-            "spec": "@:2.16.11,2.17:2.27,2.29:3.0",
-            "description": null
-        }
-    ],
-    "variants": [
-        {
-            "name": "build_system",
-            "default": "makefile",
-            "description": "Build systems supported by the package"
+            "name": "2.16.1",
+            "sha256": "daf0d40f3016c34eb42d1e4b3b52be047e976d566aba8668977723c829af72f3"
         },
         {
-            "name": "pic",
-            "default": false,
-            "description": "Compile with position independent code."
+            "name": "2.16.11",
+            "sha256": "51bb9685c4f4ff9255da5659ff346b89dcaf129e3ba0f3b2b0c48a1a7495e701"
         },
         {
-            "name": "build_type",
-            "default": "Release",
-            "description": "Build type"
+            "name": "2.16.12",
+            "sha256": "0afb4a4ce5b771f2fb86daee786362fbe48285f05b73cd205f46a224ec031783"
         },
         {
-            "name": "libs",
-            "default": "static",
-            "description": "What libraries to build"
-        }
-    ],
-    "homepage": "https://tls.mbed.org",
-    "maintainers": [
-        "haampie"
-    ],
-    "patches": [
-        {
-            "owner": "builtin.mbedtls",
-            "sha256": "ab3db2ce6c3d6d8c87f7c9e9c4c86745081876105e38ad9ccde1444db21b2d08",
-            "level": 1,
-            "working_dir": ".",
-            "reverse": false,
-            "relative_path": "fix-dt-needed-shared-libs.patch",
-            "version": "@2.7:2.27,3.0.0"
-        }
-    ],
-    "resources": [],
-    "description": "mbed TLS (formerly known as PolarSSL) makes it trivially easy for\ndevelopers to include cryptographic and SSL/TLS capabilities in their\n(embedded) products, facilitating this functionality with a minimal\ncoding footprint.\n",
-    "dependencies": [
-        {
-            "name": "gmake",
-            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files."
+            "name": "2.16.7",
+            "sha256": "4786b7d1676f5e4d248f3a7f2d28446876d64962634f060ff21b92c690cfbe86"
         },
         {
-            "name": "perl",
-            "description": "Perl 5 is a highly capable, feature-rich programming language with over\n27 years of development."
+            "name": "2.16.9",
+            "sha256": "b7ca99ee10551b5b13242b7effebefd2a5cc38c287e5f5be1267d51ee45effe3"
         },
         {
-            "name": "python",
-            "description": "The Python programming language."
-        }
-    ],
-    "dependent_to": [
-        {
-            "name": "curl",
-            "description": "cURL is an open source command line tool and library for transferring\ndata with URL syntax"
+            "name": "2.2.0",
+            "sha256": "75494361e412444b38ebb9c908b7e17a5fb582eb9c3fadb2fe9b21e96f1bf8cb"
         },
         {
-            "name": "hpctoolkit",
-            "description": "HPCToolkit is an integrated suite of tools for measurement and analysis\nof program performance on computers ranging from multicore desktop\nsystems to the nation's largest supercomputers. By using statistical\nsampling of timers and hardware performance counters, HPCToolkit\ncollects accurate measurements of a program's work, resource\nconsumption, and inefficiency and attributes them to the full calling\ncontext in which they occur."
+            "name": "2.2.1",
+            "sha256": "32819c62c20e8740a11b49daa5d09ac6f179edf120a87ac559cd63120b66b699"
         },
         {
-            "name": "libssh2",
-            "description": "libssh2 is a client-side C library implementing the SSH2 protocol"
+            "name": "2.24.0",
+            "sha256": "b5a779b5f36d5fc4cba55faa410685f89128702423ad07b36c5665441a06a5f3"
         },
         {
-            "name": "libarchive",
-            "description": "libarchive: C library and command-line tools for reading and writing\ntar, cpio, zip, ISO, and other archive formats."
+            "name": "2.27.0",
+            "sha256": "4f6a43f06ded62aa20ef582436a39b65902e1126cbbe2fb17f394e9e9a552767"
         },
         {
-            "name": "julia",
-            "description": "The Julia Language: A fresh approach to technical computing"
+            "name": "2.28.0",
+            "sha256": "f644248f23cf04315cf9bb58d88c4c9471c16ca0533ecf33f86fb7749a3e5fa6"
+        },
+        {
+            "name": "2.28.1",
+            "sha256": "82ff5fda18ecbdee9053bdbeed6059c89e487f3024227131657d4c4536735ed1"
+        },
+        {
+            "name": "2.28.2",
+            "sha256": "1db6d4196178fa9f8264bef5940611cd9febcd5d54ec05f52f1e8400f792b5a4"
+        },
+        {
+            "name": "2.3.0",
+            "sha256": "1614ee70be99a18ca8298148308fb725aad4ad31c569438bb51655a4999b14f9"
+        },
+        {
+            "name": "2.7.10",
+            "sha256": "42b19b30b86a798bdb69c5da2f8bbd7d72ffede9a35b888ab986a29480f9dc3e"
+        },
+        {
+            "name": "2.7.19",
+            "sha256": "3da12b1cebe1a25da8365d5349f67db514aefcaa75e26082d7cb2fa3ce9608aa"
+        },
+        {
+            "name": "3.0.0",
+            "sha256": "377d376919be19f07c7e7adeeded088a525be40353f6d938a78e4f986bce2ae0"
+        },
+        {
+            "name": "3.1.0",
+            "sha256": "64d01a3b22b91cf3a25630257f268f11bc7bfa37981ae6d397802dd4ccec4690"
+        },
+        {
+            "name": "3.2.1",
+            "sha256": "5850089672560eeaca03dc36678ee8573bb48ef6e38c94f5ce349af60c16da33"
+        },
+        {
+            "name": "3.3.0",
+            "sha256": "a22ff38512697b9cd8472faa2ea2d35e320657f6d268def3a64765548b81c3ec"
         }
     ]
 }

@@ -1,173 +1,173 @@
 {
-    "name": "unifyfs",
     "aliases": [],
+    "build_system": "AutotoolsPackage",
+    "conflicts": [
+        {
+            "description": null,
+            "name": "%intel",
+            "spec": "+fortran"
+        },
+        {
+            "description": null,
+            "name": "%xl",
+            "spec": "+fortran"
+        },
+        {
+            "description": null,
+            "name": "^libfabric@1.13:1.13.1",
+            "spec": ""
+        },
+        {
+            "description": null,
+            "name": "^mercury~bmi~ofi",
+            "spec": ""
+        },
+        {
+            "description": null,
+            "name": "^mercury~sm",
+            "spec": ""
+        },
+        {
+            "description": null,
+            "name": "arch=windows-None-None",
+            "spec": "build_system=autotools"
+        }
+    ],
+    "dependencies": [
+        {
+            "description": "Autoconf -- system configuration part of autotools",
+            "name": "autoconf"
+        },
+        {
+            "description": "Automake -- make file builder part of autotools",
+            "name": "automake"
+        },
+        {
+            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files.",
+            "name": "gmake"
+        },
+        {
+            "description": "The GNU config.guess and config.sub scripts versioned by timestamp.\nThis package can be used as a build dependency for autotools packages\nthat ship a tarball with outdated config.guess and config.sub files.",
+            "name": "gnuconfig"
+        },
+        {
+            "description": "C software library for shared library function wrapping, enables tools\nto intercept calls into shared libraries",
+            "name": "gotcha"
+        },
+        {
+            "description": "The Open Fabrics Interfaces (OFI) is a framework focused on exporting\nfabric communication services to applications.",
+            "name": "libfabric"
+        },
+        {
+            "description": "libtool -- library building part of autotools.",
+            "name": "libtool"
+        },
+        {
+            "description": "GNU M4 is an implementation of the traditional Unix macro processor.",
+            "name": "m4"
+        },
+        {
+            "description": "Mercury is a C library for implementing RPC, optimized for HPC",
+            "name": "mercury"
+        },
+        {
+            "description": "A library that provides Argobots bindings to the Mercury RPC\nimplementation.",
+            "name": "mochi-margo"
+        },
+        {
+            "description": "IBM MPI implementation from Spectrum MPI.",
+            "name": "mpi"
+        },
+        {
+            "description": "OpenSSL is an open source project that provides a robust, commercial-\ngrade, and full-featured toolkit for the Transport Layer Security (TLS)\nand Secure Sockets Layer (SSL) protocols. It is also a general-purpose\ncryptography library.",
+            "name": "openssl"
+        },
+        {
+            "description": "pkgconf is a program which helps to configure compiler and linker flags\nfor development frameworks. It is similar to pkg-config from\nfreedesktop.org, providing additional functionality while also\nmaintaining compatibility.",
+            "name": "pkgconfig"
+        },
+        {
+            "description": "Represent and manipulate file system paths",
+            "name": "spath"
+        }
+    ],
+    "dependent_to": [
+        {
+            "description": "ECP Data & Vis SDK",
+            "name": "ecp-data-vis-sdk"
+        }
+    ],
+    "description": "User level file system that enables applications to use node-local\nstorage as burst buffers for shared files. Supports scalable and\nefficient aggregation of I/O bandwidth from burst buffers while having\nthe same life cycle as a batch-submitted job. UnifyFS is designed to\nsupport common I/O workloads, including checkpoint/restart. While\nprimarily designed for N-N write/read, UnifyFS compliments its\nfunctionality with the support for N-1 write/read.\n",
+    "homepage": "https://github.com/LLNL/UnifyFS",
+    "latest_version": "2.0",
+    "maintainers": [
+        "CamStan"
+    ],
+    "name": "unifyfs",
+    "patches": [],
+    "resources": [],
+    "variants": [
+        {
+            "default": true,
+            "description": "Enable automatic mount/unmount in MPI_Init/Finalize",
+            "name": "auto-mount"
+        },
+        {
+            "default": false,
+            "description": "Have Mercury use preprocessor headers from boost dependency",
+            "name": "boostsys"
+        },
+        {
+            "default": "autotools",
+            "description": "Build systems supported by the package",
+            "name": "build_system"
+        },
+        {
+            "default": true,
+            "description": "Build with gfortran support",
+            "name": "fortran"
+        },
+        {
+            "default": false,
+            "description": "Enable PMI2 build options",
+            "name": "pmi"
+        },
+        {
+            "default": false,
+            "description": "Enable PMIx build options",
+            "name": "pmix"
+        },
+        {
+            "default": false,
+            "description": "Enable support for LD_PRELOAD library",
+            "name": "preload"
+        },
+        {
+            "default": true,
+            "description": "Use spath library to normalize relative paths",
+            "name": "spath"
+        }
+    ],
     "versions": [
         {
-            "name": "develop",
-            "branch": "dev"
-        },
-        {
-            "name": "2.0",
-            "sha256": "a07dfda022bc3094d578dcc5c9b2c4bbe7de479f598e4e358cd01690cd82355b"
-        },
-        {
-            "name": "1.1",
-            "sha256": "1bf5593099d272c9a12c46090d217c61dfeea1504dd4f7184972da3db5afc5f3"
+            "name": "1.0",
+            "sha256": "c9ad0d15d382773841a3dab89c661fbdcfd686ec37fa263eb22713f6404258f5"
         },
         {
             "name": "1.0.1",
             "sha256": "d92800778661b15ab50275c4efe345a6c60d8f1802a0d5909fda38db91b12116"
         },
         {
-            "name": "1.0",
-            "sha256": "c9ad0d15d382773841a3dab89c661fbdcfd686ec37fa263eb22713f6404258f5"
-        }
-    ],
-    "latest_version": "2.0",
-    "build_system": "AutotoolsPackage",
-    "conflicts": [
-        {
-            "name": "arch=windows-None-None",
-            "spec": "build_system=autotools",
-            "description": null
+            "name": "1.1",
+            "sha256": "1bf5593099d272c9a12c46090d217c61dfeea1504dd4f7184972da3db5afc5f3"
         },
         {
-            "name": "^libfabric@1.13:1.13.1",
-            "spec": "",
-            "description": null
+            "name": "2.0",
+            "sha256": "a07dfda022bc3094d578dcc5c9b2c4bbe7de479f598e4e358cd01690cd82355b"
         },
         {
-            "name": "^mercury~bmi~ofi",
-            "spec": "",
-            "description": null
-        },
-        {
-            "name": "^mercury~sm",
-            "spec": "",
-            "description": null
-        },
-        {
-            "name": "%intel",
-            "spec": "+fortran",
-            "description": null
-        },
-        {
-            "name": "%xl",
-            "spec": "+fortran",
-            "description": null
-        }
-    ],
-    "variants": [
-        {
-            "name": "build_system",
-            "default": "autotools",
-            "description": "Build systems supported by the package"
-        },
-        {
-            "name": "auto-mount",
-            "default": true,
-            "description": "Enable automatic mount/unmount in MPI_Init/Finalize"
-        },
-        {
-            "name": "boostsys",
-            "default": false,
-            "description": "Have Mercury use preprocessor headers from boost dependency"
-        },
-        {
-            "name": "fortran",
-            "default": true,
-            "description": "Build with gfortran support"
-        },
-        {
-            "name": "pmi",
-            "default": false,
-            "description": "Enable PMI2 build options"
-        },
-        {
-            "name": "pmix",
-            "default": false,
-            "description": "Enable PMIx build options"
-        },
-        {
-            "name": "preload",
-            "default": false,
-            "description": "Enable support for LD_PRELOAD library"
-        },
-        {
-            "name": "spath",
-            "default": true,
-            "description": "Use spath library to normalize relative paths"
-        }
-    ],
-    "homepage": "https://github.com/LLNL/UnifyFS",
-    "maintainers": [
-        "CamStan"
-    ],
-    "patches": [],
-    "resources": [],
-    "description": "User level file system that enables applications to use node-local\nstorage as burst buffers for shared files. Supports scalable and\nefficient aggregation of I/O bandwidth from burst buffers while having\nthe same life cycle as a batch-submitted job. UnifyFS is designed to\nsupport common I/O workloads, including checkpoint/restart. While\nprimarily designed for N-N write/read, UnifyFS compliments its\nfunctionality with the support for N-1 write/read.\n",
-    "dependencies": [
-        {
-            "name": "autoconf",
-            "description": "Autoconf -- system configuration part of autotools"
-        },
-        {
-            "name": "automake",
-            "description": "Automake -- make file builder part of autotools"
-        },
-        {
-            "name": "gmake",
-            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files."
-        },
-        {
-            "name": "gnuconfig",
-            "description": "The GNU config.guess and config.sub scripts versioned by timestamp.\nThis package can be used as a build dependency for autotools packages\nthat ship a tarball with outdated config.guess and config.sub files."
-        },
-        {
-            "name": "gotcha",
-            "description": "C software library for shared library function wrapping, enables tools\nto intercept calls into shared libraries"
-        },
-        {
-            "name": "libfabric",
-            "description": "The Open Fabrics Interfaces (OFI) is a framework focused on exporting\nfabric communication services to applications."
-        },
-        {
-            "name": "libtool",
-            "description": "libtool -- library building part of autotools."
-        },
-        {
-            "name": "m4",
-            "description": "GNU M4 is an implementation of the traditional Unix macro processor."
-        },
-        {
-            "name": "mercury",
-            "description": "Mercury is a C library for implementing RPC, optimized for HPC"
-        },
-        {
-            "name": "mochi-margo",
-            "description": "A library that provides Argobots bindings to the Mercury RPC\nimplementation."
-        },
-        {
-            "name": "mpi",
-            "description": "A single processor implementation of the mpi library."
-        },
-        {
-            "name": "openssl",
-            "description": "OpenSSL is an open source project that provides a robust, commercial-\ngrade, and full-featured toolkit for the Transport Layer Security (TLS)\nand Secure Sockets Layer (SSL) protocols. It is also a general-purpose\ncryptography library."
-        },
-        {
-            "name": "pkgconfig",
-            "description": "pkg-config is a helper tool used when compiling applications and\nlibraries"
-        },
-        {
-            "name": "spath",
-            "description": "Represent and manipulate file system paths"
-        }
-    ],
-    "dependent_to": [
-        {
-            "name": "ecp-data-vis-sdk",
-            "description": "ECP Data & Vis SDK"
+            "branch": "dev",
+            "name": "develop"
         }
     ]
 }

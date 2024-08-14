@@ -1,56 +1,56 @@
 {
-    "name": "fermikit",
     "aliases": [],
-    "versions": [
-        {
-            "name": "2017-11-7",
-            "commit": "bf9c7112221577ba110665bddca8f1987250bdc7"
-        }
-    ],
-    "latest_version": "2017-11-7",
     "build_system": "MakefilePackage",
     "conflicts": [
         {
+            "description": null,
             "name": "arch=windows-None-None",
-            "spec": "build_system=makefile",
-            "description": null
+            "spec": "build_system=makefile"
         }
     ],
-    "variants": [
+    "dependencies": [
         {
-            "name": "build_system",
-            "default": "makefile",
-            "description": "Build systems supported by the package"
+            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files.",
+            "name": "gmake"
+        },
+        {
+            "description": "A C/C++ header file that converts Intel SSE intrinsics to Arm/Aarch64\nNEON intrinsics.",
+            "name": "sse2neon"
+        },
+        {
+            "description": "zlib replacement with optimizations for next generation systems.",
+            "name": "zlib-api"
         }
     ],
+    "dependent_to": [],
+    "description": "De novo assembly based variant calling pipeline for Illumina short reads\n",
     "homepage": "https://github.com/lh3/fermikit",
+    "latest_version": "2017-11-7",
     "maintainers": [],
+    "name": "fermikit",
     "patches": [
         {
-            "owner": "builtin.fermikit",
-            "sha256": "eec145e87a9ba608ed7dff890de6d83d4b6a7dc873dfd2f935a6770d58501b9d",
             "level": 1,
-            "working_dir": ".",
-            "reverse": false,
+            "owner": "builtin.fermikit",
             "relative_path": "ksw_for_aarch64.patch",
-            "version": "arch=None-None-aarch64:"
+            "reverse": false,
+            "sha256": "eec145e87a9ba608ed7dff890de6d83d4b6a7dc873dfd2f935a6770d58501b9d",
+            "version": "arch=None-None-aarch64:",
+            "working_dir": "."
         }
     ],
     "resources": [],
-    "description": "De novo assembly based variant calling pipeline for Illumina short reads\n",
-    "dependencies": [
+    "variants": [
         {
-            "name": "gmake",
-            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files."
-        },
-        {
-            "name": "sse2neon",
-            "description": "A C/C++ header file that converts Intel SSE intrinsics to Arm/Aarch64\nNEON intrinsics."
-        },
-        {
-            "name": "zlib-api",
-            "description": "zlib replacement with optimizations for next generation systems."
+            "default": "makefile",
+            "description": "Build systems supported by the package",
+            "name": "build_system"
         }
     ],
-    "dependent_to": []
+    "versions": [
+        {
+            "commit": "bf9c7112221577ba110665bddca8f1987250bdc7",
+            "name": "2017-11-7"
+        }
+    ]
 }

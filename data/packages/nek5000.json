@@ -1,11 +1,59 @@
 {
-    "name": "nek5000",
     "aliases": [],
-    "versions": [
+    "build_system": "Package",
+    "conflicts": [],
+    "dependencies": [
         {
-            "name": "develop",
-            "branch": "master"
+            "description": "IBM MPI implementation from Spectrum MPI.",
+            "name": "mpi"
+        }
+    ],
+    "dependent_to": [
+        {
+            "description": "Ceed is a collection of benchmarks, miniapps, software libraries and\nAPIs for efficient high-order finite element and spectral element\ndiscretizations for exascale applications developed in the Department of\nEnergy (DOE) and partially supported by the Exascale Computing Project\n(ECP). This is a Spack bundle package that installs the CEED software\ncomponents.",
+            "name": "ceed"
+        }
+    ],
+    "description": "A fast and scalable high-order solver for computational fluid dynamics\n",
+    "homepage": "https://nek5000.mcs.anl.gov/",
+    "latest_version": "19.0",
+    "maintainers": [],
+    "name": "nek5000",
+    "patches": [
+        {
+            "level": 1,
+            "owner": "builtin.nek5000",
+            "relative_path": "add_fjfortran.patch",
+            "reverse": false,
+            "sha256": "ba9ecafa77dc57b14aa1883280c3b6f525cdef19c74dc7bd6a0c2baa40db1455",
+            "version": "%fj",
+            "working_dir": "."
+        }
+    ],
+    "resources": [],
+    "variants": [
+        {
+            "default": "generic",
+            "description": "Build systems supported by the package",
+            "name": "build_system"
         },
+        {
+            "default": true,
+            "description": "Build with MPI.",
+            "name": "mpi"
+        },
+        {
+            "default": true,
+            "description": "Build with profiling data.",
+            "name": "profiling"
+        },
+        {
+            "default": false,
+            "description": "Build with Visit.",
+            "name": "visit"
+        }
+    ],
+    "versions": [
         {
             "name": "17.0",
             "sha256": "4d8d4793ce3c926c54e09a5a5968fa959fe0ba46bd2e6b8043e099528ee35a60"
@@ -13,58 +61,10 @@
         {
             "name": "19.0",
             "sha256": "db129877a10ff568d49edc77cf65f9e732eecb1fce10edbd91ffc5ac10c41ad6"
-        }
-    ],
-    "latest_version": "19.0",
-    "build_system": "Package",
-    "conflicts": [],
-    "variants": [
-        {
-            "name": "build_system",
-            "default": "generic",
-            "description": "Build systems supported by the package"
         },
         {
-            "name": "mpi",
-            "default": true,
-            "description": "Build with MPI."
-        },
-        {
-            "name": "profiling",
-            "default": true,
-            "description": "Build with profiling data."
-        },
-        {
-            "name": "visit",
-            "default": false,
-            "description": "Build with Visit."
-        }
-    ],
-    "homepage": "https://nek5000.mcs.anl.gov/",
-    "maintainers": [],
-    "patches": [
-        {
-            "owner": "builtin.nek5000",
-            "sha256": "ba9ecafa77dc57b14aa1883280c3b6f525cdef19c74dc7bd6a0c2baa40db1455",
-            "level": 1,
-            "working_dir": ".",
-            "reverse": false,
-            "relative_path": "add_fjfortran.patch",
-            "version": "%fj"
-        }
-    ],
-    "resources": [],
-    "description": "A fast and scalable high-order solver for computational fluid dynamics\n",
-    "dependencies": [
-        {
-            "name": "mpi",
-            "description": "A single processor implementation of the mpi library."
-        }
-    ],
-    "dependent_to": [
-        {
-            "name": "ceed",
-            "description": "Ceed is a collection of benchmarks, miniapps, software libraries and\nAPIs for efficient high-order finite element and spectral element\ndiscretizations for exascale applications developed in the Department of\nEnergy (DOE) and partially supported by the Exascale Computing Project\n(ECP). This is a Spack bundle package that installs the CEED software\ncomponents."
+            "branch": "master",
+            "name": "develop"
         }
     ]
 }

@@ -1,119 +1,119 @@
 {
-    "name": "sw4",
     "aliases": [],
-    "versions": [
-        {
-            "name": "master",
-            "branch": "master"
-        },
-        {
-            "name": "developer",
-            "branch": "developer"
-        },
-        {
-            "name": "3.0",
-            "commit": "13e6d431976f7fc49124c997bf87353aa7afd35e",
-            "tag": "v3.0"
-        }
-    ],
-    "latest_version": "3.0",
     "build_system": "MakefilePackage",
     "conflicts": [
         {
+            "description": null,
             "name": "arch=windows-None-None",
-            "spec": "build_system=makefile",
-            "description": null
+            "spec": "build_system=makefile"
         }
     ],
-    "variants": [
+    "dependencies": [
         {
-            "name": "build_system",
-            "default": "makefile",
-            "description": "Build systems supported by the package"
+            "description": "Lightweight but flexible shim designed to rectify the incompatibilities\nbetween the Accelerate/vecLib BLAS and LAPACK libraries shipped with\nmacOS and FORTRAN code compiled with modern compilers such as GNU\nFortran.",
+            "name": "blas"
         },
         {
-            "name": "openmp",
-            "default": true,
-            "description": "build with OpenMP"
+            "description": "FFTW is a C subroutine library for computing the discrete Fourier\ntransform (DFT) in one or more dimensions, of arbitrary input size, and\nof both real and complex data (as well as of even/odd data, i.e. the\ndiscrete cosine/sine transforms or DCT/DST). We believe that FFTW, which\nis free software, should become the FFT library of choice for most\napplications.",
+            "name": "fftw"
         },
         {
-            "name": "hdf5",
-            "default": true,
-            "description": "build with HDF5"
+            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files.",
+            "name": "gmake"
         },
         {
-            "name": "proj",
-            "default": true,
-            "description": "build with proj"
+            "description": "A highly flexible floating point and integer compression plugin for the\nHDF5 library using ZFP compression.",
+            "name": "h5z-zfp"
         },
         {
-            "name": "zfp",
-            "default": false,
-            "description": "build with ZFP"
+            "description": "HDF5 is a data model, library, and file format for storing and managing\ndata. It supports an unlimited variety of datatypes, and is designed for\nflexible and efficient I/O and for high volume and complex data.",
+            "name": "hdf5"
         },
         {
-            "name": "fftw",
-            "default": true,
-            "description": "build with FFTW"
+            "description": "Lightweight but flexible shim designed to rectify the incompatibilities\nbetween the Accelerate/vecLib BLAS and LAPACK libraries shipped with\nmacOS and FORTRAN code compiled with modern compilers such as GNU\nFortran.",
+            "name": "lapack"
+        },
+        {
+            "description": "The OpenMP subproject of LLVM contains the components required to build\nan executable OpenMP program that are outside the compiler itself.",
+            "name": "llvm-openmp"
+        },
+        {
+            "description": "IBM MPI implementation from Spectrum MPI.",
+            "name": "mpi"
+        },
+        {
+            "description": "PROJ is a generic coordinate transformation software, that transforms\ngeospatial coordinates from one coordinate reference system (CRS) to\nanother. This includes cartographic projections as well as geodetic\ntransformations.",
+            "name": "proj"
+        },
+        {
+            "description": "The h5py package provides both a high- and low-level interface to the\nHDF5 library from Python.",
+            "name": "py-h5py"
+        },
+        {
+            "description": "The Python programming language.",
+            "name": "python"
+        },
+        {
+            "description": "zfp is a compressed number format for multidimensional floating-point\nand integer arrays. zfp provides compressed-array classes that support\nhigh throughput read and write random access to individual array\nelements. zfp also supports serial and parallel (OpenMP and CUDA)\ncompression of whole arrays.",
+            "name": "zfp"
         }
     ],
+    "dependent_to": [],
+    "description": "This package builds SW4 with MPI, OpenMP, HDF5, FFTW, PROJ, and ZFP.\n",
     "homepage": "https://github.com/geodynamics/sw4",
+    "latest_version": "3.0",
     "maintainers": [
         "andersp",
         "houjun"
     ],
+    "name": "sw4",
     "patches": [],
     "resources": [],
-    "description": "This package builds SW4 with MPI, OpenMP, HDF5, FFTW, PROJ, and ZFP.\n",
-    "dependencies": [
+    "variants": [
         {
-            "name": "blas",
-            "description": "BLIS is a portable software framework for instantiating high-performance\nBLAS-like dense linear algebra libraries. The framework was designed to\nisolate essential kernels of computation that, when optimized,\nimmediately enable optimized implementations of most of its commonly\nused and computationally intensive operations. BLIS is written in ISO\nC99 and available under a new/modified/3-clause BSD license. While BLIS\nexports a new BLAS-like API, it also includes a BLAS compatibility layer\nwhich gives application developers access to BLIS implementations via\ntraditional BLAS routine calls. An object-based API unique to BLIS is\nalso available."
+            "default": "makefile",
+            "description": "Build systems supported by the package",
+            "name": "build_system"
         },
         {
-            "name": "fftw",
-            "description": "FFTW is a C subroutine library for computing the discrete Fourier\ntransform (DFT) in one or more dimensions, of arbitrary input size, and\nof both real and complex data (as well as of even/odd data, i.e. the\ndiscrete cosine/sine transforms or DCT/DST). We believe that FFTW, which\nis free software, should become the FFT library of choice for most\napplications."
+            "default": true,
+            "description": "build with FFTW",
+            "name": "fftw"
         },
         {
-            "name": "gmake",
-            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files."
+            "default": true,
+            "description": "build with HDF5",
+            "name": "hdf5"
         },
         {
-            "name": "h5z-zfp",
-            "description": "A highly flexible floating point and integer compression plugin for the\nHDF5 library using ZFP compression."
+            "default": true,
+            "description": "build with OpenMP",
+            "name": "openmp"
         },
         {
-            "name": "hdf5",
-            "description": "HDF5 is a data model, library, and file format for storing and managing\ndata. It supports an unlimited variety of datatypes, and is designed for\nflexible and efficient I/O and for high volume and complex data."
+            "default": true,
+            "description": "build with proj",
+            "name": "proj"
         },
         {
-            "name": "lapack",
-            "description": "Lightweight but flexible shim designed to rectify the incompatibilities\nbetween the Accelerate/vecLib BLAS and LAPACK libraries shipped with\nmacOS and FORTRAN code compiled with modern compilers such as GNU\nFortran."
-        },
-        {
-            "name": "llvm-openmp",
-            "description": "The OpenMP subproject of LLVM contains the components required to build\nan executable OpenMP program that are outside the compiler itself."
-        },
-        {
-            "name": "mpi",
-            "description": "A single processor implementation of the mpi library."
-        },
-        {
-            "name": "proj",
-            "description": "PROJ is a generic coordinate transformation software, that transforms\ngeospatial coordinates from one coordinate reference system (CRS) to\nanother. This includes cartographic projections as well as geodetic\ntransformations."
-        },
-        {
-            "name": "py-h5py",
-            "description": "The h5py package provides both a high- and low-level interface to the\nHDF5 library from Python."
-        },
-        {
-            "name": "python",
-            "description": "The Python programming language."
-        },
-        {
-            "name": "zfp",
-            "description": "zfp is a compressed number format for multidimensional floating-point\nand integer arrays. zfp provides compressed-array classes that support\nhigh throughput read and write random access to individual array\nelements. zfp also supports serial and parallel (OpenMP and CUDA)\ncompression of whole arrays."
+            "default": false,
+            "description": "build with ZFP",
+            "name": "zfp"
         }
     ],
-    "dependent_to": []
+    "versions": [
+        {
+            "commit": "13e6d431976f7fc49124c997bf87353aa7afd35e",
+            "name": "3.0",
+            "tag": "v3.0"
+        },
+        {
+            "branch": "developer",
+            "name": "developer"
+        },
+        {
+            "branch": "master",
+            "name": "master"
+        }
+    ]
 }

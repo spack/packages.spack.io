@@ -1,105 +1,105 @@
 {
-    "name": "exciting",
     "aliases": [],
-    "versions": [
-        {
-            "name": "oxygen",
-            "branch": "oxygen_release"
-        },
-        {
-            "name": "14",
-            "sha256": "a7feaffdc23881d6c0737d2f79f94d9bf073e85ea358a57196d7f7618a0a3eff"
-        }
-    ],
-    "latest_version": "14",
     "build_system": "MakefilePackage",
     "conflicts": [
         {
+            "description": null,
             "name": "arch=windows-None-None",
-            "spec": "build_system=makefile",
-            "description": null
+            "spec": "build_system=makefile"
         }
     ],
-    "variants": [
+    "dependencies": [
         {
-            "name": "build_system",
-            "default": "makefile",
-            "description": "Build systems supported by the package"
+            "description": "Lightweight but flexible shim designed to rectify the incompatibilities\nbetween the Accelerate/vecLib BLAS and LAPACK libraries shipped with\nmacOS and FORTRAN code compiled with modern compilers such as GNU\nFortran.",
+            "name": "blas"
         },
         {
-            "name": "mpi",
-            "default": false,
-            "description": "Use MPI"
+            "description": "FFTW is a C subroutine library for computing the discrete Fourier\ntransform (DFT) in one or more dimensions, of arbitrary input size, and\nof both real and complex data (as well as of even/odd data, i.e. the\ndiscrete cosine/sine transforms or DCT/DST). We believe that FFTW, which\nis free software, should become the FFT library of choice for most\napplications.",
+            "name": "fftw"
         },
         {
-            "name": "mkl",
-            "default": false,
-            "description": "Use MKL"
+            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files.",
+            "name": "gmake"
         },
         {
-            "name": "omp",
-            "default": true,
-            "description": "Use OpenMP"
+            "description": "Lightweight but flexible shim designed to rectify the incompatibilities\nbetween the Accelerate/vecLib BLAS and LAPACK libraries shipped with\nmacOS and FORTRAN code compiled with modern compilers such as GNU\nFortran.",
+            "name": "lapack"
         },
         {
-            "name": "scalapack",
-            "default": false,
-            "description": "Use ScaLAPACK"
+            "description": "This is an earlier version of Intel parallel software development tools\nand has now been replaced by the Intel oneAPI Toolkits. LICENSE\nINFORMATION: By downloading and using this software, you agree to the\nterms and conditions of the software license agreements at\nhttps://intel.ly/393CijO.",
+            "name": "mkl"
+        },
+        {
+            "description": "IBM MPI implementation from Spectrum MPI.",
+            "name": "mpi"
+        },
+        {
+            "description": "ScaLAPACK is a library of high-performance linear algebra routines for\nparallel distributed memory machines",
+            "name": "scalapack"
         }
     ],
+    "dependent_to": [],
+    "description": " exciting is a full-potential all-electron density-functional-theory\npackage implementing the families of linearized augmented planewave\nmethods. It can be applied to all kinds of materials, irrespective of\nthe atomic species in volved, and also allows for exploring the physics\nof core electrons. A particular focus are excited states within many-\nbody perturbation theory.\n",
     "homepage": "https://exciting-code.org/",
+    "latest_version": "14",
     "maintainers": [],
+    "name": "exciting",
     "patches": [
         {
-            "owner": "builtin.exciting",
-            "sha256": "52c278cf991a73243bcd5ea7657f851e7c74e12d9d4859a8aa19eadfcd61df48",
             "level": 0,
-            "working_dir": "src/src_xs",
-            "reverse": false,
+            "owner": "builtin.exciting",
             "relative_path": "dfgather.patch",
-            "version": "@14"
+            "reverse": false,
+            "sha256": "52c278cf991a73243bcd5ea7657f851e7c74e12d9d4859a8aa19eadfcd61df48",
+            "version": "@14",
+            "working_dir": "src/src_xs"
         },
         {
-            "owner": "builtin.exciting",
-            "sha256": "eb53526fd40594bb380c1086106aab7cf1f40ddd1411f677b43707bc7332297c",
             "level": 1,
-            "working_dir": ".",
-            "reverse": false,
+            "owner": "builtin.exciting",
             "relative_path": "for_aarch64.patch",
-            "version": "arch=None-None-aarch64:"
+            "reverse": false,
+            "sha256": "eb53526fd40594bb380c1086106aab7cf1f40ddd1411f677b43707bc7332297c",
+            "version": "arch=None-None-aarch64:",
+            "working_dir": "."
         }
     ],
     "resources": [],
-    "description": " exciting is a full-potential all-electron density-functional-theory\npackage implementing the families of linearized augmented planewave\nmethods. It can be applied to all kinds of materials, irrespective of\nthe atomic species in volved, and also allows for exploring the physics\nof core electrons. A particular focus are excited states within many-\nbody perturbation theory.\n",
-    "dependencies": [
+    "variants": [
         {
-            "name": "blas",
-            "description": "BLIS is a portable software framework for instantiating high-performance\nBLAS-like dense linear algebra libraries. The framework was designed to\nisolate essential kernels of computation that, when optimized,\nimmediately enable optimized implementations of most of its commonly\nused and computationally intensive operations. BLIS is written in ISO\nC99 and available under a new/modified/3-clause BSD license. While BLIS\nexports a new BLAS-like API, it also includes a BLAS compatibility layer\nwhich gives application developers access to BLIS implementations via\ntraditional BLAS routine calls. An object-based API unique to BLIS is\nalso available."
+            "default": "makefile",
+            "description": "Build systems supported by the package",
+            "name": "build_system"
         },
         {
-            "name": "fftw",
-            "description": "FFTW is a C subroutine library for computing the discrete Fourier\ntransform (DFT) in one or more dimensions, of arbitrary input size, and\nof both real and complex data (as well as of even/odd data, i.e. the\ndiscrete cosine/sine transforms or DCT/DST). We believe that FFTW, which\nis free software, should become the FFT library of choice for most\napplications."
+            "default": false,
+            "description": "Use MKL",
+            "name": "mkl"
         },
         {
-            "name": "gmake",
-            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files."
+            "default": false,
+            "description": "Use MPI",
+            "name": "mpi"
         },
         {
-            "name": "lapack",
-            "description": "Lightweight but flexible shim designed to rectify the incompatibilities\nbetween the Accelerate/vecLib BLAS and LAPACK libraries shipped with\nmacOS and FORTRAN code compiled with modern compilers such as GNU\nFortran."
+            "default": true,
+            "description": "Use OpenMP",
+            "name": "omp"
         },
         {
-            "name": "mkl",
-            "description": "Intel Math Kernel Library. This package has been replaced by intel-\noneapi-mkl. LICENSE INFORMATION: By downloading and using this software,\nyou agree to the terms and conditions of the software license agreements\nat https://intel.ly/393CijO."
-        },
-        {
-            "name": "mpi",
-            "description": "A single processor implementation of the mpi library."
-        },
-        {
-            "name": "scalapack",
-            "description": "Intel Math Kernel Library. This package has been replaced by intel-\noneapi-mkl. LICENSE INFORMATION: By downloading and using this software,\nyou agree to the terms and conditions of the software license agreements\nat https://intel.ly/393CijO."
+            "default": false,
+            "description": "Use ScaLAPACK",
+            "name": "scalapack"
         }
     ],
-    "dependent_to": []
+    "versions": [
+        {
+            "name": "14",
+            "sha256": "a7feaffdc23881d6c0737d2f79f94d9bf073e85ea358a57196d7f7618a0a3eff"
+        },
+        {
+            "branch": "oxygen_release",
+            "name": "oxygen"
+        }
+    ]
 }

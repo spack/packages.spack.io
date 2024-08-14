@@ -1,16 +1,58 @@
 {
-    "name": "aocc",
     "aliases": [],
-    "versions": [
+    "build_system": "Package",
+    "conflicts": [
         {
-            "name": "4.2.0",
-            "sha256": "ed5a560ec745b24dc0685ccdcbde914843fb2f2dfbfce1ba592de4ffbce1ccab",
-            "url": "https://download.amd.com/developer/eula/aocc/aocc-4-2/aocc-compiler-4.2.0.tar"
+            "description": "aocc: Installation of aocc requires acceptance of the EULA (found at https://www.amd.com/en/developer/aocc/aocc-compiler/eula.html). Set the +license-agreed variant to confirm acceptance of the EULA",
+            "name": "~license-agreed",
+            "spec": ""
+        }
+    ],
+    "dependencies": [
+        {
+            "description": "libtool -- library building part of autotools.",
+            "name": "libtool"
         },
         {
-            "name": "4.1.0",
-            "sha256": "5b04bfdb751c68dfb9470b34235d76efa80a6b662a123c3375b255982cb52acd",
-            "url": "https://download.amd.com/developer/eula/aocc/aocc-4-1/aocc-compiler-4.1.0.tar"
+            "description": "Libxml2 is the XML C parser and toolkit developed for the Gnome project\n(but usable outside of the Gnome platform), it is free software\navailable under the MIT License.",
+            "name": "libxml2"
+        },
+        {
+            "description": "The ncurses (new curses) library is a free software emulation of curses\nin System V Release 4.0, and more. It uses terminfo format, supports\npads and color and multiple highlights and forms characters and\nfunction-key mapping, and has all the other SYSV-curses enhancements\nover BSD curses.",
+            "name": "ncurses"
+        },
+        {
+            "description": "zlib replacement with optimizations for next generation systems.",
+            "name": "zlib-api"
+        }
+    ],
+    "dependent_to": [],
+    "description": " The AOCC compiler system is a high performance, production quality code\ngeneration tool. The AOCC environment provides various options to\ndevelopers when building and optimizing C, C++, and Fortran applications\ntargeting 32-bit and 64-bit Linux platforms. The AOCC compiler system\noffers a high level of advanced optimizations, multi-threading and\nprocessor support that includes global optimization, vectorization,\ninter-procedural analyses, loop transformations, and code generation.\nAMD also provides highly optimized libraries, which extract the optimal\nperformance from each x86 processor core when utilized. The AOCC\nCompiler Suite simplifies and accelerates development and tuning for x86\napplications. Installation requires acceptance of the EULA by setting\nthe +license-agreed variant. https://www.amd.com/en/developer/aocc/aocc-\ncompiler/eula.html Example for installation: 'spack install aocc\n+license-agreed'\n",
+    "homepage": "https://www.amd.com/en/developer/aocc.html",
+    "latest_version": "4.2.0",
+    "maintainers": [
+        "amd-toolchain-support"
+    ],
+    "name": "aocc",
+    "patches": [],
+    "resources": [],
+    "variants": [
+        {
+            "default": "generic",
+            "description": "Build systems supported by the package",
+            "name": "build_system"
+        },
+        {
+            "default": false,
+            "description": "Confirm acceptance of the EULA (https://www.amd.com/en/developer/aocc/aocc-compiler/eula.html)",
+            "name": "license-agreed"
+        }
+    ],
+    "versions": [
+        {
+            "name": "3.2.0",
+            "sha256": "8493525b3df77f48ee16f3395a68ad4c42e18233a44b4d9282b25dbb95b113ec",
+            "url": "https://download.amd.com/developer/eula/aocc-compiler/aocc-compiler-3.2.0.tar"
         },
         {
             "name": "4.0.0",
@@ -18,56 +60,14 @@
             "url": "https://download.amd.com/developer/eula/aocc-compiler/aocc-compiler-4.0.0.tar"
         },
         {
-            "name": "3.2.0",
-            "sha256": "8493525b3df77f48ee16f3395a68ad4c42e18233a44b4d9282b25dbb95b113ec",
-            "url": "https://download.amd.com/developer/eula/aocc-compiler/aocc-compiler-3.2.0.tar"
-        }
-    ],
-    "latest_version": "4.2.0",
-    "build_system": "Package",
-    "conflicts": [
-        {
-            "name": "~license-agreed",
-            "spec": "",
-            "description": "aocc: Installation of aocc requires acceptance of the EULA (found at https://www.amd.com/en/developer/aocc/aocc-compiler/eula.html). Set the +license-agreed variant to confirm acceptance of the EULA"
-        }
-    ],
-    "variants": [
-        {
-            "name": "build_system",
-            "default": "generic",
-            "description": "Build systems supported by the package"
+            "name": "4.1.0",
+            "sha256": "5b04bfdb751c68dfb9470b34235d76efa80a6b662a123c3375b255982cb52acd",
+            "url": "https://download.amd.com/developer/eula/aocc/aocc-4-1/aocc-compiler-4.1.0.tar"
         },
         {
-            "name": "license-agreed",
-            "default": false,
-            "description": "Confirm acceptance of the EULA (https://www.amd.com/en/developer/aocc/aocc-compiler/eula.html)"
+            "name": "4.2.0",
+            "sha256": "ed5a560ec745b24dc0685ccdcbde914843fb2f2dfbfce1ba592de4ffbce1ccab",
+            "url": "https://download.amd.com/developer/eula/aocc/aocc-4-2/aocc-compiler-4.2.0.tar"
         }
-    ],
-    "homepage": "https://www.amd.com/en/developer/aocc.html",
-    "maintainers": [
-        "amd-toolchain-support"
-    ],
-    "patches": [],
-    "resources": [],
-    "description": " The AOCC compiler system is a high performance, production quality code\ngeneration tool. The AOCC environment provides various options to\ndevelopers when building and optimizing C, C++, and Fortran applications\ntargeting 32-bit and 64-bit Linux platforms. The AOCC compiler system\noffers a high level of advanced optimizations, multi-threading and\nprocessor support that includes global optimization, vectorization,\ninter-procedural analyses, loop transformations, and code generation.\nAMD also provides highly optimized libraries, which extract the optimal\nperformance from each x86 processor core when utilized. The AOCC\nCompiler Suite simplifies and accelerates development and tuning for x86\napplications. Installation requires acceptance of the EULA by setting\nthe +license-agreed variant. https://www.amd.com/en/developer/aocc/aocc-\ncompiler/eula.html Example for installation: 'spack install aocc\n+license-agreed'\n",
-    "dependencies": [
-        {
-            "name": "libtool",
-            "description": "libtool -- library building part of autotools."
-        },
-        {
-            "name": "libxml2",
-            "description": "Libxml2 is the XML C parser and toolkit developed for the Gnome project\n(but usable outside of the Gnome platform), it is free software\navailable under the MIT License."
-        },
-        {
-            "name": "ncurses",
-            "description": "The ncurses (new curses) library is a free software emulation of curses\nin System V Release 4.0, and more. It uses terminfo format, supports\npads and color and multiple highlights and forms characters and\nfunction-key mapping, and has all the other SYSV-curses enhancements\nover BSD curses."
-        },
-        {
-            "name": "zlib-api",
-            "description": "zlib replacement with optimizations for next generation systems."
-        }
-    ],
-    "dependent_to": []
+    ]
 }

@@ -1,7 +1,86 @@
 {
-    "name": "py-datalad-metalad",
     "aliases": [],
+    "build_system": "PythonPackage",
+    "conflicts": [],
+    "dependencies": [
+        {
+            "description": "git-annex allows managing files with git, without checking the file\ncontents into git. While that may seem paradoxical, it is useful when\ndealing with files larger than git can currently easily handle, whether\ndue to limitations in memory, time, or disk space.",
+            "name": "git-annex"
+        },
+        {
+            "description": "data distribution geared toward scientific datasets. DataLad makes data\nmanagement and data distribution more accessible. To do that, it stands\non the shoulders of Git and Git-annex to deliver a decentralized system\nfor data exchange. This includes automated ingestion of data from online\nportals and exposing it in readily usable form as Git(-annex)\nrepositories, so-called datasets. The actual data storage and permission\nmanagement, however, remains with the original data providers.",
+            "name": "py-datalad"
+        },
+        {
+            "description": "DataLad extension package for deprecated functionality that was phased\nout in the core package.",
+            "name": "py-datalad-deprecated"
+        },
+        {
+            "description": "This software implements the metadata model that datalad and datalad-\nmetalad will use in the future (datalad-metalad>=0.3.0) to handle\nmetadata.",
+            "name": "py-datalad-metadata-model"
+        },
+        {
+            "description": "The PyPA recommended tool for installing Python packages.",
+            "name": "py-pip"
+        },
+        {
+            "description": "pytest: simple powerful testing with Python.",
+            "name": "py-pytest"
+        },
+        {
+            "description": "PyYAML is a YAML parser and emitter for Python.",
+            "name": "py-pyyaml"
+        },
+        {
+            "description": "A Python utility that aids in the process of downloading, building,\nupgrading, installing, and uninstalling Python packages.",
+            "name": "py-setuptools"
+        },
+        {
+            "description": "Python 2 and 3 compatibility utilities.",
+            "name": "py-six"
+        },
+        {
+            "description": "A built-package format for Python.",
+            "name": "py-wheel"
+        },
+        {
+            "description": "The Python programming language.",
+            "name": "python"
+        },
+        {
+            "description": "A Spack managed Python virtual environment",
+            "name": "python-venv"
+        }
+    ],
+    "dependent_to": [
+        {
+            "description": "DataLad extension for raw data capturing and conversion workflows",
+            "name": "py-datalad-hirni"
+        },
+        {
+            "description": "DataLad extension package for neuro/medical imaging",
+            "name": "py-datalad-neuroimaging"
+        }
+    ],
+    "description": "DataLad extension for semantic metadata handling\n",
+    "homepage": "https://github.com/datalad/datalad-metalad/",
+    "latest_version": "0.4.17",
+    "maintainers": [],
+    "name": "py-datalad-metalad",
+    "patches": [],
+    "resources": [],
+    "variants": [
+        {
+            "default": "python_pip",
+            "description": "Build systems supported by the package",
+            "name": "build_system"
+        }
+    ],
     "versions": [
+        {
+            "name": "0.2.1",
+            "sha256": "70fe423136a168f7630b3e0ff1951e776d61e7d5f36670bddf24299ac0870285"
+        },
         {
             "name": "0.4.17",
             "sha256": "8854d5b8bc8387eff27639510f10c3cffe9cd76be018512a5d451be9708242b9"
@@ -9,85 +88,6 @@
         {
             "name": "0.4.5",
             "sha256": "db1a0675e3c67fe2d9093e7098b142534f49588dea5ee048ee962422a9927fbf"
-        },
-        {
-            "name": "0.2.1",
-            "sha256": "70fe423136a168f7630b3e0ff1951e776d61e7d5f36670bddf24299ac0870285"
-        }
-    ],
-    "latest_version": "0.4.17",
-    "build_system": "PythonPackage",
-    "conflicts": [],
-    "variants": [
-        {
-            "name": "build_system",
-            "default": "python_pip",
-            "description": "Build systems supported by the package"
-        }
-    ],
-    "homepage": "https://github.com/datalad/datalad-metalad/",
-    "maintainers": [],
-    "patches": [],
-    "resources": [],
-    "description": "DataLad extension for semantic metadata handling\n",
-    "dependencies": [
-        {
-            "name": "git-annex",
-            "description": "git-annex allows managing files with git, without checking the file\ncontents into git. While that may seem paradoxical, it is useful when\ndealing with files larger than git can currently easily handle, whether\ndue to limitations in memory, time, or disk space."
-        },
-        {
-            "name": "py-datalad",
-            "description": "data distribution geared toward scientific datasets. DataLad makes data\nmanagement and data distribution more accessible. To do that, it stands\non the shoulders of Git and Git-annex to deliver a decentralized system\nfor data exchange. This includes automated ingestion of data from online\nportals and exposing it in readily usable form as Git(-annex)\nrepositories, so-called datasets. The actual data storage and permission\nmanagement, however, remains with the original data providers."
-        },
-        {
-            "name": "py-datalad-deprecated",
-            "description": "DataLad extension package for deprecated functionality that was phased\nout in the core package."
-        },
-        {
-            "name": "py-datalad-metadata-model",
-            "description": "This software implements the metadata model that datalad and datalad-\nmetalad will use in the future (datalad-metalad>=0.3.0) to handle\nmetadata."
-        },
-        {
-            "name": "py-pip",
-            "description": "The PyPA recommended tool for installing Python packages."
-        },
-        {
-            "name": "py-pytest",
-            "description": "pytest: simple powerful testing with Python."
-        },
-        {
-            "name": "py-pyyaml",
-            "description": "PyYAML is a YAML parser and emitter for Python."
-        },
-        {
-            "name": "py-setuptools",
-            "description": "A Python utility that aids in the process of downloading, building,\nupgrading, installing, and uninstalling Python packages."
-        },
-        {
-            "name": "py-six",
-            "description": "Python 2 and 3 compatibility utilities."
-        },
-        {
-            "name": "py-wheel",
-            "description": "A built-package format for Python."
-        },
-        {
-            "name": "python",
-            "description": "The Python programming language."
-        },
-        {
-            "name": "python-venv",
-            "description": "A Spack managed Python virtual environment"
-        }
-    ],
-    "dependent_to": [
-        {
-            "name": "py-datalad-neuroimaging",
-            "description": "DataLad extension package for neuro/medical imaging"
-        },
-        {
-            "name": "py-datalad-hirni",
-            "description": "DataLad extension for raw data capturing and conversion workflows"
         }
     ]
 }

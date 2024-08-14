@@ -1,111 +1,111 @@
 {
-    "name": "w3m",
     "aliases": [],
+    "build_system": "AutotoolsPackage",
+    "conflicts": [
+        {
+            "description": null,
+            "name": "arch=windows-None-None",
+            "spec": "build_system=autotools"
+        }
+    ],
+    "dependencies": [
+        {
+            "description": "The Boehm-Demers-Weiser conservative garbage collector is a garbage\ncollecting replacement for C malloc or C++ new.",
+            "name": "bdw-gc"
+        },
+        {
+            "description": "The Gdk Pixbuf is a toolkit for image loading and pixel buffer\nmanipulation. It is used by GTK+ 2 and GTK+ 3 to load and manipulate\nimages. In the past it was distributed as part of GTK+ 2 but it was\nsplit off into a separate package in preparation for the change to GTK+\n3.",
+            "name": "gdk-pixbuf"
+        },
+        {
+            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files.",
+            "name": "gmake"
+        },
+        {
+            "description": "The GNU config.guess and config.sub scripts versioned by timestamp.\nThis package can be used as a build dependency for autotools packages\nthat ship a tarball with outdated config.guess and config.sub files.",
+            "name": "gnuconfig"
+        },
+        {
+            "description": "Library that does image file loading and saving as well as rendering,\nmanipulation, arbitrary polygon support",
+            "name": "imlib2"
+        },
+        {
+            "description": "libX11 - Core X11 protocol client library.",
+            "name": "libx11"
+        },
+        {
+            "description": "The ncurses (new curses) library is a free software emulation of curses\nin System V Release 4.0, and more. It uses terminfo format, supports\npads and color and multiple highlights and forms characters and\nfunction-key mapping, and has all the other SYSV-curses enhancements\nover BSD curses.",
+            "name": "ncurses"
+        },
+        {
+            "description": "OpenSSL is an open source project that provides a robust, commercial-\ngrade, and full-featured toolkit for the Transport Layer Security (TLS)\nand Secure Sockets Layer (SSL) protocols. It is also a general-purpose\ncryptography library.",
+            "name": "openssl"
+        },
+        {
+            "description": "This is the GNU termcap library, a library of C functions that enable\nprograms to send control strings to terminals in a way independent of\nthe terminal type.",
+            "name": "termcap"
+        }
+    ],
+    "dependent_to": [],
+    "description": " w3m is a text-based web browser as well as a pager like `more' or\n`less'. With w3m you can browse web pages through a terminal emulator\nwindow (xterm, rxvt or something like that). Moreover, w3m can be used\nas a text formatting tool which typesets HTML into plain text.\n",
+    "homepage": "https://w3m.sourceforge.net/index.en.html",
+    "latest_version": "0.5.3",
+    "maintainers": [
+        "ronin_gw"
+    ],
+    "name": "w3m",
+    "patches": [
+        {
+            "level": 1,
+            "owner": "builtin.w3m",
+            "relative_path": "fix_redef.patch",
+            "reverse": false,
+            "sha256": "5a188c73eb4e34467a5ca91ccf8d86b50cc96f73dc480b13d4651e93c40a4f51",
+            "version": "",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.w3m",
+            "relative_path": "fix_gc.patch",
+            "reverse": false,
+            "sha256": "029dfd2e92f5e34b75a3b45cacba73bbce24cfb56c8c4586d06a9d9c9440a9b1",
+            "version": "",
+            "working_dir": "."
+        }
+    ],
+    "resources": [],
+    "variants": [
+        {
+            "default": "autotools",
+            "description": "Build systems supported by the package",
+            "name": "build_system"
+        },
+        {
+            "default": true,
+            "description": "support https protocol",
+            "name": "https"
+        },
+        {
+            "default": true,
+            "description": "enable image",
+            "name": "image"
+        },
+        {
+            "default": "imlib2",
+            "description": "select imagelib",
+            "name": "imagelib"
+        },
+        {
+            "default": "ncurses",
+            "description": "select termlib",
+            "name": "termlib"
+        }
+    ],
     "versions": [
         {
             "name": "0.5.3",
             "sha256": "e994d263f2fd2c22febfbe45103526e00145a7674a0fda79c822b97c2770a9e3"
         }
-    ],
-    "latest_version": "0.5.3",
-    "build_system": "AutotoolsPackage",
-    "conflicts": [
-        {
-            "name": "arch=windows-None-None",
-            "spec": "build_system=autotools",
-            "description": null
-        }
-    ],
-    "variants": [
-        {
-            "name": "build_system",
-            "default": "autotools",
-            "description": "Build systems supported by the package"
-        },
-        {
-            "name": "termlib",
-            "default": "ncurses",
-            "description": "select termlib"
-        },
-        {
-            "name": "https",
-            "default": true,
-            "description": "support https protocol"
-        },
-        {
-            "name": "image",
-            "default": true,
-            "description": "enable image"
-        },
-        {
-            "name": "imagelib",
-            "default": "imlib2",
-            "description": "select imagelib"
-        }
-    ],
-    "homepage": "https://w3m.sourceforge.net/index.en.html",
-    "maintainers": [
-        "ronin_gw"
-    ],
-    "patches": [
-        {
-            "owner": "builtin.w3m",
-            "sha256": "5a188c73eb4e34467a5ca91ccf8d86b50cc96f73dc480b13d4651e93c40a4f51",
-            "level": 1,
-            "working_dir": ".",
-            "reverse": false,
-            "relative_path": "fix_redef.patch",
-            "version": ""
-        },
-        {
-            "owner": "builtin.w3m",
-            "sha256": "029dfd2e92f5e34b75a3b45cacba73bbce24cfb56c8c4586d06a9d9c9440a9b1",
-            "level": 1,
-            "working_dir": ".",
-            "reverse": false,
-            "relative_path": "fix_gc.patch",
-            "version": ""
-        }
-    ],
-    "resources": [],
-    "description": " w3m is a text-based web browser as well as a pager like `more' or\n`less'. With w3m you can browse web pages through a terminal emulator\nwindow (xterm, rxvt or something like that). Moreover, w3m can be used\nas a text formatting tool which typesets HTML into plain text.\n",
-    "dependencies": [
-        {
-            "name": "bdw-gc",
-            "description": "The Boehm-Demers-Weiser conservative garbage collector is a garbage\ncollecting replacement for C malloc or C++ new."
-        },
-        {
-            "name": "gdk-pixbuf",
-            "description": "The Gdk Pixbuf is a toolkit for image loading and pixel buffer\nmanipulation. It is used by GTK+ 2 and GTK+ 3 to load and manipulate\nimages. In the past it was distributed as part of GTK+ 2 but it was\nsplit off into a separate package in preparation for the change to GTK+\n3."
-        },
-        {
-            "name": "gmake",
-            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files."
-        },
-        {
-            "name": "gnuconfig",
-            "description": "The GNU config.guess and config.sub scripts versioned by timestamp.\nThis package can be used as a build dependency for autotools packages\nthat ship a tarball with outdated config.guess and config.sub files."
-        },
-        {
-            "name": "imlib2",
-            "description": "Library that does image file loading and saving as well as rendering,\nmanipulation, arbitrary polygon support"
-        },
-        {
-            "name": "libx11",
-            "description": "libX11 - Core X11 protocol client library."
-        },
-        {
-            "name": "ncurses",
-            "description": "The ncurses (new curses) library is a free software emulation of curses\nin System V Release 4.0, and more. It uses terminfo format, supports\npads and color and multiple highlights and forms characters and\nfunction-key mapping, and has all the other SYSV-curses enhancements\nover BSD curses."
-        },
-        {
-            "name": "openssl",
-            "description": "OpenSSL is an open source project that provides a robust, commercial-\ngrade, and full-featured toolkit for the Transport Layer Security (TLS)\nand Secure Sockets Layer (SSL) protocols. It is also a general-purpose\ncryptography library."
-        },
-        {
-            "name": "termcap",
-            "description": "This is the GNU termcap library, a library of C functions that enable\nprograms to send control strings to terminals in a way independent of\nthe terminal type."
-        }
-    ],
-    "dependent_to": []
+    ]
 }

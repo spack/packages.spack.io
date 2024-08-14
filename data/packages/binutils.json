@@ -1,451 +1,451 @@
 {
-    "name": "binutils",
     "aliases": [],
+    "build_system": "AutotoolsPackage",
+    "conflicts": [
+        {
+            "description": "binutils: Profile-guided optimization enables link-time optimization",
+            "name": "~lto",
+            "spec": "+pgo"
+        },
+        {
+            "description": "binutils: https://github.com/spack/spack/issues/35817",
+            "name": "libs=shared",
+            "spec": "@2.37:2.40 arch=darwin-None-None"
+        },
+        {
+            "description": "binutils: Binutils cannot build linkers on macOS",
+            "name": "+gold",
+            "spec": "arch=darwin-None-None"
+        },
+        {
+            "description": null,
+            "name": "arch=windows-None-None",
+            "spec": "build_system=autotools"
+        },
+        {
+            "description": "binutils: Assembler not always compatible with system ld",
+            "name": "+gas",
+            "spec": "~ld"
+        }
+    ],
+    "dependencies": [
+        {
+            "description": "Bison is a general-purpose parser generator that converts an annotated\ncontext-free grammar into a deterministic LR or generalized LR (GLR)\nparser employing LALR(1) parser tables.",
+            "name": "bison"
+        },
+        {
+            "description": "DejaGnu is a framework for testing other programs. Its purpose is to\nprovide a single front end for all tests.",
+            "name": "dejagnu"
+        },
+        {
+            "description": "GNU Diffutils is a package of several programs related to finding\ndifferences between files.",
+            "name": "diffutils"
+        },
+        {
+            "description": "GNU internationalization (i18n) and localization (l10n) library.",
+            "name": "gettext"
+        },
+        {
+            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files.",
+            "name": "gmake"
+        },
+        {
+            "description": "The GNU config.guess and config.sub scripts versioned by timestamp.\nThis package can be used as a build dependency for autotools packages\nthat ship a tarball with outdated config.guess and config.sub files.",
+            "name": "gnuconfig"
+        },
+        {
+            "description": "GNU M4 is an implementation of the traditional Unix macro processor.",
+            "name": "m4"
+        },
+        {
+            "description": "pkgconf is a program which helps to configure compiler and linker flags\nfor development frameworks. It is similar to pkg-config from\nfreedesktop.org, providing additional functionality while also\nmaintaining compatibility.",
+            "name": "pkgconfig"
+        },
+        {
+            "description": "Texinfo is the official documentation format of the GNU project. It was\ninvented by Richard Stallman and Bob Chassell many years ago, loosely\nbased on Brian Reid's Scribe and other formatting languages of the time.\nIt is used by many non-GNU projects as well.",
+            "name": "texinfo"
+        },
+        {
+            "description": "zlib replacement with optimizations for next generation systems.",
+            "name": "zlib-api"
+        },
+        {
+            "description": "Zstandard, or zstd as short version, is a fast lossless compression\nalgorithm, targeting real-time compression scenarios at zlib-level and\nbetter compression ratios.",
+            "name": "zstd"
+        }
+    ],
+    "dependent_to": [
+        {
+            "description": "A tool for checking backward compatibility of a C/C++ library API.",
+            "name": "abi-compliance-checker"
+        },
+        {
+            "description": "ABI Dumper is a tool to dump ABI of an ELF object containing DWARF debug\ninfo.",
+            "name": "abi-dumper"
+        },
+        {
+            "description": "AMD uProf (\"MICRO-prof\") is a software profiling analysis tool for x86\napplications running on Windows, Linux and FreeBSD operating systems and\nprovides event information unique to the AMD \"Zen\"-based processors and\nAMD Instinct(tm) MI Series accelerators. AMD uProf enables the developer\nto better understand the limiters of application performance and\nevaluate improvements.",
+            "name": "amduprof"
+        },
+        {
+            "description": "Autonomic Performance Environment for eXascale (APEX).",
+            "name": "apex"
+        },
+        {
+            "description": "CBTF Krell project contains collector and runtime contributions to the\nCBTF project. These contributions include many performance data\ncollectors and support libraries as well as some example tools that\ndrive the data collection at HPC levels of scale.",
+            "name": "cbtf-krell"
+        },
+        {
+            "description": "Chapel is a modern programming language that is parallel, productive,\nportable, scalable and open-source. The Chapel package comes with many\noptions in the form of variants, most of which can be left unset to\nallow Chapel's built-in scripts to determine the proper values based on\nthe environment.",
+            "name": "chapel"
+        },
+        {
+            "description": "Crosstool-NG is a versatile (cross) toolchain generator. It supports\nmany architectures and components and has a simple yet powerful\nmenuconfig-style interface.",
+            "name": "crosstool-ng"
+        },
+        {
+            "description": "Dropwatch is a project I started in an effort to improve the ability for\ndevelopers and system administrator to diagnose problems in the Linux\nNetworking stack, specifically in our ability to diagnose where packets\nare getting dropped.",
+            "name": "dropwatch"
+        },
+        {
+            "description": "Extrae is the package devoted to generate tracefiles which can be\nanalyzed later by Paraver. Extrae is a tool that uses different\ninterposition mechanisms to inject probes into the target application so\nas to gather information regarding the application performance. The\nExtrae instrumentation package can instrument the MPI programin model,\nand the following parallel programming models either alone or in\nconjunction with MPI : OpenMP, CUDA, OpenCL, pthread, OmpSs",
+            "name": "extrae"
+        },
+        {
+            "description": "EZTrace is a tool to automatically generate execution traces of HPC\napplications.",
+            "name": "eztrace"
+        },
+        {
+            "description": "The GNU Compiler Collection includes front ends for C, C++, Objective-C,\nFortran, Ada, and Go, as well as libraries for these languages.",
+            "name": "gcc"
+        },
+        {
+            "description": "Radeon Open Compute Parallel Primitives Library",
+            "name": "hipfort"
+        },
+        {
+            "description": "HPCToolkit is an integrated suite of tools for measurement and analysis\nof program performance on computers ranging from multicore desktop\nsystems to the nation's largest supercomputers. By using statistical\nsampling of timers and hardware performance counters, HPCToolkit\ncollects accurate measurements of a program's work, resource\nconsumption, and inefficiency and attributes them to the full calling\ncontext in which they occur.",
+            "name": "hpctoolkit"
+        },
+        {
+            "description": "Code coverage tool for compiled programs, Python and Bash which uses\ndebugging information to collect and report data without special\ncompilation options",
+            "name": "kcov"
+        },
+        {
+            "description": "The LDC project aims to provide a portable D programming language\ncompiler with modern optimization and code generation capabilities. LDC\nis fully Open Source; the parts of the code not taken/adapted from other\nprojects are BSD-licensed (see the LICENSE file for details). Consult\nthe D wiki for further information: https://wiki.dlang.org/LDC",
+            "name": "ldc"
+        },
+        {
+            "description": "The LDC project aims to provide a portable D programming language\ncompiler with modern optimization and code generation capabilities. LDC\nis fully Open Source; the parts of the code not taken/adapted from other\nprojects are BSD-licensed (see the LICENSE file for details). Consult\nthe D wiki for further information: https://wiki.dlang.org/LDC This old\nversion of the compiler is needed to bootstrap newer ones.",
+            "name": "ldc-bootstrap"
+        },
+        {
+            "description": "Modern interactive LLVM-based Fortran compiler",
+            "name": "lfortran"
+        },
+        {
+            "description": "ldd as a tree",
+            "name": "libtree"
+        },
+        {
+            "description": "Library for specialized dense and sparse matrix operations, and deep\nlearning primitives.",
+            "name": "libxsmm"
+        },
+        {
+            "description": "The Linux perf tool.",
+            "name": "linux-perf"
+        },
+        {
+            "description": "The LLVM Project is a collection of modular and reusable compiler and\ntoolchain technologies. Despite its name, LLVM has little to do with\ntraditional virtual machines, though it does provide helpful libraries\nthat can be used to build them. The name \"LLVM\" itself is not an\nacronym; it is the full name of the project.",
+            "name": "llvm"
+        },
+        {
+            "description": "This package provides a collection of the experimental LLVM projects\ndone by the US DOE research and development teams.",
+            "name": "llvm-doe"
+        },
+        {
+            "description": "MALT is a memory profile tool to track mallocs in a C/C++ application\nand report allocation information (lifetime, sizes...) in a friendly web\ngraphical interface by annotating the source code and proving charts.",
+            "name": "malt"
+        },
+        {
+            "description": "nvptx-tools: A collection of tools for use with nvptx-none GCC\ntoolchains. These tools are necessary when building a version of GCC\nthat enables offloading of OpenMP/OpenACC code to NVIDIA GPUs.",
+            "name": "nvptx-tools"
+        },
+        {
+            "description": "The openCARP simulation software, an open cardiac electrophysiology\nsimulator for in-silico experiments.",
+            "name": "opencarp"
+        },
+        {
+            "description": "An open source Message Passing Interface implementation. The Open MPI\nProject is an open source Message Passing Interface implementation that\nis developed and maintained by a consortium of academic, research, and\nindustry partners. Open MPI is therefore able to combine the expertise,\ntechnologies, and resources from all across the High Performance\nComputing community in order to build the best MPI library available.\nOpen MPI offers advantages for system and software vendors, application\ndevelopers and computer science researchers.",
+            "name": "openmpi"
+        },
+        {
+            "description": "OpenSpeedShop is a community effort led by Trenza, Inc. It builds on top\nof a broad list of community infrastructures, most notably Dyninst and\nMRNet from UW, libmonitor from Rice, and PAPI from UTK. OpenSpeedShop is\nan open source multi platform Linux performance tool which is targeted\nto support performance analysis of applications running on both single\nnode and large scale IA64, IA32, EM64T, AMD64, PPC, ARM, Power8, Intel\nPhi, Blue Gene and Cray platforms. OpenSpeedShop development is hosted\nby Trenza Inc.. The infrastructure and base components of OpenSpeedShop\nare released as open source code primarily under LGPL.",
+            "name": "openspeedshop"
+        },
+        {
+            "description": "OpenSpeedShop is a community effort led by Trenza, Inc. It builds on top\nof a broad list of community infrastructures, most notably Dyninst and\nMRNet from UW, libmonitor from Rice, and PAPI from UTK. OpenSpeedShop is\nan open source multi platform Linux performance tool which is targeted\nto support performance analysis of applications running on both single\nnode and large scale IA64, IA32, EM64T, AMD64, PPC, ARM, Power8, Intel\nPhi, Blue Gene and Cray platforms. OpenSpeedShop development is hosted\nby Trenza Inc.. The infrastructure and base components of OpenSpeedShop\nare released as open source code primarily under LGPL. openspeedshop-\nutils is a package that does not have the qt3 gui. It was created to\navoid a conflict between openspeedshop and cbtf-argonavis-gui based on\nthe fact that spack will not allow a qt3 and qt4/qt5 dependency in a\npackages dependency tree.",
+            "name": "openspeedshop-utils"
+        },
+        {
+            "description": "PnMPI is a dynamic MPI tool infrastructure that builds on top of the\nstandardized PMPI interface.",
+            "name": "pnmpi"
+        },
+        {
+            "description": "A lightweight LLVM python binding for writing JIT compilers",
+            "name": "py-llvmlite"
+        },
+        {
+            "description": "RELION (for REgularised LIkelihood OptimisatioN, pronounce rely-on) is a\nstand-alone computer program that employs an empirical Bayesian approach\nto refinement of (multiple) 3D reconstructions or 2D class averages in\nelectron cryo-microscopy (cryo-EM).",
+            "name": "relion"
+        },
+        {
+            "description": "The Score-P measurement infrastructure is a highly scalable and easy-to-\nuse tool suite for profiling, event tracing, and online analysis of HPC\napplications.",
+            "name": "scorep"
+        },
+        {
+            "description": "The SOLLVE Project aims at scaling OpenMP by leveraging LLVM for\nexascale performance and portability of applications. This package\nprovides a collection of Clang/LLVM compilers and an OpenMP runtime\nlibrary.",
+            "name": "sollve"
+        },
+        {
+            "description": "Spack is a multi-platform package manager that builds and installs\nmultiple versions and configurations of software. It works on Linux,\nmacOS, and many supercomputers. Spack is non-destructive: installing a\nnew version of a package does not break existing installations, so many\nconfigurations of the same package can coexist.",
+            "name": "spack"
+        },
+        {
+            "description": "SRILM (SRI Language Modeling Toolkit) is a toolkit for building and\napplying statistical language models (LMs), primarily for use in speech\nrecognition, statistical tagging and segmentation, and machine\ntranslation.",
+            "name": "srilm"
+        },
+        {
+            "description": "The Structural Simulation Toolkit Macroscale Element Library simulates\nlarge-scale parallel computer architectures for the coarse-grained study\nof distributed-memory applications. The simulator is driven from either\na trace file or skeleton application. SST/macro's modular architecture\ncan be extended with additional network models, trace file formats,\nsoftware services, and processor models.",
+            "name": "sst-macro"
+        },
+        {
+            "description": "A portable profiling and tracing toolkit for performance analysis of\nparallel programs written in Fortran, C, C++, UPC, Java, Python.",
+            "name": "tau"
+        },
+        {
+            "description": "a communication library implementing high-performance messaging for\nMPI/PGAS frameworks",
+            "name": "ucx"
+        }
+    ],
+    "description": "GNU binutils, which contain the linker, assembler, objdump and others\n",
+    "homepage": "https://www.gnu.org/software/binutils/",
+    "latest_version": "2.43",
+    "maintainers": [
+        "alalazo"
+    ],
+    "name": "binutils",
+    "patches": [
+        {
+            "level": 1,
+            "owner": "builtin.binutils",
+            "relative_path": "cr16.patch",
+            "reverse": false,
+            "sha256": "0a0ca84889b6727dc0cc88650f55fd79452dddba762674a83a153374792fdaac",
+            "version": "@:2.29.1",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.binutils",
+            "relative_path": "update_symbol-2.26.patch",
+            "reverse": false,
+            "sha256": "10e7a67069a16def0375a80062f68e2208c015656d7e888cf760165624eed5f4",
+            "version": "@2.26",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.binutils",
+            "relative_path": "parallel-build-2.36.patch",
+            "reverse": false,
+            "sha256": "a51b7bf4607645235be01683a3e2deb3a87d767cc124ea4ef6febf9f32abf4a7",
+            "version": "@2.36",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.binutils",
+            "relative_path": "gold-gcc4.patch",
+            "reverse": false,
+            "sha256": "0fc10affd69d343bb9dd532f5354defaea61c2ebd43b2c659f57fa3addc9c727",
+            "version": "@2.42%gcc@:4.8.5",
+            "working_dir": "."
+        }
+    ],
+    "resources": [],
+    "variants": [
+        {
+            "default": "autotools",
+            "description": "Build systems supported by the package",
+            "name": "build_system"
+        },
+        {
+            "default": "zlib",
+            "description": "Enable debug section compression by default in ld, gas, gold.",
+            "name": "compress_debug_sections"
+        },
+        {
+            "default": false,
+            "description": "Enable as assembler.",
+            "name": "gas"
+        },
+        {
+            "default": false,
+            "description": "build the gold linker",
+            "name": "gold"
+        },
+        {
+            "default": false,
+            "description": "Enable gprofng.",
+            "name": "gprofng"
+        },
+        {
+            "default": false,
+            "description": "Install extra headers (e.g. ELF)",
+            "name": "headers"
+        },
+        {
+            "default": false,
+            "description": "Enable interwork.",
+            "name": "interwork"
+        },
+        {
+            "default": false,
+            "description": "Enable ld.",
+            "name": "ld"
+        },
+        {
+            "default": false,
+            "description": "Also install libiberty.",
+            "name": "libiberty"
+        },
+        {
+            "default": "shared,static",
+            "description": "Build shared libs, static libs or both",
+            "name": "libs"
+        },
+        {
+            "default": false,
+            "description": "Enable lto.",
+            "name": "lto"
+        },
+        {
+            "default": false,
+            "description": "Enable Native Language Support",
+            "name": "nls"
+        },
+        {
+            "default": false,
+            "description": "Build with profile-guided optimization (slow)",
+            "name": "pgo"
+        },
+        {
+            "default": true,
+            "description": "enable plugins, needed for gold linker",
+            "name": "plugins"
+        }
+    ],
     "versions": [
         {
-            "name": "2.43",
-            "sha256": "fed3c3077f0df7a4a1aa47b080b8c53277593ccbb4e5e78b73ffb4e3f265e750"
-        },
-        {
-            "name": "2.42",
-            "sha256": "aa54850ebda5064c72cd4ec2d9b056c294252991486350d9a97ab2a6dfdfaf12"
-        },
-        {
-            "name": "2.41",
-            "sha256": "a4c4bec052f7b8370024e60389e194377f3f48b56618418ea51067f67aaab30b"
-        },
-        {
-            "name": "2.40",
-            "sha256": "f8298eb153a4b37d112e945aa5cb2850040bcf26a3ea65b5a715c83afe05e48a"
-        },
-        {
-            "name": "2.39",
-            "sha256": "da24a84fef220102dd24042df06fdea851c2614a5377f86effa28f33b7b16148"
-        },
-        {
-            "name": "2.38",
-            "sha256": "070ec71cf077a6a58e0b959f05a09a35015378c2d8a51e90f3aeabfe30590ef8"
-        },
-        {
-            "name": "2.37",
-            "sha256": "67fc1a4030d08ee877a4867d3dcab35828148f87e1fd05da6db585ed5a166bd4"
-        },
-        {
-            "name": "2.36.1",
-            "sha256": "5b4bd2e79e30ce8db0abd76dd2c2eae14a94ce212cfc59d3c37d23e24bc6d7a3"
-        },
-        {
-            "name": "2.35.2",
-            "sha256": "cfa7644dbecf4591e136eb407c1c1da16578bd2b03f0c2e8acdceba194bb9d61"
-        },
-        {
-            "name": "2.35.1",
-            "sha256": "320e7a1d0f46fcd9f413f1046e216cbe23bb2bce6deb6c6a63304425e48b1942"
-        },
-        {
-            "name": "2.35",
-            "sha256": "7d24660f87093670738e58bcc7b7b06f121c0fcb0ca8fc44368d675a5ef9cff7"
-        },
-        {
-            "name": "2.34",
-            "sha256": "89f010078b6cf69c23c27897d686055ab89b198dddf819efb0a4f2c38a0b36e6"
-        },
-        {
-            "name": "2.33.1",
-            "sha256": "0cb4843da15a65a953907c96bad658283f3c4419d6bcc56bf2789db16306adb2"
-        },
-        {
-            "name": "2.32",
-            "sha256": "de38b15c902eb2725eac6af21183a5f34ea4634cb0bcef19612b50e5ed31072d"
-        },
-        {
-            "name": "2.31.1",
-            "sha256": "ffcc382695bf947da6135e7436b8ed52d991cf270db897190f19d6f9838564d0"
-        },
-        {
-            "name": "2.30",
-            "sha256": "efeade848067e9a03f1918b1da0d37aaffa0b0127a06b5e9236229851d9d0c09"
-        },
-        {
-            "name": "2.29.1",
-            "sha256": "1509dff41369fb70aed23682351b663b56db894034773e6dbf7d5d6071fc55cc"
-        },
-        {
-            "name": "2.28",
-            "sha256": "6297433ee120b11b4b0a1c8f3512d7d73501753142ab9e2daa13c5a3edd32a72"
-        },
-        {
-            "name": "2.27",
-            "sha256": "369737ce51587f92466041a97ab7d2358c6d9e1b6490b3940eb09fb0a9a6ac88"
-        },
-        {
-            "name": "2.26",
-            "sha256": "c2ace41809542f5237afc7e3b8f32bb92bc7bc53c6232a84463c423b0714ecd9"
-        },
-        {
-            "name": "2.25.1",
-            "sha256": "b5b14added7d78a8d1ca70b5cb75fef57ce2197264f4f5835326b0df22ac9f22"
-        },
-        {
-            "name": "2.25",
-            "sha256": "22defc65cfa3ef2a3395faaea75d6331c6e62ea5dfacfed3e2ec17b08c882923"
-        },
-        {
-            "name": "2.24",
-            "sha256": "e5e8c5be9664e7f7f96e0d09919110ab5ad597794f5b1809871177a0f0f14137"
+            "name": "2.20.1",
+            "sha256": "71d37c96451333c5c0b84b170169fdcb138bbb27397dc06281905d9717c8ed64"
         },
         {
             "name": "2.23.2",
             "sha256": "fe914e56fed7a9ec2eb45274b1f2e14b0d8b4f41906a5194eac6883cfe5c1097"
         },
         {
-            "name": "2.20.1",
-            "sha256": "71d37c96451333c5c0b84b170169fdcb138bbb27397dc06281905d9717c8ed64"
-        }
-    ],
-    "latest_version": "2.43",
-    "build_system": "AutotoolsPackage",
-    "conflicts": [
-        {
-            "name": "arch=windows-None-None",
-            "spec": "build_system=autotools",
-            "description": null
-        },
-        {
-            "name": "+gold",
-            "spec": "arch=darwin-None-None",
-            "description": "binutils: Binutils cannot build linkers on macOS"
-        },
-        {
-            "name": "libs=shared",
-            "spec": "@2.37:2.40 arch=darwin-None-None",
-            "description": "binutils: https://github.com/spack/spack/issues/35817"
-        },
-        {
-            "name": "~lto",
-            "spec": "+pgo",
-            "description": "binutils: Profile-guided optimization enables link-time optimization"
-        },
-        {
-            "name": "+gas",
-            "spec": "~ld",
-            "description": "binutils: Assembler not always compatible with system ld"
-        }
-    ],
-    "variants": [
-        {
-            "name": "build_system",
-            "default": "autotools",
-            "description": "Build systems supported by the package"
-        },
-        {
-            "name": "plugins",
-            "default": true,
-            "description": "enable plugins, needed for gold linker"
-        },
-        {
-            "name": "gold",
-            "default": false,
-            "description": "build the gold linker"
-        },
-        {
-            "name": "libiberty",
-            "default": false,
-            "description": "Also install libiberty."
-        },
-        {
-            "name": "nls",
-            "default": false,
-            "description": "Enable Native Language Support"
-        },
-        {
-            "name": "headers",
-            "default": false,
-            "description": "Install extra headers (e.g. ELF)"
-        },
-        {
-            "name": "lto",
-            "default": false,
-            "description": "Enable lto."
-        },
-        {
-            "name": "pgo",
-            "default": false,
-            "description": "Build with profile-guided optimization (slow)"
-        },
-        {
-            "name": "ld",
-            "default": false,
-            "description": "Enable ld."
-        },
-        {
-            "name": "gas",
-            "default": false,
-            "description": "Enable as assembler."
-        },
-        {
-            "name": "interwork",
-            "default": false,
-            "description": "Enable interwork."
-        },
-        {
-            "name": "gprofng",
-            "default": false,
-            "description": "Enable gprofng."
-        },
-        {
-            "name": "libs",
-            "default": "shared,static",
-            "description": "Build shared libs, static libs or both"
-        },
-        {
-            "name": "compress_debug_sections",
-            "default": "zlib",
-            "description": "Enable debug section compression by default in ld, gas, gold."
-        }
-    ],
-    "homepage": "https://www.gnu.org/software/binutils/",
-    "maintainers": [
-        "alalazo"
-    ],
-    "patches": [
-        {
-            "owner": "builtin.binutils",
-            "sha256": "0a0ca84889b6727dc0cc88650f55fd79452dddba762674a83a153374792fdaac",
-            "level": 1,
-            "working_dir": ".",
-            "reverse": false,
-            "relative_path": "cr16.patch",
-            "version": "@:2.29.1"
-        },
-        {
-            "owner": "builtin.binutils",
-            "sha256": "10e7a67069a16def0375a80062f68e2208c015656d7e888cf760165624eed5f4",
-            "level": 1,
-            "working_dir": ".",
-            "reverse": false,
-            "relative_path": "update_symbol-2.26.patch",
-            "version": "@2.26"
-        },
-        {
-            "owner": "builtin.binutils",
-            "sha256": "a51b7bf4607645235be01683a3e2deb3a87d767cc124ea4ef6febf9f32abf4a7",
-            "level": 1,
-            "working_dir": ".",
-            "reverse": false,
-            "relative_path": "parallel-build-2.36.patch",
-            "version": "@2.36"
-        },
-        {
-            "owner": "builtin.binutils",
-            "sha256": "0fc10affd69d343bb9dd532f5354defaea61c2ebd43b2c659f57fa3addc9c727",
-            "level": 1,
-            "working_dir": ".",
-            "reverse": false,
-            "relative_path": "gold-gcc4.patch",
-            "version": "@2.42%gcc@:4.8.5"
-        }
-    ],
-    "resources": [],
-    "description": "GNU binutils, which contain the linker, assembler, objdump and others\n",
-    "dependencies": [
-        {
-            "name": "bison",
-            "description": "Bison is a general-purpose parser generator that converts an annotated\ncontext-free grammar into a deterministic LR or generalized LR (GLR)\nparser employing LALR(1) parser tables."
-        },
-        {
-            "name": "dejagnu",
-            "description": "DejaGnu is a framework for testing other programs. Its purpose is to\nprovide a single front end for all tests."
-        },
-        {
-            "name": "diffutils",
-            "description": "GNU Diffutils is a package of several programs related to finding\ndifferences between files."
-        },
-        {
-            "name": "gettext",
-            "description": "GNU internationalization (i18n) and localization (l10n) library."
-        },
-        {
-            "name": "gmake",
-            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files."
-        },
-        {
-            "name": "gnuconfig",
-            "description": "The GNU config.guess and config.sub scripts versioned by timestamp.\nThis package can be used as a build dependency for autotools packages\nthat ship a tarball with outdated config.guess and config.sub files."
-        },
-        {
-            "name": "m4",
-            "description": "GNU M4 is an implementation of the traditional Unix macro processor."
-        },
-        {
-            "name": "pkgconfig",
-            "description": "pkg-config is a helper tool used when compiling applications and\nlibraries"
-        },
-        {
-            "name": "texinfo",
-            "description": "Texinfo is the official documentation format of the GNU project. It was\ninvented by Richard Stallman and Bob Chassell many years ago, loosely\nbased on Brian Reid's Scribe and other formatting languages of the time.\nIt is used by many non-GNU projects as well."
-        },
-        {
-            "name": "zlib-api",
-            "description": "zlib replacement with optimizations for next generation systems."
-        },
-        {
-            "name": "zstd",
-            "description": "Zstandard, or zstd as short version, is a fast lossless compression\nalgorithm, targeting real-time compression scenarios at zlib-level and\nbetter compression ratios."
-        }
-    ],
-    "dependent_to": [
-        {
-            "name": "hpctoolkit",
-            "description": "HPCToolkit is an integrated suite of tools for measurement and analysis\nof program performance on computers ranging from multicore desktop\nsystems to the nation's largest supercomputers. By using statistical\nsampling of timers and hardware performance counters, HPCToolkit\ncollects accurate measurements of a program's work, resource\nconsumption, and inefficiency and attributes them to the full calling\ncontext in which they occur."
-        },
-        {
-            "name": "openspeedshop",
-            "description": "OpenSpeedShop is a community effort led by Trenza, Inc. It builds on top\nof a broad list of community infrastructures, most notably Dyninst and\nMRNet from UW, libmonitor from Rice, and PAPI from UTK. OpenSpeedShop is\nan open source multi platform Linux performance tool which is targeted\nto support performance analysis of applications running on both single\nnode and large scale IA64, IA32, EM64T, AMD64, PPC, ARM, Power8, Intel\nPhi, Blue Gene and Cray platforms. OpenSpeedShop development is hosted\nby Trenza Inc.. The infrastructure and base components of OpenSpeedShop\nare released as open source code primarily under LGPL."
-        },
-        {
-            "name": "llvm-doe",
-            "description": "This package provides a collection of the experimental LLVM projects\ndone by the US DOE research and development teams."
-        },
-        {
-            "name": "openmpi",
-            "description": "An open source Message Passing Interface implementation. The Open MPI\nProject is an open source Message Passing Interface implementation that\nis developed and maintained by a consortium of academic, research, and\nindustry partners. Open MPI is therefore able to combine the expertise,\ntechnologies, and resources from all across the High Performance\nComputing community in order to build the best MPI library available.\nOpen MPI offers advantages for system and software vendors, application\ndevelopers and computer science researchers."
-        },
-        {
-            "name": "libxsmm",
-            "description": "Library for specialized dense and sparse matrix operations, and deep\nlearning primitives."
-        },
-        {
-            "name": "spack",
-            "description": "Spack is a multi-platform package manager that builds and installs\nmultiple versions and configurations of software. It works on Linux,\nmacOS, and many supercomputers. Spack is non-destructive: installing a\nnew version of a package does not break existing installations, so many\nconfigurations of the same package can coexist."
-        },
-        {
-            "name": "tau",
-            "description": "A portable profiling and tracing toolkit for performance analysis of\nparallel programs written in Fortran, C, C++, UPC, Java, Python."
-        },
-        {
-            "name": "llvm",
-            "description": "The LLVM Project is a collection of modular and reusable compiler and\ntoolchain technologies. Despite its name, LLVM has little to do with\ntraditional virtual machines, though it does provide helpful libraries\nthat can be used to build them. The name \"LLVM\" itself is not an\nacronym; it is the full name of the project."
-        },
-        {
-            "name": "crosstool-ng",
-            "description": "Crosstool-NG is a versatile (cross) toolchain generator. It supports\nmany architectures and components and has a simple yet powerful\nmenuconfig-style interface."
-        },
-        {
-            "name": "gcc",
-            "description": "The GNU Compiler Collection includes front ends for C, C++, Objective-C,\nFortran, Ada, and Go, as well as libraries for these languages."
-        },
-        {
-            "name": "pnmpi",
-            "description": "PnMPI is a dynamic MPI tool infrastructure that builds on top of the\nstandardized PMPI interface."
-        },
-        {
-            "name": "libtree",
-            "description": "ldd as a tree"
-        },
-        {
-            "name": "ldc-bootstrap",
-            "description": "The LDC project aims to provide a portable D programming language\ncompiler with modern optimization and code generation capabilities. LDC\nis fully Open Source; the parts of the code not taken/adapted from other\nprojects are BSD-licensed (see the LICENSE file for details). Consult\nthe D wiki for further information: https://wiki.dlang.org/LDC This old\nversion of the compiler is needed to bootstrap newer ones."
-        },
-        {
-            "name": "amduprof",
-            "description": "AMD uProf (\"MICRO-prof\") is a software profiling analysis tool for x86\napplications running on Windows, Linux and FreeBSD operating systems and\nprovides event information unique to the AMD \"Zen\"-based processors and\nAMD Instinct(tm) MI Series accelerators. AMD uProf enables the developer\nto better understand the limiters of application performance and\nevaluate improvements."
-        },
-        {
-            "name": "abi-dumper",
-            "description": "ABI Dumper is a tool to dump ABI of an ELF object containing DWARF debug\ninfo."
-        },
-        {
-            "name": "relion",
-            "description": "RELION (for REgularised LIkelihood OptimisatioN, pronounce rely-on) is a\nstand-alone computer program that employs an empirical Bayesian approach\nto refinement of (multiple) 3D reconstructions or 2D class averages in\nelectron cryo-microscopy (cryo-EM)."
+            "name": "2.24",
+            "sha256": "e5e8c5be9664e7f7f96e0d09919110ab5ad597794f5b1809871177a0f0f14137"
         },
         {
-            "name": "ucx",
-            "description": "a communication library implementing high-performance messaging for\nMPI/PGAS frameworks"
+            "name": "2.25",
+            "sha256": "22defc65cfa3ef2a3395faaea75d6331c6e62ea5dfacfed3e2ec17b08c882923"
         },
         {
-            "name": "eztrace",
-            "description": "EZTrace is a tool to automatically generate execution traces of HPC\napplications."
+            "name": "2.25.1",
+            "sha256": "b5b14added7d78a8d1ca70b5cb75fef57ce2197264f4f5835326b0df22ac9f22"
         },
         {
-            "name": "sollve",
-            "description": "The SOLLVE Project aims at scaling OpenMP by leveraging LLVM for\nexascale performance and portability of applications. This package\nprovides a collection of Clang/LLVM compilers and an OpenMP runtime\nlibrary."
+            "name": "2.26",
+            "sha256": "c2ace41809542f5237afc7e3b8f32bb92bc7bc53c6232a84463c423b0714ecd9"
         },
         {
-            "name": "nvptx-tools",
-            "description": "nvptx-tools: A collection of tools for use with nvptx-none GCC\ntoolchains. These tools are necessary when building a version of GCC\nthat enables offloading of OpenMP/OpenACC code to NVIDIA GPUs."
+            "name": "2.27",
+            "sha256": "369737ce51587f92466041a97ab7d2358c6d9e1b6490b3940eb09fb0a9a6ac88"
         },
         {
-            "name": "py-llvmlite",
-            "description": "A lightweight LLVM python binding for writing JIT compilers"
+            "name": "2.28",
+            "sha256": "6297433ee120b11b4b0a1c8f3512d7d73501753142ab9e2daa13c5a3edd32a72"
         },
         {
-            "name": "opencarp",
-            "description": "The openCARP simulation software, an open cardiac electrophysiology\nsimulator for in-silico experiments."
+            "name": "2.29.1",
+            "sha256": "1509dff41369fb70aed23682351b663b56db894034773e6dbf7d5d6071fc55cc"
         },
         {
-            "name": "malt",
-            "description": "MALT is a memory profile tool to track mallocs in a C/C++ application\nand report allocation information (lifetime, sizes...) in a friendly web\ngraphical interface by annotating the source code and proving charts."
+            "name": "2.30",
+            "sha256": "efeade848067e9a03f1918b1da0d37aaffa0b0127a06b5e9236229851d9d0c09"
         },
         {
-            "name": "extrae",
-            "description": "Extrae is the package devoted to generate tracefiles which can be\nanalyzed later by Paraver. Extrae is a tool that uses different\ninterposition mechanisms to inject probes into the target application so\nas to gather information regarding the application performance. The\nExtrae instrumentation package can instrument the MPI programin model,\nand the following parallel programming models either alone or in\nconjunction with MPI : OpenMP, CUDA, OpenCL, pthread, OmpSs"
+            "name": "2.31.1",
+            "sha256": "ffcc382695bf947da6135e7436b8ed52d991cf270db897190f19d6f9838564d0"
         },
         {
-            "name": "apex",
-            "description": "Autonomic Performance Environment for eXascale (APEX)."
+            "name": "2.32",
+            "sha256": "de38b15c902eb2725eac6af21183a5f34ea4634cb0bcef19612b50e5ed31072d"
         },
         {
-            "name": "openspeedshop-utils",
-            "description": "OpenSpeedShop is a community effort led by Trenza, Inc. It builds on top\nof a broad list of community infrastructures, most notably Dyninst and\nMRNet from UW, libmonitor from Rice, and PAPI from UTK. OpenSpeedShop is\nan open source multi platform Linux performance tool which is targeted\nto support performance analysis of applications running on both single\nnode and large scale IA64, IA32, EM64T, AMD64, PPC, ARM, Power8, Intel\nPhi, Blue Gene and Cray platforms. OpenSpeedShop development is hosted\nby Trenza Inc.. The infrastructure and base components of OpenSpeedShop\nare released as open source code primarily under LGPL. openspeedshop-\nutils is a package that does not have the qt3 gui. It was created to\navoid a conflict between openspeedshop and cbtf-argonavis-gui based on\nthe fact that spack will not allow a qt3 and qt4/qt5 dependency in a\npackages dependency tree."
+            "name": "2.33.1",
+            "sha256": "0cb4843da15a65a953907c96bad658283f3c4419d6bcc56bf2789db16306adb2"
         },
         {
-            "name": "linux-perf",
-            "description": "The Linux perf tool."
+            "name": "2.34",
+            "sha256": "89f010078b6cf69c23c27897d686055ab89b198dddf819efb0a4f2c38a0b36e6"
         },
         {
-            "name": "sst-macro",
-            "description": "The Structural Simulation Toolkit Macroscale Element Library simulates\nlarge-scale parallel computer architectures for the coarse-grained study\nof distributed-memory applications. The simulator is driven from either\na trace file or skeleton application. SST/macro's modular architecture\ncan be extended with additional network models, trace file formats,\nsoftware services, and processor models."
+            "name": "2.35",
+            "sha256": "7d24660f87093670738e58bcc7b7b06f121c0fcb0ca8fc44368d675a5ef9cff7"
         },
         {
-            "name": "ldc",
-            "description": "The LDC project aims to provide a portable D programming language\ncompiler with modern optimization and code generation capabilities. LDC\nis fully Open Source; the parts of the code not taken/adapted from other\nprojects are BSD-licensed (see the LICENSE file for details). Consult\nthe D wiki for further information: https://wiki.dlang.org/LDC"
+            "name": "2.35.1",
+            "sha256": "320e7a1d0f46fcd9f413f1046e216cbe23bb2bce6deb6c6a63304425e48b1942"
         },
         {
-            "name": "dropwatch",
-            "description": "Dropwatch is a project I started in an effort to improve the ability for\ndevelopers and system administrator to diagnose problems in the Linux\nNetworking stack, specifically in our ability to diagnose where packets\nare getting dropped."
+            "name": "2.35.2",
+            "sha256": "cfa7644dbecf4591e136eb407c1c1da16578bd2b03f0c2e8acdceba194bb9d61"
         },
         {
-            "name": "chapel",
-            "description": "Chapel is a modern programming language that is parallel, productive,\nportable, scalable and open-source. The Chapel package comes with many\noptions in the form of variants, most of which can be left unset to\nallow Chapel's built-in scripts to determine the proper values based on\nthe environment."
+            "name": "2.36.1",
+            "sha256": "5b4bd2e79e30ce8db0abd76dd2c2eae14a94ce212cfc59d3c37d23e24bc6d7a3"
         },
         {
-            "name": "srilm",
-            "description": "SRILM (SRI Language Modeling Toolkit) is a toolkit for building and\napplying statistical language models (LMs), primarily for use in speech\nrecognition, statistical tagging and segmentation, and machine\ntranslation."
+            "name": "2.37",
+            "sha256": "67fc1a4030d08ee877a4867d3dcab35828148f87e1fd05da6db585ed5a166bd4"
         },
         {
-            "name": "kcov",
-            "description": "Code coverage tool for compiled programs, Python and Bash which uses\ndebugging information to collect and report data without special\ncompilation options"
+            "name": "2.38",
+            "sha256": "070ec71cf077a6a58e0b959f05a09a35015378c2d8a51e90f3aeabfe30590ef8"
         },
         {
-            "name": "cbtf-krell",
-            "description": "CBTF Krell project contains collector and runtime contributions to the\nCBTF project. These contributions include many performance data\ncollectors and support libraries as well as some example tools that\ndrive the data collection at HPC levels of scale."
+            "name": "2.39",
+            "sha256": "da24a84fef220102dd24042df06fdea851c2614a5377f86effa28f33b7b16148"
         },
         {
-            "name": "lfortran",
-            "description": "Modern interactive LLVM-based Fortran compiler"
+            "name": "2.40",
+            "sha256": "f8298eb153a4b37d112e945aa5cb2850040bcf26a3ea65b5a715c83afe05e48a"
         },
         {
-            "name": "abi-compliance-checker",
-            "description": "A tool for checking backward compatibility of a C/C++ library API."
+            "name": "2.41",
+            "sha256": "a4c4bec052f7b8370024e60389e194377f3f48b56618418ea51067f67aaab30b"
         },
         {
-            "name": "hipfort",
-            "description": "Radeon Open Compute Parallel Primitives Library"
+            "name": "2.42",
+            "sha256": "aa54850ebda5064c72cd4ec2d9b056c294252991486350d9a97ab2a6dfdfaf12"
         },
         {
-            "name": "scorep",
-            "description": "The Score-P measurement infrastructure is a highly scalable and easy-to-\nuse tool suite for profiling, event tracing, and online analysis of HPC\napplications."
+            "name": "2.43",
+            "sha256": "fed3c3077f0df7a4a1aa47b080b8c53277593ccbb4e5e78b73ffb4e3f265e750"
         }
     ]
 }

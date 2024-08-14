@@ -1,263 +1,263 @@
 {
-    "name": "amdfftw",
     "aliases": [
         {
-            "name": "fftw-api",
-            "alias_for": "amdfftw"
+            "alias_for": "amdfftw",
+            "name": "fftw-api"
+        }
+    ],
+    "build_system": "AutotoolsPackage",
+    "conflicts": [
+        {
+            "description": "amdfftw: long_double precision is not supported with amd-app-opt",
+            "name": "precision=long_double",
+            "spec": "+amd-app-opt"
+        },
+        {
+            "description": "amdfftw: Quad precision is not supported with amd-app-opt",
+            "name": "precision=quad",
+            "spec": "+amd-app-opt"
+        },
+        {
+            "description": "amdfftw: long_double precision is not supported with amd-fast-planner",
+            "name": "precision=long_double",
+            "spec": "+amd-fast-planner"
+        },
+        {
+            "description": "amdfftw: Quad precision is not supported with amd-fast-planner",
+            "name": "precision=quad",
+            "spec": "+amd-fast-planner"
+        },
+        {
+            "description": "amdfftw: long_double precision is not supported with amd-top-n-planner",
+            "name": "precision=long_double",
+            "spec": "+amd-top-n-planner"
+        },
+        {
+            "description": "amdfftw: Quad precision is not supported with amd-top-n-planner",
+            "name": "precision=quad",
+            "spec": "+amd-top-n-planner"
+        },
+        {
+            "description": "amdfftw: long_double precision is not supported with amd-trans",
+            "name": "precision=long_double",
+            "spec": "+amd-trans"
+        },
+        {
+            "description": "amdfftw: Quad precision is not supported with amd-trans",
+            "name": "precision=quad",
+            "spec": "+amd-trans"
+        },
+        {
+            "description": "amdfftw: Quad precision is not supported in MPI",
+            "name": "precision=quad",
+            "spec": "+mpi"
+        },
+        {
+            "description": "amdfftw: Long double precision is not supported in FFTW 2",
+            "name": "precision=long_double",
+            "spec": "@2.1.5"
+        },
+        {
+            "description": "amdfftw: Quad precision is not supported in FFTW 2",
+            "name": "precision=quad",
+            "spec": "@2.1.5"
+        },
+        {
+            "description": "amdfftw: debug mode is not supported by AOCC clang version 2.2",
+            "name": "+debug",
+            "spec": "@2.2%aocc"
+        },
+        {
+            "description": "amdfftw: Quad precision is not supported by AOCC clang version 2.2",
+            "name": "precision=quad",
+            "spec": "@2.2%aocc"
+        },
+        {
+            "description": "amdfftw: GCC version above 7.2 is required for AMDFFTW",
+            "name": "%gcc@:7.2",
+            "spec": "@2.2:"
+        },
+        {
+            "description": null,
+            "name": "%gcc@8.0:8",
+            "spec": "@3.3.7"
+        },
+        {
+            "description": null,
+            "name": "arch=windows-None-None",
+            "spec": "build_system=autotools"
+        },
+        {
+            "description": "amdfftw: Quad precision is not supported with amd-mpi-vader-limit",
+            "name": "+amd-mpi-vader-limit",
+            "spec": "precision=quad"
+        }
+    ],
+    "dependencies": [
+        {
+            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files.",
+            "name": "gmake"
+        },
+        {
+            "description": "The GNU config.guess and config.sub scripts versioned by timestamp.\nThis package can be used as a build dependency for autotools packages\nthat ship a tarball with outdated config.guess and config.sub files.",
+            "name": "gnuconfig"
+        },
+        {
+            "description": "The OpenMP subproject of LLVM contains the components required to build\nan executable OpenMP program that are outside the compiler itself.",
+            "name": "llvm-openmp"
+        },
+        {
+            "description": "IBM MPI implementation from Spectrum MPI.",
+            "name": "mpi"
+        },
+        {
+            "description": "Texinfo is the official documentation format of the GNU project. It was\ninvented by Richard Stallman and Bob Chassell many years ago, loosely\nbased on Brian Reid's Scribe and other formatting languages of the time.\nIt is used by many non-GNU projects as well.",
+            "name": "texinfo"
+        }
+    ],
+    "dependent_to": [
+        {
+            "description": "AMD Optimizing CPU Libraries (AOCL) - AOCL is a set of numerical\nlibraries tuned specifically for AMD EPYC processor family. They have a\nsimple interface to take advantage of the latest hardware innovations.\nThe tuned implementations of industry standard math libraries enable\nfast development of scientific and high performance computing projects\nLICENSING INFORMATION: By downloading, installing and using this\nsoftware, you agree to the terms and conditions of the AMD AOCL license\nagreement. You may obtain a copy of this license agreement from\nhttps://www.amd.com/en/developer/aocl/aocl-eula.html\nhttps://www.amd.com/en/developer/aocl/eula/aocl-4-1-eula.html",
+            "name": "amd-aocl"
+        },
+        {
+            "description": "BerkeleyGW is a many-body perturbation theory code for excited states,\nusing the GW method and the GW plus Bethe-Salpeter equation (GW-BSE)\nmethod to solve respectively for quasiparticle excitations and optical\nproperties of materials.",
+            "name": "berkeleygw"
+        },
+        {
+            "description": "CP2K is a quantum chemistry and solid state physics software package\nthat can perform atomistic simulations of solid state, liquid,\nmolecular, periodic, material, crystal, and biological systems",
+            "name": "cp2k"
+        },
+        {
+            "description": "NAMD is a parallel molecular dynamics code designed for high-performance\nsimulation of large biomolecular systems.",
+            "name": "namd"
+        },
+        {
+            "description": "ngspice is the open source spice simulator for electric and electronic\ncircuits.",
+            "name": "ngspice"
+        },
+        {
+            "description": "Quantum ESPRESSO is an integrated suite of Open-Source computer codes\nfor electronic-structure calculations and materials modeling at the\nnanoscale. It is based on density-functional theory, plane waves, and\npseudopotentials.",
+            "name": "quantum-espresso"
+        },
+        {
+            "description": "The Vienna Ab initio Simulation Package (VASP) is a computer program\nfor atomic scale materials modelling, e.g. electronic structure\ncalculations and quantum-mechanical molecular dynamics, from first\nprinciples.",
+            "name": "vasp"
+        }
+    ],
+    "description": "FFTW (AMD Optimized version) is a comprehensive collection of fast C\nroutines for computing the Discrete Fourier Transform (DFT) and various\nspecial cases thereof. It is an open-source implementation of the Fast\nFourier transform algorithm. It can compute transforms of real and\ncomplex-values arrays of arbitrary size and dimension. AMD Optimized\nFFTW is the optimized FFTW implementation targeted for AMD CPUs. For\nsingle precision build, please use precision value as float. Example :\nspack install amdfftw precision=float LICENSING INFORMATION: By\ndownloading, installing and using this software, you agree to the terms\nand conditions of the AMD AOCL-FFTW license agreement. You may obtain a\ncopy of this license agreement from\nhttps://www.amd.com/en/developer/aocl/fftw/eula/fftw-\nlibraries-4-2-eula.html\nhttps://www.amd.com/en/developer/aocl/fftw/eula/fftw-libraries-eula.html\n",
+    "homepage": "https://www.amd.com/en/developer/aocl/fftw.html",
+    "latest_version": "4.2",
+    "maintainers": [
+        "amd-toolchain-support"
+    ],
+    "name": "amdfftw",
+    "patches": [],
+    "resources": [],
+    "variants": [
+        {
+            "default": false,
+            "description": "Build with amd-app-opt suppport",
+            "name": "amd-app-opt"
+        },
+        {
+            "default": true,
+            "description": "Single portable optimized library to execute on different x86 CPU architectures",
+            "name": "amd-dynamic-dispatcher"
+        },
+        {
+            "default": false,
+            "description": "Option to reduce the planning time without much tradeoff in the performance. It is supported for float and double precisions only.",
+            "name": "amd-fast-planner"
+        },
+        {
+            "default": false,
+            "description": "Build with amd-mpi-vader-limit support",
+            "name": "amd-mpi-vader-limit"
+        },
+        {
+            "default": false,
+            "description": "Build with amd-top-n-planner support",
+            "name": "amd-top-n-planner"
+        },
+        {
+            "default": false,
+            "description": "Build with amd-trans suppport",
+            "name": "amd-trans"
+        },
+        {
+            "default": "autotools",
+            "description": "Build systems supported by the package",
+            "name": "build_system"
+        },
+        {
+            "default": false,
+            "description": "Builds a debug version of the library",
+            "name": "debug"
+        },
+        {
+            "default": true,
+            "description": "Activate MPI support",
+            "name": "mpi"
+        },
+        {
+            "default": true,
+            "description": "Enable OpenMP support",
+            "name": "openmp"
+        },
+        {
+            "default": "float,double",
+            "description": "Build the selected floating-point precision libraries",
+            "name": "precision"
+        },
+        {
+            "default": true,
+            "description": "Builds a shared version of the library",
+            "name": "shared"
+        },
+        {
+            "default": false,
+            "description": "Build with static suppport",
+            "name": "static"
+        },
+        {
+            "default": false,
+            "description": "Enable SMP threads support",
+            "name": "threads"
         }
     ],
     "versions": [
         {
-            "name": "4.2",
-            "sha256": "391ef7d933e696762e3547a35b58ab18d22a6cf3e199c74889bcf25a1d1fc89b"
-        },
-        {
-            "name": "4.1",
-            "sha256": "f1cfecfcc0729f96a5bd61c6b26f3fa43bb0662d3fff370d4f73490c60cf4e59"
-        },
-        {
-            "name": "4.0",
-            "sha256": "5f02cb05f224bd86bd88ec6272b294c26dba3b1d22c7fb298745fd7b9d2271c0"
-        },
-        {
-            "name": "3.2",
-            "sha256": "31cab17a93e03b5b606e88dd6116a1055b8f49542d7d0890dbfcca057087b8d0"
-        },
-        {
-            "name": "3.1",
-            "sha256": "3e777f3acef13fa1910db097e818b1d0d03a6a36ef41186247c6ab1ab0afc132"
-        },
-        {
-            "name": "3.0.1",
-            "sha256": "87030c6bbb9c710f0a64f4f306ba6aa91dc4b182bb804c9022b35aef274d1a4c"
+            "name": "2.2",
+            "sha256": "de9d777236fb290c335860b458131678f75aa0799c641490c644c843f0e246f8"
         },
         {
             "name": "3.0",
             "sha256": "a69deaf45478a59a69f77c4f7e9872967f1cfe996592dd12beb6318f18ea0bcd"
         },
         {
-            "name": "2.2",
-            "sha256": "de9d777236fb290c335860b458131678f75aa0799c641490c644c843f0e246f8"
-        }
-    ],
-    "latest_version": "4.2",
-    "build_system": "AutotoolsPackage",
-    "conflicts": [
-        {
-            "name": "arch=windows-None-None",
-            "spec": "build_system=autotools",
-            "description": null
+            "name": "3.0.1",
+            "sha256": "87030c6bbb9c710f0a64f4f306ba6aa91dc4b182bb804c9022b35aef274d1a4c"
         },
         {
-            "name": "%gcc@8.0:8",
-            "spec": "@3.3.7",
-            "description": null
+            "name": "3.1",
+            "sha256": "3e777f3acef13fa1910db097e818b1d0d03a6a36ef41186247c6ab1ab0afc132"
         },
         {
-            "name": "precision=long_double",
-            "spec": "@2.1.5",
-            "description": "amdfftw: Long double precision is not supported in FFTW 2"
+            "name": "3.2",
+            "sha256": "31cab17a93e03b5b606e88dd6116a1055b8f49542d7d0890dbfcca057087b8d0"
         },
         {
-            "name": "precision=quad",
-            "spec": "@2.1.5",
-            "description": "amdfftw: Quad precision is not supported in FFTW 2"
+            "name": "4.0",
+            "sha256": "5f02cb05f224bd86bd88ec6272b294c26dba3b1d22c7fb298745fd7b9d2271c0"
         },
         {
-            "name": "precision=quad",
-            "spec": "+mpi",
-            "description": "amdfftw: Quad precision is not supported in MPI"
+            "name": "4.1",
+            "sha256": "f1cfecfcc0729f96a5bd61c6b26f3fa43bb0662d3fff370d4f73490c60cf4e59"
         },
         {
-            "name": "precision=quad",
-            "spec": "@2.2%aocc",
-            "description": "amdfftw: Quad precision is not supported by AOCC clang version 2.2"
-        },
-        {
-            "name": "+debug",
-            "spec": "@2.2%aocc",
-            "description": "amdfftw: debug mode is not supported by AOCC clang version 2.2"
-        },
-        {
-            "name": "%gcc@:7.2",
-            "spec": "@2.2:",
-            "description": "amdfftw: GCC version above 7.2 is required for AMDFFTW"
-        },
-        {
-            "name": "precision=quad",
-            "spec": "+amd-fast-planner",
-            "description": "amdfftw: Quad precision is not supported with amd-fast-planner"
-        },
-        {
-            "name": "precision=long_double",
-            "spec": "+amd-fast-planner",
-            "description": "amdfftw: long_double precision is not supported with amd-fast-planner"
-        },
-        {
-            "name": "precision=quad",
-            "spec": "+amd-top-n-planner",
-            "description": "amdfftw: Quad precision is not supported with amd-top-n-planner"
-        },
-        {
-            "name": "precision=long_double",
-            "spec": "+amd-top-n-planner",
-            "description": "amdfftw: long_double precision is not supported with amd-top-n-planner"
-        },
-        {
-            "name": "+amd-mpi-vader-limit",
-            "spec": "precision=quad",
-            "description": "amdfftw: Quad precision is not supported with amd-mpi-vader-limit"
-        },
-        {
-            "name": "precision=long_double",
-            "spec": "+amd-trans",
-            "description": "amdfftw: long_double precision is not supported with amd-trans"
-        },
-        {
-            "name": "precision=quad",
-            "spec": "+amd-trans",
-            "description": "amdfftw: Quad precision is not supported with amd-trans"
-        },
-        {
-            "name": "precision=long_double",
-            "spec": "+amd-app-opt",
-            "description": "amdfftw: long_double precision is not supported with amd-app-opt"
-        },
-        {
-            "name": "precision=quad",
-            "spec": "+amd-app-opt",
-            "description": "amdfftw: Quad precision is not supported with amd-app-opt"
-        }
-    ],
-    "variants": [
-        {
-            "name": "build_system",
-            "default": "autotools",
-            "description": "Build systems supported by the package"
-        },
-        {
-            "name": "precision",
-            "default": "float,double",
-            "description": "Build the selected floating-point precision libraries"
-        },
-        {
-            "name": "openmp",
-            "default": true,
-            "description": "Enable OpenMP support"
-        },
-        {
-            "name": "mpi",
-            "default": true,
-            "description": "Activate MPI support"
-        },
-        {
-            "name": "shared",
-            "default": true,
-            "description": "Builds a shared version of the library"
-        },
-        {
-            "name": "threads",
-            "default": false,
-            "description": "Enable SMP threads support"
-        },
-        {
-            "name": "debug",
-            "default": false,
-            "description": "Builds a debug version of the library"
-        },
-        {
-            "name": "amd-fast-planner",
-            "default": false,
-            "description": "Option to reduce the planning time without much tradeoff in the performance. It is supported for float and double precisions only."
-        },
-        {
-            "name": "amd-top-n-planner",
-            "default": false,
-            "description": "Build with amd-top-n-planner support"
-        },
-        {
-            "name": "amd-mpi-vader-limit",
-            "default": false,
-            "description": "Build with amd-mpi-vader-limit support"
-        },
-        {
-            "name": "static",
-            "default": false,
-            "description": "Build with static suppport"
-        },
-        {
-            "name": "amd-trans",
-            "default": false,
-            "description": "Build with amd-trans suppport"
-        },
-        {
-            "name": "amd-app-opt",
-            "default": false,
-            "description": "Build with amd-app-opt suppport"
-        },
-        {
-            "name": "amd-dynamic-dispatcher",
-            "default": true,
-            "description": "Single portable optimized library to execute on different x86 CPU architectures"
-        }
-    ],
-    "homepage": "https://www.amd.com/en/developer/aocl/fftw.html",
-    "maintainers": [
-        "amd-toolchain-support"
-    ],
-    "patches": [],
-    "resources": [],
-    "description": "FFTW (AMD Optimized version) is a comprehensive collection of fast C\nroutines for computing the Discrete Fourier Transform (DFT) and various\nspecial cases thereof. It is an open-source implementation of the Fast\nFourier transform algorithm. It can compute transforms of real and\ncomplex-values arrays of arbitrary size and dimension. AMD Optimized\nFFTW is the optimized FFTW implementation targeted for AMD CPUs. For\nsingle precision build, please use precision value as float. Example :\nspack install amdfftw precision=float LICENSING INFORMATION: By\ndownloading, installing and using this software, you agree to the terms\nand conditions of the AMD AOCL-FFTW license agreement. You may obtain a\ncopy of this license agreement from\nhttps://www.amd.com/en/developer/aocl/fftw/eula/fftw-\nlibraries-4-2-eula.html\nhttps://www.amd.com/en/developer/aocl/fftw/eula/fftw-libraries-eula.html\n",
-    "dependencies": [
-        {
-            "name": "gmake",
-            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files."
-        },
-        {
-            "name": "gnuconfig",
-            "description": "The GNU config.guess and config.sub scripts versioned by timestamp.\nThis package can be used as a build dependency for autotools packages\nthat ship a tarball with outdated config.guess and config.sub files."
-        },
-        {
-            "name": "llvm-openmp",
-            "description": "The OpenMP subproject of LLVM contains the components required to build\nan executable OpenMP program that are outside the compiler itself."
-        },
-        {
-            "name": "mpi",
-            "description": "A single processor implementation of the mpi library."
-        },
-        {
-            "name": "texinfo",
-            "description": "Texinfo is the official documentation format of the GNU project. It was\ninvented by Richard Stallman and Bob Chassell many years ago, loosely\nbased on Brian Reid's Scribe and other formatting languages of the time.\nIt is used by many non-GNU projects as well."
-        }
-    ],
-    "dependent_to": [
-        {
-            "name": "vasp",
-            "description": "The Vienna Ab initio Simulation Package (VASP) is a computer program\nfor atomic scale materials modelling, e.g. electronic structure\ncalculations and quantum-mechanical molecular dynamics, from first\nprinciples."
-        },
-        {
-            "name": "amd-aocl",
-            "description": "AMD Optimizing CPU Libraries (AOCL) - AOCL is a set of numerical\nlibraries tuned specifically for AMD EPYC processor family. They have a\nsimple interface to take advantage of the latest hardware innovations.\nThe tuned implementations of industry standard math libraries enable\nfast development of scientific and high performance computing projects\nLICENSING INFORMATION: By downloading, installing and using this\nsoftware, you agree to the terms and conditions of the AMD AOCL license\nagreement. You may obtain a copy of this license agreement from\nhttps://www.amd.com/en/developer/aocl/aocl-eula.html\nhttps://www.amd.com/en/developer/aocl/eula/aocl-4-1-eula.html"
-        },
-        {
-            "name": "ngspice",
-            "description": "ngspice is the open source spice simulator for electric and electronic\ncircuits."
-        },
-        {
-            "name": "berkeleygw",
-            "description": "BerkeleyGW is a many-body perturbation theory code for excited states,\nusing the GW method and the GW plus Bethe-Salpeter equation (GW-BSE)\nmethod to solve respectively for quasiparticle excitations and optical\nproperties of materials."
-        },
-        {
-            "name": "namd",
-            "description": "NAMD is a parallel molecular dynamics code designed for high-performance\nsimulation of large biomolecular systems."
-        },
-        {
-            "name": "cp2k",
-            "description": "CP2K is a quantum chemistry and solid state physics software package\nthat can perform atomistic simulations of solid state, liquid,\nmolecular, periodic, material, crystal, and biological systems"
-        },
-        {
-            "name": "quantum-espresso",
-            "description": "Quantum ESPRESSO is an integrated suite of Open-Source computer codes\nfor electronic-structure calculations and materials modeling at the\nnanoscale. It is based on density-functional theory, plane waves, and\npseudopotentials."
+            "name": "4.2",
+            "sha256": "391ef7d933e696762e3547a35b58ab18d22a6cf3e199c74889bcf25a1d1fc89b"
         }
     ]
 }

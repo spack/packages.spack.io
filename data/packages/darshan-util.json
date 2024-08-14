@@ -1,31 +1,151 @@
 {
-    "name": "darshan-util",
     "aliases": [],
+    "build_system": "AutotoolsPackage",
+    "conflicts": [
+        {
+            "description": null,
+            "name": "arch=windows-None-None",
+            "spec": "build_system=autotools"
+        }
+    ],
+    "dependencies": [
+        {
+            "description": "Autoconf -- system configuration part of autotools",
+            "name": "autoconf"
+        },
+        {
+            "description": "Automake -- make file builder part of autotools",
+            "name": "automake"
+        },
+        {
+            "description": "bzip2 is a freely available, patent free high-quality data compressor.\nIt typically compresses files to within 10% to 15% of the best available\ntechniques (the PPM family of statistical compressors), whilst being\naround twice as fast at compression and six times faster at\ndecompression.",
+            "name": "bzip2"
+        },
+        {
+            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files.",
+            "name": "gmake"
+        },
+        {
+            "description": "The GNU config.guess and config.sub scripts versioned by timestamp.\nThis package can be used as a build dependency for autotools packages\nthat ship a tarball with outdated config.guess and config.sub files.",
+            "name": "gnuconfig"
+        },
+        {
+            "description": "libtool -- library building part of autotools.",
+            "name": "libtool"
+        },
+        {
+            "description": "GNU M4 is an implementation of the traditional Unix macro processor.",
+            "name": "m4"
+        },
+        {
+            "description": "zlib replacement with optimizations for next generation systems.",
+            "name": "zlib-api"
+        }
+    ],
+    "dependent_to": [
+        {
+            "description": "Drishti is a command-line tool to guide end-users in optimizing I/O in\ntheir applications by detecting typical I/O performance pitfalls and\nproviding a set of recommendations.",
+            "name": "drishti"
+        },
+        {
+            "description": "DXT Explorer is an interactive web-based log analysis tool to visualize\nDarshan DXT logs and help understand the I/O behavior of applications.",
+            "name": "dxt-explorer"
+        },
+        {
+            "description": "ECP Data & Vis SDK",
+            "name": "ecp-data-vis-sdk"
+        },
+        {
+            "description": "Python utilities to interact with Darshan log records of HPC\napplications.",
+            "name": "py-darshan"
+        }
+    ],
+    "description": "Darshan (util) is collection of tools for parsing and summarizing log\nfiles produced by Darshan (runtime) instrumentation. This package is\ntypically installed on systems (front-end) where you intend to analyze\nlog files produced by Darshan (runtime).\n",
+    "homepage": "https://www.mcs.anl.gov/research/projects/darshan/",
+    "latest_version": "3.4.5",
+    "maintainers": [
+        "carns",
+        "shanedsnyder"
+    ],
+    "name": "darshan-util",
+    "patches": [
+        {
+            "level": 1,
+            "owner": "builtin.darshan-util",
+            "relative_path": "retvoid.patch",
+            "reverse": false,
+            "sha256": "d1a0e581fb72830089302c94f77ccfcbaae416478f5241c4213fbe8b3f63b3b7",
+            "version": "@3.2.0:3.2.1",
+            "working_dir": "."
+        }
+    ],
+    "resources": [],
+    "variants": [
+        {
+            "default": false,
+            "description": "Compile with AutoPerf MPI module support",
+            "name": "apmpi"
+        },
+        {
+            "default": false,
+            "description": "Compile with AutoPerf XC module support",
+            "name": "apxc"
+        },
+        {
+            "default": "autotools",
+            "description": "Build systems supported by the package",
+            "name": "build_system"
+        },
+        {
+            "default": false,
+            "description": "Enable bzip2 compression",
+            "name": "bzip2"
+        }
+    ],
     "versions": [
         {
-            "name": "main",
-            "branch": "main",
-            "submodules": "True"
+            "name": "3.0.0",
+            "sha256": "95232710f5631bbf665964c0650df729c48104494e887442596128d189da43e0"
         },
         {
-            "name": "3.4.5",
-            "sha256": "1c017ac635fab5ee0e87a6b52c5c7273962813569495cb1dd3b7cfa6e19f6ed0"
+            "name": "3.1.0",
+            "sha256": "b847047c76759054577823fbe21075cfabb478cdafad341d480274fb1cef861c"
         },
         {
-            "name": "3.4.4",
-            "sha256": "d9c9df5aca94dc5ca3d56fd763bec2f74771d35126d61cb897373d2166ccd867"
+            "name": "3.1.6",
+            "sha256": "21cb24e2a971c45e04476e00441b7fbea63d2afa727a5cf8b7a4a9d9004dd856"
         },
         {
-            "name": "3.4.3",
-            "sha256": "dca5f9f9b0ead55a8724b218071ecbb5c4f2ef6027eaade3a6477256930ccc2c"
+            "name": "3.1.7",
+            "sha256": "9ba535df292727ac1e8025bdf2dc42942715205cad8319d925723fd88709e8d6"
         },
         {
-            "name": "3.4.2",
-            "sha256": "b095c3b7c059a8eba4beb03ec092b60708780a3cae3fc830424f6f9ada811c6b"
+            "name": "3.1.8",
+            "sha256": "3ed51c8d5d93b4a8cbb7d53d13052140a9dffe0bc1a3e1ebfc44a36a184b5c82"
         },
         {
-            "name": "3.4.1",
-            "sha256": "77c0a4675d94a0f9df5710e5b8658cc9ef0f0981a6dafb114d0389b1af64774c"
+            "name": "3.2.0",
+            "sha256": "4035435bdc0fa2a678247fbf8d5a31dfeb3a133baf06577786b1fe8d00a31b7e"
+        },
+        {
+            "name": "3.2.1",
+            "sha256": "d63048b7a3d1c4de939875943e3e7a2468a9034fcb68585edbc87f57f622e7f7"
+        },
+        {
+            "name": "3.3.0",
+            "sha256": "2e8bccf28acfa9f9394f2084ec18122c66e45d966087fa2e533928e824fcb57a"
+        },
+        {
+            "name": "3.3.0-pre1",
+            "sha256": "1c655359455b5122921091bab9961491be58a5f0158f073d09fe8cc772bd0812"
+        },
+        {
+            "name": "3.3.0-pre2",
+            "sha256": "0fc09f86f935132b7b05df981b05cdb3796a1ea02c7acd1905323691df65e761"
+        },
+        {
+            "name": "3.3.1",
+            "sha256": "281d871335977d0592a49d053df93d68ce1840f6fdec27fea7a59586a84395f7"
         },
         {
             "name": "3.4.0",
@@ -36,149 +156,29 @@
             "sha256": "57d0fd40329b9f8a51bdc9d7635b646692b341d80339115ab203357321706c09"
         },
         {
-            "name": "3.3.1",
-            "sha256": "281d871335977d0592a49d053df93d68ce1840f6fdec27fea7a59586a84395f7"
+            "name": "3.4.1",
+            "sha256": "77c0a4675d94a0f9df5710e5b8658cc9ef0f0981a6dafb114d0389b1af64774c"
         },
         {
-            "name": "3.3.0",
-            "sha256": "2e8bccf28acfa9f9394f2084ec18122c66e45d966087fa2e533928e824fcb57a"
+            "name": "3.4.2",
+            "sha256": "b095c3b7c059a8eba4beb03ec092b60708780a3cae3fc830424f6f9ada811c6b"
         },
         {
-            "name": "3.3.0-pre2",
-            "sha256": "0fc09f86f935132b7b05df981b05cdb3796a1ea02c7acd1905323691df65e761"
+            "name": "3.4.3",
+            "sha256": "dca5f9f9b0ead55a8724b218071ecbb5c4f2ef6027eaade3a6477256930ccc2c"
         },
         {
-            "name": "3.3.0-pre1",
-            "sha256": "1c655359455b5122921091bab9961491be58a5f0158f073d09fe8cc772bd0812"
+            "name": "3.4.4",
+            "sha256": "d9c9df5aca94dc5ca3d56fd763bec2f74771d35126d61cb897373d2166ccd867"
         },
         {
-            "name": "3.2.1",
-            "sha256": "d63048b7a3d1c4de939875943e3e7a2468a9034fcb68585edbc87f57f622e7f7"
+            "name": "3.4.5",
+            "sha256": "1c017ac635fab5ee0e87a6b52c5c7273962813569495cb1dd3b7cfa6e19f6ed0"
         },
         {
-            "name": "3.2.0",
-            "sha256": "4035435bdc0fa2a678247fbf8d5a31dfeb3a133baf06577786b1fe8d00a31b7e"
-        },
-        {
-            "name": "3.1.8",
-            "sha256": "3ed51c8d5d93b4a8cbb7d53d13052140a9dffe0bc1a3e1ebfc44a36a184b5c82"
-        },
-        {
-            "name": "3.1.7",
-            "sha256": "9ba535df292727ac1e8025bdf2dc42942715205cad8319d925723fd88709e8d6"
-        },
-        {
-            "name": "3.1.6",
-            "sha256": "21cb24e2a971c45e04476e00441b7fbea63d2afa727a5cf8b7a4a9d9004dd856"
-        },
-        {
-            "name": "3.1.0",
-            "sha256": "b847047c76759054577823fbe21075cfabb478cdafad341d480274fb1cef861c"
-        },
-        {
-            "name": "3.0.0",
-            "sha256": "95232710f5631bbf665964c0650df729c48104494e887442596128d189da43e0"
-        }
-    ],
-    "latest_version": "3.4.5",
-    "build_system": "AutotoolsPackage",
-    "conflicts": [
-        {
-            "name": "arch=windows-None-None",
-            "spec": "build_system=autotools",
-            "description": null
-        }
-    ],
-    "variants": [
-        {
-            "name": "build_system",
-            "default": "autotools",
-            "description": "Build systems supported by the package"
-        },
-        {
-            "name": "bzip2",
-            "default": false,
-            "description": "Enable bzip2 compression"
-        },
-        {
-            "name": "apmpi",
-            "default": false,
-            "description": "Compile with AutoPerf MPI module support"
-        },
-        {
-            "name": "apxc",
-            "default": false,
-            "description": "Compile with AutoPerf XC module support"
-        }
-    ],
-    "homepage": "https://www.mcs.anl.gov/research/projects/darshan/",
-    "maintainers": [
-        "carns",
-        "shanedsnyder"
-    ],
-    "patches": [
-        {
-            "owner": "builtin.darshan-util",
-            "sha256": "d1a0e581fb72830089302c94f77ccfcbaae416478f5241c4213fbe8b3f63b3b7",
-            "level": 1,
-            "working_dir": ".",
-            "reverse": false,
-            "relative_path": "retvoid.patch",
-            "version": "@3.2.0:3.2.1"
-        }
-    ],
-    "resources": [],
-    "description": "Darshan (util) is collection of tools for parsing and summarizing log\nfiles produced by Darshan (runtime) instrumentation. This package is\ntypically installed on systems (front-end) where you intend to analyze\nlog files produced by Darshan (runtime).\n",
-    "dependencies": [
-        {
-            "name": "autoconf",
-            "description": "Autoconf -- system configuration part of autotools"
-        },
-        {
-            "name": "automake",
-            "description": "Automake -- make file builder part of autotools"
-        },
-        {
-            "name": "bzip2",
-            "description": "bzip2 is a freely available, patent free high-quality data compressor.\nIt typically compresses files to within 10% to 15% of the best available\ntechniques (the PPM family of statistical compressors), whilst being\naround twice as fast at compression and six times faster at\ndecompression."
-        },
-        {
-            "name": "gmake",
-            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files."
-        },
-        {
-            "name": "gnuconfig",
-            "description": "The GNU config.guess and config.sub scripts versioned by timestamp.\nThis package can be used as a build dependency for autotools packages\nthat ship a tarball with outdated config.guess and config.sub files."
-        },
-        {
-            "name": "libtool",
-            "description": "libtool -- library building part of autotools."
-        },
-        {
-            "name": "m4",
-            "description": "GNU M4 is an implementation of the traditional Unix macro processor."
-        },
-        {
-            "name": "zlib-api",
-            "description": "zlib replacement with optimizations for next generation systems."
-        }
-    ],
-    "dependent_to": [
-        {
-            "name": "ecp-data-vis-sdk",
-            "description": "ECP Data & Vis SDK"
-        },
-        {
-            "name": "drishti",
-            "description": "Drishti is a command-line tool to guide end-users in optimizing I/O in\ntheir applications by detecting typical I/O performance pitfalls and\nproviding a set of recommendations."
-        },
-        {
-            "name": "dxt-explorer",
-            "description": "DXT Explorer is an interactive web-based log analysis tool to visualize\nDarshan DXT logs and help understand the I/O behavior of applications."
-        },
-        {
-            "name": "py-darshan",
-            "description": "Python utilities to interact with Darshan log records of HPC\napplications."
+            "branch": "main",
+            "name": "main",
+            "submodules": "True"
         }
     ]
 }

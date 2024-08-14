@@ -1,10 +1,106 @@
 {
-    "name": "py-gevent",
     "aliases": [],
+    "build_system": "PythonPackage",
+    "conflicts": [
+        {
+            "description": null,
+            "name": "^py-cython@3:",
+            "spec": "@:20.5.0"
+        },
+        {
+            "description": "py-gevent: py-gevent fails to build when using cython@3.0.10",
+            "name": "^py-cython@3.0.10",
+            "spec": "@:23.9.0"
+        }
+    ],
+    "dependencies": [
+        {
+            "description": "Foreign Function Interface for Python calling C code",
+            "name": "py-cffi"
+        },
+        {
+            "description": "The Cython compiler for writing C extensions for the Python language.",
+            "name": "py-cython"
+        },
+        {
+            "description": "Lightweight in-process concurrent programming",
+            "name": "py-greenlet"
+        },
+        {
+            "description": "The PyPA recommended tool for installing Python packages.",
+            "name": "py-pip"
+        },
+        {
+            "description": "A Python utility that aids in the process of downloading, building,\nupgrading, installing, and uninstalling Python packages.",
+            "name": "py-setuptools"
+        },
+        {
+            "description": "A built-package format for Python.",
+            "name": "py-wheel"
+        },
+        {
+            "description": "Very basic event publishing system.",
+            "name": "py-zope-event"
+        },
+        {
+            "description": "This package provides an implementation of \"object interfaces\" for\nPython. Interfaces are a mechanism for labeling objects as conforming to\na given API or contract. So, this package can be considered as\nimplementation of the Design By Contract methodology support in Python.",
+            "name": "py-zope-interface"
+        },
+        {
+            "description": "The Python programming language.",
+            "name": "python"
+        },
+        {
+            "description": "A Spack managed Python virtual environment",
+            "name": "python-venv"
+        }
+    ],
+    "dependent_to": [
+        {
+            "description": "gdbgui is a modern, free, browser-based frontend to gdb",
+            "name": "py-gdbgui"
+        },
+        {
+            "description": "GRequests allows you to use Requests with Gevent to make asynchronous\nHTTP Requests easily. Note: You should probably use requests-threads or\nrequests-futures instead.",
+            "name": "py-grequests"
+        },
+        {
+            "description": "Pika is a RabbitMQ (AMQP 0-9-1) client library for Python.",
+            "name": "py-pika"
+        },
+        {
+            "description": "PyZMQ: Python bindings for zeromq.",
+            "name": "py-pyzmq"
+        }
+    ],
+    "description": "gevent is a coroutine-based Python networking library.\n",
+    "homepage": "https://www.gevent.org",
+    "latest_version": "23.7.0",
+    "maintainers": [],
+    "name": "py-gevent",
+    "patches": [
+        {
+            "level": 1,
+            "owner": "builtin.py-gevent",
+            "relative_path": "icc.patch",
+            "reverse": false,
+            "sha256": "44a3aa7ec3a9f056145c25492012f494166dee4c816a3a998a7e3b2d85b57c77",
+            "version": "@:21.12.0%intel",
+            "working_dir": "."
+        }
+    ],
+    "resources": [],
+    "variants": [
+        {
+            "default": "python_pip",
+            "description": "Build systems supported by the package",
+            "name": "build_system"
+        }
+    ],
     "versions": [
         {
-            "name": "23.7.0",
-            "sha256": "d0d3630674c1b344b256a298ab1ff43220f840b12af768131b5d74e485924237"
+            "name": "1.5.0",
+            "sha256": "b2814258e3b3fb32786bb73af271ad31f51e1ac01f33b37426b66cb8491b4c29"
         },
         {
             "name": "21.12.0",
@@ -15,104 +111,8 @@
             "sha256": "43e93e1a4738c922a2416baf33f0afb0a20b22d3dba886720bc037cd02a98575"
         },
         {
-            "name": "1.5.0",
-            "sha256": "b2814258e3b3fb32786bb73af271ad31f51e1ac01f33b37426b66cb8491b4c29"
-        }
-    ],
-    "latest_version": "23.7.0",
-    "build_system": "PythonPackage",
-    "conflicts": [
-        {
-            "name": "^py-cython@3:",
-            "spec": "@:20.5.0",
-            "description": null
-        },
-        {
-            "name": "^py-cython@3.0.10",
-            "spec": "@:23.9.0",
-            "description": "py-gevent: py-gevent fails to build when using cython@3.0.10"
-        }
-    ],
-    "variants": [
-        {
-            "name": "build_system",
-            "default": "python_pip",
-            "description": "Build systems supported by the package"
-        }
-    ],
-    "homepage": "https://www.gevent.org",
-    "maintainers": [],
-    "patches": [
-        {
-            "owner": "builtin.py-gevent",
-            "sha256": "44a3aa7ec3a9f056145c25492012f494166dee4c816a3a998a7e3b2d85b57c77",
-            "level": 1,
-            "working_dir": ".",
-            "reverse": false,
-            "relative_path": "icc.patch",
-            "version": "@:21.12.0%intel"
-        }
-    ],
-    "resources": [],
-    "description": "gevent is a coroutine-based Python networking library.\n",
-    "dependencies": [
-        {
-            "name": "py-cffi",
-            "description": "Foreign Function Interface for Python calling C code"
-        },
-        {
-            "name": "py-cython",
-            "description": "The Cython compiler for writing C extensions for the Python language."
-        },
-        {
-            "name": "py-greenlet",
-            "description": "Lightweight in-process concurrent programming"
-        },
-        {
-            "name": "py-pip",
-            "description": "The PyPA recommended tool for installing Python packages."
-        },
-        {
-            "name": "py-setuptools",
-            "description": "A Python utility that aids in the process of downloading, building,\nupgrading, installing, and uninstalling Python packages."
-        },
-        {
-            "name": "py-wheel",
-            "description": "A built-package format for Python."
-        },
-        {
-            "name": "py-zope-event",
-            "description": "Very basic event publishing system."
-        },
-        {
-            "name": "py-zope-interface",
-            "description": "This package provides an implementation of \"object interfaces\" for\nPython. Interfaces are a mechanism for labeling objects as conforming to\na given API or contract. So, this package can be considered as\nimplementation of the Design By Contract methodology support in Python."
-        },
-        {
-            "name": "python",
-            "description": "The Python programming language."
-        },
-        {
-            "name": "python-venv",
-            "description": "A Spack managed Python virtual environment"
-        }
-    ],
-    "dependent_to": [
-        {
-            "name": "py-pika",
-            "description": "Pika is a RabbitMQ (AMQP 0-9-1) client library for Python."
-        },
-        {
-            "name": "py-gdbgui",
-            "description": "gdbgui is a modern, free, browser-based frontend to gdb"
-        },
-        {
-            "name": "py-pyzmq",
-            "description": "PyZMQ: Python bindings for zeromq."
-        },
-        {
-            "name": "py-grequests",
-            "description": "GRequests allows you to use Requests with Gevent to make asynchronous\nHTTP Requests easily. Note: You should probably use requests-threads or\nrequests-futures instead."
+            "name": "23.7.0",
+            "sha256": "d0d3630674c1b344b256a298ab1ff43220f840b12af768131b5d74e485924237"
         }
     ]
 }

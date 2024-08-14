@@ -1,217 +1,217 @@
 {
-    "name": "palace",
     "aliases": [],
-    "versions": [
-        {
-            "name": "develop",
-            "branch": "main"
-        },
-        {
-            "name": "0.12.0",
-            "commit": "8c192071206466638d5818048ee712e1fada386f",
-            "tag": "v0.12.0"
-        },
-        {
-            "name": "0.11.2",
-            "commit": "6c3aa5f84a934a6ddd58022b2945a1bdb5fa329d",
-            "tag": "v0.11.2"
-        }
-    ],
-    "latest_version": "0.12.0",
     "build_system": "CMakePackage",
     "conflicts": [
         {
-            "name": "mfem",
-            "spec": "",
-            "description": null
-        },
-        {
-            "name": "libceed",
-            "spec": "",
-            "description": null
-        },
-        {
-            "name": "gslib",
-            "spec": "",
-            "description": null
-        },
-        {
+            "description": "palace: Palace uses HYPRE's mixedint option for 64 bit integers",
             "name": "^hypre+int64",
-            "spec": "",
-            "description": "palace: Palace uses HYPRE's mixedint option for 64 bit integers"
+            "spec": ""
         },
         {
+            "description": "palace: Palace requires MUMPS without 64 bit integers",
             "name": "^mumps+int64",
-            "spec": "",
-            "description": "palace: Palace requires MUMPS without 64 bit integers"
+            "spec": ""
         },
         {
+            "description": "palace: Palace requires SLEPc without ARPACK",
             "name": "^slepc+arpack",
-            "spec": "",
-            "description": "palace: Palace requires SLEPc without ARPACK"
-        }
-    ],
-    "variants": [
-        {
-            "name": "build_system",
-            "default": "cmake",
-            "description": "Build systems supported by the package"
+            "spec": ""
         },
         {
-            "name": "build_type",
-            "default": "Release",
-            "description": "CMake build type"
-        },
-        {
-            "name": "ipo",
-            "default": false,
-            "description": "CMake interprocedural optimization"
-        },
-        {
-            "name": "generator",
-            "default": "make",
-            "description": "the build system generator to use"
-        },
-        {
-            "name": "shared",
-            "default": true,
-            "description": "Build shared libraries"
-        },
-        {
-            "name": "int64",
-            "default": false,
-            "description": "Use 64 bit integers"
-        },
-        {
-            "name": "openmp",
-            "default": false,
-            "description": "Use OpenMP for shared-memory parallelism"
-        },
-        {
-            "name": "superlu-dist",
-            "default": true,
-            "description": "Build with SuperLU_DIST sparse direct solver"
-        },
-        {
-            "name": "strumpack",
-            "default": false,
-            "description": "Build with STRUMPACK sparse direct solver"
-        },
-        {
-            "name": "mumps",
-            "default": false,
-            "description": "Build with MUMPS sparse direct solver"
-        },
-        {
-            "name": "slepc",
-            "default": true,
-            "description": "Build with SLEPc eigenvalue solver"
-        },
-        {
-            "name": "arpack",
-            "default": false,
-            "description": "Build with ARPACK eigenvalue solver"
-        },
-        {
-            "name": "libxsmm",
-            "default": true,
-            "description": "Build with LIBXSMM backend for libCEED"
-        },
-        {
-            "name": "magma",
-            "default": true,
-            "description": "Build with MAGMA backend for libCEED"
-        },
-        {
+            "description": null,
             "name": "gslib",
-            "default": true,
-            "description": "Build with GSLIB library for high-order field interpolation"
+            "spec": ""
+        },
+        {
+            "description": null,
+            "name": "libceed",
+            "spec": ""
+        },
+        {
+            "description": null,
+            "name": "mfem",
+            "spec": ""
         }
     ],
+    "dependencies": [
+        {
+            "description": "ARPACK-NG is a collection of Fortran77 subroutines designed to solve\nlarge scale eigenvalue problems. Important Features: * Reverse\nCommunication Interface. * Single and Double Precision Real Arithmetic\nVersions for Symmetric, Non-symmetric, Standard or Generalized Problems.\n* Single and Double Precision Complex Arithmetic Versions for Standard\nor Generalized Problems. * Routines for Banded Matrices - Standard or\nGeneralized Problems. * Routines for The Singular Value Decomposition. *\nExample driver routines that may be used as templates to implement\nnumerous Shift-Invert strategies for all problem types, data types and\nprecision. This project is a joint project between Debian, Octave and\nScilab in order to provide a common and maintained version of arpack.\nIndeed, no single release has been published by Rice university for the\nlast few years and since many software (Octave, Scilab, R, Matlab...)\nforked it and implemented their own modifications, arpack-ng aims to\ntackle this by providing a common repository and maintained versions.\narpack-ng is replacing arpack almost everywhere.",
+            "name": "arpack-ng"
+        },
+        {
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software.",
+            "name": "cmake"
+        },
+        {
+            "description": "Eigen is a C++ template library for linear algebra matrices, vectors,\nnumerical solvers, and related algorithms.",
+            "name": "eigen"
+        },
+        {
+            "description": "fmt (formerly cppformat) is an open-source formatting library. It can be\nused as a safe alternative to printf or as a fast alternative to C++\nIOStreams.",
+            "name": "fmt"
+        },
+        {
+            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files.",
+            "name": "gmake"
+        },
+        {
+            "description": "Hypre is a library of high performance preconditioners that features\nparallel multigrid methods for both structured and unstructured grid\nproblems.",
+            "name": "hypre"
+        },
+        {
+            "description": "Library for specialized dense and sparse matrix operations, and deep\nlearning primitives.",
+            "name": "libxsmm"
+        },
+        {
+            "description": "The MAGMA project aims to develop a dense linear algebra library similar\nto LAPACK but for heterogeneous/hybrid architectures, starting with\ncurrent \"Multicore+GPU\" systems.",
+            "name": "magma"
+        },
+        {
+            "description": "METIS is a set of serial programs for partitioning graphs, partitioning\nfinite element meshes, and producing fill reducing orderings for sparse\nmatrices. The algorithms implemented in METIS are based on the\nmultilevel recursive-bisection, multilevel k-way, and multi-constraint\npartitioning schemes.",
+            "name": "metis"
+        },
+        {
+            "description": "IBM MPI implementation from Spectrum MPI.",
+            "name": "mpi"
+        },
+        {
+            "description": "MUMPS: a MUltifrontal Massively Parallel sparse direct Solver",
+            "name": "mumps"
+        },
+        {
+            "description": "Ninja is a small build system with a focus on speed. It differs from\nother build systems in two major respects: it is designed to have its\ninput files generated by a higher-level build system, and it is designed\nto run builds as fast as possible.",
+            "name": "ninja"
+        },
+        {
+            "description": "JSON for Modern C++",
+            "name": "nlohmann-json"
+        },
+        {
+            "description": "PETSc is a suite of data structures and routines for the scalable\n(parallel) solution of scientific applications modeled by partial\ndifferential equations.",
+            "name": "petsc"
+        },
+        {
+            "description": "pkgconf is a program which helps to configure compiler and linker flags\nfor development frameworks. It is similar to pkg-config from\nfreedesktop.org, providing additional functionality while also\nmaintaining compatibility.",
+            "name": "pkgconfig"
+        },
+        {
+            "description": "Scalable Library for Eigenvalue Problem Computations.",
+            "name": "slepc"
+        },
+        {
+            "description": "STRUMPACK -- STRUctured Matrix PACKage - provides linear solvers for\nsparse matrices and for dense rank-structured matrices, i.e., matrices\nthat exhibit some kind of low-rank property. It provides a distributed\nmemory fully algebraic sparse solver and preconditioner. The\npreconditioner is mostly aimed at large sparse linear systems which\nresult from the discretization of a partial differential equation, but\nis not limited to any particular type of problem. STRUMPACK also\nprovides preconditioned GMRES and BiCGStab iterative solvers.",
+            "name": "strumpack"
+        },
+        {
+            "description": "A general purpose library for the direct solution of large, sparse,\nnonsymmetric systems of linear equations on high performance machines.",
+            "name": "superlu-dist"
+        },
+        {
+            "description": "zlib replacement with optimizations for next generation systems.",
+            "name": "zlib-api"
+        }
+    ],
+    "dependent_to": [],
+    "description": "3D finite element solver for computational electromagnetics\n",
     "homepage": "https://github.com/awslabs/palace",
+    "latest_version": "0.12.0",
     "maintainers": [
         "sebastiangrimberg"
     ],
+    "name": "palace",
     "patches": [],
     "resources": [],
-    "description": "3D finite element solver for computational electromagnetics\n",
-    "dependencies": [
+    "variants": [
         {
-            "name": "arpack-ng",
-            "description": "ARPACK-NG is a collection of Fortran77 subroutines designed to solve\nlarge scale eigenvalue problems. Important Features: * Reverse\nCommunication Interface. * Single and Double Precision Real Arithmetic\nVersions for Symmetric, Non-symmetric, Standard or Generalized Problems.\n* Single and Double Precision Complex Arithmetic Versions for Standard\nor Generalized Problems. * Routines for Banded Matrices - Standard or\nGeneralized Problems. * Routines for The Singular Value Decomposition. *\nExample driver routines that may be used as templates to implement\nnumerous Shift-Invert strategies for all problem types, data types and\nprecision. This project is a joint project between Debian, Octave and\nScilab in order to provide a common and maintained version of arpack.\nIndeed, no single release has been published by Rice university for the\nlast few years and since many software (Octave, Scilab, R, Matlab...)\nforked it and implemented their own modifications, arpack-ng aims to\ntackle this by providing a common repository and maintained versions.\narpack-ng is replacing arpack almost everywhere."
+            "default": false,
+            "description": "Build with ARPACK eigenvalue solver",
+            "name": "arpack"
         },
         {
-            "name": "cmake",
-            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
+            "default": "cmake",
+            "description": "Build systems supported by the package",
+            "name": "build_system"
         },
         {
-            "name": "eigen",
-            "description": "Eigen is a C++ template library for linear algebra matrices, vectors,\nnumerical solvers, and related algorithms."
+            "default": "Release",
+            "description": "CMake build type",
+            "name": "build_type"
         },
         {
-            "name": "fmt",
-            "description": "fmt (formerly cppformat) is an open-source formatting library. It can be\nused as a safe alternative to printf or as a fast alternative to C++\nIOStreams."
+            "default": "make",
+            "description": "the build system generator to use",
+            "name": "generator"
         },
         {
-            "name": "gmake",
-            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files."
+            "default": true,
+            "description": "Build with GSLIB library for high-order field interpolation",
+            "name": "gslib"
         },
         {
-            "name": "hypre",
-            "description": "Hypre is a library of high performance preconditioners that features\nparallel multigrid methods for both structured and unstructured grid\nproblems."
+            "default": false,
+            "description": "Use 64 bit integers",
+            "name": "int64"
         },
         {
-            "name": "libxsmm",
-            "description": "Library for specialized dense and sparse matrix operations, and deep\nlearning primitives."
+            "default": false,
+            "description": "CMake interprocedural optimization",
+            "name": "ipo"
         },
         {
-            "name": "magma",
-            "description": "The MAGMA project aims to develop a dense linear algebra library similar\nto LAPACK but for heterogeneous/hybrid architectures, starting with\ncurrent \"Multicore+GPU\" systems."
+            "default": true,
+            "description": "Build with LIBXSMM backend for libCEED",
+            "name": "libxsmm"
         },
         {
-            "name": "metis",
-            "description": "METIS is a set of serial programs for partitioning graphs, partitioning\nfinite element meshes, and producing fill reducing orderings for sparse\nmatrices. The algorithms implemented in METIS are based on the\nmultilevel recursive-bisection, multilevel k-way, and multi-constraint\npartitioning schemes."
+            "default": true,
+            "description": "Build with MAGMA backend for libCEED",
+            "name": "magma"
         },
         {
-            "name": "mpi",
-            "description": "A single processor implementation of the mpi library."
+            "default": false,
+            "description": "Build with MUMPS sparse direct solver",
+            "name": "mumps"
         },
         {
-            "name": "mumps",
-            "description": "MUMPS: a MUltifrontal Massively Parallel sparse direct Solver"
+            "default": false,
+            "description": "Use OpenMP for shared-memory parallelism",
+            "name": "openmp"
         },
         {
-            "name": "ninja",
-            "description": "Ninja is a small build system with a focus on speed. It differs from\nother build systems in two major respects: it is designed to have its\ninput files generated by a higher-level build system, and it is designed\nto run builds as fast as possible."
+            "default": true,
+            "description": "Build shared libraries",
+            "name": "shared"
         },
         {
-            "name": "nlohmann-json",
-            "description": "JSON for Modern C++"
+            "default": true,
+            "description": "Build with SLEPc eigenvalue solver",
+            "name": "slepc"
         },
         {
-            "name": "petsc",
-            "description": "PETSc is a suite of data structures and routines for the scalable\n(parallel) solution of scientific applications modeled by partial\ndifferential equations."
+            "default": false,
+            "description": "Build with STRUMPACK sparse direct solver",
+            "name": "strumpack"
         },
         {
-            "name": "pkgconfig",
-            "description": "pkg-config is a helper tool used when compiling applications and\nlibraries"
-        },
-        {
-            "name": "slepc",
-            "description": "Scalable Library for Eigenvalue Problem Computations."
-        },
-        {
-            "name": "strumpack",
-            "description": "STRUMPACK -- STRUctured Matrix PACKage - provides linear solvers for\nsparse matrices and for dense rank-structured matrices, i.e., matrices\nthat exhibit some kind of low-rank property. It provides a distributed\nmemory fully algebraic sparse solver and preconditioner. The\npreconditioner is mostly aimed at large sparse linear systems which\nresult from the discretization of a partial differential equation, but\nis not limited to any particular type of problem. STRUMPACK also\nprovides preconditioned GMRES and BiCGStab iterative solvers."
-        },
-        {
-            "name": "superlu-dist",
-            "description": "A general purpose library for the direct solution of large, sparse,\nnonsymmetric systems of linear equations on high performance machines."
-        },
-        {
-            "name": "zlib-api",
-            "description": "zlib replacement with optimizations for next generation systems."
+            "default": true,
+            "description": "Build with SuperLU_DIST sparse direct solver",
+            "name": "superlu-dist"
         }
     ],
-    "dependent_to": []
+    "versions": [
+        {
+            "commit": "6c3aa5f84a934a6ddd58022b2945a1bdb5fa329d",
+            "name": "0.11.2",
+            "tag": "v0.11.2"
+        },
+        {
+            "commit": "8c192071206466638d5818048ee712e1fada386f",
+            "name": "0.12.0",
+            "tag": "v0.12.0"
+        },
+        {
+            "branch": "main",
+            "name": "develop"
+        }
+    ]
 }

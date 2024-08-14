@@ -1,188 +1,188 @@
 {
-    "name": "icu4c",
     "aliases": [],
+    "build_system": "AutotoolsPackage",
+    "conflicts": [
+        {
+            "description": "icu4c: Intel compilers have immature C++11 and multibyte support",
+            "name": "%intel@:16",
+            "spec": "@60.1:"
+        },
+        {
+            "description": "icu4c: Older GCC compilers have immature C++11 support",
+            "name": "%gcc@:4",
+            "spec": "@67.1:"
+        },
+        {
+            "description": null,
+            "name": "arch=windows-None-None",
+            "spec": "build_system=autotools"
+        }
+    ],
+    "dependencies": [
+        {
+            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files.",
+            "name": "gmake"
+        },
+        {
+            "description": "The GNU config.guess and config.sub scripts versioned by timestamp.\nThis package can be used as a build dependency for autotools packages\nthat ship a tarball with outdated config.guess and config.sub files.",
+            "name": "gnuconfig"
+        },
+        {
+            "description": "The Python programming language.",
+            "name": "python"
+        }
+    ],
+    "dependent_to": [
+        {
+            "description": "Boost provides free peer-reviewed portable C++ source libraries,\nemphasizing libraries that work well with the C++ Standard Library.\nBoost libraries are intended to be widely useful, and usable across a\nbroad spectrum of applications. The Boost license encourages both\ncommercial and non-commercial use.",
+            "name": "boost"
+        },
+        {
+            "description": "Lightweight C++ command line option parser",
+            "name": "cxxopts"
+        },
+        {
+            "description": "DuckDB is an in-process SQL OLAP Database Management System.",
+            "name": "duckdb"
+        },
+        {
+            "description": "The Harfbuzz package contains an OpenType text shaping engine.",
+            "name": "harfbuzz"
+        },
+        {
+            "description": "Libical - an implementation of iCalendar protocols and data formats.",
+            "name": "libical"
+        },
+        {
+            "description": "libpsl - C library to handle the Public Suffix List.",
+            "name": "libpsl"
+        },
+        {
+            "description": "mapnik combines pixel-perfect image output with lightning-fast\ncartographic algorithms, and exposes interfaces in C++, Python, and Node",
+            "name": "mapnik"
+        },
+        {
+            "description": "Node.js is an open-source, cross-platform JavaScript runtime\nenvironment.",
+            "name": "node-js"
+        },
+        {
+            "description": "OpenLDAP Software is an open source implementation of the Lightweight\nDirectory Access Protocol. The suite includes: slapd - stand-alone LDAP\ndaemon (server) libraries implementing the LDAP protocol, and utilities,\ntools, and sample clients.",
+            "name": "openldap"
+        },
+        {
+            "description": "Qt is a comprehensive cross-platform C++ application framework.",
+            "name": "qt"
+        },
+        {
+            "description": "Qt Base (Core, Gui, Widgets, Network, ...)",
+            "name": "qt-base"
+        },
+        {
+            "description": "R is 'GNU S', a freely available language and environment for\nstatistical computing and graphics which provides a wide variety of\nstatistical and graphical techniques: linear and nonlinear modelling,\nstatistical tests, time series analysis, classification, clustering,\netc. Please consult the R project homepage for further information.",
+            "name": "r"
+        },
+        {
+            "description": "Low-Level R to Java Interface. Low-level interface to Java VM very much\nlike .C/.Call and friends. Allows creation of objects, calling methods\nand accessing fields.",
+            "name": "r-rjava"
+        },
+        {
+            "description": "Character String Processing Facilities. A multitude of character\nstring/text/natural language processing tools: pattern searching (e.g.,\nwith 'Java'-like regular expressions or the 'Unicode' collation\nalgorithm), random string generation, case mapping, string\ntransliteration, concatenation, sorting, padding, wrapping, Unicode\nnormalisation, date-time formatting and parsing, and many more. They are\nfast, consistent, convenient, and - owing to the use of the 'ICU'\n(International Components for Unicode) library - portable across all\nlocales and platforms.",
+            "name": "r-stringi"
+        },
+        {
+            "description": "RStudio is an integrated development environment (IDE) for R.",
+            "name": "rstudio"
+        },
+        {
+            "description": "Tesseract Open Source OCR Engine.",
+            "name": "tesseract"
+        },
+        {
+            "description": "TeX Live is an easy (we hope) way to get up and running with the TeX\ndocument production system. It provides a comprehensive TeX system with\nbinaries for most flavors of Unix, including GNU/Linux, macOS, and also\nWindows. It includes all the major TeX-related programs, macro packages,\nand fonts that are free software, including support for many languages\naround the world.",
+            "name": "texlive"
+        },
+        {
+            "description": "Xalan-C++ version is a robust implementation of the W3C Recommendations\nfor XSL Transformations (XSLT) and the XML Path Language (XPath). It\nworks with the Xerces-C++ XML parser.",
+            "name": "xalan-c"
+        },
+        {
+            "description": "Xerces-C++ is a validating XML parser written in a portable subset of\nC++. Xerces-C++ makes it easy to give your application the ability to\nread and write XML data. A shared library is provided for parsing,\ngenerating, manipulating, and validating XML documents using the DOM,\nSAX, and SAX2 APIs.",
+            "name": "xerces-c"
+        }
+    ],
+    "description": "ICU is a mature, widely used set of C/C++ and Java libraries providing\nUnicode and Globalization support for software applications. ICU4C is\nthe C/C++ interface.\n",
+    "homepage": "http://site.icu-project.org/",
+    "latest_version": "74.2",
+    "maintainers": [],
+    "name": "icu4c",
+    "patches": [
+        {
+            "level": 2,
+            "owner": "builtin.icu4c",
+            "reverse": false,
+            "sha256": "6be0b8068b0f5047dad7f4f6f655529304f1abbc551c93223c6f41dafc1e8acc",
+            "url": "https://github.com/unicode-org/icu/commit/ddfc30860354cbcb78c2c0bcf800be5ab44a9e4f.patch?full_index=1",
+            "version": "@58.0:59",
+            "working_dir": "."
+        }
+    ],
+    "resources": [],
+    "variants": [
+        {
+            "default": "autotools",
+            "description": "Build systems supported by the package",
+            "name": "build_system"
+        },
+        {
+            "default": "11",
+            "description": "Use the specified C++ standard when building",
+            "name": "cxxstd"
+        }
+    ],
     "versions": [
         {
-            "name": "74.2",
-            "sha256": "68db082212a96d6f53e35d60f47d38b962e9f9d207a74cfac78029ae8ff5e08c"
-        },
-        {
-            "name": "67.1",
-            "sha256": "94a80cd6f251a53bd2a997f6f1b5ac6653fe791dfab66e1eb0227740fb86d5dc"
-        },
-        {
-            "name": "66.1",
-            "sha256": "52a3f2209ab95559c1cf0a14f24338001f389615bf00e2585ef3dbc43ecf0a2e"
-        },
-        {
-            "name": "65.1",
-            "sha256": "53e37466b3d6d6d01ead029e3567d873a43a5d1c668ed2278e253b683136d948"
-        },
-        {
-            "name": "64.1",
-            "sha256": "92f1b7b9d51b396679c17f35a2112423361b8da3c1b9de00aa94fd768ae296e6"
-        },
-        {
-            "name": "60.3",
-            "sha256": "476287b17db6e0b7da230dce4b58e8e5669b1510847f82cab3647920f1374390"
-        },
-        {
-            "name": "60.1",
-            "sha256": "f8f5a6c8fbf32c015a467972bdb1477dc5f5d5dfea908b6ed218715eeb5ee225"
-        },
-        {
-            "name": "58.3",
-            "sha256": "2680f3c547cd26cba1d7ebd819cd336ff92cf444a270e195fd3b10bfdf22276c"
-        },
-        {
-            "name": "58.2",
-            "sha256": "2b0a4410153a9b20de0e20c7d8b66049a72aef244b53683d0d7521371683da0c"
+            "name": "57.1",
+            "sha256": "ff8c67cb65949b1e7808f2359f2b80f722697048e90e7cfc382ec1fe229e9581"
         },
         {
             "name": "57.2",
             "sha256": "623f04b921827a041f42d52495a6f8eee6565a9b7557051ac68e099123ff28dc"
         },
         {
-            "name": "57.1",
-            "sha256": "ff8c67cb65949b1e7808f2359f2b80f722697048e90e7cfc382ec1fe229e9581"
-        }
-    ],
-    "latest_version": "74.2",
-    "build_system": "AutotoolsPackage",
-    "conflicts": [
-        {
-            "name": "arch=windows-None-None",
-            "spec": "build_system=autotools",
-            "description": null
+            "name": "58.2",
+            "sha256": "2b0a4410153a9b20de0e20c7d8b66049a72aef244b53683d0d7521371683da0c"
         },
         {
-            "name": "%intel@:16",
-            "spec": "@60.1:",
-            "description": "icu4c: Intel compilers have immature C++11 and multibyte support"
+            "name": "58.3",
+            "sha256": "2680f3c547cd26cba1d7ebd819cd336ff92cf444a270e195fd3b10bfdf22276c"
         },
         {
-            "name": "%gcc@:4",
-            "spec": "@67.1:",
-            "description": "icu4c: Older GCC compilers have immature C++11 support"
-        }
-    ],
-    "variants": [
-        {
-            "name": "build_system",
-            "default": "autotools",
-            "description": "Build systems supported by the package"
+            "name": "60.1",
+            "sha256": "f8f5a6c8fbf32c015a467972bdb1477dc5f5d5dfea908b6ed218715eeb5ee225"
         },
         {
-            "name": "cxxstd",
-            "default": "11",
-            "description": "Use the specified C++ standard when building"
-        }
-    ],
-    "homepage": "http://site.icu-project.org/",
-    "maintainers": [],
-    "patches": [
-        {
-            "owner": "builtin.icu4c",
-            "sha256": "6be0b8068b0f5047dad7f4f6f655529304f1abbc551c93223c6f41dafc1e8acc",
-            "level": 2,
-            "working_dir": ".",
-            "reverse": false,
-            "url": "https://github.com/unicode-org/icu/commit/ddfc30860354cbcb78c2c0bcf800be5ab44a9e4f.patch?full_index=1",
-            "version": "@58.0:59"
-        }
-    ],
-    "resources": [],
-    "description": "ICU is a mature, widely used set of C/C++ and Java libraries providing\nUnicode and Globalization support for software applications. ICU4C is\nthe C/C++ interface.\n",
-    "dependencies": [
-        {
-            "name": "gmake",
-            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files."
+            "name": "60.3",
+            "sha256": "476287b17db6e0b7da230dce4b58e8e5669b1510847f82cab3647920f1374390"
         },
         {
-            "name": "gnuconfig",
-            "description": "The GNU config.guess and config.sub scripts versioned by timestamp.\nThis package can be used as a build dependency for autotools packages\nthat ship a tarball with outdated config.guess and config.sub files."
+            "name": "64.1",
+            "sha256": "92f1b7b9d51b396679c17f35a2112423361b8da3c1b9de00aa94fd768ae296e6"
         },
         {
-            "name": "python",
-            "description": "The Python programming language."
-        }
-    ],
-    "dependent_to": [
-        {
-            "name": "libpsl",
-            "description": "libpsl - C library to handle the Public Suffix List."
+            "name": "65.1",
+            "sha256": "53e37466b3d6d6d01ead029e3567d873a43a5d1c668ed2278e253b683136d948"
         },
         {
-            "name": "xerces-c",
-            "description": "Xerces-C++ is a validating XML parser written in a portable subset of\nC++. Xerces-C++ makes it easy to give your application the ability to\nread and write XML data. A shared library is provided for parsing,\ngenerating, manipulating, and validating XML documents using the DOM,\nSAX, and SAX2 APIs."
+            "name": "66.1",
+            "sha256": "52a3f2209ab95559c1cf0a14f24338001f389615bf00e2585ef3dbc43ecf0a2e"
         },
         {
-            "name": "boost",
-            "description": "Boost provides free peer-reviewed portable C++ source libraries,\nemphasizing libraries that work well with the C++ Standard Library.\nBoost libraries are intended to be widely useful, and usable across a\nbroad spectrum of applications. The Boost license encourages both\ncommercial and non-commercial use."
+            "name": "67.1",
+            "sha256": "94a80cd6f251a53bd2a997f6f1b5ac6653fe791dfab66e1eb0227740fb86d5dc"
         },
         {
-            "name": "rstudio",
-            "description": "RStudio is an integrated development environment (IDE) for R."
-        },
-        {
-            "name": "r-rjava",
-            "description": "Low-Level R to Java Interface. Low-level interface to Java VM very much\nlike .C/.Call and friends. Allows creation of objects, calling methods\nand accessing fields."
-        },
-        {
-            "name": "qt",
-            "description": "Qt is a comprehensive cross-platform C++ application framework."
-        },
-        {
-            "name": "harfbuzz",
-            "description": "The Harfbuzz package contains an OpenType text shaping engine."
-        },
-        {
-            "name": "xalan-c",
-            "description": "Xalan-C++ version is a robust implementation of the W3C Recommendations\nfor XSL Transformations (XSLT) and the XML Path Language (XPath). It\nworks with the Xerces-C++ XML parser."
-        },
-        {
-            "name": "qt-base",
-            "description": "Qt Base (Core, Gui, Widgets, Network, ...)"
-        },
-        {
-            "name": "r-stringi",
-            "description": "Character String Processing Facilities. A multitude of character\nstring/text/natural language processing tools: pattern searching (e.g.,\nwith 'Java'-like regular expressions or the 'Unicode' collation\nalgorithm), random string generation, case mapping, string\ntransliteration, concatenation, sorting, padding, wrapping, Unicode\nnormalisation, date-time formatting and parsing, and many more. They are\nfast, consistent, convenient, and - owing to the use of the 'ICU'\n(International Components for Unicode) library - portable across all\nlocales and platforms."
-        },
-        {
-            "name": "texlive",
-            "description": "TeX Live is an easy (we hope) way to get up and running with the TeX\ndocument production system. It provides a comprehensive TeX system with\nbinaries for most flavors of Unix, including GNU/Linux, macOS, and also\nWindows. It includes all the major TeX-related programs, macro packages,\nand fonts that are free software, including support for many languages\naround the world."
-        },
-        {
-            "name": "r",
-            "description": "R is 'GNU S', a freely available language and environment for\nstatistical computing and graphics which provides a wide variety of\nstatistical and graphical techniques: linear and nonlinear modelling,\nstatistical tests, time series analysis, classification, clustering,\netc. Please consult the R project homepage for further information."
-        },
-        {
-            "name": "libical",
-            "description": "Libical - an implementation of iCalendar protocols and data formats."
-        },
-        {
-            "name": "mapnik",
-            "description": "mapnik combines pixel-perfect image output with lightning-fast\ncartographic algorithms, and exposes interfaces in C++, Python, and Node"
-        },
-        {
-            "name": "node-js",
-            "description": "Node.js is an open-source, cross-platform JavaScript runtime\nenvironment."
-        },
-        {
-            "name": "cxxopts",
-            "description": "Lightweight C++ command line option parser"
-        },
-        {
-            "name": "openldap",
-            "description": "OpenLDAP Software is an open source implementation of the Lightweight\nDirectory Access Protocol. The suite includes: slapd - stand-alone LDAP\ndaemon (server) libraries implementing the LDAP protocol, and utilities,\ntools, and sample clients."
-        },
-        {
-            "name": "tesseract",
-            "description": "Tesseract Open Source OCR Engine."
-        },
-        {
-            "name": "duckdb",
-            "description": "DuckDB is an in-process SQL OLAP Database Management System."
+            "name": "74.2",
+            "sha256": "68db082212a96d6f53e35d60f47d38b962e9f9d207a74cfac78029ae8ff5e08c"
         }
     ]
 }

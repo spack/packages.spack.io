@@ -1,9 +1,60 @@
 {
-    "name": "nvpl-blas",
     "aliases": [
         {
-            "name": "blas",
-            "alias_for": "nvpl-blas"
+            "alias_for": "nvpl-blas",
+            "name": "blas"
+        }
+    ],
+    "build_system": "Package",
+    "conflicts": [
+        {
+            "description": null,
+            "name": "%clang@:13",
+            "spec": ""
+        },
+        {
+            "description": null,
+            "name": "threads=openmp",
+            "spec": "%clang"
+        },
+        {
+            "description": null,
+            "name": "%gcc@:7",
+            "spec": ""
+        }
+    ],
+    "dependencies": [],
+    "dependent_to": [
+        {
+            "description": "NVPL LAPACK (NVIDIA Performance Libraries LAPACK) is part of NVIDIA\nPerformance Libraries that provides standard Fortran 90 LAPACK APIs.",
+            "name": "nvpl-lapack"
+        }
+    ],
+    "description": " NVPL BLAS (NVIDIA Performance Libraries BLAS) is part of NVIDIA\nPerformance Libraries that provides standard Fortran 77 BLAS APIs as\nwell as C (CBLAS).\n",
+    "homepage": "https://docs.nvidia.com/nvpl/_static/blas/index.html",
+    "latest_version": "0.2.0.1",
+    "maintainers": [
+        "albestro",
+        "rasolca"
+    ],
+    "name": "nvpl-blas",
+    "patches": [],
+    "resources": [],
+    "variants": [
+        {
+            "default": "generic",
+            "description": "Build systems supported by the package",
+            "name": "build_system"
+        },
+        {
+            "default": false,
+            "description": "Force 64-bit Fortran native integers",
+            "name": "ilp64"
+        },
+        {
+            "default": "none",
+            "description": "Multithreading support",
+            "name": "threads"
         }
     ],
     "versions": [
@@ -14,57 +65,6 @@
         {
             "name": "0.2.0.1",
             "sha256": "ba29f6a9d3831b6ae5c9265b4d124c13b9b9e0faea025359b02b41ad230975c2"
-        }
-    ],
-    "latest_version": "0.2.0.1",
-    "build_system": "Package",
-    "conflicts": [
-        {
-            "name": "%gcc@:7",
-            "spec": "",
-            "description": null
-        },
-        {
-            "name": "%clang@:13",
-            "spec": "",
-            "description": null
-        },
-        {
-            "name": "threads=openmp",
-            "spec": "%clang",
-            "description": null
-        }
-    ],
-    "variants": [
-        {
-            "name": "build_system",
-            "default": "generic",
-            "description": "Build systems supported by the package"
-        },
-        {
-            "name": "ilp64",
-            "default": false,
-            "description": "Force 64-bit Fortran native integers"
-        },
-        {
-            "name": "threads",
-            "default": "none",
-            "description": "Multithreading support"
-        }
-    ],
-    "homepage": "https://docs.nvidia.com/nvpl/_static/blas/index.html",
-    "maintainers": [
-        "albestro",
-        "rasolca"
-    ],
-    "patches": [],
-    "resources": [],
-    "description": " NVPL BLAS (NVIDIA Performance Libraries BLAS) is part of NVIDIA\nPerformance Libraries that provides standard Fortran 77 BLAS APIs as\nwell as C (CBLAS).\n",
-    "dependencies": [],
-    "dependent_to": [
-        {
-            "name": "nvpl-lapack",
-            "description": "NVPL LAPACK (NVIDIA Performance Libraries LAPACK) is part of NVIDIA\nPerformance Libraries that provides standard Fortran 90 LAPACK APIs."
         }
     ]
 }

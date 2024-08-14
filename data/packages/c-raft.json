@@ -1,73 +1,73 @@
 {
-    "name": "c-raft",
     "aliases": [],
-    "versions": [
-        {
-            "name": "master",
-            "branch": "master"
-        },
-        {
-            "name": "0.17.1",
-            "sha256": "e31c7fafbdd5f94913161c5d64341a203364e512524b47295c97a91e83c4198b"
-        }
-    ],
-    "latest_version": "0.17.1",
     "build_system": "AutotoolsPackage",
     "conflicts": [
         {
+            "description": null,
             "name": "arch=windows-None-None",
-            "spec": "build_system=autotools",
-            "description": null
+            "spec": "build_system=autotools"
         }
     ],
-    "variants": [
+    "dependencies": [
         {
-            "name": "build_system",
-            "default": "autotools",
-            "description": "Build systems supported by the package"
+            "description": "Autoconf -- system configuration part of autotools",
+            "name": "autoconf"
         },
         {
-            "name": "uv",
-            "default": true,
-            "description": "Enable libuv support"
+            "description": "Automake -- make file builder part of autotools",
+            "name": "automake"
+        },
+        {
+            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files.",
+            "name": "gmake"
+        },
+        {
+            "description": "The GNU config.guess and config.sub scripts versioned by timestamp.\nThis package can be used as a build dependency for autotools packages\nthat ship a tarball with outdated config.guess and config.sub files.",
+            "name": "gnuconfig"
+        },
+        {
+            "description": "libtool -- library building part of autotools.",
+            "name": "libtool"
+        },
+        {
+            "description": "Multi-platform library with a focus on asynchronous IO",
+            "name": "libuv"
+        },
+        {
+            "description": "GNU M4 is an implementation of the traditional Unix macro processor.",
+            "name": "m4"
         }
     ],
+    "dependent_to": [],
+    "description": "C implementation of the Raft consensus protocol.\n",
     "homepage": "https://raft.readthedocs.io/en/latest/",
+    "latest_version": "0.17.1",
     "maintainers": [
         "mdorier"
     ],
+    "name": "c-raft",
     "patches": [],
     "resources": [],
-    "description": "C implementation of the Raft consensus protocol.\n",
-    "dependencies": [
+    "variants": [
         {
-            "name": "autoconf",
-            "description": "Autoconf -- system configuration part of autotools"
+            "default": "autotools",
+            "description": "Build systems supported by the package",
+            "name": "build_system"
         },
         {
-            "name": "automake",
-            "description": "Automake -- make file builder part of autotools"
-        },
-        {
-            "name": "gmake",
-            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files."
-        },
-        {
-            "name": "gnuconfig",
-            "description": "The GNU config.guess and config.sub scripts versioned by timestamp.\nThis package can be used as a build dependency for autotools packages\nthat ship a tarball with outdated config.guess and config.sub files."
-        },
-        {
-            "name": "libtool",
-            "description": "libtool -- library building part of autotools."
-        },
-        {
-            "name": "libuv",
-            "description": "Multi-platform library with a focus on asynchronous IO"
-        },
-        {
-            "name": "m4",
-            "description": "GNU M4 is an implementation of the traditional Unix macro processor."
+            "default": true,
+            "description": "Enable libuv support",
+            "name": "uv"
         }
     ],
-    "dependent_to": []
+    "versions": [
+        {
+            "name": "0.17.1",
+            "sha256": "e31c7fafbdd5f94913161c5d64341a203364e512524b47295c97a91e83c4198b"
+        },
+        {
+            "branch": "master",
+            "name": "master"
+        }
+    ]
 }

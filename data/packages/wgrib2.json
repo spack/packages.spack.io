@@ -1,163 +1,163 @@
 {
-    "name": "wgrib2",
     "aliases": [],
-    "versions": [
-        {
-            "name": "3.1.1",
-            "sha256": "9236f6afddad76d868c2cfdf5c4227f5bdda5e85ae40c18bafb37218e49bc04a",
-            "extension": "tar.gz"
-        },
-        {
-            "name": "3.1.0",
-            "sha256": "5757ef9016b19ae87491918e0853dce2d3616b14f8c42efe3b2f41219c16b78f",
-            "extension": "tar.gz"
-        },
-        {
-            "name": "2.0.8",
-            "sha256": "5e6a0d6807591aa2a190d35401606f7e903d5485719655aea1c4866cc2828160",
-            "extension": "tar.gz"
-        },
-        {
-            "name": "2.0.7",
-            "sha256": "d7f1a4f9872922c62b3c7818c022465532cca1f5666b75d3ac5735f0b2747793",
-            "extension": "tar.gz"
-        }
-    ],
-    "latest_version": "3.1.1",
     "build_system": "MakefilePackage",
     "conflicts": [
         {
-            "name": "arch=windows-None-None",
-            "spec": "build_system=makefile",
-            "description": null
-        },
-        {
-            "name": "+netcdf3",
-            "spec": "+netcdf4",
-            "description": null
-        },
-        {
+            "description": null,
             "name": "+openmp",
-            "spec": "%apple-clang",
-            "description": null
+            "spec": "%apple-clang"
+        },
+        {
+            "description": null,
+            "name": "+netcdf3",
+            "spec": "+netcdf4"
+        },
+        {
+            "description": null,
+            "name": "arch=windows-None-None",
+            "spec": "build_system=makefile"
         }
     ],
-    "variants": [
+    "dependencies": [
         {
-            "name": "build_system",
-            "default": "makefile",
-            "description": "Build systems supported by the package"
+            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files.",
+            "name": "gmake"
         },
         {
-            "name": "netcdf3",
-            "default": true,
-            "description": "Link in netcdf3 library to write netcdf3 files"
-        },
-        {
-            "name": "netcdf4",
-            "default": false,
-            "description": "Link in netcdf4 library to write netcdf3/4 files"
-        },
-        {
-            "name": "ipolates",
-            "default": "3",
-            "description": "Use to interpolate to new grids (0 = OFF, 1 = ip, 3 = ip2)"
-        },
-        {
-            "name": "spectral",
-            "default": false,
-            "description": "Spectral interpolation in -new_grid"
-        },
-        {
-            "name": "fortran_api",
-            "default": true,
-            "description": "Make wgrib2api which allows fortran code to read/write grib2"
-        },
-        {
-            "name": "mysql",
-            "default": false,
-            "description": "Link in interface to MySQL to write to mysql database"
-        },
-        {
-            "name": "udf",
-            "default": false,
-            "description": "Add commands for user-defined functions and shell commands"
-        },
-        {
-            "name": "regex",
-            "default": true,
-            "description": "Use regular expression library (POSIX-2)"
-        },
-        {
-            "name": "tigge",
-            "default": true,
-            "description": "Ability for TIGGE-like variable names"
-        },
-        {
-            "name": "proj4",
-            "default": false,
-            "description": "The proj4 library is used to verify gctpc."
-        },
-        {
-            "name": "aec",
-            "default": true,
-            "description": "Use the libaec library for packing with GRIB2 template"
-        },
-        {
-            "name": "g2c",
-            "default": false,
-            "description": "Include NCEP g2clib (mainly for testing purposes)"
-        },
-        {
-            "name": "disable_timezone",
-            "default": false,
-            "description": "Some machines do not support timezones"
-        },
-        {
-            "name": "disable_alarm",
-            "default": false,
-            "description": "Some machines do not support the alarm to terminate wgrib2"
-        },
-        {
-            "name": "png",
-            "default": true,
-            "description": "PNG encoding"
-        },
-        {
-            "name": "jasper",
-            "default": true,
-            "description": "JPEG compression using Jasper"
-        },
-        {
-            "name": "openmp",
-            "default": true,
-            "description": "OpenMP parallelization"
-        },
-        {
-            "name": "wmo_validation",
-            "default": false,
-            "description": "WMO validation"
+            "description": "GNU Wget is a free software package for retrieving files using HTTP,\nHTTPS and FTP, the most widely-used Internet protocols. It is a non-\ninteractive commandline tool, so it may easily be called from scripts,\ncron jobs, terminals without X-Windows support, etc.",
+            "name": "wget"
         }
     ],
+    "dependent_to": [],
+    "description": "Utility for interacting with GRIB2 files\n",
     "homepage": "https://www.cpc.ncep.noaa.gov/products/wesley/wgrib2",
+    "latest_version": "3.1.1",
     "maintainers": [
         "AlexanderRichert-NOAA",
         "Hang-Lei-NOAA",
         "edwardhartnett",
         "t-brown"
     ],
+    "name": "wgrib2",
     "patches": [],
     "resources": [],
-    "description": "Utility for interacting with GRIB2 files\n",
-    "dependencies": [
+    "variants": [
         {
-            "name": "gmake",
-            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files."
+            "default": true,
+            "description": "Use the libaec library for packing with GRIB2 template",
+            "name": "aec"
         },
         {
-            "name": "wget",
-            "description": "GNU Wget is a free software package for retrieving files using HTTP,\nHTTPS and FTP, the most widely-used Internet protocols. It is a non-\ninteractive commandline tool, so it may easily be called from scripts,\ncron jobs, terminals without X-Windows support, etc."
+            "default": "makefile",
+            "description": "Build systems supported by the package",
+            "name": "build_system"
+        },
+        {
+            "default": false,
+            "description": "Some machines do not support the alarm to terminate wgrib2",
+            "name": "disable_alarm"
+        },
+        {
+            "default": false,
+            "description": "Some machines do not support timezones",
+            "name": "disable_timezone"
+        },
+        {
+            "default": true,
+            "description": "Make wgrib2api which allows fortran code to read/write grib2",
+            "name": "fortran_api"
+        },
+        {
+            "default": false,
+            "description": "Include NCEP g2clib (mainly for testing purposes)",
+            "name": "g2c"
+        },
+        {
+            "default": "3",
+            "description": "Use to interpolate to new grids (0 = OFF, 1 = ip, 3 = ip2)",
+            "name": "ipolates"
+        },
+        {
+            "default": true,
+            "description": "JPEG compression using Jasper",
+            "name": "jasper"
+        },
+        {
+            "default": false,
+            "description": "Link in interface to MySQL to write to mysql database",
+            "name": "mysql"
+        },
+        {
+            "default": true,
+            "description": "Link in netcdf3 library to write netcdf3 files",
+            "name": "netcdf3"
+        },
+        {
+            "default": false,
+            "description": "Link in netcdf4 library to write netcdf3/4 files",
+            "name": "netcdf4"
+        },
+        {
+            "default": true,
+            "description": "OpenMP parallelization",
+            "name": "openmp"
+        },
+        {
+            "default": true,
+            "description": "PNG encoding",
+            "name": "png"
+        },
+        {
+            "default": false,
+            "description": "The proj4 library is used to verify gctpc.",
+            "name": "proj4"
+        },
+        {
+            "default": true,
+            "description": "Use regular expression library (POSIX-2)",
+            "name": "regex"
+        },
+        {
+            "default": false,
+            "description": "Spectral interpolation in -new_grid",
+            "name": "spectral"
+        },
+        {
+            "default": true,
+            "description": "Ability for TIGGE-like variable names",
+            "name": "tigge"
+        },
+        {
+            "default": false,
+            "description": "Add commands for user-defined functions and shell commands",
+            "name": "udf"
+        },
+        {
+            "default": false,
+            "description": "WMO validation",
+            "name": "wmo_validation"
         }
     ],
-    "dependent_to": []
+    "versions": [
+        {
+            "extension": "tar.gz",
+            "name": "2.0.7",
+            "sha256": "d7f1a4f9872922c62b3c7818c022465532cca1f5666b75d3ac5735f0b2747793"
+        },
+        {
+            "extension": "tar.gz",
+            "name": "2.0.8",
+            "sha256": "5e6a0d6807591aa2a190d35401606f7e903d5485719655aea1c4866cc2828160"
+        },
+        {
+            "extension": "tar.gz",
+            "name": "3.1.0",
+            "sha256": "5757ef9016b19ae87491918e0853dce2d3616b14f8c42efe3b2f41219c16b78f"
+        },
+        {
+            "extension": "tar.gz",
+            "name": "3.1.1",
+            "sha256": "9236f6afddad76d868c2cfdf5c4227f5bdda5e85ae40c18bafb37218e49bc04a"
+        }
+    ]
 }

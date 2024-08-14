@@ -1,156 +1,156 @@
 {
-    "name": "libgeotiff",
     "aliases": [],
+    "build_system": "AutotoolsPackage",
+    "conflicts": [
+        {
+            "description": null,
+            "name": "arch=windows-None-None",
+            "spec": "build_system=autotools"
+        }
+    ],
+    "dependencies": [
+        {
+            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files.",
+            "name": "gmake"
+        },
+        {
+            "description": "The GNU config.guess and config.sub scripts versioned by timestamp.\nThis package can be used as a build dependency for autotools packages\nthat ship a tarball with outdated config.guess and config.sub files.",
+            "name": "gnuconfig"
+        },
+        {
+            "description": "MozJPEG is a patched version of libjpeg-turbo which improves JPEG\ncompression efficiency achieving higher visual quality and smaller file\nsizes at the same time",
+            "name": "jpeg"
+        },
+        {
+            "description": "LibTIFF - Tag Image File Format (TIFF) Library and Utilities.",
+            "name": "libtiff"
+        },
+        {
+            "description": "PROJ is a generic coordinate transformation software, that transforms\ngeospatial coordinates from one coordinate reference system (CRS) to\nanother. This includes cartographic projections as well as geodetic\ntransformations.",
+            "name": "proj"
+        },
+        {
+            "description": "zlib replacement with optimizations for next generation systems.",
+            "name": "zlib-api"
+        }
+    ],
+    "dependent_to": [
+        {
+            "description": "GDAL: Geospatial Data Abstraction Library. GDAL is a translator library\nfor raster and vector geospatial data formats that is released under an\nMIT style Open Source License by the Open Source Geospatial Foundation.\nAs a library, it presents a single raster abstract data model and single\nvector abstract data model to the calling application for all supported\nformats. It also comes with a variety of useful command line utilities\nfor data translation and processing.",
+            "name": "gdal"
+        },
+        {
+            "description": "A free and open-source IDL/PV-WAVE compiler. GNU Data Language (GDL) is\na free/libre/open source incremental compiler compatible with IDL and to\nsome extent with PV-WAVE.",
+            "name": "gdl"
+        },
+        {
+            "description": "The Grid Analysis and Display System (GrADS) is an interactive desktop\ntool that is used for easy access, manipulation, and visualization of\nearth science data. GrADS has two data models for handling gridded and\nstation data. GrADS supports many data file formats, including binary\n(stream or sequential), GRIB (version 1 and 2), NetCDF, HDF (version 4\nand 5), and BUFR (for station data).",
+            "name": "grads"
+        },
+        {
+            "description": "libLAS is a C/C++ library for reading and writing the very common LAS\nLiDAR format.",
+            "name": "liblas"
+        },
+        {
+            "description": "PDAL is a C++ library for translating and manipulating point cloud data.\nIt is very much like the GDAL library which handles raster and vector\ndata.",
+            "name": "pdal"
+        },
+        {
+            "description": "SAGA is a GIS for Automated Geoscientific Analyses and has been\ndesigned for an easy and effective implementation of spatial algorithms.\nIt offers a comprehensive, growing set of geoscientific methods and\nprovides an easily approachable user interface with many visualisation\noptions",
+            "name": "saga-gis"
+        },
+        {
+            "description": "VAPOR is the Visualization and Analysis Platform for Ocean, Atmosphere,\nand Solar Researchers. VAPOR provides an interactive 3D visualization\nenvironment that can also produce animations and still frame images.",
+            "name": "vapor"
+        }
+    ],
+    "description": "GeoTIFF represents an effort by over 160 different remote sensing, GIS,\ncartographic, and surveying related companies and organizations to\nestablish a TIFF based interchange format for georeferenced raster\nimagery.\n",
+    "homepage": "https://trac.osgeo.org/geotiff/",
+    "latest_version": "1.7.1",
+    "maintainers": [
+        "adamjstewart"
+    ],
+    "name": "libgeotiff",
+    "patches": [
+        {
+            "level": 2,
+            "owner": "builtin.libgeotiff",
+            "reverse": false,
+            "sha256": "bae1441ba8cd1d4e94b8d6a080db64b768dd537faa7e2fb8c04133f68e71d304",
+            "url": "https://github.com/OSGeo/libgeotiff/commit/7cb9b68ea72fb2a6023bb98796fd3ba6dc7b64a1.patch?full_index=1",
+            "version": "@1.5.0:1.5.1",
+            "working_dir": "."
+        },
+        {
+            "level": 2,
+            "owner": "builtin.libgeotiff",
+            "reverse": false,
+            "sha256": "b368cdf5755f2ddf69d974bf86691440dcc861c41d86280780626f5a31f33b13",
+            "url": "https://github.com/OSGeo/libgeotiff/commit/4b41ca6ce332f0c21504c2da3da850275d9da5ae.patch?full_index=1",
+            "version": "@1.5.0:1.5.1",
+            "working_dir": "."
+        },
+        {
+            "level": 2,
+            "owner": "builtin.libgeotiff",
+            "relative_path": "a76c686441398669422cb728411abd2dec358f7f.patch",
+            "reverse": false,
+            "sha256": "ac81bd50db5950b42e48de78845ad91c60bc107ccaa1acd78836e03fdf4a2313",
+            "version": "@1.5.0:1.5.1",
+            "working_dir": "."
+        }
+    ],
+    "resources": [],
+    "variants": [
+        {
+            "default": "autotools",
+            "description": "Build systems supported by the package",
+            "name": "build_system"
+        },
+        {
+            "default": true,
+            "description": "Include jpeg support",
+            "name": "jpeg"
+        },
+        {
+            "default": true,
+            "description": "Use PROJ.x library",
+            "name": "proj"
+        },
+        {
+            "default": true,
+            "description": "Include zlib support",
+            "name": "zlib"
+        }
+    ],
     "versions": [
         {
-            "name": "1.7.1",
-            "sha256": "05ab1347aaa471fc97347d8d4269ff0c00f30fa666d956baba37948ec87e55d6"
-        },
-        {
-            "name": "1.7.0",
-            "sha256": "fc304d8839ca5947cfbeb63adb9d1aa47acef38fc6d6689e622926e672a99a7e"
-        },
-        {
-            "name": "1.6.0",
-            "sha256": "9311017e5284cffb86f2c7b7a9df1fb5ebcdc61c30468fb2e6bca36e4272ebca"
-        },
-        {
-            "name": "1.5.1",
-            "sha256": "f9e99733c170d11052f562bcd2c7cb4de53ed405f7acdde4f16195cd3ead612c"
-        },
-        {
-            "name": "1.5.0",
-            "sha256": "1c0bef329c60f770ed128e8b273945100f1a4b5abd161ac61e93bc947b0624dd"
+            "name": "1.4.2",
+            "sha256": "ad87048adb91167b07f34974a8e53e4ec356494c29f1748de95252e8f81a5e6e"
         },
         {
             "name": "1.4.3",
             "sha256": "b8510d9b968b5ee899282cdd5bef13fd02d5a4c19f664553f81e31127bc47265"
         },
         {
-            "name": "1.4.2",
-            "sha256": "ad87048adb91167b07f34974a8e53e4ec356494c29f1748de95252e8f81a5e6e"
-        }
-    ],
-    "latest_version": "1.7.1",
-    "build_system": "AutotoolsPackage",
-    "conflicts": [
-        {
-            "name": "arch=windows-None-None",
-            "spec": "build_system=autotools",
-            "description": null
-        }
-    ],
-    "variants": [
-        {
-            "name": "build_system",
-            "default": "autotools",
-            "description": "Build systems supported by the package"
+            "name": "1.5.0",
+            "sha256": "1c0bef329c60f770ed128e8b273945100f1a4b5abd161ac61e93bc947b0624dd"
         },
         {
-            "name": "zlib",
-            "default": true,
-            "description": "Include zlib support"
+            "name": "1.5.1",
+            "sha256": "f9e99733c170d11052f562bcd2c7cb4de53ed405f7acdde4f16195cd3ead612c"
         },
         {
-            "name": "jpeg",
-            "default": true,
-            "description": "Include jpeg support"
+            "name": "1.6.0",
+            "sha256": "9311017e5284cffb86f2c7b7a9df1fb5ebcdc61c30468fb2e6bca36e4272ebca"
         },
         {
-            "name": "proj",
-            "default": true,
-            "description": "Use PROJ.x library"
-        }
-    ],
-    "homepage": "https://trac.osgeo.org/geotiff/",
-    "maintainers": [
-        "adamjstewart"
-    ],
-    "patches": [
-        {
-            "owner": "builtin.libgeotiff",
-            "sha256": "bae1441ba8cd1d4e94b8d6a080db64b768dd537faa7e2fb8c04133f68e71d304",
-            "level": 2,
-            "working_dir": ".",
-            "reverse": false,
-            "url": "https://github.com/OSGeo/libgeotiff/commit/7cb9b68ea72fb2a6023bb98796fd3ba6dc7b64a1.patch?full_index=1",
-            "version": "@1.5.0:1.5.1"
+            "name": "1.7.0",
+            "sha256": "fc304d8839ca5947cfbeb63adb9d1aa47acef38fc6d6689e622926e672a99a7e"
         },
         {
-            "owner": "builtin.libgeotiff",
-            "sha256": "b368cdf5755f2ddf69d974bf86691440dcc861c41d86280780626f5a31f33b13",
-            "level": 2,
-            "working_dir": ".",
-            "reverse": false,
-            "url": "https://github.com/OSGeo/libgeotiff/commit/4b41ca6ce332f0c21504c2da3da850275d9da5ae.patch?full_index=1",
-            "version": "@1.5.0:1.5.1"
-        },
-        {
-            "owner": "builtin.libgeotiff",
-            "sha256": "ac81bd50db5950b42e48de78845ad91c60bc107ccaa1acd78836e03fdf4a2313",
-            "level": 2,
-            "working_dir": ".",
-            "reverse": false,
-            "relative_path": "a76c686441398669422cb728411abd2dec358f7f.patch",
-            "version": "@1.5.0:1.5.1"
-        }
-    ],
-    "resources": [],
-    "description": "GeoTIFF represents an effort by over 160 different remote sensing, GIS,\ncartographic, and surveying related companies and organizations to\nestablish a TIFF based interchange format for georeferenced raster\nimagery.\n",
-    "dependencies": [
-        {
-            "name": "gmake",
-            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files."
-        },
-        {
-            "name": "gnuconfig",
-            "description": "The GNU config.guess and config.sub scripts versioned by timestamp.\nThis package can be used as a build dependency for autotools packages\nthat ship a tarball with outdated config.guess and config.sub files."
-        },
-        {
-            "name": "jpeg",
-            "description": "libjpeg-turbo is a fork of the original IJG libjpeg which uses SIMD to\naccelerate baseline JPEG compression and decompression. libjpeg is a\nlibrary that implements JPEG image encoding, decoding and transcoding."
-        },
-        {
-            "name": "libtiff",
-            "description": "LibTIFF - Tag Image File Format (TIFF) Library and Utilities."
-        },
-        {
-            "name": "proj",
-            "description": "PROJ is a generic coordinate transformation software, that transforms\ngeospatial coordinates from one coordinate reference system (CRS) to\nanother. This includes cartographic projections as well as geodetic\ntransformations."
-        },
-        {
-            "name": "zlib-api",
-            "description": "zlib replacement with optimizations for next generation systems."
-        }
-    ],
-    "dependent_to": [
-        {
-            "name": "liblas",
-            "description": "libLAS is a C/C++ library for reading and writing the very common LAS\nLiDAR format."
-        },
-        {
-            "name": "vapor",
-            "description": "VAPOR is the Visualization and Analysis Platform for Ocean, Atmosphere,\nand Solar Researchers. VAPOR provides an interactive 3D visualization\nenvironment that can also produce animations and still frame images."
-        },
-        {
-            "name": "grads",
-            "description": "The Grid Analysis and Display System (GrADS) is an interactive desktop\ntool that is used for easy access, manipulation, and visualization of\nearth science data. GrADS has two data models for handling gridded and\nstation data. GrADS supports many data file formats, including binary\n(stream or sequential), GRIB (version 1 and 2), NetCDF, HDF (version 4\nand 5), and BUFR (for station data)."
-        },
-        {
-            "name": "gdl",
-            "description": "A free and open-source IDL/PV-WAVE compiler. GNU Data Language (GDL) is\na free/libre/open source incremental compiler compatible with IDL and to\nsome extent with PV-WAVE."
-        },
-        {
-            "name": "saga-gis",
-            "description": "SAGA is a GIS for Automated Geoscientific Analyses and has been\ndesigned for an easy and effective implementation of spatial algorithms.\nIt offers a comprehensive, growing set of geoscientific methods and\nprovides an easily approachable user interface with many visualisation\noptions"
-        },
-        {
-            "name": "gdal",
-            "description": "GDAL: Geospatial Data Abstraction Library. GDAL is a translator library\nfor raster and vector geospatial data formats that is released under an\nMIT style Open Source License by the Open Source Geospatial Foundation.\nAs a library, it presents a single raster abstract data model and single\nvector abstract data model to the calling application for all supported\nformats. It also comes with a variety of useful command line utilities\nfor data translation and processing."
-        },
-        {
-            "name": "pdal",
-            "description": "PDAL is a C++ library for translating and manipulating point cloud data.\nIt is very much like the GDAL library which handles raster and vector\ndata."
+            "name": "1.7.1",
+            "sha256": "05ab1347aaa471fc97347d8d4269ff0c00f30fa666d956baba37948ec87e55d6"
         }
     ]
 }

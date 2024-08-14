@@ -1,34 +1,584 @@
 {
-    "name": "vtk",
     "aliases": [],
+    "build_system": "CMakePackage",
+    "conflicts": [
+        {
+            "description": null,
+            "name": "^osmesa",
+            "spec": "+qt"
+        },
+        {
+            "description": null,
+            "name": "%gcc@13",
+            "spec": "@9.2"
+        },
+        {
+            "description": null,
+            "name": "seacas@2023-05-30",
+            "spec": "@:9.2"
+        }
+    ],
+    "dependencies": [
+        {
+            "description": "Boost provides free peer-reviewed portable C++ source libraries,\nemphasizing libraries that work well with the C++ Standard Library.\nBoost libraries are intended to be widely useful, and usable across a\nbroad spectrum of applications. The Boost license encourages both\ncommercial and non-commercial use.",
+            "name": "boost"
+        },
+        {
+            "description": "The CFD General Notation System (CGNS) provides a general, portable, and\nextensible standard for the storage and retrieval of computational fluid\ndynamics (CFD) analysis data.",
+            "name": "cgns"
+        },
+        {
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software.",
+            "name": "cmake"
+        },
+        {
+            "description": "This project (double-conversion) provides binary-decimal and decimal-\nbinary routines for IEEE doubles. The library consists of efficient\nconversion routines that have been extracted from the V8 JavaScript\nengine. The code has been refactored and improved so that it can be used\nmore easily in other projects. There is extensive documentation in\nsrc/double-conversion.h. Other examples can be found in\ntest/cctest/test-conversions.cc.",
+            "name": "double-conversion"
+        },
+        {
+            "description": "Eigen is a C++ template library for linear algebra matrices, vectors,\nnumerical solvers, and related algorithms.",
+            "name": "eigen"
+        },
+        {
+            "description": "Expat is an XML parser library written in C.",
+            "name": "expat"
+        },
+        {
+            "description": "FFmpeg is a complete, cross-platform solution to record, convert and\nstream audio and video.",
+            "name": "ffmpeg"
+        },
+        {
+            "description": "FreeType is a freely available software library to render fonts. It is\nwritten in C, designed to be small, efficient, highly customizable, and\nportable while capable of producing high-quality output (glyph images)\nof most vector and bitmap font formats.",
+            "name": "freetype"
+        },
+        {
+            "description": "External WGl and Windows OpenGL emulation representation in Spack",
+            "name": "gl"
+        },
+        {
+            "description": "GL2PS is a C library providing high quality vector output for any OpenGL\napplication.",
+            "name": "gl2ps"
+        },
+        {
+            "description": "The OpenGL Extension Wrangler Library.",
+            "name": "glew"
+        },
+        {
+            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files.",
+            "name": "gmake"
+        },
+        {
+            "description": "HDF5 is a data model, library, and file format for storing and managing\ndata. It supports an unlimited variety of datatypes, and is designed for\nflexible and efficient I/O and for high volume and complex data.",
+            "name": "hdf5"
+        },
+        {
+            "description": "MozJPEG is a patched version of libjpeg-turbo which improves JPEG\ncompression efficiency achieving higher visual quality and smaller file\nsizes at the same time",
+            "name": "jpeg"
+        },
+        {
+            "description": "JsonCpp is a C++ library that allows manipulating JSON values, including\nserialization and deserialization to and from strings. It can also\npreserve existing comment in unserialization/serialization steps, making\nit a convenient format to store user input files.",
+            "name": "jsoncpp"
+        },
+        {
+            "description": "Ogg is a multimedia container format, and the native file and stream\nformat for the Xiph.org multimedia codecs.",
+            "name": "libogg"
+        },
+        {
+            "description": "libpng is the official PNG reference library.",
+            "name": "libpng"
+        },
+        {
+            "description": "Theora Video Compression.",
+            "name": "libtheora"
+        },
+        {
+            "description": "LibTIFF - Tag Image File Format (TIFF) Library and Utilities.",
+            "name": "libtiff"
+        },
+        {
+            "description": "Libxml2 is the XML C parser and toolkit developed for the Gnome project\n(but usable outside of the Gnome platform), it is free software\navailable under the MIT License.",
+            "name": "libxml2"
+        },
+        {
+            "description": "libXt - X Toolkit Intrinsics library.",
+            "name": "libxt"
+        },
+        {
+            "description": "LZ4 is lossless compression algorithm, providing compression speed at\n400 MB/s per core, scalable with multi-cores CPU. It also features an\nextremely fast decoder, with speed in multiple GB/s per core, typically\nreaching RAM speed limits on multi-core systems.",
+            "name": "lz4"
+        },
+        {
+            "description": "IBM MPI implementation from Spectrum MPI.",
+            "name": "mpi"
+        },
+        {
+            "description": "NetCDF (network Common Data Form) is a set of software libraries and\nmachine-independent data formats that support the creation, access, and\nsharing of array-oriented scientific data. This is the C distribution.",
+            "name": "netcdf-c"
+        },
+        {
+            "description": "NetCDF (network Common Data Form) is a set of software libraries and\nmachine-independent data formats that support the creation, access, and\nsharing of array-oriented scientific data. This is the C++ distribution.",
+            "name": "netcdf-cxx4"
+        },
+        {
+            "description": "Ninja is a small build system with a focus on speed. It differs from\nother build systems in two major respects: it is designed to have its\ninput files generated by a higher-level build system, and it is designed\nto run builds as fast as possible.",
+            "name": "ninja"
+        },
+        {
+            "description": "JSON for Modern C++",
+            "name": "nlohmann-json"
+        },
+        {
+            "description": "PROJ is a generic coordinate transformation software, that transforms\ngeospatial coordinates from one coordinate reference system (CRS) to\nanother. This includes cartographic projections as well as geodetic\ntransformations.",
+            "name": "proj"
+        },
+        {
+            "description": "Light-weight, simple, and fast XML parser for C++ with XPath support",
+            "name": "pugixml"
+        },
+        {
+            "description": "This package provides Python bindings for the Message Passing Interface\n(MPI) standard. It is implemented on top of the MPI-1/MPI-2\nspecification and exposes an API which grounds on the standard MPI-2 C++\nbindings.",
+            "name": "py-mpi4py"
+        },
+        {
+            "description": "The Python programming language.",
+            "name": "python"
+        },
+        {
+            "description": "A Spack managed Python virtual environment",
+            "name": "python-venv"
+        },
+        {
+            "description": "Qt is a comprehensive cross-platform C++ application framework.",
+            "name": "qt"
+        },
+        {
+            "description": "The SEACAS Project contains the Exodus and IOSS I/O libraries and a\ncollection of applications which create, query, modify, or translate\nExodus databases. Exodus is a finite element mesh and results database\nfile format. Default is to build the Exodus and IOSS libraries and the\nio_shell, io_info, io_modify, struc_to_unstruc apps.",
+            "name": "seacas"
+        },
+        {
+            "description": "SQLite is a C-language library that implements a small, fast, self-\ncontained, high-reliability, full-featured, SQL database engine.",
+            "name": "sqlite"
+        },
+        {
+            "description": "A simple, portable and lightweight generic library for handling UTF-8\nencoded strings.",
+            "name": "utf8cpp"
+        },
+        {
+            "description": "XZ Utils is free general-purpose data compression software with high\ncompression ratio. XZ Utils were written for POSIX-like systems, but\nalso work on some not-so-POSIX systems. XZ Utils are the successor to\nLZMA Utils.",
+            "name": "xz"
+        },
+        {
+            "description": "zlib replacement with optimizations for next generation systems.",
+            "name": "zlib-api"
+        }
+    ],
+    "dependent_to": [
+        {
+            "description": "C++ software library providing well-documented tools to build finite\nelement codes for a broad variety of PDEs.",
+            "name": "dealii"
+        },
+        {
+            "description": "This project contains DisCoTec, a code for the distributed sparse grid\ncombination technique with MPI parallelization.",
+            "name": "discotec"
+        },
+        {
+            "description": "A fast and minimalist scriptable 3D viewer.",
+            "name": "f3d"
+        },
+        {
+            "description": "FEniCS is organized as a collection of interoperable components that\ntogether form the FEniCS Project. These components include the problem-\nsolving environment DOLFIN, the form compiler FFC, the finite element\ntabulator FIAT, the just-in-time compiler Instant / Dijitso, the code\ngeneration interface UFC, the form language UFL and a range of\nadditional components.",
+            "name": "fenics"
+        },
+        {
+            "description": "FreeCAD is an open-source parametric 3D modeler made primarily to design\nreal-life objects of any size. Parametric modeling allows you to easily\nmodify your design by going back into your model history to change its\nparameters.",
+            "name": "freecad"
+        },
+        {
+            "description": "FSL is a comprehensive library of analysis tools for FMRI, MRI and DTI\nbrain imaging data.",
+            "name": "fsl"
+        },
+        {
+            "description": "FTK is a library that simplifies, scales, and delivers feature tracking\nalgorithms for scientific data.",
+            "name": "ftk"
+        },
+        {
+            "description": "Geant4 is a toolkit for the simulation of the passage of particles\nthrough matter. Its areas of application include high energy, nuclear\nand accelerator physics, as well as studies in medical and space\nscience.",
+            "name": "geant4"
+        },
+        {
+            "description": "Gxsview is a stand-alone multi-platform integrated tool to visualize\ninput data of Monte Carlo radiation transport calculation code, MCNP5,\nand PHITS3. It consists of 3D, 2D, cross-section, and input file\nviewers. Also, this software is capable of exporting in 2D(png, jpg, and\nxpm) or 3D(stl, vtk, vtp and ply) formats.",
+            "name": "gxsview"
+        },
+        {
+            "description": "Simulation of electric and magnetic fields and particle tracking.",
+            "name": "kassiopeia"
+        },
+        {
+            "description": "LAMMPS stands for Large-scale Atomic/Molecular Massively Parallel\nSimulator.",
+            "name": "lammps"
+        },
+        {
+            "description": "The libMesh library provides a framework for the numerical simulation of\npartial differential equations using arbitrary unstructured\ndiscretizations on serial and parallel platforms.",
+            "name": "libmesh"
+        },
+        {
+            "description": "Discrete element method particle simulation.",
+            "name": "liggghts"
+        },
+        {
+            "description": "MemSurfer is a tool to compute and analyze membrane surfaces found in a\nwide variety of large-scale molecular simulations.",
+            "name": "memsurfer"
+        },
+        {
+            "description": "Mmg is an open source software for simplicial remeshing. It provides 3\napplications and 4 libraries: - the mmg2d application and the libmmg2d\nlibrary: adaptation and optimization of a two-dimensional triangulation\nand generation of a triangulation from a set of points or from given\nboundary edges - the mmgs application and the libmmgs library:\nadaptation and optimization of a surface triangulation and isovalue\ndiscretization - the mmg3d application and the libmmg3d library:\nadaptation and optimization of a tetrahedral mesh and implicit domain\nmeshing - the libmmg library gathering the libmmg2d, libmmgs and\nlibmmg3d libraries.",
+            "name": "mmg"
+        },
+        {
+            "description": "Open CASCADE Technology is a software development kit (SDK) intended for\ndevelopment of applications dealing with 3D CAD data, freely available\nin open source. It includes a set of C++ class libraries providing\nservices for 3D surface and solid modeling, visualization, data exchange\nand rapid application development.",
+            "name": "opencascade"
+        },
+        {
+            "description": "OpenCV (Open Source Computer Vision Library) is an open source computer\nvision and machine learning software library.",
+            "name": "opencv"
+        },
+        {
+            "description": "OpenFOAM is a GPL-opensource C++ CFD-toolbox. This offering is supported\nby OpenCFD Ltd, producer and distributor of the OpenFOAM software via\nwww.openfoam.com, and owner of the OPENFOAM trademark. OpenCFD Ltd has\nbeen developing and releasing OpenFOAM since its debut in 2004.",
+            "name": "openfoam"
+        },
+        {
+            "description": "ParMMG is a parallel remesher based on MMG",
+            "name": "parmmg"
+        },
+        {
+            "description": "Pre- and post-processing tools for DAMASK",
+            "name": "py-damask"
+        },
+        {
+            "description": "Free Unified Rendering in Python.",
+            "name": "py-fury"
+        },
+        {
+            "description": "Mayavi: 3D visualization of scientific data in Python.",
+            "name": "py-mayavi"
+        },
+        {
+            "description": "MNE python project for MEG and EEG data analysis.",
+            "name": "py-mne"
+        },
+        {
+            "description": "This repository contains a Python package named PostCactus for\npostprocessing data from numerical simulations performed with the\nEinstein Toolkit.",
+            "name": "py-postcactus"
+        },
+        {
+            "description": "Easier Pythonic interface to VTK.",
+            "name": "py-pyvista"
+        },
+        {
+            "description": "SENSEI is a platform for scalable in-situ analysis and visualization.\nIts design motto is \"Write once, run everywhere\", this means that once\nthe application is instrumented with SENSEI it can use existing and\nfuture analysis backends. Existing backends include: Paraview/Catalyst,\nVisit/Libsim, ADIOS, Python scripts, and so on.",
+            "name": "sensei"
+        },
+        {
+            "description": "t8code is a C/C++ library to manage parallel adaptive meshes with\nvarious element types. t8code uses a collection (a forest) of multiple\nconnected adaptive space-trees in parallel and scales to at least one\nmillion MPI ranks and over one Trillion mesh elements.",
+            "name": "t8code"
+        },
+        {
+            "description": "VisIt is an Open Source, interactive, scalable, visualization, animation\nand analysis tool.",
+            "name": "visit"
+        }
+    ],
+    "description": "The Visualization Toolkit (VTK) is an open-source, freely available\nsoftware system for 3D computer graphics, image processing and\nvisualization.\n",
+    "homepage": "https://www.vtk.org",
+    "latest_version": "9.3.1",
+    "maintainers": [
+        "danlipsa",
+        "vicentebolea"
+    ],
+    "name": "vtk",
+    "patches": [
+        {
+            "level": 1,
+            "owner": "builtin.vtk",
+            "relative_path": "gcc.patch",
+            "reverse": false,
+            "sha256": "c462f3cae4ff19d64a2151e60f6dc63c7cf6b4cc35fe949d799a40db52fe3642",
+            "version": "@6.1.0",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.vtk",
+            "reverse": false,
+            "sha256": "0546696bd02f3a99fccb9b7c49533377bf8179df16d901cefe5abf251173716d",
+            "url": "https://gitlab.kitware.com/vtk/vtk/-/commit/e066c3f4fbbfe7470c6207db0fc3f3952db633c.diff",
+            "version": "@9:9.0",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.vtk",
+            "relative_path": "xdmf2-hdf51.13.2.patch",
+            "reverse": false,
+            "sha256": "7f22795bcfafc4c6a645325aa7792e30005b7817b4d30c7a65279fcc479ff048",
+            "version": "@9:9.2.2+xdmf",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.vtk",
+            "relative_path": "python3.7-const-char.patch",
+            "reverse": false,
+            "sha256": "578f141247bd4dd993d47768d8b3b207e2c37c4c77ac64db6751eb146ffa99e2",
+            "version": "@7.0.0:8.1.1 ^python@3.7:",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.vtk",
+            "relative_path": "vtkm-findmpi-downstream.patch",
+            "reverse": false,
+            "sha256": "8a673a7e3deb358f7b7792d05b5fd5c44961865637075691df51ca1431d5bc18",
+            "version": "@9.0.0",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.vtk",
+            "relative_path": "internal_findHDF5.patch",
+            "reverse": false,
+            "sha256": "760fd6d098d1d545b200bb297cbf0df5d010d8f62b7bead9011d0b0eeebad252",
+            "version": "@:8 arch=linux-None-None",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.vtk",
+            "relative_path": "internal_findHDF5.patch",
+            "reverse": false,
+            "sha256": "760fd6d098d1d545b200bb297cbf0df5d010d8f62b7bead9011d0b0eeebad252",
+            "version": "@:8 arch=darwin-None-None",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.vtk",
+            "relative_path": "internal_findHDF5.patch",
+            "reverse": false,
+            "sha256": "760fd6d098d1d545b200bb297cbf0df5d010d8f62b7bead9011d0b0eeebad252",
+            "version": "@:8 arch=freebsd-None-None",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.vtk",
+            "relative_path": "vtk-adios2-module-no-kit.patch",
+            "reverse": false,
+            "sha256": "87656ca858fabf3260de60b4f87ce59082f38d9b11e7c31f9d5836da5b245485",
+            "version": "@9:9.0.3",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.vtk",
+            "relative_path": "vtk82_python38.patch",
+            "reverse": false,
+            "sha256": "9535683fc11a25df256b6f058889ef550cad9070226a9ab547fe49356d775c33",
+            "version": "@8.2.1a",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.vtk",
+            "relative_path": "vtk-8.2-exodusII-gcc11.patch",
+            "reverse": false,
+            "sha256": "3b47ee0cec2645a72c3f61d551a63eb75b7142bcd162115b14ba08052e6862bd",
+            "version": "@8.2.1a",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.vtk",
+            "relative_path": "vtk_find_liblzma.patch",
+            "reverse": false,
+            "sha256": "b790d00a6b2837472b4b0e637d892592a927ea801a0256de4d66d4c0df838f61",
+            "version": "@8.2",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.vtk",
+            "relative_path": "vtk_movie_link_ogg.patch",
+            "reverse": false,
+            "sha256": "541dc51bb04beaeb7db1fe0c0a9f94684d450b4e0262af6039419ffbb1ea1d67",
+            "version": "@8.2",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.vtk",
+            "relative_path": "vtk_use_sqlite_name_vtk_expects.patch",
+            "reverse": false,
+            "sha256": "34960efca19015d2e2ac0a1af7a114084a269660d6c5bc5335925258c757578e",
+            "version": "@8.2",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.vtk",
+            "relative_path": "vtk_proj_include_no_strict.patch",
+            "reverse": false,
+            "sha256": "515a1b73d8eec6fc6009a45893d3ac95c94e0e424d38c5455e7a8cdaae4f8748",
+            "version": "@9: arch=windows-None-None",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.vtk",
+            "relative_path": "vtk_alias_hdf5.patch",
+            "reverse": false,
+            "sha256": "ff9dce424f07b49084dec13ea971f55b2b235cab10a357968bad33ce29f039f8",
+            "version": "@9: arch=windows-None-None",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.vtk",
+            "relative_path": "vtk_findproj_config.patch",
+            "reverse": false,
+            "sha256": "2d38712f1fcce33a2d43bbf1a68c30f13359dcf3cd2f25ae9dcec779606e09e8",
+            "version": "arch=windows-None-None",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.vtk",
+            "relative_path": "find_fujitsu_mpi.patch",
+            "reverse": false,
+            "sha256": "35cdaf691eb63a88931a2c6c33b67eea6e23192e681acc0eee7c1f7aca464f9a",
+            "version": "@:8.2.0%fj",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.vtk",
+            "reverse": false,
+            "sha256": "eefda851f844e8a1dfb4ebd8a9ff92d2b78efc57f205774052c5f4c049cc886a",
+            "url": "https://gitlab.kitware.com/vtk/vtk/uploads/c6fa799a1a028b8f8a728a40d26d3fec/vtk-freetype-2.10.3-replace-FT_CALLBACK_DEF.patch",
+            "version": "@:9.0.1 ^freetype@2.10.3:",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.vtk",
+            "reverse": false,
+            "sha256": "c446a90459b108082db5b28d9aeda99d030e636325e01929beba062cafb16b76",
+            "url": "https://gitlab.kitware.com/vtk/vtk/-/commit/5a1c96e12e9b4a660d326be3bed115a2ceadb573.diff",
+            "version": "@9.1",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.vtk",
+            "reverse": false,
+            "sha256": "dab51ffd0d62b00c089c1245e6b105f740106b53893305c87193d4ba03a948e0",
+            "url": "https://gitlab.kitware.com/vtk/vtk/-/merge_requests/9996.diff",
+            "version": "@9.1:9.2%gcc@13:",
+            "working_dir": "."
+        }
+    ],
+    "resources": [],
+    "variants": [
+        {
+            "default": "cmake",
+            "description": "Build systems supported by the package",
+            "name": "build_system"
+        },
+        {
+            "default": "Release",
+            "description": "CMake build type",
+            "name": "build_type"
+        },
+        {
+            "default": false,
+            "description": "Enable building & installing the VTK examples",
+            "name": "examples"
+        },
+        {
+            "default": false,
+            "description": "Build with FFMPEG support",
+            "name": "ffmpeg"
+        },
+        {
+            "default": "make",
+            "description": "the build system generator to use",
+            "name": "generator"
+        },
+        {
+            "default": false,
+            "description": "CMake interprocedural optimization",
+            "name": "ipo"
+        },
+        {
+            "default": true,
+            "description": "Enable MPI support",
+            "name": "mpi"
+        },
+        {
+            "default": true,
+            "description": "Enable OpenGL2 backend",
+            "name": "opengl2"
+        },
+        {
+            "default": false,
+            "description": "Enable Python support",
+            "name": "python"
+        },
+        {
+            "default": false,
+            "description": "Build with support for Qt",
+            "name": "qt"
+        },
+        {
+            "default": false,
+            "description": "Build XDMF file support",
+            "name": "xdmf"
+        }
+    ],
     "versions": [
         {
-            "name": "9.3.1",
-            "sha256": "8354ec084ea0d2dc3d23dbe4243823c4bfc270382d0ce8d658939fd50061cab8"
+            "name": "6.1.0",
+            "sha256": "bd7df10a479606d529a8b71f466c44a2bdd11fd534c62ce0aa44fad91883fa34"
         },
         {
-            "name": "9.2.6",
-            "sha256": "06fc8d49c4e56f498c40fcb38a563ed8d4ec31358d0101e8988f0bb4d539dd12"
+            "name": "6.3.0",
+            "sha256": "92a493354c5fa66bea73b5fc014154af5d9f3f6cee8d20a826f4cd5d4b0e8a5e"
         },
         {
-            "name": "9.2.2",
-            "sha256": "1c5b0a2be71fac96ff4831af69e350f7a0ea3168981f790c000709dcf9121075"
+            "name": "7.0.0",
+            "sha256": "78a990a15ead79cdc752e86b83cfab7dbf5b7ef51ba409db02570dbdd9ec32c3"
         },
         {
-            "name": "9.1.0",
-            "sha256": "8fed42f4f8f1eb8083107b68eaa9ad71da07110161a3116ad807f43e5ca5ce96"
+            "name": "7.1.0",
+            "sha256": "5f3ea001204d4f714be972a810a62c0f2277fbb9d8d2f8df39562988ca37497a"
         },
         {
-            "name": "9.0.3",
-            "sha256": "bc3eb9625b2b8dbfecb6052a2ab091fc91405de4333b0ec68f3323815154ed8a"
+            "name": "8.0.1",
+            "sha256": "49107352923dea6de05a7b4c3906aaf98ef39c91ad81c383136e768dcf304069"
         },
         {
-            "name": "9.0.1",
-            "sha256": "1b39a5e191c282861e7af4101eaa8585969a2de05f5646c9199a161213a622c7"
+            "name": "8.1.0",
+            "sha256": "6e269f07b64fb13774f5925161fb4e1f379f4e6a0131c8408c555f6b58ef3cb7"
         },
         {
-            "name": "9.0.0",
-            "sha256": "15def4e6f84d72f82386617fe595ec124dda3cbd13ea19a0dcd91583197d8715"
+            "name": "8.1.1",
+            "sha256": "71a09b4340f0a9c58559fe946dc745ab68a866cf20636a41d97b6046cb736324"
+        },
+        {
+            "name": "8.1.2",
+            "sha256": "0995fb36857dd76ccfb8bb07350c214d9f9099e80b1e66b4a8909311f24ff0db"
+        },
+        {
+            "name": "8.2.0",
+            "sha256": "34c3dc775261be5e45a8049155f7228b6bd668106c72a3c435d95730d17d57bb"
         },
         {
             "name": "8.2.1a",
@@ -36,582 +586,32 @@
             "url": "https://www.vtk.org/files/release/8.2/VTK-8.2.0.tar.gz"
         },
         {
-            "name": "8.2.0",
-            "sha256": "34c3dc775261be5e45a8049155f7228b6bd668106c72a3c435d95730d17d57bb"
+            "name": "9.0.0",
+            "sha256": "15def4e6f84d72f82386617fe595ec124dda3cbd13ea19a0dcd91583197d8715"
         },
         {
-            "name": "8.1.2",
-            "sha256": "0995fb36857dd76ccfb8bb07350c214d9f9099e80b1e66b4a8909311f24ff0db"
+            "name": "9.0.1",
+            "sha256": "1b39a5e191c282861e7af4101eaa8585969a2de05f5646c9199a161213a622c7"
         },
         {
-            "name": "8.1.1",
-            "sha256": "71a09b4340f0a9c58559fe946dc745ab68a866cf20636a41d97b6046cb736324"
+            "name": "9.0.3",
+            "sha256": "bc3eb9625b2b8dbfecb6052a2ab091fc91405de4333b0ec68f3323815154ed8a"
         },
         {
-            "name": "8.1.0",
-            "sha256": "6e269f07b64fb13774f5925161fb4e1f379f4e6a0131c8408c555f6b58ef3cb7"
+            "name": "9.1.0",
+            "sha256": "8fed42f4f8f1eb8083107b68eaa9ad71da07110161a3116ad807f43e5ca5ce96"
         },
         {
-            "name": "8.0.1",
-            "sha256": "49107352923dea6de05a7b4c3906aaf98ef39c91ad81c383136e768dcf304069"
+            "name": "9.2.2",
+            "sha256": "1c5b0a2be71fac96ff4831af69e350f7a0ea3168981f790c000709dcf9121075"
         },
         {
-            "name": "7.1.0",
-            "sha256": "5f3ea001204d4f714be972a810a62c0f2277fbb9d8d2f8df39562988ca37497a"
+            "name": "9.2.6",
+            "sha256": "06fc8d49c4e56f498c40fcb38a563ed8d4ec31358d0101e8988f0bb4d539dd12"
         },
         {
-            "name": "7.0.0",
-            "sha256": "78a990a15ead79cdc752e86b83cfab7dbf5b7ef51ba409db02570dbdd9ec32c3"
-        },
-        {
-            "name": "6.3.0",
-            "sha256": "92a493354c5fa66bea73b5fc014154af5d9f3f6cee8d20a826f4cd5d4b0e8a5e"
-        },
-        {
-            "name": "6.1.0",
-            "sha256": "bd7df10a479606d529a8b71f466c44a2bdd11fd534c62ce0aa44fad91883fa34"
-        }
-    ],
-    "latest_version": "9.3.1",
-    "build_system": "CMakePackage",
-    "conflicts": [
-        {
-            "name": "^osmesa",
-            "spec": "+qt",
-            "description": null
-        },
-        {
-            "name": "%gcc@13",
-            "spec": "@9.2",
-            "description": null
-        },
-        {
-            "name": "seacas@2023-05-30",
-            "spec": "@:9.2",
-            "description": null
-        }
-    ],
-    "variants": [
-        {
-            "name": "build_system",
-            "default": "cmake",
-            "description": "Build systems supported by the package"
-        },
-        {
-            "name": "build_type",
-            "default": "Release",
-            "description": "CMake build type"
-        },
-        {
-            "name": "ipo",
-            "default": false,
-            "description": "CMake interprocedural optimization"
-        },
-        {
-            "name": "generator",
-            "default": "make",
-            "description": "the build system generator to use"
-        },
-        {
-            "name": "opengl2",
-            "default": true,
-            "description": "Enable OpenGL2 backend"
-        },
-        {
-            "name": "python",
-            "default": false,
-            "description": "Enable Python support"
-        },
-        {
-            "name": "qt",
-            "default": false,
-            "description": "Build with support for Qt"
-        },
-        {
-            "name": "xdmf",
-            "default": false,
-            "description": "Build XDMF file support"
-        },
-        {
-            "name": "ffmpeg",
-            "default": false,
-            "description": "Build with FFMPEG support"
-        },
-        {
-            "name": "mpi",
-            "default": true,
-            "description": "Enable MPI support"
-        },
-        {
-            "name": "examples",
-            "default": false,
-            "description": "Enable building & installing the VTK examples"
-        }
-    ],
-    "homepage": "https://www.vtk.org",
-    "maintainers": [
-        "danlipsa",
-        "vicentebolea"
-    ],
-    "patches": [
-        {
-            "owner": "builtin.vtk",
-            "sha256": "c462f3cae4ff19d64a2151e60f6dc63c7cf6b4cc35fe949d799a40db52fe3642",
-            "level": 1,
-            "working_dir": ".",
-            "reverse": false,
-            "relative_path": "gcc.patch",
-            "version": "@6.1.0"
-        },
-        {
-            "owner": "builtin.vtk",
-            "sha256": "0546696bd02f3a99fccb9b7c49533377bf8179df16d901cefe5abf251173716d",
-            "level": 1,
-            "working_dir": ".",
-            "reverse": false,
-            "url": "https://gitlab.kitware.com/vtk/vtk/-/commit/e066c3f4fbbfe7470c6207db0fc3f3952db633c.diff",
-            "version": "@9:9.0"
-        },
-        {
-            "owner": "builtin.vtk",
-            "sha256": "7f22795bcfafc4c6a645325aa7792e30005b7817b4d30c7a65279fcc479ff048",
-            "level": 1,
-            "working_dir": ".",
-            "reverse": false,
-            "relative_path": "xdmf2-hdf51.13.2.patch",
-            "version": "@9:9.2.2+xdmf"
-        },
-        {
-            "owner": "builtin.vtk",
-            "sha256": "578f141247bd4dd993d47768d8b3b207e2c37c4c77ac64db6751eb146ffa99e2",
-            "level": 1,
-            "working_dir": ".",
-            "reverse": false,
-            "relative_path": "python3.7-const-char.patch",
-            "version": "@7.0.0:8.1.1 ^python@3.7:"
-        },
-        {
-            "owner": "builtin.vtk",
-            "sha256": "8a673a7e3deb358f7b7792d05b5fd5c44961865637075691df51ca1431d5bc18",
-            "level": 1,
-            "working_dir": ".",
-            "reverse": false,
-            "relative_path": "vtkm-findmpi-downstream.patch",
-            "version": "@9.0.0"
-        },
-        {
-            "owner": "builtin.vtk",
-            "sha256": "760fd6d098d1d545b200bb297cbf0df5d010d8f62b7bead9011d0b0eeebad252",
-            "level": 1,
-            "working_dir": ".",
-            "reverse": false,
-            "relative_path": "internal_findHDF5.patch",
-            "version": "@:8 arch=linux-None-None"
-        },
-        {
-            "owner": "builtin.vtk",
-            "sha256": "760fd6d098d1d545b200bb297cbf0df5d010d8f62b7bead9011d0b0eeebad252",
-            "level": 1,
-            "working_dir": ".",
-            "reverse": false,
-            "relative_path": "internal_findHDF5.patch",
-            "version": "@:8 arch=darwin-None-None"
-        },
-        {
-            "owner": "builtin.vtk",
-            "sha256": "760fd6d098d1d545b200bb297cbf0df5d010d8f62b7bead9011d0b0eeebad252",
-            "level": 1,
-            "working_dir": ".",
-            "reverse": false,
-            "relative_path": "internal_findHDF5.patch",
-            "version": "@:8 arch=freebsd-None-None"
-        },
-        {
-            "owner": "builtin.vtk",
-            "sha256": "87656ca858fabf3260de60b4f87ce59082f38d9b11e7c31f9d5836da5b245485",
-            "level": 1,
-            "working_dir": ".",
-            "reverse": false,
-            "relative_path": "vtk-adios2-module-no-kit.patch",
-            "version": "@9:9.0.3"
-        },
-        {
-            "owner": "builtin.vtk",
-            "sha256": "9535683fc11a25df256b6f058889ef550cad9070226a9ab547fe49356d775c33",
-            "level": 1,
-            "working_dir": ".",
-            "reverse": false,
-            "relative_path": "vtk82_python38.patch",
-            "version": "@8.2.1a"
-        },
-        {
-            "owner": "builtin.vtk",
-            "sha256": "3b47ee0cec2645a72c3f61d551a63eb75b7142bcd162115b14ba08052e6862bd",
-            "level": 1,
-            "working_dir": ".",
-            "reverse": false,
-            "relative_path": "vtk-8.2-exodusII-gcc11.patch",
-            "version": "@8.2.1a"
-        },
-        {
-            "owner": "builtin.vtk",
-            "sha256": "b790d00a6b2837472b4b0e637d892592a927ea801a0256de4d66d4c0df838f61",
-            "level": 1,
-            "working_dir": ".",
-            "reverse": false,
-            "relative_path": "vtk_find_liblzma.patch",
-            "version": "@8.2"
-        },
-        {
-            "owner": "builtin.vtk",
-            "sha256": "541dc51bb04beaeb7db1fe0c0a9f94684d450b4e0262af6039419ffbb1ea1d67",
-            "level": 1,
-            "working_dir": ".",
-            "reverse": false,
-            "relative_path": "vtk_movie_link_ogg.patch",
-            "version": "@8.2"
-        },
-        {
-            "owner": "builtin.vtk",
-            "sha256": "34960efca19015d2e2ac0a1af7a114084a269660d6c5bc5335925258c757578e",
-            "level": 1,
-            "working_dir": ".",
-            "reverse": false,
-            "relative_path": "vtk_use_sqlite_name_vtk_expects.patch",
-            "version": "@8.2"
-        },
-        {
-            "owner": "builtin.vtk",
-            "sha256": "515a1b73d8eec6fc6009a45893d3ac95c94e0e424d38c5455e7a8cdaae4f8748",
-            "level": 1,
-            "working_dir": ".",
-            "reverse": false,
-            "relative_path": "vtk_proj_include_no_strict.patch",
-            "version": "@9: arch=windows-None-None"
-        },
-        {
-            "owner": "builtin.vtk",
-            "sha256": "ff9dce424f07b49084dec13ea971f55b2b235cab10a357968bad33ce29f039f8",
-            "level": 1,
-            "working_dir": ".",
-            "reverse": false,
-            "relative_path": "vtk_alias_hdf5.patch",
-            "version": "@9: arch=windows-None-None"
-        },
-        {
-            "owner": "builtin.vtk",
-            "sha256": "2d38712f1fcce33a2d43bbf1a68c30f13359dcf3cd2f25ae9dcec779606e09e8",
-            "level": 1,
-            "working_dir": ".",
-            "reverse": false,
-            "relative_path": "vtk_findproj_config.patch",
-            "version": "arch=windows-None-None"
-        },
-        {
-            "owner": "builtin.vtk",
-            "sha256": "35cdaf691eb63a88931a2c6c33b67eea6e23192e681acc0eee7c1f7aca464f9a",
-            "level": 1,
-            "working_dir": ".",
-            "reverse": false,
-            "relative_path": "find_fujitsu_mpi.patch",
-            "version": "@:8.2.0%fj"
-        },
-        {
-            "owner": "builtin.vtk",
-            "sha256": "eefda851f844e8a1dfb4ebd8a9ff92d2b78efc57f205774052c5f4c049cc886a",
-            "level": 1,
-            "working_dir": ".",
-            "reverse": false,
-            "url": "https://gitlab.kitware.com/vtk/vtk/uploads/c6fa799a1a028b8f8a728a40d26d3fec/vtk-freetype-2.10.3-replace-FT_CALLBACK_DEF.patch",
-            "version": "@:9.0.1 ^freetype@2.10.3:"
-        },
-        {
-            "owner": "builtin.vtk",
-            "sha256": "c446a90459b108082db5b28d9aeda99d030e636325e01929beba062cafb16b76",
-            "level": 1,
-            "working_dir": ".",
-            "reverse": false,
-            "url": "https://gitlab.kitware.com/vtk/vtk/-/commit/5a1c96e12e9b4a660d326be3bed115a2ceadb573.diff",
-            "version": "@9.1"
-        },
-        {
-            "owner": "builtin.vtk",
-            "sha256": "dab51ffd0d62b00c089c1245e6b105f740106b53893305c87193d4ba03a948e0",
-            "level": 1,
-            "working_dir": ".",
-            "reverse": false,
-            "url": "https://gitlab.kitware.com/vtk/vtk/-/merge_requests/9996.diff",
-            "version": "@9.1:9.2%gcc@13:"
-        }
-    ],
-    "resources": [],
-    "description": "The Visualization Toolkit (VTK) is an open-source, freely available\nsoftware system for 3D computer graphics, image processing and\nvisualization.\n",
-    "dependencies": [
-        {
-            "name": "boost",
-            "description": "Boost provides free peer-reviewed portable C++ source libraries,\nemphasizing libraries that work well with the C++ Standard Library.\nBoost libraries are intended to be widely useful, and usable across a\nbroad spectrum of applications. The Boost license encourages both\ncommercial and non-commercial use."
-        },
-        {
-            "name": "cgns",
-            "description": "The CFD General Notation System (CGNS) provides a general, portable, and\nextensible standard for the storage and retrieval of computational fluid\ndynamics (CFD) analysis data."
-        },
-        {
-            "name": "cmake",
-            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
-        },
-        {
-            "name": "double-conversion",
-            "description": "This project (double-conversion) provides binary-decimal and decimal-\nbinary routines for IEEE doubles. The library consists of efficient\nconversion routines that have been extracted from the V8 JavaScript\nengine. The code has been refactored and improved so that it can be used\nmore easily in other projects. There is extensive documentation in\nsrc/double-conversion.h. Other examples can be found in\ntest/cctest/test-conversions.cc."
-        },
-        {
-            "name": "eigen",
-            "description": "Eigen is a C++ template library for linear algebra matrices, vectors,\nnumerical solvers, and related algorithms."
-        },
-        {
-            "name": "expat",
-            "description": "Expat is an XML parser library written in C."
-        },
-        {
-            "name": "ffmpeg",
-            "description": "FFmpeg is a complete, cross-platform solution to record, convert and\nstream audio and video."
-        },
-        {
-            "name": "freetype",
-            "description": "FreeType is a freely available software library to render fonts. It is\nwritten in C, designed to be small, efficient, highly customizable, and\nportable while capable of producing high-quality output (glyph images)\nof most vector and bitmap font formats."
-        },
-        {
-            "name": "gl",
-            "description": "External WGl and Windows OpenGL emulation representation in Spack"
-        },
-        {
-            "name": "gl2ps",
-            "description": "GL2PS is a C library providing high quality vector output for any OpenGL\napplication."
-        },
-        {
-            "name": "glew",
-            "description": "The OpenGL Extension Wrangler Library."
-        },
-        {
-            "name": "gmake",
-            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files."
-        },
-        {
-            "name": "hdf5",
-            "description": "HDF5 is a data model, library, and file format for storing and managing\ndata. It supports an unlimited variety of datatypes, and is designed for\nflexible and efficient I/O and for high volume and complex data."
-        },
-        {
-            "name": "jpeg",
-            "description": "libjpeg-turbo is a fork of the original IJG libjpeg which uses SIMD to\naccelerate baseline JPEG compression and decompression. libjpeg is a\nlibrary that implements JPEG image encoding, decoding and transcoding."
-        },
-        {
-            "name": "jsoncpp",
-            "description": "JsonCpp is a C++ library that allows manipulating JSON values, including\nserialization and deserialization to and from strings. It can also\npreserve existing comment in unserialization/serialization steps, making\nit a convenient format to store user input files."
-        },
-        {
-            "name": "libogg",
-            "description": "Ogg is a multimedia container format, and the native file and stream\nformat for the Xiph.org multimedia codecs."
-        },
-        {
-            "name": "libpng",
-            "description": "libpng is the official PNG reference library."
-        },
-        {
-            "name": "libtheora",
-            "description": "Theora Video Compression."
-        },
-        {
-            "name": "libtiff",
-            "description": "LibTIFF - Tag Image File Format (TIFF) Library and Utilities."
-        },
-        {
-            "name": "libxml2",
-            "description": "Libxml2 is the XML C parser and toolkit developed for the Gnome project\n(but usable outside of the Gnome platform), it is free software\navailable under the MIT License."
-        },
-        {
-            "name": "libxt",
-            "description": "libXt - X Toolkit Intrinsics library."
-        },
-        {
-            "name": "lz4",
-            "description": "LZ4 is lossless compression algorithm, providing compression speed at\n400 MB/s per core, scalable with multi-cores CPU. It also features an\nextremely fast decoder, with speed in multiple GB/s per core, typically\nreaching RAM speed limits on multi-core systems."
-        },
-        {
-            "name": "mpi",
-            "description": "A single processor implementation of the mpi library."
-        },
-        {
-            "name": "netcdf-c",
-            "description": "NetCDF (network Common Data Form) is a set of software libraries and\nmachine-independent data formats that support the creation, access, and\nsharing of array-oriented scientific data. This is the C distribution."
-        },
-        {
-            "name": "netcdf-cxx4",
-            "description": "NetCDF (network Common Data Form) is a set of software libraries and\nmachine-independent data formats that support the creation, access, and\nsharing of array-oriented scientific data. This is the C++ distribution."
-        },
-        {
-            "name": "ninja",
-            "description": "Ninja is a small build system with a focus on speed. It differs from\nother build systems in two major respects: it is designed to have its\ninput files generated by a higher-level build system, and it is designed\nto run builds as fast as possible."
-        },
-        {
-            "name": "nlohmann-json",
-            "description": "JSON for Modern C++"
-        },
-        {
-            "name": "proj",
-            "description": "PROJ is a generic coordinate transformation software, that transforms\ngeospatial coordinates from one coordinate reference system (CRS) to\nanother. This includes cartographic projections as well as geodetic\ntransformations."
-        },
-        {
-            "name": "pugixml",
-            "description": "Light-weight, simple, and fast XML parser for C++ with XPath support"
-        },
-        {
-            "name": "py-mpi4py",
-            "description": "This package provides Python bindings for the Message Passing Interface\n(MPI) standard. It is implemented on top of the MPI-1/MPI-2\nspecification and exposes an API which grounds on the standard MPI-2 C++\nbindings."
-        },
-        {
-            "name": "python",
-            "description": "The Python programming language."
-        },
-        {
-            "name": "python-venv",
-            "description": "A Spack managed Python virtual environment"
-        },
-        {
-            "name": "qt",
-            "description": "Qt is a comprehensive cross-platform C++ application framework."
-        },
-        {
-            "name": "seacas",
-            "description": "The SEACAS Project contains the Exodus and IOSS I/O libraries and a\ncollection of applications which create, query, modify, or translate\nExodus databases. Exodus is a finite element mesh and results database\nfile format. Default is to build the Exodus and IOSS libraries and the\nio_shell, io_info, io_modify, struc_to_unstruc apps."
-        },
-        {
-            "name": "sqlite",
-            "description": "SQLite is a C-language library that implements a small, fast, self-\ncontained, high-reliability, full-featured, SQL database engine."
-        },
-        {
-            "name": "utf8cpp",
-            "description": "A simple, portable and lightweight generic library for handling UTF-8\nencoded strings."
-        },
-        {
-            "name": "xz",
-            "description": "XZ Utils is free general-purpose data compression software with high\ncompression ratio. XZ Utils were written for POSIX-like systems, but\nalso work on some not-so-POSIX systems. XZ Utils are the successor to\nLZMA Utils."
-        },
-        {
-            "name": "zlib-api",
-            "description": "zlib replacement with optimizations for next generation systems."
-        }
-    ],
-    "dependent_to": [
-        {
-            "name": "parmmg",
-            "description": "ParMMG is a parallel remesher based on MMG"
-        },
-        {
-            "name": "visit",
-            "description": "VisIt is an Open Source, interactive, scalable, visualization, animation\nand analysis tool."
-        },
-        {
-            "name": "py-mne",
-            "description": "MNE python project for MEG and EEG data analysis."
-        },
-        {
-            "name": "geant4",
-            "description": "Geant4 is a toolkit for the simulation of the passage of particles\nthrough matter. Its areas of application include high energy, nuclear\nand accelerator physics, as well as studies in medical and space\nscience."
-        },
-        {
-            "name": "mmg",
-            "description": "Mmg is an open source software for simplicial remeshing. It provides 3\napplications and 4 libraries: - the mmg2d application and the libmmg2d\nlibrary: adaptation and optimization of a two-dimensional triangulation\nand generation of a triangulation from a set of points or from given\nboundary edges - the mmgs application and the libmmgs library:\nadaptation and optimization of a surface triangulation and isovalue\ndiscretization - the mmg3d application and the libmmg3d library:\nadaptation and optimization of a tetrahedral mesh and implicit domain\nmeshing - the libmmg library gathering the libmmg2d, libmmgs and\nlibmmg3d libraries."
-        },
-        {
-            "name": "liggghts",
-            "description": "Discrete element method particle simulation."
-        },
-        {
-            "name": "f3d",
-            "description": "A fast and minimalist scriptable 3D viewer."
-        },
-        {
-            "name": "py-mayavi",
-            "description": "Mayavi: 3D visualization of scientific data in Python."
-        },
-        {
-            "name": "opencv",
-            "description": "OpenCV (Open Source Computer Vision Library) is an open source computer\nvision and machine learning software library."
-        },
-        {
-            "name": "ftk",
-            "description": "FTK is a library that simplifies, scales, and delivers feature tracking\nalgorithms for scientific data."
-        },
-        {
-            "name": "py-postcactus",
-            "description": "This repository contains a Python package named PostCactus for\npostprocessing data from numerical simulations performed with the\nEinstein Toolkit."
-        },
-        {
-            "name": "py-fury",
-            "description": "Free Unified Rendering in Python."
-        },
-        {
-            "name": "kassiopeia",
-            "description": "Simulation of electric and magnetic fields and particle tracking."
-        },
-        {
-            "name": "memsurfer",
-            "description": "MemSurfer is a tool to compute and analyze membrane surfaces found in a\nwide variety of large-scale molecular simulations."
-        },
-        {
-            "name": "lammps",
-            "description": "LAMMPS stands for Large-scale Atomic/Molecular Massively Parallel\nSimulator."
-        },
-        {
-            "name": "gxsview",
-            "description": "Gxsview is a stand-alone multi-platform integrated tool to visualize\ninput data of Monte Carlo radiation transport calculation code, MCNP5,\nand PHITS3. It consists of 3D, 2D, cross-section, and input file\nviewers. Also, this software is capable of exporting in 2D(png, jpg, and\nxpm) or 3D(stl, vtk, vtp and ply) formats."
-        },
-        {
-            "name": "sensei",
-            "description": "SENSEI is a platform for scalable in-situ analysis and visualization.\nIts design motto is \"Write once, run everywhere\", this means that once\nthe application is instrumented with SENSEI it can use existing and\nfuture analysis backends. Existing backends include: Paraview/Catalyst,\nVisit/Libsim, ADIOS, Python scripts, and so on."
-        },
-        {
-            "name": "opencascade",
-            "description": "Open CASCADE Technology is a software development kit (SDK) intended for\ndevelopment of applications dealing with 3D CAD data, freely available\nin open source. It includes a set of C++ class libraries providing\nservices for 3D surface and solid modeling, visualization, data exchange\nand rapid application development."
-        },
-        {
-            "name": "discotec",
-            "description": "This project contains DisCoTec, a code for the distributed sparse grid\ncombination technique with MPI parallelization."
-        },
-        {
-            "name": "py-damask",
-            "description": "Pre- and post-processing tools for DAMASK"
-        },
-        {
-            "name": "fsl",
-            "description": "FSL is a comprehensive library of analysis tools for FMRI, MRI and DTI\nbrain imaging data."
-        },
-        {
-            "name": "fenics",
-            "description": "FEniCS is organized as a collection of interoperable components that\ntogether form the FEniCS Project. These components include the problem-\nsolving environment DOLFIN, the form compiler FFC, the finite element\ntabulator FIAT, the just-in-time compiler Instant / Dijitso, the code\ngeneration interface UFC, the form language UFL and a range of\nadditional components."
-        },
-        {
-            "name": "openfoam",
-            "description": "OpenFOAM is a GPL-opensource C++ CFD-toolbox. This offering is supported\nby OpenCFD Ltd, producer and distributor of the OpenFOAM software via\nwww.openfoam.com, and owner of the OPENFOAM trademark. OpenCFD Ltd has\nbeen developing and releasing OpenFOAM since its debut in 2004."
-        },
-        {
-            "name": "libmesh",
-            "description": "The libMesh library provides a framework for the numerical simulation of\npartial differential equations using arbitrary unstructured\ndiscretizations on serial and parallel platforms."
-        },
-        {
-            "name": "py-pyvista",
-            "description": "Easier Pythonic interface to VTK."
-        },
-        {
-            "name": "dealii",
-            "description": "C++ software library providing well-documented tools to build finite\nelement codes for a broad variety of PDEs."
-        },
-        {
-            "name": "freecad",
-            "description": "FreeCAD is an open-source parametric 3D modeler made primarily to design\nreal-life objects of any size. Parametric modeling allows you to easily\nmodify your design by going back into your model history to change its\nparameters."
-        },
-        {
-            "name": "t8code",
-            "description": "t8code is a C/C++ library to manage parallel adaptive meshes with\nvarious element types. t8code uses a collection (a forest) of multiple\nconnected adaptive space-trees in parallel and scales to at least one\nmillion MPI ranks and over one Trillion mesh elements."
+            "name": "9.3.1",
+            "sha256": "8354ec084ea0d2dc3d23dbe4243823c4bfc270382d0ce8d658939fd50061cab8"
         }
     ]
 }

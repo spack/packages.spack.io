@@ -1,107 +1,107 @@
 {
-    "name": "zsh",
     "aliases": [],
+    "build_system": "AutotoolsPackage",
+    "conflicts": [
+        {
+            "description": null,
+            "name": "arch=windows-None-None",
+            "spec": "build_system=autotools"
+        },
+        {
+            "description": "zsh: local etc required to setup env for lmod",
+            "name": "+lmod",
+            "spec": "~etcdir"
+        }
+    ],
+    "dependencies": [
+        {
+            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files.",
+            "name": "gmake"
+        },
+        {
+            "description": "The GNU config.guess and config.sub scripts versioned by timestamp.\nThis package can be used as a build dependency for autotools packages\nthat ship a tarball with outdated config.guess and config.sub files.",
+            "name": "gnuconfig"
+        },
+        {
+            "description": "The ncurses (new curses) library is a free software emulation of curses\nin System V Release 4.0, and more. It uses terminfo format, supports\npads and color and multiple highlights and forms characters and\nfunction-key mapping, and has all the other SYSV-curses enhancements\nover BSD curses.",
+            "name": "ncurses"
+        },
+        {
+            "description": "The PCRE package contains Perl Compatible Regular Expression libraries.\nThese are useful for implementing regular expression pattern matching\nusing the same syntax and semantics as Perl 5.",
+            "name": "pcre"
+        }
+    ],
+    "dependent_to": [
+        {
+            "description": "STC: The Swift-Turbine Compiler",
+            "name": "stc"
+        },
+        {
+            "description": "Turbine: The Swift/T runtime",
+            "name": "turbine"
+        }
+    ],
+    "description": "Zsh is a shell designed for interactive use, although it is also a\npowerful scripting language. Many of the useful features of bash, ksh,\nand tcsh were incorporated into zsh; many original features were added.\n",
+    "homepage": "https://www.zsh.org",
+    "latest_version": "5.9",
+    "maintainers": [],
+    "name": "zsh",
+    "patches": [],
+    "resources": [],
+    "variants": [
+        {
+            "default": "autotools",
+            "description": "Build systems supported by the package",
+            "name": "build_system"
+        },
+        {
+            "default": false,
+            "description": "enable etc dir local to install, for global zsh scripts",
+            "name": "etcdir"
+        },
+        {
+            "default": false,
+            "description": "setup zshrc env for lmod support",
+            "name": "lmod"
+        },
+        {
+            "default": true,
+            "description": "Skip configure's tcsetpgrp test",
+            "name": "skip-tcsetpgrp-test"
+        }
+    ],
     "versions": [
         {
-            "name": "5.9",
-            "sha256": "9b8d1ecedd5b5e81fbf1918e876752a7dd948e05c1a0dba10ab863842d45acd5"
-        },
-        {
-            "name": "5.8.1",
-            "sha256": "b6973520bace600b4779200269b1e5d79e5f505ac4952058c11ad5bbf0dd9919"
-        },
-        {
-            "name": "5.8",
-            "sha256": "dcc4b54cc5565670a65581760261c163d720991f0d06486da61f8d839b52de27"
-        },
-        {
-            "name": "5.7.1",
-            "sha256": "7260292c2c1d483b2d50febfa5055176bd512b32a8833b116177bf5f01e77ee8"
-        },
-        {
-            "name": "5.6.2",
-            "sha256": "a50bd66c0557e8eca3b8fa24e85d0de533e775d7a22df042da90488623752e9e"
-        },
-        {
-            "name": "5.4.2",
-            "sha256": "a80b187b6b770f092ea1f53e89021d06c03d8bbe6a5e996bcca3267de14c5e52"
+            "name": "5.1.1",
+            "sha256": "74e9453b5470b3c0970f9f93cfd603d241c3d7b1968adc0e4b3951073e8d3dec"
         },
         {
             "name": "5.3.1",
             "sha256": "fc886cb2ade032d006da8322c09a7e92b2309177811428b121192d44832920da"
         },
         {
-            "name": "5.1.1",
-            "sha256": "74e9453b5470b3c0970f9f93cfd603d241c3d7b1968adc0e4b3951073e8d3dec"
-        }
-    ],
-    "latest_version": "5.9",
-    "build_system": "AutotoolsPackage",
-    "conflicts": [
-        {
-            "name": "arch=windows-None-None",
-            "spec": "build_system=autotools",
-            "description": null
+            "name": "5.4.2",
+            "sha256": "a80b187b6b770f092ea1f53e89021d06c03d8bbe6a5e996bcca3267de14c5e52"
         },
         {
-            "name": "+lmod",
-            "spec": "~etcdir",
-            "description": "zsh: local etc required to setup env for lmod"
-        }
-    ],
-    "variants": [
-        {
-            "name": "build_system",
-            "default": "autotools",
-            "description": "Build systems supported by the package"
+            "name": "5.6.2",
+            "sha256": "a50bd66c0557e8eca3b8fa24e85d0de533e775d7a22df042da90488623752e9e"
         },
         {
-            "name": "skip-tcsetpgrp-test",
-            "default": true,
-            "description": "Skip configure's tcsetpgrp test"
+            "name": "5.7.1",
+            "sha256": "7260292c2c1d483b2d50febfa5055176bd512b32a8833b116177bf5f01e77ee8"
         },
         {
-            "name": "etcdir",
-            "default": false,
-            "description": "enable etc dir local to install, for global zsh scripts"
+            "name": "5.8",
+            "sha256": "dcc4b54cc5565670a65581760261c163d720991f0d06486da61f8d839b52de27"
         },
         {
-            "name": "lmod",
-            "default": false,
-            "description": "setup zshrc env for lmod support"
-        }
-    ],
-    "homepage": "https://www.zsh.org",
-    "maintainers": [],
-    "patches": [],
-    "resources": [],
-    "description": "Zsh is a shell designed for interactive use, although it is also a\npowerful scripting language. Many of the useful features of bash, ksh,\nand tcsh were incorporated into zsh; many original features were added.\n",
-    "dependencies": [
-        {
-            "name": "gmake",
-            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files."
+            "name": "5.8.1",
+            "sha256": "b6973520bace600b4779200269b1e5d79e5f505ac4952058c11ad5bbf0dd9919"
         },
         {
-            "name": "gnuconfig",
-            "description": "The GNU config.guess and config.sub scripts versioned by timestamp.\nThis package can be used as a build dependency for autotools packages\nthat ship a tarball with outdated config.guess and config.sub files."
-        },
-        {
-            "name": "ncurses",
-            "description": "The ncurses (new curses) library is a free software emulation of curses\nin System V Release 4.0, and more. It uses terminfo format, supports\npads and color and multiple highlights and forms characters and\nfunction-key mapping, and has all the other SYSV-curses enhancements\nover BSD curses."
-        },
-        {
-            "name": "pcre",
-            "description": "The PCRE package contains Perl Compatible Regular Expression libraries.\nThese are useful for implementing regular expression pattern matching\nusing the same syntax and semantics as Perl 5."
-        }
-    ],
-    "dependent_to": [
-        {
-            "name": "turbine",
-            "description": "Turbine: The Swift/T runtime"
-        },
-        {
-            "name": "stc",
-            "description": "STC: The Swift-Turbine Compiler"
+            "name": "5.9",
+            "sha256": "9b8d1ecedd5b5e81fbf1918e876752a7dd948e05c1a0dba10ab863842d45acd5"
         }
     ]
 }

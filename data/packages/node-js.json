@@ -1,201 +1,201 @@
 {
-    "name": "node-js",
     "aliases": [],
+    "build_system": "Package",
+    "conflicts": [
+        {
+            "description": "node-js: fails to build with gcc 4.8 (see https://github.com/spack/spack/issues/19310)",
+            "name": "%gcc@:4.8",
+            "spec": ""
+        },
+        {
+            "description": "node-js: fails to build with gcc 14+ due to implicit conversions",
+            "name": "%gcc@14:",
+            "spec": "@:19"
+        }
+    ],
+    "dependencies": [
+        {
+            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files.",
+            "name": "gmake"
+        },
+        {
+            "description": "ICU is a mature, widely used set of C/C++ and Java libraries providing\nUnicode and Globalization support for software applications. ICU4C is\nthe C/C++ interface.",
+            "name": "icu4c"
+        },
+        {
+            "description": "libtool -- library building part of autotools.",
+            "name": "libtool"
+        },
+        {
+            "description": "OpenSSL is an open source project that provides a robust, commercial-\ngrade, and full-featured toolkit for the Transport Layer Security (TLS)\nand Secure Sockets Layer (SSL) protocols. It is also a general-purpose\ncryptography library.",
+            "name": "openssl"
+        },
+        {
+            "description": "pkgconf is a program which helps to configure compiler and linker flags\nfor development frameworks. It is similar to pkg-config from\nfreedesktop.org, providing additional functionality while also\nmaintaining compatibility.",
+            "name": "pkgconfig"
+        },
+        {
+            "description": "The Python programming language.",
+            "name": "python"
+        },
+        {
+            "description": "zlib replacement with optimizations for next generation systems.",
+            "name": "zlib-api"
+        }
+    ],
+    "dependent_to": [
+        {
+            "description": "MALT is a memory profile tool to track mallocs in a C/C++ application\nand report allocation information (lifetime, sizes...) in a friendly web\ngraphical interface by annotating the source code and proving charts.",
+            "name": "malt"
+        },
+        {
+            "description": "npm: A package manager for javascript.",
+            "name": "npm"
+        },
+        {
+            "description": "Prettier is an opinionated code formatter.",
+            "name": "prettier"
+        },
+        {
+            "description": "Prometheus, a Cloud Native Computing Foundation project, is a systems\nand service monitoring system.",
+            "name": "prometheus"
+        },
+        {
+            "description": "An adaptation of the popular mkdocs-material theme for the Sphinx\ndocumentation tool.",
+            "name": "py-sphinx-immaterial"
+        },
+        {
+            "description": "RStudio is an integrated development environment (IDE) for R.",
+            "name": "rstudio"
+        },
+        {
+            "description": "Client and CLI for smee.io, a service that delivers webhooks to your\nlocal development environment.",
+            "name": "smee-client"
+        },
+        {
+            "description": "TypeScript is a superset of JavaScript that compiles to clean JavaScript\noutput.",
+            "name": "typescript"
+        },
+        {
+            "description": "Fast, reliable, and secure dependency management.",
+            "name": "yarn"
+        }
+    ],
+    "description": "Node.js is an open-source, cross-platform JavaScript runtime\nenvironment.\n",
+    "homepage": "https://nodejs.org/",
+    "latest_version": "22.4.0",
+    "maintainers": [
+        "cosmicexplorer"
+    ],
+    "name": "node-js",
+    "patches": [
+        {
+            "level": 1,
+            "owner": "builtin.node-js",
+            "relative_path": "fix-old-glibc-random-headers.patch",
+            "reverse": false,
+            "sha256": "0208d3a76a122d98abfc610899e3d1cc423ac80150920c3715caef93963fdb8b",
+            "version": "^glibc@:2.24",
+            "working_dir": "."
+        }
+    ],
+    "resources": [],
+    "variants": [
+        {
+            "default": "generic",
+            "description": "Build systems supported by the package",
+            "name": "build_system"
+        },
+        {
+            "default": false,
+            "description": "Include debugger support",
+            "name": "debug"
+        },
+        {
+            "default": false,
+            "description": "Compile with documentation",
+            "name": "doc"
+        },
+        {
+            "default": false,
+            "description": "Build with support for all locales instead of just English",
+            "name": "icu4c"
+        },
+        {
+            "default": true,
+            "description": "Build with Spacks OpenSSL instead of the bundled version",
+            "name": "openssl"
+        },
+        {
+            "default": true,
+            "description": "Build with Spacks zlib instead of the bundled version",
+            "name": "zlib"
+        }
+    ],
     "versions": [
         {
-            "name": "21.7.3",
-            "sha256": "ce1f61347671ef219d9c2925313d629d3fef98fc8d7f5ef38dd4656f7d0f58e7"
-        },
-        {
-            "name": "19.2.0",
-            "sha256": "aac9d1a366fb57d68f4639f9204d1de5d6387656959a97ed929a5ba9e62c033a"
-        },
-        {
-            "name": "17.9.1",
-            "sha256": "1102f5e0aafaab8014d19c6c57142caf2ba3ef69d88d7a7f0f82798051796027"
-        },
-        {
-            "name": "15.3.0",
-            "sha256": "cadfa384a5f14591b84ce07a1afe529f28deb0d43366fb0ae4e78afba96bfaf2"
+            "name": "13.5.0",
+            "sha256": "4b8078d896a7550d7ed399c1b4ac9043e9f883be404d9b337185c8d8479f2db8"
         },
         {
             "name": "13.8.0",
             "sha256": "815b5e1b18114f35da89e4d98febeaba97555d51ef593bd5175db2b05f2e8be6"
         },
         {
-            "name": "13.5.0",
-            "sha256": "4b8078d896a7550d7ed399c1b4ac9043e9f883be404d9b337185c8d8479f2db8"
-        },
-        {
-            "name": "22.4.0",
-            "sha256": "b62cd83c9a57a11349883f89b1727a16e66c02eb6255a4bf32714ff5d93165f5"
-        },
-        {
-            "name": "22.3.0",
-            "sha256": "6326484853093ab6b8f361a267445f4a5bff469042cda11a3585497b13136b55"
-        },
-        {
-            "name": "20.15.0",
-            "sha256": "01e2c034467a324a33e778c81f2808dff13d289eaa9307d3e9b06c171e4d932d"
-        },
-        {
-            "name": "18.12.1",
-            "sha256": "ba8174dda00d5b90943f37c6a180a1d37c861d91e04a4cb38dc1c0c74981c186"
-        },
-        {
-            "name": "16.18.1",
-            "sha256": "3d24c9c3a953afee43edc44569045eda56cd45cd58b0539922d17da62736189c"
-        },
-        {
-            "name": "14.21.1",
-            "sha256": "76ba961536dc11e4dfd9b198c61ff3399e655eca959ae4b66d926f29bfcce9d3"
-        },
-        {
-            "name": "14.16.1",
-            "sha256": "5f5080427abddde7f22fd2ba77cd2b8a1f86253277a1eec54bc98a202728ce80"
-        },
-        {
-            "name": "14.15.1",
-            "sha256": "a1120472bf55aea745287693a6651e16973e1008c9d6107df350126adf9716fe"
+            "name": "14.10.0",
+            "sha256": "7e0d7a1aa23697415e3588a1ca4f1c47496e6c88b9cf37c66be90353d3e4ac3e"
         },
         {
             "name": "14.13.0",
             "sha256": "8538b2e76aa06ee0e6eb1c118426c3c5ca53b2e49d66591738eacf76e89edd61"
         },
         {
-            "name": "14.10.0",
-            "sha256": "7e0d7a1aa23697415e3588a1ca4f1c47496e6c88b9cf37c66be90353d3e4ac3e"
-        }
-    ],
-    "latest_version": "22.4.0",
-    "build_system": "Package",
-    "conflicts": [
-        {
-            "name": "%gcc@:4.8",
-            "spec": "",
-            "description": "node-js: fails to build with gcc 4.8 (see https://github.com/spack/spack/issues/19310)"
+            "name": "14.15.1",
+            "sha256": "a1120472bf55aea745287693a6651e16973e1008c9d6107df350126adf9716fe"
         },
         {
-            "name": "%gcc@14:",
-            "spec": "@:19",
-            "description": "node-js: fails to build with gcc 14+ due to implicit conversions"
-        }
-    ],
-    "variants": [
-        {
-            "name": "build_system",
-            "default": "generic",
-            "description": "Build systems supported by the package"
+            "name": "14.16.1",
+            "sha256": "5f5080427abddde7f22fd2ba77cd2b8a1f86253277a1eec54bc98a202728ce80"
         },
         {
-            "name": "debug",
-            "default": false,
-            "description": "Include debugger support"
+            "name": "14.21.1",
+            "sha256": "76ba961536dc11e4dfd9b198c61ff3399e655eca959ae4b66d926f29bfcce9d3"
         },
         {
-            "name": "doc",
-            "default": false,
-            "description": "Compile with documentation"
+            "name": "15.3.0",
+            "sha256": "cadfa384a5f14591b84ce07a1afe529f28deb0d43366fb0ae4e78afba96bfaf2"
         },
         {
-            "name": "icu4c",
-            "default": false,
-            "description": "Build with support for all locales instead of just English"
+            "name": "16.18.1",
+            "sha256": "3d24c9c3a953afee43edc44569045eda56cd45cd58b0539922d17da62736189c"
         },
         {
-            "name": "openssl",
-            "default": true,
-            "description": "Build with Spacks OpenSSL instead of the bundled version"
+            "name": "17.9.1",
+            "sha256": "1102f5e0aafaab8014d19c6c57142caf2ba3ef69d88d7a7f0f82798051796027"
         },
         {
-            "name": "zlib",
-            "default": true,
-            "description": "Build with Spacks zlib instead of the bundled version"
-        }
-    ],
-    "homepage": "https://nodejs.org/",
-    "maintainers": [
-        "cosmicexplorer"
-    ],
-    "patches": [
-        {
-            "owner": "builtin.node-js",
-            "sha256": "0208d3a76a122d98abfc610899e3d1cc423ac80150920c3715caef93963fdb8b",
-            "level": 1,
-            "working_dir": ".",
-            "reverse": false,
-            "relative_path": "fix-old-glibc-random-headers.patch",
-            "version": "^glibc@:2.24"
-        }
-    ],
-    "resources": [],
-    "description": "Node.js is an open-source, cross-platform JavaScript runtime\nenvironment.\n",
-    "dependencies": [
-        {
-            "name": "gmake",
-            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files."
+            "name": "18.12.1",
+            "sha256": "ba8174dda00d5b90943f37c6a180a1d37c861d91e04a4cb38dc1c0c74981c186"
         },
         {
-            "name": "icu4c",
-            "description": "ICU is a mature, widely used set of C/C++ and Java libraries providing\nUnicode and Globalization support for software applications. ICU4C is\nthe C/C++ interface."
+            "name": "19.2.0",
+            "sha256": "aac9d1a366fb57d68f4639f9204d1de5d6387656959a97ed929a5ba9e62c033a"
         },
         {
-            "name": "libtool",
-            "description": "libtool -- library building part of autotools."
+            "name": "20.15.0",
+            "sha256": "01e2c034467a324a33e778c81f2808dff13d289eaa9307d3e9b06c171e4d932d"
         },
         {
-            "name": "openssl",
-            "description": "OpenSSL is an open source project that provides a robust, commercial-\ngrade, and full-featured toolkit for the Transport Layer Security (TLS)\nand Secure Sockets Layer (SSL) protocols. It is also a general-purpose\ncryptography library."
+            "name": "21.7.3",
+            "sha256": "ce1f61347671ef219d9c2925313d629d3fef98fc8d7f5ef38dd4656f7d0f58e7"
         },
         {
-            "name": "pkgconfig",
-            "description": "pkg-config is a helper tool used when compiling applications and\nlibraries"
+            "name": "22.3.0",
+            "sha256": "6326484853093ab6b8f361a267445f4a5bff469042cda11a3585497b13136b55"
         },
         {
-            "name": "python",
-            "description": "The Python programming language."
-        },
-        {
-            "name": "zlib-api",
-            "description": "zlib replacement with optimizations for next generation systems."
-        }
-    ],
-    "dependent_to": [
-        {
-            "name": "npm",
-            "description": "npm: A package manager for javascript."
-        },
-        {
-            "name": "rstudio",
-            "description": "RStudio is an integrated development environment (IDE) for R."
-        },
-        {
-            "name": "typescript",
-            "description": "TypeScript is a superset of JavaScript that compiles to clean JavaScript\noutput."
-        },
-        {
-            "name": "malt",
-            "description": "MALT is a memory profile tool to track mallocs in a C/C++ application\nand report allocation information (lifetime, sizes...) in a friendly web\ngraphical interface by annotating the source code and proving charts."
-        },
-        {
-            "name": "yarn",
-            "description": "Fast, reliable, and secure dependency management."
-        },
-        {
-            "name": "prometheus",
-            "description": "Prometheus, a Cloud Native Computing Foundation project, is a systems\nand service monitoring system."
-        },
-        {
-            "name": "prettier",
-            "description": "Prettier is an opinionated code formatter."
-        },
-        {
-            "name": "smee-client",
-            "description": "Client and CLI for smee.io, a service that delivers webhooks to your\nlocal development environment."
-        },
-        {
-            "name": "py-sphinx-immaterial",
-            "description": "An adaptation of the popular mkdocs-material theme for the Sphinx\ndocumentation tool."
+            "name": "22.4.0",
+            "sha256": "b62cd83c9a57a11349883f89b1727a16e66c02eb6255a4bf32714ff5d93165f5"
         }
     ]
 }

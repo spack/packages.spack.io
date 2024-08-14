@@ -1,65 +1,65 @@
 {
-    "name": "scs",
     "aliases": [],
+    "build_system": "MakefilePackage",
+    "conflicts": [
+        {
+            "description": null,
+            "name": "arch=windows-None-None",
+            "spec": "build_system=makefile"
+        }
+    ],
+    "dependencies": [
+        {
+            "description": "Lightweight but flexible shim designed to rectify the incompatibilities\nbetween the Accelerate/vecLib BLAS and LAPACK libraries shipped with\nmacOS and FORTRAN code compiled with modern compilers such as GNU\nFortran.",
+            "name": "blas"
+        },
+        {
+            "description": "CUDA is a parallel computing platform and programming model invented by\nNVIDIA. It enables dramatic increases in computing performance by\nharnessing the power of the graphics processing unit (GPU). Note: This\npackage does not currently install the drivers necessary to run CUDA.\nThese will need to be installed manually. See:\nhttps://docs.nvidia.com/cuda/ for details.",
+            "name": "cuda"
+        },
+        {
+            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files.",
+            "name": "gmake"
+        },
+        {
+            "description": "Lightweight but flexible shim designed to rectify the incompatibilities\nbetween the Accelerate/vecLib BLAS and LAPACK libraries shipped with\nmacOS and FORTRAN code compiled with modern compilers such as GNU\nFortran.",
+            "name": "lapack"
+        }
+    ],
+    "dependent_to": [],
+    "description": "A C package that solves convex cone problems via operator splitting\n",
+    "homepage": "https://github.com/cvxgrp/scs",
+    "latest_version": "2.1.1",
+    "maintainers": [],
+    "name": "scs",
+    "patches": [
+        {
+            "level": 1,
+            "owner": "builtin.scs",
+            "relative_path": "make_gpu.patch",
+            "reverse": false,
+            "sha256": "314e53d7d97b6f010b98a2dacd85764a332001da1538e65102d84f25e2805760",
+            "version": "",
+            "working_dir": "."
+        }
+    ],
+    "resources": [],
+    "variants": [
+        {
+            "default": "makefile",
+            "description": "Build systems supported by the package",
+            "name": "build_system"
+        },
+        {
+            "default": false,
+            "description": "Build with Cuda support",
+            "name": "cuda"
+        }
+    ],
     "versions": [
         {
             "name": "2.1.1",
             "sha256": "0e20b91e8caf744b84aa985ba4e98cc7235ee33612b2bad2bf31ea5ad4e07d93"
         }
-    ],
-    "latest_version": "2.1.1",
-    "build_system": "MakefilePackage",
-    "conflicts": [
-        {
-            "name": "arch=windows-None-None",
-            "spec": "build_system=makefile",
-            "description": null
-        }
-    ],
-    "variants": [
-        {
-            "name": "build_system",
-            "default": "makefile",
-            "description": "Build systems supported by the package"
-        },
-        {
-            "name": "cuda",
-            "default": false,
-            "description": "Build with Cuda support"
-        }
-    ],
-    "homepage": "https://github.com/cvxgrp/scs",
-    "maintainers": [],
-    "patches": [
-        {
-            "owner": "builtin.scs",
-            "sha256": "314e53d7d97b6f010b98a2dacd85764a332001da1538e65102d84f25e2805760",
-            "level": 1,
-            "working_dir": ".",
-            "reverse": false,
-            "relative_path": "make_gpu.patch",
-            "version": ""
-        }
-    ],
-    "resources": [],
-    "description": "A C package that solves convex cone problems via operator splitting\n",
-    "dependencies": [
-        {
-            "name": "blas",
-            "description": "BLIS is a portable software framework for instantiating high-performance\nBLAS-like dense linear algebra libraries. The framework was designed to\nisolate essential kernels of computation that, when optimized,\nimmediately enable optimized implementations of most of its commonly\nused and computationally intensive operations. BLIS is written in ISO\nC99 and available under a new/modified/3-clause BSD license. While BLIS\nexports a new BLAS-like API, it also includes a BLAS compatibility layer\nwhich gives application developers access to BLIS implementations via\ntraditional BLAS routine calls. An object-based API unique to BLIS is\nalso available."
-        },
-        {
-            "name": "cuda",
-            "description": "CUDA is a parallel computing platform and programming model invented by\nNVIDIA. It enables dramatic increases in computing performance by\nharnessing the power of the graphics processing unit (GPU). Note: This\npackage does not currently install the drivers necessary to run CUDA.\nThese will need to be installed manually. See:\nhttps://docs.nvidia.com/cuda/ for details."
-        },
-        {
-            "name": "gmake",
-            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files."
-        },
-        {
-            "name": "lapack",
-            "description": "Lightweight but flexible shim designed to rectify the incompatibilities\nbetween the Accelerate/vecLib BLAS and LAPACK libraries shipped with\nmacOS and FORTRAN code compiled with modern compilers such as GNU\nFortran."
-        }
-    ],
-    "dependent_to": []
+    ]
 }

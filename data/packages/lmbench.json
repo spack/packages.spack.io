@@ -1,52 +1,52 @@
 {
-    "name": "lmbench",
     "aliases": [],
-    "versions": [
-        {
-            "name": "master",
-            "branch": "master"
-        }
-    ],
-    "latest_version": "master",
     "build_system": "MakefilePackage",
     "conflicts": [
         {
+            "description": null,
             "name": "arch=windows-None-None",
-            "spec": "build_system=makefile",
-            "description": null
+            "spec": "build_system=makefile"
         }
     ],
-    "variants": [
+    "dependencies": [
         {
-            "name": "build_system",
-            "default": "makefile",
-            "description": "Build systems supported by the package"
+            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files.",
+            "name": "gmake"
+        },
+        {
+            "description": "Libtirpc is a port of Suns Transport-Independent RPC library to Linux.",
+            "name": "libtirpc"
         }
     ],
+    "dependent_to": [],
+    "description": "lmbench is a suite of simple, portable, ANSI/C microbenchmarks for\nUNIX/POSIX. In general, it measures two key features: latency and\nbandwidth. lmbench is intended to give system developers insight into\nbasic costs of key operations.\n",
     "homepage": "https://lmbench.sourceforge.net/",
+    "latest_version": "master",
     "maintainers": [],
+    "name": "lmbench",
     "patches": [
         {
-            "owner": "builtin.lmbench",
-            "sha256": "2af57abc9058c56b6dd0697bb01a98902230bef92b117017e318faba148eef60",
             "level": 1,
-            "working_dir": ".",
-            "reverse": false,
+            "owner": "builtin.lmbench",
             "relative_path": "fix_results_path_for_aarch64.patch",
-            "version": "arch=None-None-aarch64:"
+            "reverse": false,
+            "sha256": "2af57abc9058c56b6dd0697bb01a98902230bef92b117017e318faba148eef60",
+            "version": "arch=None-None-aarch64:",
+            "working_dir": "."
         }
     ],
     "resources": [],
-    "description": "lmbench is a suite of simple, portable, ANSI/C microbenchmarks for\nUNIX/POSIX. In general, it measures two key features: latency and\nbandwidth. lmbench is intended to give system developers insight into\nbasic costs of key operations.\n",
-    "dependencies": [
+    "variants": [
         {
-            "name": "gmake",
-            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files."
-        },
-        {
-            "name": "libtirpc",
-            "description": "Libtirpc is a port of Suns Transport-Independent RPC library to Linux."
+            "default": "makefile",
+            "description": "Build systems supported by the package",
+            "name": "build_system"
         }
     ],
-    "dependent_to": []
+    "versions": [
+        {
+            "branch": "master",
+            "name": "master"
+        }
+    ]
 }

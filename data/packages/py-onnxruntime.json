@@ -1,247 +1,247 @@
 {
-    "name": "py-onnxruntime",
     "aliases": [],
-    "versions": [
-        {
-            "name": "1.17.3",
-            "commit": "56b660f36940a919295e6f1e18ad3a9a93a10bf7",
-            "tag": "v1.17.3"
-        },
-        {
-            "name": "1.17.1",
-            "commit": "8f5c79cb63f09ef1302e85081093a3fe4da1bc7d",
-            "tag": "v1.17.1"
-        },
-        {
-            "name": "1.10.0",
-            "commit": "0d9030e79888d1d5828730b254fedc53c7b640c1",
-            "tag": "v1.10.0"
-        },
-        {
-            "name": "1.7.2",
-            "commit": "5bc92dff16b0ddd5063b717fb8522ca2ad023cb0",
-            "tag": "v1.7.2"
-        }
-    ],
-    "latest_version": "1.17.3",
     "build_system": "CMakePackage",
     "conflicts": [
         {
+            "description": null,
             "name": "generator=make",
-            "spec": "",
-            "description": null
+            "spec": ""
         }
     ],
-    "variants": [
-        {
-            "name": "build_system",
-            "default": "cmake",
-            "description": "Build systems supported by the package"
-        },
-        {
-            "name": "build_type",
-            "default": "Release",
-            "description": "CMake build type"
-        },
-        {
-            "name": "ipo",
-            "default": false,
-            "description": "CMake interprocedural optimization"
-        },
-        {
-            "name": "generator",
-            "default": "ninja",
-            "description": "the build system generator to use"
-        },
-        {
-            "name": "cuda",
-            "default": false,
-            "description": "Build with CUDA support"
-        },
-        {
-            "name": "dynamic_cpu_arch",
-            "default": "AVX512",
-            "description": "AVX support level"
-        }
-    ],
-    "homepage": "https://github.com/microsoft/onnxruntime",
-    "maintainers": [],
-    "patches": [
-        {
-            "owner": "builtin.py-onnxruntime",
-            "sha256": "3f2c8201e94775a39d367a40937517568b8d1a3c6c7d07238f1dd6c610c5749d",
-            "level": 1,
-            "working_dir": ".",
-            "reverse": false,
-            "relative_path": "cms.patch",
-            "version": "@1.7.2"
-        },
-        {
-            "owner": "builtin.py-onnxruntime",
-            "sha256": "ad26be0aa042cbc4d3033ee604e7bfdfd5e48a37a228e0e504b5b7c18b14d5b8",
-            "level": 1,
-            "working_dir": ".",
-            "reverse": false,
-            "relative_path": "gcc11.patch",
-            "version": "@1.7.2"
-        },
-        {
-            "owner": "builtin.py-onnxruntime",
-            "sha256": "bc7ca543436af2ea3dcc17ee2e5eea6495c5391da1c348167d5be560ee196bd8",
-            "level": 1,
-            "working_dir": ".",
-            "reverse": false,
-            "relative_path": "cms_1_10.patch",
-            "version": "@1.10"
-        },
-        {
-            "owner": "builtin.py-onnxruntime",
-            "sha256": "242cc317627a801e93635bcb0b8a07d8d6890742f76c295aabccebda56eaf488",
-            "level": 0,
-            "working_dir": ".",
-            "reverse": false,
-            "relative_path": "libiconv.patch",
-            "version": "@1.7.2 ^libiconv"
-        },
-        {
-            "owner": "builtin.py-onnxruntime",
-            "sha256": "1eaafe93b9091031afbca0b8f323c735865cc278503d3cd922ccaf8ac68c20e9",
-            "level": 0,
-            "working_dir": ".",
-            "reverse": false,
-            "relative_path": "libiconv-1.10.patch",
-            "version": "@1.10.0 ^libiconv"
-        },
-        {
-            "owner": "builtin.py-onnxruntime",
-            "sha256": "537c43b061d31bf97d2778d723a41fbd390160f9ebc304f06726e3bfd8dc4583",
-            "level": 1,
-            "working_dir": ".",
-            "reverse": false,
-            "url": "https://github.com/microsoft/onnxruntime/commit/a3a443c80431c390cbf8855e9c7b2a95d413cd54.patch?full_index=1",
-            "version": "@1.10:1.15"
-        }
-    ],
-    "resources": [],
-    "description": "ONNX Runtime is a performance-focused complete scoring engine for Open\nNeural Network Exchange (ONNX) models, with an open extensible\narchitecture to continually address the latest developments in AI and\nDeep Learning. ONNX Runtime stays up to date with the ONNX standard with\ncomplete implementation of all ONNX operators, and supports all ONNX\nreleases (1.2+) with both future and backwards compatibility.\n",
     "dependencies": [
         {
-            "name": "abseil-cpp",
-            "description": "Abseil Common Libraries (C++)"
+            "description": "Abseil Common Libraries (C++)",
+            "name": "abseil-cpp"
         },
         {
-            "name": "cmake",
-            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software.",
+            "name": "cmake"
         },
         {
-            "name": "cuda",
-            "description": "CUDA is a parallel computing platform and programming model invented by\nNVIDIA. It enables dramatic increases in computing performance by\nharnessing the power of the graphics processing unit (GPU). Note: This\npackage does not currently install the drivers necessary to run CUDA.\nThese will need to be installed manually. See:\nhttps://docs.nvidia.com/cuda/ for details."
+            "description": "CUDA is a parallel computing platform and programming model invented by\nNVIDIA. It enables dramatic increases in computing performance by\nharnessing the power of the graphics processing unit (GPU). Note: This\npackage does not currently install the drivers necessary to run CUDA.\nThese will need to be installed manually. See:\nhttps://docs.nvidia.com/cuda/ for details.",
+            "name": "cuda"
         },
         {
-            "name": "cudnn",
-            "description": "NVIDIA cuDNN is a GPU-accelerated library of primitives for deep neural\nnetworks"
+            "description": "NVIDIA cuDNN is a GPU-accelerated library of primitives for deep neural\nnetworks",
+            "name": "cudnn"
         },
         {
-            "name": "gmake",
-            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files."
+            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files.",
+            "name": "gmake"
         },
         {
-            "name": "iconv",
-            "description": "Musl is a libc, an implementation of the standard library functionality\ndescribed in the ISO C and POSIX standards, plus common extensions,\nintended for use on Linux-based systems. Whereas the kernel (Linux)\ngoverns access to hardware, memory, filesystems, and the privileges for\naccessing these resources, the C library is responsible for providing\nthe actual C function interfaces userspace applications see, and for\nconstructing higher-level buffered stdio, memory allocation management,\nthread creation and synchronization operations, and so on using the\nlower-level interfaces the kernel provides, as well as for implementing\npure library routines of the C language like strstr, snprintf, strtol,\nexp, sqrt, etc. Musl is a new general-purpose implementation of the C\nlibrary. It is lightweight, fast, simple, free, and aims to be correct\nin the sense of standards-conformance and safety."
+            "description": "Musl is a libc, an implementation of the standard library functionality\ndescribed in the ISO C and POSIX standards, plus common extensions,\nintended for use on Linux-based systems. Whereas the kernel (Linux)\ngoverns access to hardware, memory, filesystems, and the privileges for\naccessing these resources, the C library is responsible for providing\nthe actual C function interfaces userspace applications see, and for\nconstructing higher-level buffered stdio, memory allocation management,\nthread creation and synchronization operations, and so on using the\nlower-level interfaces the kernel provides, as well as for implementing\npure library routines of the C language like strstr, snprintf, strtol,\nexp, sqrt, etc. Musl is a new general-purpose implementation of the C\nlibrary. It is lightweight, fast, simple, free, and aims to be correct\nin the sense of standards-conformance and safety.",
+            "name": "iconv"
         },
         {
-            "name": "libpng",
-            "description": "libpng is the official PNG reference library."
+            "description": "libpng is the official PNG reference library.",
+            "name": "libpng"
         },
         {
-            "name": "ninja",
-            "description": "Ninja is a small build system with a focus on speed. It differs from\nother build systems in two major respects: it is designed to have its\ninput files generated by a higher-level build system, and it is designed\nto run builds as fast as possible."
+            "description": "Ninja is a small build system with a focus on speed. It differs from\nother build systems in two major respects: it is designed to have its\ninput files generated by a higher-level build system, and it is designed\nto run builds as fast as possible.",
+            "name": "ninja"
         },
         {
-            "name": "protobuf",
-            "description": "Google's data interchange format."
+            "description": "Google's data interchange format.",
+            "name": "protobuf"
         },
         {
-            "name": "py-cerberus",
-            "description": "Lightweight, extensible schema and data validation tool for Python\ndictionaries"
+            "description": "Lightweight, extensible schema and data validation tool for Python\ndictionaries",
+            "name": "py-cerberus"
         },
         {
-            "name": "py-coloredlogs",
-            "description": "Colored terminal output for Python's logging module"
+            "description": "Colored terminal output for Python's logging module",
+            "name": "py-coloredlogs"
         },
         {
-            "name": "py-flatbuffers",
-            "description": "The FlatBuffers serialization format implemented in Python. For a\nfaster and feature-complete version check out the C++ implementation in\n`flatbuffers` package."
+            "description": "The FlatBuffers serialization format implemented in Python. For a\nfaster and feature-complete version check out the C++ implementation in\n`flatbuffers` package.",
+            "name": "py-flatbuffers"
         },
         {
-            "name": "py-numpy",
-            "description": "Fundamental package for array computing in Python."
+            "description": "Fundamental package for array computing in Python.",
+            "name": "py-numpy"
         },
         {
-            "name": "py-onnx",
-            "description": "Open Neural Network Exchange (ONNX) is an open ecosystem that empowers\nAI developers to choose the right tools as their project evolves. ONNX\nprovides an open source format for AI models, both deep learning and\ntraditional ML. It defines an extensible computation graph model, as\nwell as definitions of built-in operators and standard data types.\nCurrently we focus on the capabilities needed for inferencing (scoring)."
+            "description": "Open Neural Network Exchange (ONNX) is an open ecosystem that empowers\nAI developers to choose the right tools as their project evolves. ONNX\nprovides an open source format for AI models, both deep learning and\ntraditional ML. It defines an extensible computation graph model, as\nwell as definitions of built-in operators and standard data types.\nCurrently we focus on the capabilities needed for inferencing (scoring).",
+            "name": "py-onnx"
         },
         {
-            "name": "py-packaging",
-            "description": "Core utilities for Python packages."
+            "description": "Core utilities for Python packages.",
+            "name": "py-packaging"
         },
         {
-            "name": "py-pip",
-            "description": "The PyPA recommended tool for installing Python packages."
+            "description": "The PyPA recommended tool for installing Python packages.",
+            "name": "py-pip"
         },
         {
-            "name": "py-protobuf",
-            "description": "Protocol buffers are Google's language-neutral, platform-neutral,\nextensible mechanism for serializing structured data - think XML, but\nsmaller, faster, and simpler. You define how you want your data to be\nstructured once, then you can use special generated source code to\neasily write and read your structured data to and from a variety of data\nstreams and using a variety of languages."
+            "description": "Protocol buffers are Google's language-neutral, platform-neutral,\nextensible mechanism for serializing structured data - think XML, but\nsmaller, faster, and simpler. You define how you want your data to be\nstructured once, then you can use special generated source code to\neasily write and read your structured data to and from a variety of data\nstreams and using a variety of languages.",
+            "name": "py-protobuf"
         },
         {
-            "name": "py-pybind11",
-            "description": "pybind11 -- Seamless operability between C++11 and Python. pybind11 is a\nlightweight header-only library that exposes C++ types in Python and\nvice versa, mainly to create Python bindings of existing C++ code. Its\ngoals and syntax are similar to the excellent Boost.Python library by\nDavid Abrahams: to minimize boilerplate code in traditional extension\nmodules by inferring type information using compile-time introspection."
+            "description": "pybind11 -- Seamless operability between C++11 and Python. pybind11 is a\nlightweight header-only library that exposes C++ types in Python and\nvice versa, mainly to create Python bindings of existing C++ code. Its\ngoals and syntax are similar to the excellent Boost.Python library by\nDavid Abrahams: to minimize boilerplate code in traditional extension\nmodules by inferring type information using compile-time introspection.",
+            "name": "py-pybind11"
         },
         {
-            "name": "py-setuptools",
-            "description": "A Python utility that aids in the process of downloading, building,\nupgrading, installing, and uninstalling Python packages."
+            "description": "A Python utility that aids in the process of downloading, building,\nupgrading, installing, and uninstalling Python packages.",
+            "name": "py-setuptools"
         },
         {
-            "name": "py-sympy",
-            "description": "SymPy is a Python library for symbolic mathematics."
+            "description": "SymPy is a Python library for symbolic mathematics.",
+            "name": "py-sympy"
         },
         {
-            "name": "py-wheel",
-            "description": "A built-package format for Python."
+            "description": "A built-package format for Python.",
+            "name": "py-wheel"
         },
         {
-            "name": "python",
-            "description": "The Python programming language."
+            "description": "The Python programming language.",
+            "name": "python"
         },
         {
-            "name": "python-venv",
-            "description": "A Spack managed Python virtual environment"
+            "description": "A Spack managed Python virtual environment",
+            "name": "python-venv"
         },
         {
-            "name": "re2",
-            "description": "RE2 is a fast, safe, thread-friendly alternative to backtracking regular\nexpression engines like those used in PCRE, Perl, and Python."
+            "description": "RE2 is a fast, safe, thread-friendly alternative to backtracking regular\nexpression engines like those used in PCRE, Perl, and Python.",
+            "name": "re2"
         },
         {
-            "name": "zlib-api",
-            "description": "zlib replacement with optimizations for next generation systems."
+            "description": "zlib replacement with optimizations for next generation systems.",
+            "name": "zlib-api"
         }
     ],
     "dependent_to": [
         {
-            "name": "py-onnxmltools",
-            "description": "Converts Machine Learning models to ONNX"
+            "description": "A Common Tracking Software (Acts) This project contains an experiment-\nindependent set of track reconstruction tools. The main philosophy is to\nprovide high-level track reconstruction modules that can be used for any\ntracking detector. The description of the tracking detector's geometry\nis optimized for efficient navigation and quick extrapolation of tracks.\nConverters for several common geometry description languages exist.\nHaving a highly performant, yet largely customizable implementation of\ntrack reconstruction algorithms was a primary objective for the design\nof this toolset. Additionally, the applicability to real-life HEP\nexperiments plays major role in the development process. Apart from\nalgorithmic code, this project also provides an event data model for the\ndescription of track parameters and measurements. Key features of this\nproject include: tracking geometry description which can be constructed\nfrom TGeo, DD4Hep, or GDML input, simple and efficient event data model,\nperformant and highly flexible algorithms for track propagation and\nfitting, basic seed finding algorithms.",
+            "name": "acts"
         },
         {
-            "name": "acts",
-            "description": "A Common Tracking Software (Acts) This project contains an experiment-\nindependent set of track reconstruction tools. The main philosophy is to\nprovide high-level track reconstruction modules that can be used for any\ntracking detector. The description of the tracking detector's geometry\nis optimized for efficient navigation and quick extrapolation of tracks.\nConverters for several common geometry description languages exist.\nHaving a highly performant, yet largely customizable implementation of\ntrack reconstruction algorithms was a primary objective for the design\nof this toolset. Additionally, the applicability to real-life HEP\nexperiments plays major role in the development process. Apart from\nalgorithmic code, this project also provides an event data model for the\ndescription of track parameters and measurements. Key features of this\nproject include: tracking geometry description which can be constructed\nfrom TGeo, DD4Hep, or GDML input, simple and efficient event data model,\nperformant and highly flexible algorithms for track propagation and\nfitting, basic seed finding algorithms."
+            "description": "Earth-2 Model Intercomparison Project (MIP). A python framework that\nenables climate researchers and scientists to explore and experiment\nwith AI models for weather and climate.",
+            "name": "py-earth2mip"
         },
         {
-            "name": "py-onnx-opcounter",
-            "description": "ONNX flops / params counter."
+            "description": "ONNX flops / params counter.",
+            "name": "py-onnx-opcounter"
         },
         {
-            "name": "py-earth2mip",
-            "description": "Earth-2 Model Intercomparison Project (MIP). A python framework that\nenables climate researchers and scientists to explore and experiment\nwith AI models for weather and climate."
+            "description": "Converts Machine Learning models to ONNX",
+            "name": "py-onnxmltools"
+        }
+    ],
+    "description": "ONNX Runtime is a performance-focused complete scoring engine for Open\nNeural Network Exchange (ONNX) models, with an open extensible\narchitecture to continually address the latest developments in AI and\nDeep Learning. ONNX Runtime stays up to date with the ONNX standard with\ncomplete implementation of all ONNX operators, and supports all ONNX\nreleases (1.2+) with both future and backwards compatibility.\n",
+    "homepage": "https://github.com/microsoft/onnxruntime",
+    "latest_version": "1.17.3",
+    "maintainers": [],
+    "name": "py-onnxruntime",
+    "patches": [
+        {
+            "level": 1,
+            "owner": "builtin.py-onnxruntime",
+            "relative_path": "cms.patch",
+            "reverse": false,
+            "sha256": "3f2c8201e94775a39d367a40937517568b8d1a3c6c7d07238f1dd6c610c5749d",
+            "version": "@1.7.2",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.py-onnxruntime",
+            "relative_path": "gcc11.patch",
+            "reverse": false,
+            "sha256": "ad26be0aa042cbc4d3033ee604e7bfdfd5e48a37a228e0e504b5b7c18b14d5b8",
+            "version": "@1.7.2",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.py-onnxruntime",
+            "relative_path": "cms_1_10.patch",
+            "reverse": false,
+            "sha256": "bc7ca543436af2ea3dcc17ee2e5eea6495c5391da1c348167d5be560ee196bd8",
+            "version": "@1.10",
+            "working_dir": "."
+        },
+        {
+            "level": 0,
+            "owner": "builtin.py-onnxruntime",
+            "relative_path": "libiconv.patch",
+            "reverse": false,
+            "sha256": "242cc317627a801e93635bcb0b8a07d8d6890742f76c295aabccebda56eaf488",
+            "version": "@1.7.2 ^libiconv",
+            "working_dir": "."
+        },
+        {
+            "level": 0,
+            "owner": "builtin.py-onnxruntime",
+            "relative_path": "libiconv-1.10.patch",
+            "reverse": false,
+            "sha256": "1eaafe93b9091031afbca0b8f323c735865cc278503d3cd922ccaf8ac68c20e9",
+            "version": "@1.10.0 ^libiconv",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.py-onnxruntime",
+            "reverse": false,
+            "sha256": "537c43b061d31bf97d2778d723a41fbd390160f9ebc304f06726e3bfd8dc4583",
+            "url": "https://github.com/microsoft/onnxruntime/commit/a3a443c80431c390cbf8855e9c7b2a95d413cd54.patch?full_index=1",
+            "version": "@1.10:1.15",
+            "working_dir": "."
+        }
+    ],
+    "resources": [],
+    "variants": [
+        {
+            "default": "cmake",
+            "description": "Build systems supported by the package",
+            "name": "build_system"
+        },
+        {
+            "default": "Release",
+            "description": "CMake build type",
+            "name": "build_type"
+        },
+        {
+            "default": false,
+            "description": "Build with CUDA support",
+            "name": "cuda"
+        },
+        {
+            "default": "AVX512",
+            "description": "AVX support level",
+            "name": "dynamic_cpu_arch"
+        },
+        {
+            "default": "ninja",
+            "description": "the build system generator to use",
+            "name": "generator"
+        },
+        {
+            "default": false,
+            "description": "CMake interprocedural optimization",
+            "name": "ipo"
+        }
+    ],
+    "versions": [
+        {
+            "commit": "0d9030e79888d1d5828730b254fedc53c7b640c1",
+            "name": "1.10.0",
+            "tag": "v1.10.0"
+        },
+        {
+            "commit": "8f5c79cb63f09ef1302e85081093a3fe4da1bc7d",
+            "name": "1.17.1",
+            "tag": "v1.17.1"
+        },
+        {
+            "commit": "56b660f36940a919295e6f1e18ad3a9a93a10bf7",
+            "name": "1.17.3",
+            "tag": "v1.17.3"
+        },
+        {
+            "commit": "5bc92dff16b0ddd5063b717fb8522ca2ad023cb0",
+            "name": "1.7.2",
+            "tag": "v1.7.2"
         }
     ]
 }

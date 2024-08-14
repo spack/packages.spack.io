@@ -1,10 +1,79 @@
 {
-    "name": "hpgmg",
     "aliases": [],
+    "build_system": "MakefilePackage",
+    "conflicts": [
+        {
+            "description": null,
+            "name": "arch=windows-None-None",
+            "spec": "build_system=makefile"
+        }
+    ],
+    "dependencies": [
+        {
+            "description": "CUDA is a parallel computing platform and programming model invented by\nNVIDIA. It enables dramatic increases in computing performance by\nharnessing the power of the graphics processing unit (GPU). Note: This\npackage does not currently install the drivers necessary to run CUDA.\nThese will need to be installed manually. See:\nhttps://docs.nvidia.com/cuda/ for details.",
+            "name": "cuda"
+        },
+        {
+            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files.",
+            "name": "gmake"
+        },
+        {
+            "description": "IBM MPI implementation from Spectrum MPI.",
+            "name": "mpi"
+        },
+        {
+            "description": "PETSc is a suite of data structures and routines for the scalable\n(parallel) solution of scientific applications modeled by partial\ndifferential equations.",
+            "name": "petsc"
+        },
+        {
+            "description": "The Python programming language.",
+            "name": "python"
+        }
+    ],
+    "dependent_to": [
+        {
+            "description": "Ceed is a collection of benchmarks, miniapps, software libraries and\nAPIs for efficient high-order finite element and spectral element\ndiscretizations for exascale applications developed in the Department of\nEnergy (DOE) and partially supported by the Exascale Computing Project\n(ECP). This is a Spack bundle package that installs the CEED software\ncomponents.",
+            "name": "ceed"
+        }
+    ],
+    "description": "HPGMG implements full multigrid (FMG) algorithms using finite-volume and\nfinite-element methods. Different algorithmic variants adjust the\narithmetic intensity and architectural properties that are tested. These\nFMG methods converge up to discretization error in one F-cycle, thus may\nbe considered direct solvers. An F-cycle visits the finest level a total\nof two times, the first coarsening (8x smaller) 4 times, the second\ncoarsening 6 times, etc.\n",
+    "homepage": "https://bitbucket.org/hpgmg/hpgmg",
+    "latest_version": "0.4",
+    "maintainers": [],
+    "name": "hpgmg",
+    "patches": [],
+    "resources": [],
+    "variants": [
+        {
+            "default": "makefile",
+            "description": "Build systems supported by the package",
+            "name": "build_system"
+        },
+        {
+            "default": false,
+            "description": "Build with CUDA",
+            "name": "cuda"
+        },
+        {
+            "default": false,
+            "description": "Build in debug mode",
+            "name": "debug"
+        },
+        {
+            "default": false,
+            "description": "Build finite element solver",
+            "name": "fe"
+        },
+        {
+            "default": "mpi",
+            "description": "Build finite volume solver with or without MPI support",
+            "name": "fv"
+        }
+    ],
     "versions": [
         {
-            "name": "develop",
-            "branch": "master"
+            "name": "0.3",
+            "sha256": "12a65da216fec91daea78594ae4b5a069c8f1a700f1ba21eed9f45a79a68c793"
         },
         {
             "name": "0.4",
@@ -15,77 +84,8 @@
             "sha256": "b9c50f25e541428d4735fb07344d1d0ed9fc821bdde918d8e0defa78c0d9b4f9"
         },
         {
-            "name": "0.3",
-            "sha256": "12a65da216fec91daea78594ae4b5a069c8f1a700f1ba21eed9f45a79a68c793"
-        }
-    ],
-    "latest_version": "0.4",
-    "build_system": "MakefilePackage",
-    "conflicts": [
-        {
-            "name": "arch=windows-None-None",
-            "spec": "build_system=makefile",
-            "description": null
-        }
-    ],
-    "variants": [
-        {
-            "name": "build_system",
-            "default": "makefile",
-            "description": "Build systems supported by the package"
-        },
-        {
-            "name": "fe",
-            "default": false,
-            "description": "Build finite element solver"
-        },
-        {
-            "name": "fv",
-            "default": "mpi",
-            "description": "Build finite volume solver with or without MPI support"
-        },
-        {
-            "name": "cuda",
-            "default": false,
-            "description": "Build with CUDA"
-        },
-        {
-            "name": "debug",
-            "default": false,
-            "description": "Build in debug mode"
-        }
-    ],
-    "homepage": "https://bitbucket.org/hpgmg/hpgmg",
-    "maintainers": [],
-    "patches": [],
-    "resources": [],
-    "description": "HPGMG implements full multigrid (FMG) algorithms using finite-volume and\nfinite-element methods. Different algorithmic variants adjust the\narithmetic intensity and architectural properties that are tested. These\nFMG methods converge up to discretization error in one F-cycle, thus may\nbe considered direct solvers. An F-cycle visits the finest level a total\nof two times, the first coarsening (8x smaller) 4 times, the second\ncoarsening 6 times, etc.\n",
-    "dependencies": [
-        {
-            "name": "cuda",
-            "description": "CUDA is a parallel computing platform and programming model invented by\nNVIDIA. It enables dramatic increases in computing performance by\nharnessing the power of the graphics processing unit (GPU). Note: This\npackage does not currently install the drivers necessary to run CUDA.\nThese will need to be installed manually. See:\nhttps://docs.nvidia.com/cuda/ for details."
-        },
-        {
-            "name": "gmake",
-            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files."
-        },
-        {
-            "name": "mpi",
-            "description": "A single processor implementation of the mpi library."
-        },
-        {
-            "name": "petsc",
-            "description": "PETSc is a suite of data structures and routines for the scalable\n(parallel) solution of scientific applications modeled by partial\ndifferential equations."
-        },
-        {
-            "name": "python",
-            "description": "The Python programming language."
-        }
-    ],
-    "dependent_to": [
-        {
-            "name": "ceed",
-            "description": "Ceed is a collection of benchmarks, miniapps, software libraries and\nAPIs for efficient high-order finite element and spectral element\ndiscretizations for exascale applications developed in the Department of\nEnergy (DOE) and partially supported by the Exascale Computing Project\n(ECP). This is a Spack bundle package that installs the CEED software\ncomponents."
+            "branch": "master",
+            "name": "develop"
         }
     ]
 }

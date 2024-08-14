@@ -1,87 +1,87 @@
 {
-    "name": "shtools",
     "aliases": [],
-    "versions": [
+    "build_system": "MakefilePackage",
+    "conflicts": [
         {
-            "name": "4.10.2",
-            "sha256": "0caece67d65ddde19a79ec79bc6244f447f6fa878e5b2dc3f635cae2a3d1ee8c"
+            "description": null,
+            "name": "arch=windows-None-None",
+            "spec": "build_system=makefile"
+        }
+    ],
+    "dependencies": [
+        {
+            "description": "Lightweight but flexible shim designed to rectify the incompatibilities\nbetween the Accelerate/vecLib BLAS and LAPACK libraries shipped with\nmacOS and FORTRAN code compiled with modern compilers such as GNU\nFortran.",
+            "name": "blas"
         },
+        {
+            "description": "FFTW is a C subroutine library for computing the discrete Fourier\ntransform (DFT) in one or more dimensions, of arbitrary input size, and\nof both real and complex data (as well as of even/odd data, i.e. the\ndiscrete cosine/sine transforms or DCT/DST). We believe that FFTW, which\nis free software, should become the FFT library of choice for most\napplications.",
+            "name": "fftw"
+        },
+        {
+            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files.",
+            "name": "gmake"
+        },
+        {
+            "description": "Lightweight but flexible shim designed to rectify the incompatibilities\nbetween the Accelerate/vecLib BLAS and LAPACK libraries shipped with\nmacOS and FORTRAN code compiled with modern compilers such as GNU\nFortran.",
+            "name": "lapack"
+        },
+        {
+            "description": "Flake8 is a wrapper around PyFlakes, pep8 and Ned Batchelder's McCabe\nscript.",
+            "name": "py-flake8"
+        }
+    ],
+    "dependent_to": [],
+    "description": "SHTOOLS - Spherical Harmonic Tools\n",
+    "homepage": "https://shtools.github.io/SHTOOLS/",
+    "latest_version": "4.10.2",
+    "maintainers": [
+        "eschnett"
+    ],
+    "name": "shtools",
+    "patches": [
+        {
+            "level": 1,
+            "owner": "builtin.shtools",
+            "relative_path": "nolibtool.patch",
+            "reverse": false,
+            "sha256": "a757fa769e6f94b3443621354f44ed74e07625926e5f12e6eba387cbf2f094b1",
+            "version": "@:4.9",
+            "working_dir": "."
+        }
+    ],
+    "resources": [],
+    "variants": [
+        {
+            "default": "makefile",
+            "description": "Build systems supported by the package",
+            "name": "build_system"
+        },
+        {
+            "default": true,
+            "description": "Enable OpenMP support",
+            "name": "openmp"
+        }
+    ],
+    "versions": [
         {
             "name": "4.10.1",
             "sha256": "f4fb5c86841fe80136b520d2040149eafd4bc2d49da6b914d8a843b812f20b61"
         },
         {
-            "name": "4.9.1",
-            "sha256": "5c22064f9daf6e9aa08cace182146993aa6b25a6ea593d92572c59f4013d53c2"
+            "name": "4.10.2",
+            "sha256": "0caece67d65ddde19a79ec79bc6244f447f6fa878e5b2dc3f635cae2a3d1ee8c"
+        },
+        {
+            "name": "4.5",
+            "sha256": "1975a2a2bcef8c527d321be08c13c2bc479e0d6b81c468a3203f95df59be4f89"
         },
         {
             "name": "4.8",
             "sha256": "c36fc86810017e544abbfb12f8ddf6f101a1ac8b89856a76d7d9801ffc8dac44"
         },
         {
-            "name": "4.5",
-            "sha256": "1975a2a2bcef8c527d321be08c13c2bc479e0d6b81c468a3203f95df59be4f89"
+            "name": "4.9.1",
+            "sha256": "5c22064f9daf6e9aa08cace182146993aa6b25a6ea593d92572c59f4013d53c2"
         }
-    ],
-    "latest_version": "4.10.2",
-    "build_system": "MakefilePackage",
-    "conflicts": [
-        {
-            "name": "arch=windows-None-None",
-            "spec": "build_system=makefile",
-            "description": null
-        }
-    ],
-    "variants": [
-        {
-            "name": "build_system",
-            "default": "makefile",
-            "description": "Build systems supported by the package"
-        },
-        {
-            "name": "openmp",
-            "default": true,
-            "description": "Enable OpenMP support"
-        }
-    ],
-    "homepage": "https://shtools.github.io/SHTOOLS/",
-    "maintainers": [
-        "eschnett"
-    ],
-    "patches": [
-        {
-            "owner": "builtin.shtools",
-            "sha256": "a757fa769e6f94b3443621354f44ed74e07625926e5f12e6eba387cbf2f094b1",
-            "level": 1,
-            "working_dir": ".",
-            "reverse": false,
-            "relative_path": "nolibtool.patch",
-            "version": "@:4.9"
-        }
-    ],
-    "resources": [],
-    "description": "SHTOOLS - Spherical Harmonic Tools\n",
-    "dependencies": [
-        {
-            "name": "blas",
-            "description": "BLIS is a portable software framework for instantiating high-performance\nBLAS-like dense linear algebra libraries. The framework was designed to\nisolate essential kernels of computation that, when optimized,\nimmediately enable optimized implementations of most of its commonly\nused and computationally intensive operations. BLIS is written in ISO\nC99 and available under a new/modified/3-clause BSD license. While BLIS\nexports a new BLAS-like API, it also includes a BLAS compatibility layer\nwhich gives application developers access to BLIS implementations via\ntraditional BLAS routine calls. An object-based API unique to BLIS is\nalso available."
-        },
-        {
-            "name": "fftw",
-            "description": "FFTW is a C subroutine library for computing the discrete Fourier\ntransform (DFT) in one or more dimensions, of arbitrary input size, and\nof both real and complex data (as well as of even/odd data, i.e. the\ndiscrete cosine/sine transforms or DCT/DST). We believe that FFTW, which\nis free software, should become the FFT library of choice for most\napplications."
-        },
-        {
-            "name": "gmake",
-            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files."
-        },
-        {
-            "name": "lapack",
-            "description": "Lightweight but flexible shim designed to rectify the incompatibilities\nbetween the Accelerate/vecLib BLAS and LAPACK libraries shipped with\nmacOS and FORTRAN code compiled with modern compilers such as GNU\nFortran."
-        },
-        {
-            "name": "py-flake8",
-            "description": "Flake8 is a wrapper around PyFlakes, pep8 and Ned Batchelder's McCabe\nscript."
-        }
-    ],
-    "dependent_to": []
+    ]
 }

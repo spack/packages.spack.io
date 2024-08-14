@@ -1,336 +1,336 @@
 {
-    "name": "starpu",
     "aliases": [],
+    "build_system": "AutotoolsPackage",
+    "conflicts": [
+        {
+            "description": "starpu: Simgrid MPI cannot be built with a shared library",
+            "name": "+shared",
+            "spec": "+mpi+simgrid"
+        },
+        {
+            "description": null,
+            "name": "+papi",
+            "spec": "+simgrid"
+        },
+        {
+            "description": null,
+            "name": "~blocking",
+            "spec": "+simgrid"
+        },
+        {
+            "description": null,
+            "name": "arch=windows-None-None",
+            "spec": "build_system=autotools"
+        }
+    ],
+    "dependencies": [
+        {
+            "description": "Autoconf -- system configuration part of autotools",
+            "name": "autoconf"
+        },
+        {
+            "description": "Automake -- make file builder part of autotools",
+            "name": "automake"
+        },
+        {
+            "description": "CUDA is a parallel computing platform and programming model invented by\nNVIDIA. It enables dramatic increases in computing performance by\nharnessing the power of the graphics processing unit (GPU). Note: This\npackage does not currently install the drivers necessary to run CUDA.\nThese will need to be installed manually. See:\nhttps://docs.nvidia.com/cuda/ for details.",
+            "name": "cuda"
+        },
+        {
+            "description": "Fast User/Kernel Tracing FxT stands for both FKT (Fast Kernel Tracing)\nand FUT (Fast User Tracing). This library provides efficient support for\nrecording traces.",
+            "name": "fxt"
+        },
+        {
+            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files.",
+            "name": "gmake"
+        },
+        {
+            "description": "The GNU config.guess and config.sub scripts versioned by timestamp.\nThis package can be used as a build dependency for autotools packages\nthat ship a tarball with outdated config.guess and config.sub files.",
+            "name": "gnuconfig"
+        },
+        {
+            "description": "The Hardware Locality (hwloc) software project. The Portable Hardware\nLocality (hwloc) software package provides a portable abstraction\n(across OS, versions, architectures, ...) of the hierarchical topology\nof modern architectures, including NUMA memory nodes, sockets, shared\ncaches, cores and simultaneous multithreading. It also gathers various\nsystem attributes such as cache and memory information as well as the\nlocality of I/O devices such as network interfaces, InfiniBand HCAs or\nGPUs. It primarily aims at helping applications with gathering\ninformation about modern computing hardware so as to exploit it\naccordingly and efficiently.",
+            "name": "hwloc"
+        },
+        {
+            "description": "libtool -- library building part of autotools.",
+            "name": "libtool"
+        },
+        {
+            "description": "GNU M4 is an implementation of the traditional Unix macro processor.",
+            "name": "m4"
+        },
+        {
+            "description": "IBM MPI implementation from Spectrum MPI.",
+            "name": "mpi"
+        },
+        {
+            "description": "PAPI provides the tool designer and application engineer with a\nconsistent interface and methodology for use of the performance counter\nhardware found in most major microprocessors. PAPI enables software\nengineers to see, in near real time, the relation between software\nperformance and processor events. In addition Component PAPI provides\naccess to a collection of components that expose performance measurement\nopportunities across the hardware and software stack.",
+            "name": "papi"
+        },
+        {
+            "description": "pkgconf is a program which helps to configure compiler and linker flags\nfor development frameworks. It is similar to pkg-config from\nfreedesktop.org, providing additional functionality while also\nmaintaining compatibility.",
+            "name": "pkgconfig"
+        },
+        {
+            "description": "A Python utility that aids in the process of downloading, building,\nupgrading, installing, and uninstalling Python packages.",
+            "name": "py-setuptools"
+        },
+        {
+            "description": "SimGrid is a framework for developing simulators of distributed\napplications targetting distributed platforms, which can in turn be used\nto prototype, evaluate and compare relevant platform configurations,\nsystem designs, and algorithmic approaches.",
+            "name": "simgrid"
+        }
+    ],
+    "dependent_to": [
+        {
+            "description": "Dense Linear Algebra for Scalable Multi-core Architectures and GPGPUs",
+            "name": "chameleon"
+        },
+        {
+            "description": "EZTrace is a tool to automatically generate execution traces of HPC\napplications.",
+            "name": "eztrace"
+        },
+        {
+            "description": "a high performance parallel solver for very large sparse linear systems\nbased on direct methods",
+            "name": "pastix"
+        },
+        {
+            "description": "a software package for the solution of sparse, linear systems on\nmulticore computers based on the QR factorization of the input matrix.",
+            "name": "qrmumps"
+        }
+    ],
+    "description": "StarPU runtime system StarPU is a runtime support for scheduling\napplications written as task graphs on heterogeneous multi-core\narchitectures. Tasks may define several implementations, for different\narchitectures (e.g one implementation for CPUs, and one implementation\nfor CUDA). StarPU takes care of scheduling and executing those tasks as\nefficiently as possible over the entire machine. It also provides a\nhigh-level data management library which enforces memory coherency over\nthe differents processing units of the machine, and over a cluster when\nusing distributed computing. Various data structures are supported\nmainline (vectors, dense matrices, CSR/BCSR/COO sparse matrices, ...),\nbut application-specific data structures can also be supported.\n",
+    "homepage": "https://starpu.gitlabpages.inria.fr/",
+    "latest_version": "1.4.7",
+    "maintainers": [
+        "nfurmento",
+        "sthibaul"
+    ],
+    "name": "starpu",
+    "patches": [],
+    "resources": [],
+    "variants": [
+        {
+            "default": false,
+            "description": "Enable blocking drivers support",
+            "name": "blocking"
+        },
+        {
+            "default": "autotools",
+            "description": "Build systems supported by the package",
+            "name": "build_system"
+        },
+        {
+            "default": false,
+            "description": "Enable CUDA support",
+            "name": "cuda"
+        },
+        {
+            "default": false,
+            "description": "Enable debug symbols",
+            "name": "debug"
+        },
+        {
+            "default": true,
+            "description": "Enable Examples",
+            "name": "examples"
+        },
+        {
+            "default": true,
+            "description": "Disable runtime assertions",
+            "name": "fast"
+        },
+        {
+            "default": false,
+            "description": "Enable Fortran interface and examples",
+            "name": "fortran"
+        },
+        {
+            "default": false,
+            "description": "Enable FxT tracing support",
+            "name": "fxt"
+        },
+        {
+            "default": true,
+            "description": "Enable MPI support",
+            "name": "mpi"
+        },
+        {
+            "default": false,
+            "description": "Enable OpenCL support",
+            "name": "opencl"
+        },
+        {
+            "default": true,
+            "description": "Enable OpenMP support",
+            "name": "openmp"
+        },
+        {
+            "default": false,
+            "description": "Enable PAPI support",
+            "name": "papi"
+        },
+        {
+            "default": true,
+            "description": "Build STARPU as a shared library",
+            "name": "shared"
+        },
+        {
+            "default": false,
+            "description": "Enable SimGrid support",
+            "name": "simgrid"
+        },
+        {
+            "default": false,
+            "description": "Enable SimGrid model checker support",
+            "name": "simgridmc"
+        },
+        {
+            "default": false,
+            "description": "Enable verbose debugging",
+            "name": "verbose"
+        }
+    ],
     "versions": [
         {
-            "name": "1.4.7",
-            "sha256": "1eb3df551089153fe6e0b172ad95118434b4a81ea9eaa5a2c38725d0db53b13e"
-        },
-        {
-            "name": "1.4.6",
-            "sha256": "579f38e150ab78c9ab299649d8649a043dbf49786e54acbf3dad90c160672cc7"
-        },
-        {
-            "name": "1.4.5",
-            "sha256": "28f389b34df57a2a4e4743b40554b0f8d098ff2199e9eb8fbbe20aa377b64541"
-        },
-        {
-            "name": "1.4.4",
-            "sha256": "37f37739911451bbea063cff52779114f76bc681ea8de3a2ab65fc517d0ea112"
-        },
-        {
-            "name": "1.4.3",
-            "sha256": "848cce0a2fbaa75b104d9878da928e19b1c3bc9b978193081672ac882e63bbea"
-        },
-        {
-            "name": "1.4.2",
-            "sha256": "6c1fce80593a96d599881c1e9697a10e2072195b1c4c64a99528192b6715ddd6"
-        },
-        {
-            "name": "1.4.1",
-            "sha256": "f023aa53da245a0f43944c3a13f63b4bfdf1324f3e66bf5cd367ce51e2044925"
-        },
-        {
-            "name": "1.4.0",
-            "sha256": "5058127761a0604606a852fd6d20b07040d5fbd9f798c5383e49f336b4eeaca1"
-        },
-        {
-            "name": "1.3.11",
-            "sha256": "580c6d98d49bacd2c666504c88890335d2689b6547d97f6a088d4ab4812df36e"
-        },
-        {
-            "name": "1.3.10",
-            "sha256": "757cd9a54f53751d37364965ac36102461a85df3a50b776447ac0acc0e1e2612"
-        },
-        {
-            "name": "1.3.9",
-            "sha256": "73adf2a5d25b04023132cfb1a8d9293b356354af7d1134e876122a205128d241"
-        },
-        {
-            "name": "1.3.8",
-            "sha256": "d35a27b219af8e7973888ebbff728ec0112ae9cda88d6b79c4cc7a1399b4d052"
-        },
-        {
-            "name": "1.3.7",
-            "sha256": "1d7e01567fbd4a66b7e563626899374735e37883226afb96c8952fea1dab77c2"
-        },
-        {
-            "name": "1.3.6",
-            "sha256": "ca71bfc5e66bbef6838a81de80fe62ff1037c3bbf902f25d3812a6f63fd8091a"
-        },
-        {
-            "name": "1.3.5",
-            "sha256": "910456a44cbac798709d3d3dfa808b5730b56cb79d6e3d8af9c3723856c26eb9"
-        },
-        {
-            "name": "1.3.3",
-            "sha256": "9dee3ac5ead3fb6911ac0eb5bef6681e8b6d70be2d55e3df5f725dd1268ca942"
-        },
-        {
-            "name": "1.3.2",
-            "sha256": "6c49441bf9d91d8e707d7c4a1df6124138e8a89a55c5f9ff514843415ff7e0b8"
-        },
-        {
-            "name": "1.3.1",
-            "sha256": "84120ec1e5b8655d4778a1263ac6e82857c7287279d8e4f8df24bfffc92613ba"
-        },
-        {
-            "name": "1.3.0",
-            "sha256": "7e06841bddb4b4c7e04e87230cd76b839ef9618d6f4e8ac9b045ec1a80a631c4"
-        },
-        {
-            "name": "1.2.8",
-            "sha256": "b6666dfbc8f248d20df232f27b0edbbb0b426258eac55ec693e45373ba5a75fb"
-        },
-        {
-            "name": "1.2.7",
-            "sha256": "be301a2718d2ca24e125d0c70f98d5bb74525f5908b3d10e63fb980918b5a16f"
-        },
-        {
-            "name": "1.2.6",
-            "sha256": "eb67a7676777b6ed583722aca5a9f63145b842f390ac2f5b3cbc36fe910d964c"
-        },
-        {
-            "name": "1.2.5",
-            "sha256": "1f22eae5c9ee4cae1c8020c5a18f4e36c05c43624bd2ba1f5356a8962d2bdae9"
-        },
-        {
-            "name": "1.2.4",
-            "sha256": "4c99f41a29a5056685a086dc6e299f5bd8c79146f1f0543f1a5882ec5100a9bd"
-        },
-        {
-            "name": "1.2.3",
-            "sha256": "295d39da17ad17752c1cb91e0009fc9b3630bc4ac7db7e2e43433ec9024dc6db"
-        },
-        {
-            "name": "1.2.2",
-            "sha256": "1677990bb9aa8e574634f2407a63aa797313fcb9a0d544b7ac60df90a37e3057"
-        },
-        {
-            "name": "1.2.1",
-            "sha256": "2e0c13f9be7bf7f3c2ce73340ca773d7a0c25bf66a822e44d8fe6407a04f8d77"
+            "name": "1.1.6",
+            "sha256": "c28749b8f0a1586b814cb7d49dffb0f2631dde849591e697c40ef693a8fd54d8"
         },
         {
             "name": "1.2.0",
             "sha256": "c0b09a946bcbc680dd169d75856dc759abd98685da777afccc3366998b218a75"
         },
         {
-            "name": "1.1.6",
-            "sha256": "c28749b8f0a1586b814cb7d49dffb0f2631dde849591e697c40ef693a8fd54d8"
+            "name": "1.2.1",
+            "sha256": "2e0c13f9be7bf7f3c2ce73340ca773d7a0c25bf66a822e44d8fe6407a04f8d77"
         },
         {
-            "name": "develop",
-            "branch": "master"
+            "name": "1.2.2",
+            "sha256": "1677990bb9aa8e574634f2407a63aa797313fcb9a0d544b7ac60df90a37e3057"
         },
         {
-            "name": "master",
-            "branch": "master"
+            "name": "1.2.3",
+            "sha256": "295d39da17ad17752c1cb91e0009fc9b3630bc4ac7db7e2e43433ec9024dc6db"
         },
         {
-            "name": "git-1.1",
-            "branch": "starpu-1.1"
+            "name": "1.2.4",
+            "sha256": "4c99f41a29a5056685a086dc6e299f5bd8c79146f1f0543f1a5882ec5100a9bd"
         },
         {
-            "name": "git-1.2",
-            "branch": "starpu-1.2"
+            "name": "1.2.5",
+            "sha256": "1f22eae5c9ee4cae1c8020c5a18f4e36c05c43624bd2ba1f5356a8962d2bdae9"
         },
         {
-            "name": "git-1.3",
-            "branch": "starpu-1.3"
+            "name": "1.2.6",
+            "sha256": "eb67a7676777b6ed583722aca5a9f63145b842f390ac2f5b3cbc36fe910d964c"
         },
         {
-            "name": "git-1.4",
-            "branch": "starpu-1.4"
-        }
-    ],
-    "latest_version": "1.4.7",
-    "build_system": "AutotoolsPackage",
-    "conflicts": [
-        {
-            "name": "arch=windows-None-None",
-            "spec": "build_system=autotools",
-            "description": null
+            "name": "1.2.7",
+            "sha256": "be301a2718d2ca24e125d0c70f98d5bb74525f5908b3d10e63fb980918b5a16f"
         },
         {
-            "name": "+shared",
-            "spec": "+mpi+simgrid",
-            "description": "starpu: Simgrid MPI cannot be built with a shared library"
+            "name": "1.2.8",
+            "sha256": "b6666dfbc8f248d20df232f27b0edbbb0b426258eac55ec693e45373ba5a75fb"
         },
         {
-            "name": "+papi",
-            "spec": "+simgrid",
-            "description": null
+            "name": "1.3.0",
+            "sha256": "7e06841bddb4b4c7e04e87230cd76b839ef9618d6f4e8ac9b045ec1a80a631c4"
         },
         {
-            "name": "~blocking",
-            "spec": "+simgrid",
-            "description": null
-        }
-    ],
-    "variants": [
-        {
-            "name": "build_system",
-            "default": "autotools",
-            "description": "Build systems supported by the package"
+            "name": "1.3.1",
+            "sha256": "84120ec1e5b8655d4778a1263ac6e82857c7287279d8e4f8df24bfffc92613ba"
         },
         {
-            "name": "shared",
-            "default": true,
-            "description": "Build STARPU as a shared library"
+            "name": "1.3.10",
+            "sha256": "757cd9a54f53751d37364965ac36102461a85df3a50b776447ac0acc0e1e2612"
         },
         {
-            "name": "fast",
-            "default": true,
-            "description": "Disable runtime assertions"
+            "name": "1.3.11",
+            "sha256": "580c6d98d49bacd2c666504c88890335d2689b6547d97f6a088d4ab4812df36e"
         },
         {
-            "name": "debug",
-            "default": false,
-            "description": "Enable debug symbols"
+            "name": "1.3.2",
+            "sha256": "6c49441bf9d91d8e707d7c4a1df6124138e8a89a55c5f9ff514843415ff7e0b8"
         },
         {
-            "name": "verbose",
-            "default": false,
-            "description": "Enable verbose debugging"
+            "name": "1.3.3",
+            "sha256": "9dee3ac5ead3fb6911ac0eb5bef6681e8b6d70be2d55e3df5f725dd1268ca942"
         },
         {
-            "name": "fxt",
-            "default": false,
-            "description": "Enable FxT tracing support"
+            "name": "1.3.5",
+            "sha256": "910456a44cbac798709d3d3dfa808b5730b56cb79d6e3d8af9c3723856c26eb9"
         },
         {
-            "name": "mpi",
-            "default": true,
-            "description": "Enable MPI support"
+            "name": "1.3.6",
+            "sha256": "ca71bfc5e66bbef6838a81de80fe62ff1037c3bbf902f25d3812a6f63fd8091a"
         },
         {
-            "name": "cuda",
-            "default": false,
-            "description": "Enable CUDA support"
+            "name": "1.3.7",
+            "sha256": "1d7e01567fbd4a66b7e563626899374735e37883226afb96c8952fea1dab77c2"
         },
         {
-            "name": "opencl",
-            "default": false,
-            "description": "Enable OpenCL support"
+            "name": "1.3.8",
+            "sha256": "d35a27b219af8e7973888ebbff728ec0112ae9cda88d6b79c4cc7a1399b4d052"
         },
         {
-            "name": "openmp",
-            "default": true,
-            "description": "Enable OpenMP support"
+            "name": "1.3.9",
+            "sha256": "73adf2a5d25b04023132cfb1a8d9293b356354af7d1134e876122a205128d241"
         },
         {
-            "name": "fortran",
-            "default": false,
-            "description": "Enable Fortran interface and examples"
+            "name": "1.4.0",
+            "sha256": "5058127761a0604606a852fd6d20b07040d5fbd9f798c5383e49f336b4eeaca1"
         },
         {
-            "name": "simgrid",
-            "default": false,
-            "description": "Enable SimGrid support"
+            "name": "1.4.1",
+            "sha256": "f023aa53da245a0f43944c3a13f63b4bfdf1324f3e66bf5cd367ce51e2044925"
         },
         {
-            "name": "simgridmc",
-            "default": false,
-            "description": "Enable SimGrid model checker support"
+            "name": "1.4.2",
+            "sha256": "6c1fce80593a96d599881c1e9697a10e2072195b1c4c64a99528192b6715ddd6"
         },
         {
-            "name": "examples",
-            "default": true,
-            "description": "Enable Examples"
+            "name": "1.4.3",
+            "sha256": "848cce0a2fbaa75b104d9878da928e19b1c3bc9b978193081672ac882e63bbea"
         },
         {
-            "name": "papi",
-            "default": false,
-            "description": "Enable PAPI support"
+            "name": "1.4.4",
+            "sha256": "37f37739911451bbea063cff52779114f76bc681ea8de3a2ab65fc517d0ea112"
         },
         {
-            "name": "blocking",
-            "default": false,
-            "description": "Enable blocking drivers support"
-        }
-    ],
-    "homepage": "https://starpu.gitlabpages.inria.fr/",
-    "maintainers": [
-        "nfurmento",
-        "sthibaul"
-    ],
-    "patches": [],
-    "resources": [],
-    "description": "StarPU runtime system StarPU is a runtime support for scheduling\napplications written as task graphs on heterogeneous multi-core\narchitectures. Tasks may define several implementations, for different\narchitectures (e.g one implementation for CPUs, and one implementation\nfor CUDA). StarPU takes care of scheduling and executing those tasks as\nefficiently as possible over the entire machine. It also provides a\nhigh-level data management library which enforces memory coherency over\nthe differents processing units of the machine, and over a cluster when\nusing distributed computing. Various data structures are supported\nmainline (vectors, dense matrices, CSR/BCSR/COO sparse matrices, ...),\nbut application-specific data structures can also be supported.\n",
-    "dependencies": [
-        {
-            "name": "autoconf",
-            "description": "Autoconf -- system configuration part of autotools"
+            "name": "1.4.5",
+            "sha256": "28f389b34df57a2a4e4743b40554b0f8d098ff2199e9eb8fbbe20aa377b64541"
         },
         {
-            "name": "automake",
-            "description": "Automake -- make file builder part of autotools"
+            "name": "1.4.6",
+            "sha256": "579f38e150ab78c9ab299649d8649a043dbf49786e54acbf3dad90c160672cc7"
         },
         {
-            "name": "cuda",
-            "description": "CUDA is a parallel computing platform and programming model invented by\nNVIDIA. It enables dramatic increases in computing performance by\nharnessing the power of the graphics processing unit (GPU). Note: This\npackage does not currently install the drivers necessary to run CUDA.\nThese will need to be installed manually. See:\nhttps://docs.nvidia.com/cuda/ for details."
+            "name": "1.4.7",
+            "sha256": "1eb3df551089153fe6e0b172ad95118434b4a81ea9eaa5a2c38725d0db53b13e"
         },
         {
-            "name": "fxt",
-            "description": "Fast User/Kernel Tracing FxT stands for both FKT (Fast Kernel Tracing)\nand FUT (Fast User Tracing). This library provides efficient support for\nrecording traces."
+            "branch": "master",
+            "name": "develop"
         },
         {
-            "name": "gmake",
-            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files."
+            "branch": "starpu-1.1",
+            "name": "git-1.1"
         },
         {
-            "name": "gnuconfig",
-            "description": "The GNU config.guess and config.sub scripts versioned by timestamp.\nThis package can be used as a build dependency for autotools packages\nthat ship a tarball with outdated config.guess and config.sub files."
+            "branch": "starpu-1.2",
+            "name": "git-1.2"
         },
         {
-            "name": "hwloc",
-            "description": "The Hardware Locality (hwloc) software project. The Portable Hardware\nLocality (hwloc) software package provides a portable abstraction\n(across OS, versions, architectures, ...) of the hierarchical topology\nof modern architectures, including NUMA memory nodes, sockets, shared\ncaches, cores and simultaneous multithreading. It also gathers various\nsystem attributes such as cache and memory information as well as the\nlocality of I/O devices such as network interfaces, InfiniBand HCAs or\nGPUs. It primarily aims at helping applications with gathering\ninformation about modern computing hardware so as to exploit it\naccordingly and efficiently."
+            "branch": "starpu-1.3",
+            "name": "git-1.3"
         },
         {
-            "name": "libtool",
-            "description": "libtool -- library building part of autotools."
+            "branch": "starpu-1.4",
+            "name": "git-1.4"
         },
         {
-            "name": "m4",
-            "description": "GNU M4 is an implementation of the traditional Unix macro processor."
-        },
-        {
-            "name": "mpi",
-            "description": "A single processor implementation of the mpi library."
-        },
-        {
-            "name": "papi",
-            "description": "PAPI provides the tool designer and application engineer with a\nconsistent interface and methodology for use of the performance counter\nhardware found in most major microprocessors. PAPI enables software\nengineers to see, in near real time, the relation between software\nperformance and processor events. In addition Component PAPI provides\naccess to a collection of components that expose performance measurement\nopportunities across the hardware and software stack."
-        },
-        {
-            "name": "pkgconfig",
-            "description": "pkg-config is a helper tool used when compiling applications and\nlibraries"
-        },
-        {
-            "name": "py-setuptools",
-            "description": "A Python utility that aids in the process of downloading, building,\nupgrading, installing, and uninstalling Python packages."
-        },
-        {
-            "name": "simgrid",
-            "description": "SimGrid is a framework for developing simulators of distributed\napplications targetting distributed platforms, which can in turn be used\nto prototype, evaluate and compare relevant platform configurations,\nsystem designs, and algorithmic approaches."
-        }
-    ],
-    "dependent_to": [
-        {
-            "name": "qrmumps",
-            "description": "a software package for the solution of sparse, linear systems on\nmulticore computers based on the QR factorization of the input matrix."
-        },
-        {
-            "name": "pastix",
-            "description": "a high performance parallel solver for very large sparse linear systems\nbased on direct methods"
-        },
-        {
-            "name": "eztrace",
-            "description": "EZTrace is a tool to automatically generate execution traces of HPC\napplications."
-        },
-        {
-            "name": "chameleon",
-            "description": "Dense Linear Algebra for Scalable Multi-core Architectures and GPGPUs"
+            "branch": "master",
+            "name": "master"
         }
     ]
 }

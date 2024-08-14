@@ -1,62 +1,62 @@
 {
-    "name": "netlib-xblas",
     "aliases": [
         {
-            "name": "blas",
-            "alias_for": "netlib-xblas+plain_blas"
+            "alias_for": "netlib-xblas+plain_blas",
+            "name": "blas"
+        }
+    ],
+    "build_system": "AutotoolsPackage",
+    "conflicts": [
+        {
+            "description": null,
+            "name": "arch=windows-None-None",
+            "spec": "build_system=autotools"
+        }
+    ],
+    "dependencies": [
+        {
+            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files.",
+            "name": "gmake"
+        },
+        {
+            "description": "The GNU config.guess and config.sub scripts versioned by timestamp.\nThis package can be used as a build dependency for autotools packages\nthat ship a tarball with outdated config.guess and config.sub files.",
+            "name": "gnuconfig"
+        }
+    ],
+    "dependent_to": [
+        {
+            "description": "LAPACK version 3.X is a comprehensive FORTRAN library that does linear\nalgebra operations including matrix inversions, least squared solutions\nto linear sets of equations, eigenvector analysis, singular value\ndecomposition, etc. It is a very comprehensive and reputable package\nthat has found extensive use in the scientific community.",
+            "name": "netlib-lapack"
+        }
+    ],
+    "description": "XBLAS is a reference implementation for extra precision BLAS. XBLAS is a\nreference implementation for the dense and banded BLAS routines, along\nwith extended and mixed precision version. Extended precision is only\nused internally; input and output arguments remain the same as in the\nexisting BLAS. Extra precisions is implemented as double-double (i.e.,\n128-bit total, 106-bit significand). Mixed precision permits some\ninput/output arguments of different types (mixing real and complex) or\nprecisions (mixing single and double). This implementation is proof of\nconcept, and no attempt was made to optimize performance; performance\nshould be as good as straightforward but careful code written by hand.\n",
+    "homepage": "https://www.netlib.org/xblas",
+    "latest_version": "1.0.248",
+    "maintainers": [],
+    "name": "netlib-xblas",
+    "patches": [],
+    "resources": [],
+    "variants": [
+        {
+            "default": "autotools",
+            "description": "Build systems supported by the package",
+            "name": "build_system"
+        },
+        {
+            "default": true,
+            "description": "Build Fortran interfaces",
+            "name": "fortran"
+        },
+        {
+            "default": true,
+            "description": "As part of XBLAS, build plain BLAS routines",
+            "name": "plain_blas"
         }
     ],
     "versions": [
         {
             "name": "1.0.248",
             "sha256": "b5fe7c71c2da1ed9bcdc5784a12c5fa9fb417577513fe8a38de5de0007f7aaa1"
-        }
-    ],
-    "latest_version": "1.0.248",
-    "build_system": "AutotoolsPackage",
-    "conflicts": [
-        {
-            "name": "arch=windows-None-None",
-            "spec": "build_system=autotools",
-            "description": null
-        }
-    ],
-    "variants": [
-        {
-            "name": "build_system",
-            "default": "autotools",
-            "description": "Build systems supported by the package"
-        },
-        {
-            "name": "fortran",
-            "default": true,
-            "description": "Build Fortran interfaces"
-        },
-        {
-            "name": "plain_blas",
-            "default": true,
-            "description": "As part of XBLAS, build plain BLAS routines"
-        }
-    ],
-    "homepage": "https://www.netlib.org/xblas",
-    "maintainers": [],
-    "patches": [],
-    "resources": [],
-    "description": "XBLAS is a reference implementation for extra precision BLAS. XBLAS is a\nreference implementation for the dense and banded BLAS routines, along\nwith extended and mixed precision version. Extended precision is only\nused internally; input and output arguments remain the same as in the\nexisting BLAS. Extra precisions is implemented as double-double (i.e.,\n128-bit total, 106-bit significand). Mixed precision permits some\ninput/output arguments of different types (mixing real and complex) or\nprecisions (mixing single and double). This implementation is proof of\nconcept, and no attempt was made to optimize performance; performance\nshould be as good as straightforward but careful code written by hand.\n",
-    "dependencies": [
-        {
-            "name": "gmake",
-            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files."
-        },
-        {
-            "name": "gnuconfig",
-            "description": "The GNU config.guess and config.sub scripts versioned by timestamp.\nThis package can be used as a build dependency for autotools packages\nthat ship a tarball with outdated config.guess and config.sub files."
-        }
-    ],
-    "dependent_to": [
-        {
-            "name": "netlib-lapack",
-            "description": "LAPACK version 3.X is a comprehensive FORTRAN library that does linear\nalgebra operations including matrix inversions, least squared solutions\nto linear sets of equations, eigenvector analysis, singular value\ndecomposition, etc. It is a very comprehensive and reputable package\nthat has found extensive use in the scientific community."
         }
     ]
 }

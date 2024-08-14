@@ -1,127 +1,127 @@
 {
-    "name": "fujitsu-fftw",
     "aliases": [
         {
-            "name": "fftw-api",
-            "alias_for": "fujitsu-fftw"
+            "alias_for": "fujitsu-fftw",
+            "name": "fftw-api"
         }
     ],
-    "versions": [
-        {
-            "name": "1.1.0",
-            "sha256": "47b01a20846802041a9533a115f816b973cc9b15b3e827a2f0caffaae34a6c9d"
-        },
-        {
-            "name": "1.0.0",
-            "sha256": "b5931e352355d8d1ffeb215922f4b96de11b8585c423fceeaffbf3d5436f6f2f"
-        }
-    ],
-    "latest_version": "1.1.0",
     "build_system": "AutotoolsPackage",
     "conflicts": [
         {
-            "name": "arch=windows-None-None",
-            "spec": "build_system=autotools",
-            "description": null
+            "description": "fujitsu-fftw: ARM-SVE vector instructions only works in single or double precision",
+            "name": "precision=long_double",
+            "spec": "%fj"
         },
         {
+            "description": "fujitsu-fftw: Fujitsu Compiler doesn't support quad precision",
+            "name": "precision=quad",
+            "spec": "%fj"
+        },
+        {
+            "description": "fujitsu-fftw: Quad precision is not supported in MPI",
+            "name": "precision=quad",
+            "spec": "+mpi"
+        },
+        {
+            "description": "fujitsu-fftw: Long double precision is not supported in FFTW 2",
+            "name": "precision=long_double",
+            "spec": "@2.1.5"
+        },
+        {
+            "description": "fujitsu-fftw: Quad precision is not supported in FFTW 2",
+            "name": "precision=quad",
+            "spec": "@2.1.5"
+        },
+        {
+            "description": null,
             "name": "%gcc@8.0:8",
-            "spec": "@3.3.7",
-            "description": null
+            "spec": "@3.3.7"
         },
         {
-            "name": "precision=long_double",
-            "spec": "@2.1.5",
-            "description": "fujitsu-fftw: Long double precision is not supported in FFTW 2"
-        },
-        {
-            "name": "precision=quad",
-            "spec": "@2.1.5",
-            "description": "fujitsu-fftw: Quad precision is not supported in FFTW 2"
-        },
-        {
-            "name": "precision=quad",
-            "spec": "+mpi",
-            "description": "fujitsu-fftw: Quad precision is not supported in MPI"
-        },
-        {
-            "name": "precision=quad",
-            "spec": "%fj",
-            "description": "fujitsu-fftw: Fujitsu Compiler doesn't support quad precision"
-        },
-        {
-            "name": "precision=long_double",
-            "spec": "%fj",
-            "description": "fujitsu-fftw: ARM-SVE vector instructions only works in single or double precision"
+            "description": null,
+            "name": "arch=windows-None-None",
+            "spec": "build_system=autotools"
         }
     ],
-    "variants": [
-        {
-            "name": "build_system",
-            "default": "autotools",
-            "description": "Build systems supported by the package"
-        },
-        {
-            "name": "precision",
-            "default": "float,double",
-            "description": "Build the selected floating-point precision libraries"
-        },
-        {
-            "name": "openmp",
-            "default": true,
-            "description": "Enable OpenMP support"
-        },
-        {
-            "name": "mpi",
-            "default": true,
-            "description": "Activate MPI support"
-        },
-        {
-            "name": "shared",
-            "default": true,
-            "description": "Builds a shared version of the library"
-        },
-        {
-            "name": "debug",
-            "default": false,
-            "description": "Builds a debug version of the library"
-        }
-    ],
-    "homepage": "https://github.com/fujitsu/fftw3",
-    "maintainers": [],
-    "patches": [],
-    "resources": [],
-    "description": "FFTW (Fujitsu Optimized version) is a comprehensive collection of fast C\nroutines for computing the Discrete Fourier Transform (DFT) and various\nspecial cases thereof. It is an open-source implementation of the Fast\nFourier transform algorithm. It can compute transforms of real and\ncomplex-values arrays of arbitrary size and dimension. Fujitsu Optimized\nFFTW is the optimized FFTW implementation targeted for A64FX CPUs. For\nsingle precision build, please use precision value as float. Example :\nspack install fujitsufftw precision=float\n",
     "dependencies": [
         {
-            "name": "gmake",
-            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files."
+            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files.",
+            "name": "gmake"
         },
         {
-            "name": "gnuconfig",
-            "description": "The GNU config.guess and config.sub scripts versioned by timestamp.\nThis package can be used as a build dependency for autotools packages\nthat ship a tarball with outdated config.guess and config.sub files."
+            "description": "The GNU config.guess and config.sub scripts versioned by timestamp.\nThis package can be used as a build dependency for autotools packages\nthat ship a tarball with outdated config.guess and config.sub files.",
+            "name": "gnuconfig"
         },
         {
-            "name": "llvm-openmp",
-            "description": "The OpenMP subproject of LLVM contains the components required to build\nan executable OpenMP program that are outside the compiler itself."
+            "description": "The OpenMP subproject of LLVM contains the components required to build\nan executable OpenMP program that are outside the compiler itself.",
+            "name": "llvm-openmp"
         },
         {
-            "name": "mpi",
-            "description": "A single processor implementation of the mpi library."
+            "description": "IBM MPI implementation from Spectrum MPI.",
+            "name": "mpi"
         },
         {
-            "name": "texinfo",
-            "description": "Texinfo is the official documentation format of the GNU project. It was\ninvented by Richard Stallman and Bob Chassell many years ago, loosely\nbased on Brian Reid's Scribe and other formatting languages of the time.\nIt is used by many non-GNU projects as well."
+            "description": "Texinfo is the official documentation format of the GNU project. It was\ninvented by Richard Stallman and Bob Chassell many years ago, loosely\nbased on Brian Reid's Scribe and other formatting languages of the time.\nIt is used by many non-GNU projects as well.",
+            "name": "texinfo"
         }
     ],
     "dependent_to": [
         {
-            "name": "berkeleygw",
-            "description": "BerkeleyGW is a many-body perturbation theory code for excited states,\nusing the GW method and the GW plus Bethe-Salpeter equation (GW-BSE)\nmethod to solve respectively for quasiparticle excitations and optical\nproperties of materials."
+            "description": "BerkeleyGW is a many-body perturbation theory code for excited states,\nusing the GW method and the GW plus Bethe-Salpeter equation (GW-BSE)\nmethod to solve respectively for quasiparticle excitations and optical\nproperties of materials.",
+            "name": "berkeleygw"
         },
         {
-            "name": "ngspice",
-            "description": "ngspice is the open source spice simulator for electric and electronic\ncircuits."
+            "description": "ngspice is the open source spice simulator for electric and electronic\ncircuits.",
+            "name": "ngspice"
+        }
+    ],
+    "description": "FFTW (Fujitsu Optimized version) is a comprehensive collection of fast C\nroutines for computing the Discrete Fourier Transform (DFT) and various\nspecial cases thereof. It is an open-source implementation of the Fast\nFourier transform algorithm. It can compute transforms of real and\ncomplex-values arrays of arbitrary size and dimension. Fujitsu Optimized\nFFTW is the optimized FFTW implementation targeted for A64FX CPUs. For\nsingle precision build, please use precision value as float. Example :\nspack install fujitsufftw precision=float\n",
+    "homepage": "https://github.com/fujitsu/fftw3",
+    "latest_version": "1.1.0",
+    "maintainers": [],
+    "name": "fujitsu-fftw",
+    "patches": [],
+    "resources": [],
+    "variants": [
+        {
+            "default": "autotools",
+            "description": "Build systems supported by the package",
+            "name": "build_system"
+        },
+        {
+            "default": false,
+            "description": "Builds a debug version of the library",
+            "name": "debug"
+        },
+        {
+            "default": true,
+            "description": "Activate MPI support",
+            "name": "mpi"
+        },
+        {
+            "default": true,
+            "description": "Enable OpenMP support",
+            "name": "openmp"
+        },
+        {
+            "default": "float,double",
+            "description": "Build the selected floating-point precision libraries",
+            "name": "precision"
+        },
+        {
+            "default": true,
+            "description": "Builds a shared version of the library",
+            "name": "shared"
+        }
+    ],
+    "versions": [
+        {
+            "name": "1.0.0",
+            "sha256": "b5931e352355d8d1ffeb215922f4b96de11b8585c423fceeaffbf3d5436f6f2f"
+        },
+        {
+            "name": "1.1.0",
+            "sha256": "47b01a20846802041a9533a115f816b973cc9b15b3e827a2f0caffaae34a6c9d"
         }
     ]
 }

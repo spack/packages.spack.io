@@ -1,255 +1,255 @@
 {
-    "name": "whizard",
     "aliases": [],
+    "build_system": "AutotoolsPackage",
+    "conflicts": [
+        {
+            "description": "whizard: Due to severe regressions, gfortran 6.5.0 can not be used. See https://whizard.hepforge.org/compilers.html",
+            "name": "%gcc@6.5.0",
+            "spec": ""
+        },
+        {
+            "description": "whizard: gfortran needs to support Fortran 2008. For more detailed information see https://whizard.hepforge.org/compilers.html",
+            "name": "%gcc@:5.0",
+            "spec": ""
+        },
+        {
+            "description": "whizard: The fortran compiler needs to support Fortran 2008. For more detailed information see https://whizard.hepforge.org/compilers.html",
+            "name": "%intel@:17",
+            "spec": ""
+        },
+        {
+            "description": null,
+            "name": "arch=windows-None-None",
+            "spec": "build_system=autotools"
+        }
+    ],
+    "dependencies": [
+        {
+            "description": "Autoconf -- system configuration part of autotools",
+            "name": "autoconf"
+        },
+        {
+            "description": "Automake -- make file builder part of autotools",
+            "name": "automake"
+        },
+        {
+            "description": "A high energy physics software package for jet finding in pp and e+e-\ncollisions.",
+            "name": "fastjet"
+        },
+        {
+            "description": "An interpreter for the PostScript language and for PDF.",
+            "name": "ghostscript"
+        },
+        {
+            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files.",
+            "name": "gmake"
+        },
+        {
+            "description": "The GNU config.guess and config.sub scripts versioned by timestamp.\nThis package can be used as a build dependency for autotools packages\nthat ship a tarball with outdated config.guess and config.sub files.",
+            "name": "gnuconfig"
+        },
+        {
+            "description": "Additional libraries for GoSam MC generator",
+            "name": "gosam-contrib"
+        },
+        {
+            "description": "The HepMC package is an object oriented, C++ event record for High\nEnergy Physics Monte Carlo generators and simulation.",
+            "name": "hepmc"
+        },
+        {
+            "description": "The HepMC package is an object oriented, C++ event record for High\nEnergy Physics Monte Carlo generators and simulation.",
+            "name": "hepmc3"
+        },
+        {
+            "description": "HEP Library for Linear Collider Input/Output",
+            "name": "lcio"
+        },
+        {
+            "description": "LHAPDF is a general purpose C++ interpolator, used for evaluating PDFs\nfrom discretised data files.",
+            "name": "lhapdf"
+        },
+        {
+            "description": "Libtirpc is a port of Suns Transport-Independent RPC library to Linux.",
+            "name": "libtirpc"
+        },
+        {
+            "description": "libtool -- library building part of autotools.",
+            "name": "libtool"
+        },
+        {
+            "description": "OCaml is an industrial strength programming language supporting\nfunctional, imperative and object-oriented styles",
+            "name": "ocaml"
+        },
+        {
+            "description": "The OpenLoops 2 program is a fully automated implementation of the Open\nLoops algorithm combined with on-the-fly reduction methods, which allows\nfor the fast and stable numerical evaluation of tree and one-loop matrix\nelements for any Standard Model process at NLO QCD and NLO EW.",
+            "name": "openloops"
+        },
+        {
+            "description": "pkgconf is a program which helps to configure compiler and linker flags\nfor development frameworks. It is similar to pkg-config from\nfreedesktop.org, providing additional functionality while also\nmaintaining compatibility.",
+            "name": "pkgconfig"
+        },
+        {
+            "description": "The package GoSam allows for the automated calculation of one-loop\namplitudes for multi-particle processes in renormalizable quantum field\ntheories.",
+            "name": "py-gosam"
+        },
+        {
+            "description": "The Pythia program is a standard tool for the generation of events in\nhigh-energy collisions, comprising a coherent set of physics models for\nthe evolution from a few-body hard process to a complex multiparticle\nfinal state.",
+            "name": "pythia8"
+        },
+        {
+            "description": "Qgraf is a computer program that generates Feynman diagrams for various\ntypes of QFT models",
+            "name": "qgraf"
+        },
+        {
+            "description": "TeX Live is an easy (we hope) way to get up and running with the TeX\ndocument production system. It provides a comprehensive TeX system with\nbinaries for most flavors of Unix, including GNU/Linux, macOS, and also\nWindows. It includes all the major TeX-related programs, macro packages,\nand fonts that are free software, including support for many languages\naround the world.",
+            "name": "texlive"
+        },
+        {
+            "description": "zlib replacement with optimizations for next generation systems.",
+            "name": "zlib-api"
+        }
+    ],
+    "dependent_to": [],
+    "description": "WHIZARD is a program system designed for the efficient calculation of\nmulti-particle scattering cross sections and simulated event samples.\n",
+    "homepage": "whizard.hepforge.org",
+    "latest_version": "3.1.4",
+    "maintainers": [
+        "vvolkl"
+    ],
+    "name": "whizard",
+    "patches": [
+        {
+            "level": 1,
+            "owner": "builtin.whizard",
+            "relative_path": "parallel_build_fix.patch",
+            "reverse": false,
+            "sha256": "3bd24a7b3ae6fa60b14dfebde7a6873dddf7242a73477aa7ce2f8ae83ac9e847",
+            "version": "@3:3.1.3",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.whizard",
+            "relative_path": "parallel_build_fix_2.8.patch",
+            "reverse": false,
+            "sha256": "dca6166562cba11ffd4dd6f3ebe8717aad80d4b0b4ef8e73544f7954a7fce86e",
+            "version": "@2.8",
+            "working_dir": "."
+        }
+    ],
+    "resources": [],
+    "variants": [
+        {
+            "default": "autotools",
+            "description": "Build systems supported by the package",
+            "name": "build_system"
+        },
+        {
+            "default": false,
+            "description": "builds with fastjet",
+            "name": "fastjet"
+        },
+        {
+            "default": false,
+            "description": "builds with gosam",
+            "name": "gosam"
+        },
+        {
+            "default": "3",
+            "description": "builds with hepmc 2/3",
+            "name": "hepmc"
+        },
+        {
+            "default": false,
+            "description": "data visualization with latex",
+            "name": "latex"
+        },
+        {
+            "default": false,
+            "description": "builds with lcio",
+            "name": "lcio"
+        },
+        {
+            "default": false,
+            "description": "builds with fastjet",
+            "name": "lhapdf"
+        },
+        {
+            "default": false,
+            "description": "builds with openloops",
+            "name": "openloops"
+        },
+        {
+            "default": false,
+            "description": "builds with openmp",
+            "name": "openmp"
+        },
+        {
+            "default": true,
+            "description": "builds with pythia8",
+            "name": "pythia8"
+        }
+    ],
     "versions": [
         {
-            "name": "master",
-            "branch": "master"
-        },
-        {
-            "name": "3.1.4",
-            "sha256": "9da9805251d786adaf4ad5a112f9c4ee61d515778af0d2623d6460c3f1f900cd"
-        },
-        {
-            "name": "3.1.2",
-            "sha256": "4f706f8ef02a580ae4dba867828691dfe0b3f9f9b8982b617af72eb8cd4c6fa3"
-        },
-        {
-            "name": "3.1.1",
-            "sha256": "dd48e4e39b8a4990be47775ec6171f89d8147cb2e9e293afc7051a7dbc5a23ef"
-        },
-        {
-            "name": "3.1.0",
-            "sha256": "9dc5e6d1a25d2fc708625f85010cb81b63559ff02cceb9b35024cf9f426c0ad9"
-        },
-        {
-            "name": "3.0.3",
-            "sha256": "20f2269d302fc162a6aed8e781b504ba5112ef0711c078cdb08b293059ed67cf"
-        },
-        {
-            "name": "3.0.2",
-            "sha256": "f1db92cd95a0281f6afbf4ac32ab027670cb97a57ad8f5139c0d1f61593d66ec"
-        },
-        {
-            "name": "3.0.1",
-            "sha256": "1463abd6c50ffe72029abc6f5a7d28ec63013852bfe5914cb464b58202c1437c"
-        },
-        {
-            "name": "3.0.0_alpha",
-            "sha256": "4636e5a10350bb67ccc98cd105bc891ea04f3393c2420f81be3d21240be20009"
-        },
-        {
-            "name": "2.8.5",
-            "sha256": "0f633e5620aa7dd50336b492e8a76bfae15b15943ea842010346ad7610818ecd"
-        },
-        {
-            "name": "2.8.4",
-            "sha256": "49893f077484470934a9d6e1545bbda7d398076568bceda00880d58132f26432"
-        },
-        {
-            "name": "2.8.3",
-            "sha256": "96a9046682d4b992b477eb96d561c3db789207e1049b60c9bd140db40eb1e5d7"
-        },
-        {
-            "name": "2.8.2",
-            "sha256": "32c9be342d01b3fc6f947fddce74bf2d81ece37fb39bca1f37778fb0c07e2568"
+            "name": "2.8.0",
+            "sha256": "3b5175eafa879d1baca20237d18fb2b18bee89631e73ada499de9c082d009696"
         },
         {
             "name": "2.8.1",
             "sha256": "0c759ce0598e25f38e04659f745c5963d238c4b5c12209f16449b6c0bc6dc64e"
         },
         {
-            "name": "2.8.0",
-            "sha256": "3b5175eafa879d1baca20237d18fb2b18bee89631e73ada499de9c082d009696"
+            "name": "2.8.2",
+            "sha256": "32c9be342d01b3fc6f947fddce74bf2d81ece37fb39bca1f37778fb0c07e2568"
+        },
+        {
+            "name": "2.8.3",
+            "sha256": "96a9046682d4b992b477eb96d561c3db789207e1049b60c9bd140db40eb1e5d7"
+        },
+        {
+            "name": "2.8.4",
+            "sha256": "49893f077484470934a9d6e1545bbda7d398076568bceda00880d58132f26432"
+        },
+        {
+            "name": "2.8.5",
+            "sha256": "0f633e5620aa7dd50336b492e8a76bfae15b15943ea842010346ad7610818ecd"
+        },
+        {
+            "name": "3.0.0_alpha",
+            "sha256": "4636e5a10350bb67ccc98cd105bc891ea04f3393c2420f81be3d21240be20009"
+        },
+        {
+            "name": "3.0.1",
+            "sha256": "1463abd6c50ffe72029abc6f5a7d28ec63013852bfe5914cb464b58202c1437c"
+        },
+        {
+            "name": "3.0.2",
+            "sha256": "f1db92cd95a0281f6afbf4ac32ab027670cb97a57ad8f5139c0d1f61593d66ec"
+        },
+        {
+            "name": "3.0.3",
+            "sha256": "20f2269d302fc162a6aed8e781b504ba5112ef0711c078cdb08b293059ed67cf"
+        },
+        {
+            "name": "3.1.0",
+            "sha256": "9dc5e6d1a25d2fc708625f85010cb81b63559ff02cceb9b35024cf9f426c0ad9"
+        },
+        {
+            "name": "3.1.1",
+            "sha256": "dd48e4e39b8a4990be47775ec6171f89d8147cb2e9e293afc7051a7dbc5a23ef"
+        },
+        {
+            "name": "3.1.2",
+            "sha256": "4f706f8ef02a580ae4dba867828691dfe0b3f9f9b8982b617af72eb8cd4c6fa3"
+        },
+        {
+            "name": "3.1.4",
+            "sha256": "9da9805251d786adaf4ad5a112f9c4ee61d515778af0d2623d6460c3f1f900cd"
+        },
+        {
+            "branch": "master",
+            "name": "master"
         }
-    ],
-    "latest_version": "3.1.4",
-    "build_system": "AutotoolsPackage",
-    "conflicts": [
-        {
-            "name": "arch=windows-None-None",
-            "spec": "build_system=autotools",
-            "description": null
-        },
-        {
-            "name": "%gcc@:5.0",
-            "spec": "",
-            "description": "whizard: gfortran needs to support Fortran 2008. For more detailed information see https://whizard.hepforge.org/compilers.html"
-        },
-        {
-            "name": "%gcc@6.5.0",
-            "spec": "",
-            "description": "whizard: Due to severe regressions, gfortran 6.5.0 can not be used. See https://whizard.hepforge.org/compilers.html"
-        },
-        {
-            "name": "%intel@:17",
-            "spec": "",
-            "description": "whizard: The fortran compiler needs to support Fortran 2008. For more detailed information see https://whizard.hepforge.org/compilers.html"
-        }
-    ],
-    "variants": [
-        {
-            "name": "build_system",
-            "default": "autotools",
-            "description": "Build systems supported by the package"
-        },
-        {
-            "name": "hepmc",
-            "default": "3",
-            "description": "builds with hepmc 2/3"
-        },
-        {
-            "name": "pythia8",
-            "default": true,
-            "description": "builds with pythia8"
-        },
-        {
-            "name": "fastjet",
-            "default": false,
-            "description": "builds with fastjet"
-        },
-        {
-            "name": "gosam",
-            "default": false,
-            "description": "builds with gosam"
-        },
-        {
-            "name": "lcio",
-            "default": false,
-            "description": "builds with lcio"
-        },
-        {
-            "name": "lhapdf",
-            "default": false,
-            "description": "builds with fastjet"
-        },
-        {
-            "name": "openmp",
-            "default": false,
-            "description": "builds with openmp"
-        },
-        {
-            "name": "openloops",
-            "default": false,
-            "description": "builds with openloops"
-        },
-        {
-            "name": "latex",
-            "default": false,
-            "description": "data visualization with latex"
-        }
-    ],
-    "homepage": "whizard.hepforge.org",
-    "maintainers": [
-        "vvolkl"
-    ],
-    "patches": [
-        {
-            "owner": "builtin.whizard",
-            "sha256": "3bd24a7b3ae6fa60b14dfebde7a6873dddf7242a73477aa7ce2f8ae83ac9e847",
-            "level": 1,
-            "working_dir": ".",
-            "reverse": false,
-            "relative_path": "parallel_build_fix.patch",
-            "version": "@3:3.1.3"
-        },
-        {
-            "owner": "builtin.whizard",
-            "sha256": "dca6166562cba11ffd4dd6f3ebe8717aad80d4b0b4ef8e73544f7954a7fce86e",
-            "level": 1,
-            "working_dir": ".",
-            "reverse": false,
-            "relative_path": "parallel_build_fix_2.8.patch",
-            "version": "@2.8"
-        }
-    ],
-    "resources": [],
-    "description": "WHIZARD is a program system designed for the efficient calculation of\nmulti-particle scattering cross sections and simulated event samples.\n",
-    "dependencies": [
-        {
-            "name": "autoconf",
-            "description": "Autoconf -- system configuration part of autotools"
-        },
-        {
-            "name": "automake",
-            "description": "Automake -- make file builder part of autotools"
-        },
-        {
-            "name": "fastjet",
-            "description": "A high energy physics software package for jet finding in pp and e+e-\ncollisions."
-        },
-        {
-            "name": "ghostscript",
-            "description": "An interpreter for the PostScript language and for PDF."
-        },
-        {
-            "name": "gmake",
-            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files."
-        },
-        {
-            "name": "gnuconfig",
-            "description": "The GNU config.guess and config.sub scripts versioned by timestamp.\nThis package can be used as a build dependency for autotools packages\nthat ship a tarball with outdated config.guess and config.sub files."
-        },
-        {
-            "name": "gosam-contrib",
-            "description": "Additional libraries for GoSam MC generator"
-        },
-        {
-            "name": "hepmc",
-            "description": "The HepMC package is an object oriented, C++ event record for High\nEnergy Physics Monte Carlo generators and simulation."
-        },
-        {
-            "name": "hepmc3",
-            "description": "The HepMC package is an object oriented, C++ event record for High\nEnergy Physics Monte Carlo generators and simulation."
-        },
-        {
-            "name": "lcio",
-            "description": "HEP Library for Linear Collider Input/Output"
-        },
-        {
-            "name": "lhapdf",
-            "description": "LHAPDF is a general purpose C++ interpolator, used for evaluating PDFs\nfrom discretised data files."
-        },
-        {
-            "name": "libtirpc",
-            "description": "Libtirpc is a port of Suns Transport-Independent RPC library to Linux."
-        },
-        {
-            "name": "libtool",
-            "description": "libtool -- library building part of autotools."
-        },
-        {
-            "name": "ocaml",
-            "description": "OCaml is an industrial strength programming language supporting\nfunctional, imperative and object-oriented styles"
-        },
-        {
-            "name": "openloops",
-            "description": "The OpenLoops 2 program is a fully automated implementation of the Open\nLoops algorithm combined with on-the-fly reduction methods, which allows\nfor the fast and stable numerical evaluation of tree and one-loop matrix\nelements for any Standard Model process at NLO QCD and NLO EW."
-        },
-        {
-            "name": "pkgconfig",
-            "description": "pkg-config is a helper tool used when compiling applications and\nlibraries"
-        },
-        {
-            "name": "py-gosam",
-            "description": "The package GoSam allows for the automated calculation of one-loop\namplitudes for multi-particle processes in renormalizable quantum field\ntheories."
-        },
-        {
-            "name": "pythia8",
-            "description": "The Pythia program is a standard tool for the generation of events in\nhigh-energy collisions, comprising a coherent set of physics models for\nthe evolution from a few-body hard process to a complex multiparticle\nfinal state."
-        },
-        {
-            "name": "qgraf",
-            "description": "Qgraf is a computer program that generates Feynman diagrams for various\ntypes of QFT models"
-        },
-        {
-            "name": "texlive",
-            "description": "TeX Live is an easy (we hope) way to get up and running with the TeX\ndocument production system. It provides a comprehensive TeX system with\nbinaries for most flavors of Unix, including GNU/Linux, macOS, and also\nWindows. It includes all the major TeX-related programs, macro packages,\nand fonts that are free software, including support for many languages\naround the world."
-        },
-        {
-            "name": "zlib-api",
-            "description": "zlib replacement with optimizations for next generation systems."
-        }
-    ],
-    "dependent_to": []
+    ]
 }

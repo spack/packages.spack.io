@@ -1,59 +1,59 @@
 {
-    "name": "fastqvalidator",
     "aliases": [],
-    "versions": [
-        {
-            "name": "2017-01-10",
-            "commit": "6d619a34749e9d33c34ef0d3e0e87324ca77f320"
-        }
-    ],
-    "latest_version": "2017-01-10",
     "build_system": "MakefilePackage",
     "conflicts": [
         {
+            "description": null,
             "name": "arch=windows-None-None",
-            "spec": "build_system=makefile",
-            "description": null
+            "spec": "build_system=makefile"
         }
     ],
-    "variants": [
+    "dependencies": [
         {
-            "name": "build_system",
-            "default": "makefile",
-            "description": "Build systems supported by the package"
+            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files.",
+            "name": "gmake"
+        },
+        {
+            "description": "zlib replacement with optimizations for next generation systems.",
+            "name": "zlib-api"
         }
     ],
+    "dependent_to": [],
+    "description": "The fastQValidator validates the format of fastq files.\n",
     "homepage": "https://genome.sph.umich.edu/wiki/FastQValidator",
+    "latest_version": "2017-01-10",
     "maintainers": [],
+    "name": "fastqvalidator",
     "patches": [
         {
-            "owner": "builtin.fastqvalidator",
-            "sha256": "f21e03bead243144d6356c574f2ad27a14cd5f2159cfb3c8c817ee30ce0be942",
             "level": 1,
-            "working_dir": "libStatGen",
-            "reverse": false,
+            "owner": "builtin.fastqvalidator",
             "relative_path": "chromosome.patch",
-            "version": "@2017-01-10"
+            "reverse": false,
+            "sha256": "f21e03bead243144d6356c574f2ad27a14cd5f2159cfb3c8c817ee30ce0be942",
+            "version": "@2017-01-10",
+            "working_dir": "libStatGen"
         }
     ],
     "resources": [
         {
-            "version": "",
-            "name": "libStatGen",
             "destination": "",
-            "placement": null
+            "name": "libStatGen",
+            "placement": null,
+            "version": ""
         }
     ],
-    "description": "The fastQValidator validates the format of fastq files.\n",
-    "dependencies": [
+    "variants": [
         {
-            "name": "gmake",
-            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files."
-        },
-        {
-            "name": "zlib-api",
-            "description": "zlib replacement with optimizations for next generation systems."
+            "default": "makefile",
+            "description": "Build systems supported by the package",
+            "name": "build_system"
         }
     ],
-    "dependent_to": []
+    "versions": [
+        {
+            "commit": "6d619a34749e9d33c34ef0d3e0e87324ca77f320",
+            "name": "2017-01-10"
+        }
+    ]
 }

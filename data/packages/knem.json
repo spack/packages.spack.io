@@ -1,10 +1,99 @@
 {
-    "name": "knem",
     "aliases": [],
+    "build_system": "AutotoolsPackage",
+    "conflicts": [
+        {
+            "description": null,
+            "name": "+hwloc",
+            "spec": "@:0.9.0"
+        },
+        {
+            "description": null,
+            "name": "arch=darwin-None-None",
+            "spec": ""
+        },
+        {
+            "description": null,
+            "name": "arch=windows-None-None",
+            "spec": "build_system=autotools"
+        }
+    ],
+    "dependencies": [
+        {
+            "description": "Autoconf -- system configuration part of autotools",
+            "name": "autoconf"
+        },
+        {
+            "description": "Automake -- make file builder part of autotools",
+            "name": "automake"
+        },
+        {
+            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files.",
+            "name": "gmake"
+        },
+        {
+            "description": "The GNU config.guess and config.sub scripts versioned by timestamp.\nThis package can be used as a build dependency for autotools packages\nthat ship a tarball with outdated config.guess and config.sub files.",
+            "name": "gnuconfig"
+        },
+        {
+            "description": "The Hardware Locality (hwloc) software project. The Portable Hardware\nLocality (hwloc) software package provides a portable abstraction\n(across OS, versions, architectures, ...) of the hierarchical topology\nof modern architectures, including NUMA memory nodes, sockets, shared\ncaches, cores and simultaneous multithreading. It also gathers various\nsystem attributes such as cache and memory information as well as the\nlocality of I/O devices such as network interfaces, InfiniBand HCAs or\nGPUs. It primarily aims at helping applications with gathering\ninformation about modern computing hardware so as to exploit it\naccordingly and efficiently.",
+            "name": "hwloc"
+        },
+        {
+            "description": "GNU M4 is an implementation of the traditional Unix macro processor.",
+            "name": "m4"
+        },
+        {
+            "description": "pkgconf is a program which helps to configure compiler and linker flags\nfor development frameworks. It is similar to pkg-config from\nfreedesktop.org, providing additional functionality while also\nmaintaining compatibility.",
+            "name": "pkgconfig"
+        }
+    ],
+    "dependent_to": [
+        {
+            "description": "An open source Message Passing Interface implementation. The Open MPI\nProject is an open source Message Passing Interface implementation that\nis developed and maintained by a consortium of academic, research, and\nindustry partners. Open MPI is therefore able to combine the expertise,\ntechnologies, and resources from all across the High Performance\nComputing community in order to build the best MPI library available.\nOpen MPI offers advantages for system and software vendors, application\ndevelopers and computer science researchers.",
+            "name": "openmpi"
+        },
+        {
+            "description": "a communication library implementing high-performance messaging for\nMPI/PGAS frameworks",
+            "name": "ucx"
+        }
+    ],
+    "description": "KNEM is a Linux kernel module enabling high-performance intra-node MPI\ncommunication for large messages.\n",
+    "homepage": "https://knem.gforge.inria.fr",
+    "latest_version": "1.1.4",
+    "maintainers": [
+        "skosukhin"
+    ],
+    "name": "knem",
+    "patches": [
+        {
+            "level": 1,
+            "owner": "builtin.knem",
+            "reverse": false,
+            "sha256": "a422277f02247bde680d4a3c8ccb8c05498a79109ba1ade4a037bedd6efe3c79",
+            "url": "https://gitlab.inria.fr/knem/knem/-/commit/5c8cb902d6040df58cdc4e4e4c10d1f1426c3525.diff",
+            "version": "@1.1.4",
+            "working_dir": "."
+        }
+    ],
+    "resources": [],
+    "variants": [
+        {
+            "default": "autotools",
+            "description": "Build systems supported by the package",
+            "name": "build_system"
+        },
+        {
+            "default": true,
+            "description": "Enable hwloc in the user-space tools",
+            "name": "hwloc"
+        }
+    ],
     "versions": [
         {
-            "name": "master",
-            "branch": "master"
+            "name": "1.1.3",
+            "sha256": "50d3c4a20c140108b8ce47aaafd0ade0927d6f507e1b5cc690dd6bddeef30f60",
+            "url": "https://gitlab.inria.fr/knem/knem/uploads/59375c38537e6ff2d94209f190c54aa6/knem-1.1.3.tar.gz"
         },
         {
             "name": "1.1.4",
@@ -12,97 +101,8 @@
             "url": "https://gitlab.inria.fr/knem/knem/uploads/4a43e3eb860cda2bbd5bf5c7c04a24b6/knem-1.1.4.tar.gz"
         },
         {
-            "name": "1.1.3",
-            "sha256": "50d3c4a20c140108b8ce47aaafd0ade0927d6f507e1b5cc690dd6bddeef30f60",
-            "url": "https://gitlab.inria.fr/knem/knem/uploads/59375c38537e6ff2d94209f190c54aa6/knem-1.1.3.tar.gz"
-        }
-    ],
-    "latest_version": "1.1.4",
-    "build_system": "AutotoolsPackage",
-    "conflicts": [
-        {
-            "name": "arch=windows-None-None",
-            "spec": "build_system=autotools",
-            "description": null
-        },
-        {
-            "name": "+hwloc",
-            "spec": "@:0.9.0",
-            "description": null
-        },
-        {
-            "name": "arch=darwin-None-None",
-            "spec": "",
-            "description": null
-        }
-    ],
-    "variants": [
-        {
-            "name": "build_system",
-            "default": "autotools",
-            "description": "Build systems supported by the package"
-        },
-        {
-            "name": "hwloc",
-            "default": true,
-            "description": "Enable hwloc in the user-space tools"
-        }
-    ],
-    "homepage": "https://knem.gforge.inria.fr",
-    "maintainers": [
-        "skosukhin"
-    ],
-    "patches": [
-        {
-            "owner": "builtin.knem",
-            "sha256": "a422277f02247bde680d4a3c8ccb8c05498a79109ba1ade4a037bedd6efe3c79",
-            "level": 1,
-            "working_dir": ".",
-            "reverse": false,
-            "url": "https://gitlab.inria.fr/knem/knem/-/commit/5c8cb902d6040df58cdc4e4e4c10d1f1426c3525.diff",
-            "version": "@1.1.4"
-        }
-    ],
-    "resources": [],
-    "description": "KNEM is a Linux kernel module enabling high-performance intra-node MPI\ncommunication for large messages.\n",
-    "dependencies": [
-        {
-            "name": "autoconf",
-            "description": "Autoconf -- system configuration part of autotools"
-        },
-        {
-            "name": "automake",
-            "description": "Automake -- make file builder part of autotools"
-        },
-        {
-            "name": "gmake",
-            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files."
-        },
-        {
-            "name": "gnuconfig",
-            "description": "The GNU config.guess and config.sub scripts versioned by timestamp.\nThis package can be used as a build dependency for autotools packages\nthat ship a tarball with outdated config.guess and config.sub files."
-        },
-        {
-            "name": "hwloc",
-            "description": "The Hardware Locality (hwloc) software project. The Portable Hardware\nLocality (hwloc) software package provides a portable abstraction\n(across OS, versions, architectures, ...) of the hierarchical topology\nof modern architectures, including NUMA memory nodes, sockets, shared\ncaches, cores and simultaneous multithreading. It also gathers various\nsystem attributes such as cache and memory information as well as the\nlocality of I/O devices such as network interfaces, InfiniBand HCAs or\nGPUs. It primarily aims at helping applications with gathering\ninformation about modern computing hardware so as to exploit it\naccordingly and efficiently."
-        },
-        {
-            "name": "m4",
-            "description": "GNU M4 is an implementation of the traditional Unix macro processor."
-        },
-        {
-            "name": "pkgconfig",
-            "description": "pkg-config is a helper tool used when compiling applications and\nlibraries"
-        }
-    ],
-    "dependent_to": [
-        {
-            "name": "ucx",
-            "description": "a communication library implementing high-performance messaging for\nMPI/PGAS frameworks"
-        },
-        {
-            "name": "openmpi",
-            "description": "An open source Message Passing Interface implementation. The Open MPI\nProject is an open source Message Passing Interface implementation that\nis developed and maintained by a consortium of academic, research, and\nindustry partners. Open MPI is therefore able to combine the expertise,\ntechnologies, and resources from all across the High Performance\nComputing community in order to build the best MPI library available.\nOpen MPI offers advantages for system and software vendors, application\ndevelopers and computer science researchers."
+            "branch": "master",
+            "name": "master"
         }
     ]
 }

@@ -1,9 +1,62 @@
 {
-    "name": "cray-fftw",
     "aliases": [
         {
-            "name": "fftw-api",
-            "alias_for": "cray-fftw"
+            "alias_for": "cray-fftw",
+            "name": "fftw-api"
+        }
+    ],
+    "build_system": "Package",
+    "conflicts": [],
+    "dependencies": [
+        {
+            "description": "IBM MPI implementation from Spectrum MPI.",
+            "name": "mpi"
+        }
+    ],
+    "dependent_to": [
+        {
+            "description": "BerkeleyGW is a many-body perturbation theory code for excited states,\nusing the GW method and the GW plus Bethe-Salpeter equation (GW-BSE)\nmethod to solve respectively for quasiparticle excitations and optical\nproperties of materials.",
+            "name": "berkeleygw"
+        },
+        {
+            "description": "CP2K is a quantum chemistry and solid state physics software package\nthat can perform atomistic simulations of solid state, liquid,\nmolecular, periodic, material, crystal, and biological systems",
+            "name": "cp2k"
+        },
+        {
+            "description": "ngspice is the open source spice simulator for electric and electronic\ncircuits.",
+            "name": "ngspice"
+        }
+    ],
+    "description": "FFTW is a C subroutine library for computing the discrete Fourier\ntransform (DFT) in one or more dimensions, of arbitrary input size, and\nof both real and complex data (as well as of even/odd data, i.e. the\ndiscrete cosine/sine transforms or DCT/DST). This package is a wrapper\nfor Cray's version of FFTW. To install this package, list it as an\nexternal package in packages.yaml, and make sure to load the correct\ncray-fftw module. In some cases you need to load cray-mpich before cray-\nfftw.\n",
+    "homepage": "https://support.hpe.com/",
+    "latest_version": "3.3.8.12",
+    "maintainers": [
+        "haampie",
+        "lukebroskop"
+    ],
+    "name": "cray-fftw",
+    "patches": [],
+    "resources": [],
+    "variants": [
+        {
+            "default": "generic",
+            "description": "Build systems supported by the package",
+            "name": "build_system"
+        },
+        {
+            "default": true,
+            "description": "Activate MPI support",
+            "name": "mpi"
+        },
+        {
+            "default": false,
+            "description": "Enable OpenMP support.",
+            "name": "openmp"
+        },
+        {
+            "default": "float,double",
+            "description": "Build the selected floating-point precision libraries",
+            "name": "precision"
         }
     ],
     "versions": [
@@ -11,63 +64,10 @@
             "name": "3.3.8.12"
         },
         {
-            "name": "3.3.8.8"
-        },
-        {
             "name": "3.3.8.7"
-        }
-    ],
-    "latest_version": "3.3.8.12",
-    "build_system": "Package",
-    "conflicts": [],
-    "variants": [
-        {
-            "name": "build_system",
-            "default": "generic",
-            "description": "Build systems supported by the package"
         },
         {
-            "name": "precision",
-            "default": "float,double",
-            "description": "Build the selected floating-point precision libraries"
-        },
-        {
-            "name": "openmp",
-            "default": false,
-            "description": "Enable OpenMP support."
-        },
-        {
-            "name": "mpi",
-            "default": true,
-            "description": "Activate MPI support"
-        }
-    ],
-    "homepage": "https://support.hpe.com/",
-    "maintainers": [
-        "haampie",
-        "lukebroskop"
-    ],
-    "patches": [],
-    "resources": [],
-    "description": "FFTW is a C subroutine library for computing the discrete Fourier\ntransform (DFT) in one or more dimensions, of arbitrary input size, and\nof both real and complex data (as well as of even/odd data, i.e. the\ndiscrete cosine/sine transforms or DCT/DST). This package is a wrapper\nfor Cray's version of FFTW. To install this package, list it as an\nexternal package in packages.yaml, and make sure to load the correct\ncray-fftw module. In some cases you need to load cray-mpich before cray-\nfftw.\n",
-    "dependencies": [
-        {
-            "name": "mpi",
-            "description": "A single processor implementation of the mpi library."
-        }
-    ],
-    "dependent_to": [
-        {
-            "name": "berkeleygw",
-            "description": "BerkeleyGW is a many-body perturbation theory code for excited states,\nusing the GW method and the GW plus Bethe-Salpeter equation (GW-BSE)\nmethod to solve respectively for quasiparticle excitations and optical\nproperties of materials."
-        },
-        {
-            "name": "cp2k",
-            "description": "CP2K is a quantum chemistry and solid state physics software package\nthat can perform atomistic simulations of solid state, liquid,\nmolecular, periodic, material, crystal, and biological systems"
-        },
-        {
-            "name": "ngspice",
-            "description": "ngspice is the open source spice simulator for electric and electronic\ncircuits."
+            "name": "3.3.8.8"
         }
     ]
 }

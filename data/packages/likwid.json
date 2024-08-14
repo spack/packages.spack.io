@@ -1,201 +1,201 @@
 {
-    "name": "likwid",
     "aliases": [],
+    "build_system": "Package",
+    "conflicts": [],
+    "dependencies": [
+        {
+            "description": "CUDA is a parallel computing platform and programming model invented by\nNVIDIA. It enables dramatic increases in computing performance by\nharnessing the power of the graphics processing unit (GPU). Note: This\npackage does not currently install the drivers necessary to run CUDA.\nThese will need to be installed manually. See:\nhttps://docs.nvidia.com/cuda/ for details.",
+            "name": "cuda"
+        },
+        {
+            "description": "The Hardware Locality (hwloc) software project. The Portable Hardware\nLocality (hwloc) software package provides a portable abstraction\n(across OS, versions, architectures, ...) of the hierarchical topology\nof modern architectures, including NUMA memory nodes, sockets, shared\ncaches, cores and simultaneous multithreading. It also gathers various\nsystem attributes such as cache and memory information as well as the\nlocality of I/O devices such as network interfaces, InfiniBand HCAs or\nGPUs. It primarily aims at helping applications with gathering\ninformation about modern computing hardware so as to exploit it\naccordingly and efficiently.",
+            "name": "hwloc"
+        },
+        {
+            "description": "The Lua programming language interpreter and library.",
+            "name": "lua"
+        },
+        {
+            "description": "Perl 5 is a highly capable, feature-rich programming language with over\n27 years of development.",
+            "name": "perl"
+        },
+        {
+            "description": "rocm-core is a utility which can be used to get ROCm release version. It\nalso provides the Lmod modules files for the ROCm release.\ngetROCmVersion function provides the ROCm version.",
+            "name": "rocm-core"
+        },
+        {
+            "description": "It is a C library for Linux that provides a user space interface for\napplications to monitor and control GPU applications.",
+            "name": "rocm-smi-lib"
+        },
+        {
+            "description": "ROCPROFILER library for AMD HSA runtime API extension support",
+            "name": "rocprofiler-dev"
+        }
+    ],
+    "dependent_to": [
+        {
+            "description": "A real-space finite-difference (time-dependent) density-functional\ntheory code.",
+            "name": "octopus"
+        },
+        {
+            "description": "DaCe is a fast parallel programming framework that takes code in\nPython/NumPy and other programming languages, and maps it to high-\nperformance CPU, GPU, and FPGA programs, which can be optimized\nprogrammatically or interactively.",
+            "name": "py-dace"
+        },
+        {
+            "description": "Python interface to the LIKWID tools library with calls for system\ntopology, process/thread affinity, hardware performance monitoring and\nthe manipulation of system features like frequencies and prefetchers.",
+            "name": "py-pylikwid"
+        },
+        {
+            "description": "STochastic Engine for Pathway Simulation",
+            "name": "steps"
+        },
+        {
+            "description": "A portable profiling and tracing toolkit for performance analysis of\nparallel programs written in Fortran, C, C++, UPC, Java, Python.",
+            "name": "tau"
+        },
+        {
+            "description": "Modular profiling toolkit and suite of libraries and tools for\nC/C++/Fortran/CUDA/Python",
+            "name": "timemory"
+        }
+    ],
+    "description": "Likwid is a simple to install and use toolsuite of command line\napplications for performance oriented programmers. It works for Intel\nand AMD processors on the Linux operating system. This version uses the\nperf_event backend which reduces the feature set but allows user\ninstalls. See https://github.com/RRZE-\nHPC/likwid/wiki/TutorialLikwidPerf#feature-limitations for information.\n",
+    "homepage": "https://hpc.fau.de/research/tools/likwid/",
+    "latest_version": "5.3.0",
+    "maintainers": [
+        "TomTheBear"
+    ],
+    "name": "likwid",
+    "patches": [
+        {
+            "level": 1,
+            "owner": "builtin.likwid",
+            "reverse": false,
+            "sha256": "13211de1b9f256b547e1565240c2c9d063855b17d70bd7379442789aa3424246",
+            "url": "https://github.com/RRZE-HPC/likwid/commit/e0332ace8fe8ca7dcd4b4477a25e37944f173a5c.patch?full_index=1",
+            "version": "@5.0.1",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.likwid",
+            "reverse": false,
+            "sha256": "f14cd6bc5870e4665fe465dabaff965a5fdee19c6d669a1ec5ce2b143dcdde4b",
+            "url": "https://github.com/RRZE-HPC/likwid/commit/d2d0ef333b5e0997d7c80fc6ac1a473b5e47d084.patch?full_index=1",
+            "version": "@4.3.4",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.likwid",
+            "reverse": false,
+            "sha256": "bc56253c1e3436b5ba7bf4c5533d0391206900c8663c008f771a16376975e416",
+            "url": "https://github.com/RRZE-HPC/likwid/files/5341379/likwid-lua5.1.patch.txt",
+            "version": "@5.0.2 ^lua@5.1",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.likwid",
+            "reverse": false,
+            "sha256": "62da145da0a09de21020f9726290e1daf7437691bab8a92d7254bc192d5f3061",
+            "url": "https://github.com/RRZE-HPC/likwid/releases/download/v5.1.0/likwid-mpirun-5.1.0.patch?full_index=1",
+            "version": "@5.1.0",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.likwid",
+            "reverse": false,
+            "sha256": "af4ce278ef20cd1df26d8749a6b0e2716e4286685dae5a5e1eb4af8c383f7d10",
+            "url": "https://github.com/RRZE-HPC/likwid/releases/download/v5.2.0/likwid-icx-mem-group-fix.patch",
+            "version": "@5.2.0:5.2.2",
+            "working_dir": "."
+        }
+    ],
+    "resources": [],
+    "variants": [
+        {
+            "default": "perf_event",
+            "description": "the default mode for MSR access",
+            "name": "accessmode"
+        },
+        {
+            "default": "generic",
+            "description": "Build systems supported by the package",
+            "name": "build_system"
+        },
+        {
+            "default": false,
+            "description": "with Nvidia GPU profiling support",
+            "name": "cuda"
+        },
+        {
+            "default": true,
+            "description": "with fortran interface",
+            "name": "fortran"
+        },
+        {
+            "default": false,
+            "description": "with AMD GPU profiling support",
+            "name": "rocm"
+        }
+    ],
     "versions": [
         {
-            "name": "5.3.0",
-            "sha256": "c290e554c4253124ac2ab8b056e14ee4d23966b8c9fbfa10ba81f75ae543ce4e"
-        },
-        {
-            "name": "5.2.2",
-            "sha256": "7dda6af722e04a6c40536fc9f89766ce10f595a8569b29e80563767a6a8f940e"
-        },
-        {
-            "name": "5.2.1",
-            "sha256": "1b8e668da117f24302a344596336eca2c69d2bc2f49fa228ca41ea0688f6cbc2"
-        },
-        {
-            "name": "5.2.0",
-            "sha256": "aa6dccacfca59e52d8f3be187ffcf292b2a2fa1f51a81bf8912b9d48e5a257e0"
-        },
-        {
-            "name": "5.1.1",
-            "sha256": "faec7c62987967232f476a6ff0ee85af686fd24b5a360126896b7f435d1f943f"
-        },
-        {
-            "name": "5.1.0",
-            "sha256": "5a180702a1656c6315b861a85031ab4cb090424aec42cbbb326b849e29f55571"
-        },
-        {
-            "name": "5.0.2",
-            "sha256": "0a1c8984e4b43ea8b99d09456ef05035eb934594af1669432117585c638a2da4"
-        },
-        {
-            "name": "5.0.1",
-            "sha256": "3757b0cb66e8af0116f9288c7f90543acbd8e2af8f72f77aef447ca2b3e76453"
-        },
-        {
-            "name": "5.0.0",
-            "sha256": "26623f5a1a5fec19d798f0114774a5293d1c93a148538b9591a13e50930fa41e"
-        },
-        {
-            "name": "4.3.4",
-            "sha256": "5c0d1c66b25dac8292a02232f06454067f031a238f010c62f40ef913c6609a83"
-        },
-        {
-            "name": "4.3.3",
-            "sha256": "a681378cd66c1679ca840fb5fac3136bfec93c01b3d78cc1d00a641db325a9a3"
-        },
-        {
-            "name": "4.3.2",
-            "sha256": "fd39529854b8952e7530da1684835aa43ac6ce2169f5ebd1fb2a481f6fb288ac"
+            "name": "4.3.0",
+            "sha256": "86fc5f82c80fcff1a643394627839ec79f1ca2bcfad30000eb7018da592588b4"
         },
         {
             "name": "4.3.1",
             "sha256": "4b40a96717da54514274d166f9b71928545468091c939c1d74109733279eaeb1"
         },
         {
-            "name": "4.3.0",
-            "sha256": "86fc5f82c80fcff1a643394627839ec79f1ca2bcfad30000eb7018da592588b4"
-        }
-    ],
-    "latest_version": "5.3.0",
-    "build_system": "Package",
-    "conflicts": [],
-    "variants": [
-        {
-            "name": "build_system",
-            "default": "generic",
-            "description": "Build systems supported by the package"
+            "name": "4.3.2",
+            "sha256": "fd39529854b8952e7530da1684835aa43ac6ce2169f5ebd1fb2a481f6fb288ac"
         },
         {
-            "name": "fortran",
-            "default": true,
-            "description": "with fortran interface"
+            "name": "4.3.3",
+            "sha256": "a681378cd66c1679ca840fb5fac3136bfec93c01b3d78cc1d00a641db325a9a3"
         },
         {
-            "name": "cuda",
-            "default": false,
-            "description": "with Nvidia GPU profiling support"
+            "name": "4.3.4",
+            "sha256": "5c0d1c66b25dac8292a02232f06454067f031a238f010c62f40ef913c6609a83"
         },
         {
-            "name": "rocm",
-            "default": false,
-            "description": "with AMD GPU profiling support"
+            "name": "5.0.0",
+            "sha256": "26623f5a1a5fec19d798f0114774a5293d1c93a148538b9591a13e50930fa41e"
         },
         {
-            "name": "accessmode",
-            "default": "perf_event",
-            "description": "the default mode for MSR access"
-        }
-    ],
-    "homepage": "https://hpc.fau.de/research/tools/likwid/",
-    "maintainers": [
-        "TomTheBear"
-    ],
-    "patches": [
-        {
-            "owner": "builtin.likwid",
-            "sha256": "13211de1b9f256b547e1565240c2c9d063855b17d70bd7379442789aa3424246",
-            "level": 1,
-            "working_dir": ".",
-            "reverse": false,
-            "url": "https://github.com/RRZE-HPC/likwid/commit/e0332ace8fe8ca7dcd4b4477a25e37944f173a5c.patch?full_index=1",
-            "version": "@5.0.1"
+            "name": "5.0.1",
+            "sha256": "3757b0cb66e8af0116f9288c7f90543acbd8e2af8f72f77aef447ca2b3e76453"
         },
         {
-            "owner": "builtin.likwid",
-            "sha256": "f14cd6bc5870e4665fe465dabaff965a5fdee19c6d669a1ec5ce2b143dcdde4b",
-            "level": 1,
-            "working_dir": ".",
-            "reverse": false,
-            "url": "https://github.com/RRZE-HPC/likwid/commit/d2d0ef333b5e0997d7c80fc6ac1a473b5e47d084.patch?full_index=1",
-            "version": "@4.3.4"
+            "name": "5.0.2",
+            "sha256": "0a1c8984e4b43ea8b99d09456ef05035eb934594af1669432117585c638a2da4"
         },
         {
-            "owner": "builtin.likwid",
-            "sha256": "bc56253c1e3436b5ba7bf4c5533d0391206900c8663c008f771a16376975e416",
-            "level": 1,
-            "working_dir": ".",
-            "reverse": false,
-            "url": "https://github.com/RRZE-HPC/likwid/files/5341379/likwid-lua5.1.patch.txt",
-            "version": "@5.0.2 ^lua@5.1"
+            "name": "5.1.0",
+            "sha256": "5a180702a1656c6315b861a85031ab4cb090424aec42cbbb326b849e29f55571"
         },
         {
-            "owner": "builtin.likwid",
-            "sha256": "62da145da0a09de21020f9726290e1daf7437691bab8a92d7254bc192d5f3061",
-            "level": 1,
-            "working_dir": ".",
-            "reverse": false,
-            "url": "https://github.com/RRZE-HPC/likwid/releases/download/v5.1.0/likwid-mpirun-5.1.0.patch?full_index=1",
-            "version": "@5.1.0"
+            "name": "5.1.1",
+            "sha256": "faec7c62987967232f476a6ff0ee85af686fd24b5a360126896b7f435d1f943f"
         },
         {
-            "owner": "builtin.likwid",
-            "sha256": "af4ce278ef20cd1df26d8749a6b0e2716e4286685dae5a5e1eb4af8c383f7d10",
-            "level": 1,
-            "working_dir": ".",
-            "reverse": false,
-            "url": "https://github.com/RRZE-HPC/likwid/releases/download/v5.2.0/likwid-icx-mem-group-fix.patch",
-            "version": "@5.2.0:5.2.2"
-        }
-    ],
-    "resources": [],
-    "description": "Likwid is a simple to install and use toolsuite of command line\napplications for performance oriented programmers. It works for Intel\nand AMD processors on the Linux operating system. This version uses the\nperf_event backend which reduces the feature set but allows user\ninstalls. See https://github.com/RRZE-\nHPC/likwid/wiki/TutorialLikwidPerf#feature-limitations for information.\n",
-    "dependencies": [
-        {
-            "name": "cuda",
-            "description": "CUDA is a parallel computing platform and programming model invented by\nNVIDIA. It enables dramatic increases in computing performance by\nharnessing the power of the graphics processing unit (GPU). Note: This\npackage does not currently install the drivers necessary to run CUDA.\nThese will need to be installed manually. See:\nhttps://docs.nvidia.com/cuda/ for details."
+            "name": "5.2.0",
+            "sha256": "aa6dccacfca59e52d8f3be187ffcf292b2a2fa1f51a81bf8912b9d48e5a257e0"
         },
         {
-            "name": "hwloc",
-            "description": "The Hardware Locality (hwloc) software project. The Portable Hardware\nLocality (hwloc) software package provides a portable abstraction\n(across OS, versions, architectures, ...) of the hierarchical topology\nof modern architectures, including NUMA memory nodes, sockets, shared\ncaches, cores and simultaneous multithreading. It also gathers various\nsystem attributes such as cache and memory information as well as the\nlocality of I/O devices such as network interfaces, InfiniBand HCAs or\nGPUs. It primarily aims at helping applications with gathering\ninformation about modern computing hardware so as to exploit it\naccordingly and efficiently."
+            "name": "5.2.1",
+            "sha256": "1b8e668da117f24302a344596336eca2c69d2bc2f49fa228ca41ea0688f6cbc2"
         },
         {
-            "name": "lua",
-            "description": "The Lua programming language interpreter and library."
+            "name": "5.2.2",
+            "sha256": "7dda6af722e04a6c40536fc9f89766ce10f595a8569b29e80563767a6a8f940e"
         },
         {
-            "name": "perl",
-            "description": "Perl 5 is a highly capable, feature-rich programming language with over\n27 years of development."
-        },
-        {
-            "name": "rocm-core",
-            "description": "rocm-core is a utility which can be used to get ROCm release version. It\nalso provides the Lmod modules files for the ROCm release.\ngetROCmVersion function provides the ROCm version."
-        },
-        {
-            "name": "rocm-smi-lib",
-            "description": "It is a C library for Linux that provides a user space interface for\napplications to monitor and control GPU applications."
-        },
-        {
-            "name": "rocprofiler-dev",
-            "description": "ROCPROFILER library for AMD HSA runtime API extension support"
-        }
-    ],
-    "dependent_to": [
-        {
-            "name": "steps",
-            "description": "STochastic Engine for Pathway Simulation"
-        },
-        {
-            "name": "octopus",
-            "description": "A real-space finite-difference (time-dependent) density-functional\ntheory code."
-        },
-        {
-            "name": "py-dace",
-            "description": "DaCe is a fast parallel programming framework that takes code in\nPython/NumPy and other programming languages, and maps it to high-\nperformance CPU, GPU, and FPGA programs, which can be optimized\nprogrammatically or interactively."
-        },
-        {
-            "name": "py-pylikwid",
-            "description": "Python interface to the LIKWID tools library with calls for system\ntopology, process/thread affinity, hardware performance monitoring and\nthe manipulation of system features like frequencies and prefetchers."
-        },
-        {
-            "name": "timemory",
-            "description": "Modular profiling toolkit and suite of libraries and tools for\nC/C++/Fortran/CUDA/Python"
-        },
-        {
-            "name": "tau",
-            "description": "A portable profiling and tracing toolkit for performance analysis of\nparallel programs written in Fortran, C, C++, UPC, Java, Python."
+            "name": "5.3.0",
+            "sha256": "c290e554c4253124ac2ab8b056e14ee4d23966b8c9fbfa10ba81f75ae543ce4e"
         }
     ]
 }

@@ -1,476 +1,476 @@
 {
-    "name": "rocblas",
     "aliases": [],
-    "versions": [
-        {
-            "name": "develop",
-            "branch": "develop"
-        },
-        {
-            "name": "master",
-            "branch": "master"
-        },
-        {
-            "name": "6.1.2",
-            "sha256": "1e83918bd7b28ec9ee292c6fb7eb0fc5f4db2d5d831a9a3db541f14a90c20a1a"
-        },
-        {
-            "name": "6.1.1",
-            "sha256": "c920742fb8f45512c360cdb40e37d0ac767f042e52f1981264853dab5ec2c876"
-        },
-        {
-            "name": "6.1.0",
-            "sha256": "af00357909da60d82618038aa9a3cc1f9d4ce1bdfb54db20ec746b592d478edf"
-        },
-        {
-            "name": "6.0.2",
-            "sha256": "d1bf31063a2d349797b88c994c91d05f94e681bafb5550ad9b53529703d89dbb"
-        },
-        {
-            "name": "6.0.0",
-            "sha256": "befa4a75f1de0ea37f2358d4c2de5406d7bce671ca9936e2294b64d3b3bafb60"
-        },
-        {
-            "name": "5.7.1",
-            "sha256": "2984a5ed0ea5a05d40996ee3fddecb24399cbe8ea3e4921fc254e54d8f52fe4f"
-        },
-        {
-            "name": "5.7.0",
-            "sha256": "024edd98de9687ee5394badc4dd4c543eef4eb3f71c96ff64100705d851e1744"
-        },
-        {
-            "name": "5.6.1",
-            "sha256": "73896ebd445162a69af97f9fd462684609b4e0cf617eab450cd4558b4a23941e"
-        },
-        {
-            "name": "5.6.0",
-            "sha256": "6a70b27eede02c45f46095a6ce8421af9a774a565e39f5e1074783ecf00c1ea7"
-        },
-        {
-            "name": "5.5.1",
-            "sha256": "7916a8d238d51cc239949d799f0b61c9d5cd63c6ccaed0e16749489b89ca8ff3"
-        },
-        {
-            "name": "5.5.0",
-            "sha256": "b5260517f199e806ae18f2c4495f163884e0d7a0a7c67af0770f7428ea50f898"
-        },
-        {
-            "name": "5.4.3",
-            "sha256": "d82cd334b7a9b40d16ec4f4bb1fb5662382dcbfc86ee5e262413ed63d9e6a701"
-        },
-        {
-            "name": "5.4.0",
-            "sha256": "261e05375024a01e68697c5d175210a07f0f5fc63a756234d996ddedffde78a2"
-        },
-        {
-            "name": "5.3.3",
-            "sha256": "62a3b5f415bd8e0dcd0d68233d379f1a928ec0349977c32b4eea72ae5004e805"
-        },
-        {
-            "name": "5.3.0",
-            "sha256": "8ea7269604cba949a6ea84b78dc92a44fa890427db88334da6358813f6512e34"
-        }
-    ],
-    "latest_version": "6.1.2",
     "build_system": "CMakePackage",
     "conflicts": [
         {
-            "name": "+asan",
-            "spec": "arch=None-rhel9-None",
-            "description": null
-        },
-        {
-            "name": "+asan",
-            "spec": "arch=None-centos7-None",
-            "description": null
-        },
-        {
-            "name": "+asan",
-            "spec": "arch=None-centos8-None",
-            "description": null
-        },
-        {
+            "description": null,
             "name": "%gcc@12",
-            "spec": "@5.2",
-            "description": null
+            "spec": "@5.2"
+        },
+        {
+            "description": null,
+            "name": "+asan",
+            "spec": "arch=None-centos7-None"
+        },
+        {
+            "description": null,
+            "name": "+asan",
+            "spec": "arch=None-centos8-None"
+        },
+        {
+            "description": null,
+            "name": "+asan",
+            "spec": "arch=None-rhel9-None"
         }
     ],
-    "variants": [
+    "dependencies": [
         {
-            "name": "build_system",
-            "default": "cmake",
-            "description": "Build systems supported by the package"
+            "description": "AMD Optimized BLIS. BLIS is a portable software framework for\ninstantiating high-performance BLAS-like dense linear algebra libraries.\nThe framework was designed to isolate essential kernels of computation\nthat, when optimized, immediately enable optimized implementations of\nmost of its commonly used and computationally intensive operations.\nLICENSING INFORMATION: By downloading, installing and using this\nsoftware, you agree to the terms and conditions of the AMD AOCL-BLIS\nlicense agreement. You may obtain a copy of this license agreement from\nhttps://www.amd.com/en/developer/aocl/dense/eula/blas-4-2-eula.html\nhttps://www.amd.com/en/developer/aocl/dense/eula/blas-eula.html",
+            "name": "amdblis"
         },
         {
-            "name": "build_type",
-            "default": "Release",
-            "description": "CMake build type"
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software.",
+            "name": "cmake"
         },
         {
-            "name": "ipo",
-            "default": false,
-            "description": "CMake interprocedural optimization"
+            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files.",
+            "name": "gmake"
         },
         {
-            "name": "generator",
-            "default": "make",
-            "description": "the build system generator to use"
+            "description": "Google test framework for C++. Also called gtest.",
+            "name": "googletest"
         },
         {
-            "name": "amdgpu_target",
-            "default": "auto",
-            "description": "AMD GPU architecture"
+            "description": "HIP is a C++ Runtime API and Kernel Language that allows developers to\ncreate portable applications for AMD and NVIDIA GPUs from single source\ncode.",
+            "name": "hip"
         },
         {
-            "name": "tensile",
-            "default": true,
-            "description": "Use Tensile as a backend"
+            "description": "Toolkit for the construction of highly optimized compilers, optimizers,\nand run-time environments.",
+            "name": "llvm-amdgpu"
         },
         {
-            "name": "asan",
-            "default": false,
-            "description": "Build with address-sanitizer enabled or disabled"
+            "description": "A small, fast binary interchange format convertible to/from JSON",
+            "name": "msgpack-c"
+        },
+        {
+            "description": "Ninja is a small build system with a focus on speed. It differs from\nother build systems in two major respects: it is designed to have its\ninput files generated by a higher-level build system, and it is designed\nto run builds as fast as possible.",
+            "name": "ninja"
+        },
+        {
+            "description": "Perl implementation of the which utility as an API",
+            "name": "perl-file-which"
+        },
+        {
+            "description": "Command line and full screen utilities for browsing procfs, a \"pseudo\"\nfile system dynamically generated by the kernel to provide information\nabout the status of entries in its process table.",
+            "name": "procps"
+        },
+        {
+            "description": "Lightweight pipelining with Python functions.",
+            "name": "py-joblib"
+        },
+        {
+            "description": "MessagePack (de)serializer.",
+            "name": "py-msgpack"
+        },
+        {
+            "description": "The PyPA recommended tool for installing Python packages.",
+            "name": "py-pip"
+        },
+        {
+            "description": "PyYAML is a YAML parser and emitter for Python.",
+            "name": "py-pyyaml"
+        },
+        {
+            "description": "virtualenv is a tool to create isolated Python environments.",
+            "name": "py-virtualenv"
+        },
+        {
+            "description": "A built-package format for Python.",
+            "name": "py-wheel"
+        },
+        {
+            "description": "The Python programming language.",
+            "name": "python"
+        },
+        {
+            "description": "rocm-cmake provides CMake modules for common build tasks in the ROCm\nsoftware stack",
+            "name": "rocm-cmake"
+        },
+        {
+            "description": "OpenMP support for ROCm LLVM.",
+            "name": "rocm-openmp-extras"
+        },
+        {
+            "description": "Radeon Open Compute (ROCm) Runtime rocminfo tool",
+            "name": "rocminfo"
         }
     ],
+    "dependent_to": [
+        {
+            "description": "C++ API for the Basic Linear Algebra Subroutines. Developed by the\nInnovative Computing Laboratory at the University of Tennessee,\nKnoxville.",
+            "name": "blaspp"
+        },
+        {
+            "description": "Distributed Communication-Optimal Matrix-Matrix Multiplication Library",
+            "name": "cosma"
+        },
+        {
+            "description": "DLA-Future library: Distributed Linear Algebra with Future",
+            "name": "dla-future"
+        },
+        {
+            "description": "Eigenvalue solvers for Petaflop-Applications (ELPA)",
+            "name": "elpa"
+        },
+        {
+            "description": "Highly Efficient FFT for Exascale",
+            "name": "heffte"
+        },
+        {
+            "description": "hipBLAS is a BLAS marshalling library, with multiple supported backends",
+            "name": "hipblas"
+        },
+        {
+            "description": "hipSOLVER is a LAPACK marshalling library, with multiple supported\nbackends. It sits between the application and a 'worker' LAPACK library,\nmarshalling inputs into the backend library and marshalling results back\nto the application. hipSOLVER exports an interface that does not require\nthe client to change, regardless of the chosen backend. Currently,\nhipSOLVER supports rocSOLVER and cuSOLVER as backends.",
+            "name": "hipsolver"
+        },
+        {
+            "description": "Kokkos Kernels provides math kernels, often BLAS or LAPACK for small\nmatrices, that can be used in larger Kokkos parallel routines",
+            "name": "kokkos-kernels"
+        },
+        {
+            "description": "LAPACK++: C++ API for the LAPACK Linear Algebra Package. Developed by\nthe Innovative Computing Laboratory at the University of Tennessee,\nKnoxville.",
+            "name": "lapackpp"
+        },
+        {
+            "description": "AMD's graph optimization engine.",
+            "name": "migraphx"
+        },
+        {
+            "description": "AMD's library for high performance machine learning primitives.",
+            "name": "miopen-hip"
+        },
+        {
+            "description": "AMD's library for high performance machine learning primitives.",
+            "name": "miopen-opencl"
+        },
+        {
+            "description": "Nonlinear CG methods for wave-function optimization in DFT.",
+            "name": "nlcglib"
+        },
+        {
+            "description": "PETSc is a suite of data structures and routines for the scalable\n(parallel) solution of scientific applications modeled by partial\ndifferential equations.",
+            "name": "petsc"
+        },
+        {
+            "description": "C++ runtime system for parallellism and concurrency.",
+            "name": "pika"
+        },
+        {
+            "description": "PyFR is an open-source Python based framework for solving advection-\ndiffusion type problems on streaming architectures using the Flux\nReconstruction approach of Huynh.",
+            "name": "py-pyfr"
+        },
+        {
+            "description": "TensorFlow is an open source machine learning framework for everyone.",
+            "name": "py-tensorflow"
+        },
+        {
+            "description": "Tensors and Dynamic neural networks in Python with strong GPU\nacceleration.",
+            "name": "py-torch"
+        },
+        {
+            "description": "A Redis module for serving tensors and executing deep learning graphs",
+            "name": "redis-ai"
+        },
+        {
+            "description": "ReSolve is a library of GPU-resident sparse linear solvers. It contains\niterative and direct solvers designed to run on NVIDIA and AMD GPUs, as\nwell as CPU devices.",
+            "name": "resolve"
+        },
+        {
+            "description": "rocALUTION is a sparse linear algebra library with focus on exploring\nfine-grained parallelism on top of AMD's Radeon Open eCosystem Platform\nROCm runtime and toolchains, targeting modern CPU and GPU platforms.\nBased on C++ and HIP, it provides a portable, generic and flexible\ndesign that allows seamless integration with other scientific software\npackages.",
+            "name": "rocalution"
+        },
+        {
+            "description": "The ROCm Validation Suite (RVS) is a system administrators and cluster\nmanager's tool for detecting and troubleshooting common problems\naffecting AMD GPU(s) running in a high-performance computing\nenvironment, enabled using the ROCm software stack on a compatible\nplatform.",
+            "name": "rocm-validation-suite"
+        },
+        {
+            "description": "rocSOLVER is a work-in-progress implementation of a subset of LAPACK\nfunctionality on the ROCm platform.",
+            "name": "rocsolver"
+        },
+        {
+            "description": "AMD's C++ library for accelerating mixed precision matrix multiplication\nand accumulation (MFMA) operations leveraging specialized GPU matrix\ncores. rocWMMA provides a C++ API to facilitate breaking down matrix\nmultiply-accumulate problems into fragments and using them in block-wise\noperations that are distributed in parallel across GPU wavefronts. The\nAPI is a header library of GPU device code meaning that matrix core\nacceleration may be compiled directly into your kernel device code. This\ncan benefit from compiler optimization in the generation of kernel\nassembly, and does not incur additional overhead costs of linking to\nexternal runtime libraries or having to launch separate kernels.",
+            "name": "rocwmma"
+        },
+        {
+            "description": "Domain specific library for electronic structure calculations",
+            "name": "sirius"
+        },
+        {
+            "description": "The Software for Linear Algebra Targeting Exascale (SLATE) project is to\nprovide fundamental dense linear algebra capabilities to the US\nDepartment of Energy and to the high-performance computing (HPC)\ncommunity at large. To this end, SLATE will provide basic dense matrix\noperations (e.g., matrix multiplication, rank-k update, triangular\nsolve), linear systems solvers, least square solvers, singular value and\neigenvalue solvers.",
+            "name": "slate"
+        },
+        {
+            "description": "Specialized Parallel Linear Algebra, providing distributed GEMM\nfunctionality for specific matrix distributions with optional GPU\nacceleration.",
+            "name": "spla"
+        },
+        {
+            "description": "The Toolkit for Adaptive Stochastic Modeling and Non-Intrusive\nApproximatioN is a robust library for high dimensional integration and\ninterpolation as well as parameter calibration.",
+            "name": "tasmanian"
+        },
+        {
+            "description": "Matrix multiplication on GPUs for matrices stored on a CPU. Similar to\ncublasXt, but ported to both NVIDIA and AMD GPUs.",
+            "name": "tiled-mm"
+        }
+    ],
+    "description": "Radeon Open Compute BLAS library\n",
     "homepage": "https://github.com/ROCm/rocBLAS/",
+    "latest_version": "6.1.2",
     "maintainers": [
         "cgmb",
         "haampie",
         "renjithravindrankannath",
         "srekolam"
     ],
+    "name": "rocblas",
     "patches": [
         {
-            "owner": "builtin.rocblas",
-            "sha256": "81591d9aa564cd84d105a30e6d0ed7ad1d24ca6e492dd6506efae864dc959208",
             "level": 1,
-            "working_dir": ".",
-            "reverse": false,
+            "owner": "builtin.rocblas",
             "relative_path": "0004-Find-python.patch",
-            "version": "@5.2.0:5.4"
+            "reverse": false,
+            "sha256": "81591d9aa564cd84d105a30e6d0ed7ad1d24ca6e492dd6506efae864dc959208",
+            "version": "@5.2.0:5.4",
+            "working_dir": "."
         },
         {
-            "owner": "builtin.rocblas",
-            "sha256": "ac4626b76c0cae65c881e0d02bb4321c499e03b611537cec56b9cd17dabfb9b5",
             "level": 1,
-            "working_dir": ".",
-            "reverse": false,
+            "owner": "builtin.rocblas",
             "relative_path": "0006-Guard-use-of-OpenMP-to-make-it-optional-5.4.patch",
-            "version": "@5.4"
+            "reverse": false,
+            "sha256": "ac4626b76c0cae65c881e0d02bb4321c499e03b611537cec56b9cd17dabfb9b5",
+            "version": "@5.4",
+            "working_dir": "."
         },
         {
-            "owner": "builtin.rocblas",
-            "sha256": "f67becc427a3310690e19601d89671ca744385daab29cb5021135b16504aad35",
             "level": 1,
-            "working_dir": ".",
-            "reverse": false,
+            "owner": "builtin.rocblas",
             "relative_path": "0007-add-rocm-openmp-extras-include-dir.patch",
-            "version": "@5.6:5.7"
+            "reverse": false,
+            "sha256": "f67becc427a3310690e19601d89671ca744385daab29cb5021135b16504aad35",
+            "version": "@5.6:5.7",
+            "working_dir": "."
         }
     ],
     "resources": [
         {
-            "version": "@5.3.0+tensile",
-            "name": "Tensile",
             "destination": "",
-            "placement": null
+            "name": "Tensile",
+            "placement": null,
+            "version": "@5.3.0+tensile"
         },
         {
-            "version": "@5.3.3+tensile",
-            "name": "Tensile",
             "destination": "",
-            "placement": null
+            "name": "Tensile",
+            "placement": null,
+            "version": "@5.3.3+tensile"
         },
         {
-            "version": "@5.4.0+tensile",
-            "name": "Tensile",
             "destination": "",
-            "placement": null
+            "name": "Tensile",
+            "placement": null,
+            "version": "@5.4.0+tensile"
         },
         {
-            "version": "@5.4.3+tensile",
-            "name": "Tensile",
             "destination": "",
-            "placement": null
+            "name": "Tensile",
+            "placement": null,
+            "version": "@5.4.3+tensile"
         },
         {
-            "version": "@5.5.0+tensile",
-            "name": "Tensile",
             "destination": "",
-            "placement": null
+            "name": "Tensile",
+            "placement": null,
+            "version": "@5.5.0+tensile"
         },
         {
-            "version": "@5.5.1+tensile",
-            "name": "Tensile",
             "destination": "",
-            "placement": null
+            "name": "Tensile",
+            "placement": null,
+            "version": "@5.5.1+tensile"
         },
         {
-            "version": "@5.6.0+tensile",
-            "name": "Tensile",
             "destination": "",
-            "placement": null
+            "name": "Tensile",
+            "placement": null,
+            "version": "@5.6.0+tensile"
         },
         {
-            "version": "@5.6.1+tensile",
-            "name": "Tensile",
             "destination": "",
-            "placement": null
+            "name": "Tensile",
+            "placement": null,
+            "version": "@5.6.1+tensile"
         },
         {
-            "version": "@5.7.0+tensile",
-            "name": "Tensile",
             "destination": "",
-            "placement": null
+            "name": "Tensile",
+            "placement": null,
+            "version": "@5.7.0+tensile"
         },
         {
-            "version": "@5.7.1+tensile",
-            "name": "Tensile",
             "destination": "",
-            "placement": null
+            "name": "Tensile",
+            "placement": null,
+            "version": "@5.7.1+tensile"
         },
         {
-            "version": "@6.0.0+tensile",
-            "name": "Tensile",
             "destination": "",
-            "placement": null
+            "name": "Tensile",
+            "placement": null,
+            "version": "@6.0.0+tensile"
         },
         {
-            "version": "@6.0.2+tensile",
-            "name": "Tensile",
             "destination": "",
-            "placement": null
+            "name": "Tensile",
+            "placement": null,
+            "version": "@6.0.2+tensile"
         },
         {
-            "version": "@6.1.0+tensile",
-            "name": "Tensile",
             "destination": "",
-            "placement": null
+            "name": "Tensile",
+            "placement": null,
+            "version": "@6.1.0+tensile"
         },
         {
-            "version": "@6.1.1+tensile",
-            "name": "Tensile",
             "destination": "",
-            "placement": null
+            "name": "Tensile",
+            "placement": null,
+            "version": "@6.1.1+tensile"
         },
         {
-            "version": "@6.1.2+tensile",
-            "name": "Tensile",
             "destination": "",
-            "placement": null
+            "name": "Tensile",
+            "placement": null,
+            "version": "@6.1.2+tensile"
         },
         {
-            "version": "@master+tensile",
-            "name": "Tensile",
             "destination": "",
-            "placement": null
+            "name": "Tensile",
+            "placement": null,
+            "version": "@master+tensile"
         },
         {
-            "version": "@develop+tensile",
-            "name": "Tensile",
             "destination": "",
-            "placement": null
+            "name": "Tensile",
+            "placement": null,
+            "version": "@develop+tensile"
         }
     ],
-    "description": "Radeon Open Compute BLAS library\n",
-    "dependencies": [
+    "variants": [
         {
-            "name": "amdblis",
-            "description": "AMD Optimized BLIS. BLIS is a portable software framework for\ninstantiating high-performance BLAS-like dense linear algebra libraries.\nThe framework was designed to isolate essential kernels of computation\nthat, when optimized, immediately enable optimized implementations of\nmost of its commonly used and computationally intensive operations.\nLICENSING INFORMATION: By downloading, installing and using this\nsoftware, you agree to the terms and conditions of the AMD AOCL-BLIS\nlicense agreement. You may obtain a copy of this license agreement from\nhttps://www.amd.com/en/developer/aocl/dense/eula/blas-4-2-eula.html\nhttps://www.amd.com/en/developer/aocl/dense/eula/blas-eula.html"
+            "default": "auto",
+            "description": "AMD GPU architecture",
+            "name": "amdgpu_target"
         },
         {
-            "name": "cmake",
-            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
+            "default": false,
+            "description": "Build with address-sanitizer enabled or disabled",
+            "name": "asan"
         },
         {
-            "name": "gmake",
-            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files."
+            "default": "cmake",
+            "description": "Build systems supported by the package",
+            "name": "build_system"
         },
         {
-            "name": "googletest",
-            "description": "Google test framework for C++. Also called gtest."
+            "default": "Release",
+            "description": "CMake build type",
+            "name": "build_type"
         },
         {
-            "name": "hip",
-            "description": "HIP is a C++ Runtime API and Kernel Language that allows developers to\ncreate portable applications for AMD and NVIDIA GPUs from single source\ncode."
+            "default": "make",
+            "description": "the build system generator to use",
+            "name": "generator"
         },
         {
-            "name": "llvm-amdgpu",
-            "description": "Toolkit for the construction of highly optimized compilers, optimizers,\nand run-time environments."
+            "default": false,
+            "description": "CMake interprocedural optimization",
+            "name": "ipo"
         },
         {
-            "name": "msgpack-c",
-            "description": "A small, fast binary interchange format convertible to/from JSON"
-        },
-        {
-            "name": "ninja",
-            "description": "Ninja is a small build system with a focus on speed. It differs from\nother build systems in two major respects: it is designed to have its\ninput files generated by a higher-level build system, and it is designed\nto run builds as fast as possible."
-        },
-        {
-            "name": "perl-file-which",
-            "description": "Perl implementation of the which utility as an API"
-        },
-        {
-            "name": "procps",
-            "description": "Command line and full screen utilities for browsing procfs, a \"pseudo\"\nfile system dynamically generated by the kernel to provide information\nabout the status of entries in its process table."
-        },
-        {
-            "name": "py-joblib",
-            "description": "Lightweight pipelining with Python functions."
-        },
-        {
-            "name": "py-msgpack",
-            "description": "MessagePack (de)serializer."
-        },
-        {
-            "name": "py-pip",
-            "description": "The PyPA recommended tool for installing Python packages."
-        },
-        {
-            "name": "py-pyyaml",
-            "description": "PyYAML is a YAML parser and emitter for Python."
-        },
-        {
-            "name": "py-virtualenv",
-            "description": "virtualenv is a tool to create isolated Python environments."
-        },
-        {
-            "name": "py-wheel",
-            "description": "A built-package format for Python."
-        },
-        {
-            "name": "python",
-            "description": "The Python programming language."
-        },
-        {
-            "name": "rocm-cmake",
-            "description": "rocm-cmake provides CMake modules for common build tasks in the ROCm\nsoftware stack"
-        },
-        {
-            "name": "rocm-openmp-extras",
-            "description": "OpenMP support for ROCm LLVM."
-        },
-        {
-            "name": "rocminfo",
-            "description": "Radeon Open Compute (ROCm) Runtime rocminfo tool"
+            "default": true,
+            "description": "Use Tensile as a backend",
+            "name": "tensile"
         }
     ],
-    "dependent_to": [
+    "versions": [
         {
-            "name": "redis-ai",
-            "description": "A Redis module for serving tensors and executing deep learning graphs"
+            "name": "5.3.0",
+            "sha256": "8ea7269604cba949a6ea84b78dc92a44fa890427db88334da6358813f6512e34"
         },
         {
-            "name": "blaspp",
-            "description": "C++ API for the Basic Linear Algebra Subroutines. Developed by the\nInnovative Computing Laboratory at the University of Tennessee,\nKnoxville."
+            "name": "5.3.3",
+            "sha256": "62a3b5f415bd8e0dcd0d68233d379f1a928ec0349977c32b4eea72ae5004e805"
         },
         {
-            "name": "tiled-mm",
-            "description": "Matrix multiplication on GPUs for matrices stored on a CPU. Similar to\ncublasXt, but ported to both NVIDIA and AMD GPUs."
+            "name": "5.4.0",
+            "sha256": "261e05375024a01e68697c5d175210a07f0f5fc63a756234d996ddedffde78a2"
         },
         {
-            "name": "kokkos-kernels",
-            "description": "Kokkos Kernels provides math kernels, often BLAS or LAPACK for small\nmatrices, that can be used in larger Kokkos parallel routines"
+            "name": "5.4.3",
+            "sha256": "d82cd334b7a9b40d16ec4f4bb1fb5662382dcbfc86ee5e262413ed63d9e6a701"
         },
         {
-            "name": "resolve",
-            "description": "ReSolve is a library of GPU-resident sparse linear solvers. It contains\niterative and direct solvers designed to run on NVIDIA and AMD GPUs, as\nwell as CPU devices."
+            "name": "5.5.0",
+            "sha256": "b5260517f199e806ae18f2c4495f163884e0d7a0a7c67af0770f7428ea50f898"
         },
         {
-            "name": "migraphx",
-            "description": "AMD's graph optimization engine."
+            "name": "5.5.1",
+            "sha256": "7916a8d238d51cc239949d799f0b61c9d5cd63c6ccaed0e16749489b89ca8ff3"
         },
         {
-            "name": "sirius",
-            "description": "Domain specific library for electronic structure calculations"
+            "name": "5.6.0",
+            "sha256": "6a70b27eede02c45f46095a6ce8421af9a774a565e39f5e1074783ecf00c1ea7"
         },
         {
-            "name": "dla-future",
-            "description": "DLA-Future library: Distributed Linear Algebra with Future"
+            "name": "5.6.1",
+            "sha256": "73896ebd445162a69af97f9fd462684609b4e0cf617eab450cd4558b4a23941e"
         },
         {
-            "name": "rocalution",
-            "description": "rocALUTION is a sparse linear algebra library with focus on exploring\nfine-grained parallelism on top of AMD's Radeon Open eCosystem Platform\nROCm runtime and toolchains, targeting modern CPU and GPU platforms.\nBased on C++ and HIP, it provides a portable, generic and flexible\ndesign that allows seamless integration with other scientific software\npackages."
+            "name": "5.7.0",
+            "sha256": "024edd98de9687ee5394badc4dd4c543eef4eb3f71c96ff64100705d851e1744"
         },
         {
-            "name": "spla",
-            "description": "Specialized Parallel Linear Algebra, providing distributed GEMM\nfunctionality for specific matrix distributions with optional GPU\nacceleration."
+            "name": "5.7.1",
+            "sha256": "2984a5ed0ea5a05d40996ee3fddecb24399cbe8ea3e4921fc254e54d8f52fe4f"
         },
         {
-            "name": "petsc",
-            "description": "PETSc is a suite of data structures and routines for the scalable\n(parallel) solution of scientific applications modeled by partial\ndifferential equations."
+            "name": "6.0.0",
+            "sha256": "befa4a75f1de0ea37f2358d4c2de5406d7bce671ca9936e2294b64d3b3bafb60"
         },
         {
-            "name": "slate",
-            "description": "The Software for Linear Algebra Targeting Exascale (SLATE) project is to\nprovide fundamental dense linear algebra capabilities to the US\nDepartment of Energy and to the high-performance computing (HPC)\ncommunity at large. To this end, SLATE will provide basic dense matrix\noperations (e.g., matrix multiplication, rank-k update, triangular\nsolve), linear systems solvers, least square solvers, singular value and\neigenvalue solvers."
+            "name": "6.0.2",
+            "sha256": "d1bf31063a2d349797b88c994c91d05f94e681bafb5550ad9b53529703d89dbb"
         },
         {
-            "name": "rocwmma",
-            "description": "AMD's C++ library for accelerating mixed precision matrix multiplication\nand accumulation (MFMA) operations leveraging specialized GPU matrix\ncores. rocWMMA provides a C++ API to facilitate breaking down matrix\nmultiply-accumulate problems into fragments and using them in block-wise\noperations that are distributed in parallel across GPU wavefronts. The\nAPI is a header library of GPU device code meaning that matrix core\nacceleration may be compiled directly into your kernel device code. This\ncan benefit from compiler optimization in the generation of kernel\nassembly, and does not incur additional overhead costs of linking to\nexternal runtime libraries or having to launch separate kernels."
+            "name": "6.1.0",
+            "sha256": "af00357909da60d82618038aa9a3cc1f9d4ce1bdfb54db20ec746b592d478edf"
         },
         {
-            "name": "hipblas",
-            "description": "hipBLAS is a BLAS marshalling library, with multiple supported backends"
+            "name": "6.1.1",
+            "sha256": "c920742fb8f45512c360cdb40e37d0ac767f042e52f1981264853dab5ec2c876"
         },
         {
-            "name": "py-pyfr",
-            "description": "PyFR is an open-source Python based framework for solving advection-\ndiffusion type problems on streaming architectures using the Flux\nReconstruction approach of Huynh."
+            "name": "6.1.2",
+            "sha256": "1e83918bd7b28ec9ee292c6fb7eb0fc5f4db2d5d831a9a3db541f14a90c20a1a"
         },
         {
-            "name": "hipsolver",
-            "description": "hipSOLVER is a LAPACK marshalling library, with multiple supported\nbackends. It sits between the application and a 'worker' LAPACK library,\nmarshalling inputs into the backend library and marshalling results back\nto the application. hipSOLVER exports an interface that does not require\nthe client to change, regardless of the chosen backend. Currently,\nhipSOLVER supports rocSOLVER and cuSOLVER as backends."
+            "branch": "develop",
+            "name": "develop"
         },
         {
-            "name": "rocm-validation-suite",
-            "description": "The ROCm Validation Suite (RVS) is a system administrators and cluster\nmanager's tool for detecting and troubleshooting common problems\naffecting AMD GPU(s) running in a high-performance computing\nenvironment, enabled using the ROCm software stack on a compatible\nplatform."
-        },
-        {
-            "name": "py-tensorflow",
-            "description": "TensorFlow is an open source machine learning framework for everyone."
-        },
-        {
-            "name": "miopen-hip",
-            "description": "AMD's library for high performance machine learning primitives."
-        },
-        {
-            "name": "lapackpp",
-            "description": "LAPACK++: C++ API for the LAPACK Linear Algebra Package. Developed by\nthe Innovative Computing Laboratory at the University of Tennessee,\nKnoxville."
-        },
-        {
-            "name": "cosma",
-            "description": "Distributed Communication-Optimal Matrix-Matrix Multiplication Library"
-        },
-        {
-            "name": "heffte",
-            "description": "Highly Efficient FFT for Exascale"
-        },
-        {
-            "name": "elpa",
-            "description": "Eigenvalue solvers for Petaflop-Applications (ELPA)"
-        },
-        {
-            "name": "nlcglib",
-            "description": "Nonlinear CG methods for wave-function optimization in DFT."
-        },
-        {
-            "name": "tasmanian",
-            "description": "The Toolkit for Adaptive Stochastic Modeling and Non-Intrusive\nApproximatioN is a robust library for high dimensional integration and\ninterpolation as well as parameter calibration."
-        },
-        {
-            "name": "miopen-opencl",
-            "description": "AMD's library for high performance machine learning primitives."
-        },
-        {
-            "name": "pika",
-            "description": "C++ runtime system for parallellism and concurrency."
-        },
-        {
-            "name": "py-torch",
-            "description": "Tensors and Dynamic neural networks in Python with strong GPU\nacceleration."
-        },
-        {
-            "name": "rocsolver",
-            "description": "rocSOLVER is a work-in-progress implementation of a subset of LAPACK\nfunctionality on the ROCm platform."
+            "branch": "master",
+            "name": "master"
         }
     ]
 }

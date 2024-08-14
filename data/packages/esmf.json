@@ -1,154 +1,89 @@
 {
-    "name": "esmf",
     "aliases": [],
-    "versions": [
-        {
-            "name": "develop",
-            "branch": "develop"
-        },
-        {
-            "name": "8.6.1",
-            "sha256": "dc270dcba1c0b317f5c9c6a32ab334cb79468dda283d1e395d98ed2a22866364"
-        },
-        {
-            "name": "8.6.0",
-            "sha256": "ed057eaddb158a3cce2afc0712b49353b7038b45b29aee86180f381457c0ebe7"
-        },
-        {
-            "name": "8.5.0",
-            "sha256": "acd0b2641587007cc3ca318427f47b9cae5bfd2da8d2a16ea778f637107c29c4"
-        },
-        {
-            "name": "8.4.2",
-            "sha256": "969304efa518c7859567fa6e65efd960df2b4f6d72dbf2c3f29e39e4ab5ae594"
-        },
-        {
-            "name": "8.4.1",
-            "sha256": "1b54cee91aacaa9df400bd284614cbb0257e175f6f3ec9977a2d991ed8aa1af6"
-        },
-        {
-            "name": "8.4.0",
-            "sha256": "28531810bf1ae78646cda6494a53d455d194400f19dccd13d6361871de42ed0f"
-        },
-        {
-            "name": "8.3.1",
-            "sha256": "6c39261e55dcdf9781cdfa344417b9606f7f961889d5ec626150f992f04f146d"
-        },
-        {
-            "name": "8.3.0",
-            "sha256": "0ff43ede83d1ac6beabd3d5e2a646f7574174b28a48d1b9f2c318a054ba268fd"
-        },
-        {
-            "name": "8.3.0b09",
-            "commit": "5b7e546c4ba350bff9c9ebd00e5fa1c6315d17da"
-        },
-        {
-            "name": "8.2.0",
-            "sha256": "27866c31fdb63c58e78211de970470ca02d274f5d4d6d97e94284d63b1c1d9e4"
-        },
-        {
-            "name": "8.1.1",
-            "sha256": "629690c7a488e84ac7252470349458d7aaa98b54c260f8b3911a2e2f3e713dd0"
-        },
-        {
-            "name": "8.1.0",
-            "sha256": "226219ec61cace89f4678eece93188155d7cbb50a13ec4c9c93174ef3d58d7c0"
-        },
-        {
-            "name": "8.0.1",
-            "sha256": "13ce2ca0ae622548c00f7bb18317fb100235ca8b7ddbfac7e201a339e8eb05a3"
-        },
-        {
-            "name": "8.0.0",
-            "sha256": "4b7904fdc935710071c4aafb9370834d40c2ee06365a8b5845317be8f71bf51f"
-        },
-        {
-            "name": "7.1.0r",
-            "sha256": "e08f21544083dcbe162b472852e321f8df14f4f711f35508403d32df438367a7"
-        }
-    ],
-    "latest_version": "8.6.1",
     "build_system": "MakefilePackage",
     "conflicts": [
         {
-            "name": "arch=windows-None-None",
-            "spec": "build_system=makefile",
-            "description": null
-        },
-        {
+            "description": null,
             "name": "%aocc",
-            "spec": "@:8.3",
-            "description": null
+            "spec": "@:8.3"
+        },
+        {
+            "description": null,
+            "name": "arch=windows-None-None",
+            "spec": "build_system=makefile"
         }
     ],
-    "variants": [
+    "dependencies": [
         {
-            "name": "build_system",
-            "default": "makefile",
-            "description": "Build systems supported by the package"
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software.",
+            "name": "cmake"
         },
         {
-            "name": "mpi",
-            "default": true,
-            "description": "Build with MPI support"
+            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files.",
+            "name": "gmake"
         },
         {
-            "name": "external-lapack",
-            "default": false,
-            "description": "Build with external LAPACK library"
+            "description": "Lightweight but flexible shim designed to rectify the incompatibilities\nbetween the Accelerate/vecLib BLAS and LAPACK libraries shipped with\nmacOS and FORTRAN code compiled with modern compilers such as GNU\nFortran.",
+            "name": "lapack"
         },
         {
-            "name": "netcdf",
-            "default": true,
-            "description": "Build with NetCDF support"
+            "description": "IBM MPI implementation from Spectrum MPI.",
+            "name": "mpi"
         },
         {
-            "name": "pnetcdf",
-            "default": false,
-            "description": "Build with pNetCDF support"
+            "description": "NetCDF (network Common Data Form) is a set of software libraries and\nmachine-independent data formats that support the creation, access, and\nsharing of array-oriented scientific data. This is the C distribution.",
+            "name": "netcdf-c"
         },
         {
-            "name": "xerces",
-            "default": false,
-            "description": "Build with Xerces support"
+            "description": "NetCDF (network Common Data Form) is a set of software libraries and\nmachine-independent data formats that support the creation, access, and\nsharing of array-oriented scientific data. This is the Fortran\ndistribution.",
+            "name": "netcdf-fortran"
         },
         {
-            "name": "external-parallelio",
-            "default": true,
-            "description": "Build with external parallelio library"
+            "description": "PnetCDF (Parallel netCDF) is a high-performance parallel I/O library for\naccessing files in format compatibility with Unidata's NetCDF,\nspecifically the formats of CDF-1, 2, and 5.",
+            "name": "parallel-netcdf"
         },
         {
-            "name": "debug",
-            "default": false,
-            "description": "Build with debugging symbols and options enabled"
+            "description": "The Parallel IO libraries (PIO) are high-level parallel I/O C and\nFortran libraries for applications that need to do netCDF I/O from large\nnumbers of processors on a HPC system.",
+            "name": "parallelio"
         },
         {
-            "name": "shared",
-            "default": true,
-            "description": "Build shared library"
+            "description": "Perl 5 is a highly capable, feature-rich programming language with over\n27 years of development.",
+            "name": "perl"
         },
         {
-            "name": "esmf_os",
-            "default": "auto",
-            "description": "Override for ESMF_OS variable"
-        },
-        {
-            "name": "esmf_comm",
-            "default": "auto",
-            "description": "Override for ESMF_COMM variable"
-        },
-        {
-            "name": "esmf_pio",
-            "default": "auto",
-            "description": "Override for ESMF_PIO variable"
-        },
-        {
-            "name": "snapshot",
-            "default": "none",
-            "description": "Named variant for snapshots versions (e.g., 'b09')"
+            "description": "Xerces-C++ is a validating XML parser written in a portable subset of\nC++. Xerces-C++ makes it easy to give your application the ability to\nread and write XML data. A shared library is provided for parsing,\ngenerating, manipulating, and validating XML documents using the DOM,\nSAX, and SAX2 APIs.",
+            "name": "xerces-c"
         }
     ],
+    "dependent_to": [
+        {
+            "description": "GEOS-Chem High Performance model of atmospheric chemistry",
+            "name": "gchp"
+        },
+        {
+            "description": "MAPL is a foundation layer of the GEOS architecture, whose original\npurpose is to supplement the Earth System Modeling Framework (ESMF).\nMAPL fills in missing capabilities of ESMF, provides higher-level\ninterfaces for common boiler-plate logic, and enforces various\ncomponentization conventions across ESMF gridded components within GEOS.",
+            "name": "mapl"
+        },
+        {
+            "description": "NCL is an interpreted language designed specifically for scientific data\nanalysis and visualization. Supports NetCDF 3/4, GRIB 1/2, HDF 4/5, HDF-\nEOD 2/5, shapefile, ASCII, binary. Numerous analysis functions are\nbuilt-in.",
+            "name": "ncl"
+        },
+        {
+            "description": "pFUnit is a unit testing framework enabling JUnit-like testing of serial\nand MPI-parallel software written in Fortran.",
+            "name": "pfunit"
+        },
+        {
+            "description": "The UFS Utilities package contains programs set up the model grid and\ncreate coldstart initial conditions. This is related to NOAA's NCEPLIBS\nproject.",
+            "name": "ufs-utils"
+        },
+        {
+            "description": "The Unified Forecast System (UFS) Weather Model (WM) is a prognostic\nmodel that can be used for short- and medium-range research and\noperational forecasts, as exemplified by its use in the operational\nGlobal Forecast System (GFS) of the National Oceanic and Atmospheric\nAdministration (NOAA).",
+            "name": "ufs-weather-model"
+        }
+    ],
+    "description": "The Earth System Modeling Framework (ESMF) is high-performance, flexible\nsoftware infrastructure for building and coupling weather, climate, and\nrelated Earth science applications. The ESMF defines an architecture for\ncomposing complex, coupled modeling systems and includes data structures\nand utilities for developing individual models. The National Unified\nOperational Prediction Capability (NUOPC) Layer defines a common model\narchitecture to support interoperable ESMF components. The NUOPC Layer\nis included with the ESMF package.\n",
     "homepage": "https://earthsystemmodeling.org/",
+    "latest_version": "8.6.1",
     "maintainers": [
         "AlexanderRichert-NOAA",
         "climbfuji",
@@ -156,148 +91,213 @@
         "theurich",
         "uturuncoglu"
     ],
+    "name": "esmf",
     "patches": [
         {
-            "owner": "builtin.esmf",
-            "sha256": "19cd7e8428e78aaa8b1b5e493d3fddc08908d4f036aa31cac08ec2fe35cb0f39",
             "level": 1,
-            "working_dir": ".",
-            "reverse": false,
+            "owner": "builtin.esmf",
             "relative_path": "intel.patch",
-            "version": "@:7.0%intel@17:"
+            "reverse": false,
+            "sha256": "19cd7e8428e78aaa8b1b5e493d3fddc08908d4f036aa31cac08ec2fe35cb0f39",
+            "version": "@:7.0%intel@17:",
+            "working_dir": "."
         },
         {
-            "owner": "builtin.esmf",
-            "sha256": "961a3c35cdcf9f644dc8de9bbee8e5bb052c46f2e2945a6b189c4a5eb8dc6069",
             "level": 1,
-            "working_dir": ".",
-            "reverse": false,
+            "owner": "builtin.esmf",
             "relative_path": "gcc.patch",
-            "version": "@:7.0%gcc@6:"
+            "reverse": false,
+            "sha256": "961a3c35cdcf9f644dc8de9bbee8e5bb052c46f2e2945a6b189c4a5eb8dc6069",
+            "version": "@:7.0%gcc@6:",
+            "working_dir": "."
         },
         {
-            "owner": "builtin.esmf",
-            "sha256": "4031ebfe236d81cdd6e789341a819250cb573611efeec1327bce5c84d06f2c1f",
             "level": 1,
-            "working_dir": ".",
-            "reverse": false,
+            "owner": "builtin.esmf",
             "relative_path": "mvapich2.patch",
-            "version": "@:7.0"
+            "reverse": false,
+            "sha256": "4031ebfe236d81cdd6e789341a819250cb573611efeec1327bce5c84d06f2c1f",
+            "version": "@:7.0",
+            "working_dir": "."
         },
         {
-            "owner": "builtin.esmf",
-            "sha256": "e931f6d3b94e6b76bfa682f158daa7291461afe0de7752e2229deca385c7aea1",
             "level": 1,
-            "working_dir": ".",
-            "reverse": false,
+            "owner": "builtin.esmf",
             "relative_path": "longtoint.patch",
-            "version": "@:8.3.2%cce@14:"
-        },
-        {
-            "owner": "builtin.esmf",
+            "reverse": false,
             "sha256": "e931f6d3b94e6b76bfa682f158daa7291461afe0de7752e2229deca385c7aea1",
-            "level": 1,
-            "working_dir": ".",
-            "reverse": false,
-            "relative_path": "longtoint.patch",
-            "version": "@:8.3.2%oneapi@2022:"
+            "version": "@:8.3.2%cce@14:",
+            "working_dir": "."
         },
         {
-            "owner": "builtin.esmf",
-            "sha256": "e7325db75445d1003becbf81ce2aa405abea847ac97a0796907793bca5df59ef",
             "level": 1,
-            "working_dir": ".",
+            "owner": "builtin.esmf",
+            "relative_path": "longtoint.patch",
             "reverse": false,
+            "sha256": "e931f6d3b94e6b76bfa682f158daa7291461afe0de7752e2229deca385c7aea1",
+            "version": "@:8.3.2%oneapi@2022:",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.esmf",
             "relative_path": "darwin_dylib_install_name.patch",
-            "version": "@:7.0 arch=darwin-None-None"
+            "reverse": false,
+            "sha256": "e7325db75445d1003becbf81ce2aa405abea847ac97a0796907793bca5df59ef",
+            "version": "@:7.0 arch=darwin-None-None",
+            "working_dir": "."
         },
         {
-            "owner": "builtin.esmf",
-            "sha256": "65cc928aee83d408adee711d24dc8c5e7a6280b472b5f244527031ea96a6fab2",
             "level": 1,
-            "working_dir": ".",
-            "reverse": false,
+            "owner": "builtin.esmf",
             "relative_path": "cstddef.patch",
-            "version": "@7.1.0r%gcc@8:"
+            "reverse": false,
+            "sha256": "65cc928aee83d408adee711d24dc8c5e7a6280b472b5f244527031ea96a6fab2",
+            "version": "@7.1.0r%gcc@8:",
+            "working_dir": "."
         },
         {
-            "owner": "builtin.esmf",
-            "sha256": "f63d4050cf90cc3577291804b752e37d87a657e0775fb5c8ddfec540a7aa73eb",
             "level": 1,
-            "working_dir": ".",
-            "reverse": false,
+            "owner": "builtin.esmf",
             "relative_path": "esmf_cpp_info.patch",
-            "version": ""
+            "reverse": false,
+            "sha256": "f63d4050cf90cc3577291804b752e37d87a657e0775fb5c8ddfec540a7aa73eb",
+            "version": "",
+            "working_dir": "."
         }
     ],
     "resources": [],
-    "description": "The Earth System Modeling Framework (ESMF) is high-performance, flexible\nsoftware infrastructure for building and coupling weather, climate, and\nrelated Earth science applications. The ESMF defines an architecture for\ncomposing complex, coupled modeling systems and includes data structures\nand utilities for developing individual models. The National Unified\nOperational Prediction Capability (NUOPC) Layer defines a common model\narchitecture to support interoperable ESMF components. The NUOPC Layer\nis included with the ESMF package.\n",
-    "dependencies": [
+    "variants": [
         {
-            "name": "cmake",
-            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
+            "default": "makefile",
+            "description": "Build systems supported by the package",
+            "name": "build_system"
         },
         {
-            "name": "gmake",
-            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files."
+            "default": false,
+            "description": "Build with debugging symbols and options enabled",
+            "name": "debug"
         },
         {
-            "name": "lapack",
-            "description": "Lightweight but flexible shim designed to rectify the incompatibilities\nbetween the Accelerate/vecLib BLAS and LAPACK libraries shipped with\nmacOS and FORTRAN code compiled with modern compilers such as GNU\nFortran."
+            "default": "auto",
+            "description": "Override for ESMF_COMM variable",
+            "name": "esmf_comm"
         },
         {
-            "name": "mpi",
-            "description": "A single processor implementation of the mpi library."
+            "default": "auto",
+            "description": "Override for ESMF_OS variable",
+            "name": "esmf_os"
         },
         {
-            "name": "netcdf-c",
-            "description": "NetCDF (network Common Data Form) is a set of software libraries and\nmachine-independent data formats that support the creation, access, and\nsharing of array-oriented scientific data. This is the C distribution."
+            "default": "auto",
+            "description": "Override for ESMF_PIO variable",
+            "name": "esmf_pio"
         },
         {
-            "name": "netcdf-fortran",
-            "description": "NetCDF (network Common Data Form) is a set of software libraries and\nmachine-independent data formats that support the creation, access, and\nsharing of array-oriented scientific data. This is the Fortran\ndistribution."
+            "default": false,
+            "description": "Build with external LAPACK library",
+            "name": "external-lapack"
         },
         {
-            "name": "parallel-netcdf",
-            "description": "PnetCDF (Parallel netCDF) is a high-performance parallel I/O library for\naccessing files in format compatibility with Unidata's NetCDF,\nspecifically the formats of CDF-1, 2, and 5."
+            "default": true,
+            "description": "Build with external parallelio library",
+            "name": "external-parallelio"
         },
         {
-            "name": "parallelio",
-            "description": "The Parallel IO libraries (PIO) are high-level parallel I/O C and\nFortran libraries for applications that need to do netCDF I/O from large\nnumbers of processors on a HPC system."
+            "default": true,
+            "description": "Build with MPI support",
+            "name": "mpi"
         },
         {
-            "name": "perl",
-            "description": "Perl 5 is a highly capable, feature-rich programming language with over\n27 years of development."
+            "default": true,
+            "description": "Build with NetCDF support",
+            "name": "netcdf"
         },
         {
-            "name": "xerces-c",
-            "description": "Xerces-C++ is a validating XML parser written in a portable subset of\nC++. Xerces-C++ makes it easy to give your application the ability to\nread and write XML data. A shared library is provided for parsing,\ngenerating, manipulating, and validating XML documents using the DOM,\nSAX, and SAX2 APIs."
+            "default": false,
+            "description": "Build with pNetCDF support",
+            "name": "pnetcdf"
+        },
+        {
+            "default": true,
+            "description": "Build shared library",
+            "name": "shared"
+        },
+        {
+            "default": "none",
+            "description": "Named variant for snapshots versions (e.g., 'b09')",
+            "name": "snapshot"
+        },
+        {
+            "default": false,
+            "description": "Build with Xerces support",
+            "name": "xerces"
         }
     ],
-    "dependent_to": [
+    "versions": [
         {
-            "name": "ufs-utils",
-            "description": "The UFS Utilities package contains programs set up the model grid and\ncreate coldstart initial conditions. This is related to NOAA's NCEPLIBS\nproject."
+            "name": "7.1.0r",
+            "sha256": "e08f21544083dcbe162b472852e321f8df14f4f711f35508403d32df438367a7"
         },
         {
-            "name": "mapl",
-            "description": "MAPL is a foundation layer of the GEOS architecture, whose original\npurpose is to supplement the Earth System Modeling Framework (ESMF).\nMAPL fills in missing capabilities of ESMF, provides higher-level\ninterfaces for common boiler-plate logic, and enforces various\ncomponentization conventions across ESMF gridded components within GEOS."
+            "name": "8.0.0",
+            "sha256": "4b7904fdc935710071c4aafb9370834d40c2ee06365a8b5845317be8f71bf51f"
         },
         {
-            "name": "pfunit",
-            "description": "pFUnit is a unit testing framework enabling JUnit-like testing of serial\nand MPI-parallel software written in Fortran."
+            "name": "8.0.1",
+            "sha256": "13ce2ca0ae622548c00f7bb18317fb100235ca8b7ddbfac7e201a339e8eb05a3"
         },
         {
-            "name": "ufs-weather-model",
-            "description": "The Unified Forecast System (UFS) Weather Model (WM) is a prognostic\nmodel that can be used for short- and medium-range research and\noperational forecasts, as exemplified by its use in the operational\nGlobal Forecast System (GFS) of the National Oceanic and Atmospheric\nAdministration (NOAA)."
+            "name": "8.1.0",
+            "sha256": "226219ec61cace89f4678eece93188155d7cbb50a13ec4c9c93174ef3d58d7c0"
         },
         {
-            "name": "ncl",
-            "description": "NCL is an interpreted language designed specifically for scientific data\nanalysis and visualization. Supports NetCDF 3/4, GRIB 1/2, HDF 4/5, HDF-\nEOD 2/5, shapefile, ASCII, binary. Numerous analysis functions are\nbuilt-in."
+            "name": "8.1.1",
+            "sha256": "629690c7a488e84ac7252470349458d7aaa98b54c260f8b3911a2e2f3e713dd0"
         },
         {
-            "name": "gchp",
-            "description": "GEOS-Chem High Performance model of atmospheric chemistry"
+            "name": "8.2.0",
+            "sha256": "27866c31fdb63c58e78211de970470ca02d274f5d4d6d97e94284d63b1c1d9e4"
+        },
+        {
+            "name": "8.3.0",
+            "sha256": "0ff43ede83d1ac6beabd3d5e2a646f7574174b28a48d1b9f2c318a054ba268fd"
+        },
+        {
+            "commit": "5b7e546c4ba350bff9c9ebd00e5fa1c6315d17da",
+            "name": "8.3.0b09"
+        },
+        {
+            "name": "8.3.1",
+            "sha256": "6c39261e55dcdf9781cdfa344417b9606f7f961889d5ec626150f992f04f146d"
+        },
+        {
+            "name": "8.4.0",
+            "sha256": "28531810bf1ae78646cda6494a53d455d194400f19dccd13d6361871de42ed0f"
+        },
+        {
+            "name": "8.4.1",
+            "sha256": "1b54cee91aacaa9df400bd284614cbb0257e175f6f3ec9977a2d991ed8aa1af6"
+        },
+        {
+            "name": "8.4.2",
+            "sha256": "969304efa518c7859567fa6e65efd960df2b4f6d72dbf2c3f29e39e4ab5ae594"
+        },
+        {
+            "name": "8.5.0",
+            "sha256": "acd0b2641587007cc3ca318427f47b9cae5bfd2da8d2a16ea778f637107c29c4"
+        },
+        {
+            "name": "8.6.0",
+            "sha256": "ed057eaddb158a3cce2afc0712b49353b7038b45b29aee86180f381457c0ebe7"
+        },
+        {
+            "name": "8.6.1",
+            "sha256": "dc270dcba1c0b317f5c9c6a32ab334cb79468dda283d1e395d98ed2a22866364"
+        },
+        {
+            "branch": "develop",
+            "name": "develop"
         }
     ]
 }

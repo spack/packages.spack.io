@@ -1,75 +1,75 @@
 {
-    "name": "srilm",
     "aliases": [],
+    "build_system": "MakefilePackage",
+    "conflicts": [
+        {
+            "description": null,
+            "name": "arch=windows-None-None",
+            "spec": "build_system=makefile"
+        }
+    ],
+    "dependencies": [
+        {
+            "description": "GNU binutils, which contain the linker, assembler, objdump and others",
+            "name": "binutils"
+        },
+        {
+            "description": "If you are like many computer users, you would frequently like to make\nchanges in various text files wherever certain patterns appear, or\nextract data from parts of certain lines while discarding the rest. To\nwrite a program to do this in a language such as C or Pascal is a time-\nconsuming inconvenience that may take many lines of code. The job is\neasy with awk, especially the GNU implementation: gawk. The awk utility\ninterprets a special-purpose programming language that makes it possible\nto handle simple data-reformatting jobs with just a few lines of code.",
+            "name": "gawk"
+        },
+        {
+            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files.",
+            "name": "gmake"
+        },
+        {
+            "description": "Musl is a libc, an implementation of the standard library functionality\ndescribed in the ISO C and POSIX standards, plus common extensions,\nintended for use on Linux-based systems. Whereas the kernel (Linux)\ngoverns access to hardware, memory, filesystems, and the privileges for\naccessing these resources, the C library is responsible for providing\nthe actual C function interfaces userspace applications see, and for\nconstructing higher-level buffered stdio, memory allocation management,\nthread creation and synchronization operations, and so on using the\nlower-level interfaces the kernel provides, as well as for implementing\npure library routines of the C language like strstr, snprintf, strtol,\nexp, sqrt, etc. Musl is a new general-purpose implementation of the C\nlibrary. It is lightweight, fast, simple, free, and aims to be correct\nin the sense of standards-conformance and safety.",
+            "name": "iconv"
+        },
+        {
+            "description": "libLBFGS is a C port of the implementation of Limited-memory Broyden-\nFletcher-Goldfarb-Shanno (L-BFGS) method written by Jorge Nocedal. The\nL-BFGS method solves the unconstrainted minimization problem: minimize\nF(x), x = (x1, x2, ..., xN), only if the objective function F(x) and its\ngradient G(x) are computable.",
+            "name": "liblbfgs"
+        },
+        {
+            "description": "Perl 5 is a highly capable, feature-rich programming language with over\n27 years of development.",
+            "name": "perl"
+        }
+    ],
+    "dependent_to": [],
+    "description": "SRILM (SRI Language Modeling Toolkit) is a toolkit for building and\napplying statistical language models (LMs), primarily for use in speech\nrecognition, statistical tagging and segmentation, and machine\ntranslation.\n",
+    "homepage": "http://www.speech.sri.com/projects/srilm/",
+    "latest_version": "1.7.3",
+    "maintainers": [
+        "RemiLacroix-IDRIS"
+    ],
+    "name": "srilm",
+    "patches": [],
+    "resources": [],
+    "variants": [
+        {
+            "default": "makefile",
+            "description": "Build systems supported by the package",
+            "name": "build_system"
+        },
+        {
+            "default": false,
+            "description": "Enable libLBFGS",
+            "name": "liblbfgs"
+        },
+        {
+            "default": false,
+            "description": "Enable OpenMP",
+            "name": "openmp"
+        },
+        {
+            "default": false,
+            "description": "Build position independent code",
+            "name": "pic"
+        }
+    ],
     "versions": [
         {
             "name": "1.7.3",
             "sha256": "01eaf12d0f35b96d2b28ad0d41c9f915dd22b534a7abde3fbb9e35fb6c19200e"
         }
-    ],
-    "latest_version": "1.7.3",
-    "build_system": "MakefilePackage",
-    "conflicts": [
-        {
-            "name": "arch=windows-None-None",
-            "spec": "build_system=makefile",
-            "description": null
-        }
-    ],
-    "variants": [
-        {
-            "name": "build_system",
-            "default": "makefile",
-            "description": "Build systems supported by the package"
-        },
-        {
-            "name": "openmp",
-            "default": false,
-            "description": "Enable OpenMP"
-        },
-        {
-            "name": "pic",
-            "default": false,
-            "description": "Build position independent code"
-        },
-        {
-            "name": "liblbfgs",
-            "default": false,
-            "description": "Enable libLBFGS"
-        }
-    ],
-    "homepage": "http://www.speech.sri.com/projects/srilm/",
-    "maintainers": [
-        "RemiLacroix-IDRIS"
-    ],
-    "patches": [],
-    "resources": [],
-    "description": "SRILM (SRI Language Modeling Toolkit) is a toolkit for building and\napplying statistical language models (LMs), primarily for use in speech\nrecognition, statistical tagging and segmentation, and machine\ntranslation.\n",
-    "dependencies": [
-        {
-            "name": "binutils",
-            "description": "GNU binutils, which contain the linker, assembler, objdump and others"
-        },
-        {
-            "name": "gawk",
-            "description": "If you are like many computer users, you would frequently like to make\nchanges in various text files wherever certain patterns appear, or\nextract data from parts of certain lines while discarding the rest. To\nwrite a program to do this in a language such as C or Pascal is a time-\nconsuming inconvenience that may take many lines of code. The job is\neasy with awk, especially the GNU implementation: gawk. The awk utility\ninterprets a special-purpose programming language that makes it possible\nto handle simple data-reformatting jobs with just a few lines of code."
-        },
-        {
-            "name": "gmake",
-            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files."
-        },
-        {
-            "name": "iconv",
-            "description": "Musl is a libc, an implementation of the standard library functionality\ndescribed in the ISO C and POSIX standards, plus common extensions,\nintended for use on Linux-based systems. Whereas the kernel (Linux)\ngoverns access to hardware, memory, filesystems, and the privileges for\naccessing these resources, the C library is responsible for providing\nthe actual C function interfaces userspace applications see, and for\nconstructing higher-level buffered stdio, memory allocation management,\nthread creation and synchronization operations, and so on using the\nlower-level interfaces the kernel provides, as well as for implementing\npure library routines of the C language like strstr, snprintf, strtol,\nexp, sqrt, etc. Musl is a new general-purpose implementation of the C\nlibrary. It is lightweight, fast, simple, free, and aims to be correct\nin the sense of standards-conformance and safety."
-        },
-        {
-            "name": "liblbfgs",
-            "description": "libLBFGS is a C port of the implementation of Limited-memory Broyden-\nFletcher-Goldfarb-Shanno (L-BFGS) method written by Jorge Nocedal. The\nL-BFGS method solves the unconstrainted minimization problem: minimize\nF(x), x = (x1, x2, ..., xN), only if the objective function F(x) and its\ngradient G(x) are computable."
-        },
-        {
-            "name": "perl",
-            "description": "Perl 5 is a highly capable, feature-rich programming language with over\n27 years of development."
-        }
-    ],
-    "dependent_to": []
+    ]
 }

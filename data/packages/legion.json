@@ -1,431 +1,431 @@
 {
-    "name": "legion",
     "aliases": [],
-    "versions": [
-        {
-            "name": "24.06.0",
-            "commit": "3f27977943626ef23038ef0049b7ad1b389caad1",
-            "tag": "legion-24.06.0"
-        },
-        {
-            "name": "24.03.0",
-            "commit": "c61071541218747e35767317f6f89b83f374f264",
-            "tag": "legion-24.03.0"
-        },
-        {
-            "name": "23.12.0",
-            "commit": "8fea67ee694a5d9fb27232a7976af189d6c98456",
-            "tag": "legion-23.12.0"
-        },
-        {
-            "name": "23.09.0",
-            "commit": "7304dfcf9b69005dd3e65e9ef7d5bd49122f9b49",
-            "tag": "legion-23.09.0"
-        },
-        {
-            "name": "23.06.0",
-            "commit": "7b5ff2fb9974511c28aec8d97b942f26105b5f6d",
-            "tag": "legion-23.06.0"
-        },
-        {
-            "name": "23.03.0",
-            "commit": "12f6051c9d75229d00ac0b31d6be1ff2014f7e6a",
-            "tag": "legion-23.03.0"
-        },
-        {
-            "name": "22.12.0",
-            "commit": "9ed6f4d6b579c4f17e0298462e89548a4f0ed6e5",
-            "tag": "legion-22.12.0"
-        },
-        {
-            "name": "22.09.0",
-            "commit": "5b6e013ad74fa6b4c5a24cbb329c676b924550a9",
-            "tag": "legion-22.09.0"
-        },
-        {
-            "name": "22.06.0",
-            "commit": "f721be968fb969339334b07a3175a0400700eced",
-            "tag": "legion-22.06.0"
-        },
-        {
-            "name": "22.03.0",
-            "commit": "bf6ce4560c99397da4a5cf61a306b521ec7069d0",
-            "tag": "legion-22.03.0"
-        },
-        {
-            "name": "21.12.0",
-            "commit": "e1443112edaa574804b3b9d2a24803e937b127fd",
-            "tag": "legion-21.12.0"
-        },
-        {
-            "name": "21.09.0",
-            "commit": "5a991b714cf55c3eaa513c7a18abb436d86a0a90",
-            "tag": "legion-21.09.0"
-        },
-        {
-            "name": "21.06.0",
-            "commit": "30e00fa6016527c4cf60025a461fb7865f8def6b",
-            "tag": "legion-21.06.0"
-        },
-        {
-            "name": "21.03.0",
-            "commit": "0cf9ddd60c227c219c8973ed0580ddc5887c9fb2",
-            "tag": "legion-21.03.0"
-        },
-        {
-            "name": "stable",
-            "branch": "stable"
-        },
-        {
-            "name": "master",
-            "branch": "master"
-        },
-        {
-            "name": "cr-20230307",
-            "commit": "435183796d7c8b6ac1035a6f7af480ded750f67d"
-        },
-        {
-            "name": "cr-20210122",
-            "commit": "181e63ad4187fbd9a96761ab3a52d93e157ede20"
-        },
-        {
-            "name": "cr-20191217",
-            "commit": "572576b312509e666f2d72fafdbe9d968b1a6ac3"
-        }
-    ],
-    "latest_version": "24.06.0",
     "build_system": "CMakePackage",
     "conflicts": [
         {
+            "description": null,
             "name": "amdgpu_target=none",
-            "spec": "+rocm",
-            "description": null
+            "spec": "+rocm"
         },
         {
+            "description": "legion: the 'conduit' variant must be set to a value other than 'none'",
             "name": "conduit=none",
-            "spec": "network=gasnet",
-            "description": "legion: the 'conduit' variant must be set to a value other than 'none'"
+            "spec": "network=gasnet"
         },
         {
+            "description": null,
             "name": "+cuda_hijack",
-            "spec": "~cuda",
-            "description": null
+            "spec": "~cuda"
         }
     ],
-    "variants": [
+    "dependencies": [
         {
-            "name": "rocm",
-            "default": false,
-            "description": "Enable ROCm support"
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software.",
+            "name": "cmake"
         },
         {
-            "name": "amdgpu_target",
-            "default": "none",
-            "description": "AMD GPU architecture"
+            "description": "CUDA is a parallel computing platform and programming model invented by\nNVIDIA. It enables dramatic increases in computing performance by\nharnessing the power of the graphics processing unit (GPU). Note: This\npackage does not currently install the drivers necessary to run CUDA.\nThese will need to be installed manually. See:\nhttps://docs.nvidia.com/cuda/ for details.",
+            "name": "cuda"
         },
         {
-            "name": "build_system",
-            "default": "cmake",
-            "description": "Build systems supported by the package"
+            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files.",
+            "name": "gmake"
         },
         {
-            "name": "build_type",
-            "default": "Release",
-            "description": "CMake build type"
+            "description": "HDF5 is a data model, library, and file format for storing and managing\ndata. It supports an unlimited variety of datatypes, and is designed for\nflexible and efficient I/O and for high volume and complex data.",
+            "name": "hdf5"
         },
         {
-            "name": "ipo",
-            "default": false,
-            "description": "CMake interprocedural optimization"
+            "description": "HIP is a C++ Runtime API and Kernel Language that allows developers to\ncreate portable applications for AMD and NVIDIA GPUs from single source\ncode.",
+            "name": "hip"
         },
         {
-            "name": "generator",
-            "default": "make",
-            "description": "the build system generator to use"
+            "description": "This repository includes the user mode API nterfaces and libraries\nnecessary for host applications to launch computer kernels to available\nHSA ROCm kernel agents.AMD Heterogeneous System Architecture HSA - Linux\nHSA Runtime for Boltzmann (ROCm) platforms.",
+            "name": "hsa-rocr-dev"
         },
         {
-            "name": "hip_hijack",
-            "default": false,
-            "description": "Hijack application calls into the HIP runtime"
+            "description": "The Hardware Locality (hwloc) software project. The Portable Hardware\nLocality (hwloc) software package provides a portable abstraction\n(across OS, versions, architectures, ...) of the hierarchical topology\nof modern architectures, including NUMA memory nodes, sockets, shared\ncaches, cores and simultaneous multithreading. It also gathers various\nsystem attributes such as cache and memory information as well as the\nlocality of I/O devices such as network interfaces, InfiniBand HCAs or\nGPUs. It primarily aims at helping applications with gathering\ninformation about modern computing hardware so as to exploit it\naccordingly and efficiently.",
+            "name": "hwloc"
         },
         {
-            "name": "hip_target",
-            "default": "ROCM",
-            "description": "API used by HIP"
+            "description": "Kokkos implements a programming model in C++ for writing performance\nportable applications targeting all major HPC platforms.",
+            "name": "kokkos"
         },
         {
-            "name": "cxxstd",
-            "default": "17",
-            "description": "C++ standard"
+            "description": "Toolkit for the construction of highly optimized compilers, optimizers,\nand run-time environments.",
+            "name": "llvm-amdgpu"
         },
         {
-            "name": "network",
-            "default": "none",
-            "description": "The network communications/transport layer to use."
+            "description": "IBM MPI implementation from Spectrum MPI.",
+            "name": "mpi"
         },
         {
-            "name": "gasnet_root",
-            "default": "none",
-            "description": "Path to a pre-installed version of GASNet (prefix directory)."
+            "description": "Ninja is a small build system with a focus on speed. It differs from\nother build systems in two major respects: it is designed to have its\ninput files generated by a higher-level build system, and it is designed\nto run builds as fast as possible.",
+            "name": "ninja"
         },
         {
-            "name": "conduit",
-            "default": "none",
-            "description": "The GASNet conduit(s) to enable."
+            "description": "PAPI provides the tool designer and application engineer with a\nconsistent interface and methodology for use of the performance counter\nhardware found in most major microprocessors. PAPI enables software\nengineers to see, in near real time, the relation between software\nperformance and processor events. In addition Component PAPI provides\naccess to a collection of components that expose performance measurement\nopportunities across the hardware and software stack.",
+            "name": "papi"
         },
         {
-            "name": "gasnet_debug",
-            "default": false,
-            "description": "Build gasnet with debugging enabled."
+            "description": "Foreign Function Interface for Python calling C code",
+            "name": "py-cffi"
         },
         {
-            "name": "shared",
-            "default": false,
-            "description": "Build shared libraries."
+            "description": "Fundamental package for array computing in Python.",
+            "name": "py-numpy"
         },
         {
-            "name": "bounds_checks",
-            "default": false,
-            "description": "Enable bounds checking in Legion accessors."
+            "description": "The PyPA recommended tool for installing Python packages.",
+            "name": "py-pip"
         },
         {
-            "name": "privilege_checks",
-            "default": false,
-            "description": "Enable runtime privildge checks in Legion accessors."
+            "description": "A Python utility that aids in the process of downloading, building,\nupgrading, installing, and uninstalling Python packages.",
+            "name": "py-setuptools"
         },
         {
-            "name": "output_level",
-            "default": "warning",
-            "description": "Set the compile-time logging level."
+            "description": "The Python programming language.",
+            "name": "python"
         },
         {
-            "name": "spy",
-            "default": false,
-            "description": "Enable detailed logging for Legion Spy debugging."
+            "description": "The Rust programming language toolchain.",
+            "name": "rust"
         },
         {
-            "name": "cuda",
-            "default": false,
-            "description": "Enable CUDA support."
+            "description": "a communication library implementing high-performance messaging for\nMPI/PGAS frameworks",
+            "name": "ucx"
         },
         {
-            "name": "cuda_hijack",
-            "default": false,
-            "description": "Hijack application calls into the CUDA runtime (+cuda)."
-        },
-        {
-            "name": "cuda_arch",
-            "default": "70",
-            "description": "GPU/CUDA architecture to build for."
-        },
-        {
-            "name": "cuda_unsupported_compiler",
-            "default": false,
-            "description": "Disable nvcc version check (--allow-unsupported-compiler)."
-        },
-        {
-            "name": "fortran",
-            "default": false,
-            "description": "Enable Fortran bindings."
-        },
-        {
-            "name": "hdf5",
-            "default": false,
-            "description": "Enable support for HDF5."
-        },
-        {
-            "name": "hwloc",
-            "default": false,
-            "description": "Use hwloc for topology awareness."
-        },
-        {
-            "name": "kokkos",
-            "default": false,
-            "description": "Enable support for interoperability with Kokkos."
-        },
-        {
-            "name": "bindings",
-            "default": false,
-            "description": "Build runtime language bindings (excl. Fortran)."
-        },
-        {
-            "name": "libdl",
-            "default": true,
-            "description": "Enable support for dynamic object/library loading."
-        },
-        {
-            "name": "openmp",
-            "default": false,
-            "description": "Enable support for OpenMP within Legion tasks."
-        },
-        {
-            "name": "papi",
-            "default": false,
-            "description": "Enable PAPI performance measurements."
-        },
-        {
-            "name": "python",
-            "default": false,
-            "description": "Enable Python support."
-        },
-        {
-            "name": "zlib",
-            "default": true,
-            "description": "Enable zlib support."
-        },
-        {
-            "name": "redop_complex",
-            "default": false,
-            "description": "Use reduction operators for complex types."
-        },
-        {
-            "name": "redop_half",
-            "default": false,
-            "description": "Use reduction operators for half precision types."
-        },
-        {
-            "name": "max_dims",
-            "default": 3,
-            "description": "Set max number of dimensions for logical regions."
-        },
-        {
-            "name": "max_fields",
-            "default": 512,
-            "description": "Maximum number of fields allowed in a logical region."
-        },
-        {
-            "name": "max_num_nodes",
-            "default": 1024,
-            "description": "Maximum number of nodes supported by Legion."
-        },
-        {
-            "name": "prof",
-            "default": false,
-            "description": "Install Rust Legion prof"
-        },
-        {
-            "name": "gc",
-            "default": false,
-            "description": "Enable garbage collector logging"
-        },
-        {
-            "name": "sysomp",
-            "default": false,
-            "description": "Use system OpenMP implementation instead of Realm's"
+            "description": "zlib replacement with optimizations for next generation systems.",
+            "name": "zlib-api"
         }
     ],
+    "dependent_to": [
+        {
+            "description": "FleCSI is a compile-time configurable framework designed to support\nmulti-physics application development. As such, FleCSI attempts to\nprovide a very general set of infrastructure design patterns that can be\nspecialized and extended to suit the needs of a broad variety of solver\nand data requirements. Current support includes multi-dimensional mesh\ntopology, mesh geometry, and mesh adjacency information.",
+            "name": "flecsi"
+        }
+    ],
+    "description": "Legion is a data-centric parallel programming system for writing\nportable high performance programs targeted at distributed heterogeneous\narchitectures. Legion presents abstractions which allow programmers to\ndescribe properties of program data (e.g. independence, locality). By\nmaking the Legion programming system aware of the structure of program\ndata, it can automate many of the tedious tasks programmers currently\nface, including correctly extracting task- and data-level parallelism\nand moving data around complex memory hierarchies. A novel mapping\ninterface provides explicit programmer controlled placement of data in\nthe memory hierarchy and assignment of tasks to processors in a way that\nis orthogonal to correctness, thereby enabling easy porting and tuning\nof Legion applications to new architectures.\n",
     "homepage": "https://legion.stanford.edu/",
+    "latest_version": "24.06.0",
     "maintainers": [
         "elliottslaughter",
         "pmccormick",
         "streichler"
     ],
+    "name": "legion",
     "patches": [
         {
-            "owner": "builtin.legion",
-            "sha256": "232c0933aa6cdfd67b13aaff2658a7a4970d9faa2e0676d20251811908284334",
             "level": 1,
-            "working_dir": ".",
-            "reverse": false,
+            "owner": "builtin.legion",
             "relative_path": "hip-offload-arch.patch",
-            "version": "@23.03.0+rocm"
+            "reverse": false,
+            "sha256": "232c0933aa6cdfd67b13aaff2658a7a4970d9faa2e0676d20251811908284334",
+            "version": "@23.03.0+rocm",
+            "working_dir": "."
         }
     ],
     "resources": [
         {
-            "version": "network=gasnet",
-            "name": "stanfordgasnet",
             "destination": "stanfordgasnet",
-            "placement": null
+            "name": "stanfordgasnet",
+            "placement": null,
+            "version": "network=gasnet"
         }
     ],
-    "description": "Legion is a data-centric parallel programming system for writing\nportable high performance programs targeted at distributed heterogeneous\narchitectures. Legion presents abstractions which allow programmers to\ndescribe properties of program data (e.g. independence, locality). By\nmaking the Legion programming system aware of the structure of program\ndata, it can automate many of the tedious tasks programmers currently\nface, including correctly extracting task- and data-level parallelism\nand moving data around complex memory hierarchies. A novel mapping\ninterface provides explicit programmer controlled placement of data in\nthe memory hierarchy and assignment of tasks to processors in a way that\nis orthogonal to correctness, thereby enabling easy porting and tuning\nof Legion applications to new architectures.\n",
-    "dependencies": [
+    "variants": [
         {
-            "name": "cmake",
-            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
+            "default": "none",
+            "description": "AMD GPU architecture",
+            "name": "amdgpu_target"
         },
         {
-            "name": "cuda",
-            "description": "CUDA is a parallel computing platform and programming model invented by\nNVIDIA. It enables dramatic increases in computing performance by\nharnessing the power of the graphics processing unit (GPU). Note: This\npackage does not currently install the drivers necessary to run CUDA.\nThese will need to be installed manually. See:\nhttps://docs.nvidia.com/cuda/ for details."
+            "default": false,
+            "description": "Build runtime language bindings (excl. Fortran).",
+            "name": "bindings"
         },
         {
-            "name": "gmake",
-            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files."
+            "default": false,
+            "description": "Enable bounds checking in Legion accessors.",
+            "name": "bounds_checks"
         },
         {
-            "name": "hdf5",
-            "description": "HDF5 is a data model, library, and file format for storing and managing\ndata. It supports an unlimited variety of datatypes, and is designed for\nflexible and efficient I/O and for high volume and complex data."
+            "default": "cmake",
+            "description": "Build systems supported by the package",
+            "name": "build_system"
         },
         {
-            "name": "hip",
-            "description": "HIP is a C++ Runtime API and Kernel Language that allows developers to\ncreate portable applications for AMD and NVIDIA GPUs from single source\ncode."
+            "default": "Release",
+            "description": "CMake build type",
+            "name": "build_type"
         },
         {
-            "name": "hsa-rocr-dev",
-            "description": "This repository includes the user mode API nterfaces and libraries\nnecessary for host applications to launch computer kernels to available\nHSA ROCm kernel agents.AMD Heterogeneous System Architecture HSA - Linux\nHSA Runtime for Boltzmann (ROCm) platforms."
+            "default": "none",
+            "description": "The GASNet conduit(s) to enable.",
+            "name": "conduit"
         },
         {
-            "name": "hwloc",
-            "description": "The Hardware Locality (hwloc) software project. The Portable Hardware\nLocality (hwloc) software package provides a portable abstraction\n(across OS, versions, architectures, ...) of the hierarchical topology\nof modern architectures, including NUMA memory nodes, sockets, shared\ncaches, cores and simultaneous multithreading. It also gathers various\nsystem attributes such as cache and memory information as well as the\nlocality of I/O devices such as network interfaces, InfiniBand HCAs or\nGPUs. It primarily aims at helping applications with gathering\ninformation about modern computing hardware so as to exploit it\naccordingly and efficiently."
+            "default": false,
+            "description": "Enable CUDA support.",
+            "name": "cuda"
         },
         {
-            "name": "kokkos",
-            "description": "Kokkos implements a programming model in C++ for writing performance\nportable applications targeting all major HPC platforms."
+            "default": "70",
+            "description": "GPU/CUDA architecture to build for.",
+            "name": "cuda_arch"
         },
         {
-            "name": "llvm-amdgpu",
-            "description": "Toolkit for the construction of highly optimized compilers, optimizers,\nand run-time environments."
+            "default": false,
+            "description": "Hijack application calls into the CUDA runtime (+cuda).",
+            "name": "cuda_hijack"
         },
         {
-            "name": "mpi",
-            "description": "A single processor implementation of the mpi library."
+            "default": false,
+            "description": "Disable nvcc version check (--allow-unsupported-compiler).",
+            "name": "cuda_unsupported_compiler"
         },
         {
-            "name": "ninja",
-            "description": "Ninja is a small build system with a focus on speed. It differs from\nother build systems in two major respects: it is designed to have its\ninput files generated by a higher-level build system, and it is designed\nto run builds as fast as possible."
+            "default": "17",
+            "description": "C++ standard",
+            "name": "cxxstd"
         },
         {
-            "name": "papi",
-            "description": "PAPI provides the tool designer and application engineer with a\nconsistent interface and methodology for use of the performance counter\nhardware found in most major microprocessors. PAPI enables software\nengineers to see, in near real time, the relation between software\nperformance and processor events. In addition Component PAPI provides\naccess to a collection of components that expose performance measurement\nopportunities across the hardware and software stack."
+            "default": false,
+            "description": "Enable Fortran bindings.",
+            "name": "fortran"
         },
         {
-            "name": "py-cffi",
-            "description": "Foreign Function Interface for Python calling C code"
+            "default": false,
+            "description": "Build gasnet with debugging enabled.",
+            "name": "gasnet_debug"
         },
         {
-            "name": "py-numpy",
-            "description": "Fundamental package for array computing in Python."
+            "default": "none",
+            "description": "Path to a pre-installed version of GASNet (prefix directory).",
+            "name": "gasnet_root"
         },
         {
-            "name": "py-pip",
-            "description": "The PyPA recommended tool for installing Python packages."
+            "default": false,
+            "description": "Enable garbage collector logging",
+            "name": "gc"
         },
         {
-            "name": "py-setuptools",
-            "description": "A Python utility that aids in the process of downloading, building,\nupgrading, installing, and uninstalling Python packages."
+            "default": "make",
+            "description": "the build system generator to use",
+            "name": "generator"
         },
         {
-            "name": "python",
-            "description": "The Python programming language."
+            "default": false,
+            "description": "Enable support for HDF5.",
+            "name": "hdf5"
         },
         {
-            "name": "rust",
-            "description": "The Rust programming language toolchain."
+            "default": false,
+            "description": "Hijack application calls into the HIP runtime",
+            "name": "hip_hijack"
         },
         {
-            "name": "ucx",
-            "description": "a communication library implementing high-performance messaging for\nMPI/PGAS frameworks"
+            "default": "ROCM",
+            "description": "API used by HIP",
+            "name": "hip_target"
         },
         {
-            "name": "zlib-api",
-            "description": "zlib replacement with optimizations for next generation systems."
+            "default": false,
+            "description": "Use hwloc for topology awareness.",
+            "name": "hwloc"
+        },
+        {
+            "default": false,
+            "description": "CMake interprocedural optimization",
+            "name": "ipo"
+        },
+        {
+            "default": false,
+            "description": "Enable support for interoperability with Kokkos.",
+            "name": "kokkos"
+        },
+        {
+            "default": true,
+            "description": "Enable support for dynamic object/library loading.",
+            "name": "libdl"
+        },
+        {
+            "default": 3,
+            "description": "Set max number of dimensions for logical regions.",
+            "name": "max_dims"
+        },
+        {
+            "default": 512,
+            "description": "Maximum number of fields allowed in a logical region.",
+            "name": "max_fields"
+        },
+        {
+            "default": 1024,
+            "description": "Maximum number of nodes supported by Legion.",
+            "name": "max_num_nodes"
+        },
+        {
+            "default": "none",
+            "description": "The network communications/transport layer to use.",
+            "name": "network"
+        },
+        {
+            "default": false,
+            "description": "Enable support for OpenMP within Legion tasks.",
+            "name": "openmp"
+        },
+        {
+            "default": "warning",
+            "description": "Set the compile-time logging level.",
+            "name": "output_level"
+        },
+        {
+            "default": false,
+            "description": "Enable PAPI performance measurements.",
+            "name": "papi"
+        },
+        {
+            "default": false,
+            "description": "Enable runtime privildge checks in Legion accessors.",
+            "name": "privilege_checks"
+        },
+        {
+            "default": false,
+            "description": "Install Rust Legion prof",
+            "name": "prof"
+        },
+        {
+            "default": false,
+            "description": "Enable Python support.",
+            "name": "python"
+        },
+        {
+            "default": false,
+            "description": "Use reduction operators for complex types.",
+            "name": "redop_complex"
+        },
+        {
+            "default": false,
+            "description": "Use reduction operators for half precision types.",
+            "name": "redop_half"
+        },
+        {
+            "default": false,
+            "description": "Enable ROCm support",
+            "name": "rocm"
+        },
+        {
+            "default": false,
+            "description": "Build shared libraries.",
+            "name": "shared"
+        },
+        {
+            "default": false,
+            "description": "Enable detailed logging for Legion Spy debugging.",
+            "name": "spy"
+        },
+        {
+            "default": false,
+            "description": "Use system OpenMP implementation instead of Realm's",
+            "name": "sysomp"
+        },
+        {
+            "default": true,
+            "description": "Enable zlib support.",
+            "name": "zlib"
         }
     ],
-    "dependent_to": [
+    "versions": [
         {
-            "name": "flecsi",
-            "description": "FleCSI is a compile-time configurable framework designed to support\nmulti-physics application development. As such, FleCSI attempts to\nprovide a very general set of infrastructure design patterns that can be\nspecialized and extended to suit the needs of a broad variety of solver\nand data requirements. Current support includes multi-dimensional mesh\ntopology, mesh geometry, and mesh adjacency information."
+            "commit": "0cf9ddd60c227c219c8973ed0580ddc5887c9fb2",
+            "name": "21.03.0",
+            "tag": "legion-21.03.0"
+        },
+        {
+            "commit": "30e00fa6016527c4cf60025a461fb7865f8def6b",
+            "name": "21.06.0",
+            "tag": "legion-21.06.0"
+        },
+        {
+            "commit": "5a991b714cf55c3eaa513c7a18abb436d86a0a90",
+            "name": "21.09.0",
+            "tag": "legion-21.09.0"
+        },
+        {
+            "commit": "e1443112edaa574804b3b9d2a24803e937b127fd",
+            "name": "21.12.0",
+            "tag": "legion-21.12.0"
+        },
+        {
+            "commit": "bf6ce4560c99397da4a5cf61a306b521ec7069d0",
+            "name": "22.03.0",
+            "tag": "legion-22.03.0"
+        },
+        {
+            "commit": "f721be968fb969339334b07a3175a0400700eced",
+            "name": "22.06.0",
+            "tag": "legion-22.06.0"
+        },
+        {
+            "commit": "5b6e013ad74fa6b4c5a24cbb329c676b924550a9",
+            "name": "22.09.0",
+            "tag": "legion-22.09.0"
+        },
+        {
+            "commit": "9ed6f4d6b579c4f17e0298462e89548a4f0ed6e5",
+            "name": "22.12.0",
+            "tag": "legion-22.12.0"
+        },
+        {
+            "commit": "12f6051c9d75229d00ac0b31d6be1ff2014f7e6a",
+            "name": "23.03.0",
+            "tag": "legion-23.03.0"
+        },
+        {
+            "commit": "7b5ff2fb9974511c28aec8d97b942f26105b5f6d",
+            "name": "23.06.0",
+            "tag": "legion-23.06.0"
+        },
+        {
+            "commit": "7304dfcf9b69005dd3e65e9ef7d5bd49122f9b49",
+            "name": "23.09.0",
+            "tag": "legion-23.09.0"
+        },
+        {
+            "commit": "8fea67ee694a5d9fb27232a7976af189d6c98456",
+            "name": "23.12.0",
+            "tag": "legion-23.12.0"
+        },
+        {
+            "commit": "c61071541218747e35767317f6f89b83f374f264",
+            "name": "24.03.0",
+            "tag": "legion-24.03.0"
+        },
+        {
+            "commit": "3f27977943626ef23038ef0049b7ad1b389caad1",
+            "name": "24.06.0",
+            "tag": "legion-24.06.0"
+        },
+        {
+            "commit": "572576b312509e666f2d72fafdbe9d968b1a6ac3",
+            "name": "cr-20191217"
+        },
+        {
+            "commit": "181e63ad4187fbd9a96761ab3a52d93e157ede20",
+            "name": "cr-20210122"
+        },
+        {
+            "commit": "435183796d7c8b6ac1035a6f7af480ded750f67d",
+            "name": "cr-20230307"
+        },
+        {
+            "branch": "master",
+            "name": "master"
+        },
+        {
+            "branch": "stable",
+            "name": "stable"
         }
     ]
 }

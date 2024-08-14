@@ -1,53 +1,53 @@
 {
-    "name": "squashfs-mount",
     "aliases": [],
-    "versions": [
-        {
-            "name": "0.4.0",
-            "sha256": "0b17c797b4befdab172fc58a74f3b647bbdf127ff5bdaf7c21d907b7a9714339"
-        },
-        {
-            "name": "0.1.0",
-            "sha256": "37841ede7a7486d437fd06ae13e432560f81806f69addc72cfc8e564c8727bc6"
-        }
-    ],
-    "latest_version": "0.4.0",
     "build_system": "MakefilePackage",
     "conflicts": [
         {
+            "description": null,
             "name": "arch=windows-None-None",
-            "spec": "build_system=makefile",
-            "description": null
+            "spec": "build_system=makefile"
         }
     ],
-    "variants": [
+    "dependencies": [
         {
-            "name": "build_system",
-            "default": "makefile",
-            "description": "Build systems supported by the package"
+            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files.",
+            "name": "gmake"
         },
         {
-            "name": "suid",
-            "default": false,
-            "description": "Make squashfs-mount a suid executable"
+            "description": "Util-linux is a suite of essential utilities for any Linux system.",
+            "name": "util-linux"
         }
     ],
+    "dependent_to": [],
+    "description": "Allows non-root users to mount squashfs files without the overhead of\nsquashfuse.\n",
     "homepage": "https://github.com/eth-cscs/squashfs-mount",
+    "latest_version": "0.4.0",
     "maintainers": [
         "haampie"
     ],
+    "name": "squashfs-mount",
     "patches": [],
     "resources": [],
-    "description": "Allows non-root users to mount squashfs files without the overhead of\nsquashfuse.\n",
-    "dependencies": [
+    "variants": [
         {
-            "name": "gmake",
-            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files."
+            "default": "makefile",
+            "description": "Build systems supported by the package",
+            "name": "build_system"
         },
         {
-            "name": "util-linux",
-            "description": "Util-linux is a suite of essential utilities for any Linux system."
+            "default": false,
+            "description": "Make squashfs-mount a suid executable",
+            "name": "suid"
         }
     ],
-    "dependent_to": []
+    "versions": [
+        {
+            "name": "0.1.0",
+            "sha256": "37841ede7a7486d437fd06ae13e432560f81806f69addc72cfc8e564c8727bc6"
+        },
+        {
+            "name": "0.4.0",
+            "sha256": "0b17c797b4befdab172fc58a74f3b647bbdf127ff5bdaf7c21d907b7a9714339"
+        }
+    ]
 }

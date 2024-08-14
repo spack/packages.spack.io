@@ -1,170 +1,56 @@
 {
-    "name": "fms",
     "aliases": [],
-    "versions": [
-        {
-            "name": "2024.01.01",
-            "sha256": "41c8686bad2b1aed76275e35cbe1af855f7dfce9b6d8907744ea2e8174758f6a"
-        },
-        {
-            "name": "2024.01",
-            "sha256": "29ac23a5a2a4765ae66d218bb261cb04f7ad44618205ab0924c4e66c9ef8fa38"
-        },
-        {
-            "name": "2023.04",
-            "sha256": "feb895ea2b3269ca66df296199a36af335f0dc281e2dab2f1bfebb19fd9c22c4"
-        },
-        {
-            "name": "2023.03",
-            "sha256": "008a9ff394efe6a8adbcf37dd45ca103e00ae25748fc2960b7bc54f2f3b08d85"
-        },
-        {
-            "name": "2023.02.01",
-            "sha256": "1597f7a485d02e401ce76444b2401060d74bd032cbb060cef917f001b4ff14bc"
-        },
-        {
-            "name": "2023.02",
-            "sha256": "dc029ffadfd82c334f104268bedd8635c77976485f202f0966ae4cf06d2374be"
-        },
-        {
-            "name": "2023.01.01",
-            "sha256": "f83e2814a1e3ba439ab847ec8bb251f3889d5ca14fb20849507590adbbe8e899"
-        },
-        {
-            "name": "2023.01",
-            "sha256": "6079ea885e9365513b453c77aadfc7c305bf413b840656bb333db1eabba0f18e"
-        },
-        {
-            "name": "2022.04",
-            "sha256": "f741479128afc2b93ca8291a4c5bcdb024a8cbeda1a26bf77a236c0f629e1b03"
-        },
-        {
-            "name": "2022.03",
-            "sha256": "42d2ac53d3c889a8177a6d7a132583364c0f6e5d5cbde0d980443b6797ad4838"
-        },
-        {
-            "name": "2022.02",
-            "sha256": "ad4978302b219e11b883b2f52519e1ee455137ad947474abb316c8654f72c874"
-        },
-        {
-            "name": "2022.01",
-            "sha256": "a1cba1f536923f5953c28729a28e5431e127b45d6bc2c15d230939f0c02daa9b"
-        },
-        {
-            "name": "2021.04",
-            "sha256": "dcb4fe80cb3b7846f7cf89b812afff09a78a10261ea048a851f28935d6b241b1"
-        },
-        {
-            "name": "2021.03.01",
-            "sha256": "1f70e2a57f0d01e80fceb9ca9ce9661f5c1565d0437ab67618c2c4dfea0da6e9"
-        },
-        {
-            "name": "2021.03",
-            "sha256": "a9fb6e85f44ff79e6f9e61e65f42a5ffd38fa661fe1a3e4da6f85ffacd2697ac"
-        },
-        {
-            "name": "2021.02.01",
-            "sha256": "9b11d9474d7c90464af66d81fb86c4798cfa309b9a0da20b0fccf33c4f65386b"
-        },
-        {
-            "name": "2021.02",
-            "sha256": "db810b2452a6952239f064b52c0c5c58fc62126057982111b9fcd64f1b3bd879"
-        },
-        {
-            "name": "2021.01",
-            "sha256": "38c748e2edb94ffeb021095d8bde4d74b7834610ce0ef1dbb4dce353eeb5cd96"
-        },
-        {
-            "name": "2020.04.02",
-            "sha256": "bd6ce752b1018d4418398f14b9fc486f217de76bcbaaf2cdbf4c43e0b3f39f69"
-        },
-        {
-            "name": "2020.04.01",
-            "sha256": "2c409242de7dea0cf29f8dbf7495698b6bcac1eeb5c4599a728bdea172ffe37c"
-        }
-    ],
-    "latest_version": "2024.01.01",
     "build_system": "CMakePackage",
     "conflicts": [
         {
+            "description": "fms: FMS versions prior to 2022.04 do not support both 32 and 64 bit precision",
             "name": "precision=32,64",
-            "spec": "@:2022.3",
-            "description": "fms: FMS versions prior to 2022.04 do not support both 32 and 64 bit precision"
+            "spec": "@:2022.3"
         }
     ],
-    "variants": [
+    "dependencies": [
         {
-            "name": "build_system",
-            "default": "cmake",
-            "description": "Build systems supported by the package"
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software.",
+            "name": "cmake"
         },
         {
-            "name": "build_type",
-            "default": "Release",
-            "description": "CMake build type"
+            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files.",
+            "name": "gmake"
         },
         {
-            "name": "ipo",
-            "default": false,
-            "description": "CMake interprocedural optimization"
+            "description": "A C library for parsing and emitting YAML.",
+            "name": "libyaml"
         },
         {
-            "name": "generator",
-            "default": "make",
-            "description": "the build system generator to use"
+            "description": "The OpenMP subproject of LLVM contains the components required to build\nan executable OpenMP program that are outside the compiler itself.",
+            "name": "llvm-openmp"
         },
         {
-            "name": "precision",
-            "default": "32",
-            "description": "Build a version of the library with default 32 or 64 bit reals or both"
+            "description": "IBM MPI implementation from Spectrum MPI.",
+            "name": "mpi"
         },
         {
-            "name": "gfs_phys",
-            "default": true,
-            "description": "Use GFS Physics"
+            "description": "NetCDF (network Common Data Form) is a set of software libraries and\nmachine-independent data formats that support the creation, access, and\nsharing of array-oriented scientific data. This is the C distribution.",
+            "name": "netcdf-c"
         },
         {
-            "name": "openmp",
-            "default": true,
-            "description": "Use OpenMP"
+            "description": "NetCDF (network Common Data Form) is a set of software libraries and\nmachine-independent data formats that support the creation, access, and\nsharing of array-oriented scientific data. This is the Fortran\ndistribution.",
+            "name": "netcdf-fortran"
         },
         {
-            "name": "quad_precision",
-            "default": true,
-            "description": "quad precision reals"
-        },
-        {
-            "name": "yaml",
-            "default": false,
-            "description": "yaml input file support(requires libyaml)"
-        },
-        {
-            "name": "constants",
-            "default": "GFDL",
-            "description": "Build with <X> constants parameter definitions"
-        },
-        {
-            "name": "pic",
-            "default": false,
-            "description": "Build with position independent code"
-        },
-        {
-            "name": "deprecated_io",
-            "default": false,
-            "description": "Compiles with support for deprecated io modules fms_io and mpp_io"
-        },
-        {
-            "name": "large_file",
-            "default": false,
-            "description": "Enable compiler definition -Duse_LARGEFILE."
-        },
-        {
-            "name": "internal_file_nml",
-            "default": true,
-            "description": "Enable compiler definition -DINTERNAL_FILE_NML."
+            "description": "Ninja is a small build system with a focus on speed. It differs from\nother build systems in two major respects: it is designed to have its\ninput files generated by a higher-level build system, and it is designed\nto run builds as fast as possible.",
+            "name": "ninja"
         }
     ],
+    "dependent_to": [
+        {
+            "description": "The Unified Forecast System (UFS) Weather Model (WM) is a prognostic\nmodel that can be used for short- and medium-range research and\noperational forecasts, as exemplified by its use in the operational\nGlobal Forecast System (GFS) of the National Oceanic and Atmospheric\nAdministration (NOAA).",
+            "name": "ufs-weather-model"
+        }
+    ],
+    "description": "GFDL's Flexible Modeling System (FMS) is a software environment that\nsupports the efficient development, construction, execution, and\nscientific interpretation of atmospheric, oceanic, and climate system\nmodels.\n",
     "homepage": "https://github.com/NOAA-GFDL/FMS",
+    "latest_version": "2024.01.01",
     "maintainers": [
         "AlexanderRichert-NOAA",
         "Hang-Lei-NOAA",
@@ -172,47 +58,161 @@
         "edwardhartnett",
         "rem1776"
     ],
+    "name": "fms",
     "patches": [],
     "resources": [],
-    "description": "GFDL's Flexible Modeling System (FMS) is a software environment that\nsupports the efficient development, construction, execution, and\nscientific interpretation of atmospheric, oceanic, and climate system\nmodels.\n",
-    "dependencies": [
+    "variants": [
         {
-            "name": "cmake",
-            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
+            "default": "cmake",
+            "description": "Build systems supported by the package",
+            "name": "build_system"
         },
         {
-            "name": "gmake",
-            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files."
+            "default": "Release",
+            "description": "CMake build type",
+            "name": "build_type"
         },
         {
-            "name": "libyaml",
-            "description": "A C library for parsing and emitting YAML."
+            "default": "GFDL",
+            "description": "Build with <X> constants parameter definitions",
+            "name": "constants"
         },
         {
-            "name": "llvm-openmp",
-            "description": "The OpenMP subproject of LLVM contains the components required to build\nan executable OpenMP program that are outside the compiler itself."
+            "default": false,
+            "description": "Compiles with support for deprecated io modules fms_io and mpp_io",
+            "name": "deprecated_io"
         },
         {
-            "name": "mpi",
-            "description": "A single processor implementation of the mpi library."
+            "default": "make",
+            "description": "the build system generator to use",
+            "name": "generator"
         },
         {
-            "name": "netcdf-c",
-            "description": "NetCDF (network Common Data Form) is a set of software libraries and\nmachine-independent data formats that support the creation, access, and\nsharing of array-oriented scientific data. This is the C distribution."
+            "default": true,
+            "description": "Use GFS Physics",
+            "name": "gfs_phys"
         },
         {
-            "name": "netcdf-fortran",
-            "description": "NetCDF (network Common Data Form) is a set of software libraries and\nmachine-independent data formats that support the creation, access, and\nsharing of array-oriented scientific data. This is the Fortran\ndistribution."
+            "default": true,
+            "description": "Enable compiler definition -DINTERNAL_FILE_NML.",
+            "name": "internal_file_nml"
         },
         {
-            "name": "ninja",
-            "description": "Ninja is a small build system with a focus on speed. It differs from\nother build systems in two major respects: it is designed to have its\ninput files generated by a higher-level build system, and it is designed\nto run builds as fast as possible."
+            "default": false,
+            "description": "CMake interprocedural optimization",
+            "name": "ipo"
+        },
+        {
+            "default": false,
+            "description": "Enable compiler definition -Duse_LARGEFILE.",
+            "name": "large_file"
+        },
+        {
+            "default": true,
+            "description": "Use OpenMP",
+            "name": "openmp"
+        },
+        {
+            "default": false,
+            "description": "Build with position independent code",
+            "name": "pic"
+        },
+        {
+            "default": "32",
+            "description": "Build a version of the library with default 32 or 64 bit reals or both",
+            "name": "precision"
+        },
+        {
+            "default": true,
+            "description": "quad precision reals",
+            "name": "quad_precision"
+        },
+        {
+            "default": false,
+            "description": "yaml input file support(requires libyaml)",
+            "name": "yaml"
         }
     ],
-    "dependent_to": [
+    "versions": [
         {
-            "name": "ufs-weather-model",
-            "description": "The Unified Forecast System (UFS) Weather Model (WM) is a prognostic\nmodel that can be used for short- and medium-range research and\noperational forecasts, as exemplified by its use in the operational\nGlobal Forecast System (GFS) of the National Oceanic and Atmospheric\nAdministration (NOAA)."
+            "name": "2020.04.01",
+            "sha256": "2c409242de7dea0cf29f8dbf7495698b6bcac1eeb5c4599a728bdea172ffe37c"
+        },
+        {
+            "name": "2020.04.02",
+            "sha256": "bd6ce752b1018d4418398f14b9fc486f217de76bcbaaf2cdbf4c43e0b3f39f69"
+        },
+        {
+            "name": "2021.01",
+            "sha256": "38c748e2edb94ffeb021095d8bde4d74b7834610ce0ef1dbb4dce353eeb5cd96"
+        },
+        {
+            "name": "2021.02",
+            "sha256": "db810b2452a6952239f064b52c0c5c58fc62126057982111b9fcd64f1b3bd879"
+        },
+        {
+            "name": "2021.02.01",
+            "sha256": "9b11d9474d7c90464af66d81fb86c4798cfa309b9a0da20b0fccf33c4f65386b"
+        },
+        {
+            "name": "2021.03",
+            "sha256": "a9fb6e85f44ff79e6f9e61e65f42a5ffd38fa661fe1a3e4da6f85ffacd2697ac"
+        },
+        {
+            "name": "2021.03.01",
+            "sha256": "1f70e2a57f0d01e80fceb9ca9ce9661f5c1565d0437ab67618c2c4dfea0da6e9"
+        },
+        {
+            "name": "2021.04",
+            "sha256": "dcb4fe80cb3b7846f7cf89b812afff09a78a10261ea048a851f28935d6b241b1"
+        },
+        {
+            "name": "2022.01",
+            "sha256": "a1cba1f536923f5953c28729a28e5431e127b45d6bc2c15d230939f0c02daa9b"
+        },
+        {
+            "name": "2022.02",
+            "sha256": "ad4978302b219e11b883b2f52519e1ee455137ad947474abb316c8654f72c874"
+        },
+        {
+            "name": "2022.03",
+            "sha256": "42d2ac53d3c889a8177a6d7a132583364c0f6e5d5cbde0d980443b6797ad4838"
+        },
+        {
+            "name": "2022.04",
+            "sha256": "f741479128afc2b93ca8291a4c5bcdb024a8cbeda1a26bf77a236c0f629e1b03"
+        },
+        {
+            "name": "2023.01",
+            "sha256": "6079ea885e9365513b453c77aadfc7c305bf413b840656bb333db1eabba0f18e"
+        },
+        {
+            "name": "2023.01.01",
+            "sha256": "f83e2814a1e3ba439ab847ec8bb251f3889d5ca14fb20849507590adbbe8e899"
+        },
+        {
+            "name": "2023.02",
+            "sha256": "dc029ffadfd82c334f104268bedd8635c77976485f202f0966ae4cf06d2374be"
+        },
+        {
+            "name": "2023.02.01",
+            "sha256": "1597f7a485d02e401ce76444b2401060d74bd032cbb060cef917f001b4ff14bc"
+        },
+        {
+            "name": "2023.03",
+            "sha256": "008a9ff394efe6a8adbcf37dd45ca103e00ae25748fc2960b7bc54f2f3b08d85"
+        },
+        {
+            "name": "2023.04",
+            "sha256": "feb895ea2b3269ca66df296199a36af335f0dc281e2dab2f1bfebb19fd9c22c4"
+        },
+        {
+            "name": "2024.01",
+            "sha256": "29ac23a5a2a4765ae66d218bb261cb04f7ad44618205ab0924c4e66c9ef8fa38"
+        },
+        {
+            "name": "2024.01.01",
+            "sha256": "41c8686bad2b1aed76275e35cbe1af855f7dfce9b6d8907744ea2e8174758f6a"
         }
     ]
 }

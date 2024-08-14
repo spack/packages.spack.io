@@ -1,112 +1,112 @@
 {
-    "name": "mpibind",
     "aliases": [],
-    "versions": [
-        {
-            "name": "master",
-            "branch": "master"
-        },
-        {
-            "name": "0.8.0",
-            "commit": "ff38b9dcd150ca1e8a8796835d8e1e1847b3ba68"
-        },
-        {
-            "name": "0.7.0",
-            "commit": "3c437a97cd841b9c13abfbe1062a0285e1a29d3e"
-        },
-        {
-            "name": "0.5.0",
-            "commit": "8698f07412232e4dd4de4802b508374dc0de48c9"
-        }
-    ],
-    "latest_version": "0.8.0",
     "build_system": "AutotoolsPackage",
     "conflicts": [
         {
+            "description": null,
             "name": "arch=windows-None-None",
-            "spec": "build_system=autotools",
-            "description": null
+            "spec": "build_system=autotools"
         }
     ],
-    "variants": [
+    "dependencies": [
         {
-            "name": "build_system",
-            "default": "autotools",
-            "description": "Build systems supported by the package"
+            "description": "Autoconf -- system configuration part of autotools",
+            "name": "autoconf"
         },
         {
-            "name": "cuda",
-            "default": false,
-            "description": "Build w/support for NVIDIA GPUs."
+            "description": "Automake -- make file builder part of autotools",
+            "name": "automake"
         },
         {
-            "name": "rocm",
-            "default": false,
-            "description": "Build w/support for AMD GPUs."
+            "description": "A next-generation resource manager (pre-alpha)",
+            "name": "flux-core"
         },
         {
-            "name": "flux",
-            "default": false,
-            "description": "Build the Flux plugin."
+            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files.",
+            "name": "gmake"
         },
         {
-            "name": "python",
-            "default": false,
-            "description": "Build the Python bindings."
+            "description": "The GNU config.guess and config.sub scripts versioned by timestamp.\nThis package can be used as a build dependency for autotools packages\nthat ship a tarball with outdated config.guess and config.sub files.",
+            "name": "gnuconfig"
+        },
+        {
+            "description": "The Hardware Locality (hwloc) software project. The Portable Hardware\nLocality (hwloc) software package provides a portable abstraction\n(across OS, versions, architectures, ...) of the hierarchical topology\nof modern architectures, including NUMA memory nodes, sockets, shared\ncaches, cores and simultaneous multithreading. It also gathers various\nsystem attributes such as cache and memory information as well as the\nlocality of I/O devices such as network interfaces, InfiniBand HCAs or\nGPUs. It primarily aims at helping applications with gathering\ninformation about modern computing hardware so as to exploit it\naccordingly and efficiently.",
+            "name": "hwloc"
+        },
+        {
+            "description": "libtool -- library building part of autotools.",
+            "name": "libtool"
+        },
+        {
+            "description": "GNU M4 is an implementation of the traditional Unix macro processor.",
+            "name": "m4"
+        },
+        {
+            "description": "pkgconf is a program which helps to configure compiler and linker flags\nfor development frameworks. It is similar to pkg-config from\nfreedesktop.org, providing additional functionality while also\nmaintaining compatibility.",
+            "name": "pkgconfig"
+        },
+        {
+            "description": "Foreign Function Interface for Python calling C code",
+            "name": "py-cffi"
+        },
+        {
+            "description": "The Python programming language.",
+            "name": "python"
         }
     ],
+    "dependent_to": [],
+    "description": "A memory-driven algorithm to map parallel codes to heterogeneous\narchitectures\n",
     "homepage": "https://github.com/LLNL/mpibind",
+    "latest_version": "0.8.0",
     "maintainers": [
         "eleon"
     ],
+    "name": "mpibind",
     "patches": [],
     "resources": [],
-    "description": "A memory-driven algorithm to map parallel codes to heterogeneous\narchitectures\n",
-    "dependencies": [
+    "variants": [
         {
-            "name": "autoconf",
-            "description": "Autoconf -- system configuration part of autotools"
+            "default": "autotools",
+            "description": "Build systems supported by the package",
+            "name": "build_system"
         },
         {
-            "name": "automake",
-            "description": "Automake -- make file builder part of autotools"
+            "default": false,
+            "description": "Build w/support for NVIDIA GPUs.",
+            "name": "cuda"
         },
         {
-            "name": "flux-core",
-            "description": "A next-generation resource manager (pre-alpha)"
+            "default": false,
+            "description": "Build the Flux plugin.",
+            "name": "flux"
         },
         {
-            "name": "gmake",
-            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files."
+            "default": false,
+            "description": "Build the Python bindings.",
+            "name": "python"
         },
         {
-            "name": "gnuconfig",
-            "description": "The GNU config.guess and config.sub scripts versioned by timestamp.\nThis package can be used as a build dependency for autotools packages\nthat ship a tarball with outdated config.guess and config.sub files."
-        },
-        {
-            "name": "hwloc",
-            "description": "The Hardware Locality (hwloc) software project. The Portable Hardware\nLocality (hwloc) software package provides a portable abstraction\n(across OS, versions, architectures, ...) of the hierarchical topology\nof modern architectures, including NUMA memory nodes, sockets, shared\ncaches, cores and simultaneous multithreading. It also gathers various\nsystem attributes such as cache and memory information as well as the\nlocality of I/O devices such as network interfaces, InfiniBand HCAs or\nGPUs. It primarily aims at helping applications with gathering\ninformation about modern computing hardware so as to exploit it\naccordingly and efficiently."
-        },
-        {
-            "name": "libtool",
-            "description": "libtool -- library building part of autotools."
-        },
-        {
-            "name": "m4",
-            "description": "GNU M4 is an implementation of the traditional Unix macro processor."
-        },
-        {
-            "name": "pkgconfig",
-            "description": "pkg-config is a helper tool used when compiling applications and\nlibraries"
-        },
-        {
-            "name": "py-cffi",
-            "description": "Foreign Function Interface for Python calling C code"
-        },
-        {
-            "name": "python",
-            "description": "The Python programming language."
+            "default": false,
+            "description": "Build w/support for AMD GPUs.",
+            "name": "rocm"
         }
     ],
-    "dependent_to": []
+    "versions": [
+        {
+            "commit": "8698f07412232e4dd4de4802b508374dc0de48c9",
+            "name": "0.5.0"
+        },
+        {
+            "commit": "3c437a97cd841b9c13abfbe1062a0285e1a29d3e",
+            "name": "0.7.0"
+        },
+        {
+            "commit": "ff38b9dcd150ca1e8a8796835d8e1e1847b3ba68",
+            "name": "0.8.0"
+        },
+        {
+            "branch": "master",
+            "name": "master"
+        }
+    ]
 }

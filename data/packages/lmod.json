@@ -1,26 +1,196 @@
 {
-    "name": "lmod",
     "aliases": [],
+    "build_system": "AutotoolsPackage",
+    "conflicts": [
+        {
+            "description": null,
+            "name": "arch=windows-None-None",
+            "spec": "build_system=autotools"
+        }
+    ],
+    "dependencies": [
+        {
+            "description": "bc is an arbitrary precision numeric processing language. Syntax is\nsimilar to C, but differs in many substantial areas. It supports\ninteractive execution of statements.",
+            "name": "bc"
+        },
+        {
+            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files.",
+            "name": "gmake"
+        },
+        {
+            "description": "The GNU config.guess and config.sub scripts versioned by timestamp.\nThis package can be used as a build dependency for autotools packages\nthat ship a tarball with outdated config.guess and config.sub files.",
+            "name": "gnuconfig"
+        },
+        {
+            "description": "The Lua programming language interpreter and library.",
+            "name": "lua"
+        },
+        {
+            "description": "LuaFileSystem is a Lua library developed to complement the set of\nfunctions related to file systems offered by the standard Lua\ndistribution. LuaFileSystem offers a portable way to access the\nunderlying directory structure and file attributes. LuaFileSystem is\nfree software and uses the same license as Lua 5.1",
+            "name": "lua-luafilesystem"
+        },
+        {
+            "description": "Lua posix bindings, including ncurses",
+            "name": "lua-luaposix"
+        },
+        {
+            "description": "Tcl (Tool Command Language) is a very powerful but easy to learn dynamic\nprogramming language, suitable for a very wide range of uses, including\nweb and desktop applications, networking, administration, testing and\nmany more. Open source and business-friendly, Tcl is a mature yet\nevolving language that is truly cross platform, easily deployed and\nhighly extensible.",
+            "name": "tcl"
+        }
+    ],
+    "dependent_to": [
+        {
+            "description": "Lmodule is a Python API for Lmod module system. It's primary purpose is\nto help automate module testing. Lmodule uses Lmod spider tool to query\nall modules in-order to automate module testing. Lmodule can be used\nwith environment-modules to interact with module using the Module class.",
+            "name": "py-lmodule"
+        },
+        {
+            "description": "Local filesystem registry for containers (intended for HPC) using Lmod\nor Environment Modules. Works for users and admins.",
+            "name": "singularity-hpc"
+        },
+        {
+            "description": "Spack is a multi-platform package manager that builds and installs\nmultiple versions and configurations of software. It works on Linux,\nmacOS, and many supercomputers. Spack is non-destructive: installing a\nnew version of a package does not break existing installations, so many\nconfigurations of the same package can coexist.",
+            "name": "spack"
+        }
+    ],
+    "description": "Lmod is a Lua based module system that easily handles the MODULEPATH\nHierarchical problem. Environment Modules provide a convenient way to\ndynamically change the users' environment through modulefiles. This\nincludes easily adding or removing directories to the PATH environment\nvariable. Modulefiles for Library packages provide environment variables\nthat specify where the library and header files can be found.\n",
+    "homepage": "https://www.tacc.utexas.edu/research-development/tacc-projects/lmod",
+    "latest_version": "8.7.37",
+    "maintainers": [],
+    "name": "lmod",
+    "patches": [
+        {
+            "level": 1,
+            "owner": "builtin.lmod",
+            "relative_path": "fix_tclsh_paths.patch",
+            "reverse": false,
+            "sha256": "7f327d640177dae7c57cd12fc9c692691679ba48b9d0930a72a32842fbbf224a",
+            "version": "@:6.4.3",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.lmod",
+            "relative_path": "0001-fix-problem-with-MODULESHOME-and-issue-271.patch",
+            "reverse": false,
+            "sha256": "cadfa63d384fb9ba732d4879d72d0fcc845dd8b796d7ab5b69ce9709dd5a55b4",
+            "version": "@7.3.28:7.4.10",
+            "working_dir": "."
+        }
+    ],
+    "resources": [],
+    "variants": [
+        {
+            "default": true,
+            "description": "Auto swapping of compilers, etc.",
+            "name": "auto_swap"
+        },
+        {
+            "default": "autotools",
+            "description": "Build systems supported by the package",
+            "name": "build_system"
+        },
+        {
+            "default": false,
+            "description": "Redirect messages to stdout (instead of stderr)",
+            "name": "redirect"
+        }
+    ],
     "versions": [
         {
-            "name": "8.7.37",
-            "sha256": "171529152fedfbb3c45d27937b0eaa1ee62b5e5cdac3086f44a6d56e5d1d7da4"
+            "name": "6.3.7",
+            "sha256": "55ddb52cbdc0e2e389b3405229336df9aabfa582c874f5df2559ea264e2ee4ae"
         },
         {
-            "name": "8.7.24",
-            "sha256": "8451267652059b6507b652e1b563929ecf9b689ffb20830642085eb6a55bd539"
+            "name": "6.4.1",
+            "sha256": "a260b4e42269a80b517c066ba8484658362ea095e80767a2376bbe33d9b070a5"
         },
         {
-            "name": "8.7.20",
-            "sha256": "c04deff7d2ca354610a362459a7aa9a1c642a095e45a4b0bb2471bb3254e85f4"
+            "name": "6.4.5",
+            "sha256": "741744a2837c9d92fceeccfebdc8e07ce4f4b7e56f67b214d317955bbd8786b7"
         },
         {
-            "name": "8.7.18",
-            "sha256": "b9912caca1557dd0c17113bceb1a4952e0ae75331d38df6361601db3f80366af"
+            "name": "7.3",
+            "sha256": "624e8ffb7527b380dc248cf7ddf36beecb91c762d840be447bc9a55bf8cd26c2"
         },
         {
-            "name": "8.7.2",
-            "sha256": "5f44f3783496d2d597ced7531e1714c740dbb2883a7d16fde362135fb0b0fd96"
+            "name": "7.4.1",
+            "sha256": "1d407c68a5a8c1ae9870a12303ba81d2a92b68f66ac7dd704ccffb65bfb873d9"
+        },
+        {
+            "name": "7.4.10",
+            "sha256": "7b37936ddbc574f03eb08579f1d1bb5fa8c476b55ee070dc3c432d96970e6562"
+        },
+        {
+            "name": "7.4.11",
+            "sha256": "54c3629f6e455a4767dfb775e1b0ca46b8f217dcc0966bf0227c0ea11e0e0d62"
+        },
+        {
+            "name": "7.4.5",
+            "sha256": "a4af6dcd3d9b209cc10467e6ce77301c0ec517437b70cfc567a3180030c4f404"
+        },
+        {
+            "name": "7.4.8",
+            "sha256": "a634989dcd34b0ad7bee95ca535765b7de886d9f9ef78cad5976122356d71169"
+        },
+        {
+            "name": "7.4.9",
+            "sha256": "5aee6cc9cf0b27327c8b4f5fdfb9aa079d90aed685ee7853cbcc49c32b48a5d9"
+        },
+        {
+            "name": "7.6.14",
+            "sha256": "f628ed2272bb26671d2c478afef2ddd88dce324748032bfe8d6f6c7747f00162"
+        },
+        {
+            "name": "7.7",
+            "sha256": "090118fcecedbce5515cca8b77297f082686583aa06ca811b9703cd828f10e0a"
+        },
+        {
+            "name": "7.7.13",
+            "sha256": "6145f075e5d49e12fcf0e75bb38afb27f205d23ba3496c1ff6c8b2cbaa9908be"
+        },
+        {
+            "name": "7.7.29",
+            "sha256": "269235d07d8ea387a2578f90bb64cf8ad16b4f28dcce196b293eb48cf1f71fb4"
+        },
+        {
+            "name": "7.8",
+            "sha256": "40388380a36a00c3ce929a9f88c8fffc93deeabf87a7c3f8864a82acad38c3ba"
+        },
+        {
+            "name": "7.8.1",
+            "sha256": "74244c22cecd72777e75631f357d2e20ff7f2b9c2ef59e4e38b5a171b7b6eeea"
+        },
+        {
+            "name": "7.8.15",
+            "sha256": "00a257f5073d656adc73045997c28f323b7a4f6d901f1c57b7db2b0cd6bee6e6"
+        },
+        {
+            "name": "8.0.9",
+            "sha256": "9813c22ae4dd21eb3dc480f6ce307156512092b4bca954bf8aacc15944f23673"
+        },
+        {
+            "name": "8.1.5",
+            "sha256": "3e5846d3d8e593cbcdfa0aed1474569bf5b5cfd19fd288de22051823d449d344"
+        },
+        {
+            "name": "8.2.10",
+            "sha256": "15676d82235faf5c755a747f0e318badb1a5c3ff1552fa8022c67ff083ee9e2f"
+        },
+        {
+            "name": "8.3",
+            "sha256": "c2c2e9e6b387b011ee617cb009a2199caac8bf200330cb8a065ceedee09e664a"
+        },
+        {
+            "name": "8.5.27",
+            "sha256": "bec911ff6b20de7d38587d1f9c351f58ed7bdf10cb3938089c82944b5ee0ab0d"
+        },
+        {
+            "name": "8.5.29",
+            "sha256": "4e38074e3ea1d41f3809b6b357440618f821437dffa47d8e653d0ade48d45ab7"
+        },
+        {
+            "name": "8.5.6",
+            "sha256": "1d1058ffa33a661994c1b2af4bfee4aa1539720cd5c13d61e18adbfb231bbe88"
         },
         {
             "name": "8.6.18",
@@ -31,194 +201,24 @@
             "sha256": "4a1823264187340be11104d82f8226905daa8149186fa8615dfc742b6d19c2ce"
         },
         {
-            "name": "8.5.29",
-            "sha256": "4e38074e3ea1d41f3809b6b357440618f821437dffa47d8e653d0ade48d45ab7"
+            "name": "8.7.18",
+            "sha256": "b9912caca1557dd0c17113bceb1a4952e0ae75331d38df6361601db3f80366af"
         },
         {
-            "name": "8.5.27",
-            "sha256": "bec911ff6b20de7d38587d1f9c351f58ed7bdf10cb3938089c82944b5ee0ab0d"
+            "name": "8.7.2",
+            "sha256": "5f44f3783496d2d597ced7531e1714c740dbb2883a7d16fde362135fb0b0fd96"
         },
         {
-            "name": "8.5.6",
-            "sha256": "1d1058ffa33a661994c1b2af4bfee4aa1539720cd5c13d61e18adbfb231bbe88"
+            "name": "8.7.20",
+            "sha256": "c04deff7d2ca354610a362459a7aa9a1c642a095e45a4b0bb2471bb3254e85f4"
         },
         {
-            "name": "8.3",
-            "sha256": "c2c2e9e6b387b011ee617cb009a2199caac8bf200330cb8a065ceedee09e664a"
+            "name": "8.7.24",
+            "sha256": "8451267652059b6507b652e1b563929ecf9b689ffb20830642085eb6a55bd539"
         },
         {
-            "name": "8.2.10",
-            "sha256": "15676d82235faf5c755a747f0e318badb1a5c3ff1552fa8022c67ff083ee9e2f"
-        },
-        {
-            "name": "8.1.5",
-            "sha256": "3e5846d3d8e593cbcdfa0aed1474569bf5b5cfd19fd288de22051823d449d344"
-        },
-        {
-            "name": "8.0.9",
-            "sha256": "9813c22ae4dd21eb3dc480f6ce307156512092b4bca954bf8aacc15944f23673"
-        },
-        {
-            "name": "7.8.15",
-            "sha256": "00a257f5073d656adc73045997c28f323b7a4f6d901f1c57b7db2b0cd6bee6e6"
-        },
-        {
-            "name": "7.8.1",
-            "sha256": "74244c22cecd72777e75631f357d2e20ff7f2b9c2ef59e4e38b5a171b7b6eeea"
-        },
-        {
-            "name": "7.8",
-            "sha256": "40388380a36a00c3ce929a9f88c8fffc93deeabf87a7c3f8864a82acad38c3ba"
-        },
-        {
-            "name": "7.7.29",
-            "sha256": "269235d07d8ea387a2578f90bb64cf8ad16b4f28dcce196b293eb48cf1f71fb4"
-        },
-        {
-            "name": "7.7.13",
-            "sha256": "6145f075e5d49e12fcf0e75bb38afb27f205d23ba3496c1ff6c8b2cbaa9908be"
-        },
-        {
-            "name": "7.7",
-            "sha256": "090118fcecedbce5515cca8b77297f082686583aa06ca811b9703cd828f10e0a"
-        },
-        {
-            "name": "7.6.14",
-            "sha256": "f628ed2272bb26671d2c478afef2ddd88dce324748032bfe8d6f6c7747f00162"
-        },
-        {
-            "name": "7.4.11",
-            "sha256": "54c3629f6e455a4767dfb775e1b0ca46b8f217dcc0966bf0227c0ea11e0e0d62"
-        },
-        {
-            "name": "7.4.10",
-            "sha256": "7b37936ddbc574f03eb08579f1d1bb5fa8c476b55ee070dc3c432d96970e6562"
-        },
-        {
-            "name": "7.4.9",
-            "sha256": "5aee6cc9cf0b27327c8b4f5fdfb9aa079d90aed685ee7853cbcc49c32b48a5d9"
-        },
-        {
-            "name": "7.4.8",
-            "sha256": "a634989dcd34b0ad7bee95ca535765b7de886d9f9ef78cad5976122356d71169"
-        },
-        {
-            "name": "7.4.5",
-            "sha256": "a4af6dcd3d9b209cc10467e6ce77301c0ec517437b70cfc567a3180030c4f404"
-        },
-        {
-            "name": "7.4.1",
-            "sha256": "1d407c68a5a8c1ae9870a12303ba81d2a92b68f66ac7dd704ccffb65bfb873d9"
-        },
-        {
-            "name": "7.3",
-            "sha256": "624e8ffb7527b380dc248cf7ddf36beecb91c762d840be447bc9a55bf8cd26c2"
-        },
-        {
-            "name": "6.4.5",
-            "sha256": "741744a2837c9d92fceeccfebdc8e07ce4f4b7e56f67b214d317955bbd8786b7"
-        },
-        {
-            "name": "6.4.1",
-            "sha256": "a260b4e42269a80b517c066ba8484658362ea095e80767a2376bbe33d9b070a5"
-        },
-        {
-            "name": "6.3.7",
-            "sha256": "55ddb52cbdc0e2e389b3405229336df9aabfa582c874f5df2559ea264e2ee4ae"
-        }
-    ],
-    "latest_version": "8.7.37",
-    "build_system": "AutotoolsPackage",
-    "conflicts": [
-        {
-            "name": "arch=windows-None-None",
-            "spec": "build_system=autotools",
-            "description": null
-        }
-    ],
-    "variants": [
-        {
-            "name": "build_system",
-            "default": "autotools",
-            "description": "Build systems supported by the package"
-        },
-        {
-            "name": "auto_swap",
-            "default": true,
-            "description": "Auto swapping of compilers, etc."
-        },
-        {
-            "name": "redirect",
-            "default": false,
-            "description": "Redirect messages to stdout (instead of stderr)"
-        }
-    ],
-    "homepage": "https://www.tacc.utexas.edu/research-development/tacc-projects/lmod",
-    "maintainers": [],
-    "patches": [
-        {
-            "owner": "builtin.lmod",
-            "sha256": "7f327d640177dae7c57cd12fc9c692691679ba48b9d0930a72a32842fbbf224a",
-            "level": 1,
-            "working_dir": ".",
-            "reverse": false,
-            "relative_path": "fix_tclsh_paths.patch",
-            "version": "@:6.4.3"
-        },
-        {
-            "owner": "builtin.lmod",
-            "sha256": "cadfa63d384fb9ba732d4879d72d0fcc845dd8b796d7ab5b69ce9709dd5a55b4",
-            "level": 1,
-            "working_dir": ".",
-            "reverse": false,
-            "relative_path": "0001-fix-problem-with-MODULESHOME-and-issue-271.patch",
-            "version": "@7.3.28:7.4.10"
-        }
-    ],
-    "resources": [],
-    "description": "Lmod is a Lua based module system that easily handles the MODULEPATH\nHierarchical problem. Environment Modules provide a convenient way to\ndynamically change the users' environment through modulefiles. This\nincludes easily adding or removing directories to the PATH environment\nvariable. Modulefiles for Library packages provide environment variables\nthat specify where the library and header files can be found.\n",
-    "dependencies": [
-        {
-            "name": "bc",
-            "description": "bc is an arbitrary precision numeric processing language. Syntax is\nsimilar to C, but differs in many substantial areas. It supports\ninteractive execution of statements."
-        },
-        {
-            "name": "gmake",
-            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files."
-        },
-        {
-            "name": "gnuconfig",
-            "description": "The GNU config.guess and config.sub scripts versioned by timestamp.\nThis package can be used as a build dependency for autotools packages\nthat ship a tarball with outdated config.guess and config.sub files."
-        },
-        {
-            "name": "lua",
-            "description": "The Lua programming language interpreter and library."
-        },
-        {
-            "name": "lua-luafilesystem",
-            "description": "LuaFileSystem is a Lua library developed to complement the set of\nfunctions related to file systems offered by the standard Lua\ndistribution. LuaFileSystem offers a portable way to access the\nunderlying directory structure and file attributes. LuaFileSystem is\nfree software and uses the same license as Lua 5.1"
-        },
-        {
-            "name": "lua-luaposix",
-            "description": "Lua posix bindings, including ncurses"
-        },
-        {
-            "name": "tcl",
-            "description": "Tcl (Tool Command Language) is a very powerful but easy to learn dynamic\nprogramming language, suitable for a very wide range of uses, including\nweb and desktop applications, networking, administration, testing and\nmany more. Open source and business-friendly, Tcl is a mature yet\nevolving language that is truly cross platform, easily deployed and\nhighly extensible."
-        }
-    ],
-    "dependent_to": [
-        {
-            "name": "py-lmodule",
-            "description": "Lmodule is a Python API for Lmod module system. It's primary purpose is\nto help automate module testing. Lmodule uses Lmod spider tool to query\nall modules in-order to automate module testing. Lmodule can be used\nwith environment-modules to interact with module using the Module class."
-        },
-        {
-            "name": "singularity-hpc",
-            "description": "Local filesystem registry for containers (intended for HPC) using Lmod\nor Environment Modules. Works for users and admins."
-        },
-        {
-            "name": "spack",
-            "description": "Spack is a multi-platform package manager that builds and installs\nmultiple versions and configurations of software. It works on Linux,\nmacOS, and many supercomputers. Spack is non-destructive: installing a\nnew version of a package does not break existing installations, so many\nconfigurations of the same package can coexist."
+            "name": "8.7.37",
+            "sha256": "171529152fedfbb3c45d27937b0eaa1ee62b5e5cdac3086f44a6d56e5d1d7da4"
         }
     ]
 }

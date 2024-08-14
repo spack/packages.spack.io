@@ -1,23 +1,130 @@
 {
-    "name": "augustus",
     "aliases": [],
+    "build_system": "MakefilePackage",
+    "conflicts": [
+        {
+            "description": null,
+            "name": "arch=windows-None-None",
+            "spec": "build_system=makefile"
+        }
+    ],
+    "dependencies": [
+        {
+            "description": "C++ API & command-line toolkit for working with BAM data.",
+            "name": "bamtools"
+        },
+        {
+            "description": "BCFtools is a set of utilities that manipulate variant calls in the\nVariant Call Format (VCF) and its binary counterpart BCF. All commands\nwork transparently with both VCFs and BCFs, both uncompressed and BGZF-\ncompressed.",
+            "name": "bcftools"
+        },
+        {
+            "description": "Boost provides free peer-reviewed portable C++ source libraries,\nemphasizing libraries that work well with the C++ Standard Library.\nBoost libraries are intended to be widely useful, and usable across a\nbroad spectrum of applications. The Boost license encourages both\ncommercial and non-commercial use.",
+            "name": "boost"
+        },
+        {
+            "description": "cURL is an open source command line tool and library for transferring\ndata with URL syntax",
+            "name": "curl"
+        },
+        {
+            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files.",
+            "name": "gmake"
+        },
+        {
+            "description": "The GNU Scientific Library (GSL) is a numerical library for C and C++\nprogrammers. It is free software under the GNU General Public License.\nThe library provides a wide range of mathematical routines such as\nrandom number generators, special functions and least-squares fitting.\nThere are over 1000 functions in total with an extensive test suite.",
+            "name": "gsl"
+        },
+        {
+            "description": "C library for high-throughput sequencing data formats.",
+            "name": "htslib"
+        },
+        {
+            "description": "lp_solve is a Mixed Integer Linear Programming (MILP) solver.",
+            "name": "lp-solve"
+        },
+        {
+            "description": "MySQL is an open source relational database management system.",
+            "name": "mysql-client"
+        },
+        {
+            "description": "MySQL++ is a C++ wrapper for MySQL and MariaDB C APIs. It is built on\nthe same principles as the Standard C++ Library to make dealing with the\ndatabase as easy as dealing with std containers. MySQL++ also provides\nfacilities that let you avoid the most repetitive sorts of SQL within\nyour own code, providing native C++ interfaces for these common tasks.",
+            "name": "mysqlpp"
+        },
+        {
+            "description": "The ncurses (new curses) library is a free software emulation of curses\nin System V Release 4.0, and more. It uses terminfo format, supports\npads and color and multiple highlights and forms characters and\nfunction-key mapping, and has all the other SYSV-curses enhancements\nover BSD curses.",
+            "name": "ncurses"
+        },
+        {
+            "description": "Perl 5 is a highly capable, feature-rich programming language with over\n27 years of development.",
+            "name": "perl"
+        },
+        {
+            "description": "The Python programming language.",
+            "name": "python"
+        },
+        {
+            "description": "SAM Tools provide various utilities for manipulating alignments in the\nSAM format, including sorting, merging, indexing and generating\nalignments in a per-position format",
+            "name": "samtools"
+        },
+        {
+            "description": "SQLite is a C-language library that implements a small, fast, self-\ncontained, high-reliability, full-featured, SQL database engine.",
+            "name": "sqlite"
+        },
+        {
+            "description": "SuiteSparse is a suite of sparse matrix algorithms",
+            "name": "suite-sparse"
+        },
+        {
+            "description": "zlib replacement with optimizations for next generation systems.",
+            "name": "zlib-api"
+        }
+    ],
+    "dependent_to": [
+        {
+            "description": "BRAKER is a pipeline for unsupervised RNA-Seq-based genome annotation\nthat combines the advantages of GeneMark-ET and AUGUSTUS",
+            "name": "braker"
+        },
+        {
+            "description": "Assesses genome assembly and annotation completeness with Benchmarking\nUniversal Single-Copy Orthologs",
+            "name": "busco"
+        },
+        {
+            "description": "MAKER is a portable and easily configurable genome annotation pipeline.\nIt's purpose is to allow smaller eukaryotic and prokaryotic\ngenomeprojects to independently annotate their genomes and to create\ngenome databases. MAKER identifies repeats, aligns ESTs and proteins to\na genome, produces ab-initio gene predictions and automatically\nsynthesizes these data into gene annotations having evidence-based\nquality values. MAKER is also easily trainable: outputs of preliminary\nruns can be used to automatically retrain its gene prediction algorithm,\nproducing higher quality gene-models on subsequent runs. MAKER's inputs\nare minimal and its ouputs can be directly loaded into a GMOD database.\nThey can also be viewed in the Apollo genome browser; this feature of\nMAKER provides an easy means to annotate, view and edit individual\ncontigs and BACs without the overhead of a database. MAKER should prove\nespecially useful for emerging model organism projects with minimal\nbioinformatics expertise and computer resources. Note: MAKER requires\nregistration. Fill out the form at\nhttp://yandell.topaz.genetics.utah.edu/cgi-bin/maker_license.cgi to get\na download link. Spack will search your current directory for the\ndownload file. Alternatively, add this file to a mirror so that Spack\ncan find it. For instructions on how to set up a mirror, see\nhttps://spack.readthedocs.io/en/latest/mirrors.html",
+            "name": "maker"
+        },
+        {
+            "description": "OrthoFiller: Identifying missing annotations for evolutionarily\nconserved genes.",
+            "name": "orthofiller"
+        }
+    ],
+    "description": "AUGUSTUS is a program that predicts genes in eukaryotic genomic\nsequences\n",
+    "homepage": "https://bioinf.uni-greifswald.de/augustus/",
+    "latest_version": "3.5.0",
+    "maintainers": [],
+    "name": "augustus",
+    "patches": [
+        {
+            "level": 1,
+            "owner": "builtin.augustus",
+            "relative_path": "bam2wig_Makefile.patch",
+            "reverse": false,
+            "sha256": "160586e379181ea1bf26c5f7f6c74e2a0b1940a27de57a68aaa32cb62736ef19",
+            "version": "@3.4.0",
+            "working_dir": "."
+        }
+    ],
+    "resources": [],
+    "variants": [
+        {
+            "default": "makefile",
+            "description": "Build systems supported by the package",
+            "name": "build_system"
+        }
+    ],
     "versions": [
         {
-            "name": "3.5.0",
-            "sha256": "5ed6ce6106303b800c5e91d37a250baff43b20824657b853ae04d11ad8bdd686"
-        },
-        {
-            "name": "3.4.0",
-            "sha256": "2c06cf5953da5afdce1478fa10fcd3c280a3b050f1b2367bf3e731d7374d9bb8"
-        },
-        {
-            "name": "3.3.2",
-            "sha256": "d09f972cfd88deb34b19b69878eb8af3bbbe4f1cde1434b69cedc2aa6247a0f2"
-        },
-        {
-            "name": "3.3.1-tag1",
-            "sha256": "011379606f381ee21b9716f83e8a1a57b2aaa01aefeebd2748104efa08c47cab",
-            "url": "https://github.com/Gaius-Augustus/Augustus/archive/v3.3.1-tag1.tar.gz"
+            "name": "3.2.3",
+            "sha256": "a1af128aefd228dea0c46d6f5234910fdf068a2b9133175ca8da3af639cb4514",
+            "url": "https://bioinf.uni-greifswald.de/augustus/binaries/old/augustus-3.2.3.tar.gz"
         },
         {
             "name": "3.3",
@@ -25,128 +132,21 @@
             "url": "https://bioinf.uni-greifswald.de/augustus/binaries/old/augustus-3.3.tar.gz"
         },
         {
-            "name": "3.2.3",
-            "sha256": "a1af128aefd228dea0c46d6f5234910fdf068a2b9133175ca8da3af639cb4514",
-            "url": "https://bioinf.uni-greifswald.de/augustus/binaries/old/augustus-3.2.3.tar.gz"
-        }
-    ],
-    "latest_version": "3.5.0",
-    "build_system": "MakefilePackage",
-    "conflicts": [
-        {
-            "name": "arch=windows-None-None",
-            "spec": "build_system=makefile",
-            "description": null
-        }
-    ],
-    "variants": [
-        {
-            "name": "build_system",
-            "default": "makefile",
-            "description": "Build systems supported by the package"
-        }
-    ],
-    "homepage": "https://bioinf.uni-greifswald.de/augustus/",
-    "maintainers": [],
-    "patches": [
-        {
-            "owner": "builtin.augustus",
-            "sha256": "160586e379181ea1bf26c5f7f6c74e2a0b1940a27de57a68aaa32cb62736ef19",
-            "level": 1,
-            "working_dir": ".",
-            "reverse": false,
-            "relative_path": "bam2wig_Makefile.patch",
-            "version": "@3.4.0"
-        }
-    ],
-    "resources": [],
-    "description": "AUGUSTUS is a program that predicts genes in eukaryotic genomic\nsequences\n",
-    "dependencies": [
-        {
-            "name": "bamtools",
-            "description": "C++ API & command-line toolkit for working with BAM data."
+            "name": "3.3.1-tag1",
+            "sha256": "011379606f381ee21b9716f83e8a1a57b2aaa01aefeebd2748104efa08c47cab",
+            "url": "https://github.com/Gaius-Augustus/Augustus/archive/v3.3.1-tag1.tar.gz"
         },
         {
-            "name": "bcftools",
-            "description": "BCFtools is a set of utilities that manipulate variant calls in the\nVariant Call Format (VCF) and its binary counterpart BCF. All commands\nwork transparently with both VCFs and BCFs, both uncompressed and BGZF-\ncompressed."
+            "name": "3.3.2",
+            "sha256": "d09f972cfd88deb34b19b69878eb8af3bbbe4f1cde1434b69cedc2aa6247a0f2"
         },
         {
-            "name": "boost",
-            "description": "Boost provides free peer-reviewed portable C++ source libraries,\nemphasizing libraries that work well with the C++ Standard Library.\nBoost libraries are intended to be widely useful, and usable across a\nbroad spectrum of applications. The Boost license encourages both\ncommercial and non-commercial use."
+            "name": "3.4.0",
+            "sha256": "2c06cf5953da5afdce1478fa10fcd3c280a3b050f1b2367bf3e731d7374d9bb8"
         },
         {
-            "name": "curl",
-            "description": "cURL is an open source command line tool and library for transferring\ndata with URL syntax"
-        },
-        {
-            "name": "gmake",
-            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files."
-        },
-        {
-            "name": "gsl",
-            "description": "The GNU Scientific Library (GSL) is a numerical library for C and C++\nprogrammers. It is free software under the GNU General Public License.\nThe library provides a wide range of mathematical routines such as\nrandom number generators, special functions and least-squares fitting.\nThere are over 1000 functions in total with an extensive test suite."
-        },
-        {
-            "name": "htslib",
-            "description": "C library for high-throughput sequencing data formats."
-        },
-        {
-            "name": "lp-solve",
-            "description": "lp_solve is a Mixed Integer Linear Programming (MILP) solver."
-        },
-        {
-            "name": "mysql-client",
-            "description": "MySQL is an open source relational database management system."
-        },
-        {
-            "name": "mysqlpp",
-            "description": "MySQL++ is a C++ wrapper for MySQL and MariaDB C APIs. It is built on\nthe same principles as the Standard C++ Library to make dealing with the\ndatabase as easy as dealing with std containers. MySQL++ also provides\nfacilities that let you avoid the most repetitive sorts of SQL within\nyour own code, providing native C++ interfaces for these common tasks."
-        },
-        {
-            "name": "ncurses",
-            "description": "The ncurses (new curses) library is a free software emulation of curses\nin System V Release 4.0, and more. It uses terminfo format, supports\npads and color and multiple highlights and forms characters and\nfunction-key mapping, and has all the other SYSV-curses enhancements\nover BSD curses."
-        },
-        {
-            "name": "perl",
-            "description": "Perl 5 is a highly capable, feature-rich programming language with over\n27 years of development."
-        },
-        {
-            "name": "python",
-            "description": "The Python programming language."
-        },
-        {
-            "name": "samtools",
-            "description": "SAM Tools provide various utilities for manipulating alignments in the\nSAM format, including sorting, merging, indexing and generating\nalignments in a per-position format"
-        },
-        {
-            "name": "sqlite",
-            "description": "SQLite is a C-language library that implements a small, fast, self-\ncontained, high-reliability, full-featured, SQL database engine."
-        },
-        {
-            "name": "suite-sparse",
-            "description": "SuiteSparse is a suite of sparse matrix algorithms"
-        },
-        {
-            "name": "zlib-api",
-            "description": "zlib replacement with optimizations for next generation systems."
-        }
-    ],
-    "dependent_to": [
-        {
-            "name": "busco",
-            "description": "Assesses genome assembly and annotation completeness with Benchmarking\nUniversal Single-Copy Orthologs"
-        },
-        {
-            "name": "orthofiller",
-            "description": "OrthoFiller: Identifying missing annotations for evolutionarily\nconserved genes."
-        },
-        {
-            "name": "braker",
-            "description": "BRAKER is a pipeline for unsupervised RNA-Seq-based genome annotation\nthat combines the advantages of GeneMark-ET and AUGUSTUS"
-        },
-        {
-            "name": "maker",
-            "description": "MAKER is a portable and easily configurable genome annotation pipeline.\nIt's purpose is to allow smaller eukaryotic and prokaryotic\ngenomeprojects to independently annotate their genomes and to create\ngenome databases. MAKER identifies repeats, aligns ESTs and proteins to\na genome, produces ab-initio gene predictions and automatically\nsynthesizes these data into gene annotations having evidence-based\nquality values. MAKER is also easily trainable: outputs of preliminary\nruns can be used to automatically retrain its gene prediction algorithm,\nproducing higher quality gene-models on subsequent runs. MAKER's inputs\nare minimal and its ouputs can be directly loaded into a GMOD database.\nThey can also be viewed in the Apollo genome browser; this feature of\nMAKER provides an easy means to annotate, view and edit individual\ncontigs and BACs without the overhead of a database. MAKER should prove\nespecially useful for emerging model organism projects with minimal\nbioinformatics expertise and computer resources. Note: MAKER requires\nregistration. Fill out the form at\nhttp://yandell.topaz.genetics.utah.edu/cgi-bin/maker_license.cgi to get\na download link. Spack will search your current directory for the\ndownload file. Alternatively, add this file to a mirror so that Spack\ncan find it. For instructions on how to set up a mirror, see\nhttps://spack.readthedocs.io/en/latest/mirrors.html"
+            "name": "3.5.0",
+            "sha256": "5ed6ce6106303b800c5e91d37a250baff43b20824657b853ae04d11ad8bdd686"
         }
     ]
 }

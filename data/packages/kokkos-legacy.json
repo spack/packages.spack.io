@@ -1,344 +1,344 @@
 {
-    "name": "kokkos-legacy",
     "aliases": [],
+    "build_system": "Package",
+    "conflicts": [
+        {
+            "description": "kokkos-legacy: Kokkos build system has issue (#1296) when CUDA enabled in version 2.5.00 through 2.7.00.",
+            "name": "+cuda",
+            "spec": "@2.5.00:2.7.0"
+        },
+        {
+            "description": null,
+            "name": "+aggressive_vectorization",
+            "spec": "@:2.0"
+        },
+        {
+            "description": null,
+            "name": "+disable_profiling",
+            "spec": "@:2.0"
+        },
+        {
+            "description": null,
+            "name": "+compiler_warnings",
+            "spec": "@:2.3.14"
+        },
+        {
+            "description": null,
+            "name": "+disable_dualview_modify_check",
+            "spec": "@:2.3.4"
+        },
+        {
+            "description": null,
+            "name": "+enable_profile_load_print",
+            "spec": "@:2.3.4"
+        },
+        {
+            "description": null,
+            "name": "+disable_deprecated_code",
+            "spec": "@:2.5"
+        },
+        {
+            "description": null,
+            "name": "gpu_arch=Volta70",
+            "spec": "@:2.5"
+        },
+        {
+            "description": null,
+            "name": "gpu_arch=Volta72",
+            "spec": "@:2.5"
+        },
+        {
+            "description": null,
+            "name": "+enable_eti",
+            "spec": "@:2.6"
+        },
+        {
+            "description": "kokkos-legacy: Must enable CUDA to use enable_lambda.",
+            "name": "+enable_lambda",
+            "spec": "~cuda"
+        },
+        {
+            "description": "kokkos-legacy: Must enable CUDA to use force_uvm.",
+            "name": "+force_uvm",
+            "spec": "~cuda"
+        },
+        {
+            "description": "kokkos-legacy: Must enable CUDA to use rdc.",
+            "name": "+rdc",
+            "spec": "~cuda"
+        },
+        {
+            "description": "kokkos-legacy: Must enable CUDA to use use_ldg.",
+            "name": "+use_ldg",
+            "spec": "~cuda"
+        },
+        {
+            "description": "kokkos-legacy: Must specify CUDA backend to use a GPU architecture.",
+            "name": "gpu_arch=Kepler30",
+            "spec": "~cuda"
+        },
+        {
+            "description": "kokkos-legacy: Must specify CUDA backend to use a GPU architecture.",
+            "name": "gpu_arch=Kepler32",
+            "spec": "~cuda"
+        },
+        {
+            "description": "kokkos-legacy: Must specify CUDA backend to use a GPU architecture.",
+            "name": "gpu_arch=Kepler35",
+            "spec": "~cuda"
+        },
+        {
+            "description": "kokkos-legacy: Must specify CUDA backend to use a GPU architecture.",
+            "name": "gpu_arch=Kepler37",
+            "spec": "~cuda"
+        },
+        {
+            "description": "kokkos-legacy: Must specify CUDA backend to use a GPU architecture.",
+            "name": "gpu_arch=Maxwell50",
+            "spec": "~cuda"
+        },
+        {
+            "description": "kokkos-legacy: Must specify CUDA backend to use a GPU architecture.",
+            "name": "gpu_arch=Maxwell52",
+            "spec": "~cuda"
+        },
+        {
+            "description": "kokkos-legacy: Must specify CUDA backend to use a GPU architecture.",
+            "name": "gpu_arch=Maxwell53",
+            "spec": "~cuda"
+        },
+        {
+            "description": "kokkos-legacy: Must specify CUDA backend to use a GPU architecture.",
+            "name": "gpu_arch=Pascal60",
+            "spec": "~cuda"
+        },
+        {
+            "description": "kokkos-legacy: Must specify CUDA backend to use a GPU architecture.",
+            "name": "gpu_arch=Pascal61",
+            "spec": "~cuda"
+        },
+        {
+            "description": "kokkos-legacy: Must specify CUDA backend to use a GPU architecture.",
+            "name": "gpu_arch=Volta70",
+            "spec": "~cuda"
+        },
+        {
+            "description": "kokkos-legacy: Must specify CUDA backend to use a GPU architecture.",
+            "name": "gpu_arch=Volta72",
+            "spec": "~cuda"
+        }
+    ],
+    "dependencies": [
+        {
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software.",
+            "name": "cmake"
+        },
+        {
+            "description": "CUDA is a parallel computing platform and programming model invented by\nNVIDIA. It enables dramatic increases in computing performance by\nharnessing the power of the graphics processing unit (GPU). Note: This\npackage does not currently install the drivers necessary to run CUDA.\nThese will need to be installed manually. See:\nhttps://docs.nvidia.com/cuda/ for details.",
+            "name": "cuda"
+        },
+        {
+            "description": "The Hardware Locality (hwloc) software project. The Portable Hardware\nLocality (hwloc) software package provides a portable abstraction\n(across OS, versions, architectures, ...) of the hierarchical topology\nof modern architectures, including NUMA memory nodes, sockets, shared\ncaches, cores and simultaneous multithreading. It also gathers various\nsystem attributes such as cache and memory information as well as the\nlocality of I/O devices such as network interfaces, InfiniBand HCAs or\nGPUs. It primarily aims at helping applications with gathering\ninformation about modern computing hardware so as to exploit it\naccordingly and efficiently.",
+            "name": "hwloc"
+        },
+        {
+            "description": "The qthreads API is designed to make using large numbers of threads\nconvenient and easy, and to allow portable access to threading\nconstructs used in massively parallel shared memory environments. The\nAPI maps well to both MTA-style threading and PIM-style threading, and\nwe provide an implementation of this interface in both a standard SMP\ncontext as well as the SST context. The qthreads API provides access to\nfull/empty-bit (FEB) semantics, where every word of memory can be marked\neither full or empty, and a thread can wait for any word to attain\neither state.",
+            "name": "qthreads"
+        }
+    ],
+    "dependent_to": [
+        {
+            "description": "The Exascale Co-Design Center for Particle Applications Toolkit",
+            "name": "cabana"
+        },
+        {
+            "description": "ExaMiniMD is a proxy application and research vehicle for particle\ncodes, in particular Molecular Dynamics (MD). Compared to previous MD\nproxy apps (MiniMD, COMD), its design is significantly more modular in\norder to allow independent investigation of different aspects. To\nachieve that the main components such as force calculation,\ncommunication, neighbor list construction and binning are derived\nclasses whose main functionality is accessed via virtual functions. This\nallows a developer to write a new derived class and drop it into the\ncode without touching much of the rest of the application.",
+            "name": "examinimd"
+        },
+        {
+            "description": "Kokkos C++ Performance Portability Programming EcoSystem: Math Kernels -\nProvides BLAS, Sparse BLAS and Graph Kernels.",
+            "name": "kokkos-kernels-legacy"
+        },
+        {
+            "description": "Proxy Application. MiniAero is a mini-application for the evaulation of\nprogramming models and hardware for next generation platforms.",
+            "name": "miniaero"
+        }
+    ],
+    "description": "Kokkos implements a programming model in C++ for writing performance\nportable applications targeting all major HPC platforms.\n",
+    "homepage": "https://github.com/kokkos/kokkos",
+    "latest_version": "2.9.00",
+    "maintainers": [],
+    "name": "kokkos-legacy",
+    "patches": [],
+    "resources": [],
+    "variants": [
+        {
+            "default": false,
+            "description": "set aggressive_vectorization Kokkos option",
+            "name": "aggressive_vectorization"
+        },
+        {
+            "default": "generic",
+            "description": "Build systems supported by the package",
+            "name": "build_system"
+        },
+        {
+            "default": false,
+            "description": "set compiler_warnings Kokkos option",
+            "name": "compiler_warnings"
+        },
+        {
+            "default": false,
+            "description": "enable Cuda backend",
+            "name": "cuda"
+        },
+        {
+            "default": "none",
+            "description": "set cxxstandard Kokkos option",
+            "name": "cxxstd"
+        },
+        {
+            "default": false,
+            "description": "Build debug version of Kokkos",
+            "name": "debug"
+        },
+        {
+            "default": false,
+            "description": "set disable_deprecated_code Kokkos option",
+            "name": "disable_deprecated_code"
+        },
+        {
+            "default": false,
+            "description": "set disable_dualview_modify_check Kokkos option",
+            "name": "disable_dualview_modify_check"
+        },
+        {
+            "default": false,
+            "description": "set disable_profiling Kokkos option",
+            "name": "disable_profiling"
+        },
+        {
+            "default": false,
+            "description": "set enable_eti Kokkos option",
+            "name": "enable_eti"
+        },
+        {
+            "default": false,
+            "description": "set enable_lambda Kokkos CUDA option",
+            "name": "enable_lambda"
+        },
+        {
+            "default": false,
+            "description": "set enable_profile_load_print Kokkos option",
+            "name": "enable_profile_load_print"
+        },
+        {
+            "default": false,
+            "description": "set force_uvm Kokkos CUDA option",
+            "name": "force_uvm"
+        },
+        {
+            "default": "none",
+            "description": "Set the GPU architecture to use",
+            "name": "gpu_arch"
+        },
+        {
+            "default": "none",
+            "description": "Set the host architecture to use",
+            "name": "host_arch"
+        },
+        {
+            "default": false,
+            "description": "enable OpenMP backend",
+            "name": "openmp"
+        },
+        {
+            "default": false,
+            "description": "enable position independent code (-fPIC flag)",
+            "name": "pic"
+        },
+        {
+            "default": false,
+            "description": "enable Pthreads backend",
+            "name": "pthreads"
+        },
+        {
+            "default": false,
+            "description": "enable Qthreads backend",
+            "name": "qthreads"
+        },
+        {
+            "default": false,
+            "description": "set rdc Kokkos CUDA option",
+            "name": "rdc"
+        },
+        {
+            "default": true,
+            "description": "enable Serial backend (default)",
+            "name": "serial"
+        },
+        {
+            "default": false,
+            "description": "set use_ldg Kokkos CUDA option",
+            "name": "use_ldg"
+        }
+    ],
     "versions": [
         {
-            "name": "2.9.00",
-            "sha256": "e0621197791ed3a381b4f02c78fa529f3cff3abb74d52157b4add17e8aa04bc4"
-        },
-        {
-            "name": "2.8.00",
-            "sha256": "1c72661f2d770517bff98837001b42b9c677d1df29f7493a1d7c008549aff630"
-        },
-        {
-            "name": "2.7.24",
-            "sha256": "a308a80ea1488f4c18884b828ce7ae9f5210b9a6b2f61b208d875084d8da8cb0"
-        },
-        {
-            "name": "2.7.00",
-            "sha256": "01595996e612ef7410aa42fa265a23101cfe1b6993fa9810ca844db5c89ad765"
-        },
-        {
-            "name": "2.6.00",
-            "sha256": "ab3c6b49cf0cfa2173eaf0c50acd2827fdc0ce260e9b46d5cb8be35261092486"
-        },
-        {
-            "name": "2.5.00",
-            "sha256": "ea232594bf746abb99ae2aafaeef5d07adc089968010a62a88aaa892106d9476"
-        },
-        {
-            "name": "2.04.11",
-            "sha256": "f2680aee0169f6cbbec38410f9c80bf8a160435f6a07769c1e9112da8b9349a0"
-        },
-        {
-            "name": "2.04.04",
-            "sha256": "5bac8ddc2fac9bc6e01dd40f92ca6cbbb346a25deca5be2fec71acf712d0d0c7"
-        },
-        {
-            "name": "2.04.00",
-            "sha256": "b04658d368986df207662a7a37c1ad974c321447bc2c2b5b696d7e9ee4481f34"
-        },
-        {
-            "name": "2.03.13",
-            "sha256": "002748bdd0319d5ab82606cf92dc210fc1c05d0607a2e1d5538f60512b029056"
-        },
-        {
-            "name": "2.03.05",
-            "sha256": "b18ddaa1496130ff3f675ea9ddbc6df9cdf378d53edf96df89e70ff189e10e1d"
-        },
-        {
-            "name": "2.03.00",
-            "sha256": "722bea558d8986efee765ac912febb3c1ce289a8e9bdfef77cd0145df0ea8a3d"
+            "name": "2.02.07",
+            "sha256": "7b4ac81021d6868f4eb8e2a1cb92ba76bad9c3f197403b8b1eac0f11c983247c"
         },
         {
             "name": "2.02.15",
             "sha256": "6b4a7f189f0341f378f950f3c798f520d2e473b13435b137ff3b666e799a076d"
         },
         {
-            "name": "2.02.07",
-            "sha256": "7b4ac81021d6868f4eb8e2a1cb92ba76bad9c3f197403b8b1eac0f11c983247c"
-        }
-    ],
-    "latest_version": "2.9.00",
-    "build_system": "Package",
-    "conflicts": [
-        {
-            "name": "+aggressive_vectorization",
-            "spec": "@:2.0",
-            "description": null
+            "name": "2.03.00",
+            "sha256": "722bea558d8986efee765ac912febb3c1ce289a8e9bdfef77cd0145df0ea8a3d"
         },
         {
-            "name": "+disable_profiling",
-            "spec": "@:2.0",
-            "description": null
+            "name": "2.03.05",
+            "sha256": "b18ddaa1496130ff3f675ea9ddbc6df9cdf378d53edf96df89e70ff189e10e1d"
         },
         {
-            "name": "+disable_dualview_modify_check",
-            "spec": "@:2.3.4",
-            "description": null
+            "name": "2.03.13",
+            "sha256": "002748bdd0319d5ab82606cf92dc210fc1c05d0607a2e1d5538f60512b029056"
         },
         {
-            "name": "+enable_profile_load_print",
-            "spec": "@:2.3.4",
-            "description": null
+            "name": "2.04.00",
+            "sha256": "b04658d368986df207662a7a37c1ad974c321447bc2c2b5b696d7e9ee4481f34"
         },
         {
-            "name": "+compiler_warnings",
-            "spec": "@:2.3.14",
-            "description": null
+            "name": "2.04.04",
+            "sha256": "5bac8ddc2fac9bc6e01dd40f92ca6cbbb346a25deca5be2fec71acf712d0d0c7"
         },
         {
-            "name": "+disable_deprecated_code",
-            "spec": "@:2.5",
-            "description": null
+            "name": "2.04.11",
+            "sha256": "f2680aee0169f6cbbec38410f9c80bf8a160435f6a07769c1e9112da8b9349a0"
         },
         {
-            "name": "gpu_arch=Volta70",
-            "spec": "@:2.5",
-            "description": null
+            "name": "2.5.00",
+            "sha256": "ea232594bf746abb99ae2aafaeef5d07adc089968010a62a88aaa892106d9476"
         },
         {
-            "name": "gpu_arch=Volta72",
-            "spec": "@:2.5",
-            "description": null
+            "name": "2.6.00",
+            "sha256": "ab3c6b49cf0cfa2173eaf0c50acd2827fdc0ce260e9b46d5cb8be35261092486"
         },
         {
-            "name": "+enable_eti",
-            "spec": "@:2.6",
-            "description": null
+            "name": "2.7.00",
+            "sha256": "01595996e612ef7410aa42fa265a23101cfe1b6993fa9810ca844db5c89ad765"
         },
         {
-            "name": "gpu_arch=Kepler30",
-            "spec": "~cuda",
-            "description": "kokkos-legacy: Must specify CUDA backend to use a GPU architecture."
+            "name": "2.7.24",
+            "sha256": "a308a80ea1488f4c18884b828ce7ae9f5210b9a6b2f61b208d875084d8da8cb0"
         },
         {
-            "name": "gpu_arch=Kepler32",
-            "spec": "~cuda",
-            "description": "kokkos-legacy: Must specify CUDA backend to use a GPU architecture."
+            "name": "2.8.00",
+            "sha256": "1c72661f2d770517bff98837001b42b9c677d1df29f7493a1d7c008549aff630"
         },
         {
-            "name": "gpu_arch=Kepler35",
-            "spec": "~cuda",
-            "description": "kokkos-legacy: Must specify CUDA backend to use a GPU architecture."
-        },
-        {
-            "name": "gpu_arch=Kepler37",
-            "spec": "~cuda",
-            "description": "kokkos-legacy: Must specify CUDA backend to use a GPU architecture."
-        },
-        {
-            "name": "gpu_arch=Maxwell50",
-            "spec": "~cuda",
-            "description": "kokkos-legacy: Must specify CUDA backend to use a GPU architecture."
-        },
-        {
-            "name": "gpu_arch=Maxwell52",
-            "spec": "~cuda",
-            "description": "kokkos-legacy: Must specify CUDA backend to use a GPU architecture."
-        },
-        {
-            "name": "gpu_arch=Maxwell53",
-            "spec": "~cuda",
-            "description": "kokkos-legacy: Must specify CUDA backend to use a GPU architecture."
-        },
-        {
-            "name": "gpu_arch=Pascal60",
-            "spec": "~cuda",
-            "description": "kokkos-legacy: Must specify CUDA backend to use a GPU architecture."
-        },
-        {
-            "name": "gpu_arch=Pascal61",
-            "spec": "~cuda",
-            "description": "kokkos-legacy: Must specify CUDA backend to use a GPU architecture."
-        },
-        {
-            "name": "gpu_arch=Volta70",
-            "spec": "~cuda",
-            "description": "kokkos-legacy: Must specify CUDA backend to use a GPU architecture."
-        },
-        {
-            "name": "gpu_arch=Volta72",
-            "spec": "~cuda",
-            "description": "kokkos-legacy: Must specify CUDA backend to use a GPU architecture."
-        },
-        {
-            "name": "+force_uvm",
-            "spec": "~cuda",
-            "description": "kokkos-legacy: Must enable CUDA to use force_uvm."
-        },
-        {
-            "name": "+use_ldg",
-            "spec": "~cuda",
-            "description": "kokkos-legacy: Must enable CUDA to use use_ldg."
-        },
-        {
-            "name": "+rdc",
-            "spec": "~cuda",
-            "description": "kokkos-legacy: Must enable CUDA to use rdc."
-        },
-        {
-            "name": "+enable_lambda",
-            "spec": "~cuda",
-            "description": "kokkos-legacy: Must enable CUDA to use enable_lambda."
-        },
-        {
-            "name": "+cuda",
-            "spec": "@2.5.00:2.7.0",
-            "description": "kokkos-legacy: Kokkos build system has issue (#1296) when CUDA enabled in version 2.5.00 through 2.7.00."
-        }
-    ],
-    "variants": [
-        {
-            "name": "build_system",
-            "default": "generic",
-            "description": "Build systems supported by the package"
-        },
-        {
-            "name": "debug",
-            "default": false,
-            "description": "Build debug version of Kokkos"
-        },
-        {
-            "name": "serial",
-            "default": true,
-            "description": "enable Serial backend (default)"
-        },
-        {
-            "name": "pthreads",
-            "default": false,
-            "description": "enable Pthreads backend"
-        },
-        {
-            "name": "qthreads",
-            "default": false,
-            "description": "enable Qthreads backend"
-        },
-        {
-            "name": "cuda",
-            "default": false,
-            "description": "enable Cuda backend"
-        },
-        {
-            "name": "openmp",
-            "default": false,
-            "description": "enable OpenMP backend"
-        },
-        {
-            "name": "pic",
-            "default": false,
-            "description": "enable position independent code (-fPIC flag)"
-        },
-        {
-            "name": "aggressive_vectorization",
-            "default": false,
-            "description": "set aggressive_vectorization Kokkos option"
-        },
-        {
-            "name": "disable_profiling",
-            "default": false,
-            "description": "set disable_profiling Kokkos option"
-        },
-        {
-            "name": "disable_dualview_modify_check",
-            "default": false,
-            "description": "set disable_dualview_modify_check Kokkos option"
-        },
-        {
-            "name": "enable_profile_load_print",
-            "default": false,
-            "description": "set enable_profile_load_print Kokkos option"
-        },
-        {
-            "name": "compiler_warnings",
-            "default": false,
-            "description": "set compiler_warnings Kokkos option"
-        },
-        {
-            "name": "disable_deprecated_code",
-            "default": false,
-            "description": "set disable_deprecated_code Kokkos option"
-        },
-        {
-            "name": "enable_eti",
-            "default": false,
-            "description": "set enable_eti Kokkos option"
-        },
-        {
-            "name": "force_uvm",
-            "default": false,
-            "description": "set force_uvm Kokkos CUDA option"
-        },
-        {
-            "name": "use_ldg",
-            "default": false,
-            "description": "set use_ldg Kokkos CUDA option"
-        },
-        {
-            "name": "rdc",
-            "default": false,
-            "description": "set rdc Kokkos CUDA option"
-        },
-        {
-            "name": "enable_lambda",
-            "default": false,
-            "description": "set enable_lambda Kokkos CUDA option"
-        },
-        {
-            "name": "cxxstd",
-            "default": "none",
-            "description": "set cxxstandard Kokkos option"
-        },
-        {
-            "name": "host_arch",
-            "default": "none",
-            "description": "Set the host architecture to use"
-        },
-        {
-            "name": "gpu_arch",
-            "default": "none",
-            "description": "Set the GPU architecture to use"
-        }
-    ],
-    "homepage": "https://github.com/kokkos/kokkos",
-    "maintainers": [],
-    "patches": [],
-    "resources": [],
-    "description": "Kokkos implements a programming model in C++ for writing performance\nportable applications targeting all major HPC platforms.\n",
-    "dependencies": [
-        {
-            "name": "cmake",
-            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
-        },
-        {
-            "name": "cuda",
-            "description": "CUDA is a parallel computing platform and programming model invented by\nNVIDIA. It enables dramatic increases in computing performance by\nharnessing the power of the graphics processing unit (GPU). Note: This\npackage does not currently install the drivers necessary to run CUDA.\nThese will need to be installed manually. See:\nhttps://docs.nvidia.com/cuda/ for details."
-        },
-        {
-            "name": "hwloc",
-            "description": "The Hardware Locality (hwloc) software project. The Portable Hardware\nLocality (hwloc) software package provides a portable abstraction\n(across OS, versions, architectures, ...) of the hierarchical topology\nof modern architectures, including NUMA memory nodes, sockets, shared\ncaches, cores and simultaneous multithreading. It also gathers various\nsystem attributes such as cache and memory information as well as the\nlocality of I/O devices such as network interfaces, InfiniBand HCAs or\nGPUs. It primarily aims at helping applications with gathering\ninformation about modern computing hardware so as to exploit it\naccordingly and efficiently."
-        },
-        {
-            "name": "qthreads",
-            "description": "The qthreads API is designed to make using large numbers of threads\nconvenient and easy, and to allow portable access to threading\nconstructs used in massively parallel shared memory environments. The\nAPI maps well to both MTA-style threading and PIM-style threading, and\nwe provide an implementation of this interface in both a standard SMP\ncontext as well as the SST context. The qthreads API provides access to\nfull/empty-bit (FEB) semantics, where every word of memory can be marked\neither full or empty, and a thread can wait for any word to attain\neither state."
-        }
-    ],
-    "dependent_to": [
-        {
-            "name": "examinimd",
-            "description": "ExaMiniMD is a proxy application and research vehicle for particle\ncodes, in particular Molecular Dynamics (MD). Compared to previous MD\nproxy apps (MiniMD, COMD), its design is significantly more modular in\norder to allow independent investigation of different aspects. To\nachieve that the main components such as force calculation,\ncommunication, neighbor list construction and binning are derived\nclasses whose main functionality is accessed via virtual functions. This\nallows a developer to write a new derived class and drop it into the\ncode without touching much of the rest of the application."
-        },
-        {
-            "name": "cabana",
-            "description": "The Exascale Co-Design Center for Particle Applications Toolkit"
-        },
-        {
-            "name": "kokkos-kernels-legacy",
-            "description": "Kokkos C++ Performance Portability Programming EcoSystem: Math Kernels -\nProvides BLAS, Sparse BLAS and Graph Kernels."
-        },
-        {
-            "name": "miniaero",
-            "description": "Proxy Application. MiniAero is a mini-application for the evaulation of\nprogramming models and hardware for next generation platforms."
+            "name": "2.9.00",
+            "sha256": "e0621197791ed3a381b4f02c78fa529f3cff3abb74d52157b4add17e8aa04bc4"
         }
     ]
 }

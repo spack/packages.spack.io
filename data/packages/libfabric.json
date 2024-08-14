@@ -1,408 +1,408 @@
 {
-    "name": "libfabric",
     "aliases": [],
+    "build_system": "AutotoolsPackage",
+    "conflicts": [
+        {
+            "description": "libfabric: Libfabric 1.20.0 uses values in memory that are not correctly set by OPX, resulting in undefined behavior.",
+            "name": "fabrics=opx",
+            "spec": "@1.20.0"
+        },
+        {
+            "description": null,
+            "name": "fabrics=opx",
+            "spec": "@:1.14.99"
+        },
+        {
+            "description": "libfabric: This distribution is missing critical files",
+            "name": "@1.9.0",
+            "spec": "arch=darwin-None-None"
+        },
+        {
+            "description": null,
+            "name": "arch=windows-None-None",
+            "spec": "build_system=autotools"
+        },
+        {
+            "description": null,
+            "name": "fabrics=cxi",
+            "spec": ""
+        }
+    ],
+    "dependencies": [
+        {
+            "description": "Autoconf -- system configuration part of autotools",
+            "name": "autoconf"
+        },
+        {
+            "description": "Automake -- make file builder part of autotools",
+            "name": "automake"
+        },
+        {
+            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files.",
+            "name": "gmake"
+        },
+        {
+            "description": "The GNU config.guess and config.sub scripts versioned by timestamp.\nThis package can be used as a build dependency for autotools packages\nthat ship a tarball with outdated config.guess and config.sub files.",
+            "name": "gnuconfig"
+        },
+        {
+            "description": "libtool -- library building part of autotools.",
+            "name": "libtool"
+        },
+        {
+            "description": "This is the io_uring library, liburing. liburing provides helpers to\nsetup and teardown io_uring instances, and also a simplified interface\nfor applications that don't need (or want) to deal with the full kernel\nside implementation.",
+            "name": "liburing"
+        },
+        {
+            "description": "GNU M4 is an implementation of the traditional Unix macro processor.",
+            "name": "m4"
+        },
+        {
+            "description": "NUMA support for Linux",
+            "name": "numactl"
+        },
+        {
+            "description": "Omni-Path Performance Scaled Messaging 2 (PSM2) library",
+            "name": "opa-psm2"
+        },
+        {
+            "description": "Intel Performance scaled messaging library",
+            "name": "psm"
+        },
+        {
+            "description": "RDMA core userspace libraries and daemons",
+            "name": "rdma-core"
+        },
+        {
+            "description": "a communication library implementing high-performance messaging for\nMPI/PGAS frameworks",
+            "name": "ucx"
+        },
+        {
+            "description": "Util-linux is a suite of essential utilities for any Linux system.",
+            "name": "uuid"
+        }
+    ],
+    "dependent_to": [
+        {
+            "description": "The Adaptable Input Output System version 2, developed in the Exascale\nComputing Program",
+            "name": "adios2"
+        },
+        {
+            "description": "AWS OFI NCCL is a plug-in which enables EC2 developers to use libfabric\nas a network provider while running NVIDIA's NCCL based applications.",
+            "name": "aws-ofi-nccl"
+        },
+        {
+            "description": "AWS OFI RCCL is a plug-in which enables EC2 developers to use libfabric\nas a network provider while running AMD's RCCL based applications.",
+            "name": "aws-ofi-rccl"
+        },
+        {
+            "description": "Chapel is a modern programming language that is parallel, productive,\nportable, scalable and open-source. The Chapel package comes with many\noptions in the form of variants, most of which can be left unset to\nallow Chapel's built-in scripts to determine the proper values based on\nthe environment.",
+            "name": "chapel"
+        },
+        {
+            "description": "Charm++ is a parallel programming framework in C++ supported by an\nadaptive runtime system, which enhances user productivity and allows\nprograms to run portably from small multicore computers (your laptop) to\nthe largest supercomputers.",
+            "name": "charmpp"
+        },
+        {
+            "description": "Cray's MPICH is a high performance and widely portable implementation of\nthe Message Passing Interface (MPI) standard.",
+            "name": "cray-mpich"
+        },
+        {
+            "description": "The Distributed Asynchronous Object Storage (DAOS) is an open-source\nsoftware-defined object store designed from the ground up for massively\ndistributed Non Volatile Memory (NVM).",
+            "name": "daos"
+        },
+        {
+            "description": "Fabtests provides a set of runtime analysis tools and examples that use\nlibfabric.",
+            "name": "fabtests"
+        },
+        {
+            "description": "Flexible, Asynchronous, Object Data-Exchange Libraries",
+            "name": "faodel"
+        },
+        {
+            "description": "GASNet is a language-independent, networking middleware layer that\nprovides network-independent, high-performance communication primitives\nincluding Remote Memory Access (RMA) and Active Messages (AM). It has\nbeen used to implement parallel programming models and libraries such as\nUPC, UPC++, Co-Array Fortran, Legion, Chapel, and many others. The\ninterface is primarily intended as a compilation target and for use by\nruntime library writers (as opposed to end users), and the primary goals\nare high performance, interface portability, and expressiveness.\n***NOTICE***: The GASNet library built by this Spack package is ONLY\nintended for unit-testing purposes, and is generally UNSUITABLE FOR\nPRODUCTION USE. The RECOMMENDED way to build GASNet is as an embedded\nlibrary as configured by the higher-level client runtime package (UPC++,\nLegion, etc), including system-specific configuration.",
+            "name": "gasnet"
+        },
+        {
+            "description": "GEOS-Chem High Performance model of atmospheric chemistry",
+            "name": "gchp"
+        },
+        {
+            "description": "Global Arrays (GA) is a Partitioned Global Address Space (PGAS)\nprogramming model. It provides primitives for one-sided communication\n(Get, Put, Accumulate) and Atomic Operations (read increment). It\nsupports blocking and non-blocking primtives, and supports location\nconsistency.",
+            "name": "globalarrays"
+        },
+        {
+            "description": "Intel MPI. This package has been deprecated. Use intel-oneapi-mpi\ninstead. LICENSE INFORMATION: By downloading and using this software,\nyou agree to the terms and conditions of the software license agreements\nat https://intel.ly/393CijO.",
+            "name": "intel-mpi"
+        },
+        {
+            "description": "Intel MPI Library is a multifabric message-passing library that\nimplements the open-source MPICH specification. Use the library to\ncreate, maintain, and test advanced, complex applications that perform\nbetter on high-performance computing (HPC) clusters based on Intel\nprocessors. LICENSE INFORMATION: By downloading and using this software,\nyou agree to the terms and conditions of the software license agreements\nat https://intel.ly/393CijO.",
+            "name": "intel-oneapi-mpi"
+        },
+        {
+            "description": "LCI: the Lightweight Communication Interface",
+            "name": "lci"
+        },
+        {
+            "description": "Mercury is a C library for implementing RPC, optimized for HPC",
+            "name": "mercury"
+        },
+        {
+            "description": "MPICH is a high performance and widely portable implementation of the\nMessage Passing Interface (MPI) standard.",
+            "name": "mpich"
+        },
+        {
+            "description": "Mvapich is a High-Performance MPI Library for clusters with diverse\nnetworks (InfiniBand, Omni-Path, Ethernet/iWARP, and RoCE) and computing\nplatforms (x86 (Intel and AMD), ARM and OpenPOWER)",
+            "name": "mvapich"
+        },
+        {
+            "description": "Mvapich2 is a High-Performance MPI Library for clusters with diverse\nnetworks (InfiniBand, Omni-Path, Ethernet/iWARP, and RoCE) and computing\nplatforms (x86 (Intel and AMD), ARM and OpenPOWER)",
+            "name": "mvapich2"
+        },
+        {
+            "description": "High-performance computational chemistry software",
+            "name": "nwchem"
+        },
+        {
+            "description": "An open source Message Passing Interface implementation. The Open MPI\nProject is an open source Message Passing Interface implementation that\nis developed and maintained by a consortium of academic, research, and\nindustry partners. Open MPI is therefore able to combine the expertise,\ntechnologies, and resources from all across the High Performance\nComputing community in order to build the best MPI library available.\nOpen MPI offers advantages for system and software vendors, application\ndevelopers and computer science researchers.",
+            "name": "openmpi"
+        },
+        {
+            "description": "A Bayesian software for phylogenetic reconstruction using mixture models",
+            "name": "pbmpi"
+        },
+        {
+            "description": "Proactive Data Containers (PDC) software provides an object-centric API\nand a runtime system with a set of data object management services.\nThese services allow placing data in the memory and storage hierarchy,\nperforming data movement asynchronously, and providing scalable metadata\noperations to find data objects.",
+            "name": "pdc"
+        },
+        {
+            "description": "The Persistent Memory Development Kit (PMDK), formerly known as NVML, is\na library for using memory-mapped persistence, optimized specifically\nfor persistent memory",
+            "name": "pmdk"
+        },
+        {
+            "description": "Sandia OpenSHMEM.",
+            "name": "sos"
+        },
+        {
+            "description": "User level file system that enables applications to use node-local\nstorage as burst buffers for shared files. Supports scalable and\nefficient aggregation of I/O bandwidth from burst buffers while having\nthe same life cycle as a batch-submitted job. UnifyFS is designed to\nsupport common I/O workloads, including checkpoint/restart. While\nprimarily designed for N-N write/read, UnifyFS compliments its\nfunctionality with the support for N-1 write/read.",
+            "name": "unifyfs"
+        }
+    ],
+    "description": "The Open Fabrics Interfaces (OFI) is a framework focused on exporting\nfabric communication services to applications.\n",
+    "homepage": "https://libfabric.org/",
+    "latest_version": "1.21.0",
+    "maintainers": [
+        "rajachan"
+    ],
+    "name": "libfabric",
+    "patches": [
+        {
+            "level": 1,
+            "owner": "builtin.libfabric",
+            "reverse": false,
+            "sha256": "456693e28bb1fc41a0bbb94b97ae054e7d28f81ca94795d7f294243da58c6376",
+            "url": "https://github.com/ofiwg/libfabric/commit/2e95b0efd85fa8a3d814128e34ec57ffd357460e.patch?full_index=1",
+            "version": "@1.9.0",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.libfabric",
+            "relative_path": "nvhpc-symver.patch",
+            "reverse": false,
+            "sha256": "452772c48465a45bff227c57c6cbc81d2de564559b5fa69fbcb4286d2aaaa756",
+            "version": "@1.6.0:1.14.0%nvhpc",
+            "working_dir": "."
+        }
+    ],
+    "resources": [],
+    "variants": [
+        {
+            "default": "autotools",
+            "description": "Build systems supported by the package",
+            "name": "build_system"
+        },
+        {
+            "default": false,
+            "description": "Enable debugging",
+            "name": "debug"
+        },
+        {
+            "default": "sockets,tcp,udp",
+            "description": "A list of enabled fabrics",
+            "name": "fabrics"
+        },
+        {
+            "default": false,
+            "description": "Enable kdreg on supported Cray platforms",
+            "name": "kdreg"
+        },
+        {
+            "default": false,
+            "description": "Enable uring support",
+            "name": "uring"
+        }
+    ],
     "versions": [
         {
-            "name": "main",
-            "branch": "main"
-        },
-        {
-            "name": "1.21.0",
-            "sha256": "0c1b7b830d9147f661e5d7f359250b85b5a9885c330464cd3b5e5d35b86551c7"
-        },
-        {
-            "name": "1.20.2",
-            "sha256": "75b89252a0b8b3eae8e60f7098af1598445a99a99e8fc1ff458e2fd5d4ef8cde"
-        },
-        {
-            "name": "1.20.1",
-            "sha256": "fd88d65c3139865d42a6eded24e121aadabd6373239cef42b76f28630d6eed76"
-        },
-        {
-            "name": "1.20.0",
-            "sha256": "7fbbaeb0e15c7c4553c0ac5f54e4ef7aecaff8a669d4ba96fa04b0fc780b9ddc"
-        },
-        {
-            "name": "1.19.1",
-            "sha256": "b8839e56d80470a917453a7d8ad9cb717f6683fee28cf93de5f3a056ed4f04c8"
-        },
-        {
-            "name": "1.19.0",
-            "sha256": "f14c764be9103e80c46223bde66e530e5954cb28b3835b57c8e728479603ef9e"
-        },
-        {
-            "name": "1.18.2",
-            "sha256": "64d7837853ca84d2a413fdd96534b6a81e6e777cc13866e28cf86cd0ccf1b93e"
-        },
-        {
-            "name": "1.18.1",
-            "sha256": "4615ae1e22009e59c72ae03c20adbdbd4a3dce95aeefbc86cc2bf1acc81c9e38"
-        },
-        {
-            "name": "1.18.0",
-            "sha256": "912fb7c7b3cf2a91140520962b004a1c5d2f39184adbbd98ae5919b0178afd43"
-        },
-        {
-            "name": "1.17.1",
-            "sha256": "8b372ddb3f46784c53fdad50a701a6eb0e661239aee45a42169afbedf3644035"
-        },
-        {
-            "name": "1.17.0",
-            "sha256": "579c0f5ef636c0c72f4d3d6bd4da91a5aed9ac3ac4ea387404c45dbbdee4745d"
-        },
-        {
-            "name": "1.16.1",
-            "sha256": "53f992d33f9afe94b8a4ea3d105504887f4311cf4b68cea99a24a85fcc39193f"
-        },
-        {
-            "name": "1.16.0",
-            "sha256": "ac104b9d6e3ce8bda6116329e3f440b621d85602257b3015116ca590f65267d2"
-        },
-        {
-            "name": "1.15.2",
-            "sha256": "8d050b88bee62e8512a88f5aa25f532f46bef587bc3f91022ecdb9b3b2676c7e"
-        },
-        {
-            "name": "1.15.1",
-            "sha256": "cafa3005a9dc86064de179b0af4798ad30b46b2f862fe0268db03d13943e10cd"
-        },
-        {
-            "name": "1.15.0",
-            "sha256": "70982c58eadeeb5b1ddb28413fd645e40b206618b56fbb2b18ab1e7f607c9bea"
-        },
-        {
-            "name": "1.14.1",
-            "sha256": "6cfabb94bca8e419d9015212506f5a367d077c5b11e94b9f57997ec6ca3d8aed"
-        },
-        {
-            "name": "1.14.0",
-            "sha256": "fc261388848f3cff555bd653f5cb901f6b9485ad285e5c53328b13f0e69f749a"
-        },
-        {
-            "name": "1.13.2",
-            "sha256": "25d783b0722a8df8fe61c1de75fafca684c5fe520303180f26f0ad6409cfc0b9"
-        },
-        {
-            "name": "1.13.1",
-            "sha256": "8e6eed38c4a39aa4cbf7d5d3734f0eecbfc030182f1f9b3be470702f2586d30e"
-        },
-        {
-            "name": "1.12.1",
-            "sha256": "db3c8e0a495e6e9da6a7436adab905468aedfbd4579ee3da5232a5c111ba642c"
-        },
-        {
-            "name": "1.12.0",
-            "sha256": "ca98785fe25e68a26c61e272be64a1efeea37e61b0dcebd34ccfd381bda7d9cc"
-        },
-        {
-            "name": "1.11.2",
-            "sha256": "ff2ba821b55a54855d327e6f6fb8a14312c9c9ca7c873525b6a246d8f974d7da"
-        },
-        {
-            "name": "1.11.1",
-            "sha256": "a72a7dac6322bed09ef1af33bcade3024ca5847a1e9c8fa369da6ab879111fe7"
-        },
-        {
-            "name": "1.11.0",
-            "sha256": "9938abf628e7ea8dcf60a94a4b62d499fbc0dbc6733478b6db2e6a373c80d58f"
+            "name": "1.10.0",
+            "sha256": "c1ef6e9cd6dafec3f003d2f78f0f3a25f055a7a791e98b5a0db1e4c5036e40f6"
         },
         {
             "name": "1.10.1",
             "sha256": "889fa8c99eed1ff2a5fd6faf6d5222f2cf38476b24f3b764f2cbb5900fee8284"
         },
         {
-            "name": "1.10.0",
-            "sha256": "c1ef6e9cd6dafec3f003d2f78f0f3a25f055a7a791e98b5a0db1e4c5036e40f6"
+            "name": "1.11.0",
+            "sha256": "9938abf628e7ea8dcf60a94a4b62d499fbc0dbc6733478b6db2e6a373c80d58f"
         },
         {
-            "name": "1.9.1",
-            "sha256": "c305c6035c992523e08c7591a6a3707225ba3e72de40443eaed837a10df6771a"
+            "name": "1.11.1",
+            "sha256": "a72a7dac6322bed09ef1af33bcade3024ca5847a1e9c8fa369da6ab879111fe7"
         },
         {
-            "name": "1.9.0",
-            "sha256": "559bfb7376c38253c936d0b104591c3394880376d676894895706c4f5f88597c"
+            "name": "1.11.2",
+            "sha256": "ff2ba821b55a54855d327e6f6fb8a14312c9c9ca7c873525b6a246d8f974d7da"
         },
         {
-            "name": "1.8.1",
-            "sha256": "3c560b997f9eafd89f961dd8e8a29a81aad3e39aee888e3f3822da419047dc88"
+            "name": "1.12.0",
+            "sha256": "ca98785fe25e68a26c61e272be64a1efeea37e61b0dcebd34ccfd381bda7d9cc"
         },
         {
-            "name": "1.8.0",
-            "sha256": "c4763383a96af4af52cd81b3b094227f5cf8e91662f861670965994539b7ee37"
+            "name": "1.12.1",
+            "sha256": "db3c8e0a495e6e9da6a7436adab905468aedfbd4579ee3da5232a5c111ba642c"
         },
         {
-            "name": "1.7.1",
-            "sha256": "f4e9cc48319763cff4943de96bf527b737c9f1d6ac3088b8b5c75d07bd719569"
+            "name": "1.13.1",
+            "sha256": "8e6eed38c4a39aa4cbf7d5d3734f0eecbfc030182f1f9b3be470702f2586d30e"
         },
         {
-            "name": "1.7.0",
-            "sha256": "b3dd9cc0fa36fe8c3b9997ba279ec831a905704816c25fe3c4c09fc7eeceaac4"
+            "name": "1.13.2",
+            "sha256": "25d783b0722a8df8fe61c1de75fafca684c5fe520303180f26f0ad6409cfc0b9"
         },
         {
-            "name": "1.6.2",
-            "sha256": "ec63f61f5e529964ef65fd101627d8782c0efc2b88b3d5fc7f0bfd2c1e95ab2c"
+            "name": "1.14.0",
+            "sha256": "fc261388848f3cff555bd653f5cb901f6b9485ad285e5c53328b13f0e69f749a"
         },
         {
-            "name": "1.6.1",
-            "sha256": "33215a91450e2234ebdc7c467f041b6757f76f5ba926425e89d80c27b3fd7da2"
+            "name": "1.14.1",
+            "sha256": "6cfabb94bca8e419d9015212506f5a367d077c5b11e94b9f57997ec6ca3d8aed"
         },
         {
-            "name": "1.6.0",
-            "sha256": "b3ce7bd655052ea4da7bf01a3177d96d94e5f41b3fd6011ac43f50fcb2dc7581"
+            "name": "1.15.0",
+            "sha256": "70982c58eadeeb5b1ddb28413fd645e40b206618b56fbb2b18ab1e7f607c9bea"
         },
         {
-            "name": "1.5.3",
-            "sha256": "f62a40da06f8951db267a59a4ee7363b6ee60a7abbc55cd5db6c8b067d93fa0c"
+            "name": "1.15.1",
+            "sha256": "cafa3005a9dc86064de179b0af4798ad30b46b2f862fe0268db03d13943e10cd"
+        },
+        {
+            "name": "1.15.2",
+            "sha256": "8d050b88bee62e8512a88f5aa25f532f46bef587bc3f91022ecdb9b3b2676c7e"
+        },
+        {
+            "name": "1.16.0",
+            "sha256": "ac104b9d6e3ce8bda6116329e3f440b621d85602257b3015116ca590f65267d2"
+        },
+        {
+            "name": "1.16.1",
+            "sha256": "53f992d33f9afe94b8a4ea3d105504887f4311cf4b68cea99a24a85fcc39193f"
+        },
+        {
+            "name": "1.17.0",
+            "sha256": "579c0f5ef636c0c72f4d3d6bd4da91a5aed9ac3ac4ea387404c45dbbdee4745d"
+        },
+        {
+            "name": "1.17.1",
+            "sha256": "8b372ddb3f46784c53fdad50a701a6eb0e661239aee45a42169afbedf3644035"
+        },
+        {
+            "name": "1.18.0",
+            "sha256": "912fb7c7b3cf2a91140520962b004a1c5d2f39184adbbd98ae5919b0178afd43"
+        },
+        {
+            "name": "1.18.1",
+            "sha256": "4615ae1e22009e59c72ae03c20adbdbd4a3dce95aeefbc86cc2bf1acc81c9e38"
+        },
+        {
+            "name": "1.18.2",
+            "sha256": "64d7837853ca84d2a413fdd96534b6a81e6e777cc13866e28cf86cd0ccf1b93e"
+        },
+        {
+            "name": "1.19.0",
+            "sha256": "f14c764be9103e80c46223bde66e530e5954cb28b3835b57c8e728479603ef9e"
+        },
+        {
+            "name": "1.19.1",
+            "sha256": "b8839e56d80470a917453a7d8ad9cb717f6683fee28cf93de5f3a056ed4f04c8"
+        },
+        {
+            "name": "1.20.0",
+            "sha256": "7fbbaeb0e15c7c4553c0ac5f54e4ef7aecaff8a669d4ba96fa04b0fc780b9ddc"
+        },
+        {
+            "name": "1.20.1",
+            "sha256": "fd88d65c3139865d42a6eded24e121aadabd6373239cef42b76f28630d6eed76"
+        },
+        {
+            "name": "1.20.2",
+            "sha256": "75b89252a0b8b3eae8e60f7098af1598445a99a99e8fc1ff458e2fd5d4ef8cde"
+        },
+        {
+            "name": "1.21.0",
+            "sha256": "0c1b7b830d9147f661e5d7f359250b85b5a9885c330464cd3b5e5d35b86551c7"
+        },
+        {
+            "name": "1.4.2",
+            "sha256": "5d027d7e4e34cb62508803e51d6bd2f477932ad68948996429df2bfff37ca2a5"
         },
         {
             "name": "1.5.0",
             "sha256": "88a8ad6772f11d83e5b6f7152a908ffcb237af273a74a1bd1cb4202f577f1f23"
         },
         {
-            "name": "1.4.2",
-            "sha256": "5d027d7e4e34cb62508803e51d6bd2f477932ad68948996429df2bfff37ca2a5"
-        }
-    ],
-    "latest_version": "1.21.0",
-    "build_system": "AutotoolsPackage",
-    "conflicts": [
-        {
-            "name": "arch=windows-None-None",
-            "spec": "build_system=autotools",
-            "description": null
+            "name": "1.5.3",
+            "sha256": "f62a40da06f8951db267a59a4ee7363b6ee60a7abbc55cd5db6c8b067d93fa0c"
         },
         {
-            "name": "fabrics=cxi",
-            "spec": "",
-            "description": null
+            "name": "1.6.0",
+            "sha256": "b3ce7bd655052ea4da7bf01a3177d96d94e5f41b3fd6011ac43f50fcb2dc7581"
         },
         {
-            "name": "@1.9.0",
-            "spec": "arch=darwin-None-None",
-            "description": "libfabric: This distribution is missing critical files"
+            "name": "1.6.1",
+            "sha256": "33215a91450e2234ebdc7c467f041b6757f76f5ba926425e89d80c27b3fd7da2"
         },
         {
-            "name": "fabrics=opx",
-            "spec": "@:1.14.99",
-            "description": null
+            "name": "1.6.2",
+            "sha256": "ec63f61f5e529964ef65fd101627d8782c0efc2b88b3d5fc7f0bfd2c1e95ab2c"
         },
         {
-            "name": "fabrics=opx",
-            "spec": "@1.20.0",
-            "description": "libfabric: Libfabric 1.20.0 uses values in memory that are not correctly set by OPX, resulting in undefined behavior."
-        }
-    ],
-    "variants": [
-        {
-            "name": "build_system",
-            "default": "autotools",
-            "description": "Build systems supported by the package"
+            "name": "1.7.0",
+            "sha256": "b3dd9cc0fa36fe8c3b9997ba279ec831a905704816c25fe3c4c09fc7eeceaac4"
         },
         {
-            "name": "fabrics",
-            "default": "sockets,tcp,udp",
-            "description": "A list of enabled fabrics"
+            "name": "1.7.1",
+            "sha256": "f4e9cc48319763cff4943de96bf527b737c9f1d6ac3088b8b5c75d07bd719569"
         },
         {
-            "name": "kdreg",
-            "default": false,
-            "description": "Enable kdreg on supported Cray platforms"
+            "name": "1.8.0",
+            "sha256": "c4763383a96af4af52cd81b3b094227f5cf8e91662f861670965994539b7ee37"
         },
         {
-            "name": "debug",
-            "default": false,
-            "description": "Enable debugging"
+            "name": "1.8.1",
+            "sha256": "3c560b997f9eafd89f961dd8e8a29a81aad3e39aee888e3f3822da419047dc88"
         },
         {
-            "name": "uring",
-            "default": false,
-            "description": "Enable uring support"
-        }
-    ],
-    "homepage": "https://libfabric.org/",
-    "maintainers": [
-        "rajachan"
-    ],
-    "patches": [
-        {
-            "owner": "builtin.libfabric",
-            "sha256": "456693e28bb1fc41a0bbb94b97ae054e7d28f81ca94795d7f294243da58c6376",
-            "level": 1,
-            "working_dir": ".",
-            "reverse": false,
-            "url": "https://github.com/ofiwg/libfabric/commit/2e95b0efd85fa8a3d814128e34ec57ffd357460e.patch?full_index=1",
-            "version": "@1.9.0"
+            "name": "1.9.0",
+            "sha256": "559bfb7376c38253c936d0b104591c3394880376d676894895706c4f5f88597c"
         },
         {
-            "owner": "builtin.libfabric",
-            "sha256": "452772c48465a45bff227c57c6cbc81d2de564559b5fa69fbcb4286d2aaaa756",
-            "level": 1,
-            "working_dir": ".",
-            "reverse": false,
-            "relative_path": "nvhpc-symver.patch",
-            "version": "@1.6.0:1.14.0%nvhpc"
-        }
-    ],
-    "resources": [],
-    "description": "The Open Fabrics Interfaces (OFI) is a framework focused on exporting\nfabric communication services to applications.\n",
-    "dependencies": [
-        {
-            "name": "autoconf",
-            "description": "Autoconf -- system configuration part of autotools"
+            "name": "1.9.1",
+            "sha256": "c305c6035c992523e08c7591a6a3707225ba3e72de40443eaed837a10df6771a"
         },
         {
-            "name": "automake",
-            "description": "Automake -- make file builder part of autotools"
-        },
-        {
-            "name": "gmake",
-            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files."
-        },
-        {
-            "name": "gnuconfig",
-            "description": "The GNU config.guess and config.sub scripts versioned by timestamp.\nThis package can be used as a build dependency for autotools packages\nthat ship a tarball with outdated config.guess and config.sub files."
-        },
-        {
-            "name": "libtool",
-            "description": "libtool -- library building part of autotools."
-        },
-        {
-            "name": "liburing",
-            "description": "This is the io_uring library, liburing. liburing provides helpers to\nsetup and teardown io_uring instances, and also a simplified interface\nfor applications that don't need (or want) to deal with the full kernel\nside implementation."
-        },
-        {
-            "name": "m4",
-            "description": "GNU M4 is an implementation of the traditional Unix macro processor."
-        },
-        {
-            "name": "numactl",
-            "description": "NUMA support for Linux"
-        },
-        {
-            "name": "opa-psm2",
-            "description": "Omni-Path Performance Scaled Messaging 2 (PSM2) library"
-        },
-        {
-            "name": "psm",
-            "description": "Intel Performance scaled messaging library"
-        },
-        {
-            "name": "rdma-core",
-            "description": "RDMA core userspace libraries and daemons"
-        },
-        {
-            "name": "ucx",
-            "description": "a communication library implementing high-performance messaging for\nMPI/PGAS frameworks"
-        },
-        {
-            "name": "uuid",
-            "description": "OSSP uuid is a ISO-C:1999 application programming interface (API) and\ncorresponding command line interface (CLI) for the generation of DCE\n1.1, ISO/IEC 11578:1996 and RFC 4122 compliant Universally Unique\nIdentifier (UUID)."
-        }
-    ],
-    "dependent_to": [
-        {
-            "name": "mpich",
-            "description": "MPICH is a high performance and widely portable implementation of the\nMessage Passing Interface (MPI) standard."
-        },
-        {
-            "name": "gasnet",
-            "description": "GASNet is a language-independent, networking middleware layer that\nprovides network-independent, high-performance communication primitives\nincluding Remote Memory Access (RMA) and Active Messages (AM). It has\nbeen used to implement parallel programming models and libraries such as\nUPC, UPC++, Co-Array Fortran, Legion, Chapel, and many others. The\ninterface is primarily intended as a compilation target and for use by\nruntime library writers (as opposed to end users), and the primary goals\nare high performance, interface portability, and expressiveness.\n***NOTICE***: The GASNet library built by this Spack package is ONLY\nintended for unit-testing purposes, and is generally UNSUITABLE FOR\nPRODUCTION USE. The RECOMMENDED way to build GASNet is as an embedded\nlibrary as configured by the higher-level client runtime package (UPC++,\nLegion, etc), including system-specific configuration."
-        },
-        {
-            "name": "openmpi",
-            "description": "An open source Message Passing Interface implementation. The Open MPI\nProject is an open source Message Passing Interface implementation that\nis developed and maintained by a consortium of academic, research, and\nindustry partners. Open MPI is therefore able to combine the expertise,\ntechnologies, and resources from all across the High Performance\nComputing community in order to build the best MPI library available.\nOpen MPI offers advantages for system and software vendors, application\ndevelopers and computer science researchers."
-        },
-        {
-            "name": "faodel",
-            "description": "Flexible, Asynchronous, Object Data-Exchange Libraries"
-        },
-        {
-            "name": "adios2",
-            "description": "The Adaptable Input Output System version 2, developed in the Exascale\nComputing Program"
-        },
-        {
-            "name": "pmdk",
-            "description": "The Persistent Memory Development Kit (PMDK), formerly known as NVML, is\na library for using memory-mapped persistence, optimized specifically\nfor persistent memory"
-        },
-        {
-            "name": "sos",
-            "description": "Sandia OpenSHMEM."
-        },
-        {
-            "name": "mvapich2",
-            "description": "Mvapich2 is a High-Performance MPI Library for clusters with diverse\nnetworks (InfiniBand, Omni-Path, Ethernet/iWARP, and RoCE) and computing\nplatforms (x86 (Intel and AMD), ARM and OpenPOWER)"
-        },
-        {
-            "name": "pdc",
-            "description": "Proactive Data Containers (PDC) software provides an object-centric API\nand a runtime system with a set of data object management services.\nThese services allow placing data in the memory and storage hierarchy,\nperforming data movement asynchronously, and providing scalable metadata\noperations to find data objects."
-        },
-        {
-            "name": "unifyfs",
-            "description": "User level file system that enables applications to use node-local\nstorage as burst buffers for shared files. Supports scalable and\nefficient aggregation of I/O bandwidth from burst buffers while having\nthe same life cycle as a batch-submitted job. UnifyFS is designed to\nsupport common I/O workloads, including checkpoint/restart. While\nprimarily designed for N-N write/read, UnifyFS compliments its\nfunctionality with the support for N-1 write/read."
-        },
-        {
-            "name": "gchp",
-            "description": "GEOS-Chem High Performance model of atmospheric chemistry"
-        },
-        {
-            "name": "mercury",
-            "description": "Mercury is a C library for implementing RPC, optimized for HPC"
-        },
-        {
-            "name": "mvapich",
-            "description": "Mvapich is a High-Performance MPI Library for clusters with diverse\nnetworks (InfiniBand, Omni-Path, Ethernet/iWARP, and RoCE) and computing\nplatforms (x86 (Intel and AMD), ARM and OpenPOWER)"
-        },
-        {
-            "name": "aws-ofi-rccl",
-            "description": "AWS OFI RCCL is a plug-in which enables EC2 developers to use libfabric\nas a network provider while running AMD's RCCL based applications."
-        },
-        {
-            "name": "daos",
-            "description": "The Distributed Asynchronous Object Storage (DAOS) is an open-source\nsoftware-defined object store designed from the ground up for massively\ndistributed Non Volatile Memory (NVM)."
-        },
-        {
-            "name": "aws-ofi-nccl",
-            "description": "AWS OFI NCCL is a plug-in which enables EC2 developers to use libfabric\nas a network provider while running NVIDIA's NCCL based applications."
-        },
-        {
-            "name": "cray-mpich",
-            "description": "Cray's MPICH is a high performance and widely portable implementation of\nthe Message Passing Interface (MPI) standard."
-        },
-        {
-            "name": "chapel",
-            "description": "Chapel is a modern programming language that is parallel, productive,\nportable, scalable and open-source. The Chapel package comes with many\noptions in the form of variants, most of which can be left unset to\nallow Chapel's built-in scripts to determine the proper values based on\nthe environment."
-        },
-        {
-            "name": "nwchem",
-            "description": "High-performance computational chemistry software"
-        },
-        {
-            "name": "intel-mpi",
-            "description": "Intel MPI. This package has been deprecated. Use intel-oneapi-mpi\ninstead. LICENSE INFORMATION: By downloading and using this software,\nyou agree to the terms and conditions of the software license agreements\nat https://intel.ly/393CijO."
-        },
-        {
-            "name": "pbmpi",
-            "description": "A Bayesian software for phylogenetic reconstruction using mixture models"
-        },
-        {
-            "name": "lci",
-            "description": "LCI: the Lightweight Communication Interface"
-        },
-        {
-            "name": "fabtests",
-            "description": "Fabtests provides a set of runtime analysis tools and examples that use\nlibfabric."
-        },
-        {
-            "name": "charmpp",
-            "description": "Charm++ is a parallel programming framework in C++ supported by an\nadaptive runtime system, which enhances user productivity and allows\nprograms to run portably from small multicore computers (your laptop) to\nthe largest supercomputers."
-        },
-        {
-            "name": "globalarrays",
-            "description": "Global Arrays (GA) is a Partitioned Global Address Space (PGAS)\nprogramming model. It provides primitives for one-sided communication\n(Get, Put, Accumulate) and Atomic Operations (read increment). It\nsupports blocking and non-blocking primtives, and supports location\nconsistency."
-        },
-        {
-            "name": "intel-oneapi-mpi",
-            "description": "Intel MPI Library is a multifabric message-passing library that\nimplements the open-source MPICH specification. Use the library to\ncreate, maintain, and test advanced, complex applications that perform\nbetter on high-performance computing (HPC) clusters based on Intel\nprocessors. LICENSE INFORMATION: By downloading and using this software,\nyou agree to the terms and conditions of the software license agreements\nat https://intel.ly/393CijO."
+            "branch": "main",
+            "name": "main"
         }
     ]
 }

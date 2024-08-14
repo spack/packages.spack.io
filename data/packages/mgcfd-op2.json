@@ -1,54 +1,54 @@
 {
-    "name": "mgcfd-op2",
     "aliases": [],
-    "versions": [
-        {
-            "name": "v1.0.0-rc1"
-        }
-    ],
-    "latest_version": "v1.0.0-rc1",
     "build_system": "MakefilePackage",
     "conflicts": [
         {
+            "description": null,
             "name": "arch=windows-None-None",
-            "spec": "build_system=makefile",
-            "description": null
+            "spec": "build_system=makefile"
         }
     ],
-    "variants": [
+    "dependencies": [
         {
-            "name": "build_system",
-            "default": "makefile",
-            "description": "Build systems supported by the package"
+            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files.",
+            "name": "gmake"
         },
         {
-            "name": "mpi",
-            "default": false,
-            "description": "Enable MPI support"
+            "description": "KaHIP - Karlsruhe High Quality Partitioning - is a family of graph\npartitioning programs. It includes KaFFPa (Karlsruhe Fast Flow\nPartitioner), which is a multilevel graph partitioning algorithm, in its\nvariants Strong, Eco and Fast, KaFFPaE (KaFFPaEvolutionary) which is a\nparallel evolutionary algorithm that uses KaFFPa to provide combine and\nmutation operations, as well as KaBaPE which extends the evolutionary\nalgorithm. Moreover, specialized techniques are included to partition\nroad networks (Buffoon), to output a vertex separator from a given\npartition or techniques geared towards efficient partitioning of social\nnetworks.",
+            "name": "kahip"
+        },
+        {
+            "description": "OP2 is a high-level embedded domain specific language for writing\nunstructured mesh algorithms with automatic parallelisation on multi-\ncore and many-core architectures.",
+            "name": "op2-dsl"
         }
     ],
+    "dependent_to": [],
+    "description": "Package for the OP2 port of MGCFD: A 3D unstructured multigrid, finite-\nvolume computational fluid dynamics (CFD) mini-app for inviscid-flow.\n",
     "homepage": "https://github.com/warwick-hpsc/MG-CFD-app-OP2",
+    "latest_version": "v1.0.0-rc1",
     "maintainers": [
         "bozbez",
         "gihanmudalige",
         "tomdeakin"
     ],
+    "name": "mgcfd-op2",
     "patches": [],
     "resources": [],
-    "description": "Package for the OP2 port of MGCFD: A 3D unstructured multigrid, finite-\nvolume computational fluid dynamics (CFD) mini-app for inviscid-flow.\n",
-    "dependencies": [
+    "variants": [
         {
-            "name": "gmake",
-            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files."
+            "default": "makefile",
+            "description": "Build systems supported by the package",
+            "name": "build_system"
         },
         {
-            "name": "kahip",
-            "description": "KaHIP - Karlsruhe High Quality Partitioning - is a family of graph\npartitioning programs. It includes KaFFPa (Karlsruhe Fast Flow\nPartitioner), which is a multilevel graph partitioning algorithm, in its\nvariants Strong, Eco and Fast, KaFFPaE (KaFFPaEvolutionary) which is a\nparallel evolutionary algorithm that uses KaFFPa to provide combine and\nmutation operations, as well as KaBaPE which extends the evolutionary\nalgorithm. Moreover, specialized techniques are included to partition\nroad networks (Buffoon), to output a vertex separator from a given\npartition or techniques geared towards efficient partitioning of social\nnetworks."
-        },
-        {
-            "name": "op2-dsl",
-            "description": "OP2 is a high-level embedded domain specific language for writing\nunstructured mesh algorithms with automatic parallelisation on multi-\ncore and many-core architectures."
+            "default": false,
+            "description": "Enable MPI support",
+            "name": "mpi"
         }
     ],
-    "dependent_to": []
+    "versions": [
+        {
+            "name": "v1.0.0-rc1"
+        }
+    ]
 }

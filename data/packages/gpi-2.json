@@ -1,169 +1,169 @@
 {
-    "name": "gpi-2",
     "aliases": [],
+    "build_system": "AutotoolsPackage",
+    "conflicts": [
+        {
+            "description": "gpi-2: gcc>10 is not supported",
+            "name": "%gcc@10:",
+            "spec": "@:1.3.2"
+        },
+        {
+            "description": "gpi-2: Slurm is not supported",
+            "name": "schedulers=slurm",
+            "spec": "@:1.3.3"
+        },
+        {
+            "description": null,
+            "name": "arch=windows-None-None",
+            "spec": "build_system=autotools"
+        }
+    ],
+    "dependencies": [
+        {
+            "description": "Autoconf -- system configuration part of autotools",
+            "name": "autoconf"
+        },
+        {
+            "description": "Automake -- make file builder part of autotools",
+            "name": "automake"
+        },
+        {
+            "description": "If you are like many computer users, you would frequently like to make\nchanges in various text files wherever certain patterns appear, or\nextract data from parts of certain lines while discarding the rest. To\nwrite a program to do this in a language such as C or Pascal is a time-\nconsuming inconvenience that may take many lines of code. The job is\neasy with awk, especially the GNU implementation: gawk. The awk utility\ninterprets a special-purpose programming language that makes it possible\nto handle simple data-reformatting jobs with just a few lines of code.",
+            "name": "gawk"
+        },
+        {
+            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files.",
+            "name": "gmake"
+        },
+        {
+            "description": "The GNU config.guess and config.sub scripts versioned by timestamp.\nThis package can be used as a build dependency for autotools packages\nthat ship a tarball with outdated config.guess and config.sub files.",
+            "name": "gnuconfig"
+        },
+        {
+            "description": "libtool -- library building part of autotools.",
+            "name": "libtool"
+        },
+        {
+            "description": "GNU M4 is an implementation of the traditional Unix macro processor.",
+            "name": "m4"
+        },
+        {
+            "description": "IBM MPI implementation from Spectrum MPI.",
+            "name": "mpi"
+        },
+        {
+            "description": "OpenSSH is the premier connectivity tool for remote login with the SSH\nprotocol. It encrypts all traffic to eliminate eavesdropping, connection\nhijacking, and other attacks. In addition, OpenSSH provides a large\nsuite of secure tunneling capabilities, several authentication methods,\nand sophisticated configuration options.",
+            "name": "openssh"
+        },
+        {
+            "description": "RDMA core userspace libraries and daemons",
+            "name": "rdma-core"
+        },
+        {
+            "description": "GNU implementation of the famous stream editor.",
+            "name": "sed"
+        },
+        {
+            "description": "Slurm is an open source, fault-tolerant, and highly scalable cluster\nmanagement and job scheduling system for large and small Linux clusters.\nSlurm requires no kernel modifications for its operation and is\nrelatively self-contained. As a cluster workload manager, Slurm has\nthree key functions. First, it allocates exclusive and/or non-exclusive\naccess to resources (compute nodes) to users for some duration of time\nso they can perform work. Second, it provides a framework for starting,\nexecuting, and monitoring work (normally a parallel job) on the set of\nallocated nodes. Finally, it arbitrates contention for resources by\nmanaging a queue of pending work.",
+            "name": "slurm"
+        }
+    ],
+    "dependent_to": [
+        {
+            "description": "GPI-Space is a task-based workflow management system for parallel\napplications. It allows the developers to build domain-specific\nworkflows using their own parallelization patterns, data management\npolicies and I/O routines, while relying on the runtime system for the\nworkflow management. The GPI-Space ecosystem \"auto-manages\" the\napplication with dynamic scheduling, built-in distributed memory\ntransfers and distributed tasks execution.",
+            "name": "gpi-space"
+        }
+    ],
+    "description": "GPI-2 implements GASPI specification, an API specification for\nasynchronous communication. It provides a flexible, scalable and fault\ntolerant interface for parallel applications.\n",
+    "homepage": "http://www.gpi-site.com",
+    "latest_version": "1.5.1",
+    "maintainers": [
+        "acastanedam",
+        "mzeyen1985",
+        "robert-mijakovic"
+    ],
+    "name": "gpi-2",
+    "patches": [],
+    "resources": [],
+    "variants": [
+        {
+            "default": "autotools",
+            "description": "Build systems supported by the package",
+            "name": "build_system"
+        },
+        {
+            "default": "none",
+            "description": "List of fabrics that are enabled; 'none' use GPI-2 default (infiniband), 'infiniband' will use 'rdma-core' from Spack",
+            "name": "fabrics"
+        },
+        {
+            "default": false,
+            "description": "Enable Fortran modules",
+            "name": "fortran"
+        },
+        {
+            "default": false,
+            "description": "Enable MPI support",
+            "name": "mpi"
+        },
+        {
+            "default": "none",
+            "description": "List of lauchers for which support is enabled; 'auto', 'none' or 'pbs' use 'gaspi_run.ssh'",
+            "name": "schedulers"
+        }
+    ],
     "versions": [
         {
-            "name": "develop",
-            "branch": "next"
-        },
-        {
-            "name": "master",
-            "branch": "master"
-        },
-        {
-            "name": "1.5.1",
-            "sha256": "4dac7e9152694d2ec4aefd982a52ecc064a8cb8f2c9eab0425428127c3719e2e"
-        },
-        {
-            "name": "1.5.0",
-            "sha256": "ee299ac1c08c38c9e7871d4af745f1075570ddbb708bb62d82257244585e5183"
-        },
-        {
-            "name": "1.4.0",
-            "sha256": "3b8ffb45346b2fe56aaa7ba15a515e62f9dff45a28e6a014248e20094bbe50a1"
-        },
-        {
-            "name": "1.3.3",
-            "sha256": "923a848009e7dcd9d26c317ede68b50289b2a9297eb10a75dcc34a4d49f3cdcc"
-        },
-        {
-            "name": "1.3.2",
-            "sha256": "83dbfb2e4bed28ef4e2ae430d30505874b4b50252e2f31dc422b3bc191a87ab0"
-        },
-        {
-            "name": "1.3.1",
-            "sha256": "414fa352e7b478442e6f5d0b51ff00deeb4fc705de805676c0e68829f3f30967"
-        },
-        {
-            "name": "1.3.0",
-            "sha256": "ffaa5c6abfbf79aec6389ab7caaa2c8a91bce24fd046d9741418ff815cd445d2"
-        },
-        {
-            "name": "1.2.0",
-            "sha256": "0a1411276aa0787382573df5e0f60cc38ca8079f2353fb7a7e8dc57050a7d2cb"
-        },
-        {
-            "name": "1.1.0",
-            "sha256": "626727565a8b78be0dc8883539b01aaff2bb3bd42395899643bc4d6cc2313773"
+            "name": "1.0.1",
+            "sha256": "b1341bb39e7e70334d7acf831fe7f2061376e7516b44d18b31797748c2a169a3"
         },
         {
             "name": "1.0.2",
             "sha256": "b03b4ac9f0715279b2a5e064fd85047cb640a85c2361d732930307f8bbf2aeb8"
         },
         {
-            "name": "1.0.1",
-            "sha256": "b1341bb39e7e70334d7acf831fe7f2061376e7516b44d18b31797748c2a169a3"
-        }
-    ],
-    "latest_version": "1.5.1",
-    "build_system": "AutotoolsPackage",
-    "conflicts": [
-        {
-            "name": "arch=windows-None-None",
-            "spec": "build_system=autotools",
-            "description": null
+            "name": "1.1.0",
+            "sha256": "626727565a8b78be0dc8883539b01aaff2bb3bd42395899643bc4d6cc2313773"
         },
         {
-            "name": "%gcc@10:",
-            "spec": "@:1.3.2",
-            "description": "gpi-2: gcc>10 is not supported"
+            "name": "1.2.0",
+            "sha256": "0a1411276aa0787382573df5e0f60cc38ca8079f2353fb7a7e8dc57050a7d2cb"
         },
         {
-            "name": "schedulers=slurm",
-            "spec": "@:1.3.3",
-            "description": "gpi-2: Slurm is not supported"
-        }
-    ],
-    "variants": [
-        {
-            "name": "build_system",
-            "default": "autotools",
-            "description": "Build systems supported by the package"
+            "name": "1.3.0",
+            "sha256": "ffaa5c6abfbf79aec6389ab7caaa2c8a91bce24fd046d9741418ff815cd445d2"
         },
         {
-            "name": "fortran",
-            "default": false,
-            "description": "Enable Fortran modules"
+            "name": "1.3.1",
+            "sha256": "414fa352e7b478442e6f5d0b51ff00deeb4fc705de805676c0e68829f3f30967"
         },
         {
-            "name": "mpi",
-            "default": false,
-            "description": "Enable MPI support"
+            "name": "1.3.2",
+            "sha256": "83dbfb2e4bed28ef4e2ae430d30505874b4b50252e2f31dc422b3bc191a87ab0"
         },
         {
-            "name": "fabrics",
-            "default": "none",
-            "description": "List of fabrics that are enabled; 'none' use GPI-2 default (infiniband), 'infiniband' will use 'rdma-core' from Spack"
+            "name": "1.3.3",
+            "sha256": "923a848009e7dcd9d26c317ede68b50289b2a9297eb10a75dcc34a4d49f3cdcc"
         },
         {
-            "name": "schedulers",
-            "default": "none",
-            "description": "List of lauchers for which support is enabled; 'auto', 'none' or 'pbs' use 'gaspi_run.ssh'"
-        }
-    ],
-    "homepage": "http://www.gpi-site.com",
-    "maintainers": [
-        "acastanedam",
-        "mzeyen1985",
-        "robert-mijakovic"
-    ],
-    "patches": [],
-    "resources": [],
-    "description": "GPI-2 implements GASPI specification, an API specification for\nasynchronous communication. It provides a flexible, scalable and fault\ntolerant interface for parallel applications.\n",
-    "dependencies": [
-        {
-            "name": "autoconf",
-            "description": "Autoconf -- system configuration part of autotools"
+            "name": "1.4.0",
+            "sha256": "3b8ffb45346b2fe56aaa7ba15a515e62f9dff45a28e6a014248e20094bbe50a1"
         },
         {
-            "name": "automake",
-            "description": "Automake -- make file builder part of autotools"
+            "name": "1.5.0",
+            "sha256": "ee299ac1c08c38c9e7871d4af745f1075570ddbb708bb62d82257244585e5183"
         },
         {
-            "name": "gawk",
-            "description": "If you are like many computer users, you would frequently like to make\nchanges in various text files wherever certain patterns appear, or\nextract data from parts of certain lines while discarding the rest. To\nwrite a program to do this in a language such as C or Pascal is a time-\nconsuming inconvenience that may take many lines of code. The job is\neasy with awk, especially the GNU implementation: gawk. The awk utility\ninterprets a special-purpose programming language that makes it possible\nto handle simple data-reformatting jobs with just a few lines of code."
+            "name": "1.5.1",
+            "sha256": "4dac7e9152694d2ec4aefd982a52ecc064a8cb8f2c9eab0425428127c3719e2e"
         },
         {
-            "name": "gmake",
-            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files."
+            "branch": "next",
+            "name": "develop"
         },
         {
-            "name": "gnuconfig",
-            "description": "The GNU config.guess and config.sub scripts versioned by timestamp.\nThis package can be used as a build dependency for autotools packages\nthat ship a tarball with outdated config.guess and config.sub files."
-        },
-        {
-            "name": "libtool",
-            "description": "libtool -- library building part of autotools."
-        },
-        {
-            "name": "m4",
-            "description": "GNU M4 is an implementation of the traditional Unix macro processor."
-        },
-        {
-            "name": "mpi",
-            "description": "A single processor implementation of the mpi library."
-        },
-        {
-            "name": "openssh",
-            "description": "OpenSSH is the premier connectivity tool for remote login with the SSH\nprotocol. It encrypts all traffic to eliminate eavesdropping, connection\nhijacking, and other attacks. In addition, OpenSSH provides a large\nsuite of secure tunneling capabilities, several authentication methods,\nand sophisticated configuration options."
-        },
-        {
-            "name": "rdma-core",
-            "description": "RDMA core userspace libraries and daemons"
-        },
-        {
-            "name": "sed",
-            "description": "GNU implementation of the famous stream editor."
-        },
-        {
-            "name": "slurm",
-            "description": "Slurm is an open source, fault-tolerant, and highly scalable cluster\nmanagement and job scheduling system for large and small Linux clusters.\nSlurm requires no kernel modifications for its operation and is\nrelatively self-contained. As a cluster workload manager, Slurm has\nthree key functions. First, it allocates exclusive and/or non-exclusive\naccess to resources (compute nodes) to users for some duration of time\nso they can perform work. Second, it provides a framework for starting,\nexecuting, and monitoring work (normally a parallel job) on the set of\nallocated nodes. Finally, it arbitrates contention for resources by\nmanaging a queue of pending work."
-        }
-    ],
-    "dependent_to": [
-        {
-            "name": "gpi-space",
-            "description": "GPI-Space is a task-based workflow management system for parallel\napplications. It allows the developers to build domain-specific\nworkflows using their own parallelization patterns, data management\npolicies and I/O routines, while relying on the runtime system for the\nworkflow management. The GPI-Space ecosystem \"auto-manages\" the\napplication with dynamic scheduling, built-in distributed memory\ntransfers and distributed tasks execution."
+            "branch": "master",
+            "name": "master"
         }
     ]
 }

@@ -1,86 +1,86 @@
 {
-    "name": "slurm-drmaa",
     "aliases": [],
-    "versions": [
-        {
-            "name": "main",
-            "branch": "main"
-        },
-        {
-            "name": "1.1.2",
-            "sha256": "5bfe25d501de83729df3c8c8f28535b9da3e99aea7738e259903abd6f1f5c836"
-        }
-    ],
-    "latest_version": "1.1.2",
     "build_system": "AutotoolsPackage",
     "conflicts": [
         {
+            "description": null,
             "name": "arch=windows-None-None",
-            "spec": "build_system=autotools",
-            "description": null
+            "spec": "build_system=autotools"
         }
     ],
-    "variants": [
+    "dependencies": [
         {
-            "name": "build_system",
-            "default": "autotools",
-            "description": "Build systems supported by the package"
+            "description": "Autoconf -- system configuration part of autotools",
+            "name": "autoconf"
+        },
+        {
+            "description": "Automake -- make file builder part of autotools",
+            "name": "automake"
+        },
+        {
+            "description": "Bison is a general-purpose parser generator that converts an annotated\ncontext-free grammar into a deterministic LR or generalized LR (GLR)\nparser employing LALR(1) parser tables.",
+            "name": "bison"
+        },
+        {
+            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files.",
+            "name": "gmake"
+        },
+        {
+            "description": "The GNU config.guess and config.sub scripts versioned by timestamp.\nThis package can be used as a build dependency for autotools packages\nthat ship a tarball with outdated config.guess and config.sub files.",
+            "name": "gnuconfig"
+        },
+        {
+            "description": "GNU gperf is a perfect hash function generator. For a given list of\nstrings, it produces a hash function and hash table, in form of C or C++\ncode, for looking up a value depending on the input string. The hash\nfunction is perfect, which means that the hash table has no collisions,\nand the hash table lookup needs a single string comparison only.",
+            "name": "gperf"
+        },
+        {
+            "description": "libtool -- library building part of autotools.",
+            "name": "libtool"
+        },
+        {
+            "description": "Ragel State Machine Compiler Ragel compiles executable finite state\nmachines from regular languages. Ragel targets C, C++ and ASM. Ragel\nstate machines can not only recognize byte sequences as regular\nexpression machines do, but can also execute code at arbitrary points in\nthe recognition of a regular language. Code embedding is done using\ninline operators that do not disrupt the regular language syntax.",
+            "name": "ragel"
+        },
+        {
+            "description": "Slurm is an open source, fault-tolerant, and highly scalable cluster\nmanagement and job scheduling system for large and small Linux clusters.\nSlurm requires no kernel modifications for its operation and is\nrelatively self-contained. As a cluster workload manager, Slurm has\nthree key functions. First, it allocates exclusive and/or non-exclusive\naccess to resources (compute nodes) to users for some duration of time\nso they can perform work. Second, it provides a framework for starting,\nexecuting, and monitoring work (normally a parallel job) on the set of\nallocated nodes. Finally, it arbitrates contention for resources by\nmanaging a queue of pending work.",
+            "name": "slurm"
         }
     ],
+    "dependent_to": [],
+    "description": " DRMAA for Slurm is an implementation of Open Grid Forum DRMAA 1.0\n(Distributed Resource Management Application API) specification for\nsubmission and control of jobs to Slurm. Using DRMAA, grid applications\nbuilders, portal developers and ISVs can use the same high-level API to\nlink their software with different cluster/resource management systems.\n",
     "homepage": "https://github.com/natefoo/slurm-drmaa",
+    "latest_version": "1.1.2",
     "maintainers": [
         "pwablito"
     ],
+    "name": "slurm-drmaa",
     "patches": [
         {
-            "owner": "builtin.slurm-drmaa",
-            "sha256": "ec8d2963c731f7054f7d3c130232e731bc92366280100e108d93a3685fddfca7",
             "level": 1,
-            "working_dir": ".",
+            "owner": "builtin.slurm-drmaa",
             "reverse": false,
+            "sha256": "ec8d2963c731f7054f7d3c130232e731bc92366280100e108d93a3685fddfca7",
             "url": "https://github.com/natefoo/slurm-drmaa/pull/62.patch?full_index=1",
-            "version": "@main"
+            "version": "@main",
+            "working_dir": "."
         }
     ],
     "resources": [],
-    "description": " DRMAA for Slurm is an implementation of Open Grid Forum DRMAA 1.0\n(Distributed Resource Management Application API) specification for\nsubmission and control of jobs to Slurm. Using DRMAA, grid applications\nbuilders, portal developers and ISVs can use the same high-level API to\nlink their software with different cluster/resource management systems.\n",
-    "dependencies": [
+    "variants": [
         {
-            "name": "autoconf",
-            "description": "Autoconf -- system configuration part of autotools"
-        },
-        {
-            "name": "automake",
-            "description": "Automake -- make file builder part of autotools"
-        },
-        {
-            "name": "bison",
-            "description": "Bison is a general-purpose parser generator that converts an annotated\ncontext-free grammar into a deterministic LR or generalized LR (GLR)\nparser employing LALR(1) parser tables."
-        },
-        {
-            "name": "gmake",
-            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files."
-        },
-        {
-            "name": "gnuconfig",
-            "description": "The GNU config.guess and config.sub scripts versioned by timestamp.\nThis package can be used as a build dependency for autotools packages\nthat ship a tarball with outdated config.guess and config.sub files."
-        },
-        {
-            "name": "gperf",
-            "description": "GNU gperf is a perfect hash function generator. For a given list of\nstrings, it produces a hash function and hash table, in form of C or C++\ncode, for looking up a value depending on the input string. The hash\nfunction is perfect, which means that the hash table has no collisions,\nand the hash table lookup needs a single string comparison only."
-        },
-        {
-            "name": "libtool",
-            "description": "libtool -- library building part of autotools."
-        },
-        {
-            "name": "ragel",
-            "description": "Ragel State Machine Compiler Ragel compiles executable finite state\nmachines from regular languages. Ragel targets C, C++ and ASM. Ragel\nstate machines can not only recognize byte sequences as regular\nexpression machines do, but can also execute code at arbitrary points in\nthe recognition of a regular language. Code embedding is done using\ninline operators that do not disrupt the regular language syntax."
-        },
-        {
-            "name": "slurm",
-            "description": "Slurm is an open source, fault-tolerant, and highly scalable cluster\nmanagement and job scheduling system for large and small Linux clusters.\nSlurm requires no kernel modifications for its operation and is\nrelatively self-contained. As a cluster workload manager, Slurm has\nthree key functions. First, it allocates exclusive and/or non-exclusive\naccess to resources (compute nodes) to users for some duration of time\nso they can perform work. Second, it provides a framework for starting,\nexecuting, and monitoring work (normally a parallel job) on the set of\nallocated nodes. Finally, it arbitrates contention for resources by\nmanaging a queue of pending work."
+            "default": "autotools",
+            "description": "Build systems supported by the package",
+            "name": "build_system"
         }
     ],
-    "dependent_to": []
+    "versions": [
+        {
+            "name": "1.1.2",
+            "sha256": "5bfe25d501de83729df3c8c8f28535b9da3e99aea7738e259903abd6f1f5c836"
+        },
+        {
+            "branch": "main",
+            "name": "main"
+        }
+    ]
 }

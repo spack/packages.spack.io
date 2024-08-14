@@ -1,202 +1,202 @@
 {
-    "name": "openfoam-org",
     "aliases": [],
+    "build_system": "Package",
+    "conflicts": [],
+    "dependencies": [
+        {
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software.",
+            "name": "cmake"
+        },
+        {
+            "description": "Flex is a tool for generating scanners.",
+            "name": "flex"
+        },
+        {
+            "description": "METIS is a set of serial programs for partitioning graphs, partitioning\nfinite element meshes, and producing fill reducing orderings for sparse\nmatrices. The algorithms implemented in METIS are based on the\nmultilevel recursive-bisection, multilevel k-way, and multi-constraint\npartitioning schemes.",
+            "name": "metis"
+        },
+        {
+            "description": "IBM MPI implementation from Spectrum MPI.",
+            "name": "mpi"
+        },
+        {
+            "description": "The GNU Readline library provides a set of functions for use by\napplications that allow users to edit command lines as they are typed\nin. Both Emacs and vi editing modes are available. The Readline library\nincludes additional functions to maintain a list of previously-entered\ncommand lines, to recall and perhaps reedit those lines, and perform\ncsh-like history expansion on previous commands.",
+            "name": "readline"
+        },
+        {
+            "description": "Scotch is a software package for graph and mesh/hypergraph partitioning,\ngraph clustering, and sparse matrix ordering.",
+            "name": "scotch"
+        },
+        {
+            "description": "zlib replacement with optimizations for next generation systems.",
+            "name": "zlib-api"
+        },
+        {
+            "description": "The Zoltan library is a toolkit of parallel combinatorial algorithms for\nparallel, unstructured, and/or adaptive scientific applications.\nZoltan's largest component is a suite of dynamic load-balancing and\npartitioning algorithms that increase applications' parallel performance\nby reducing idle time. Zoltan also has graph coloring and graph ordering\nalgorithms, which are useful in task schedulers and parallel\npreconditioners.",
+            "name": "zoltan"
+        }
+    ],
+    "dependent_to": [
+        {
+            "description": "AdditiveFOAM is a heat and mass transfer software for Additive\nManufacturing (AM)",
+            "name": "additivefoam"
+        }
+    ],
+    "description": "OpenFOAM is a GPL-opensource C++ CFD-toolbox. The openfoam.org release\nis managed by the OpenFOAM Foundation Ltd as a licensee of the OPENFOAM\ntrademark. This offering is not approved or endorsed by OpenCFD Ltd,\nproducer and distributor of the OpenFOAM software via www.openfoam.com,\nand owner of the OPENFOAM trademark.\n",
+    "homepage": "https://www.openfoam.org/",
+    "latest_version": "11",
+    "maintainers": [
+        "kjrstory"
+    ],
+    "name": "openfoam-org",
+    "patches": [
+        {
+            "level": 1,
+            "owner": "builtin.openfoam-org",
+            "reverse": false,
+            "sha256": "05d17e17f94e6fe8188a9c0b91ed34c9b62259414589d908c152a4c40fe6b7e2",
+            "url": "https://github.com/OpenFOAM/OpenFOAM-7/commit/ef33cf38ac9b811072a8970c71fbda35a90f6641.patch?full_index=1",
+            "version": "@7",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.openfoam-org",
+            "relative_path": "50-etc.patch",
+            "reverse": false,
+            "sha256": "58a74d510f82a573cedbe2d3046c5c51f74b8ce92a558a105301f57a23039b59",
+            "version": "@5.0",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.openfoam-org",
+            "relative_path": "41-etc.patch",
+            "reverse": false,
+            "sha256": "97b58adc7bce782175f2c041b786a82db15c507ae2ffaaf1740e75e3c81b60b0",
+            "version": "@4.1",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.openfoam-org",
+            "relative_path": "41-site.patch",
+            "reverse": false,
+            "sha256": "ecfa93afa8900f583a23c179db7cf0dc066828a9fd872e061164f21301c2a222",
+            "version": "@4.1:",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.openfoam-org",
+            "relative_path": "240-etc.patch",
+            "reverse": false,
+            "sha256": "c37c31294ad1d729af0af882d9192bffe6b0386cd14d9256a1cd5ca655422223",
+            "version": "@:2.4.0",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.openfoam-org",
+            "relative_path": "isnan.patch",
+            "reverse": false,
+            "sha256": "bf50db05c93448d3524857ffde98af2c9a15f49508b5fc04f35814f219348ca2",
+            "version": "@:2.4.0",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.openfoam-org",
+            "reverse": false,
+            "sha256": "7e843fa2533d12f392d9d5389daa6f08ef68a8d329438b53e7aa204bc710bf57",
+            "url": "https://github.com/OpenFOAM/OpenFOAM-2.3.x/commit/ae9a670c99472787f3a5446ac2b522bf3519b796.patch?full_index=1",
+            "version": "@:2.3.1",
+            "working_dir": "."
+        }
+    ],
+    "resources": [],
+    "variants": [
+        {
+            "default": "generic",
+            "description": "Build systems supported by the package",
+            "name": "build_system"
+        },
+        {
+            "default": false,
+            "description": "Compile with 64-bit label",
+            "name": "int64"
+        },
+        {
+            "default": false,
+            "description": "With metis decomposition",
+            "name": "metis"
+        },
+        {
+            "default": "dp",
+            "description": "Precision option",
+            "name": "precision"
+        },
+        {
+            "default": true,
+            "description": "With scotch/ptscotch decomposition",
+            "name": "scotch"
+        },
+        {
+            "default": true,
+            "description": "Install library/application sources and tutorials",
+            "name": "source"
+        },
+        {
+            "default": false,
+            "description": "Enable Zoltan renumbering and decomposition",
+            "name": "zoltan"
+        }
+    ],
     "versions": [
         {
-            "name": "develop",
-            "branch": "master"
+            "name": "10",
+            "sha256": "59d712ba798ca44b989b6ac50bcb7c534eeccb82bcf961e10ec19fc8d84000cf"
         },
         {
             "name": "11",
             "sha256": "ebc0f86ead699abba61290ba8aac5b730aa93256e675d1d93a5d5f116d51e0c0"
         },
         {
-            "name": "10",
-            "sha256": "59d712ba798ca44b989b6ac50bcb7c534eeccb82bcf961e10ec19fc8d84000cf"
-        },
-        {
-            "name": "9",
-            "sha256": "0c48fb56e2fbb4dd534112811364d3b2dc12106e670a6486b361e4f864b435ee"
-        },
-        {
-            "name": "8",
-            "sha256": "94ba11cbaaa12fbb5b356e01758df403ac8832d69da309a5d79f76f42eb008fc"
-        },
-        {
-            "name": "7",
-            "sha256": "12389cf092dc032372617785822a597aee434a50a62db2a520ab35ba5a7548b5"
-        },
-        {
-            "name": "6",
-            "sha256": "32a6af4120e691ca2df29c5b9bd7bc7a3e11208947f9bccf6087cfff5492f025"
-        },
-        {
-            "name": "5.0",
-            "sha256": "9057d6a8bb9fa18802881feba215215699065e0b3c5cdd0c0e84cb29c9916c89"
-        },
-        {
-            "name": "4.1",
-            "sha256": "2de18de64e7abdb1b649ad8e9d2d58b77a2b188fb5bcb6f7c2a038282081fd31"
+            "name": "2.3.1",
+            "sha256": "2bbcf4d5932397c2087a9b6d7eeee6d2b1350c8ea4f455415f05e7cd94d9e5ba",
+            "url": "http://downloads.sourceforge.net/foam/OpenFOAM-2.3.1.tgz"
         },
         {
             "name": "2.4.0",
             "sha256": "9529aa7441b64210c400c019dcb2e0410fcfd62a6f62d23b6c5994c4753c4465"
         },
         {
-            "name": "2.3.1",
-            "sha256": "2bbcf4d5932397c2087a9b6d7eeee6d2b1350c8ea4f455415f05e7cd94d9e5ba",
-            "url": "http://downloads.sourceforge.net/foam/OpenFOAM-2.3.1.tgz"
-        }
-    ],
-    "latest_version": "11",
-    "build_system": "Package",
-    "conflicts": [],
-    "variants": [
-        {
-            "name": "build_system",
-            "default": "generic",
-            "description": "Build systems supported by the package"
+            "name": "4.1",
+            "sha256": "2de18de64e7abdb1b649ad8e9d2d58b77a2b188fb5bcb6f7c2a038282081fd31"
         },
         {
-            "name": "int64",
-            "default": false,
-            "description": "Compile with 64-bit label"
+            "name": "5.0",
+            "sha256": "9057d6a8bb9fa18802881feba215215699065e0b3c5cdd0c0e84cb29c9916c89"
         },
         {
-            "name": "source",
-            "default": true,
-            "description": "Install library/application sources and tutorials"
+            "name": "6",
+            "sha256": "32a6af4120e691ca2df29c5b9bd7bc7a3e11208947f9bccf6087cfff5492f025"
         },
         {
-            "name": "metis",
-            "default": false,
-            "description": "With metis decomposition"
+            "name": "7",
+            "sha256": "12389cf092dc032372617785822a597aee434a50a62db2a520ab35ba5a7548b5"
         },
         {
-            "name": "scotch",
-            "default": true,
-            "description": "With scotch/ptscotch decomposition"
+            "name": "8",
+            "sha256": "94ba11cbaaa12fbb5b356e01758df403ac8832d69da309a5d79f76f42eb008fc"
         },
         {
-            "name": "zoltan",
-            "default": false,
-            "description": "Enable Zoltan renumbering and decomposition"
+            "name": "9",
+            "sha256": "0c48fb56e2fbb4dd534112811364d3b2dc12106e670a6486b361e4f864b435ee"
         },
         {
-            "name": "precision",
-            "default": "dp",
-            "description": "Precision option"
-        }
-    ],
-    "homepage": "https://www.openfoam.org/",
-    "maintainers": [
-        "kjrstory"
-    ],
-    "patches": [
-        {
-            "owner": "builtin.openfoam-org",
-            "sha256": "05d17e17f94e6fe8188a9c0b91ed34c9b62259414589d908c152a4c40fe6b7e2",
-            "level": 1,
-            "working_dir": ".",
-            "reverse": false,
-            "url": "https://github.com/OpenFOAM/OpenFOAM-7/commit/ef33cf38ac9b811072a8970c71fbda35a90f6641.patch?full_index=1",
-            "version": "@7"
-        },
-        {
-            "owner": "builtin.openfoam-org",
-            "sha256": "58a74d510f82a573cedbe2d3046c5c51f74b8ce92a558a105301f57a23039b59",
-            "level": 1,
-            "working_dir": ".",
-            "reverse": false,
-            "relative_path": "50-etc.patch",
-            "version": "@5.0"
-        },
-        {
-            "owner": "builtin.openfoam-org",
-            "sha256": "97b58adc7bce782175f2c041b786a82db15c507ae2ffaaf1740e75e3c81b60b0",
-            "level": 1,
-            "working_dir": ".",
-            "reverse": false,
-            "relative_path": "41-etc.patch",
-            "version": "@4.1"
-        },
-        {
-            "owner": "builtin.openfoam-org",
-            "sha256": "ecfa93afa8900f583a23c179db7cf0dc066828a9fd872e061164f21301c2a222",
-            "level": 1,
-            "working_dir": ".",
-            "reverse": false,
-            "relative_path": "41-site.patch",
-            "version": "@4.1:"
-        },
-        {
-            "owner": "builtin.openfoam-org",
-            "sha256": "c37c31294ad1d729af0af882d9192bffe6b0386cd14d9256a1cd5ca655422223",
-            "level": 1,
-            "working_dir": ".",
-            "reverse": false,
-            "relative_path": "240-etc.patch",
-            "version": "@:2.4.0"
-        },
-        {
-            "owner": "builtin.openfoam-org",
-            "sha256": "bf50db05c93448d3524857ffde98af2c9a15f49508b5fc04f35814f219348ca2",
-            "level": 1,
-            "working_dir": ".",
-            "reverse": false,
-            "relative_path": "isnan.patch",
-            "version": "@:2.4.0"
-        },
-        {
-            "owner": "builtin.openfoam-org",
-            "sha256": "7e843fa2533d12f392d9d5389daa6f08ef68a8d329438b53e7aa204bc710bf57",
-            "level": 1,
-            "working_dir": ".",
-            "reverse": false,
-            "url": "https://github.com/OpenFOAM/OpenFOAM-2.3.x/commit/ae9a670c99472787f3a5446ac2b522bf3519b796.patch?full_index=1",
-            "version": "@:2.3.1"
-        }
-    ],
-    "resources": [],
-    "description": "OpenFOAM is a GPL-opensource C++ CFD-toolbox. The openfoam.org release\nis managed by the OpenFOAM Foundation Ltd as a licensee of the OPENFOAM\ntrademark. This offering is not approved or endorsed by OpenCFD Ltd,\nproducer and distributor of the OpenFOAM software via www.openfoam.com,\nand owner of the OPENFOAM trademark.\n",
-    "dependencies": [
-        {
-            "name": "cmake",
-            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
-        },
-        {
-            "name": "flex",
-            "description": "Flex is a tool for generating scanners."
-        },
-        {
-            "name": "metis",
-            "description": "METIS is a set of serial programs for partitioning graphs, partitioning\nfinite element meshes, and producing fill reducing orderings for sparse\nmatrices. The algorithms implemented in METIS are based on the\nmultilevel recursive-bisection, multilevel k-way, and multi-constraint\npartitioning schemes."
-        },
-        {
-            "name": "mpi",
-            "description": "A single processor implementation of the mpi library."
-        },
-        {
-            "name": "readline",
-            "description": "The GNU Readline library provides a set of functions for use by\napplications that allow users to edit command lines as they are typed\nin. Both Emacs and vi editing modes are available. The Readline library\nincludes additional functions to maintain a list of previously-entered\ncommand lines, to recall and perhaps reedit those lines, and perform\ncsh-like history expansion on previous commands."
-        },
-        {
-            "name": "scotch",
-            "description": "Scotch is a software package for graph and mesh/hypergraph partitioning,\ngraph clustering, and sparse matrix ordering."
-        },
-        {
-            "name": "zlib-api",
-            "description": "zlib replacement with optimizations for next generation systems."
-        },
-        {
-            "name": "zoltan",
-            "description": "The Zoltan library is a toolkit of parallel combinatorial algorithms for\nparallel, unstructured, and/or adaptive scientific applications.\nZoltan's largest component is a suite of dynamic load-balancing and\npartitioning algorithms that increase applications' parallel performance\nby reducing idle time. Zoltan also has graph coloring and graph ordering\nalgorithms, which are useful in task schedulers and parallel\npreconditioners."
-        }
-    ],
-    "dependent_to": [
-        {
-            "name": "additivefoam",
-            "description": "AdditiveFOAM is a heat and mass transfer software for Additive\nManufacturing (AM)"
+            "branch": "master",
+            "name": "develop"
         }
     ]
 }

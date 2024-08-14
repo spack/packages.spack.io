@@ -1,88 +1,88 @@
 {
-    "name": "libiconv",
     "aliases": [
         {
-            "name": "iconv",
-            "alias_for": "libiconv"
+            "alias_for": "libiconv",
+            "name": "iconv"
+        }
+    ],
+    "build_system": "AutotoolsPackage",
+    "conflicts": [
+        {
+            "description": null,
+            "name": "@1.14",
+            "spec": "%gcc@5:"
+        },
+        {
+            "description": null,
+            "name": "arch=windows-None-None",
+            "spec": "build_system=autotools"
+        }
+    ],
+    "dependencies": [
+        {
+            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files.",
+            "name": "gmake"
+        },
+        {
+            "description": "The GNU config.guess and config.sub scripts versioned by timestamp.\nThis package can be used as a build dependency for autotools packages\nthat ship a tarball with outdated config.guess and config.sub files.",
+            "name": "gnuconfig"
+        }
+    ],
+    "dependent_to": [
+        {
+            "description": "Jim Kent command line bioinformatic utilities and libraries This\nbundles a custom version of htslib, but can be overridden with ~htslib.\nConsider adding the ^mysql+client_only dependency to avoid building all\nmysql/mariadb.",
+            "name": "kentutils"
+        },
+        {
+            "description": "The Wise2 package is now a rather stately bioinformatics package that\nhas be around for a while. Its key programs are genewise, a program for\naligning proteins or protein HMMs to DNA, and dynamite a rather cranky\n\"macro language\" which automates the production of dynamic programming.",
+            "name": "wise2"
+        }
+    ],
+    "description": "GNU libiconv provides an implementation of the iconv() function and the\niconv program for character set conversion.\n",
+    "homepage": "https://www.gnu.org/software/libiconv/",
+    "latest_version": "1.17",
+    "maintainers": [],
+    "name": "libiconv",
+    "patches": [
+        {
+            "level": 1,
+            "owner": "builtin.libiconv",
+            "relative_path": "gets.patch",
+            "reverse": false,
+            "sha256": "8867b9a22ab32273e10c22c10eb66e24581c393c16d8edeb3cf130644974d30b",
+            "version": "@1.14",
+            "working_dir": "."
+        }
+    ],
+    "resources": [],
+    "variants": [
+        {
+            "default": "autotools",
+            "description": "Build systems supported by the package",
+            "name": "build_system"
+        },
+        {
+            "default": "shared,static",
+            "description": "Build shared libs, static libs or both",
+            "name": "libs"
         }
     ],
     "versions": [
         {
-            "name": "1.17",
-            "sha256": "8f74213b56238c85a50a5329f77e06198771e70dd9a739779f4c02f65d971313"
-        },
-        {
-            "name": "1.16",
-            "sha256": "e6a1b1b589654277ee790cce3734f07876ac4ccfaecbee8afa0b649cf529cc04"
+            "name": "1.14",
+            "sha256": "72b24ded17d687193c3366d0ebe7cde1e6b18f0df8c55438ac95be39e8a30613"
         },
         {
             "name": "1.15",
             "sha256": "ccf536620a45458d26ba83887a983b96827001e92a13847b45e4925cc8913178"
         },
         {
-            "name": "1.14",
-            "sha256": "72b24ded17d687193c3366d0ebe7cde1e6b18f0df8c55438ac95be39e8a30613"
-        }
-    ],
-    "latest_version": "1.17",
-    "build_system": "AutotoolsPackage",
-    "conflicts": [
-        {
-            "name": "arch=windows-None-None",
-            "spec": "build_system=autotools",
-            "description": null
+            "name": "1.16",
+            "sha256": "e6a1b1b589654277ee790cce3734f07876ac4ccfaecbee8afa0b649cf529cc04"
         },
         {
-            "name": "@1.14",
-            "spec": "%gcc@5:",
-            "description": null
-        }
-    ],
-    "variants": [
-        {
-            "name": "build_system",
-            "default": "autotools",
-            "description": "Build systems supported by the package"
-        },
-        {
-            "name": "libs",
-            "default": "shared,static",
-            "description": "Build shared libs, static libs or both"
-        }
-    ],
-    "homepage": "https://www.gnu.org/software/libiconv/",
-    "maintainers": [],
-    "patches": [
-        {
-            "owner": "builtin.libiconv",
-            "sha256": "8867b9a22ab32273e10c22c10eb66e24581c393c16d8edeb3cf130644974d30b",
-            "level": 1,
-            "working_dir": ".",
-            "reverse": false,
-            "relative_path": "gets.patch",
-            "version": "@1.14"
-        }
-    ],
-    "resources": [],
-    "description": "GNU libiconv provides an implementation of the iconv() function and the\niconv program for character set conversion.\n",
-    "dependencies": [
-        {
-            "name": "gmake",
-            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files."
-        },
-        {
-            "name": "gnuconfig",
-            "description": "The GNU config.guess and config.sub scripts versioned by timestamp.\nThis package can be used as a build dependency for autotools packages\nthat ship a tarball with outdated config.guess and config.sub files."
-        }
-    ],
-    "dependent_to": [
-        {
-            "name": "wise2",
-            "description": "The Wise2 package is now a rather stately bioinformatics package that\nhas be around for a while. Its key programs are genewise, a program for\naligning proteins or protein HMMs to DNA, and dynamite a rather cranky\n\"macro language\" which automates the production of dynamic programming."
-        },
-        {
-            "name": "kentutils",
-            "description": "Jim Kent command line bioinformatic utilities and libraries This\nbundles a custom version of htslib, but can be overridden with ~htslib.\nConsider adding the ^mysql+client_only dependency to avoid building all\nmysql/mariadb."
+            "name": "1.17",
+            "sha256": "8f74213b56238c85a50a5329f77e06198771e70dd9a739779f4c02f65d971313"
         }
     ]
 }

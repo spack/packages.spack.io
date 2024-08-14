@@ -1,174 +1,174 @@
 {
-    "name": "tmux",
     "aliases": [],
+    "build_system": "AutotoolsPackage",
+    "conflicts": [
+        {
+            "description": "tmux: Static build not supported on MacOS",
+            "name": "+static",
+            "spec": "arch=darwin-None-None"
+        },
+        {
+            "description": null,
+            "name": "arch=windows-None-None",
+            "spec": "build_system=autotools"
+        }
+    ],
+    "dependencies": [
+        {
+            "description": "Autoconf -- system configuration part of autotools",
+            "name": "autoconf"
+        },
+        {
+            "description": "Automake -- make file builder part of autotools",
+            "name": "automake"
+        },
+        {
+            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files.",
+            "name": "gmake"
+        },
+        {
+            "description": "The GNU config.guess and config.sub scripts versioned by timestamp.\nThis package can be used as a build dependency for autotools packages\nthat ship a tarball with outdated config.guess and config.sub files.",
+            "name": "gnuconfig"
+        },
+        {
+            "description": "The libevent API provides a mechanism to execute a callback function\nwhen a specific event occurs on a file descriptor or after a timeout has\nbeen reached. Furthermore, libevent also support callbacks due to\nsignals or regular timeouts.",
+            "name": "libevent"
+        },
+        {
+            "description": "The ncurses (new curses) library is a free software emulation of curses\nin System V Release 4.0, and more. It uses terminfo format, supports\npads and color and multiple highlights and forms characters and\nfunction-key mapping, and has all the other SYSV-curses enhancements\nover BSD curses.",
+            "name": "ncurses"
+        },
+        {
+            "description": "pkgconf is a program which helps to configure compiler and linker flags\nfor development frameworks. It is similar to pkg-config from\nfreedesktop.org, providing additional functionality while also\nmaintaining compatibility.",
+            "name": "pkgconfig"
+        },
+        {
+            "description": "A clean C library for processing UTF-8 Unicode data: normalization,\ncase-folding, graphemes, and more",
+            "name": "utf8proc"
+        },
+        {
+            "description": "Berkeley Yacc is an LALR(1) parser generator. Berkeley Yacc has been\nmade as compatible as possible with AT&T Yacc. Berkeley Yacc can accept\nany input specification that conforms to the AT&T Yacc documentation.\nSpecifications that take advantage of undocumented features of AT&T Yacc\nwill probably be rejected.",
+            "name": "yacc"
+        }
+    ],
+    "dependent_to": [
+        {
+            "description": "Byobu: Text-based window manager and terminal multiplexer.",
+            "name": "byobu"
+        }
+    ],
+    "description": "Tmux is a terminal multiplexer. What is a terminal multiplexer? It lets\nyou switch easily between several programs in one terminal, detach them\n(they keep running in the background) and reattach them to a different\nterminal. And do a lot more.\n",
+    "homepage": "https://tmux.github.io",
+    "latest_version": "3.4",
+    "maintainers": [],
+    "name": "tmux",
+    "patches": [],
+    "resources": [],
+    "variants": [
+        {
+            "default": "autotools",
+            "description": "Build systems supported by the package",
+            "name": "build_system"
+        },
+        {
+            "default": false,
+            "description": "Create a static build",
+            "name": "static"
+        },
+        {
+            "default": false,
+            "description": "Build with UTF-8 support from utf8proc library",
+            "name": "utf8proc"
+        }
+    ],
     "versions": [
         {
-            "name": "3.4",
-            "sha256": "551ab8dea0bf505c0ad6b7bb35ef567cdde0ccb84357df142c254f35a23e19aa"
-        },
-        {
-            "name": "3.3a",
-            "sha256": "e4fd347843bd0772c4f48d6dde625b0b109b7a380ff15db21e97c11a4dcdf93f"
-        },
-        {
-            "name": "3.2a",
-            "sha256": "551553a4f82beaa8dadc9256800bcc284d7c000081e47aa6ecbb6ff36eacd05f"
-        },
-        {
-            "name": "3.2",
-            "sha256": "664d345338c11cbe429d7ff939b92a5191e231a7c1ef42f381cebacb1e08a399"
-        },
-        {
-            "name": "3.1c",
-            "sha256": "918f7220447bef33a1902d4faff05317afd9db4ae1c9971bef5c787ac6c88386"
-        },
-        {
-            "name": "3.1b",
-            "sha256": "d93f351d50af05a75fe6681085670c786d9504a5da2608e481c47cf5e1486db9"
-        },
-        {
-            "name": "3.1a",
-            "sha256": "10687cbb02082b8b9e076cf122f1b783acc2157be73021b4bedb47e958f4e484"
-        },
-        {
-            "name": "3.1",
-            "sha256": "979bf38db2c36193de49149aaea5c540d18e01ccc27cf76e2aff5606bd186722"
-        },
-        {
-            "name": "3.0a",
-            "sha256": "4ad1df28b4afa969e59c08061b45082fdc49ff512f30fc8e43217d7b0e5f8db9"
-        },
-        {
-            "name": "3.0",
-            "sha256": "9edcd78df80962ee2e6471a8f647602be5ded62bb41c574172bb3dc3d0b9b4b4"
-        },
-        {
-            "name": "2.9a",
-            "sha256": "839d167a4517a6bffa6b6074e89a9a8630547b2dea2086f1fad15af12ab23b25"
-        },
-        {
-            "name": "2.9",
-            "sha256": "34901232f486fd99f3a39e864575e658b5d49f43289ccc6ee57c365f2e2c2980"
-        },
-        {
-            "name": "2.8",
-            "sha256": "7f6bf335634fafecff878d78de389562ea7f73a7367f268b66d37ea13617a2ba"
-        },
-        {
-            "name": "2.7",
-            "sha256": "9ded7d100313f6bc5a87404a4048b3745d61f2332f99ec1400a7c4ed9485d452"
-        },
-        {
-            "name": "2.6",
-            "sha256": "b17cd170a94d7b58c0698752e1f4f263ab6dc47425230df7e53a6435cc7cd7e8"
-        },
-        {
-            "name": "2.5",
-            "sha256": "ae135ec37c1bf6b7750a84e3a35e93d91033a806943e034521c8af51b12d95df"
-        },
-        {
-            "name": "2.4",
-            "sha256": "757d6b13231d0d9dd48404968fc114ac09e005d475705ad0cd4b7166f799b349"
-        },
-        {
-            "name": "2.3",
-            "sha256": "55313e132f0f42de7e020bf6323a1939ee02ab79c48634aa07475db41573852b"
-        },
-        {
-            "name": "2.2",
-            "sha256": "bc28541b64f99929fe8e3ae7a02291263f3c97730781201824c0f05d7c8e19e4"
+            "name": "1.9a",
+            "sha256": "c5e3b22b901cf109b20dab54a4a651f0471abd1f79f6039d79b250d21c2733f5"
         },
         {
             "name": "2.1",
             "sha256": "31564e7bf4bcef2defb3cb34b9e596bd43a3937cad9e5438701a81a5a9af6176"
         },
         {
-            "name": "1.9a",
-            "sha256": "c5e3b22b901cf109b20dab54a4a651f0471abd1f79f6039d79b250d21c2733f5"
+            "name": "2.2",
+            "sha256": "bc28541b64f99929fe8e3ae7a02291263f3c97730781201824c0f05d7c8e19e4"
         },
         {
-            "name": "master",
-            "branch": "master"
-        }
-    ],
-    "latest_version": "3.4",
-    "build_system": "AutotoolsPackage",
-    "conflicts": [
-        {
-            "name": "arch=windows-None-None",
-            "spec": "build_system=autotools",
-            "description": null
+            "name": "2.3",
+            "sha256": "55313e132f0f42de7e020bf6323a1939ee02ab79c48634aa07475db41573852b"
         },
         {
-            "name": "+static",
-            "spec": "arch=darwin-None-None",
-            "description": "tmux: Static build not supported on MacOS"
-        }
-    ],
-    "variants": [
-        {
-            "name": "build_system",
-            "default": "autotools",
-            "description": "Build systems supported by the package"
+            "name": "2.4",
+            "sha256": "757d6b13231d0d9dd48404968fc114ac09e005d475705ad0cd4b7166f799b349"
         },
         {
-            "name": "utf8proc",
-            "default": false,
-            "description": "Build with UTF-8 support from utf8proc library"
+            "name": "2.5",
+            "sha256": "ae135ec37c1bf6b7750a84e3a35e93d91033a806943e034521c8af51b12d95df"
         },
         {
-            "name": "static",
-            "default": false,
-            "description": "Create a static build"
-        }
-    ],
-    "homepage": "https://tmux.github.io",
-    "maintainers": [],
-    "patches": [],
-    "resources": [],
-    "description": "Tmux is a terminal multiplexer. What is a terminal multiplexer? It lets\nyou switch easily between several programs in one terminal, detach them\n(they keep running in the background) and reattach them to a different\nterminal. And do a lot more.\n",
-    "dependencies": [
-        {
-            "name": "autoconf",
-            "description": "Autoconf -- system configuration part of autotools"
+            "name": "2.6",
+            "sha256": "b17cd170a94d7b58c0698752e1f4f263ab6dc47425230df7e53a6435cc7cd7e8"
         },
         {
-            "name": "automake",
-            "description": "Automake -- make file builder part of autotools"
+            "name": "2.7",
+            "sha256": "9ded7d100313f6bc5a87404a4048b3745d61f2332f99ec1400a7c4ed9485d452"
         },
         {
-            "name": "gmake",
-            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files."
+            "name": "2.8",
+            "sha256": "7f6bf335634fafecff878d78de389562ea7f73a7367f268b66d37ea13617a2ba"
         },
         {
-            "name": "gnuconfig",
-            "description": "The GNU config.guess and config.sub scripts versioned by timestamp.\nThis package can be used as a build dependency for autotools packages\nthat ship a tarball with outdated config.guess and config.sub files."
+            "name": "2.9",
+            "sha256": "34901232f486fd99f3a39e864575e658b5d49f43289ccc6ee57c365f2e2c2980"
         },
         {
-            "name": "libevent",
-            "description": "The libevent API provides a mechanism to execute a callback function\nwhen a specific event occurs on a file descriptor or after a timeout has\nbeen reached. Furthermore, libevent also support callbacks due to\nsignals or regular timeouts."
+            "name": "2.9a",
+            "sha256": "839d167a4517a6bffa6b6074e89a9a8630547b2dea2086f1fad15af12ab23b25"
         },
         {
-            "name": "ncurses",
-            "description": "The ncurses (new curses) library is a free software emulation of curses\nin System V Release 4.0, and more. It uses terminfo format, supports\npads and color and multiple highlights and forms characters and\nfunction-key mapping, and has all the other SYSV-curses enhancements\nover BSD curses."
+            "name": "3.0",
+            "sha256": "9edcd78df80962ee2e6471a8f647602be5ded62bb41c574172bb3dc3d0b9b4b4"
         },
         {
-            "name": "pkgconfig",
-            "description": "pkg-config is a helper tool used when compiling applications and\nlibraries"
+            "name": "3.0a",
+            "sha256": "4ad1df28b4afa969e59c08061b45082fdc49ff512f30fc8e43217d7b0e5f8db9"
         },
         {
-            "name": "utf8proc",
-            "description": "A clean C library for processing UTF-8 Unicode data: normalization,\ncase-folding, graphemes, and more"
+            "name": "3.1",
+            "sha256": "979bf38db2c36193de49149aaea5c540d18e01ccc27cf76e2aff5606bd186722"
         },
         {
-            "name": "yacc",
-            "description": "Bison is a general-purpose parser generator that converts an annotated\ncontext-free grammar into a deterministic LR or generalized LR (GLR)\nparser employing LALR(1) parser tables."
-        }
-    ],
-    "dependent_to": [
+            "name": "3.1a",
+            "sha256": "10687cbb02082b8b9e076cf122f1b783acc2157be73021b4bedb47e958f4e484"
+        },
         {
-            "name": "byobu",
-            "description": "Byobu: Text-based window manager and terminal multiplexer."
+            "name": "3.1b",
+            "sha256": "d93f351d50af05a75fe6681085670c786d9504a5da2608e481c47cf5e1486db9"
+        },
+        {
+            "name": "3.1c",
+            "sha256": "918f7220447bef33a1902d4faff05317afd9db4ae1c9971bef5c787ac6c88386"
+        },
+        {
+            "name": "3.2",
+            "sha256": "664d345338c11cbe429d7ff939b92a5191e231a7c1ef42f381cebacb1e08a399"
+        },
+        {
+            "name": "3.2a",
+            "sha256": "551553a4f82beaa8dadc9256800bcc284d7c000081e47aa6ecbb6ff36eacd05f"
+        },
+        {
+            "name": "3.3a",
+            "sha256": "e4fd347843bd0772c4f48d6dde625b0b109b7a380ff15db21e97c11a4dcdf93f"
+        },
+        {
+            "name": "3.4",
+            "sha256": "551ab8dea0bf505c0ad6b7bb35ef567cdde0ccb84357df142c254f35a23e19aa"
+        },
+        {
+            "branch": "master",
+            "name": "master"
         }
     ]
 }

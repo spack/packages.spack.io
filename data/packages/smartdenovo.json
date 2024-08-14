@@ -1,61 +1,61 @@
 {
-    "name": "smartdenovo",
     "aliases": [],
-    "versions": [
-        {
-            "name": "master",
-            "branch": "master"
-        }
-    ],
-    "latest_version": "master",
     "build_system": "MakefilePackage",
     "conflicts": [
         {
+            "description": null,
             "name": "arch=windows-None-None",
-            "spec": "build_system=makefile",
-            "description": null
+            "spec": "build_system=makefile"
         }
     ],
-    "variants": [
+    "dependencies": [
         {
-            "name": "build_system",
-            "default": "makefile",
-            "description": "Build systems supported by the package"
-        }
-    ],
-    "homepage": "https://github.com/ruanjue/smartdenovo",
-    "maintainers": [],
-    "patches": [
-        {
-            "owner": "builtin.smartdenovo",
-            "sha256": "3331e3f018811c7fa9c6a6964dc5096c05e1a9644e2fda80ee950851aa14c6c8",
-            "level": 1,
-            "working_dir": ".",
-            "reverse": false,
-            "relative_path": "aarch64.patch",
-            "version": "arch=None-None-aarch64:"
+            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files.",
+            "name": "gmake"
         },
         {
-            "owner": "builtin.smartdenovo",
-            "sha256": "9f514ed72c37cf52ee2ffbe06f9ca1ed5a3e0819dab5876ecd83107c5e5bed81",
+            "description": "A C/C++ header file that converts Intel SSE intrinsics to Arm/Aarch64\nNEON intrinsics.",
+            "name": "sse2neon"
+        }
+    ],
+    "dependent_to": [],
+    "description": "SMARTdenovo is a de novo assembler for PacBio and Oxford Nanopore (ONT)\ndata.\n",
+    "homepage": "https://github.com/ruanjue/smartdenovo",
+    "latest_version": "master",
+    "maintainers": [],
+    "name": "smartdenovo",
+    "patches": [
+        {
             "level": 1,
-            "working_dir": ".",
+            "owner": "builtin.smartdenovo",
+            "relative_path": "aarch64.patch",
             "reverse": false,
+            "sha256": "3331e3f018811c7fa9c6a6964dc5096c05e1a9644e2fda80ee950851aa14c6c8",
+            "version": "arch=None-None-aarch64:",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.smartdenovo",
             "relative_path": "inline-limit.patch",
-            "version": ""
+            "reverse": false,
+            "sha256": "9f514ed72c37cf52ee2ffbe06f9ca1ed5a3e0819dab5876ecd83107c5e5bed81",
+            "version": "",
+            "working_dir": "."
         }
     ],
     "resources": [],
-    "description": "SMARTdenovo is a de novo assembler for PacBio and Oxford Nanopore (ONT)\ndata.\n",
-    "dependencies": [
+    "variants": [
         {
-            "name": "gmake",
-            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files."
-        },
-        {
-            "name": "sse2neon",
-            "description": "A C/C++ header file that converts Intel SSE intrinsics to Arm/Aarch64\nNEON intrinsics."
+            "default": "makefile",
+            "description": "Build systems supported by the package",
+            "name": "build_system"
         }
     ],
-    "dependent_to": []
+    "versions": [
+        {
+            "branch": "master",
+            "name": "master"
+        }
+    ]
 }

@@ -1,204 +1,204 @@
 {
-    "name": "fleur",
     "aliases": [],
-    "versions": [
-        {
-            "name": "develop",
-            "branch": "develop"
-        },
-        {
-            "name": "5.1",
-            "commit": "a482abd9511b16412c2222e2ac1b1a303acd454b",
-            "tag": "MaX-R5.1"
-        },
-        {
-            "name": "5.0",
-            "commit": "f2df362c3dad6ef39938807ea14e4ec4cb677723",
-            "tag": "MaX-R5"
-        },
-        {
-            "name": "4.0",
-            "commit": "ea0db7877451e6240124e960c5546318c9ab3953",
-            "tag": "MaX-R4"
-        },
-        {
-            "name": "3.1",
-            "commit": "f6288a0699604ad9e11efbfcde824b96db429404",
-            "tag": "MaX-R3.1"
-        }
-    ],
-    "latest_version": "5.1",
     "build_system": "Package",
     "conflicts": [
         {
-            "name": "%intel@:16.0.4",
-            "spec": "",
-            "description": "fleur: ifort version <16.0 will most probably not work correctly"
-        },
-        {
+            "description": "fleur: gfortran is known to work with versions newer than v6.3",
             "name": "%gcc@:6.3.0",
-            "spec": "",
-            "description": "fleur: gfortran is known to work with versions newer than v6.3"
+            "spec": ""
         },
         {
+            "description": "fleur: ifort version <16.0 will most probably not work correctly",
+            "name": "%intel@:16.0.4",
+            "spec": ""
+        },
+        {
+            "description": "fleur: You need at least PGI version 18.4                    but might still run into some problems.",
             "name": "%pgi@:18.4.0",
-            "spec": "",
-            "description": "fleur: You need at least PGI version 18.4                    but might still run into some problems."
+            "spec": ""
         },
         {
+            "description": "fleur: ELPA requires scalapack support",
             "name": "~scalapack",
-            "spec": "+elpa",
-            "description": "fleur: ELPA requires scalapack support"
+            "spec": "+elpa"
         },
         {
-            "name": "@:5.0",
-            "spec": "fft=fftw",
-            "description": "fleur: FFTW interface is supported from Fleur v5.0"
-        },
-        {
-            "name": "@:5.0",
-            "spec": "+wannier90",
-            "description": "fleur: wannier90 is supported from Fleur v5.0"
-        },
-        {
+            "description": "fleur: External libxc is supported from Fleur v4.0",
             "name": "@:4.0",
-            "spec": "+spfft",
-            "description": "fleur: SpFFT is supported from Fleur v4.0"
+            "spec": "+external_libxc"
         },
         {
+            "description": "fleur: SpFFT is supported from Fleur v4.0",
             "name": "@:4.0",
-            "spec": "+external_libxc",
-            "description": "fleur: External libxc is supported from Fleur v4.0"
+            "spec": "+spfft"
+        },
+        {
+            "description": "fleur: wannier90 is supported from Fleur v5.0",
+            "name": "@:5.0",
+            "spec": "+wannier90"
+        },
+        {
+            "description": "fleur: FFTW interface is supported from Fleur v5.0",
+            "name": "@:5.0",
+            "spec": "fft=fftw"
         }
     ],
-    "variants": [
-        {
-            "name": "build_system",
-            "default": "generic",
-            "description": "Build systems supported by the package"
-        },
-        {
-            "name": "mpi",
-            "default": true,
-            "description": "Enable MPI support"
-        },
-        {
-            "name": "hdf5",
-            "default": false,
-            "description": "Enable HDF5 support"
-        },
-        {
-            "name": "scalapack",
-            "default": false,
-            "description": "Enable SCALAPACK"
-        },
-        {
-            "name": "fft",
-            "default": "internal",
-            "description": "Enable the use of Intel MKL FFT/FFTW provider"
-        },
-        {
-            "name": "elpa",
-            "default": false,
-            "description": "Enable ELPA support"
-        },
-        {
-            "name": "magma",
-            "default": false,
-            "description": "Enable Magma support"
-        },
-        {
-            "name": "external_libxc",
-            "default": false,
-            "description": "Enable external libxc support"
-        },
-        {
-            "name": "spfft",
-            "default": false,
-            "description": "Enable spfft support"
-        },
-        {
-            "name": "wannier90",
-            "default": false,
-            "description": "Enable wannier90 support"
-        },
-        {
-            "name": "openmp",
-            "default": false,
-            "description": "Enable OpenMP support."
-        },
-        {
-            "name": "build_type",
-            "default": "RelWithDebInfo",
-            "description": "The build type to build"
-        }
-    ],
-    "homepage": "https://www.flapw.de/MaX-5.1",
-    "maintainers": [],
-    "patches": [],
-    "resources": [],
-    "description": "FLEUR (Full-potential Linearised augmented plane wave in EURope) is a\ncode family for calculating groundstate as well as excited-state\nproperties of solids within the context of density functional theory\n(DFT).\n",
     "dependencies": [
         {
-            "name": "blas",
-            "description": "BLIS is a portable software framework for instantiating high-performance\nBLAS-like dense linear algebra libraries. The framework was designed to\nisolate essential kernels of computation that, when optimized,\nimmediately enable optimized implementations of most of its commonly\nused and computationally intensive operations. BLIS is written in ISO\nC99 and available under a new/modified/3-clause BSD license. While BLIS\nexports a new BLAS-like API, it also includes a BLAS compatibility layer\nwhich gives application developers access to BLIS implementations via\ntraditional BLAS routine calls. An object-based API unique to BLIS is\nalso available."
+            "description": "Lightweight but flexible shim designed to rectify the incompatibilities\nbetween the Accelerate/vecLib BLAS and LAPACK libraries shipped with\nmacOS and FORTRAN code compiled with modern compilers such as GNU\nFortran.",
+            "name": "blas"
         },
         {
-            "name": "cmake",
-            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software.",
+            "name": "cmake"
         },
         {
-            "name": "elpa",
-            "description": "Eigenvalue solvers for Petaflop-Applications (ELPA)"
+            "description": "Eigenvalue solvers for Petaflop-Applications (ELPA)",
+            "name": "elpa"
         },
         {
-            "name": "fftw-api",
-            "description": "Arm Performance Libraries provides optimized standard core math\nlibraries for high-performance computing applications on Arm processors."
+            "description": "This is an earlier version of Intel parallel software development tools\nand has now been replaced by the Intel oneAPI Toolkits. LICENSE\nINFORMATION: By downloading and using this software, you agree to the\nterms and conditions of the software license agreements at\nhttps://intel.ly/393CijO.",
+            "name": "fftw-api"
         },
         {
-            "name": "hdf5",
-            "description": "HDF5 is a data model, library, and file format for storing and managing\ndata. It supports an unlimited variety of datatypes, and is designed for\nflexible and efficient I/O and for high volume and complex data."
+            "description": "HDF5 is a data model, library, and file format for storing and managing\ndata. It supports an unlimited variety of datatypes, and is designed for\nflexible and efficient I/O and for high volume and complex data.",
+            "name": "hdf5"
         },
         {
-            "name": "intel-mkl",
-            "description": "Intel Math Kernel Library. This package has been replaced by intel-\noneapi-mkl. LICENSE INFORMATION: By downloading and using this software,\nyou agree to the terms and conditions of the software license agreements\nat https://intel.ly/393CijO."
+            "description": "Intel Math Kernel Library. This package has been replaced by intel-\noneapi-mkl. LICENSE INFORMATION: By downloading and using this software,\nyou agree to the terms and conditions of the software license agreements\nat https://intel.ly/393CijO.",
+            "name": "intel-mkl"
         },
         {
-            "name": "lapack",
-            "description": "Lightweight but flexible shim designed to rectify the incompatibilities\nbetween the Accelerate/vecLib BLAS and LAPACK libraries shipped with\nmacOS and FORTRAN code compiled with modern compilers such as GNU\nFortran."
+            "description": "Lightweight but flexible shim designed to rectify the incompatibilities\nbetween the Accelerate/vecLib BLAS and LAPACK libraries shipped with\nmacOS and FORTRAN code compiled with modern compilers such as GNU\nFortran.",
+            "name": "lapack"
         },
         {
-            "name": "libxc",
-            "description": "Libxc is a library of exchange-correlation functionals for density-\nfunctional theory."
+            "description": "Libxc is a library of exchange-correlation functionals for density-\nfunctional theory.",
+            "name": "libxc"
         },
         {
-            "name": "libxml2",
-            "description": "Libxml2 is the XML C parser and toolkit developed for the Gnome project\n(but usable outside of the Gnome platform), it is free software\navailable under the MIT License."
+            "description": "Libxml2 is the XML C parser and toolkit developed for the Gnome project\n(but usable outside of the Gnome platform), it is free software\navailable under the MIT License.",
+            "name": "libxml2"
         },
         {
-            "name": "magma",
-            "description": "The MAGMA project aims to develop a dense linear algebra library similar\nto LAPACK but for heterogeneous/hybrid architectures, starting with\ncurrent \"Multicore+GPU\" systems."
+            "description": "The MAGMA project aims to develop a dense linear algebra library similar\nto LAPACK but for heterogeneous/hybrid architectures, starting with\ncurrent \"Multicore+GPU\" systems.",
+            "name": "magma"
         },
         {
-            "name": "mpi",
-            "description": "A single processor implementation of the mpi library."
+            "description": "IBM MPI implementation from Spectrum MPI.",
+            "name": "mpi"
         },
         {
-            "name": "python",
-            "description": "The Python programming language."
+            "description": "The Python programming language.",
+            "name": "python"
         },
         {
-            "name": "scalapack",
-            "description": "Intel Math Kernel Library. This package has been replaced by intel-\noneapi-mkl. LICENSE INFORMATION: By downloading and using this software,\nyou agree to the terms and conditions of the software license agreements\nat https://intel.ly/393CijO."
+            "description": "ScaLAPACK is a library of high-performance linear algebra routines for\nparallel distributed memory machines",
+            "name": "scalapack"
         },
         {
-            "name": "spfft",
-            "description": "Sparse 3D FFT library with MPI, OpenMP, CUDA and ROCm support."
+            "description": "Sparse 3D FFT library with MPI, OpenMP, CUDA and ROCm support.",
+            "name": "spfft"
         },
         {
-            "name": "wannier90",
-            "description": "Wannier90 calculates maximally-localised Wannier functions (MLWFs).\nWannier90 is released under the GNU General Public License."
+            "description": "Wannier90 calculates maximally-localised Wannier functions (MLWFs).\nWannier90 is released under the GNU General Public License.",
+            "name": "wannier90"
         }
     ],
-    "dependent_to": []
+    "dependent_to": [],
+    "description": "FLEUR (Full-potential Linearised augmented plane wave in EURope) is a\ncode family for calculating groundstate as well as excited-state\nproperties of solids within the context of density functional theory\n(DFT).\n",
+    "homepage": "https://www.flapw.de/MaX-5.1",
+    "latest_version": "5.1",
+    "maintainers": [],
+    "name": "fleur",
+    "patches": [],
+    "resources": [],
+    "variants": [
+        {
+            "default": "generic",
+            "description": "Build systems supported by the package",
+            "name": "build_system"
+        },
+        {
+            "default": "RelWithDebInfo",
+            "description": "The build type to build",
+            "name": "build_type"
+        },
+        {
+            "default": false,
+            "description": "Enable ELPA support",
+            "name": "elpa"
+        },
+        {
+            "default": false,
+            "description": "Enable external libxc support",
+            "name": "external_libxc"
+        },
+        {
+            "default": "internal",
+            "description": "Enable the use of Intel MKL FFT/FFTW provider",
+            "name": "fft"
+        },
+        {
+            "default": false,
+            "description": "Enable HDF5 support",
+            "name": "hdf5"
+        },
+        {
+            "default": false,
+            "description": "Enable Magma support",
+            "name": "magma"
+        },
+        {
+            "default": true,
+            "description": "Enable MPI support",
+            "name": "mpi"
+        },
+        {
+            "default": false,
+            "description": "Enable OpenMP support.",
+            "name": "openmp"
+        },
+        {
+            "default": false,
+            "description": "Enable SCALAPACK",
+            "name": "scalapack"
+        },
+        {
+            "default": false,
+            "description": "Enable spfft support",
+            "name": "spfft"
+        },
+        {
+            "default": false,
+            "description": "Enable wannier90 support",
+            "name": "wannier90"
+        }
+    ],
+    "versions": [
+        {
+            "commit": "f6288a0699604ad9e11efbfcde824b96db429404",
+            "name": "3.1",
+            "tag": "MaX-R3.1"
+        },
+        {
+            "commit": "ea0db7877451e6240124e960c5546318c9ab3953",
+            "name": "4.0",
+            "tag": "MaX-R4"
+        },
+        {
+            "commit": "f2df362c3dad6ef39938807ea14e4ec4cb677723",
+            "name": "5.0",
+            "tag": "MaX-R5"
+        },
+        {
+            "commit": "a482abd9511b16412c2222e2ac1b1a303acd454b",
+            "name": "5.1",
+            "tag": "MaX-R5.1"
+        },
+        {
+            "branch": "develop",
+            "name": "develop"
+        }
+    ]
 }

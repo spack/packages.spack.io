@@ -1,10 +1,174 @@
 {
-    "name": "squashfs",
     "aliases": [],
+    "build_system": "MakefilePackage",
+    "conflicts": [
+        {
+            "description": null,
+            "name": "arch=windows-None-None",
+            "spec": "build_system=makefile"
+        },
+        {
+            "description": "squashfs: Cannot set default compression to missing algorithm",
+            "name": "squashfs~gzip default_compression=gzip",
+            "spec": ""
+        },
+        {
+            "description": "squashfs: Cannot set default compression to missing algorithm",
+            "name": "squashfs~lz4 default_compression=lz4",
+            "spec": ""
+        },
+        {
+            "description": "squashfs: Cannot set default compression to missing algorithm",
+            "name": "squashfs~lzo default_compression=lzo",
+            "spec": ""
+        },
+        {
+            "description": "squashfs: Cannot set default compression to missing algorithm",
+            "name": "squashfs~xz default_compression=xz",
+            "spec": ""
+        },
+        {
+            "description": "squashfs: Cannot set default compression to missing algorithm",
+            "name": "squashfs~zstd default_compression=zstd",
+            "spec": ""
+        }
+    ],
+    "dependencies": [
+        {
+            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files.",
+            "name": "gmake"
+        },
+        {
+            "description": "LZ4 is lossless compression algorithm, providing compression speed at\n400 MB/s per core, scalable with multi-cores CPU. It also features an\nextremely fast decoder, with speed in multiple GB/s per core, typically\nreaching RAM speed limits on multi-core systems.",
+            "name": "lz4"
+        },
+        {
+            "description": "Real-time data compression library",
+            "name": "lzo"
+        },
+        {
+            "description": "XZ Utils is free general-purpose data compression software with high\ncompression ratio. XZ Utils were written for POSIX-like systems, but\nalso work on some not-so-POSIX systems. XZ Utils are the successor to\nLZMA Utils.",
+            "name": "xz"
+        },
+        {
+            "description": "zlib replacement with optimizations for next generation systems.",
+            "name": "zlib-api"
+        },
+        {
+            "description": "Zstandard, or zstd as short version, is a fast lossless compression\nalgorithm, targeting real-time compression scenarios at zlib-level and\nbetter compression ratios.",
+            "name": "zstd"
+        }
+    ],
+    "dependent_to": [
+        {
+            "description": "Apptainer is an open source container platform designed to be simple,\nfast, and secure. Many container platforms are available, but Apptainer\nis designed for ease-of-use on shared systems and in high performance\ncomputing (HPC) environments. Needs post-install chmod/chown steps to\nenable full functionality. See package definition or `spack-build-\nout.txt` build log for details, e.g.: tail -15 $(spack location -i\napptainer)/.spack/spack-build-out.txt",
+            "name": "apptainer"
+        },
+        {
+            "description": "Sarus is an OCI-compliant container engine for HPC systems.",
+            "name": "sarus"
+        },
+        {
+            "description": "Singularity is a container technology focused on building portable\nencapsulated environments to support \"Mobility of Compute\" For older\nversions of Singularity (pre 3.0) you should use singularity-legacy,\nwhich has a different install base (Autotools). Needs post-install\nchmod/chown steps to enable full functionality. See package definition\nor `spack-build-out.txt` build log for details, e.g. tail -15 $(spack\nlocation -i singularity)/.spack/spack-build-out.txt",
+            "name": "singularity"
+        },
+        {
+            "description": "Singularity is a container technology focused on building portable\nencapsulated environments to support \"Mobility of Compute\" For older\nversions of Singularity (pre 3.0) you should use singularity-legacy,\nwhich has a different install base (Autotools). Needs post-install\nchmod/chown steps to enable full functionality. See package definition\nor `spack-build-out.txt` build log for details, e.g. tail -15 $(spack\nlocation -i singularityce)/.spack/spack-build-out.txt",
+            "name": "singularityce"
+        }
+    ],
+    "description": "Squashfs - read only compressed filesystem\n",
+    "homepage": "https://squashfs.sourceforge.net",
+    "latest_version": "4.6.1",
+    "maintainers": [],
+    "name": "squashfs",
+    "patches": [
+        {
+            "level": 1,
+            "owner": "builtin.squashfs",
+            "relative_path": "gcc-10.patch",
+            "reverse": false,
+            "sha256": "902c102d42318debc54426bcb482459a97a992866bc4872676ce63735d91d145",
+            "version": "@:4.4%gcc@10:",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.squashfs",
+            "relative_path": "gcc-10.patch",
+            "reverse": false,
+            "sha256": "902c102d42318debc54426bcb482459a97a992866bc4872676ce63735d91d145",
+            "version": "@:4.4%clang@11:",
+            "working_dir": "."
+        }
+    ],
+    "resources": [],
+    "variants": [
+        {
+            "default": "makefile",
+            "description": "Build systems supported by the package",
+            "name": "build_system"
+        },
+        {
+            "default": "gzip",
+            "description": "Default compression algorithm",
+            "name": "default_compression"
+        },
+        {
+            "default": true,
+            "description": "Enable gzip compression support",
+            "name": "gzip"
+        },
+        {
+            "default": false,
+            "description": "Enable LZ4 compression support",
+            "name": "lz4"
+        },
+        {
+            "default": false,
+            "description": "Enable LZO compression support",
+            "name": "lzo"
+        },
+        {
+            "default": false,
+            "description": "Build fully static mksquashfs executable",
+            "name": "static"
+        },
+        {
+            "default": false,
+            "description": "Enable xz compression support",
+            "name": "xz"
+        },
+        {
+            "default": false,
+            "description": "Enable Zstandard/zstd support",
+            "name": "zstd"
+        }
+    ],
     "versions": [
         {
-            "name": "4.6.1",
-            "sha256": "94201754b36121a9f022a190c75f718441df15402df32c2b520ca331a107511c"
+            "name": "4.0",
+            "sha256": "18948edbe06bac2c4307eea99bfb962643e4b82e5b7edd541b4d743748e12e21"
+        },
+        {
+            "name": "4.1",
+            "sha256": "3a870d065a25b3f5467bc6d9ed34340befab51a3f9e4b7e3792ea0ff4e06046a"
+        },
+        {
+            "name": "4.2",
+            "sha256": "d9e0195aa922dbb665ed322b9aaa96e04a476ee650f39bbeadb0d00b24022e96"
+        },
+        {
+            "name": "4.3",
+            "sha256": "0d605512437b1eb800b4736791559295ee5f60177e102e4d4ccd0ee241a5f3f6"
+        },
+        {
+            "name": "4.4",
+            "sha256": "a981b3f3f2054b5a2e658851a3c06a2460ad04a9a8a645e0afe063a63fdbb07e"
+        },
+        {
+            "name": "4.5",
+            "sha256": "c493b29c3d152789d04fae5e6532499d96ce3f79256bc6df4f97b5170c88e979"
         },
         {
             "name": "4.5.1",
@@ -12,172 +176,8 @@
             "url": "https://downloads.sourceforge.net/project/squashfs/squashfs/squashfs4.5.1/squashfs-tools-4.5.1.tar.gz"
         },
         {
-            "name": "4.5",
-            "sha256": "c493b29c3d152789d04fae5e6532499d96ce3f79256bc6df4f97b5170c88e979"
-        },
-        {
-            "name": "4.4",
-            "sha256": "a981b3f3f2054b5a2e658851a3c06a2460ad04a9a8a645e0afe063a63fdbb07e"
-        },
-        {
-            "name": "4.3",
-            "sha256": "0d605512437b1eb800b4736791559295ee5f60177e102e4d4ccd0ee241a5f3f6"
-        },
-        {
-            "name": "4.2",
-            "sha256": "d9e0195aa922dbb665ed322b9aaa96e04a476ee650f39bbeadb0d00b24022e96"
-        },
-        {
-            "name": "4.1",
-            "sha256": "3a870d065a25b3f5467bc6d9ed34340befab51a3f9e4b7e3792ea0ff4e06046a"
-        },
-        {
-            "name": "4.0",
-            "sha256": "18948edbe06bac2c4307eea99bfb962643e4b82e5b7edd541b4d743748e12e21"
-        }
-    ],
-    "latest_version": "4.6.1",
-    "build_system": "MakefilePackage",
-    "conflicts": [
-        {
-            "name": "arch=windows-None-None",
-            "spec": "build_system=makefile",
-            "description": null
-        },
-        {
-            "name": "squashfs~gzip default_compression=gzip",
-            "spec": "",
-            "description": "squashfs: Cannot set default compression to missing algorithm"
-        },
-        {
-            "name": "squashfs~lz4 default_compression=lz4",
-            "spec": "",
-            "description": "squashfs: Cannot set default compression to missing algorithm"
-        },
-        {
-            "name": "squashfs~lzo default_compression=lzo",
-            "spec": "",
-            "description": "squashfs: Cannot set default compression to missing algorithm"
-        },
-        {
-            "name": "squashfs~xz default_compression=xz",
-            "spec": "",
-            "description": "squashfs: Cannot set default compression to missing algorithm"
-        },
-        {
-            "name": "squashfs~zstd default_compression=zstd",
-            "spec": "",
-            "description": "squashfs: Cannot set default compression to missing algorithm"
-        }
-    ],
-    "variants": [
-        {
-            "name": "build_system",
-            "default": "makefile",
-            "description": "Build systems supported by the package"
-        },
-        {
-            "name": "gzip",
-            "default": true,
-            "description": "Enable gzip compression support"
-        },
-        {
-            "name": "lz4",
-            "default": false,
-            "description": "Enable LZ4 compression support"
-        },
-        {
-            "name": "lzo",
-            "default": false,
-            "description": "Enable LZO compression support"
-        },
-        {
-            "name": "xz",
-            "default": false,
-            "description": "Enable xz compression support"
-        },
-        {
-            "name": "zstd",
-            "default": false,
-            "description": "Enable Zstandard/zstd support"
-        },
-        {
-            "name": "default_compression",
-            "default": "gzip",
-            "description": "Default compression algorithm"
-        },
-        {
-            "name": "static",
-            "default": false,
-            "description": "Build fully static mksquashfs executable"
-        }
-    ],
-    "homepage": "https://squashfs.sourceforge.net",
-    "maintainers": [],
-    "patches": [
-        {
-            "owner": "builtin.squashfs",
-            "sha256": "902c102d42318debc54426bcb482459a97a992866bc4872676ce63735d91d145",
-            "level": 1,
-            "working_dir": ".",
-            "reverse": false,
-            "relative_path": "gcc-10.patch",
-            "version": "@:4.4%gcc@10:"
-        },
-        {
-            "owner": "builtin.squashfs",
-            "sha256": "902c102d42318debc54426bcb482459a97a992866bc4872676ce63735d91d145",
-            "level": 1,
-            "working_dir": ".",
-            "reverse": false,
-            "relative_path": "gcc-10.patch",
-            "version": "@:4.4%clang@11:"
-        }
-    ],
-    "resources": [],
-    "description": "Squashfs - read only compressed filesystem\n",
-    "dependencies": [
-        {
-            "name": "gmake",
-            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files."
-        },
-        {
-            "name": "lz4",
-            "description": "LZ4 is lossless compression algorithm, providing compression speed at\n400 MB/s per core, scalable with multi-cores CPU. It also features an\nextremely fast decoder, with speed in multiple GB/s per core, typically\nreaching RAM speed limits on multi-core systems."
-        },
-        {
-            "name": "lzo",
-            "description": "Real-time data compression library"
-        },
-        {
-            "name": "xz",
-            "description": "XZ Utils is free general-purpose data compression software with high\ncompression ratio. XZ Utils were written for POSIX-like systems, but\nalso work on some not-so-POSIX systems. XZ Utils are the successor to\nLZMA Utils."
-        },
-        {
-            "name": "zlib-api",
-            "description": "zlib replacement with optimizations for next generation systems."
-        },
-        {
-            "name": "zstd",
-            "description": "Zstandard, or zstd as short version, is a fast lossless compression\nalgorithm, targeting real-time compression scenarios at zlib-level and\nbetter compression ratios."
-        }
-    ],
-    "dependent_to": [
-        {
-            "name": "sarus",
-            "description": "Sarus is an OCI-compliant container engine for HPC systems."
-        },
-        {
-            "name": "singularity",
-            "description": "Singularity is a container technology focused on building portable\nencapsulated environments to support \"Mobility of Compute\" For older\nversions of Singularity (pre 3.0) you should use singularity-legacy,\nwhich has a different install base (Autotools). Needs post-install\nchmod/chown steps to enable full functionality. See package definition\nor `spack-build-out.txt` build log for details, e.g. tail -15 $(spack\nlocation -i singularity)/.spack/spack-build-out.txt"
-        },
-        {
-            "name": "singularityce",
-            "description": "Singularity is a container technology focused on building portable\nencapsulated environments to support \"Mobility of Compute\" For older\nversions of Singularity (pre 3.0) you should use singularity-legacy,\nwhich has a different install base (Autotools). Needs post-install\nchmod/chown steps to enable full functionality. See package definition\nor `spack-build-out.txt` build log for details, e.g. tail -15 $(spack\nlocation -i singularityce)/.spack/spack-build-out.txt"
-        },
-        {
-            "name": "apptainer",
-            "description": "Apptainer is an open source container platform designed to be simple,\nfast, and secure. Many container platforms are available, but Apptainer\nis designed for ease-of-use on shared systems and in high performance\ncomputing (HPC) environments. Needs post-install chmod/chown steps to\nenable full functionality. See package definition or `spack-build-\nout.txt` build log for details, e.g.: tail -15 $(spack location -i\napptainer)/.spack/spack-build-out.txt"
+            "name": "4.6.1",
+            "sha256": "94201754b36121a9f022a190c75f718441df15402df32c2b520ca331a107511c"
         }
     ]
 }

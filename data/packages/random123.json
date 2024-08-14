@@ -1,15 +1,77 @@
 {
-    "name": "random123",
     "aliases": [],
-    "versions": [
+    "build_system": "Package",
+    "conflicts": [],
+    "dependencies": [],
+    "dependent_to": [
         {
-            "name": "1.14.0",
-            "sha256": "effafd8656b18030b2a5b995cd3650c51a7c45052e6e1c21e48b9fa7a59d926e"
+            "description": "Arbor is a high-performance library for computational neuroscience\nsimulations.",
+            "name": "arbor"
         },
         {
-            "name": "1.13.2",
-            "sha256": "74a1c6bb66b2684f03d3b1008642a2e9141909103cd09f428d2c60bcaa51cb40",
-            "url": "https://www.deshawresearch.com/downloads/download_random123.cgi/Random123-1.13.2.tar.gz"
+            "description": "Draco is an object-oriented component library geared towards numerically\nintensive, radiation (particle) transport applications built for\nparallel computing hardware. It consists of semi-independent packages\nand a robust build system.",
+            "name": "draco"
+        },
+        {
+            "description": "NuT is Monte Carlo code for neutrino transport and is a C++ analog to\nthe Haskell McPhD code. NuT is principally aimed at exploring on-node\nparallelism and performance issues.",
+            "name": "nut"
+        },
+        {
+            "description": "PETSc is a suite of data structures and routines for the scalable\n(parallel) solution of scientific applications modeled by partial\ndifferential equations.",
+            "name": "petsc"
+        },
+        {
+            "description": "STochastic Engine for Pathway Simulation",
+            "name": "steps"
+        }
+    ],
+    "description": "Random123 is a library of 'counter-based' random number generators\n(CBRNGs), in which the Nth random number can be obtained by applying a\nstateless mixing function to N instead of the conventional approach of\nusing N iterations of a stateful transformation.\n",
+    "homepage": "https://www.deshawresearch.com/resources_random123.html",
+    "latest_version": "1.14.0",
+    "maintainers": [],
+    "name": "random123",
+    "patches": [
+        {
+            "level": 1,
+            "owner": "builtin.random123",
+            "relative_path": "ibmxl.patch",
+            "reverse": false,
+            "sha256": "2066b0c6872bb9c48cc310907ff85b20f223d0850004348bd9b8b9134a19b722",
+            "version": "@1.09",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.random123",
+            "relative_path": "arm-gcc.patch",
+            "reverse": false,
+            "sha256": "09dfa69a7c5d0a0bc290d5c4a81b87da1d846a55be2052cf97edb885de5fb4f2",
+            "version": "@1.09",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.random123",
+            "relative_path": "v1132-xl161.patch",
+            "reverse": false,
+            "sha256": "ceda9371f95401922515a1acd35891079cdbaa825ee1d998d6f31995e96aa282",
+            "version": "@1.13.2",
+            "working_dir": "."
+        }
+    ],
+    "resources": [],
+    "variants": [
+        {
+            "default": "generic",
+            "description": "Build systems supported by the package",
+            "name": "build_system"
+        }
+    ],
+    "versions": [
+        {
+            "name": "1.09",
+            "sha256": "cf6abf623061bcf3d17e5e49bf3f3f0ae400ee89ae2e97c8cb8dcb918b1ebabe",
+            "url": "https://www.deshawresearch.com/downloads/download_random123.cgi/Random123-1.09.tar.gz"
         },
         {
             "name": "1.10",
@@ -17,75 +79,13 @@
             "url": "https://www.deshawresearch.com/downloads/download_random123.cgi/Random123-1.10.tar.gz"
         },
         {
-            "name": "1.09",
-            "sha256": "cf6abf623061bcf3d17e5e49bf3f3f0ae400ee89ae2e97c8cb8dcb918b1ebabe",
-            "url": "https://www.deshawresearch.com/downloads/download_random123.cgi/Random123-1.09.tar.gz"
-        }
-    ],
-    "latest_version": "1.14.0",
-    "build_system": "Package",
-    "conflicts": [],
-    "variants": [
-        {
-            "name": "build_system",
-            "default": "generic",
-            "description": "Build systems supported by the package"
-        }
-    ],
-    "homepage": "https://www.deshawresearch.com/resources_random123.html",
-    "maintainers": [],
-    "patches": [
-        {
-            "owner": "builtin.random123",
-            "sha256": "2066b0c6872bb9c48cc310907ff85b20f223d0850004348bd9b8b9134a19b722",
-            "level": 1,
-            "working_dir": ".",
-            "reverse": false,
-            "relative_path": "ibmxl.patch",
-            "version": "@1.09"
+            "name": "1.13.2",
+            "sha256": "74a1c6bb66b2684f03d3b1008642a2e9141909103cd09f428d2c60bcaa51cb40",
+            "url": "https://www.deshawresearch.com/downloads/download_random123.cgi/Random123-1.13.2.tar.gz"
         },
         {
-            "owner": "builtin.random123",
-            "sha256": "09dfa69a7c5d0a0bc290d5c4a81b87da1d846a55be2052cf97edb885de5fb4f2",
-            "level": 1,
-            "working_dir": ".",
-            "reverse": false,
-            "relative_path": "arm-gcc.patch",
-            "version": "@1.09"
-        },
-        {
-            "owner": "builtin.random123",
-            "sha256": "ceda9371f95401922515a1acd35891079cdbaa825ee1d998d6f31995e96aa282",
-            "level": 1,
-            "working_dir": ".",
-            "reverse": false,
-            "relative_path": "v1132-xl161.patch",
-            "version": "@1.13.2"
-        }
-    ],
-    "resources": [],
-    "description": "Random123 is a library of 'counter-based' random number generators\n(CBRNGs), in which the Nth random number can be obtained by applying a\nstateless mixing function to N instead of the conventional approach of\nusing N iterations of a stateful transformation.\n",
-    "dependencies": [],
-    "dependent_to": [
-        {
-            "name": "arbor",
-            "description": "Arbor is a high-performance library for computational neuroscience\nsimulations."
-        },
-        {
-            "name": "steps",
-            "description": "STochastic Engine for Pathway Simulation"
-        },
-        {
-            "name": "nut",
-            "description": "NuT is Monte Carlo code for neutrino transport and is a C++ analog to\nthe Haskell McPhD code. NuT is principally aimed at exploring on-node\nparallelism and performance issues."
-        },
-        {
-            "name": "petsc",
-            "description": "PETSc is a suite of data structures and routines for the scalable\n(parallel) solution of scientific applications modeled by partial\ndifferential equations."
-        },
-        {
-            "name": "draco",
-            "description": "Draco is an object-oriented component library geared towards numerically\nintensive, radiation (particle) transport applications built for\nparallel computing hardware. It consists of semi-independent packages\nand a robust build system."
+            "name": "1.14.0",
+            "sha256": "effafd8656b18030b2a5b995cd3650c51a7c45052e6e1c21e48b9fa7a59d926e"
         }
     ]
 }

@@ -1,96 +1,96 @@
 {
-    "name": "ffb",
     "aliases": [],
+    "build_system": "MakefilePackage",
+    "conflicts": [
+        {
+            "description": null,
+            "name": "arch=windows-None-None",
+            "spec": "build_system=makefile"
+        }
+    ],
+    "dependencies": [
+        {
+            "description": "Lightweight but flexible shim designed to rectify the incompatibilities\nbetween the Accelerate/vecLib BLAS and LAPACK libraries shipped with\nmacOS and FORTRAN code compiled with modern compilers such as GNU\nFortran.",
+            "name": "blas"
+        },
+        {
+            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files.",
+            "name": "gmake"
+        },
+        {
+            "description": "IBM MPI implementation from Spectrum MPI.",
+            "name": "mpi"
+        },
+        {
+            "description": "ScaLAPACK is a library of high-performance linear algebra routines for\nparallel distributed memory machines",
+            "name": "scalapack"
+        }
+    ],
+    "dependent_to": [],
+    "description": "Computational Fluid Dynamics Software for aeroacoustics\n",
+    "homepage": "http://www.ciss.iis.u-tokyo.ac.jp/dl/index.php",
+    "latest_version": "8.1",
+    "maintainers": [],
+    "name": "ffb",
+    "patches": [
+        {
+            "level": 1,
+            "owner": "builtin.ffb",
+            "relative_path": "revocap_refiner.patch",
+            "reverse": false,
+            "sha256": "141cc44907f1104d44bda87431aea81174be9b599568a697bf4eaac804def28a",
+            "version": "",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.ffb",
+            "relative_path": "revocap_refiner-size_t.patch",
+            "reverse": false,
+            "sha256": "1897f55ac9a4bf9c4deaaf16b0bab0aaff47baf13272e4ee68b7454f20d5b0f1",
+            "version": "",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.ffb",
+            "relative_path": "fortran-format.patch",
+            "reverse": false,
+            "sha256": "14059342df69661255594a395e22943cd889b63df53be3938913e99fabff2029",
+            "version": "",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.ffb",
+            "relative_path": "xvx.patch",
+            "reverse": false,
+            "sha256": "149d7bb2309aead71c15294debe0c879fb2d58c9bad6b10227fcd8d028cc55c4",
+            "version": "",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.ffb",
+            "relative_path": "gffv3tr.patch",
+            "reverse": false,
+            "sha256": "7fc4fac745a4ed4e885b3170325bdb05b9199dc518dc158cfaf76d849969da98",
+            "version": "",
+            "working_dir": "."
+        }
+    ],
+    "resources": [],
+    "variants": [
+        {
+            "default": "makefile",
+            "description": "Build systems supported by the package",
+            "name": "build_system"
+        }
+    ],
     "versions": [
         {
             "name": "8.1",
             "sha256": "1ad008c909152b6c27668bafbad820da3e6ec3309c7e858ddb785f0a3d6e43ae"
         }
-    ],
-    "latest_version": "8.1",
-    "build_system": "MakefilePackage",
-    "conflicts": [
-        {
-            "name": "arch=windows-None-None",
-            "spec": "build_system=makefile",
-            "description": null
-        }
-    ],
-    "variants": [
-        {
-            "name": "build_system",
-            "default": "makefile",
-            "description": "Build systems supported by the package"
-        }
-    ],
-    "homepage": "http://www.ciss.iis.u-tokyo.ac.jp/dl/index.php",
-    "maintainers": [],
-    "patches": [
-        {
-            "owner": "builtin.ffb",
-            "sha256": "141cc44907f1104d44bda87431aea81174be9b599568a697bf4eaac804def28a",
-            "level": 1,
-            "working_dir": ".",
-            "reverse": false,
-            "relative_path": "revocap_refiner.patch",
-            "version": ""
-        },
-        {
-            "owner": "builtin.ffb",
-            "sha256": "1897f55ac9a4bf9c4deaaf16b0bab0aaff47baf13272e4ee68b7454f20d5b0f1",
-            "level": 1,
-            "working_dir": ".",
-            "reverse": false,
-            "relative_path": "revocap_refiner-size_t.patch",
-            "version": ""
-        },
-        {
-            "owner": "builtin.ffb",
-            "sha256": "14059342df69661255594a395e22943cd889b63df53be3938913e99fabff2029",
-            "level": 1,
-            "working_dir": ".",
-            "reverse": false,
-            "relative_path": "fortran-format.patch",
-            "version": ""
-        },
-        {
-            "owner": "builtin.ffb",
-            "sha256": "149d7bb2309aead71c15294debe0c879fb2d58c9bad6b10227fcd8d028cc55c4",
-            "level": 1,
-            "working_dir": ".",
-            "reverse": false,
-            "relative_path": "xvx.patch",
-            "version": ""
-        },
-        {
-            "owner": "builtin.ffb",
-            "sha256": "7fc4fac745a4ed4e885b3170325bdb05b9199dc518dc158cfaf76d849969da98",
-            "level": 1,
-            "working_dir": ".",
-            "reverse": false,
-            "relative_path": "gffv3tr.patch",
-            "version": ""
-        }
-    ],
-    "resources": [],
-    "description": "Computational Fluid Dynamics Software for aeroacoustics\n",
-    "dependencies": [
-        {
-            "name": "blas",
-            "description": "BLIS is a portable software framework for instantiating high-performance\nBLAS-like dense linear algebra libraries. The framework was designed to\nisolate essential kernels of computation that, when optimized,\nimmediately enable optimized implementations of most of its commonly\nused and computationally intensive operations. BLIS is written in ISO\nC99 and available under a new/modified/3-clause BSD license. While BLIS\nexports a new BLAS-like API, it also includes a BLAS compatibility layer\nwhich gives application developers access to BLIS implementations via\ntraditional BLAS routine calls. An object-based API unique to BLIS is\nalso available."
-        },
-        {
-            "name": "gmake",
-            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files."
-        },
-        {
-            "name": "mpi",
-            "description": "A single processor implementation of the mpi library."
-        },
-        {
-            "name": "scalapack",
-            "description": "Intel Math Kernel Library. This package has been replaced by intel-\noneapi-mkl. LICENSE INFORMATION: By downloading and using this software,\nyou agree to the terms and conditions of the software license agreements\nat https://intel.ly/393CijO."
-        }
-    ],
-    "dependent_to": []
+    ]
 }

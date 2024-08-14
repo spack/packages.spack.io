@@ -1,182 +1,182 @@
 {
-    "name": "patchelf",
     "aliases": [],
+    "build_system": "AutotoolsPackage",
+    "conflicts": [
+        {
+            "description": "patchelf: Requires C++11 support",
+            "name": "%gcc@:4.6",
+            "spec": "@0.10:"
+        },
+        {
+            "description": "patchelf: Requires C++17 support",
+            "name": "%clang@:3",
+            "spec": "@0.14:"
+        },
+        {
+            "description": "patchelf: Requires C++17 support",
+            "name": "%gcc@:6",
+            "spec": "@0.14:"
+        },
+        {
+            "description": null,
+            "name": "arch=windows-None-None",
+            "spec": "build_system=autotools"
+        }
+    ],
+    "dependencies": [
+        {
+            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files.",
+            "name": "gmake"
+        },
+        {
+            "description": "The GNU config.guess and config.sub scripts versioned by timestamp.\nThis package can be used as a build dependency for autotools packages\nthat ship a tarball with outdated config.guess and config.sub files.",
+            "name": "gnuconfig"
+        }
+    ],
+    "dependent_to": [
+        {
+            "description": "GaussView 6 is the latest iteration of a graphical interface used with\nGaussian. It aids in the creation of Gaussian input files, enables the\nuser to run Gaussian calculations from a graphical interface without the\nneed for using a command line instruction, and helps in the\ninterpretation of Gaussian output. Needs post-install steps to make it\nrun! See package installation logs for details.",
+            "name": "gaussian-view"
+        },
+        {
+            "description": "Intel Compilers. This package has been replaced by intel-oneapi-\ncompilers. LICENSE INFORMATION: By downloading and using this software,\nyou agree to the terms and conditions of the software license agreements\nat https://intel.ly/393CijO.",
+            "name": "intel"
+        },
+        {
+            "description": "Intel(R) GtPin is a dynamic binary instrumentation framework for GEN\n(Intel(R) graphics) Architecture. It is a unique SW platform for\nprofiling a code running on GEN Execution Units (EUs). GTPin includes a\nbinary instrumentation engine for Intel(R) GPUs EUs, along with an API\nfor developing analysis tools, and many sample tools. GTPin allows you\nto capture a range of dynamic profiling data at the finest granularity\nof the specific GPU EU instruction. GTPin supports both compute and\ngraphics workloads. It operates on regular, real-world GPU applications,\nas well as on pre-captured API streams. The technology enables fast and\naccurate dynamic analysis of the code that is executing on the GPU EUs.\nGTPin opens up new opportunities to perform dynamic, low level workload\nand HW analysis on an Intel(R) GPU, with greater efficiency than other\ncurrent solutions. Some of the GTPin capabilities are integrated into\nIntel(R) VTune(TM) Profiler, Intel(R) Advisor, and the Intel(R) Graphics\nPerformance Analyzers (Intel(R) GPA). GTPin is available, along with a\nset of analysis tools based on the GTPin framework. It also enables more\nadvanced users to develop their own analysis tools. GTPin can analyze\nany GPU application. It also collects dynamic profiling data which the\napplication executes on the GPU.",
+            "name": "intel-gtpin"
+        },
+        {
+            "description": "Intel oneAPI Compilers. Includes: icx, icpx, ifx, and ifort. Releases\nbefore 2024.0 include icc/icpc LICENSE INFORMATION: By downloading and\nusing this software, you agree to the terms and conditions of the\nsoftware license agreements at https://intel.ly/393CijO.",
+            "name": "intel-oneapi-compilers"
+        },
+        {
+            "description": "This is an earlier version of Intel parallel software development tools\nand has now been replaced by the Intel oneAPI Toolkits. LICENSE\nINFORMATION: By downloading and using this software, you agree to the\nterms and conditions of the software license agreements at\nhttps://intel.ly/393CijO.",
+            "name": "intel-parallel-studio"
+        },
+        {
+            "description": "The Julia Language: A fresh approach to technical computing",
+            "name": "julia"
+        },
+        {
+            "description": "MotionCor2 is a multi-GPU program that corrects beam-induced sample\nmotion recorded on dose fractionated movie stacks. It implements a\nrobust iterative alignment algorithm that delivers precise measurement\nand correction of both global and non-uniform local motions at single\npixel level, suitable for both single-particle and tomographic images.\nMotionCor2 is sufficiently fast to keep up with automated data\ncollection.",
+            "name": "motioncor2"
+        },
+        {
+            "description": "MySQL is an open source relational database management system.",
+            "name": "mysql"
+        },
+        {
+            "description": "TensorFlow is an open source machine learning framework for everyone.",
+            "name": "py-tensorflow"
+        },
+        {
+            "description": "HTSlib high-throughput sequencing library as an R package. This package\nprovides version 1.7 of the 'HTSlib' C library for high- throughput\nsequence analysis. The package is primarily useful to developers of\nother R packages who wish to make use of HTSlib. Motivation and\ninstructions for use of this package are in the vignette,\nvignette(package=\"Rhtslib\", \"Rhtslib\").",
+            "name": "r-rhtslib"
+        },
+        {
+            "description": "RStudio is an integrated development environment (IDE) for R.",
+            "name": "rstudio"
+        },
+        {
+            "description": "Spack is a multi-platform package manager that builds and installs\nmultiple versions and configurations of software. It works on Linux,\nmacOS, and many supercomputers. Spack is non-destructive: installing a\nnew version of a package does not break existing installations, so many\nconfigurations of the same package can coexist.",
+            "name": "spack"
+        },
+        {
+            "description": "VMD provides user-editable materials which can be applied to molecular\ngeometry. These material properties control the details of how VMD\nshades the molecular geometry, and how transparent or opaque the\ndisplayed molecular geometry is. With this feature, one can easily\ncreate nice looking transparent surfaces which allow inner structural\ndetails to be seen within a large molecular structure. The material\ncontrols can be particularly helpful when rendering molecular scenes\nusing external ray tracers, each of which typically differ slightly.",
+            "name": "vmd"
+        }
+    ],
+    "description": "PatchELF is a small utility to modify the dynamic linker and RPATH of\nELF executables.\n",
+    "homepage": "https://nixos.org/patchelf.html",
+    "latest_version": "0.18.0",
+    "maintainers": [
+        "haampie"
+    ],
+    "name": "patchelf",
+    "patches": [
+        {
+            "level": 1,
+            "owner": "builtin.patchelf",
+            "relative_path": "513.patch",
+            "reverse": false,
+            "sha256": "8401f7d6ad9c953d234cde9eb9e1fc6f41fad7cc453520e58a025a1102d9a8a8",
+            "version": "@0.18:%gcc@:7",
+            "working_dir": "."
+        }
+    ],
+    "resources": [],
+    "variants": [
+        {
+            "default": "autotools",
+            "description": "Build systems supported by the package",
+            "name": "build_system"
+        }
+    ],
     "versions": [
         {
-            "name": "0.18.0",
-            "sha256": "64de10e4c6b8b8379db7e87f58030f336ea747c0515f381132e810dbf84a86e7"
-        },
-        {
-            "name": "0.17.2",
-            "sha256": "20427b718dd130e4b66d95072c2a2bd5e17232e20dad58c1bea9da81fae330e0"
-        },
-        {
-            "name": "0.16.1",
-            "sha256": "1a562ed28b16f8a00456b5f9ee573bb1af7c39c1beea01d94fc0c7b3256b0406"
-        },
-        {
-            "name": "0.15.0",
-            "sha256": "53a8d58ed4e060412b8fdcb6489562b3c62be6f65cee5af30eba60f4423bfa0f"
-        },
-        {
-            "name": "0.14.5",
-            "sha256": "113ada3f1ace08f0a7224aa8500f1fa6b08320d8f7df05ff58585286ec5faa6f"
-        },
-        {
-            "name": "0.14.3",
-            "sha256": "8fabf4210499744ced101612cd5c9fd12b94af67a16297cb5d3ff682c007ffdb"
-        },
-        {
-            "name": "0.14.2",
-            "sha256": "3dbced63d02076221397d3fa45ef6cf6776e7c6d45ea5c4e86c91604dfc87a80"
-        },
-        {
-            "name": "0.14.1",
-            "sha256": "7a1506caf6873a2b60e7bebc35e1671fa232ee075642b074106b0d0636417466"
-        },
-        {
-            "name": "0.14",
-            "sha256": "a31f2bff841dffa896317d3837bc2877c1f79da0744d88e459662d8e7fe7897c"
-        },
-        {
-            "name": "0.13.1",
-            "sha256": "08c0237e89be74d61ddf8f6ff218439cdd62af572d568fb38913b53e222831de"
-        },
-        {
-            "name": "0.13",
-            "sha256": "4c7ed4bcfc1a114d6286e4a0d3c1a90db147a4c3adda1814ee0eee0f9ee917ed"
-        },
-        {
-            "name": "0.12",
-            "sha256": "699a31cf52211cf5ad6e35a8801eb637bc7f3c43117140426400d67b7babd792"
+            "name": "0.10",
+            "sha256": "b2deabce05c34ce98558c0efb965f209de592197b2c88e930298d740ead09019"
         },
         {
             "name": "0.11",
             "sha256": "e52378cc2f9379c6e84a04ac100a3589145533a7b0cd26ef23c79dfd8a9038f9"
         },
         {
-            "name": "0.10",
-            "sha256": "b2deabce05c34ce98558c0efb965f209de592197b2c88e930298d740ead09019"
+            "name": "0.12",
+            "sha256": "699a31cf52211cf5ad6e35a8801eb637bc7f3c43117140426400d67b7babd792"
         },
         {
-            "name": "0.9",
-            "sha256": "f2aa40a6148cb3b0ca807a1bf836b081793e55ec9e5540a5356d800132be7e0a"
+            "name": "0.13",
+            "sha256": "4c7ed4bcfc1a114d6286e4a0d3c1a90db147a4c3adda1814ee0eee0f9ee917ed"
+        },
+        {
+            "name": "0.13.1",
+            "sha256": "08c0237e89be74d61ddf8f6ff218439cdd62af572d568fb38913b53e222831de"
+        },
+        {
+            "name": "0.14",
+            "sha256": "a31f2bff841dffa896317d3837bc2877c1f79da0744d88e459662d8e7fe7897c"
+        },
+        {
+            "name": "0.14.1",
+            "sha256": "7a1506caf6873a2b60e7bebc35e1671fa232ee075642b074106b0d0636417466"
+        },
+        {
+            "name": "0.14.2",
+            "sha256": "3dbced63d02076221397d3fa45ef6cf6776e7c6d45ea5c4e86c91604dfc87a80"
+        },
+        {
+            "name": "0.14.3",
+            "sha256": "8fabf4210499744ced101612cd5c9fd12b94af67a16297cb5d3ff682c007ffdb"
+        },
+        {
+            "name": "0.14.5",
+            "sha256": "113ada3f1ace08f0a7224aa8500f1fa6b08320d8f7df05ff58585286ec5faa6f"
+        },
+        {
+            "name": "0.15.0",
+            "sha256": "53a8d58ed4e060412b8fdcb6489562b3c62be6f65cee5af30eba60f4423bfa0f"
+        },
+        {
+            "name": "0.16.1",
+            "sha256": "1a562ed28b16f8a00456b5f9ee573bb1af7c39c1beea01d94fc0c7b3256b0406"
+        },
+        {
+            "name": "0.17.2",
+            "sha256": "20427b718dd130e4b66d95072c2a2bd5e17232e20dad58c1bea9da81fae330e0"
+        },
+        {
+            "name": "0.18.0",
+            "sha256": "64de10e4c6b8b8379db7e87f58030f336ea747c0515f381132e810dbf84a86e7"
         },
         {
             "name": "0.8",
             "sha256": "14af06a2da688d577d64ff8dac065bb8903bbffbe01d30c62df7af9bf4ce72fe"
-        }
-    ],
-    "latest_version": "0.18.0",
-    "build_system": "AutotoolsPackage",
-    "conflicts": [
-        {
-            "name": "arch=windows-None-None",
-            "spec": "build_system=autotools",
-            "description": null
         },
         {
-            "name": "%gcc@:4.6",
-            "spec": "@0.10:",
-            "description": "patchelf: Requires C++11 support"
-        },
-        {
-            "name": "%gcc@:6",
-            "spec": "@0.14:",
-            "description": "patchelf: Requires C++17 support"
-        },
-        {
-            "name": "%clang@:3",
-            "spec": "@0.14:",
-            "description": "patchelf: Requires C++17 support"
-        }
-    ],
-    "variants": [
-        {
-            "name": "build_system",
-            "default": "autotools",
-            "description": "Build systems supported by the package"
-        }
-    ],
-    "homepage": "https://nixos.org/patchelf.html",
-    "maintainers": [
-        "haampie"
-    ],
-    "patches": [
-        {
-            "owner": "builtin.patchelf",
-            "sha256": "8401f7d6ad9c953d234cde9eb9e1fc6f41fad7cc453520e58a025a1102d9a8a8",
-            "level": 1,
-            "working_dir": ".",
-            "reverse": false,
-            "relative_path": "513.patch",
-            "version": "@0.18:%gcc@:7"
-        }
-    ],
-    "resources": [],
-    "description": "PatchELF is a small utility to modify the dynamic linker and RPATH of\nELF executables.\n",
-    "dependencies": [
-        {
-            "name": "gmake",
-            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files."
-        },
-        {
-            "name": "gnuconfig",
-            "description": "The GNU config.guess and config.sub scripts versioned by timestamp.\nThis package can be used as a build dependency for autotools packages\nthat ship a tarball with outdated config.guess and config.sub files."
-        }
-    ],
-    "dependent_to": [
-        {
-            "name": "gaussian-view",
-            "description": "GaussView 6 is the latest iteration of a graphical interface used with\nGaussian. It aids in the creation of Gaussian input files, enables the\nuser to run Gaussian calculations from a graphical interface without the\nneed for using a command line instruction, and helps in the\ninterpretation of Gaussian output. Needs post-install steps to make it\nrun! See package installation logs for details."
-        },
-        {
-            "name": "rstudio",
-            "description": "RStudio is an integrated development environment (IDE) for R."
-        },
-        {
-            "name": "intel",
-            "description": "Intel Compilers. This package has been replaced by intel-oneapi-\ncompilers. LICENSE INFORMATION: By downloading and using this software,\nyou agree to the terms and conditions of the software license agreements\nat https://intel.ly/393CijO."
-        },
-        {
-            "name": "intel-oneapi-compilers",
-            "description": "Intel oneAPI Compilers. Includes: icx, icpx, ifx, and ifort. Releases\nbefore 2024.0 include icc/icpc LICENSE INFORMATION: By downloading and\nusing this software, you agree to the terms and conditions of the\nsoftware license agreements at https://intel.ly/393CijO."
-        },
-        {
-            "name": "py-tensorflow",
-            "description": "TensorFlow is an open source machine learning framework for everyone."
-        },
-        {
-            "name": "motioncor2",
-            "description": "MotionCor2 is a multi-GPU program that corrects beam-induced sample\nmotion recorded on dose fractionated movie stacks. It implements a\nrobust iterative alignment algorithm that delivers precise measurement\nand correction of both global and non-uniform local motions at single\npixel level, suitable for both single-particle and tomographic images.\nMotionCor2 is sufficiently fast to keep up with automated data\ncollection."
-        },
-        {
-            "name": "intel-gtpin",
-            "description": "Intel(R) GtPin is a dynamic binary instrumentation framework for GEN\n(Intel(R) graphics) Architecture. It is a unique SW platform for\nprofiling a code running on GEN Execution Units (EUs). GTPin includes a\nbinary instrumentation engine for Intel(R) GPUs EUs, along with an API\nfor developing analysis tools, and many sample tools. GTPin allows you\nto capture a range of dynamic profiling data at the finest granularity\nof the specific GPU EU instruction. GTPin supports both compute and\ngraphics workloads. It operates on regular, real-world GPU applications,\nas well as on pre-captured API streams. The technology enables fast and\naccurate dynamic analysis of the code that is executing on the GPU EUs.\nGTPin opens up new opportunities to perform dynamic, low level workload\nand HW analysis on an Intel(R) GPU, with greater efficiency than other\ncurrent solutions. Some of the GTPin capabilities are integrated into\nIntel(R) VTune(TM) Profiler, Intel(R) Advisor, and the Intel(R) Graphics\nPerformance Analyzers (Intel(R) GPA). GTPin is available, along with a\nset of analysis tools based on the GTPin framework. It also enables more\nadvanced users to develop their own analysis tools. GTPin can analyze\nany GPU application. It also collects dynamic profiling data which the\napplication executes on the GPU."
-        },
-        {
-            "name": "julia",
-            "description": "The Julia Language: A fresh approach to technical computing"
-        },
-        {
-            "name": "mysql",
-            "description": "MySQL is an open source relational database management system."
-        },
-        {
-            "name": "vmd",
-            "description": "VMD provides user-editable materials which can be applied to molecular\ngeometry. These material properties control the details of how VMD\nshades the molecular geometry, and how transparent or opaque the\ndisplayed molecular geometry is. With this feature, one can easily\ncreate nice looking transparent surfaces which allow inner structural\ndetails to be seen within a large molecular structure. The material\ncontrols can be particularly helpful when rendering molecular scenes\nusing external ray tracers, each of which typically differ slightly."
-        },
-        {
-            "name": "spack",
-            "description": "Spack is a multi-platform package manager that builds and installs\nmultiple versions and configurations of software. It works on Linux,\nmacOS, and many supercomputers. Spack is non-destructive: installing a\nnew version of a package does not break existing installations, so many\nconfigurations of the same package can coexist."
-        },
-        {
-            "name": "intel-parallel-studio",
-            "description": "This is an earlier version of Intel parallel software development tools\nand has now been replaced by the Intel oneAPI Toolkits. LICENSE\nINFORMATION: By downloading and using this software, you agree to the\nterms and conditions of the software license agreements at\nhttps://intel.ly/393CijO."
-        },
-        {
-            "name": "r-rhtslib",
-            "description": "HTSlib high-throughput sequencing library as an R package. This package\nprovides version 1.7 of the 'HTSlib' C library for high- throughput\nsequence analysis. The package is primarily useful to developers of\nother R packages who wish to make use of HTSlib. Motivation and\ninstructions for use of this package are in the vignette,\nvignette(package=\"Rhtslib\", \"Rhtslib\")."
+            "name": "0.9",
+            "sha256": "f2aa40a6148cb3b0ca807a1bf836b081793e55ec9e5540a5356d800132be7e0a"
         }
     ]
 }

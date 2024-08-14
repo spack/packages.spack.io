@@ -1,101 +1,101 @@
 {
-    "name": "mpas-model",
     "aliases": [],
+    "build_system": "MakefilePackage",
+    "conflicts": [
+        {
+            "description": null,
+            "name": "arch=windows-None-None",
+            "spec": "build_system=makefile"
+        }
+    ],
+    "dependencies": [
+        {
+            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files.",
+            "name": "gmake"
+        },
+        {
+            "description": "IBM MPI implementation from Spectrum MPI.",
+            "name": "mpi"
+        },
+        {
+            "description": "The Parallel IO libraries (PIO) are high-level parallel I/O C and\nFortran libraries for applications that need to do netCDF I/O from large\nnumbers of processors on a HPC system.",
+            "name": "parallelio"
+        }
+    ],
+    "dependent_to": [],
+    "description": "The Model for Prediction Across Scales (MPAS) is a collaborative project\nfor developing atmosphere, ocean and other earth-system simulation\ncomponents for use in climate, regional climate and weather studies.\n",
+    "homepage": "https://mpas-dev.github.io/",
+    "latest_version": "7.3",
+    "maintainers": [
+        "t-brown"
+    ],
+    "name": "mpas-model",
+    "patches": [
+        {
+            "level": 1,
+            "owner": "builtin.mpas-model",
+            "relative_path": "makefile.patch",
+            "reverse": false,
+            "sha256": "ec080c7464584d4998cb2deb40694f3503e6805dc07a94600b3dac616fb9fdd6",
+            "version": "@7.0",
+            "working_dir": "."
+        }
+    ],
+    "resources": [
+        {
+            "destination": "",
+            "name": "MPAS-Data",
+            "placement": null,
+            "version": "@6.2:6.3"
+        },
+        {
+            "destination": "",
+            "name": "MPAS-Data",
+            "placement": null,
+            "version": "@7.0:"
+        }
+    ],
+    "variants": [
+        {
+            "default": "makefile",
+            "description": "Build systems supported by the package",
+            "name": "build_system"
+        },
+        {
+            "default": "none",
+            "description": "Predefined targets in the MPAS Makefile.",
+            "name": "make_target"
+        },
+        {
+            "default": "double",
+            "description": "MPAS will be built with double/single precision reals.",
+            "name": "precision"
+        }
+    ],
     "versions": [
         {
-            "name": "7.3",
-            "sha256": "a6a9570911b47aa3607036c1ab5a9ae770f9f3a85cea2710f08bb3b35c08facf"
-        },
-        {
-            "name": "7.2",
-            "sha256": "3158c22e4a33ae00ce20b65f6ad189c0b7839587dee124d685b02f9df9cf27a7"
-        },
-        {
-            "name": "7.1",
-            "sha256": "9b5c181b7d0163ae33d24d7a79ede6990495134b58cf4500ba5c8c94192102bc"
-        },
-        {
-            "name": "7.0",
-            "sha256": "f898ce257e66cff9e29320458870570e55721d16cb000de7f2cc27de7fdef14f"
+            "name": "6.2",
+            "sha256": "2a81825a62a468bf5c56ef9d9677aa2eb88acf78d4f996cb49a7db98b94a6b16"
         },
         {
             "name": "6.3",
             "sha256": "e7f1d9ebfeb6ada37d42a286aaedb2e69335cbc857049dc5c5544bb51e7a8db8"
         },
         {
-            "name": "6.2",
-            "sha256": "2a81825a62a468bf5c56ef9d9677aa2eb88acf78d4f996cb49a7db98b94a6b16"
-        }
-    ],
-    "latest_version": "7.3",
-    "build_system": "MakefilePackage",
-    "conflicts": [
-        {
-            "name": "arch=windows-None-None",
-            "spec": "build_system=makefile",
-            "description": null
-        }
-    ],
-    "variants": [
-        {
-            "name": "build_system",
-            "default": "makefile",
-            "description": "Build systems supported by the package"
+            "name": "7.0",
+            "sha256": "f898ce257e66cff9e29320458870570e55721d16cb000de7f2cc27de7fdef14f"
         },
         {
-            "name": "make_target",
-            "default": "none",
-            "description": "Predefined targets in the MPAS Makefile."
+            "name": "7.1",
+            "sha256": "9b5c181b7d0163ae33d24d7a79ede6990495134b58cf4500ba5c8c94192102bc"
         },
         {
-            "name": "precision",
-            "default": "double",
-            "description": "MPAS will be built with double/single precision reals."
-        }
-    ],
-    "homepage": "https://mpas-dev.github.io/",
-    "maintainers": [
-        "t-brown"
-    ],
-    "patches": [
-        {
-            "owner": "builtin.mpas-model",
-            "sha256": "ec080c7464584d4998cb2deb40694f3503e6805dc07a94600b3dac616fb9fdd6",
-            "level": 1,
-            "working_dir": ".",
-            "reverse": false,
-            "relative_path": "makefile.patch",
-            "version": "@7.0"
-        }
-    ],
-    "resources": [
-        {
-            "version": "@6.2:6.3",
-            "name": "MPAS-Data",
-            "destination": "",
-            "placement": null
+            "name": "7.2",
+            "sha256": "3158c22e4a33ae00ce20b65f6ad189c0b7839587dee124d685b02f9df9cf27a7"
         },
         {
-            "version": "@7.0:",
-            "name": "MPAS-Data",
-            "destination": "",
-            "placement": null
+            "name": "7.3",
+            "sha256": "a6a9570911b47aa3607036c1ab5a9ae770f9f3a85cea2710f08bb3b35c08facf"
         }
-    ],
-    "description": "The Model for Prediction Across Scales (MPAS) is a collaborative project\nfor developing atmosphere, ocean and other earth-system simulation\ncomponents for use in climate, regional climate and weather studies.\n",
-    "dependencies": [
-        {
-            "name": "gmake",
-            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files."
-        },
-        {
-            "name": "mpi",
-            "description": "A single processor implementation of the mpi library."
-        },
-        {
-            "name": "parallelio",
-            "description": "The Parallel IO libraries (PIO) are high-level parallel I/O C and\nFortran libraries for applications that need to do netCDF I/O from large\nnumbers of processors on a HPC system."
-        }
-    ],
-    "dependent_to": []
+    ]
 }

@@ -1,280 +1,280 @@
 {
-    "name": "athena",
     "aliases": [],
-    "versions": [
-        {
-            "name": "master",
-            "branch": "master"
-        },
-        {
-            "name": "4.2",
-            "sha256": "6334848d7f1325aa44859418feac8ce223b56793ae8907103000af5b27f50e7e"
-        }
-    ],
-    "latest_version": "4.2",
     "build_system": "AutotoolsPackage",
     "conflicts": [
         {
+            "description": null,
             "name": "arch=windows-None-None",
-            "spec": "build_system=autotools",
-            "description": null
+            "spec": "build_system=autotools"
         },
         {
-            "name": "flux=hllc",
-            "spec": "gas=mhd",
-            "description": null
+            "description": null,
+            "name": "+h_correction",
+            "spec": "flux=exact"
         },
         {
+            "description": null,
+            "name": "+h_correction",
+            "spec": "flux=force"
+        },
+        {
+            "description": null,
+            "name": "+h_correction",
+            "spec": "flux=hllc"
+        },
+        {
+            "description": null,
+            "name": "+h_correction",
+            "spec": "flux=hlld"
+        },
+        {
+            "description": null,
+            "name": "+h_correction",
+            "spec": "flux=hlle"
+        },
+        {
+            "description": null,
+            "name": "+h_correction",
+            "spec": "flux=two-shock"
+        },
+        {
+            "description": null,
             "name": "flux=exact",
-            "spec": "gas=mhd",
-            "description": null
+            "spec": "gas=mhd"
         },
         {
+            "description": null,
+            "name": "flux=hllc",
+            "spec": "gas=mhd"
+        },
+        {
+            "description": null,
             "name": "flux=two-shock",
-            "spec": "gas=mhd",
-            "description": null
+            "spec": "gas=mhd"
         },
         {
-            "name": "+h_correction",
-            "spec": "flux=hllc",
-            "description": null
-        },
-        {
-            "name": "+h_correction",
-            "spec": "flux=hlld",
-            "description": null
-        },
-        {
-            "name": "+h_correction",
-            "spec": "flux=hlle",
-            "description": null
-        },
-        {
-            "name": "+h_correction",
-            "spec": "flux=force",
-            "description": null
-        },
-        {
-            "name": "+h_correction",
-            "spec": "flux=exact",
-            "description": null
-        },
-        {
-            "name": "+h_correction",
-            "spec": "flux=two-shock",
-            "description": null
-        },
-        {
+            "description": null,
             "name": "coord=cylindrical",
-            "spec": "gravity=none",
-            "description": null
+            "spec": "gravity=none"
         },
         {
+            "description": null,
+            "name": "integrator=vl",
+            "spec": "order=2"
+        },
+        {
+            "description": null,
+            "name": "integrator=vl",
+            "spec": "order=3"
+        },
+        {
+            "description": null,
             "name": "coord=cylindrical",
-            "spec": "particles=none",
-            "description": null
-        },
-        {
-            "name": "integrator=vl",
-            "spec": "order=3",
-            "description": null
-        },
-        {
-            "name": "integrator=vl",
-            "spec": "order=2",
-            "description": null
+            "spec": "particles=none"
         }
     ],
-    "variants": [
+    "dependencies": [
         {
-            "name": "build_system",
-            "default": "autotools",
-            "description": "Build systems supported by the package"
+            "description": "Autoconf -- system configuration part of autotools",
+            "name": "autoconf"
         },
         {
-            "name": "problem",
-            "default": "linear_wave",
-            "description": "Problem generator"
+            "description": "Automake -- make file builder part of autotools",
+            "name": "automake"
         },
         {
-            "name": "gas",
-            "default": "mhd",
-            "description": "Gas properties"
+            "description": "FFTW is a C subroutine library for computing the discrete Fourier\ntransform (DFT) in one or more dimensions, of arbitrary input size, and\nof both real and complex data (as well as of even/odd data, i.e. the\ndiscrete cosine/sine transforms or DCT/DST). We believe that FFTW, which\nis free software, should become the FFT library of choice for most\napplications.",
+            "name": "fftw"
         },
         {
-            "name": "eos",
-            "default": "adiabatic",
-            "description": "Equation of state"
+            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files.",
+            "name": "gmake"
         },
         {
-            "name": "nscalars",
-            "default": 0,
-            "description": "Number of advected scalars"
+            "description": "The GNU config.guess and config.sub scripts versioned by timestamp.\nThis package can be used as a build dependency for autotools packages\nthat ship a tarball with outdated config.guess and config.sub files.",
+            "name": "gnuconfig"
         },
         {
-            "name": "gravity",
-            "default": "none",
-            "description": "Algorithm for self gravity"
+            "description": "libtool -- library building part of autotools.",
+            "name": "libtool"
         },
         {
-            "name": "particles",
-            "default": "none",
-            "description": "Dust particle integration algorithm"
+            "description": "GNU M4 is an implementation of the traditional Unix macro processor.",
+            "name": "m4"
         },
         {
-            "name": "coord",
-            "default": "cartesian",
-            "description": "Coordinate System"
-        },
-        {
-            "name": "conduction",
-            "default": false,
-            "description": "Enable thermal conduction"
-        },
-        {
-            "name": "resistivity",
-            "default": false,
-            "description": "Enable resistivity"
-        },
-        {
-            "name": "special_relativity",
-            "default": false,
-            "description": "Enable special relativistic hydro or MHD"
-        },
-        {
-            "name": "viscosity",
-            "default": false,
-            "description": "Enable viscosity"
-        },
-        {
-            "name": "order",
-            "default": "2",
-            "description": "Order and type of spatial reconstruction"
-        },
-        {
-            "name": "flux",
-            "default": "roe",
-            "description": "Flux function"
-        },
-        {
-            "name": "integrator",
-            "default": "ctu",
-            "description": "Unsplit integration algorithm"
-        },
-        {
-            "name": "cflags",
-            "default": "opt",
-            "description": "Compiler flags"
-        },
-        {
-            "name": "fargo",
-            "default": false,
-            "description": "Enable FARGO algorithm"
-        },
-        {
-            "name": "fft",
-            "default": false,
-            "description": "Use FFTW block decomposition"
-        },
-        {
-            "name": "fofc",
-            "default": false,
-            "description": "Enable first-order flux correction"
-        },
-        {
-            "name": "ghost",
-            "default": false,
-            "description": "Write ghost zones"
-        },
-        {
-            "name": "h_correction",
-            "default": false,
-            "description": "Turn on H-correction"
-        },
-        {
-            "name": "mpi",
-            "default": true,
-            "description": "Enable MPI parallelization"
-        },
-        {
-            "name": "shearing_box",
-            "default": false,
-            "description": "Turn on shearing-box"
-        },
-        {
-            "name": "single",
-            "default": false,
-            "description": "Use single-precision instead of double-precision"
-        },
-        {
-            "name": "sts",
-            "default": false,
-            "description": "Turn on super timestepping"
-        },
-        {
-            "name": "smr",
-            "default": false,
-            "description": "Use static mesh refinement"
-        },
-        {
-            "name": "rotating_frame",
-            "default": false,
-            "description": "Turn on rotating_frame"
-        },
-        {
-            "name": "l1_inflow",
-            "default": false,
-            "description": "Enable inflow from L1 point"
+            "description": "IBM MPI implementation from Spectrum MPI.",
+            "name": "mpi"
         }
     ],
+    "dependent_to": [],
+    "description": "Athena is a grid-based code for astrophysical magnetohydrodynamics\n(MHD). It was developed primarily for studies of the interstellar\nmedium, star formation, and accretion flows.\n",
     "homepage": "https://princetonuniversity.github.io/Athena-Cversion/",
+    "latest_version": "4.2",
     "maintainers": [],
+    "name": "athena",
     "patches": [
         {
-            "owner": "builtin.athena",
-            "sha256": "e4a3a881c6e47c353831709aff132629074dd2df3768a6d1fb45b60bf22a8e81",
             "level": 1,
-            "working_dir": ".",
-            "reverse": false,
+            "owner": "builtin.athena",
             "relative_path": "missing-separator.patch",
-            "version": ""
+            "reverse": false,
+            "sha256": "e4a3a881c6e47c353831709aff132629074dd2df3768a6d1fb45b60bf22a8e81",
+            "version": "",
+            "working_dir": "."
         }
     ],
     "resources": [],
-    "description": "Athena is a grid-based code for astrophysical magnetohydrodynamics\n(MHD). It was developed primarily for studies of the interstellar\nmedium, star formation, and accretion flows.\n",
-    "dependencies": [
+    "variants": [
         {
-            "name": "autoconf",
-            "description": "Autoconf -- system configuration part of autotools"
+            "default": "autotools",
+            "description": "Build systems supported by the package",
+            "name": "build_system"
         },
         {
-            "name": "automake",
-            "description": "Automake -- make file builder part of autotools"
+            "default": "opt",
+            "description": "Compiler flags",
+            "name": "cflags"
         },
         {
-            "name": "fftw",
-            "description": "FFTW is a C subroutine library for computing the discrete Fourier\ntransform (DFT) in one or more dimensions, of arbitrary input size, and\nof both real and complex data (as well as of even/odd data, i.e. the\ndiscrete cosine/sine transforms or DCT/DST). We believe that FFTW, which\nis free software, should become the FFT library of choice for most\napplications."
+            "default": false,
+            "description": "Enable thermal conduction",
+            "name": "conduction"
         },
         {
-            "name": "gmake",
-            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files."
+            "default": "cartesian",
+            "description": "Coordinate System",
+            "name": "coord"
         },
         {
-            "name": "gnuconfig",
-            "description": "The GNU config.guess and config.sub scripts versioned by timestamp.\nThis package can be used as a build dependency for autotools packages\nthat ship a tarball with outdated config.guess and config.sub files."
+            "default": "adiabatic",
+            "description": "Equation of state",
+            "name": "eos"
         },
         {
-            "name": "libtool",
-            "description": "libtool -- library building part of autotools."
+            "default": false,
+            "description": "Enable FARGO algorithm",
+            "name": "fargo"
         },
         {
-            "name": "m4",
-            "description": "GNU M4 is an implementation of the traditional Unix macro processor."
+            "default": false,
+            "description": "Use FFTW block decomposition",
+            "name": "fft"
         },
         {
-            "name": "mpi",
-            "description": "A single processor implementation of the mpi library."
+            "default": "roe",
+            "description": "Flux function",
+            "name": "flux"
+        },
+        {
+            "default": false,
+            "description": "Enable first-order flux correction",
+            "name": "fofc"
+        },
+        {
+            "default": "mhd",
+            "description": "Gas properties",
+            "name": "gas"
+        },
+        {
+            "default": false,
+            "description": "Write ghost zones",
+            "name": "ghost"
+        },
+        {
+            "default": "none",
+            "description": "Algorithm for self gravity",
+            "name": "gravity"
+        },
+        {
+            "default": false,
+            "description": "Turn on H-correction",
+            "name": "h_correction"
+        },
+        {
+            "default": "ctu",
+            "description": "Unsplit integration algorithm",
+            "name": "integrator"
+        },
+        {
+            "default": false,
+            "description": "Enable inflow from L1 point",
+            "name": "l1_inflow"
+        },
+        {
+            "default": true,
+            "description": "Enable MPI parallelization",
+            "name": "mpi"
+        },
+        {
+            "default": 0,
+            "description": "Number of advected scalars",
+            "name": "nscalars"
+        },
+        {
+            "default": "2",
+            "description": "Order and type of spatial reconstruction",
+            "name": "order"
+        },
+        {
+            "default": "none",
+            "description": "Dust particle integration algorithm",
+            "name": "particles"
+        },
+        {
+            "default": "linear_wave",
+            "description": "Problem generator",
+            "name": "problem"
+        },
+        {
+            "default": false,
+            "description": "Enable resistivity",
+            "name": "resistivity"
+        },
+        {
+            "default": false,
+            "description": "Turn on rotating_frame",
+            "name": "rotating_frame"
+        },
+        {
+            "default": false,
+            "description": "Turn on shearing-box",
+            "name": "shearing_box"
+        },
+        {
+            "default": false,
+            "description": "Use single-precision instead of double-precision",
+            "name": "single"
+        },
+        {
+            "default": false,
+            "description": "Use static mesh refinement",
+            "name": "smr"
+        },
+        {
+            "default": false,
+            "description": "Enable special relativistic hydro or MHD",
+            "name": "special_relativity"
+        },
+        {
+            "default": false,
+            "description": "Turn on super timestepping",
+            "name": "sts"
+        },
+        {
+            "default": false,
+            "description": "Enable viscosity",
+            "name": "viscosity"
         }
     ],
-    "dependent_to": []
+    "versions": [
+        {
+            "name": "4.2",
+            "sha256": "6334848d7f1325aa44859418feac8ce223b56793ae8907103000af5b27f50e7e"
+        },
+        {
+            "branch": "master",
+            "name": "master"
+        }
+    ]
 }

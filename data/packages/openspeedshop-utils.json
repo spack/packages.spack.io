@@ -1,179 +1,179 @@
 {
-    "name": "openspeedshop-utils",
     "aliases": [],
-    "versions": [
-        {
-            "name": "develop",
-            "branch": "master"
-        },
-        {
-            "name": "2.4.2.1",
-            "branch": "2.4.2.1"
-        },
-        {
-            "name": "2.4.2",
-            "branch": "2.4.2"
-        },
-        {
-            "name": "2.4.1",
-            "branch": "2.4.1"
-        }
-    ],
-    "latest_version": "2.4.2.1",
     "build_system": "CMakePackage",
     "conflicts": [],
-    "variants": [
-        {
-            "name": "build_system",
-            "default": "cmake",
-            "description": "Build systems supported by the package"
-        },
-        {
-            "name": "build_type",
-            "default": "RelWithDebInfo",
-            "description": "The build type to build"
-        },
-        {
-            "name": "ipo",
-            "default": false,
-            "description": "CMake interprocedural optimization"
-        },
-        {
-            "name": "generator",
-            "default": "make",
-            "description": "the build system generator to use"
-        },
-        {
-            "name": "runtime",
-            "default": false,
-            "description": "build only the runtime libraries and collectors."
-        },
-        {
-            "name": "crayfe",
-            "default": false,
-            "description": "build only the FE tool using the runtime_dir                          to point to target build."
-        },
-        {
-            "name": "cuda",
-            "default": false,
-            "description": "build with cuda packages included."
-        },
-        {
-            "name": "openmpi",
-            "default": false,
-            "description": "Build mpi collector for openmpi                          MPI when variant is enabled."
-        },
-        {
-            "name": "mpt",
-            "default": false,
-            "description": "Build mpi collector for SGI                          MPT MPI when variant is enabled."
-        },
-        {
-            "name": "mvapich2",
-            "default": false,
-            "description": "Build mpi collector for mvapich2                         MPI when variant is enabled."
-        },
-        {
-            "name": "mpich2",
-            "default": false,
-            "description": "Build mpi collector for mpich2                         MPI when variant is enabled."
-        }
-    ],
-    "homepage": "http://www.openspeedshop.org",
-    "maintainers": [
-        "jgalarowicz"
-    ],
-    "patches": [
-        {
-            "owner": "builtin.openspeedshop-utils",
-            "sha256": "dc702852649c7f71e72d2e0e75c844f98a8d36c478bd5767272a5546fa51f9e1",
-            "level": 1,
-            "working_dir": ".",
-            "reverse": false,
-            "relative_path": "arm.patch",
-            "version": "arch=None-None-aarch64:"
-        }
-    ],
-    "resources": [],
-    "description": "OpenSpeedShop is a community effort led by Trenza, Inc. It builds on top\nof a broad list of community infrastructures, most notably Dyninst and\nMRNet from UW, libmonitor from Rice, and PAPI from UTK. OpenSpeedShop is\nan open source multi platform Linux performance tool which is targeted\nto support performance analysis of applications running on both single\nnode and large scale IA64, IA32, EM64T, AMD64, PPC, ARM, Power8, Intel\nPhi, Blue Gene and Cray platforms. OpenSpeedShop development is hosted\nby Trenza Inc.. The infrastructure and base components of OpenSpeedShop\nare released as open source code primarily under LGPL. openspeedshop-\nutils is a package that does not have the qt3 gui. It was created to\navoid a conflict between openspeedshop and cbtf-argonavis-gui based on\nthe fact that spack will not allow a qt3 and qt4/qt5 dependency in a\npackages dependency tree.\n",
     "dependencies": [
         {
-            "name": "binutils",
-            "description": "GNU binutils, which contain the linker, assembler, objdump and others"
+            "description": "GNU binutils, which contain the linker, assembler, objdump and others",
+            "name": "binutils"
         },
         {
-            "name": "bison",
-            "description": "Bison is a general-purpose parser generator that converts an annotated\ncontext-free grammar into a deterministic LR or generalized LR (GLR)\nparser employing LALR(1) parser tables."
+            "description": "Bison is a general-purpose parser generator that converts an annotated\ncontext-free grammar into a deterministic LR or generalized LR (GLR)\nparser employing LALR(1) parser tables.",
+            "name": "bison"
         },
         {
-            "name": "boost",
-            "description": "Boost provides free peer-reviewed portable C++ source libraries,\nemphasizing libraries that work well with the C++ Standard Library.\nBoost libraries are intended to be widely useful, and usable across a\nbroad spectrum of applications. The Boost license encourages both\ncommercial and non-commercial use."
+            "description": "Boost provides free peer-reviewed portable C++ source libraries,\nemphasizing libraries that work well with the C++ Standard Library.\nBoost libraries are intended to be widely useful, and usable across a\nbroad spectrum of applications. The Boost license encourages both\ncommercial and non-commercial use.",
+            "name": "boost"
         },
         {
-            "name": "cbtf",
-            "description": "CBTF project contains the base code for CBTF that supports creating\ncomponents, component networks and the support to connect these\ncomponents and component networks into sequential and distributed\nnetwork tools."
+            "description": "CBTF project contains the base code for CBTF that supports creating\ncomponents, component networks and the support to connect these\ncomponents and component networks into sequential and distributed\nnetwork tools.",
+            "name": "cbtf"
         },
         {
-            "name": "cbtf-argonavis",
-            "description": "CBTF Argo Navis project contains the CUDA collector and supporting\nlibraries that was done as a result of a DOE SBIR grant."
+            "description": "CBTF Argo Navis project contains the CUDA collector and supporting\nlibraries that was done as a result of a DOE SBIR grant.",
+            "name": "cbtf-argonavis"
         },
         {
-            "name": "cbtf-krell",
-            "description": "CBTF Krell project contains collector and runtime contributions to the\nCBTF project. These contributions include many performance data\ncollectors and support libraries as well as some example tools that\ndrive the data collection at HPC levels of scale."
+            "description": "CBTF Krell project contains collector and runtime contributions to the\nCBTF project. These contributions include many performance data\ncollectors and support libraries as well as some example tools that\ndrive the data collection at HPC levels of scale.",
+            "name": "cbtf-krell"
         },
         {
-            "name": "cmake",
-            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software.",
+            "name": "cmake"
         },
         {
-            "name": "dyninst",
-            "description": "API for dynamic binary instrumentation. Modify programs while they are\nexecuting without recompiling, re-linking, or re-executing."
+            "description": "API for dynamic binary instrumentation. Modify programs while they are\nexecuting without recompiling, re-linking, or re-executing.",
+            "name": "dyninst"
         },
         {
-            "name": "elfutils",
-            "description": "elfutils is a collection of various binary tools such as eu-objdump, eu-\nreadelf, and other utilities that allow you to inspect and manipulate\nELF files. Refer to Table 5.Tools Included in elfutils for Red Hat\nDeveloper for a complete list of binary tools that are distributed with\nthe Red Hat Developer Toolset version of elfutils."
+            "description": "elfutils is a collection of various binary tools such as eu-objdump, eu-\nreadelf, and other utilities that allow you to inspect and manipulate\nELF files. Refer to Table 5.Tools Included in elfutils for Red Hat\nDeveloper for a complete list of binary tools that are distributed with\nthe Red Hat Developer Toolset version of elfutils.",
+            "name": "elfutils"
         },
         {
-            "name": "flex",
-            "description": "Flex is a tool for generating scanners."
+            "description": "Flex is a tool for generating scanners.",
+            "name": "flex"
         },
         {
-            "name": "gmake",
-            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files."
+            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files.",
+            "name": "gmake"
         },
         {
-            "name": "libdwarf",
-            "description": "The DWARF Debugging Information Format is of interest to programmers\nworking on compilers and debuggers (and any one interested in reading or\nwriting DWARF information). It was developed by a committee (known as\nthe PLSIG at the time) starting around 1991. Starting around 1991 SGI\ndeveloped the libdwarf and dwarfdump tools for internal use and as part\nof SGI IRIX developer tools. Since that time dwarfdump and libdwarf have\nbeen shipped (as an executable and archive respectively, not source)\nwith every release of the SGI MIPS/IRIX C compiler."
+            "description": "The DWARF Debugging Information Format is of interest to programmers\nworking on compilers and debuggers (and any one interested in reading or\nwriting DWARF information). It was developed by a committee (known as\nthe PLSIG at the time) starting around 1991. Starting around 1991 SGI\ndeveloped the libdwarf and dwarfdump tools for internal use and as part\nof SGI IRIX developer tools. Since that time dwarfdump and libdwarf have\nbeen shipped (as an executable and archive respectively, not source)\nwith every release of the SGI MIPS/IRIX C compiler.",
+            "name": "libdwarf"
         },
         {
-            "name": "libtool",
-            "description": "libtool -- library building part of autotools."
+            "description": "libtool -- library building part of autotools.",
+            "name": "libtool"
         },
         {
-            "name": "libxml2",
-            "description": "Libxml2 is the XML C parser and toolkit developed for the Gnome project\n(but usable outside of the Gnome platform), it is free software\navailable under the MIT License."
+            "description": "Libxml2 is the XML C parser and toolkit developed for the Gnome project\n(but usable outside of the Gnome platform), it is free software\navailable under the MIT License.",
+            "name": "libxml2"
         },
         {
-            "name": "mrnet",
-            "description": "The MRNet Multi-Cast Reduction Network."
+            "description": "The MRNet Multi-Cast Reduction Network.",
+            "name": "mrnet"
         },
         {
-            "name": "ninja",
-            "description": "Ninja is a small build system with a focus on speed. It differs from\nother build systems in two major respects: it is designed to have its\ninput files generated by a higher-level build system, and it is designed\nto run builds as fast as possible."
+            "description": "Ninja is a small build system with a focus on speed. It differs from\nother build systems in two major respects: it is designed to have its\ninput files generated by a higher-level build system, and it is designed\nto run builds as fast as possible.",
+            "name": "ninja"
         },
         {
-            "name": "python",
-            "description": "The Python programming language."
+            "description": "The Python programming language.",
+            "name": "python"
         },
         {
-            "name": "sqlite",
-            "description": "SQLite is a C-language library that implements a small, fast, self-\ncontained, high-reliability, full-featured, SQL database engine."
+            "description": "SQLite is a C-language library that implements a small, fast, self-\ncontained, high-reliability, full-featured, SQL database engine.",
+            "name": "sqlite"
         }
     ],
     "dependent_to": [
         {
-            "name": "cbtf-argonavis-gui",
-            "description": "CBTF Argo Navis GUI project contains the GUI that views OpenSpeedShop\nperformance information by loading in the Sqlite database files."
+            "description": "CBTF Argo Navis GUI project contains the GUI that views OpenSpeedShop\nperformance information by loading in the Sqlite database files.",
+            "name": "cbtf-argonavis-gui"
+        }
+    ],
+    "description": "OpenSpeedShop is a community effort led by Trenza, Inc. It builds on top\nof a broad list of community infrastructures, most notably Dyninst and\nMRNet from UW, libmonitor from Rice, and PAPI from UTK. OpenSpeedShop is\nan open source multi platform Linux performance tool which is targeted\nto support performance analysis of applications running on both single\nnode and large scale IA64, IA32, EM64T, AMD64, PPC, ARM, Power8, Intel\nPhi, Blue Gene and Cray platforms. OpenSpeedShop development is hosted\nby Trenza Inc.. The infrastructure and base components of OpenSpeedShop\nare released as open source code primarily under LGPL. openspeedshop-\nutils is a package that does not have the qt3 gui. It was created to\navoid a conflict between openspeedshop and cbtf-argonavis-gui based on\nthe fact that spack will not allow a qt3 and qt4/qt5 dependency in a\npackages dependency tree.\n",
+    "homepage": "http://www.openspeedshop.org",
+    "latest_version": "2.4.2.1",
+    "maintainers": [
+        "jgalarowicz"
+    ],
+    "name": "openspeedshop-utils",
+    "patches": [
+        {
+            "level": 1,
+            "owner": "builtin.openspeedshop-utils",
+            "relative_path": "arm.patch",
+            "reverse": false,
+            "sha256": "dc702852649c7f71e72d2e0e75c844f98a8d36c478bd5767272a5546fa51f9e1",
+            "version": "arch=None-None-aarch64:",
+            "working_dir": "."
+        }
+    ],
+    "resources": [],
+    "variants": [
+        {
+            "default": "cmake",
+            "description": "Build systems supported by the package",
+            "name": "build_system"
+        },
+        {
+            "default": "RelWithDebInfo",
+            "description": "The build type to build",
+            "name": "build_type"
+        },
+        {
+            "default": false,
+            "description": "build only the FE tool using the runtime_dir                          to point to target build.",
+            "name": "crayfe"
+        },
+        {
+            "default": false,
+            "description": "build with cuda packages included.",
+            "name": "cuda"
+        },
+        {
+            "default": "make",
+            "description": "the build system generator to use",
+            "name": "generator"
+        },
+        {
+            "default": false,
+            "description": "CMake interprocedural optimization",
+            "name": "ipo"
+        },
+        {
+            "default": false,
+            "description": "Build mpi collector for mpich2                         MPI when variant is enabled.",
+            "name": "mpich2"
+        },
+        {
+            "default": false,
+            "description": "Build mpi collector for SGI                          MPT MPI when variant is enabled.",
+            "name": "mpt"
+        },
+        {
+            "default": false,
+            "description": "Build mpi collector for mvapich2                         MPI when variant is enabled.",
+            "name": "mvapich2"
+        },
+        {
+            "default": false,
+            "description": "Build mpi collector for openmpi                          MPI when variant is enabled.",
+            "name": "openmpi"
+        },
+        {
+            "default": false,
+            "description": "build only the runtime libraries and collectors.",
+            "name": "runtime"
+        }
+    ],
+    "versions": [
+        {
+            "branch": "2.4.1",
+            "name": "2.4.1"
+        },
+        {
+            "branch": "2.4.2",
+            "name": "2.4.2"
+        },
+        {
+            "branch": "2.4.2.1",
+            "name": "2.4.2.1"
+        },
+        {
+            "branch": "master",
+            "name": "develop"
         }
     ]
 }

@@ -1,135 +1,121 @@
 {
-    "name": "lua-luajit",
     "aliases": [
         {
-            "name": "lua-lang",
-            "alias_for": "lua-luajit+lualinks"
+            "alias_for": "lua-luajit-openresty+lualinks",
+            "name": "lua-lang"
         },
         {
-            "name": "luajit",
-            "alias_for": "lua-luajit+lualinks"
+            "alias_for": "lua-luajit-openresty+lualinks",
+            "name": "luajit"
         }
     ],
-    "versions": [
-        {
-            "name": "2.1.0-beta3",
-            "sha256": "1ad2e34b111c802f9d0cdf019e986909123237a28c746b21295b63c9e785d9c3"
-        },
-        {
-            "name": "2.0.5",
-            "sha256": "874b1f8297c697821f561f9b73b57ffd419ed8f4278c82e05b48806d30c1e979"
-        },
-        {
-            "name": "2.0.4",
-            "sha256": "620fa4eb12375021bef6e4f237cbd2dd5d49e56beb414bee052c746beef1807d"
-        }
-    ],
-    "latest_version": "2.1.0-beta3",
     "build_system": "MakefilePackage",
     "conflicts": [
         {
+            "description": null,
             "name": "arch=windows-None-None",
-            "spec": "build_system=makefile",
-            "description": null
-        },
-        {
-            "name": "@:2.0.5",
-            "spec": "arch=None-None-aarch64:",
-            "description": null
-        },
-        {
-            "name": "arch=darwin-None-None",
-            "spec": "",
-            "description": "lua-luajit: luajit not supported on MacOS, see lua-luajit-openresty"
+            "spec": "build_system=makefile"
         }
     ],
-    "variants": [
-        {
-            "name": "build_system",
-            "default": "makefile",
-            "description": "Build systems supported by the package"
-        },
-        {
-            "name": "fetcher",
-            "default": "curl",
-            "description": "Fetcher to use in the LuaRocks package manager"
-        },
-        {
-            "name": "lualinks",
-            "default": true,
-            "description": "add symlinks to make lua-luajit a drop-in lua replacement"
-        }
-    ],
-    "homepage": "https://www.luajit.org",
-    "maintainers": [],
-    "patches": [],
-    "resources": [
-        {
-            "version": "",
-            "name": "luarocks",
-            "destination": "luarocks",
-            "placement": "luarocks"
-        }
-    ],
-    "description": "Flast flexible JITed lua\n",
     "dependencies": [
         {
-            "name": "curl",
-            "description": "cURL is an open source command line tool and library for transferring\ndata with URL syntax"
+            "description": "cURL is an open source command line tool and library for transferring\ndata with URL syntax",
+            "name": "curl"
         },
         {
-            "name": "gmake",
-            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files."
+            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files.",
+            "name": "gmake"
         },
         {
-            "name": "unzip",
-            "description": "Unzip is a compression and file packaging/archive utility."
+            "description": "Unzip is a compression and file packaging/archive utility.",
+            "name": "unzip"
         },
         {
-            "name": "wget",
-            "description": "GNU Wget is a free software package for retrieving files using HTTP,\nHTTPS and FTP, the most widely-used Internet protocols. It is a non-\ninteractive commandline tool, so it may easily be called from scripts,\ncron jobs, terminals without X-Windows support, etc."
+            "description": "GNU Wget is a free software package for retrieving files using HTTP,\nHTTPS and FTP, the most widely-used Internet protocols. It is a non-\ninteractive commandline tool, so it may easily be called from scripts,\ncron jobs, terminals without X-Windows support, etc.",
+            "name": "wget"
         }
     ],
     "dependent_to": [
         {
-            "name": "lua-bitlib",
-            "description": "Lua-jit-like bitwise operations for lua"
+            "description": "IREP is a tool that enables mixed-language simulation codes to use a\ncommon, Lua-based format for their input decks. Essentially, the input\nformat is a set of tables -- Lua's one (and only?) data structure.",
+            "name": "irep"
         },
         {
-            "name": "libluv",
-            "description": "This library makes libuv available to lua scripts. It was made for the\nluvit project but should usable from nearly any lua project."
+            "description": "This library makes libuv available to lua scripts. It was made for the\nluvit project but should usable from nearly any lua project.",
+            "name": "libluv"
         },
         {
-            "name": "lua-ffi",
-            "description": "luajit FFI for interpreted lua"
+            "description": "Lua 5.2 bit operations for Lua 5.1",
+            "name": "lua-bit32"
         },
         {
-            "name": "lua-luaposix",
-            "description": "Lua posix bindings, including ncurses"
+            "description": "Lua-jit-like bitwise operations for lua",
+            "name": "lua-bitlib"
         },
         {
-            "name": "lua-bit32",
-            "description": "Lua 5.2 bit operations for Lua 5.1"
+            "description": "luajit FFI for interpreted lua",
+            "name": "lua-ffi"
         },
         {
-            "name": "irep",
-            "description": "IREP is a tool that enables mixed-language simulation codes to use a\ncommon, Lua-based format for their input decks. Essentially, the input\nformat is a set of tables -- Lua's one (and only?) data structure."
+            "description": "pattern-matching for lua",
+            "name": "lua-lpeg"
         },
         {
-            "name": "neovim",
-            "description": "Neovim: Vim-fork focused on extensibility and usability"
+            "description": "LuaFileSystem is a Lua library developed to complement the set of\nfunctions related to file systems offered by the standard Lua\ndistribution. LuaFileSystem offers a portable way to access the\nunderlying directory structure and file attributes. LuaFileSystem is\nfree software and uses the same license as Lua 5.1",
+            "name": "lua-luafilesystem"
         },
         {
-            "name": "lua-mpack",
-            "description": "lua bindings to libmpack"
+            "description": "Lua posix bindings, including ncurses",
+            "name": "lua-luaposix"
         },
         {
-            "name": "lua-luafilesystem",
-            "description": "LuaFileSystem is a Lua library developed to complement the set of\nfunctions related to file systems offered by the standard Lua\ndistribution. LuaFileSystem offers a portable way to access the\nunderlying directory structure and file attributes. LuaFileSystem is\nfree software and uses the same license as Lua 5.1"
+            "description": "lua bindings to libmpack",
+            "name": "lua-mpack"
         },
         {
-            "name": "lua-lpeg",
-            "description": "pattern-matching for lua"
+            "description": "Neovim: Vim-fork focused on extensibility and usability",
+            "name": "neovim"
+        }
+    ],
+    "description": "Flast flexible JITed lua - OpenResty maintained fork\n",
+    "homepage": "https://openresty.org/en/luajit.html",
+    "latest_version": "2.1-20230410",
+    "maintainers": [],
+    "name": "lua-luajit-openresty",
+    "patches": [],
+    "resources": [
+        {
+            "destination": "luarocks",
+            "name": "luarocks",
+            "placement": "luarocks",
+            "version": ""
+        }
+    ],
+    "variants": [
+        {
+            "default": "makefile",
+            "description": "Build systems supported by the package",
+            "name": "build_system"
+        },
+        {
+            "default": "curl",
+            "description": "Fetcher to use in the LuaRocks package manager",
+            "name": "fetcher"
+        },
+        {
+            "default": true,
+            "description": "add symlinks to make lua-luajit a drop-in lua replacement",
+            "name": "lualinks"
+        }
+    ],
+    "versions": [
+        {
+            "name": "2.1-20220111",
+            "sha256": "1ad2e34b111c802f9d0cdf019e986909123237a28c746b21295b63c9e785d9c3"
+        },
+        {
+            "name": "2.1-20230410",
+            "sha256": "77bbcbb24c3c78f51560017288f3118d995fe71240aa379f5818ff6b166712ff"
         }
     ]
 }

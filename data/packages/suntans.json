@@ -1,29 +1,31 @@
 {
-    "name": "suntans",
     "aliases": [],
-    "versions": [
-        {
-            "name": "3.1",
-            "sha256": "9b5d0dee5502a5650e37bf72f64b1124be86c084e7408aa517c214ddb25e36de"
-        }
-    ],
-    "latest_version": "3.1",
     "build_system": "MakefilePackage",
     "conflicts": [
         {
+            "description": null,
             "name": "arch=windows-None-None",
-            "spec": "build_system=makefile",
-            "description": null
+            "spec": "build_system=makefile"
         }
     ],
-    "variants": [
+    "dependencies": [
         {
-            "name": "build_system",
-            "default": "makefile",
-            "description": "Build systems supported by the package"
+            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files.",
+            "name": "gmake"
+        },
+        {
+            "description": "libX11 - Core X11 protocol client library.",
+            "name": "libx11"
+        },
+        {
+            "description": "IBM MPI implementation from Spectrum MPI.",
+            "name": "mpi"
         }
     ],
+    "dependent_to": [],
+    "description": "The Stanford unstructured-grid, nonhydrostatic, parallel coastal ocean\nmodel.\n",
     "homepage": "https://github.com/ofringer/suntans",
+    "latest_version": "3.1",
     "maintainers": [
         "jadelson",
         "lhxone",
@@ -31,22 +33,20 @@
         "ofringer",
         "zyaj"
     ],
+    "name": "suntans",
     "patches": [],
     "resources": [],
-    "description": "The Stanford unstructured-grid, nonhydrostatic, parallel coastal ocean\nmodel.\n",
-    "dependencies": [
+    "variants": [
         {
-            "name": "gmake",
-            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files."
-        },
-        {
-            "name": "libx11",
-            "description": "libX11 - Core X11 protocol client library."
-        },
-        {
-            "name": "mpi",
-            "description": "A single processor implementation of the mpi library."
+            "default": "makefile",
+            "description": "Build systems supported by the package",
+            "name": "build_system"
         }
     ],
-    "dependent_to": []
+    "versions": [
+        {
+            "name": "3.1",
+            "sha256": "9b5d0dee5502a5650e37bf72f64b1124be86c084e7408aa517c214ddb25e36de"
+        }
+    ]
 }

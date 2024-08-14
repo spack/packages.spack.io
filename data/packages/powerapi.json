@@ -1,100 +1,100 @@
 {
-    "name": "powerapi",
     "aliases": [],
-    "versions": [
-        {
-            "name": "2020-01-30",
-            "commit": "21f75b1469261d99e604f7ddc18f30513ebdd048"
-        },
-        {
-            "name": "1.1.1",
-            "commit": "93f66dfa29f014067823f2b790a1862e5841a11c"
-        }
-    ],
-    "latest_version": "2020-01-30",
     "build_system": "AutotoolsPackage",
     "conflicts": [
         {
+            "description": null,
             "name": "arch=windows-None-None",
-            "spec": "build_system=autotools",
-            "description": null
+            "spec": "build_system=autotools"
         }
     ],
-    "variants": [
+    "dependencies": [
         {
-            "name": "build_system",
-            "default": "autotools",
-            "description": "Build systems supported by the package"
+            "description": "Autoconf -- system configuration part of autotools",
+            "name": "autoconf"
         },
         {
-            "name": "hwloc",
-            "default": false,
-            "description": "Build hwloc support"
+            "description": "Automake -- make file builder part of autotools",
+            "name": "automake"
         },
         {
-            "name": "debug",
-            "default": false,
-            "description": "Enable debug support"
+            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files.",
+            "name": "gmake"
         },
         {
-            "name": "mpi",
-            "default": false,
-            "description": "Enable MPI support"
+            "description": "The GNU config.guess and config.sub scripts versioned by timestamp.\nThis package can be used as a build dependency for autotools packages\nthat ship a tarball with outdated config.guess and config.sub files.",
+            "name": "gnuconfig"
         },
         {
-            "name": "gnu-ld",
-            "default": false,
-            "description": "Assume GNU compiled uses gnu-ld"
+            "description": "The Hardware Locality (hwloc) software project. The Portable Hardware\nLocality (hwloc) software package provides a portable abstraction\n(across OS, versions, architectures, ...) of the hierarchical topology\nof modern architectures, including NUMA memory nodes, sockets, shared\ncaches, cores and simultaneous multithreading. It also gathers various\nsystem attributes such as cache and memory information as well as the\nlocality of I/O devices such as network interfaces, InfiniBand HCAs or\nGPUs. It primarily aims at helping applications with gathering\ninformation about modern computing hardware so as to exploit it\naccordingly and efficiently.",
+            "name": "hwloc"
+        },
+        {
+            "description": "libtool -- library building part of autotools.",
+            "name": "libtool"
+        },
+        {
+            "description": "GNU M4 is an implementation of the traditional Unix macro processor.",
+            "name": "m4"
+        },
+        {
+            "description": "IBM MPI implementation from Spectrum MPI.",
+            "name": "mpi"
         }
     ],
+    "dependent_to": [],
+    "description": "This software is a reference implementation of the PowerAPI\n",
     "homepage": "https://powerapi.sandia.gov/",
+    "latest_version": "2020-01-30",
     "maintainers": [],
+    "name": "powerapi",
     "patches": [
         {
-            "owner": "builtin.powerapi",
-            "sha256": "f041b8f1ce9a4428b02b1f632adc517b998a87ecae3faef689780e6d708cd700",
             "level": 1,
-            "working_dir": ".",
-            "reverse": false,
+            "owner": "builtin.powerapi",
             "relative_path": "add_space.patch",
-            "version": ""
+            "reverse": false,
+            "sha256": "f041b8f1ce9a4428b02b1f632adc517b998a87ecae3faef689780e6d708cd700",
+            "version": "",
+            "working_dir": "."
         }
     ],
     "resources": [],
-    "description": "This software is a reference implementation of the PowerAPI\n",
-    "dependencies": [
+    "variants": [
         {
-            "name": "autoconf",
-            "description": "Autoconf -- system configuration part of autotools"
+            "default": "autotools",
+            "description": "Build systems supported by the package",
+            "name": "build_system"
         },
         {
-            "name": "automake",
-            "description": "Automake -- make file builder part of autotools"
+            "default": false,
+            "description": "Enable debug support",
+            "name": "debug"
         },
         {
-            "name": "gmake",
-            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files."
+            "default": false,
+            "description": "Assume GNU compiled uses gnu-ld",
+            "name": "gnu-ld"
         },
         {
-            "name": "gnuconfig",
-            "description": "The GNU config.guess and config.sub scripts versioned by timestamp.\nThis package can be used as a build dependency for autotools packages\nthat ship a tarball with outdated config.guess and config.sub files."
+            "default": false,
+            "description": "Build hwloc support",
+            "name": "hwloc"
         },
         {
-            "name": "hwloc",
-            "description": "The Hardware Locality (hwloc) software project. The Portable Hardware\nLocality (hwloc) software package provides a portable abstraction\n(across OS, versions, architectures, ...) of the hierarchical topology\nof modern architectures, including NUMA memory nodes, sockets, shared\ncaches, cores and simultaneous multithreading. It also gathers various\nsystem attributes such as cache and memory information as well as the\nlocality of I/O devices such as network interfaces, InfiniBand HCAs or\nGPUs. It primarily aims at helping applications with gathering\ninformation about modern computing hardware so as to exploit it\naccordingly and efficiently."
-        },
-        {
-            "name": "libtool",
-            "description": "libtool -- library building part of autotools."
-        },
-        {
-            "name": "m4",
-            "description": "GNU M4 is an implementation of the traditional Unix macro processor."
-        },
-        {
-            "name": "mpi",
-            "description": "A single processor implementation of the mpi library."
+            "default": false,
+            "description": "Enable MPI support",
+            "name": "mpi"
         }
     ],
-    "dependent_to": []
+    "versions": [
+        {
+            "commit": "93f66dfa29f014067823f2b790a1862e5841a11c",
+            "name": "1.1.1"
+        },
+        {
+            "commit": "21f75b1469261d99e604f7ddc18f30513ebdd048",
+            "name": "2020-01-30"
+        }
+    ]
 }

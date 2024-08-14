@@ -1,126 +1,126 @@
 {
-    "name": "py-smartsim",
     "aliases": [],
+    "build_system": "PythonPackage",
+    "conflicts": [],
+    "dependencies": [
+        {
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software.",
+            "name": "cmake"
+        },
+        {
+            "description": "Colored terminal output for Python's logging module",
+            "name": "py-coloredlogs"
+        },
+        {
+            "description": "A platform-independent file lock for Python. This package contains a\nsingle module, which implements a platform independent file lock in\nPython, which provides a simple way of inter-process communication",
+            "name": "py-filelock"
+        },
+        {
+            "description": "The PyPA recommended tool for installing Python packages.",
+            "name": "py-pip"
+        },
+        {
+            "description": "Protocol buffers are Google's language-neutral, platform-neutral,\nextensible mechanism for serializing structured data - think XML, but\nsmaller, faster, and simpler. You define how you want your data to be\nstructured once, then you can use special generated source code to\neasily write and read your structured data to and from a variety of data\nstreams and using a variety of languages.",
+            "name": "py-protobuf"
+        },
+        {
+            "description": "psutil is a cross-platform library for retrieving information on running\nprocesses and system utilization (CPU, memory, disks, network) in\nPython.",
+            "name": "py-psutil"
+        },
+        {
+            "description": "The Python interface to the Redis key-value store.",
+            "name": "py-redis"
+        },
+        {
+            "description": "A Python utility that aids in the process of downloading, building,\nupgrading, installing, and uninstalling Python packages.",
+            "name": "py-setuptools"
+        },
+        {
+            "description": "A Python Interface for the SmartRedis Library Client",
+            "name": "py-smartredis"
+        },
+        {
+            "description": "Pretty-print tabular data",
+            "name": "py-tabulate"
+        },
+        {
+            "description": "Tensors and Dynamic neural networks in Python with strong GPU\nacceleration.",
+            "name": "py-torch"
+        },
+        {
+            "description": "Image and video datasets and models for torch deep learning.",
+            "name": "py-torchvision"
+        },
+        {
+            "description": "A Fast, Extensible Progress Meter",
+            "name": "py-tqdm"
+        },
+        {
+            "description": "A built-package format for Python.",
+            "name": "py-wheel"
+        },
+        {
+            "description": "The Python programming language.",
+            "name": "python"
+        },
+        {
+            "description": "A Spack managed Python virtual environment",
+            "name": "python-venv"
+        },
+        {
+            "description": "Redis is an open source (BSD licensed), in-memory data structure store,\nused as a database, cache and message broker. It supports data\nstructures such as strings, hashes, lists, sets, sorted sets with range\nqueries, bitmaps, hyperloglogs, geospatial indexes with radius queries\nand streams. Redis has built-in replication, Lua scripting, LRU\neviction, transactions and different levels of on-disk persistence, and\nprovides high availability via Redis Sentinel and automatic partitioning\nwith Redis Cluster",
+            "name": "redis"
+        },
+        {
+            "description": "A Redis module for serving tensors and executing deep learning graphs",
+            "name": "redis-ai"
+        }
+    ],
+    "dependent_to": [],
+    "description": "A workflow library to easily integrate machine learning libraries with\nhigh performance computing simulations and applications\n",
+    "homepage": "https://www.craylabs.org/docs/overview.html",
+    "latest_version": "0.5.0",
+    "maintainers": [
+        "MattToast"
+    ],
+    "name": "py-smartsim",
+    "patches": [
+        {
+            "level": 1,
+            "owner": "builtin.py-smartsim",
+            "relative_path": "ss-dont-build-db.patch",
+            "reverse": false,
+            "sha256": "64b67181ad586ec5968e08a903cdf590f590f7783187a4a09fb53b9d2f08bec7",
+            "version": "",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.py-smartsim",
+            "relative_path": "ss-0-5-0-remove-cli-build-fns.patch",
+            "reverse": false,
+            "sha256": "b60c193e812b8524e00c585c424082bdd54e851e597f370467a665c0c2847347",
+            "version": "",
+            "working_dir": "."
+        }
+    ],
+    "resources": [],
+    "variants": [
+        {
+            "default": "python_pip",
+            "description": "Build systems supported by the package",
+            "name": "build_system"
+        },
+        {
+            "default": true,
+            "description": "Build with the pytorch backend",
+            "name": "torch"
+        }
+    ],
     "versions": [
         {
             "name": "0.5.0",
             "sha256": "35b36243dc84af62261a7f772bae92f0b3502faf01401423899cb2a48339858c"
         }
-    ],
-    "latest_version": "0.5.0",
-    "build_system": "PythonPackage",
-    "conflicts": [],
-    "variants": [
-        {
-            "name": "build_system",
-            "default": "python_pip",
-            "description": "Build systems supported by the package"
-        },
-        {
-            "name": "torch",
-            "default": true,
-            "description": "Build with the pytorch backend"
-        }
-    ],
-    "homepage": "https://www.craylabs.org/docs/overview.html",
-    "maintainers": [
-        "MattToast"
-    ],
-    "patches": [
-        {
-            "owner": "builtin.py-smartsim",
-            "sha256": "64b67181ad586ec5968e08a903cdf590f590f7783187a4a09fb53b9d2f08bec7",
-            "level": 1,
-            "working_dir": ".",
-            "reverse": false,
-            "relative_path": "ss-dont-build-db.patch",
-            "version": ""
-        },
-        {
-            "owner": "builtin.py-smartsim",
-            "sha256": "b60c193e812b8524e00c585c424082bdd54e851e597f370467a665c0c2847347",
-            "level": 1,
-            "working_dir": ".",
-            "reverse": false,
-            "relative_path": "ss-0-5-0-remove-cli-build-fns.patch",
-            "version": ""
-        }
-    ],
-    "resources": [],
-    "description": "A workflow library to easily integrate machine learning libraries with\nhigh performance computing simulations and applications\n",
-    "dependencies": [
-        {
-            "name": "cmake",
-            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
-        },
-        {
-            "name": "py-coloredlogs",
-            "description": "Colored terminal output for Python's logging module"
-        },
-        {
-            "name": "py-filelock",
-            "description": "A platform-independent file lock for Python. This package contains a\nsingle module, which implements a platform independent file lock in\nPython, which provides a simple way of inter-process communication"
-        },
-        {
-            "name": "py-pip",
-            "description": "The PyPA recommended tool for installing Python packages."
-        },
-        {
-            "name": "py-protobuf",
-            "description": "Protocol buffers are Google's language-neutral, platform-neutral,\nextensible mechanism for serializing structured data - think XML, but\nsmaller, faster, and simpler. You define how you want your data to be\nstructured once, then you can use special generated source code to\neasily write and read your structured data to and from a variety of data\nstreams and using a variety of languages."
-        },
-        {
-            "name": "py-psutil",
-            "description": "psutil is a cross-platform library for retrieving information on running\nprocesses and system utilization (CPU, memory, disks, network) in\nPython."
-        },
-        {
-            "name": "py-redis",
-            "description": "The Python interface to the Redis key-value store."
-        },
-        {
-            "name": "py-setuptools",
-            "description": "A Python utility that aids in the process of downloading, building,\nupgrading, installing, and uninstalling Python packages."
-        },
-        {
-            "name": "py-smartredis",
-            "description": "A Python Interface for the SmartRedis Library Client"
-        },
-        {
-            "name": "py-tabulate",
-            "description": "Pretty-print tabular data"
-        },
-        {
-            "name": "py-torch",
-            "description": "Tensors and Dynamic neural networks in Python with strong GPU\nacceleration."
-        },
-        {
-            "name": "py-torchvision",
-            "description": "Image and video datasets and models for torch deep learning."
-        },
-        {
-            "name": "py-tqdm",
-            "description": "A Fast, Extensible Progress Meter"
-        },
-        {
-            "name": "py-wheel",
-            "description": "A built-package format for Python."
-        },
-        {
-            "name": "python",
-            "description": "The Python programming language."
-        },
-        {
-            "name": "python-venv",
-            "description": "A Spack managed Python virtual environment"
-        },
-        {
-            "name": "redis",
-            "description": "Redis is an open source (BSD licensed), in-memory data structure store,\nused as a database, cache and message broker. It supports data\nstructures such as strings, hashes, lists, sets, sorted sets with range\nqueries, bitmaps, hyperloglogs, geospatial indexes with radius queries\nand streams. Redis has built-in replication, Lua scripting, LRU\neviction, transactions and different levels of on-disk persistence, and\nprovides high availability via Redis Sentinel and automatic partitioning\nwith Redis Cluster"
-        },
-        {
-            "name": "redis-ai",
-            "description": "A Redis module for serving tensors and executing deep learning graphs"
-        }
-    ],
-    "dependent_to": []
+    ]
 }

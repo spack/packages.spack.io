@@ -1,140 +1,74 @@
 {
-    "name": "cosma",
     "aliases": [],
-    "versions": [
-        {
-            "name": "master",
-            "branch": "master"
-        },
-        {
-            "name": "2.6.6",
-            "sha256": "1604be101e77192fbcc5551236bc87888d336e402f5409bbdd9dea900401cc37"
-        },
-        {
-            "name": "2.6.5",
-            "sha256": "10d9b7ecc1ce44ec5b9e0c0bf89278a63029912ec3ea99661be8576b553ececf"
-        },
-        {
-            "name": "2.6.4",
-            "sha256": "6d7bd5e3005874af9542a329c93e7ccd29ca1a5573dae27618fac2704fa2b6ab"
-        },
-        {
-            "name": "2.6.3",
-            "sha256": "c2a3735ea8f860930bea6706d968497d72a1be0498c689b5bc4a951ffc2d1146"
-        },
-        {
-            "name": "2.6.2",
-            "sha256": "2debb5123cc35aeebc5fd2f8a46cfd6356d1e27618c9bb57129ecd09aa400940"
-        },
-        {
-            "name": "2.6.1",
-            "sha256": "69aa6634a030674f0d9be61e7b0bf0dc17acf0fc9e7a90b40e3179e2254c8d67"
-        },
-        {
-            "name": "2.5.1",
-            "sha256": "085b7787597374244bbb1eb89bc69bf58c35f6c85be805e881e1c0b25166c3ce"
-        },
-        {
-            "name": "2.5.0",
-            "sha256": "7f68bb0ee5c80f9b8df858afcbd017ad4ed87ac09439d13d7d890844dbdd3d54"
-        },
-        {
-            "name": "2.4.0",
-            "sha256": "5714315ce06d48037f86cfee2d7f19340643fee95e9d7f1e92dc1b623b67e395"
-        },
-        {
-            "name": "2.3.0",
-            "sha256": "0c01c2deb5a0cd177952178350188a62c42ce55e604d7948ac472f55bf0d4815"
-        },
-        {
-            "name": "2.2.0",
-            "sha256": "1eb92a98110df595070a12193b9221eecf9d103ced8836c960f6c79a2bd553ca"
-        },
-        {
-            "name": "2.0.7",
-            "sha256": "8d70bfcbda6239b6a8fbeaca138790bbe58c0c3aa576879480d2632d4936cf7e"
-        },
-        {
-            "name": "2.0.2",
-            "sha256": "4f3354828bc718f3eef2f0098c3bdca3499297497a220da32db1acd57920c68d"
-        }
-    ],
-    "latest_version": "2.6.6",
     "build_system": "CMakePackage",
     "conflicts": [],
-    "variants": [
+    "dependencies": [
         {
-            "name": "build_system",
-            "default": "cmake",
-            "description": "Build systems supported by the package"
+            "description": "Lightweight but flexible shim designed to rectify the incompatibilities\nbetween the Accelerate/vecLib BLAS and LAPACK libraries shipped with\nmacOS and FORTRAN code compiled with modern compilers such as GNU\nFortran.",
+            "name": "blas"
         },
         {
-            "name": "build_type",
-            "default": "Release",
-            "description": "CMake build type"
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software.",
+            "name": "cmake"
         },
         {
-            "name": "ipo",
-            "default": false,
-            "description": "CMake interprocedural optimization"
+            "description": "Distributed Communication-Optimal Matrix Transpose and Reshuffle\nLibrary Based on the paper: https://arxiv.org/abs/2106.06601",
+            "name": "costa"
         },
         {
-            "name": "generator",
-            "default": "make",
-            "description": "the build system generator to use"
+            "description": "CUDA is a parallel computing platform and programming model invented by\nNVIDIA. It enables dramatic increases in computing performance by\nharnessing the power of the graphics processing unit (GPU). Note: This\npackage does not currently install the drivers necessary to run CUDA.\nThese will need to be installed manually. See:\nhttps://docs.nvidia.com/cuda/ for details.",
+            "name": "cuda"
         },
         {
-            "name": "cuda",
-            "default": false,
-            "description": "Build with cuBLAS support"
+            "description": "Lightweight C++ command line option parser",
+            "name": "cxxopts"
         },
         {
-            "name": "rocm",
-            "default": false,
-            "description": "Build with rocBLAS support"
+            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files.",
+            "name": "gmake"
         },
         {
-            "name": "scalapack",
-            "default": false,
-            "description": "Build with ScaLAPACK API"
+            "description": "IBM MPI implementation from Spectrum MPI.",
+            "name": "mpi"
         },
         {
-            "name": "shared",
-            "default": true,
-            "description": "Build the shared library version"
+            "description": "Optimized primitives for collective multi-GPU communication.",
+            "name": "nccl"
         },
         {
-            "name": "tests",
-            "default": false,
-            "description": "Build tests"
+            "description": "Ninja is a small build system with a focus on speed. It differs from\nother build systems in two major respects: it is designed to have its\ninput files generated by a higher-level build system, and it is designed\nto run builds as fast as possible.",
+            "name": "ninja"
         },
         {
-            "name": "apps",
-            "default": false,
-            "description": "Build miniapp"
+            "description": "RCCL (pronounced \"Rickle\") is a stand-alone library of standard\ncollective communication routines for GPUs, implementing all-reduce,\nall-gather, reduce, broadcast, and reduce-scatter.",
+            "name": "rccl"
         },
         {
-            "name": "profiling",
-            "default": false,
-            "description": "Enable profiling"
+            "description": "Radeon Open Compute BLAS library",
+            "name": "rocblas"
         },
         {
-            "name": "gpu_direct",
-            "default": false,
-            "description": "GPU aware MPI"
+            "description": "ScaLAPACK is a library of high-performance linear algebra routines for\nparallel distributed memory machines",
+            "name": "scalapack"
         },
         {
-            "name": "nccl",
-            "default": false,
-            "description": "Use cuda nccl"
+            "description": "Simple thread safe annotation based C++ profiler.",
+            "name": "semiprof"
         },
         {
-            "name": "rccl",
-            "default": false,
-            "description": "Use rocm rccl"
+            "description": "Matrix multiplication on GPUs for matrices stored on a CPU. Similar to\ncublasXt, but ported to both NVIDIA and AMD GPUs.",
+            "name": "tiled-mm"
         }
     ],
+    "dependent_to": [
+        {
+            "description": "CP2K is a quantum chemistry and solid state physics software package\nthat can perform atomistic simulations of solid state, liquid,\nmolecular, periodic, material, crystal, and biological systems",
+            "name": "cp2k"
+        }
+    ],
+    "description": " Distributed Communication-Optimal Matrix-Matrix Multiplication Library\n",
     "homepage": "https://github.com/eth-cscs/COSMA",
+    "latest_version": "2.6.6",
     "maintainers": [
         "haampie",
         "kabicm",
@@ -142,81 +76,147 @@
         "simonpintarelli",
         "teonnik"
     ],
+    "name": "cosma",
     "patches": [
         {
-            "owner": "builtin.cosma",
-            "sha256": "86f21438a91ee6e549635e87724ea4ae5f95437953fecb36cd6d793f0db7c08e",
             "level": 1,
-            "working_dir": ".",
-            "reverse": false,
+            "owner": "builtin.cosma",
             "relative_path": "fj-ssl2.patch",
-            "version": "^fujitsu-ssl2"
+            "reverse": false,
+            "sha256": "86f21438a91ee6e549635e87724ea4ae5f95437953fecb36cd6d793f0db7c08e",
+            "version": "^fujitsu-ssl2",
+            "working_dir": "."
         }
     ],
     "resources": [],
-    "description": " Distributed Communication-Optimal Matrix-Matrix Multiplication Library\n",
-    "dependencies": [
+    "variants": [
         {
-            "name": "blas",
-            "description": "BLIS is a portable software framework for instantiating high-performance\nBLAS-like dense linear algebra libraries. The framework was designed to\nisolate essential kernels of computation that, when optimized,\nimmediately enable optimized implementations of most of its commonly\nused and computationally intensive operations. BLIS is written in ISO\nC99 and available under a new/modified/3-clause BSD license. While BLIS\nexports a new BLAS-like API, it also includes a BLAS compatibility layer\nwhich gives application developers access to BLIS implementations via\ntraditional BLAS routine calls. An object-based API unique to BLIS is\nalso available."
+            "default": false,
+            "description": "Build miniapp",
+            "name": "apps"
         },
         {
-            "name": "cmake",
-            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
+            "default": "cmake",
+            "description": "Build systems supported by the package",
+            "name": "build_system"
         },
         {
-            "name": "costa",
-            "description": "Distributed Communication-Optimal Matrix Transpose and Reshuffle\nLibrary Based on the paper: https://arxiv.org/abs/2106.06601"
+            "default": "Release",
+            "description": "CMake build type",
+            "name": "build_type"
         },
         {
-            "name": "cuda",
-            "description": "CUDA is a parallel computing platform and programming model invented by\nNVIDIA. It enables dramatic increases in computing performance by\nharnessing the power of the graphics processing unit (GPU). Note: This\npackage does not currently install the drivers necessary to run CUDA.\nThese will need to be installed manually. See:\nhttps://docs.nvidia.com/cuda/ for details."
+            "default": false,
+            "description": "Build with cuBLAS support",
+            "name": "cuda"
         },
         {
-            "name": "cxxopts",
-            "description": "Lightweight C++ command line option parser"
+            "default": "make",
+            "description": "the build system generator to use",
+            "name": "generator"
         },
         {
-            "name": "gmake",
-            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files."
+            "default": false,
+            "description": "GPU aware MPI",
+            "name": "gpu_direct"
         },
         {
-            "name": "mpi",
-            "description": "A single processor implementation of the mpi library."
+            "default": false,
+            "description": "CMake interprocedural optimization",
+            "name": "ipo"
         },
         {
-            "name": "nccl",
-            "description": "Optimized primitives for collective multi-GPU communication."
+            "default": false,
+            "description": "Use cuda nccl",
+            "name": "nccl"
         },
         {
-            "name": "ninja",
-            "description": "Ninja is a small build system with a focus on speed. It differs from\nother build systems in two major respects: it is designed to have its\ninput files generated by a higher-level build system, and it is designed\nto run builds as fast as possible."
+            "default": false,
+            "description": "Enable profiling",
+            "name": "profiling"
         },
         {
-            "name": "rccl",
-            "description": "RCCL (pronounced \"Rickle\") is a stand-alone library of standard\ncollective communication routines for GPUs, implementing all-reduce,\nall-gather, reduce, broadcast, and reduce-scatter."
+            "default": false,
+            "description": "Use rocm rccl",
+            "name": "rccl"
         },
         {
-            "name": "rocblas",
-            "description": "Radeon Open Compute BLAS library"
+            "default": false,
+            "description": "Build with rocBLAS support",
+            "name": "rocm"
         },
         {
-            "name": "scalapack",
-            "description": "Intel Math Kernel Library. This package has been replaced by intel-\noneapi-mkl. LICENSE INFORMATION: By downloading and using this software,\nyou agree to the terms and conditions of the software license agreements\nat https://intel.ly/393CijO."
+            "default": false,
+            "description": "Build with ScaLAPACK API",
+            "name": "scalapack"
         },
         {
-            "name": "semiprof",
-            "description": "Simple thread safe annotation based C++ profiler."
+            "default": true,
+            "description": "Build the shared library version",
+            "name": "shared"
         },
         {
-            "name": "tiled-mm",
-            "description": "Matrix multiplication on GPUs for matrices stored on a CPU. Similar to\ncublasXt, but ported to both NVIDIA and AMD GPUs."
+            "default": false,
+            "description": "Build tests",
+            "name": "tests"
         }
     ],
-    "dependent_to": [
+    "versions": [
         {
-            "name": "cp2k",
-            "description": "CP2K is a quantum chemistry and solid state physics software package\nthat can perform atomistic simulations of solid state, liquid,\nmolecular, periodic, material, crystal, and biological systems"
+            "name": "2.0.2",
+            "sha256": "4f3354828bc718f3eef2f0098c3bdca3499297497a220da32db1acd57920c68d"
+        },
+        {
+            "name": "2.0.7",
+            "sha256": "8d70bfcbda6239b6a8fbeaca138790bbe58c0c3aa576879480d2632d4936cf7e"
+        },
+        {
+            "name": "2.2.0",
+            "sha256": "1eb92a98110df595070a12193b9221eecf9d103ced8836c960f6c79a2bd553ca"
+        },
+        {
+            "name": "2.3.0",
+            "sha256": "0c01c2deb5a0cd177952178350188a62c42ce55e604d7948ac472f55bf0d4815"
+        },
+        {
+            "name": "2.4.0",
+            "sha256": "5714315ce06d48037f86cfee2d7f19340643fee95e9d7f1e92dc1b623b67e395"
+        },
+        {
+            "name": "2.5.0",
+            "sha256": "7f68bb0ee5c80f9b8df858afcbd017ad4ed87ac09439d13d7d890844dbdd3d54"
+        },
+        {
+            "name": "2.5.1",
+            "sha256": "085b7787597374244bbb1eb89bc69bf58c35f6c85be805e881e1c0b25166c3ce"
+        },
+        {
+            "name": "2.6.1",
+            "sha256": "69aa6634a030674f0d9be61e7b0bf0dc17acf0fc9e7a90b40e3179e2254c8d67"
+        },
+        {
+            "name": "2.6.2",
+            "sha256": "2debb5123cc35aeebc5fd2f8a46cfd6356d1e27618c9bb57129ecd09aa400940"
+        },
+        {
+            "name": "2.6.3",
+            "sha256": "c2a3735ea8f860930bea6706d968497d72a1be0498c689b5bc4a951ffc2d1146"
+        },
+        {
+            "name": "2.6.4",
+            "sha256": "6d7bd5e3005874af9542a329c93e7ccd29ca1a5573dae27618fac2704fa2b6ab"
+        },
+        {
+            "name": "2.6.5",
+            "sha256": "10d9b7ecc1ce44ec5b9e0c0bf89278a63029912ec3ea99661be8576b553ececf"
+        },
+        {
+            "name": "2.6.6",
+            "sha256": "1604be101e77192fbcc5551236bc87888d336e402f5409bbdd9dea900401cc37"
+        },
+        {
+            "branch": "master",
+            "name": "master"
         }
     ]
 }

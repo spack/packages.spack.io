@@ -1,254 +1,254 @@
 {
-    "name": "valgrind",
     "aliases": [],
+    "build_system": "AutotoolsPackage",
+    "conflicts": [
+        {
+            "description": "valgrind: \nCannot build libubsan with clang on macOS.\nOtherwise with (Apple's) clang there is a linker error:\nclang: error: unknown argument: '-static-libubsan'\n",
+            "name": "+ubsan",
+            "spec": "%apple-clang"
+        },
+        {
+            "description": null,
+            "name": "arch=None-None-m1",
+            "spec": ""
+        },
+        {
+            "description": null,
+            "name": "arch=None-None-m2",
+            "spec": ""
+        },
+        {
+            "description": null,
+            "name": "arch=None-bigsur-None",
+            "spec": ""
+        },
+        {
+            "description": null,
+            "name": "arch=None-catalina-None",
+            "spec": ""
+        },
+        {
+            "description": null,
+            "name": "arch=None-mojave-None",
+            "spec": ""
+        },
+        {
+            "description": null,
+            "name": "arch=None-monterey-None",
+            "spec": ""
+        },
+        {
+            "description": null,
+            "name": "arch=None-ventura-None",
+            "spec": ""
+        },
+        {
+            "description": null,
+            "name": "arch=windows-None-None",
+            "spec": "build_system=autotools"
+        }
+    ],
+    "dependencies": [
+        {
+            "description": "Autoconf -- system configuration part of autotools",
+            "name": "autoconf"
+        },
+        {
+            "description": "Automake -- make file builder part of autotools",
+            "name": "automake"
+        },
+        {
+            "description": "Boost provides free peer-reviewed portable C++ source libraries,\nemphasizing libraries that work well with the C++ Standard Library.\nBoost libraries are intended to be widely useful, and usable across a\nbroad spectrum of applications. The Boost license encourages both\ncommercial and non-commercial use.",
+            "name": "boost"
+        },
+        {
+            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files.",
+            "name": "gmake"
+        },
+        {
+            "description": "The GNU config.guess and config.sub scripts versioned by timestamp.\nThis package can be used as a build dependency for autotools packages\nthat ship a tarball with outdated config.guess and config.sub files.",
+            "name": "gnuconfig"
+        },
+        {
+            "description": "libtool -- library building part of autotools.",
+            "name": "libtool"
+        },
+        {
+            "description": "IBM MPI implementation from Spectrum MPI.",
+            "name": "mpi"
+        }
+    ],
+    "dependent_to": [
+        {
+            "description": "Argobots, which was developed as a part of the Argo project, is a\nlightweight runtime system that supports integrated computation and data\nmovement with massive concurrency. It will directly leverage the lowest-\nlevel constructs in the hardware and OS: lightweight notification\nmechanisms, data movement engines, memory mapping, and data placement\nstrategies. It consists of an execution model and a memory model.",
+            "name": "argobots"
+        },
+        {
+            "description": "The system statistics collection daemon.",
+            "name": "collectd"
+        },
+        {
+            "description": "CORAL is an abstraction layer with an SQL-free API to access data stored\nusing relational database technologies. It is used directly by\nexperiment-specific applications and internally by COOL.",
+            "name": "coral"
+        },
+        {
+            "description": "A next-generation resource manager (pre-alpha)",
+            "name": "flux-core"
+        },
+        {
+            "description": "C++ runtime system for parallel and distributed applications.",
+            "name": "hpx"
+        },
+        {
+            "description": "libpsl - C library to handle the Public Suffix List.",
+            "name": "libpsl"
+        },
+        {
+            "description": "Librelp is an easy to use library for the RELP protocol. RELP (stands\nfor Reliable Event Logging Protocol) is a general-purpose, extensible\nlogging protocol.",
+            "name": "librelp"
+        },
+        {
+            "description": "LZ4 is lossless compression algorithm, providing compression speed at\n400 MB/s per core, scalable with multi-cores CPU. It also features an\nextremely fast decoder, with speed in multiple GB/s per core, typically\nreaching RAM speed limits on multi-core systems.",
+            "name": "lz4"
+        },
+        {
+            "description": "An open source Message Passing Interface implementation. The Open MPI\nProject is an open source Message Passing Interface implementation that\nis developed and maintained by a consortium of academic, research, and\nindustry partners. Open MPI is therefore able to combine the expertise,\ntechnologies, and resources from all across the High Performance\nComputing community in order to build the best MPI library available.\nOpen MPI offers advantages for system and software vendors, application\ndevelopers and computer science researchers.",
+            "name": "openmpi"
+        },
+        {
+            "description": "PETSc is a suite of data structures and routines for the scalable\n(parallel) solution of scientific applications modeled by partial\ndifferential equations.",
+            "name": "petsc"
+        },
+        {
+            "description": "C++ runtime system for parallellism and concurrency.",
+            "name": "pika"
+        },
+        {
+            "description": "Tensors and Dynamic neural networks in Python with strong GPU\nacceleration.",
+            "name": "py-torch"
+        },
+        {
+            "description": "GNU Wget is a free software package for retrieving files using HTTP,\nHTTPS and FTP, the most widely-used Internet protocols. It is a non-\ninteractive commandline tool, so it may easily be called from scripts,\ncron jobs, terminals without X-Windows support, etc.",
+            "name": "wget"
+        }
+    ],
+    "description": "An instrumentation framework for building dynamic analysis. There are\nValgrind tools that can automatically detect many memory management and\nthreading bugs, and profile your programs in detail. You can also use\nValgrind to build new tools. Valgrind is Open Source / Free Software,\nand is freely available under the GNU General Public License, version 2.\n",
+    "homepage": "https://valgrind.org/",
+    "latest_version": "3.23.0",
+    "maintainers": [],
+    "name": "valgrind",
+    "patches": [
+        {
+            "level": 1,
+            "owner": "builtin.valgrind",
+            "relative_path": "valgrind_3_12_0_osx.patch",
+            "reverse": false,
+            "sha256": "315d6ba40e203e06988980d3fdeea773aaab155ac2e195e6ede790ba84c80fb0",
+            "version": "@3.12.0 arch=darwin-None-None",
+            "working_dir": "."
+        }
+    ],
+    "resources": [],
+    "variants": [
+        {
+            "default": true,
+            "description": "Activates boost support for valgrind",
+            "name": "boost"
+        },
+        {
+            "default": "autotools",
+            "description": "Build systems supported by the package",
+            "name": "build_system"
+        },
+        {
+            "default": "shared,static",
+            "description": "Build shared libs, static libs or both",
+            "name": "libs"
+        },
+        {
+            "default": true,
+            "description": "Activates MPI support for valgrind",
+            "name": "mpi"
+        },
+        {
+            "default": true,
+            "description": "Sets --enable-only64bit option for valgrind",
+            "name": "only64bit"
+        },
+        {
+            "default": false,
+            "description": "Activates ubsan support for valgrind",
+            "name": "ubsan"
+        }
+    ],
     "versions": [
         {
-            "name": "develop",
-            "branch": "master"
-        },
-        {
-            "name": "3.23.0",
-            "sha256": "c5c34a3380457b9b75606df890102e7df2c702b9420c2ebef9540f8b5d56264d"
-        },
-        {
-            "name": "3.22.0",
-            "sha256": "c811db5add2c5f729944caf47c4e7a65dcaabb9461e472b578765dd7bf6d2d4c"
-        },
-        {
-            "name": "3.21.0",
-            "sha256": "10ce1618bb3e33fad16eb79552b0a3e1211762448a0d7fce11c8a6243b9ac971"
-        },
-        {
-            "name": "3.20.0",
-            "sha256": "8536c031dbe078d342f121fa881a9ecd205cb5a78e639005ad570011bdb9f3c6"
-        },
-        {
-            "name": "3.19.0",
-            "sha256": "dd5e34486f1a483ff7be7300cc16b4d6b24690987877c3278d797534d6738f02"
-        },
-        {
-            "name": "3.18.1",
-            "sha256": "00859aa13a772eddf7822225f4b46ee0d39afbe071d32778da4d99984081f7f5"
-        },
-        {
-            "name": "3.18.0",
-            "sha256": "8da880f76592fe8284db98e68f6dc9095485bc2ecc88bc05b7df1f278ae7f657"
-        },
-        {
-            "name": "3.17.0",
-            "sha256": "ad3aec668e813e40f238995f60796d9590eee64a16dff88421430630e69285a2"
-        },
-        {
-            "name": "3.16.1",
-            "sha256": "c91f3a2f7b02db0f3bc99479861656154d241d2fdb265614ba918cc6720a33ca"
-        },
-        {
-            "name": "3.15.0",
-            "sha256": "417c7a9da8f60dd05698b3a7bc6002e4ef996f14c13f0ff96679a16873e78ab1"
-        },
-        {
-            "name": "3.14.0",
-            "sha256": "037c11bfefd477cc6e9ebe8f193bb237fe397f7ce791b4a4ce3fa1c6a520baa5"
-        },
-        {
-            "name": "3.13.0",
-            "sha256": "d76680ef03f00cd5e970bbdcd4e57fb1f6df7d2e2c071635ef2be74790190c3b"
-        },
-        {
-            "name": "3.12.0",
-            "sha256": "67ca4395b2527247780f36148b084f5743a68ab0c850cb43e4a5b4b012cf76a1"
-        },
-        {
-            "name": "3.11.0",
-            "sha256": "6c396271a8c1ddd5a6fb9abe714ea1e8a86fce85b30ab26b4266aeb4c2413b42"
+            "name": "3.10.0",
+            "sha256": "03047f82dfc6985a4c7d9d2700e17bc05f5e1a0ca6ad902e5d6c81aeb720edc9"
         },
         {
             "name": "3.10.1",
             "sha256": "fa253dc26ddb661b6269df58144eff607ea3f76a9bcfe574b0c7726e1dfcb997"
         },
         {
-            "name": "3.10.0",
-            "sha256": "03047f82dfc6985a4c7d9d2700e17bc05f5e1a0ca6ad902e5d6c81aeb720edc9"
-        }
-    ],
-    "latest_version": "3.23.0",
-    "build_system": "AutotoolsPackage",
-    "conflicts": [
-        {
-            "name": "arch=windows-None-None",
-            "spec": "build_system=autotools",
-            "description": null
+            "name": "3.11.0",
+            "sha256": "6c396271a8c1ddd5a6fb9abe714ea1e8a86fce85b30ab26b4266aeb4c2413b42"
         },
         {
-            "name": "+ubsan",
-            "spec": "%apple-clang",
-            "description": "valgrind: \nCannot build libubsan with clang on macOS.\nOtherwise with (Apple's) clang there is a linker error:\nclang: error: unknown argument: '-static-libubsan'\n"
+            "name": "3.12.0",
+            "sha256": "67ca4395b2527247780f36148b084f5743a68ab0c850cb43e4a5b4b012cf76a1"
         },
         {
-            "name": "arch=None-mojave-None",
-            "spec": "",
-            "description": null
+            "name": "3.13.0",
+            "sha256": "d76680ef03f00cd5e970bbdcd4e57fb1f6df7d2e2c071635ef2be74790190c3b"
         },
         {
-            "name": "arch=None-catalina-None",
-            "spec": "",
-            "description": null
+            "name": "3.14.0",
+            "sha256": "037c11bfefd477cc6e9ebe8f193bb237fe397f7ce791b4a4ce3fa1c6a520baa5"
         },
         {
-            "name": "arch=None-bigsur-None",
-            "spec": "",
-            "description": null
+            "name": "3.15.0",
+            "sha256": "417c7a9da8f60dd05698b3a7bc6002e4ef996f14c13f0ff96679a16873e78ab1"
         },
         {
-            "name": "arch=None-monterey-None",
-            "spec": "",
-            "description": null
+            "name": "3.16.1",
+            "sha256": "c91f3a2f7b02db0f3bc99479861656154d241d2fdb265614ba918cc6720a33ca"
         },
         {
-            "name": "arch=None-ventura-None",
-            "spec": "",
-            "description": null
+            "name": "3.17.0",
+            "sha256": "ad3aec668e813e40f238995f60796d9590eee64a16dff88421430630e69285a2"
         },
         {
-            "name": "arch=None-None-m1",
-            "spec": "",
-            "description": null
+            "name": "3.18.0",
+            "sha256": "8da880f76592fe8284db98e68f6dc9095485bc2ecc88bc05b7df1f278ae7f657"
         },
         {
-            "name": "arch=None-None-m2",
-            "spec": "",
-            "description": null
-        }
-    ],
-    "variants": [
-        {
-            "name": "build_system",
-            "default": "autotools",
-            "description": "Build systems supported by the package"
+            "name": "3.18.1",
+            "sha256": "00859aa13a772eddf7822225f4b46ee0d39afbe071d32778da4d99984081f7f5"
         },
         {
-            "name": "mpi",
-            "default": true,
-            "description": "Activates MPI support for valgrind"
+            "name": "3.19.0",
+            "sha256": "dd5e34486f1a483ff7be7300cc16b4d6b24690987877c3278d797534d6738f02"
         },
         {
-            "name": "boost",
-            "default": true,
-            "description": "Activates boost support for valgrind"
+            "name": "3.20.0",
+            "sha256": "8536c031dbe078d342f121fa881a9ecd205cb5a78e639005ad570011bdb9f3c6"
         },
         {
-            "name": "only64bit",
-            "default": true,
-            "description": "Sets --enable-only64bit option for valgrind"
+            "name": "3.21.0",
+            "sha256": "10ce1618bb3e33fad16eb79552b0a3e1211762448a0d7fce11c8a6243b9ac971"
         },
         {
-            "name": "ubsan",
-            "default": false,
-            "description": "Activates ubsan support for valgrind"
+            "name": "3.22.0",
+            "sha256": "c811db5add2c5f729944caf47c4e7a65dcaabb9461e472b578765dd7bf6d2d4c"
         },
         {
-            "name": "libs",
-            "default": "shared,static",
-            "description": "Build shared libs, static libs or both"
-        }
-    ],
-    "homepage": "https://valgrind.org/",
-    "maintainers": [],
-    "patches": [
-        {
-            "owner": "builtin.valgrind",
-            "sha256": "315d6ba40e203e06988980d3fdeea773aaab155ac2e195e6ede790ba84c80fb0",
-            "level": 1,
-            "working_dir": ".",
-            "reverse": false,
-            "relative_path": "valgrind_3_12_0_osx.patch",
-            "version": "@3.12.0 arch=darwin-None-None"
-        }
-    ],
-    "resources": [],
-    "description": "An instrumentation framework for building dynamic analysis. There are\nValgrind tools that can automatically detect many memory management and\nthreading bugs, and profile your programs in detail. You can also use\nValgrind to build new tools. Valgrind is Open Source / Free Software,\nand is freely available under the GNU General Public License, version 2.\n",
-    "dependencies": [
-        {
-            "name": "autoconf",
-            "description": "Autoconf -- system configuration part of autotools"
+            "name": "3.23.0",
+            "sha256": "c5c34a3380457b9b75606df890102e7df2c702b9420c2ebef9540f8b5d56264d"
         },
         {
-            "name": "automake",
-            "description": "Automake -- make file builder part of autotools"
-        },
-        {
-            "name": "boost",
-            "description": "Boost provides free peer-reviewed portable C++ source libraries,\nemphasizing libraries that work well with the C++ Standard Library.\nBoost libraries are intended to be widely useful, and usable across a\nbroad spectrum of applications. The Boost license encourages both\ncommercial and non-commercial use."
-        },
-        {
-            "name": "gmake",
-            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files."
-        },
-        {
-            "name": "gnuconfig",
-            "description": "The GNU config.guess and config.sub scripts versioned by timestamp.\nThis package can be used as a build dependency for autotools packages\nthat ship a tarball with outdated config.guess and config.sub files."
-        },
-        {
-            "name": "libtool",
-            "description": "libtool -- library building part of autotools."
-        },
-        {
-            "name": "mpi",
-            "description": "A single processor implementation of the mpi library."
-        }
-    ],
-    "dependent_to": [
-        {
-            "name": "collectd",
-            "description": "The system statistics collection daemon."
-        },
-        {
-            "name": "libpsl",
-            "description": "libpsl - C library to handle the Public Suffix List."
-        },
-        {
-            "name": "wget",
-            "description": "GNU Wget is a free software package for retrieving files using HTTP,\nHTTPS and FTP, the most widely-used Internet protocols. It is a non-\ninteractive commandline tool, so it may easily be called from scripts,\ncron jobs, terminals without X-Windows support, etc."
-        },
-        {
-            "name": "lz4",
-            "description": "LZ4 is lossless compression algorithm, providing compression speed at\n400 MB/s per core, scalable with multi-cores CPU. It also features an\nextremely fast decoder, with speed in multiple GB/s per core, typically\nreaching RAM speed limits on multi-core systems."
-        },
-        {
-            "name": "hpx",
-            "description": "C++ runtime system for parallel and distributed applications."
-        },
-        {
-            "name": "openmpi",
-            "description": "An open source Message Passing Interface implementation. The Open MPI\nProject is an open source Message Passing Interface implementation that\nis developed and maintained by a consortium of academic, research, and\nindustry partners. Open MPI is therefore able to combine the expertise,\ntechnologies, and resources from all across the High Performance\nComputing community in order to build the best MPI library available.\nOpen MPI offers advantages for system and software vendors, application\ndevelopers and computer science researchers."
-        },
-        {
-            "name": "argobots",
-            "description": "Argobots, which was developed as a part of the Argo project, is a\nlightweight runtime system that supports integrated computation and data\nmovement with massive concurrency. It will directly leverage the lowest-\nlevel constructs in the hardware and OS: lightweight notification\nmechanisms, data movement engines, memory mapping, and data placement\nstrategies. It consists of an execution model and a memory model."
-        },
-        {
-            "name": "pika",
-            "description": "C++ runtime system for parallellism and concurrency."
-        },
-        {
-            "name": "flux-core",
-            "description": "A next-generation resource manager (pre-alpha)"
-        },
-        {
-            "name": "py-torch",
-            "description": "Tensors and Dynamic neural networks in Python with strong GPU\nacceleration."
-        },
-        {
-            "name": "librelp",
-            "description": "Librelp is an easy to use library for the RELP protocol. RELP (stands\nfor Reliable Event Logging Protocol) is a general-purpose, extensible\nlogging protocol."
-        },
-        {
-            "name": "coral",
-            "description": "CORAL is an abstraction layer with an SQL-free API to access data stored\nusing relational database technologies. It is used directly by\nexperiment-specific applications and internally by COOL."
-        },
-        {
-            "name": "petsc",
-            "description": "PETSc is a suite of data structures and routines for the scalable\n(parallel) solution of scientific applications modeled by partial\ndifferential equations."
+            "branch": "master",
+            "name": "develop"
         }
     ]
 }

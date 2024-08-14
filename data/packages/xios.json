@@ -1,109 +1,109 @@
 {
-    "name": "xios",
     "aliases": [],
-    "versions": [
+    "build_system": "Package",
+    "conflicts": [],
+    "dependencies": [
         {
-            "name": "develop",
-            "svn": "http://forge.ipsl.jussieu.fr/ioserver/svn/XIOS/trunk"
+            "description": "N-dimensional arrays for C++",
+            "name": "blitz"
         },
         {
-            "name": "2.5",
-            "svn": "http://forge.ipsl.jussieu.fr/ioserver/svn/XIOS/branchs/xios-2.5"
+            "description": "Boost provides free peer-reviewed portable C++ source libraries,\nemphasizing libraries that work well with the C++ Standard Library.\nBoost libraries are intended to be widely useful, and usable across a\nbroad spectrum of applications. The Boost license encourages both\ncommercial and non-commercial use.",
+            "name": "boost"
+        },
+        {
+            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files.",
+            "name": "gmake"
+        },
+        {
+            "description": "HDF5 is a data model, library, and file format for storing and managing\ndata. It supports an unlimited variety of datatypes, and is designed for\nflexible and efficient I/O and for high volume and complex data.",
+            "name": "hdf5"
+        },
+        {
+            "description": "IBM MPI implementation from Spectrum MPI.",
+            "name": "mpi"
+        },
+        {
+            "description": "NetCDF (network Common Data Form) is a set of software libraries and\nmachine-independent data formats that support the creation, access, and\nsharing of array-oriented scientific data. This is the C distribution.",
+            "name": "netcdf-c"
+        },
+        {
+            "description": "NetCDF (network Common Data Form) is a set of software libraries and\nmachine-independent data formats that support the creation, access, and\nsharing of array-oriented scientific data. This is the Fortran\ndistribution.",
+            "name": "netcdf-fortran"
+        },
+        {
+            "description": "Perl 5 is a highly capable, feature-rich programming language with over\n27 years of development.",
+            "name": "perl"
+        },
+        {
+            "description": "Uniform Resource Identifiers (absolute and relative)",
+            "name": "perl-uri"
+        }
+    ],
+    "dependent_to": [],
+    "description": "XML-IO-SERVER library for IO management of climate models.\n",
+    "homepage": "https://forge.ipsl.jussieu.fr/ioserver/wiki",
+    "latest_version": "2.5",
+    "maintainers": [],
+    "name": "xios",
+    "patches": [
+        {
+            "level": 1,
+            "owner": "builtin.xios",
+            "relative_path": "bld_extern_1.0.patch",
+            "reverse": false,
+            "sha256": "8cc426485e8195e86fa821ba1ed1edd4c0e9e1592e952ba0dcbc0229a145ae0d",
+            "version": "@:1.0",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.xios",
+            "relative_path": "llvm_bug_17782.patch",
+            "reverse": false,
+            "sha256": "3def9a5f63e8c520b84dfeef582f8d0703518d0d2e772a701171f9b02d20e34c",
+            "version": "@1.1:%apple-clang",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.xios",
+            "relative_path": "llvm_bug_17782.patch",
+            "reverse": false,
+            "sha256": "3def9a5f63e8c520b84dfeef582f8d0703518d0d2e772a701171f9b02d20e34c",
+            "version": "@1.1:%clang",
+            "working_dir": "."
+        }
+    ],
+    "resources": [],
+    "variants": [
+        {
+            "default": "generic",
+            "description": "Build systems supported by the package",
+            "name": "build_system"
+        },
+        {
+            "default": "dev",
+            "description": "Build for debugging, development or production",
+            "name": "mode"
+        }
+    ],
+    "versions": [
+        {
+            "name": "1.0",
+            "svn": "http://forge.ipsl.jussieu.fr/ioserver/svn/XIOS/branchs/xios-1.0"
         },
         {
             "name": "2.0",
             "svn": "http://forge.ipsl.jussieu.fr/ioserver/svn/XIOS/branchs/xios-2.0"
         },
         {
-            "name": "1.0",
-            "svn": "http://forge.ipsl.jussieu.fr/ioserver/svn/XIOS/branchs/xios-1.0"
+            "name": "2.5",
+            "svn": "http://forge.ipsl.jussieu.fr/ioserver/svn/XIOS/branchs/xios-2.5"
+        },
+        {
+            "name": "develop",
+            "svn": "http://forge.ipsl.jussieu.fr/ioserver/svn/XIOS/trunk"
         }
-    ],
-    "latest_version": "2.5",
-    "build_system": "Package",
-    "conflicts": [],
-    "variants": [
-        {
-            "name": "build_system",
-            "default": "generic",
-            "description": "Build systems supported by the package"
-        },
-        {
-            "name": "mode",
-            "default": "dev",
-            "description": "Build for debugging, development or production"
-        }
-    ],
-    "homepage": "https://forge.ipsl.jussieu.fr/ioserver/wiki",
-    "maintainers": [],
-    "patches": [
-        {
-            "owner": "builtin.xios",
-            "sha256": "8cc426485e8195e86fa821ba1ed1edd4c0e9e1592e952ba0dcbc0229a145ae0d",
-            "level": 1,
-            "working_dir": ".",
-            "reverse": false,
-            "relative_path": "bld_extern_1.0.patch",
-            "version": "@:1.0"
-        },
-        {
-            "owner": "builtin.xios",
-            "sha256": "3def9a5f63e8c520b84dfeef582f8d0703518d0d2e772a701171f9b02d20e34c",
-            "level": 1,
-            "working_dir": ".",
-            "reverse": false,
-            "relative_path": "llvm_bug_17782.patch",
-            "version": "@1.1:%apple-clang"
-        },
-        {
-            "owner": "builtin.xios",
-            "sha256": "3def9a5f63e8c520b84dfeef582f8d0703518d0d2e772a701171f9b02d20e34c",
-            "level": 1,
-            "working_dir": ".",
-            "reverse": false,
-            "relative_path": "llvm_bug_17782.patch",
-            "version": "@1.1:%clang"
-        }
-    ],
-    "resources": [],
-    "description": "XML-IO-SERVER library for IO management of climate models.\n",
-    "dependencies": [
-        {
-            "name": "blitz",
-            "description": "N-dimensional arrays for C++"
-        },
-        {
-            "name": "boost",
-            "description": "Boost provides free peer-reviewed portable C++ source libraries,\nemphasizing libraries that work well with the C++ Standard Library.\nBoost libraries are intended to be widely useful, and usable across a\nbroad spectrum of applications. The Boost license encourages both\ncommercial and non-commercial use."
-        },
-        {
-            "name": "gmake",
-            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files."
-        },
-        {
-            "name": "hdf5",
-            "description": "HDF5 is a data model, library, and file format for storing and managing\ndata. It supports an unlimited variety of datatypes, and is designed for\nflexible and efficient I/O and for high volume and complex data."
-        },
-        {
-            "name": "mpi",
-            "description": "A single processor implementation of the mpi library."
-        },
-        {
-            "name": "netcdf-c",
-            "description": "NetCDF (network Common Data Form) is a set of software libraries and\nmachine-independent data formats that support the creation, access, and\nsharing of array-oriented scientific data. This is the C distribution."
-        },
-        {
-            "name": "netcdf-fortran",
-            "description": "NetCDF (network Common Data Form) is a set of software libraries and\nmachine-independent data formats that support the creation, access, and\nsharing of array-oriented scientific data. This is the Fortran\ndistribution."
-        },
-        {
-            "name": "perl",
-            "description": "Perl 5 is a highly capable, feature-rich programming language with over\n27 years of development."
-        },
-        {
-            "name": "perl-uri",
-            "description": "Uniform Resource Identifiers (absolute and relative)"
-        }
-    ],
-    "dependent_to": []
+    ]
 }

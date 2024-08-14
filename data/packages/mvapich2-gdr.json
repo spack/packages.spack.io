@@ -1,164 +1,164 @@
 {
-    "name": "mvapich2-gdr",
     "aliases": [
         {
-            "name": "mpi",
-            "alias_for": "mvapich2-gdr"
+            "alias_for": "mvapich2-gdr",
+            "name": "mpi"
         },
         {
-            "name": "mpi",
-            "alias_for": "mvapich2-gdr"
+            "alias_for": "mvapich2-gdr",
+            "name": "mpi"
+        }
+    ],
+    "build_system": "AutotoolsPackage",
+    "conflicts": [
+        {
+            "description": "mvapich2-gdr: MVAPICH2-GDR can only be built with either CUDA or ROCm",
+            "name": "+cuda+rocm",
+            "spec": ""
+        },
+        {
+            "description": "mvapich2-gdr: MVAPICH2-GDR only supports ROCm in version >= 2.3.5",
+            "name": "+rocm",
+            "spec": "@:2.3.4"
+        },
+        {
+            "description": null,
+            "name": "arch=windows-None-None",
+            "spec": "build_system=autotools"
+        },
+        {
+            "description": "mvapich2-gdr: MVAPICH2-GDR can not be built with slurm and simple pmi",
+            "name": "pmi_version=simple process_managers=slurm",
+            "spec": ""
+        },
+        {
+            "description": "mvapich2-gdr: MVAPICH2-GDR must be built with either CUDA or ROCm",
+            "name": "~cuda~rocm",
+            "spec": ""
+        }
+    ],
+    "dependencies": [
+        {
+            "description": "Bison is a general-purpose parser generator that converts an annotated\ncontext-free grammar into a deterministic LR or generalized LR (GLR)\nparser employing LALR(1) parser tables.",
+            "name": "bison"
+        },
+        {
+            "description": "CUDA is a parallel computing platform and programming model invented by\nNVIDIA. It enables dramatic increases in computing performance by\nharnessing the power of the graphics processing unit (GPU). Note: This\npackage does not currently install the drivers necessary to run CUDA.\nThese will need to be installed manually. See:\nhttps://docs.nvidia.com/cuda/ for details.",
+            "name": "cuda"
+        },
+        {
+            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files.",
+            "name": "gmake"
+        },
+        {
+            "description": "The GNU config.guess and config.sub scripts versioned by timestamp.\nThis package can be used as a build dependency for autotools packages\nthat ship a tarball with outdated config.guess and config.sub files.",
+            "name": "gnuconfig"
+        },
+        {
+            "description": "HIP is a C++ Runtime API and Kernel Language that allows developers to\ncreate portable applications for AMD and NVIDIA GPUs from single source\ncode.",
+            "name": "hip"
+        },
+        {
+            "description": "Generic PCI access library.",
+            "name": "libpciaccess"
+        },
+        {
+            "description": "Libxml2 is the XML C parser and toolkit developed for the Gnome project\n(but usable outside of the Gnome platform), it is free software\navailable under the MIT License.",
+            "name": "libxml2"
+        },
+        {
+            "description": "The Process Management Interface (PMI) has been used for quite some time\nas a means of exchanging wireup information needed for interprocess\ncommunication. However, meeting the significant orchestration challenges\npresented by exascale systems requires that the process-to-system\ninterface evolve to permit a tighter integration between the different\ncomponents of the parallel application and existing and future SMS\nsolutions. PMI Exascale (PMIx) addresses these needs by providing an\nextended version of the PMI definitions specifically designed to support\nexascale and beyond environments by: (a) adding flexibility to the\nfunctionality expressed in the existing APIs, (b) augmenting the\ninterfaces with new APIs that provide extended capabilities, (c) forging\na collaboration between subsystem providers including resource manager,\nfabric, file system, and programming library developers, (d)\nestablishing a standards-like body for maintaining the definitions, and\n(e) providing a reference implementation of the PMIx standard that\ndemonstrates the desired level of scalability while maintaining strict\nseparation between it and the standard itself.",
+            "name": "pmix"
+        }
+    ],
+    "dependent_to": [
+        {
+            "description": "Fluid interface model solver based on Pandya and Shkoller's Z-Model\nformulation.",
+            "name": "beatnik"
+        },
+        {
+            "description": "Tandem is a scientific software for SEAS modelling and for solving\nPoisson and linear elasticity problems. It implements the Symmetric\nInterior Penalty Galerkin (SIPG) method using unstructured simplicial\nmeshes (triangle meshes in 2D, tetrahedral meshes in 3D).",
+            "name": "tandem"
+        }
+    ],
+    "description": "MVAPICH2-GDR is an optimized version of the MVAPICH2 MPI library for\nGPU-enabled HPC and Deep Learning Applications. MVAPICH2-GDR is not\ninstallable from source and is only available through a binary mirror.\nIf you do not find the binary you're looking for, send us an email at\nmvapich@cse.ohio-state.edu. The binary mirror url is:\nhttp://mvapich.cse.ohio-state.edu/download/mvapich/spack-\nmirror/mvapich2-gdr/\n",
+    "homepage": "http://mvapich.cse.ohio-state.edu",
+    "latest_version": "2.3.7",
+    "maintainers": [
+        "harisubramoni",
+        "natshineman",
+        "ndcontini"
+    ],
+    "name": "mvapich2-gdr",
+    "patches": [],
+    "resources": [],
+    "variants": [
+        {
+            "default": "autotools",
+            "description": "Build systems supported by the package",
+            "name": "build_system"
+        },
+        {
+            "default": false,
+            "description": "Enable/Disable support for core_direct",
+            "name": "core_direct"
+        },
+        {
+            "default": true,
+            "description": "Enable/Disable support for cuda",
+            "name": "cuda"
+        },
+        {
+            "default": "stock-ofed",
+            "description": "The type of fabric distribution.",
+            "name": "distribution"
+        },
+        {
+            "default": true,
+            "description": "Enable/Disable support for mcast",
+            "name": "mcast"
+        },
+        {
+            "default": false,
+            "description": "Enable/Disable support for openacc",
+            "name": "openacc"
+        },
+        {
+            "default": "pmi1",
+            "description": "The pmi version to be used with slurm. Is ignored if set for mpirun or jsrun. jsrun uses pmix regardless of chosen option.",
+            "name": "pmi_version"
+        },
+        {
+            "default": "mpirun",
+            "description": "The process manager to activate.",
+            "name": "process_managers"
+        },
+        {
+            "default": false,
+            "description": "Enable/Disable support for ROCM",
+            "name": "rocm"
         }
     ],
     "versions": [
         {
-            "name": "2.3.7",
-            "sha256": "7bf748ed3750aa607382fc96229e256d888824aed758ce364b1ed9429da4779e"
-        },
-        {
-            "name": "2.3.6",
-            "sha256": "618408431348164c0824f3a72dc406763f169f7f5400f3cc15dfebf8d7166005"
-        },
-        {
-            "name": "2.3.5",
-            "sha256": "bcfe8197875405af0ddbf6462e585efc21668108bec9b481fe53616ad36a98b4"
+            "name": "2.3.3",
+            "sha256": "9b7b5dd235dbf85099fba3b6f1ccb49bb755923efed66ddc335921f44cb1b8a8"
         },
         {
             "name": "2.3.4",
             "sha256": "ed78101e6bb807e979213006ee5f20ff466369b01f96b6d1cf0c471baf7e35aa"
         },
         {
-            "name": "2.3.3",
-            "sha256": "9b7b5dd235dbf85099fba3b6f1ccb49bb755923efed66ddc335921f44cb1b8a8"
-        }
-    ],
-    "latest_version": "2.3.7",
-    "build_system": "AutotoolsPackage",
-    "conflicts": [
-        {
-            "name": "arch=windows-None-None",
-            "spec": "build_system=autotools",
-            "description": null
+            "name": "2.3.5",
+            "sha256": "bcfe8197875405af0ddbf6462e585efc21668108bec9b481fe53616ad36a98b4"
         },
         {
-            "name": "+rocm",
-            "spec": "@:2.3.4",
-            "description": "mvapich2-gdr: MVAPICH2-GDR only supports ROCm in version >= 2.3.5"
+            "name": "2.3.6",
+            "sha256": "618408431348164c0824f3a72dc406763f169f7f5400f3cc15dfebf8d7166005"
         },
         {
-            "name": "+cuda+rocm",
-            "spec": "",
-            "description": "mvapich2-gdr: MVAPICH2-GDR can only be built with either CUDA or ROCm"
-        },
-        {
-            "name": "~cuda~rocm",
-            "spec": "",
-            "description": "mvapich2-gdr: MVAPICH2-GDR must be built with either CUDA or ROCm"
-        },
-        {
-            "name": "pmi_version=simple process_managers=slurm",
-            "spec": "",
-            "description": "mvapich2-gdr: MVAPICH2-GDR can not be built with slurm and simple pmi"
-        }
-    ],
-    "variants": [
-        {
-            "name": "build_system",
-            "default": "autotools",
-            "description": "Build systems supported by the package"
-        },
-        {
-            "name": "process_managers",
-            "default": "mpirun",
-            "description": "The process manager to activate."
-        },
-        {
-            "name": "distribution",
-            "default": "stock-ofed",
-            "description": "The type of fabric distribution."
-        },
-        {
-            "name": "pmi_version",
-            "default": "pmi1",
-            "description": "The pmi version to be used with slurm. Is ignored if set for mpirun or jsrun. jsrun uses pmix regardless of chosen option."
-        },
-        {
-            "name": "mcast",
-            "default": true,
-            "description": "Enable/Disable support for mcast"
-        },
-        {
-            "name": "openacc",
-            "default": false,
-            "description": "Enable/Disable support for openacc"
-        },
-        {
-            "name": "core_direct",
-            "default": false,
-            "description": "Enable/Disable support for core_direct"
-        },
-        {
-            "name": "cuda",
-            "default": true,
-            "description": "Enable/Disable support for cuda"
-        },
-        {
-            "name": "rocm",
-            "default": false,
-            "description": "Enable/Disable support for ROCM"
-        }
-    ],
-    "homepage": "http://mvapich.cse.ohio-state.edu",
-    "maintainers": [
-        "harisubramoni",
-        "natshineman",
-        "ndcontini"
-    ],
-    "patches": [],
-    "resources": [],
-    "description": "MVAPICH2-GDR is an optimized version of the MVAPICH2 MPI library for\nGPU-enabled HPC and Deep Learning Applications. MVAPICH2-GDR is not\ninstallable from source and is only available through a binary mirror.\nIf you do not find the binary you're looking for, send us an email at\nmvapich@cse.ohio-state.edu. The binary mirror url is:\nhttp://mvapich.cse.ohio-state.edu/download/mvapich/spack-\nmirror/mvapich2-gdr/\n",
-    "dependencies": [
-        {
-            "name": "bison",
-            "description": "Bison is a general-purpose parser generator that converts an annotated\ncontext-free grammar into a deterministic LR or generalized LR (GLR)\nparser employing LALR(1) parser tables."
-        },
-        {
-            "name": "cuda",
-            "description": "CUDA is a parallel computing platform and programming model invented by\nNVIDIA. It enables dramatic increases in computing performance by\nharnessing the power of the graphics processing unit (GPU). Note: This\npackage does not currently install the drivers necessary to run CUDA.\nThese will need to be installed manually. See:\nhttps://docs.nvidia.com/cuda/ for details."
-        },
-        {
-            "name": "gmake",
-            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files."
-        },
-        {
-            "name": "gnuconfig",
-            "description": "The GNU config.guess and config.sub scripts versioned by timestamp.\nThis package can be used as a build dependency for autotools packages\nthat ship a tarball with outdated config.guess and config.sub files."
-        },
-        {
-            "name": "hip",
-            "description": "HIP is a C++ Runtime API and Kernel Language that allows developers to\ncreate portable applications for AMD and NVIDIA GPUs from single source\ncode."
-        },
-        {
-            "name": "libpciaccess",
-            "description": "Generic PCI access library."
-        },
-        {
-            "name": "libxml2",
-            "description": "Libxml2 is the XML C parser and toolkit developed for the Gnome project\n(but usable outside of the Gnome platform), it is free software\navailable under the MIT License."
-        },
-        {
-            "name": "pmix",
-            "description": "The Process Management Interface (PMI) has been used for quite some time\nas a means of exchanging wireup information needed for interprocess\ncommunication. However, meeting the significant orchestration challenges\npresented by exascale systems requires that the process-to-system\ninterface evolve to permit a tighter integration between the different\ncomponents of the parallel application and existing and future SMS\nsolutions. PMI Exascale (PMIx) addresses these needs by providing an\nextended version of the PMI definitions specifically designed to support\nexascale and beyond environments by: (a) adding flexibility to the\nfunctionality expressed in the existing APIs, (b) augmenting the\ninterfaces with new APIs that provide extended capabilities, (c) forging\na collaboration between subsystem providers including resource manager,\nfabric, file system, and programming library developers, (d)\nestablishing a standards-like body for maintaining the definitions, and\n(e) providing a reference implementation of the PMIx standard that\ndemonstrates the desired level of scalability while maintaining strict\nseparation between it and the standard itself."
-        }
-    ],
-    "dependent_to": [
-        {
-            "name": "tandem",
-            "description": "Tandem is a scientific software for SEAS modelling and for solving\nPoisson and linear elasticity problems. It implements the Symmetric\nInterior Penalty Galerkin (SIPG) method using unstructured simplicial\nmeshes (triangle meshes in 2D, tetrahedral meshes in 3D)."
-        },
-        {
-            "name": "beatnik",
-            "description": "Fluid interface model solver based on Pandya and Shkoller's Z-Model\nformulation."
+            "name": "2.3.7",
+            "sha256": "7bf748ed3750aa607382fc96229e256d888824aed758ce364b1ed9429da4779e"
         }
     ]
 }

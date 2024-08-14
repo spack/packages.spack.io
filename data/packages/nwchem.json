@@ -1,11 +1,124 @@
 {
-    "name": "nwchem",
     "aliases": [],
+    "build_system": "Package",
+    "conflicts": [],
+    "dependencies": [
+        {
+            "description": "ARMCI-MPI is an implementation of the ARMCI library used by Global\nArrays. MPI-3 one-sided communication is used to implement ARMCI.",
+            "name": "armcimpi"
+        },
+        {
+            "description": "Lightweight but flexible shim designed to rectify the incompatibilities\nbetween the Accelerate/vecLib BLAS and LAPACK libraries shipped with\nmacOS and FORTRAN code compiled with modern compilers such as GNU\nFortran.",
+            "name": "blas"
+        },
+        {
+            "description": "Eigenvalue solvers for Petaflop-Applications (ELPA)",
+            "name": "elpa"
+        },
+        {
+            "description": "This is an earlier version of Intel parallel software development tools\nand has now been replaced by the Intel oneAPI Toolkits. LICENSE\nINFORMATION: By downloading and using this software, you agree to the\nterms and conditions of the software license agreements at\nhttps://intel.ly/393CijO.",
+            "name": "fftw-api"
+        },
+        {
+            "description": "Lightweight but flexible shim designed to rectify the incompatibilities\nbetween the Accelerate/vecLib BLAS and LAPACK libraries shipped with\nmacOS and FORTRAN code compiled with modern compilers such as GNU\nFortran.",
+            "name": "lapack"
+        },
+        {
+            "description": "The Open Fabrics Interfaces (OFI) is a framework focused on exporting\nfabric communication services to applications.",
+            "name": "libfabric"
+        },
+        {
+            "description": "Libxc is a library of exchange-correlation functionals for density-\nfunctional theory.",
+            "name": "libxc"
+        },
+        {
+            "description": "IBM MPI implementation from Spectrum MPI.",
+            "name": "mpi"
+        },
+        {
+            "description": "The Python programming language.",
+            "name": "python"
+        },
+        {
+            "description": "RDMA core userspace libraries and daemons",
+            "name": "rdma-core"
+        },
+        {
+            "description": "ScaLAPACK is a library of high-performance linear algebra routines for\nparallel distributed memory machines",
+            "name": "scalapack"
+        }
+    ],
+    "dependent_to": [],
+    "description": "High-performance computational chemistry software\n",
+    "homepage": "https://nwchemgit.github.io",
+    "latest_version": "7.2.2",
+    "maintainers": [
+        "jeffhammond"
+    ],
+    "name": "nwchem",
+    "patches": [
+        {
+            "level": 1,
+            "owner": "builtin.nwchem",
+            "relative_path": "fj.patch",
+            "reverse": false,
+            "sha256": "d89d51d173657c4e0d245df7bc77478ff9344e222e77a0f7978ab98f6a17da43",
+            "version": "@7.0.2%fj",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.nwchem",
+            "relative_path": "fftw_splans.patch",
+            "reverse": false,
+            "sha256": "235134c148b7b683197cc6dced6e4ccdbfe4b4d2380c3173a2f55f5900ead51d",
+            "version": "@7.2.0:7.2.2+fftw3",
+            "working_dir": "."
+        }
+    ],
+    "resources": [],
+    "variants": [
+        {
+            "default": "mpi-ts",
+            "description": "ARMCI runtime",
+            "name": "armci"
+        },
+        {
+            "default": "generic",
+            "description": "Build systems supported by the package",
+            "name": "build_system"
+        },
+        {
+            "default": false,
+            "description": "Enable optimised diagonalisation routines from ELPA",
+            "name": "elpa"
+        },
+        {
+            "default": false,
+            "description": "Enables rarely-used TCE features (CCSDTQ, CCSDTLR, EACCSD, IPCCSD, MRCC)",
+            "name": "extratce"
+        },
+        {
+            "default": false,
+            "description": "Link against the FFTW library",
+            "name": "fftw3"
+        },
+        {
+            "default": false,
+            "description": "Support additional functionals via libxc",
+            "name": "libxc"
+        },
+        {
+            "default": false,
+            "description": "Enables OpenMP support",
+            "name": "openmp"
+        }
+    ],
     "versions": [
         {
-            "name": "7.2.2",
-            "sha256": "6b68e9c12eec38c09d92472bdd1ff130b93c1b5e1f65e4702aa7ee36c80e4af7",
-            "url": "https://github.com/nwchemgit/nwchem/releases/download/v7.2.2-release/nwchem-7.2.2-release.revision-74936fb9-srconly.2023-11-03.tar.bz2"
+            "name": "7.0.2",
+            "sha256": "9bf913b811b97c8ed51bc5a02bf1c8e18456d0719c0a82b2e71223a596d945a7",
+            "url": "https://github.com/nwchemgit/nwchem/releases/download/v7.0.2-release/nwchem-7.0.2-release.revision-b9985dfa-srconly.2020-10-12.tar.bz2"
         },
         {
             "name": "7.2.0",
@@ -13,122 +126,9 @@
             "url": "https://github.com/nwchemgit/nwchem/releases/download/v7.2.0-release/nwchem-7.2.0-release.revision-d0d141fd-srconly.2023-03-10.tar.bz2"
         },
         {
-            "name": "7.0.2",
-            "sha256": "9bf913b811b97c8ed51bc5a02bf1c8e18456d0719c0a82b2e71223a596d945a7",
-            "url": "https://github.com/nwchemgit/nwchem/releases/download/v7.0.2-release/nwchem-7.0.2-release.revision-b9985dfa-srconly.2020-10-12.tar.bz2"
+            "name": "7.2.2",
+            "sha256": "6b68e9c12eec38c09d92472bdd1ff130b93c1b5e1f65e4702aa7ee36c80e4af7",
+            "url": "https://github.com/nwchemgit/nwchem/releases/download/v7.2.2-release/nwchem-7.2.2-release.revision-74936fb9-srconly.2023-11-03.tar.bz2"
         }
-    ],
-    "latest_version": "7.2.2",
-    "build_system": "Package",
-    "conflicts": [],
-    "variants": [
-        {
-            "name": "build_system",
-            "default": "generic",
-            "description": "Build systems supported by the package"
-        },
-        {
-            "name": "openmp",
-            "default": false,
-            "description": "Enables OpenMP support"
-        },
-        {
-            "name": "armci",
-            "default": "mpi-ts",
-            "description": "ARMCI runtime"
-        },
-        {
-            "name": "extratce",
-            "default": false,
-            "description": "Enables rarely-used TCE features (CCSDTQ, CCSDTLR, EACCSD, IPCCSD, MRCC)"
-        },
-        {
-            "name": "fftw3",
-            "default": false,
-            "description": "Link against the FFTW library"
-        },
-        {
-            "name": "libxc",
-            "default": false,
-            "description": "Support additional functionals via libxc"
-        },
-        {
-            "name": "elpa",
-            "default": false,
-            "description": "Enable optimised diagonalisation routines from ELPA"
-        }
-    ],
-    "homepage": "https://nwchemgit.github.io",
-    "maintainers": [
-        "jeffhammond"
-    ],
-    "patches": [
-        {
-            "owner": "builtin.nwchem",
-            "sha256": "d89d51d173657c4e0d245df7bc77478ff9344e222e77a0f7978ab98f6a17da43",
-            "level": 1,
-            "working_dir": ".",
-            "reverse": false,
-            "relative_path": "fj.patch",
-            "version": "@7.0.2%fj"
-        },
-        {
-            "owner": "builtin.nwchem",
-            "sha256": "235134c148b7b683197cc6dced6e4ccdbfe4b4d2380c3173a2f55f5900ead51d",
-            "level": 1,
-            "working_dir": ".",
-            "reverse": false,
-            "relative_path": "fftw_splans.patch",
-            "version": "@7.2.0:7.2.2+fftw3"
-        }
-    ],
-    "resources": [],
-    "description": "High-performance computational chemistry software\n",
-    "dependencies": [
-        {
-            "name": "armcimpi",
-            "description": "ARMCI-MPI is an implementation of the ARMCI library used by Global\nArrays. MPI-3 one-sided communication is used to implement ARMCI."
-        },
-        {
-            "name": "blas",
-            "description": "BLIS is a portable software framework for instantiating high-performance\nBLAS-like dense linear algebra libraries. The framework was designed to\nisolate essential kernels of computation that, when optimized,\nimmediately enable optimized implementations of most of its commonly\nused and computationally intensive operations. BLIS is written in ISO\nC99 and available under a new/modified/3-clause BSD license. While BLIS\nexports a new BLAS-like API, it also includes a BLAS compatibility layer\nwhich gives application developers access to BLIS implementations via\ntraditional BLAS routine calls. An object-based API unique to BLIS is\nalso available."
-        },
-        {
-            "name": "elpa",
-            "description": "Eigenvalue solvers for Petaflop-Applications (ELPA)"
-        },
-        {
-            "name": "fftw-api",
-            "description": "Arm Performance Libraries provides optimized standard core math\nlibraries for high-performance computing applications on Arm processors."
-        },
-        {
-            "name": "lapack",
-            "description": "Lightweight but flexible shim designed to rectify the incompatibilities\nbetween the Accelerate/vecLib BLAS and LAPACK libraries shipped with\nmacOS and FORTRAN code compiled with modern compilers such as GNU\nFortran."
-        },
-        {
-            "name": "libfabric",
-            "description": "The Open Fabrics Interfaces (OFI) is a framework focused on exporting\nfabric communication services to applications."
-        },
-        {
-            "name": "libxc",
-            "description": "Libxc is a library of exchange-correlation functionals for density-\nfunctional theory."
-        },
-        {
-            "name": "mpi",
-            "description": "A single processor implementation of the mpi library."
-        },
-        {
-            "name": "python",
-            "description": "The Python programming language."
-        },
-        {
-            "name": "rdma-core",
-            "description": "RDMA core userspace libraries and daemons"
-        },
-        {
-            "name": "scalapack",
-            "description": "Intel Math Kernel Library. This package has been replaced by intel-\noneapi-mkl. LICENSE INFORMATION: By downloading and using this software,\nyou agree to the terms and conditions of the software license agreements\nat https://intel.ly/393CijO."
-        }
-    ],
-    "dependent_to": []
+    ]
 }

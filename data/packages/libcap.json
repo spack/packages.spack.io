@@ -1,121 +1,121 @@
 {
-    "name": "libcap",
     "aliases": [],
+    "build_system": "MakefilePackage",
+    "conflicts": [
+        {
+            "description": null,
+            "name": "arch=windows-None-None",
+            "spec": "build_system=makefile"
+        }
+    ],
+    "dependencies": [
+        {
+            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files.",
+            "name": "gmake"
+        }
+    ],
+    "dependent_to": [
+        {
+            "description": "A breadth-first version of the UNIX find command.",
+            "name": "bfs"
+        },
+        {
+            "description": "Unprivileged sandboxing tool",
+            "name": "bubblewrap"
+        },
+        {
+            "description": "The Global Extensible Open Power Manager (GEOPM) Service provides a user\ninterface for accessing hardware telemetry and settings securely. Note:\nGEOPM interfaces with hardware using Model Specific Registers (MSRs).\nFor proper usage make sure MSRs are made available via the msr or msr-\nsafe kernel modules by your administrator.",
+            "name": "geopm-service"
+        },
+        {
+            "description": "The Linux perf tool.",
+            "name": "linux-perf"
+        },
+        {
+            "description": "mpiFileUtils is a suite of MPI-based tools to manage large datasets,\nwhich may vary from large directory trees to large files. High-\nperformance computing users often generate large datasets with parallel\napplications that run with many processes (millions in some cases).\nHowever those users are then stuck with single-process tools like cp and\nrm to manage their datasets. This suite provides MPI-based tools to\nhandle typical jobs like copy, remove, and compare for such datasets,\nproviding speedups of up to 20-30x.",
+            "name": "mpifileutils"
+        },
+        {
+            "description": "PulseAudio is a sound system for POSIX OSes, meaning that it is a proxy\nfor your sound applications. PulseAudio is a sound system for POSIX\nOSes, meaning that it is a proxy for your sound applications. It allows\nyou to do advanced operations on your sound data as it passes between\nyour application and your hardware. Things like transferring the audio\nto a different machine, changing the sample format or channel count and\nmixing several sounds into one are easily achieved using a sound server.",
+            "name": "pulseaudio"
+        },
+        {
+            "description": "ROCm Data Center Tool",
+            "name": "rdc"
+        },
+        {
+            "description": "The RPM package manager https://github.com/rpm-software-\nmanagement/rpm/blob/master/INSTALL Note that debugedit is an additional\ntool that *should* compile with adding libdw and elfutils, but the\nlibrary (as of 4.16.1.2) is being removed from rpm and will be put\nsomewhere else.",
+            "name": "rpm"
+        },
+        {
+            "description": "User-mode networking for unprivileged network namespaces",
+            "name": "slirp4netns"
+        },
+        {
+            "description": "stress-ng will stress test a computer system in various selectable ways.\nIt was designed to exercise various physical subsystems of a computer as\nwell as the various operating system kernel interfaces.",
+            "name": "stress-ng"
+        },
+        {
+            "description": "systemd is a suite of basic building blocks for a Linux system. It\nprovides a system and service manager that runs as PID 1 and starts the\nrest of the system.",
+            "name": "systemd"
+        },
+        {
+            "description": "vsftpd is a GPL licensed FTP server for UNIX systems, including Linux.",
+            "name": "vsftpd"
+        }
+    ],
+    "description": "Libcap implements the user-space interfaces to the POSIX 1003.1e\ncapabilities available in Linux kernels. These capabilities are a\npartitioning of the all powerful root privilege into a set of distinct\nprivileges.\n",
+    "homepage": "https://sites.google.com/site/fullycapable/",
+    "latest_version": "2.69",
+    "maintainers": [],
+    "name": "libcap",
+    "patches": [
+        {
+            "level": 1,
+            "owner": "builtin.libcap",
+            "relative_path": "libcap-fix-the-libcap-native-building-failure-on-CentOS-6.7.patch",
+            "reverse": false,
+            "sha256": "3db844dd771b320b8117b72f4e00b560051311fbbd4cba1ebcbd7c19116c1d66",
+            "version": "@2.25",
+            "working_dir": "."
+        }
+    ],
+    "resources": [],
+    "variants": [
+        {
+            "default": "makefile",
+            "description": "Build systems supported by the package",
+            "name": "build_system"
+        }
+    ],
     "versions": [
         {
-            "name": "2.69",
-            "sha256": "3a99ec26452e328e0ea408efd67096ef914f4ee4788fa8e8e21f214e2bd670b9"
-        },
-        {
-            "name": "2.68",
-            "sha256": "046e55716e0643b565efcd1dab1d26c5625709fcd0b5c271290c7ea1524cf906"
-        },
-        {
-            "name": "2.67",
-            "sha256": "2d0b679a431c06afd8651a8ada906303eda8b3ac67c308e5fe1937eea5c018aa"
-        },
-        {
-            "name": "2.66",
-            "sha256": "5f65dc5b2e9f63a0748ea1b05be7965a38548db1cbfd53b30271ff02186b3a4a"
-        },
-        {
-            "name": "2.65",
-            "sha256": "25718d9c45ef6beccb55b509ed4bae94ae2bdfeb808709662b264aec0a7016f4"
+            "name": "2.25",
+            "sha256": "4ca80dc6f9f23d14747e4b619fd9784434c570e24a7346f326c692784ed83a86"
         },
         {
             "name": "2.64",
             "sha256": "e9ec608ae5720989d7274531f9898d64b6bca2491a231b8091229e49891933dd"
         },
         {
-            "name": "2.25",
-            "sha256": "4ca80dc6f9f23d14747e4b619fd9784434c570e24a7346f326c692784ed83a86"
-        }
-    ],
-    "latest_version": "2.69",
-    "build_system": "MakefilePackage",
-    "conflicts": [
-        {
-            "name": "arch=windows-None-None",
-            "spec": "build_system=makefile",
-            "description": null
-        }
-    ],
-    "variants": [
-        {
-            "name": "build_system",
-            "default": "makefile",
-            "description": "Build systems supported by the package"
-        }
-    ],
-    "homepage": "https://sites.google.com/site/fullycapable/",
-    "maintainers": [],
-    "patches": [
-        {
-            "owner": "builtin.libcap",
-            "sha256": "3db844dd771b320b8117b72f4e00b560051311fbbd4cba1ebcbd7c19116c1d66",
-            "level": 1,
-            "working_dir": ".",
-            "reverse": false,
-            "relative_path": "libcap-fix-the-libcap-native-building-failure-on-CentOS-6.7.patch",
-            "version": "@2.25"
-        }
-    ],
-    "resources": [],
-    "description": "Libcap implements the user-space interfaces to the POSIX 1003.1e\ncapabilities available in Linux kernels. These capabilities are a\npartitioning of the all powerful root privilege into a set of distinct\nprivileges.\n",
-    "dependencies": [
-        {
-            "name": "gmake",
-            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files."
-        }
-    ],
-    "dependent_to": [
-        {
-            "name": "mpifileutils",
-            "description": "mpiFileUtils is a suite of MPI-based tools to manage large datasets,\nwhich may vary from large directory trees to large files. High-\nperformance computing users often generate large datasets with parallel\napplications that run with many processes (millions in some cases).\nHowever those users are then stuck with single-process tools like cp and\nrm to manage their datasets. This suite provides MPI-based tools to\nhandle typical jobs like copy, remove, and compare for such datasets,\nproviding speedups of up to 20-30x."
+            "name": "2.65",
+            "sha256": "25718d9c45ef6beccb55b509ed4bae94ae2bdfeb808709662b264aec0a7016f4"
         },
         {
-            "name": "bfs",
-            "description": "A breadth-first version of the UNIX find command."
+            "name": "2.66",
+            "sha256": "5f65dc5b2e9f63a0748ea1b05be7965a38548db1cbfd53b30271ff02186b3a4a"
         },
         {
-            "name": "bubblewrap",
-            "description": "Unprivileged sandboxing tool"
+            "name": "2.67",
+            "sha256": "2d0b679a431c06afd8651a8ada906303eda8b3ac67c308e5fe1937eea5c018aa"
         },
         {
-            "name": "geopm-service",
-            "description": "The Global Extensible Open Power Manager (GEOPM) Service provides a user\ninterface for accessing hardware telemetry and settings securely. Note:\nGEOPM interfaces with hardware using Model Specific Registers (MSRs).\nFor proper usage make sure MSRs are made available via the msr or msr-\nsafe kernel modules by your administrator."
+            "name": "2.68",
+            "sha256": "046e55716e0643b565efcd1dab1d26c5625709fcd0b5c271290c7ea1524cf906"
         },
         {
-            "name": "slirp4netns",
-            "description": "User-mode networking for unprivileged network namespaces"
-        },
-        {
-            "name": "stress-ng",
-            "description": "stress-ng will stress test a computer system in various selectable ways.\nIt was designed to exercise various physical subsystems of a computer as\nwell as the various operating system kernel interfaces."
-        },
-        {
-            "name": "linux-perf",
-            "description": "The Linux perf tool."
-        },
-        {
-            "name": "rdc",
-            "description": "ROCm Data Center Tool"
-        },
-        {
-            "name": "vsftpd",
-            "description": "vsftpd is a GPL licensed FTP server for UNIX systems, including Linux."
-        },
-        {
-            "name": "pulseaudio",
-            "description": "PulseAudio is a sound system for POSIX OSes, meaning that it is a proxy\nfor your sound applications. PulseAudio is a sound system for POSIX\nOSes, meaning that it is a proxy for your sound applications. It allows\nyou to do advanced operations on your sound data as it passes between\nyour application and your hardware. Things like transferring the audio\nto a different machine, changing the sample format or channel count and\nmixing several sounds into one are easily achieved using a sound server."
-        },
-        {
-            "name": "systemd",
-            "description": "systemd is a suite of basic building blocks for a Linux system. It\nprovides a system and service manager that runs as PID 1 and starts the\nrest of the system."
-        },
-        {
-            "name": "rpm",
-            "description": "The RPM package manager https://github.com/rpm-software-\nmanagement/rpm/blob/master/INSTALL Note that debugedit is an additional\ntool that *should* compile with adding libdw and elfutils, but the\nlibrary (as of 4.16.1.2) is being removed from rpm and will be put\nsomewhere else."
+            "name": "2.69",
+            "sha256": "3a99ec26452e328e0ea408efd67096ef914f4ee4788fa8e8e21f214e2bd670b9"
         }
     ]
 }

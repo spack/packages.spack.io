@@ -1,15 +1,116 @@
 {
-    "name": "ior",
     "aliases": [],
-    "versions": [
+    "build_system": "AutotoolsPackage",
+    "conflicts": [
         {
-            "name": "develop",
-            "git": "https://github.com/hpc/ior.git",
-            "branch": "main"
+            "description": null,
+            "name": "arch=windows-None-None",
+            "spec": "build_system=autotools"
+        }
+    ],
+    "dependencies": [
+        {
+            "description": "Autoconf -- system configuration part of autotools",
+            "name": "autoconf"
         },
         {
-            "name": "4.0.0",
-            "sha256": "cb17f6b0d17fb98dae28abaa116fd3adde411f52d45ff9efb125efc791b97463"
+            "description": "Automake -- make file builder part of autotools",
+            "name": "automake"
+        },
+        {
+            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files.",
+            "name": "gmake"
+        },
+        {
+            "description": "The GNU config.guess and config.sub scripts versioned by timestamp.\nThis package can be used as a build dependency for autotools packages\nthat ship a tarball with outdated config.guess and config.sub files.",
+            "name": "gnuconfig"
+        },
+        {
+            "description": "HDF5 is a data model, library, and file format for storing and managing\ndata. It supports an unlimited variety of datatypes, and is designed for\nflexible and efficient I/O and for high volume and complex data.",
+            "name": "hdf5"
+        },
+        {
+            "description": "libtool -- library building part of autotools.",
+            "name": "libtool"
+        },
+        {
+            "description": "Lustre is a type of parallel distributed file system, generally used for\nlarge-scale cluster computing.",
+            "name": "lustre"
+        },
+        {
+            "description": "GNU M4 is an implementation of the traditional Unix macro processor.",
+            "name": "m4"
+        },
+        {
+            "description": "IBM MPI implementation from Spectrum MPI.",
+            "name": "mpi"
+        },
+        {
+            "description": "PnetCDF (Parallel netCDF) is a high-performance parallel I/O library for\naccessing files in format compatibility with Unidata's NetCDF,\nspecifically the formats of CDF-1, 2, and 5.",
+            "name": "parallel-netcdf"
+        }
+    ],
+    "dependent_to": [],
+    "description": "The IOR software is used for benchmarking parallel file systems using\nPOSIX, MPI-IO, or HDF5 interfaces.\n",
+    "homepage": "https://github.com/hpc/ior",
+    "latest_version": "4.0.0",
+    "maintainers": [],
+    "name": "ior",
+    "patches": [
+        {
+            "level": 1,
+            "owner": "builtin.ior",
+            "reverse": false,
+            "sha256": "ce7fa0eabf408f9b712c478a08aa62d68737d213901707ef8cbfc3aec02e2713",
+            "url": "https://github.com/hpc/ior/commit/1dbca5c293f95074f9887ddb2043fa984670fb4d.patch?full_index=1",
+            "version": "@3.2.0+hdf5",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.ior",
+            "reverse": false,
+            "sha256": "ee3527023ef70ea9aee2e6208f8be7126d5a48f26c587deed3d6238b4f848a06",
+            "url": "https://github.com/glennklockwood/ior/commit/e49476be64d4100c2da662ea415f327348b3d11d.patch?full_index=1",
+            "version": "+lustre",
+            "working_dir": "."
+        }
+    ],
+    "resources": [],
+    "variants": [
+        {
+            "default": "autotools",
+            "description": "Build systems supported by the package",
+            "name": "build_system"
+        },
+        {
+            "default": false,
+            "description": "support IO with HDF5 backend",
+            "name": "hdf5"
+        },
+        {
+            "default": false,
+            "description": "support configurable Lustre striping values",
+            "name": "lustre"
+        },
+        {
+            "default": false,
+            "description": "support IO with NCMPI backend",
+            "name": "ncmpi"
+        }
+    ],
+    "versions": [
+        {
+            "name": "3.0.1",
+            "sha256": "0cbefbcdb02fb13ba364e102f9e7cc2dcf761698533dac25de446a3a3e81390d"
+        },
+        {
+            "name": "3.2.0",
+            "sha256": "91a766fb9c34b5780705d0997b71b236a1120da46652763ba11d9a8c44251852"
+        },
+        {
+            "name": "3.2.1",
+            "sha256": "ebcf2495aecb357370a91a2d5852cfd83bba72765e586bcfaf15fb79ca46d00e"
         },
         {
             "name": "3.3.0",
@@ -20,114 +121,13 @@
             "sha256": "0e42ebf5b5adae60625bf97989c8e2519d41ea2e3d18561d7d5b945625317aa5"
         },
         {
-            "name": "3.2.1",
-            "sha256": "ebcf2495aecb357370a91a2d5852cfd83bba72765e586bcfaf15fb79ca46d00e"
+            "name": "4.0.0",
+            "sha256": "cb17f6b0d17fb98dae28abaa116fd3adde411f52d45ff9efb125efc791b97463"
         },
         {
-            "name": "3.2.0",
-            "sha256": "91a766fb9c34b5780705d0997b71b236a1120da46652763ba11d9a8c44251852"
-        },
-        {
-            "name": "3.0.1",
-            "sha256": "0cbefbcdb02fb13ba364e102f9e7cc2dcf761698533dac25de446a3a3e81390d"
+            "branch": "main",
+            "git": "https://github.com/hpc/ior.git",
+            "name": "develop"
         }
-    ],
-    "latest_version": "4.0.0",
-    "build_system": "AutotoolsPackage",
-    "conflicts": [
-        {
-            "name": "arch=windows-None-None",
-            "spec": "build_system=autotools",
-            "description": null
-        }
-    ],
-    "variants": [
-        {
-            "name": "build_system",
-            "default": "autotools",
-            "description": "Build systems supported by the package"
-        },
-        {
-            "name": "hdf5",
-            "default": false,
-            "description": "support IO with HDF5 backend"
-        },
-        {
-            "name": "ncmpi",
-            "default": false,
-            "description": "support IO with NCMPI backend"
-        },
-        {
-            "name": "lustre",
-            "default": false,
-            "description": "support configurable Lustre striping values"
-        }
-    ],
-    "homepage": "https://github.com/hpc/ior",
-    "maintainers": [],
-    "patches": [
-        {
-            "owner": "builtin.ior",
-            "sha256": "ce7fa0eabf408f9b712c478a08aa62d68737d213901707ef8cbfc3aec02e2713",
-            "level": 1,
-            "working_dir": ".",
-            "reverse": false,
-            "url": "https://github.com/hpc/ior/commit/1dbca5c293f95074f9887ddb2043fa984670fb4d.patch?full_index=1",
-            "version": "@3.2.0+hdf5"
-        },
-        {
-            "owner": "builtin.ior",
-            "sha256": "ee3527023ef70ea9aee2e6208f8be7126d5a48f26c587deed3d6238b4f848a06",
-            "level": 1,
-            "working_dir": ".",
-            "reverse": false,
-            "url": "https://github.com/glennklockwood/ior/commit/e49476be64d4100c2da662ea415f327348b3d11d.patch?full_index=1",
-            "version": "+lustre"
-        }
-    ],
-    "resources": [],
-    "description": "The IOR software is used for benchmarking parallel file systems using\nPOSIX, MPI-IO, or HDF5 interfaces.\n",
-    "dependencies": [
-        {
-            "name": "autoconf",
-            "description": "Autoconf -- system configuration part of autotools"
-        },
-        {
-            "name": "automake",
-            "description": "Automake -- make file builder part of autotools"
-        },
-        {
-            "name": "gmake",
-            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files."
-        },
-        {
-            "name": "gnuconfig",
-            "description": "The GNU config.guess and config.sub scripts versioned by timestamp.\nThis package can be used as a build dependency for autotools packages\nthat ship a tarball with outdated config.guess and config.sub files."
-        },
-        {
-            "name": "hdf5",
-            "description": "HDF5 is a data model, library, and file format for storing and managing\ndata. It supports an unlimited variety of datatypes, and is designed for\nflexible and efficient I/O and for high volume and complex data."
-        },
-        {
-            "name": "libtool",
-            "description": "libtool -- library building part of autotools."
-        },
-        {
-            "name": "lustre",
-            "description": "Lustre is a type of parallel distributed file system, generally used for\nlarge-scale cluster computing."
-        },
-        {
-            "name": "m4",
-            "description": "GNU M4 is an implementation of the traditional Unix macro processor."
-        },
-        {
-            "name": "mpi",
-            "description": "A single processor implementation of the mpi library."
-        },
-        {
-            "name": "parallel-netcdf",
-            "description": "PnetCDF (Parallel netCDF) is a high-performance parallel I/O library for\naccessing files in format compatibility with Unidata's NetCDF,\nspecifically the formats of CDF-1, 2, and 5."
-        }
-    ],
-    "dependent_to": []
+    ]
 }

@@ -1,179 +1,179 @@
 {
-    "name": "interproscan",
     "aliases": [],
+    "build_system": "Package",
+    "conflicts": [],
+    "dependencies": [
+        {
+            "description": "The free and opensource java implementation",
+            "name": "java"
+        },
+        {
+            "description": "Apache Maven is a software project management and comprehension tool.",
+            "name": "maven"
+        },
+        {
+            "description": "Perl 5 is a highly capable, feature-rich programming language with over\n27 years of development.",
+            "name": "perl"
+        },
+        {
+            "description": "CGI - Handle Common Gateway Interface requests and responses CGI was\nincluded in the Perl distribution from 5.4 to 5.20 but has since been\nremoved.",
+            "name": "perl-cgi"
+        },
+        {
+            "description": "DB_File is a module which allows Perl programs to make use of the\nfacilities provided by Berkeley DB version 1.x (if you have a newer\nversion of DB, see \"Using DB_File with Berkeley DB version 2 or\ngreater\"). It is assumed that you have a copy of the Berkeley DB manual\npages at hand when reading this documentation. The interface defined\nhere mirrors the Berkeley DB interface closely.",
+            "name": "perl-db-file"
+        },
+        {
+            "description": "Emulate file interface for in-core strings",
+            "name": "perl-io-string"
+        },
+        {
+            "description": "This toolkit primarily provides modules for performing both traditional\nand object-oriented i/o) on things other than normal filehandles; in\nparticular, IO::Scalar, IO::ScalarArray, and IO::Lines. In the more-\ntraditional IO::Handle front, we have IO::AtomicFile which may be used\nto painlessly create files which are updated atomically. And in the\n\"this-may-prove-useful\" corner, we have IO::Wrap, whose exported\nwraphandle() function will clothe anything that's not a blessed object\nin an IO::Handle-like wrapper... so you can just use OO syntax and stop\nworrying about whether your function's caller handed you a string, a\nglobref, or a FileHandle.",
+            "name": "perl-io-stringy"
+        },
+        {
+            "description": "Perl module for handling mail",
+            "name": "perl-mailtools"
+        },
+        {
+            "description": "XML::Parser - A perl module for parsing XML documents",
+            "name": "perl-xml-parser"
+        },
+        {
+            "description": "This module provides functions to quote/dequote strings in \"xml\"-way.\nAll functions are written in XS and are very fast; they correctly\nprocess utf8, tied, overloaded variables and all the rest of perl\n\"magic\".",
+            "name": "perl-xml-quote"
+        },
+        {
+            "description": "The Python programming language.",
+            "name": "python"
+        }
+    ],
+    "dependent_to": [
+        {
+            "description": "MAKER is a portable and easily configurable genome annotation pipeline.\nIt's purpose is to allow smaller eukaryotic and prokaryotic\ngenomeprojects to independently annotate their genomes and to create\ngenome databases. MAKER identifies repeats, aligns ESTs and proteins to\na genome, produces ab-initio gene predictions and automatically\nsynthesizes these data into gene annotations having evidence-based\nquality values. MAKER is also easily trainable: outputs of preliminary\nruns can be used to automatically retrain its gene prediction algorithm,\nproducing higher quality gene-models on subsequent runs. MAKER's inputs\nare minimal and its ouputs can be directly loaded into a GMOD database.\nThey can also be viewed in the Apollo genome browser; this feature of\nMAKER provides an easy means to annotate, view and edit individual\ncontigs and BACs without the overhead of a database. MAKER should prove\nespecially useful for emerging model organism projects with minimal\nbioinformatics expertise and computer resources. Note: MAKER requires\nregistration. Fill out the form at\nhttp://yandell.topaz.genetics.utah.edu/cgi-bin/maker_license.cgi to get\na download link. Spack will search your current directory for the\ndownload file. Alternatively, add this file to a mirror so that Spack\ncan find it. For instructions on how to set up a mirror, see\nhttps://spack.readthedocs.io/en/latest/mirrors.html",
+            "name": "maker"
+        }
+    ],
+    "description": "InterProScan is the software package that allows sequences (protein and\nnucleic) to be scanned against InterPro's signatures. Signatures are\npredictive models, provided by several different databases, that make up\nthe InterPro consortium. By default this does not download all the\ndatabases you likely want, you'll either want to build with +databases\nor download the data archive for the version you installed to a separate\nlocation and modify interproscan.properties\n",
+    "homepage": "https://www.ebi.ac.uk/interpro/interproscan.html",
+    "latest_version": "5.63-95.0",
+    "maintainers": [
+        "snehring"
+    ],
+    "name": "interproscan",
+    "patches": [
+        {
+            "level": 1,
+            "owner": "builtin.interproscan",
+            "relative_path": "large-gid.patch",
+            "reverse": false,
+            "sha256": "6a81cbb788ddf7fe8c744989cccb34e32e22176161bc540d37923bfadb23a0ba",
+            "version": "@5:",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.interproscan",
+            "relative_path": "web-pom.patch",
+            "reverse": false,
+            "sha256": "70c0de21360c7bd45946ecd9680fc4cc82e98ebc27cbb4743563d5322f25b47b",
+            "version": "@5:",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.interproscan",
+            "relative_path": "non-interactive.patch",
+            "reverse": false,
+            "sha256": "a24327700798eb61868cb4522bb0854f8ee96eb53e3b2e92fdc23a617119aa2f",
+            "version": "@:4.8",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.interproscan",
+            "relative_path": "ps_scan.patch",
+            "reverse": false,
+            "sha256": "c90e3d6b2aae9f696adeee0500178ebfb345c1e51b99405e5c247eae13c5ddf3",
+            "version": "@:4.8",
+            "working_dir": "."
+        }
+    ],
+    "resources": [
+        {
+            "destination": "",
+            "name": "databases",
+            "placement": null,
+            "version": "@5.63-95.0+databases"
+        },
+        {
+            "destination": "",
+            "name": "databases",
+            "placement": null,
+            "version": "@5.61-93.0+databases"
+        },
+        {
+            "destination": "",
+            "name": "databases",
+            "placement": null,
+            "version": "@5.56-89.0+databases"
+        },
+        {
+            "destination": "",
+            "name": "databases",
+            "placement": null,
+            "version": "@5.38-76.0+databases"
+        },
+        {
+            "destination": "",
+            "name": "databases",
+            "placement": null,
+            "version": "@5.36-75.0+databases"
+        },
+        {
+            "destination": "",
+            "name": "binaries",
+            "placement": null,
+            "version": "@:4.8"
+        }
+    ],
+    "variants": [
+        {
+            "default": "generic",
+            "description": "Build systems supported by the package",
+            "name": "build_system"
+        },
+        {
+            "default": false,
+            "description": "Fetch and include databases in the install. Greatly increases install size.",
+            "name": "databases"
+        }
+    ],
     "versions": [
         {
-            "name": "5.63-95.0",
-            "sha256": "3d7babd09e64da3d7104c58f1e5104a298d69425e3210952331bc3f1ddf89ca6"
-        },
-        {
-            "name": "5.61-93.0",
-            "sha256": "70aca3b14983733fe5119b6978cb707156d006d7f737aa60ce6c9addd6c288e4"
-        },
-        {
-            "name": "5.56-89.0",
-            "sha256": "75e6a8f86ca17356a2f77f75b07d6d8fb7b397c9575f6e9716b64983e490b230"
-        },
-        {
-            "name": "5.38-76.0",
-            "sha256": "cb191ff8eee275689b789167a57b368ea5c06bbcd36b4de23e8bbbbdc0fc7434"
+            "name": "4.8",
+            "sha256": "f1cb0ae1218eb05ed59ad7f94883f474eb9a6185a56ad3a93a364acb73506a3f",
+            "url": "ftp://ftp.ebi.ac.uk/pub/software/unix/iprscan/4/RELEASE/4.8/iprscan_v4.8.tar.gz"
         },
         {
             "name": "5.36-75.0",
             "sha256": "383d7431e47c985056c856ceb6d4dcf7ed2559a4a3d5c210c01ce3975875addb"
         },
         {
-            "name": "4.8",
-            "sha256": "f1cb0ae1218eb05ed59ad7f94883f474eb9a6185a56ad3a93a364acb73506a3f",
-            "url": "ftp://ftp.ebi.ac.uk/pub/software/unix/iprscan/4/RELEASE/4.8/iprscan_v4.8.tar.gz"
-        }
-    ],
-    "latest_version": "5.63-95.0",
-    "build_system": "Package",
-    "conflicts": [],
-    "variants": [
-        {
-            "name": "build_system",
-            "default": "generic",
-            "description": "Build systems supported by the package"
+            "name": "5.38-76.0",
+            "sha256": "cb191ff8eee275689b789167a57b368ea5c06bbcd36b4de23e8bbbbdc0fc7434"
         },
         {
-            "name": "databases",
-            "default": false,
-            "description": "Fetch and include databases in the install. Greatly increases install size."
-        }
-    ],
-    "homepage": "https://www.ebi.ac.uk/interpro/interproscan.html",
-    "maintainers": [
-        "snehring"
-    ],
-    "patches": [
-        {
-            "owner": "builtin.interproscan",
-            "sha256": "6a81cbb788ddf7fe8c744989cccb34e32e22176161bc540d37923bfadb23a0ba",
-            "level": 1,
-            "working_dir": ".",
-            "reverse": false,
-            "relative_path": "large-gid.patch",
-            "version": "@5:"
+            "name": "5.56-89.0",
+            "sha256": "75e6a8f86ca17356a2f77f75b07d6d8fb7b397c9575f6e9716b64983e490b230"
         },
         {
-            "owner": "builtin.interproscan",
-            "sha256": "70c0de21360c7bd45946ecd9680fc4cc82e98ebc27cbb4743563d5322f25b47b",
-            "level": 1,
-            "working_dir": ".",
-            "reverse": false,
-            "relative_path": "web-pom.patch",
-            "version": "@5:"
+            "name": "5.61-93.0",
+            "sha256": "70aca3b14983733fe5119b6978cb707156d006d7f737aa60ce6c9addd6c288e4"
         },
         {
-            "owner": "builtin.interproscan",
-            "sha256": "a24327700798eb61868cb4522bb0854f8ee96eb53e3b2e92fdc23a617119aa2f",
-            "level": 1,
-            "working_dir": ".",
-            "reverse": false,
-            "relative_path": "non-interactive.patch",
-            "version": "@:4.8"
-        },
-        {
-            "owner": "builtin.interproscan",
-            "sha256": "c90e3d6b2aae9f696adeee0500178ebfb345c1e51b99405e5c247eae13c5ddf3",
-            "level": 1,
-            "working_dir": ".",
-            "reverse": false,
-            "relative_path": "ps_scan.patch",
-            "version": "@:4.8"
-        }
-    ],
-    "resources": [
-        {
-            "version": "@5.63-95.0+databases",
-            "name": "databases",
-            "destination": "",
-            "placement": null
-        },
-        {
-            "version": "@5.61-93.0+databases",
-            "name": "databases",
-            "destination": "",
-            "placement": null
-        },
-        {
-            "version": "@5.56-89.0+databases",
-            "name": "databases",
-            "destination": "",
-            "placement": null
-        },
-        {
-            "version": "@5.38-76.0+databases",
-            "name": "databases",
-            "destination": "",
-            "placement": null
-        },
-        {
-            "version": "@5.36-75.0+databases",
-            "name": "databases",
-            "destination": "",
-            "placement": null
-        },
-        {
-            "version": "@:4.8",
-            "name": "binaries",
-            "destination": "",
-            "placement": null
-        }
-    ],
-    "description": "InterProScan is the software package that allows sequences (protein and\nnucleic) to be scanned against InterPro's signatures. Signatures are\npredictive models, provided by several different databases, that make up\nthe InterPro consortium. By default this does not download all the\ndatabases you likely want, you'll either want to build with +databases\nor download the data archive for the version you installed to a separate\nlocation and modify interproscan.properties\n",
-    "dependencies": [
-        {
-            "name": "java",
-            "description": "The free and opensource java implementation"
-        },
-        {
-            "name": "maven",
-            "description": "Apache Maven is a software project management and comprehension tool."
-        },
-        {
-            "name": "perl",
-            "description": "Perl 5 is a highly capable, feature-rich programming language with over\n27 years of development."
-        },
-        {
-            "name": "perl-cgi",
-            "description": "CGI - Handle Common Gateway Interface requests and responses CGI was\nincluded in the Perl distribution from 5.4 to 5.20 but has since been\nremoved."
-        },
-        {
-            "name": "perl-db-file",
-            "description": "DB_File is a module which allows Perl programs to make use of the\nfacilities provided by Berkeley DB version 1.x (if you have a newer\nversion of DB, see \"Using DB_File with Berkeley DB version 2 or\ngreater\"). It is assumed that you have a copy of the Berkeley DB manual\npages at hand when reading this documentation. The interface defined\nhere mirrors the Berkeley DB interface closely."
-        },
-        {
-            "name": "perl-io-string",
-            "description": "Emulate file interface for in-core strings"
-        },
-        {
-            "name": "perl-io-stringy",
-            "description": "This toolkit primarily provides modules for performing both traditional\nand object-oriented i/o) on things other than normal filehandles; in\nparticular, IO::Scalar, IO::ScalarArray, and IO::Lines. In the more-\ntraditional IO::Handle front, we have IO::AtomicFile which may be used\nto painlessly create files which are updated atomically. And in the\n\"this-may-prove-useful\" corner, we have IO::Wrap, whose exported\nwraphandle() function will clothe anything that's not a blessed object\nin an IO::Handle-like wrapper... so you can just use OO syntax and stop\nworrying about whether your function's caller handed you a string, a\nglobref, or a FileHandle."
-        },
-        {
-            "name": "perl-mailtools",
-            "description": "Perl module for handling mail"
-        },
-        {
-            "name": "perl-xml-parser",
-            "description": "XML::Parser - A perl module for parsing XML documents"
-        },
-        {
-            "name": "perl-xml-quote",
-            "description": "This module provides functions to quote/dequote strings in \"xml\"-way.\nAll functions are written in XS and are very fast; they correctly\nprocess utf8, tied, overloaded variables and all the rest of perl\n\"magic\"."
-        },
-        {
-            "name": "python",
-            "description": "The Python programming language."
-        }
-    ],
-    "dependent_to": [
-        {
-            "name": "maker",
-            "description": "MAKER is a portable and easily configurable genome annotation pipeline.\nIt's purpose is to allow smaller eukaryotic and prokaryotic\ngenomeprojects to independently annotate their genomes and to create\ngenome databases. MAKER identifies repeats, aligns ESTs and proteins to\na genome, produces ab-initio gene predictions and automatically\nsynthesizes these data into gene annotations having evidence-based\nquality values. MAKER is also easily trainable: outputs of preliminary\nruns can be used to automatically retrain its gene prediction algorithm,\nproducing higher quality gene-models on subsequent runs. MAKER's inputs\nare minimal and its ouputs can be directly loaded into a GMOD database.\nThey can also be viewed in the Apollo genome browser; this feature of\nMAKER provides an easy means to annotate, view and edit individual\ncontigs and BACs without the overhead of a database. MAKER should prove\nespecially useful for emerging model organism projects with minimal\nbioinformatics expertise and computer resources. Note: MAKER requires\nregistration. Fill out the form at\nhttp://yandell.topaz.genetics.utah.edu/cgi-bin/maker_license.cgi to get\na download link. Spack will search your current directory for the\ndownload file. Alternatively, add this file to a mirror so that Spack\ncan find it. For instructions on how to set up a mirror, see\nhttps://spack.readthedocs.io/en/latest/mirrors.html"
+            "name": "5.63-95.0",
+            "sha256": "3d7babd09e64da3d7104c58f1e5104a298d69425e3210952331bc3f1ddf89ca6"
         }
     ]
 }

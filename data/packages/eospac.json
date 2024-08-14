@@ -1,46 +1,154 @@
 {
-    "name": "eospac",
     "aliases": [],
+    "build_system": "Package",
+    "conflicts": [
+        {
+            "description": null,
+            "name": "+offload",
+            "spec": "@:6.4.99"
+        }
+    ],
+    "dependencies": [],
+    "dependent_to": [
+        {
+            "description": "Draco is an object-oriented component library geared towards numerically\nintensive, radiation (particle) transport applications built for\nparallel computing hardware. It consists of semi-independent packages\nand a robust build system.",
+            "name": "draco"
+        },
+        {
+            "description": "Singularity-EOS: A collection of closure models and tools useful for\nmultiphysics codes.",
+            "name": "singularity-eos"
+        }
+    ],
+    "description": "A collection of C routines that can be used to access the Sesame data\nlibrary.\n",
+    "homepage": "https://laws.lanl.gov/projects/data/eos.html",
+    "latest_version": "6.5.9",
+    "maintainers": [
+        "KineticTheory"
+    ],
+    "name": "eospac",
+    "patches": [
+        {
+            "level": 1,
+            "owner": "builtin.eospac",
+            "relative_path": "flang.patch",
+            "reverse": false,
+            "sha256": "f6c8dc8f1752f25be362a7f112e280b5a50968bccbb3911a6d212237c82bd829",
+            "version": "@:6.4.0beta.2%clang",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.eospac",
+            "relative_path": "frt.patch",
+            "reverse": false,
+            "sha256": "b7594f03301aa26876a9f98a918f63f2c93fbffa1c592b16aee9331ae1480546",
+            "version": "%fj",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.eospac",
+            "relative_path": "cpuinfo_comp_flags_key.patch",
+            "reverse": false,
+            "sha256": "3c9f9b98b5ea591ec0adb9e53422fa49dc3e6bd6669ca5c11d1d01ccf8e4c697",
+            "version": "@:6.4.1",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.eospac",
+            "relative_path": "650-ic2021.patch",
+            "reverse": false,
+            "sha256": "e5c396953c2f59a781cef2a33372c2157216ee1ec73d51752a8e13d49c712b61",
+            "version": "@6.5.0%intel",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.eospac",
+            "relative_path": "642-ic2021.patch",
+            "reverse": false,
+            "sha256": "446f7a7fe5ece394a88f2936d5f8899c44a1e09b5327e914259f2adef9d67301",
+            "version": "@6.4.2%intel",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.eospac",
+            "relative_path": "641-ic2021.patch",
+            "reverse": false,
+            "sha256": "3fa2980c82ad13794cd834541e8038c45058eb756a5ee40820ca7ecfc3671e69",
+            "version": "@6.4.1%intel",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.eospac",
+            "relative_path": "640-ic2021.patch",
+            "reverse": false,
+            "sha256": "776635219364bcbeec11d696920809ba559823fdb22fd948d833cbe2e6d50142",
+            "version": "@6.4.0%intel",
+            "working_dir": "."
+        }
+    ],
+    "resources": [],
+    "variants": [
+        {
+            "default": "generic",
+            "description": "Build systems supported by the package",
+            "name": "build_system"
+        },
+        {
+            "default": false,
+            "description": "Build GPU offload library instead of standard",
+            "name": "offload"
+        }
+    ],
     "versions": [
         {
-            "name": "6.5.9",
-            "sha256": "54df29b1dc3b35c654ef2ebfbfa42d960a230cfb2d3c04a75ba93d3a789a312a",
-            "url": "https://laws.lanl.gov/projects/data/eos/get_file.php?package=eospac&filename=eospac_v6.5.9_4c633156bacc7b721bdd2735e40e09984a4d60a3.tgz"
+            "name": "6.3.1",
+            "sha256": "aa1112c4251c9c3c2883a7ab2c7f2abff2c339f29dbbf8421ef88b0c9df904f8",
+            "url": "http://laws.lanl.gov/projects/data/eos/get_file.php?package=eospac&filename=eospac_v6.3.1_r20161202150449.tgz"
         },
         {
-            "name": "6.5.8",
-            "sha256": "4e2c5db150bf7f45b5615c034848b9256f8659bcde95f097e446c226c70c6d96",
-            "url": "https://laws.lanl.gov/projects/data/eos/get_file.php?package=eospac&filename=eospac_v6.5.8_052127ccd65148632bd1258764f455c692a4dfc1.tgz"
+            "name": "6.4.0",
+            "sha256": "15a953beac735c68431afe86ffe33323d540d0fbbbec03ba79438dd29736051d",
+            "url": "http://laws.lanl.gov/projects/data/eos/get_file.php?package=eospac&filename=eospac_v6.4.0_612ea8c9b8ffa6d9175d9118955571d9107f1e3c.tgz"
         },
         {
-            "name": "6.5.7",
-            "sha256": "e59bd449bf97ce977309c6fc8a54fa30f4db9b2ca3e21f996095d78e23799e42",
-            "url": "https://laws.lanl.gov/projects/data/eos/get_file.php?package=eospac&filename=eospac_v6.5.7_9a867a15ae4137d22e1b52199d6a46b486fc4376.tgz"
+            "name": "6.4.0beta.1",
+            "sha256": "14c5c804e5f628f41e8ed80bcee5a80adeb6c6f3d130715421ca99a30c7eb7e2",
+            "url": "http://laws.lanl.gov/projects/data/eos/get_file.php?package=eospac&filename=eospac_v6.4.0beta.1_r20171213193219.tgz"
         },
         {
-            "name": "6.5.6",
-            "sha256": "49bae52a0c1dc249ca75d47fc1ff9d6367221aa5a5a9c4664efaea6f0292eaff",
-            "url": "https://laws.lanl.gov/projects/data/eos/get_file.php?package=eospac&filename=eospac_v6.5.6_a523d0d98e0323fc0e3aa1c6ad540ebc741c3982.tgz"
+            "name": "6.4.0beta.2",
+            "sha256": "f9db46cd6c62a6f83960d802350f3e37675921af102969b293c02eb797558a53",
+            "url": "http://laws.lanl.gov/projects/data/eos/get_file.php?package=eospac&filename=eospac_v6.4.0beta.2_69196eadbc77506561eef711f19d2f03b4ab0ffa.tgz"
         },
         {
-            "name": "6.5.5",
-            "sha256": "2b8129e02dce0d87f0006c82a0849172c3bc13c346485c54e6400a522f8fd754",
-            "url": "https://laws.lanl.gov/projects/data/eos/get_file.php?package=eospac&filename=eospac_v6.5.5_dcc5ca928b63c0add278107bef33a6bdd8befe44.tgz"
+            "name": "6.4.0beta.3",
+            "sha256": "9f387ca5356519494c6f3f27adb0c165cf9f9e15e3355a67bf940a4a92eebdab",
+            "url": "http://laws.lanl.gov/projects/data/eos/get_file.php?package=eospac&filename=eospac_v6.4.0beta.3_90ff265f62aa1780bfcd0a62dad807b6be6ed461.tgz"
         },
         {
-            "name": "6.5.0",
-            "sha256": "4e539418f773a5bd00dc49a5000ca857e5228cc5e83f198d46827a5671d34cff",
-            "url": "https://laws.lanl.gov/projects/data/eos/get_file.php?package=eospac&filename=eospac_v6.5.0_6b10f4ccc1fc333b5d6023b93ab194ab0621d5ae.tgz"
+            "name": "6.4.0beta.4",
+            "sha256": "0ebfd8badff575ea77444aa978629dbdca3135a0b5eb373b8daba058773d4635",
+            "url": "http://laws.lanl.gov/projects/data/eos/get_file.php?package=eospac&filename=eospac_v6.4.0beta.4_aff6429bb6868de31a980278bafa13487c2ce83f.tgz"
         },
         {
-            "name": "6.5.0beta",
-            "sha256": "42e6d491aaf296e4d6ab946481aaafd64b0a4e9801fc2ff098cc16aa118f54c8",
-            "url": "https://laws.lanl.gov/projects/data/eos/get_file.php?package=eospac&filename=eospac_v6.5.0beta_859ce5b1b8c4106057ca61d03a6c9c713a7f0328.tgz"
+            "name": "6.4.1",
+            "sha256": "2310c49bd7a60cad41d2cb1059c5f0a1904f0c778b164937182382df326ca003",
+            "url": "http://laws.lanl.gov/projects/data/eos/get_file.php?package=eospac&filename=eospac_v6.4.1_0cc1bc21a8bb1adadbae0dd3a2135790e8119320.tgz"
         },
         {
-            "name": "6.5.0alpha.1",
-            "sha256": "c7334342dd2e071e17c60d8fabb11d2908c9d48c9b49ea83c3609a10b7b8877b",
-            "url": "http://laws.lanl.gov/projects/data/eos/get_file.php?package=eospac&filename=eospac_v6.5.0alpha.1_62053188b9842842e41508c54196c533e0b91e51.tgz"
+            "name": "6.4.1alpha.2",
+            "sha256": "cd075e7a41137da85ee0680c64534675d50979516e9639b17fa004619651ac47",
+            "url": "http://laws.lanl.gov/projects/data/eos/get_file.php?package=eospac&filename=eospac_v6.4.1alpha.2_e2aaba283f57511b94afa9283e5ee794b03439dc.tgz"
+        },
+        {
+            "name": "6.4.1beta",
+            "sha256": "479074a7be724760f8f1f90a8673f6197b7c5aa1ff76242ecf3790c9016e08c3",
+            "url": "http://laws.lanl.gov/projects/data/eos/get_file.php?package=eospac&filename=eospac_v6.4.1beta_b651322c74cf5729732afd5d77c66c41d677be5e.tgz"
         },
         {
             "name": "6.4.2",
@@ -53,152 +161,44 @@
             "url": "http://laws.lanl.gov/projects/data/eos/get_file.php?package=eospac&filename=eospac_v6.4.2beta_a62baf70708536f6fb5486e315c730fa76c1f6b5.tgz"
         },
         {
-            "name": "6.4.1",
-            "sha256": "2310c49bd7a60cad41d2cb1059c5f0a1904f0c778b164937182382df326ca003",
-            "url": "http://laws.lanl.gov/projects/data/eos/get_file.php?package=eospac&filename=eospac_v6.4.1_0cc1bc21a8bb1adadbae0dd3a2135790e8119320.tgz"
+            "name": "6.5.0",
+            "sha256": "4e539418f773a5bd00dc49a5000ca857e5228cc5e83f198d46827a5671d34cff",
+            "url": "https://laws.lanl.gov/projects/data/eos/get_file.php?package=eospac&filename=eospac_v6.5.0_6b10f4ccc1fc333b5d6023b93ab194ab0621d5ae.tgz"
         },
         {
-            "name": "6.4.1beta",
-            "sha256": "479074a7be724760f8f1f90a8673f6197b7c5aa1ff76242ecf3790c9016e08c3",
-            "url": "http://laws.lanl.gov/projects/data/eos/get_file.php?package=eospac&filename=eospac_v6.4.1beta_b651322c74cf5729732afd5d77c66c41d677be5e.tgz"
+            "name": "6.5.0alpha.1",
+            "sha256": "c7334342dd2e071e17c60d8fabb11d2908c9d48c9b49ea83c3609a10b7b8877b",
+            "url": "http://laws.lanl.gov/projects/data/eos/get_file.php?package=eospac&filename=eospac_v6.5.0alpha.1_62053188b9842842e41508c54196c533e0b91e51.tgz"
         },
         {
-            "name": "6.4.1alpha.2",
-            "sha256": "cd075e7a41137da85ee0680c64534675d50979516e9639b17fa004619651ac47",
-            "url": "http://laws.lanl.gov/projects/data/eos/get_file.php?package=eospac&filename=eospac_v6.4.1alpha.2_e2aaba283f57511b94afa9283e5ee794b03439dc.tgz"
+            "name": "6.5.0beta",
+            "sha256": "42e6d491aaf296e4d6ab946481aaafd64b0a4e9801fc2ff098cc16aa118f54c8",
+            "url": "https://laws.lanl.gov/projects/data/eos/get_file.php?package=eospac&filename=eospac_v6.5.0beta_859ce5b1b8c4106057ca61d03a6c9c713a7f0328.tgz"
         },
         {
-            "name": "6.4.0",
-            "sha256": "15a953beac735c68431afe86ffe33323d540d0fbbbec03ba79438dd29736051d",
-            "url": "http://laws.lanl.gov/projects/data/eos/get_file.php?package=eospac&filename=eospac_v6.4.0_612ea8c9b8ffa6d9175d9118955571d9107f1e3c.tgz"
+            "name": "6.5.5",
+            "sha256": "2b8129e02dce0d87f0006c82a0849172c3bc13c346485c54e6400a522f8fd754",
+            "url": "https://laws.lanl.gov/projects/data/eos/get_file.php?package=eospac&filename=eospac_v6.5.5_dcc5ca928b63c0add278107bef33a6bdd8befe44.tgz"
         },
         {
-            "name": "6.4.0beta.4",
-            "sha256": "0ebfd8badff575ea77444aa978629dbdca3135a0b5eb373b8daba058773d4635",
-            "url": "http://laws.lanl.gov/projects/data/eos/get_file.php?package=eospac&filename=eospac_v6.4.0beta.4_aff6429bb6868de31a980278bafa13487c2ce83f.tgz"
+            "name": "6.5.6",
+            "sha256": "49bae52a0c1dc249ca75d47fc1ff9d6367221aa5a5a9c4664efaea6f0292eaff",
+            "url": "https://laws.lanl.gov/projects/data/eos/get_file.php?package=eospac&filename=eospac_v6.5.6_a523d0d98e0323fc0e3aa1c6ad540ebc741c3982.tgz"
         },
         {
-            "name": "6.4.0beta.3",
-            "sha256": "9f387ca5356519494c6f3f27adb0c165cf9f9e15e3355a67bf940a4a92eebdab",
-            "url": "http://laws.lanl.gov/projects/data/eos/get_file.php?package=eospac&filename=eospac_v6.4.0beta.3_90ff265f62aa1780bfcd0a62dad807b6be6ed461.tgz"
+            "name": "6.5.7",
+            "sha256": "e59bd449bf97ce977309c6fc8a54fa30f4db9b2ca3e21f996095d78e23799e42",
+            "url": "https://laws.lanl.gov/projects/data/eos/get_file.php?package=eospac&filename=eospac_v6.5.7_9a867a15ae4137d22e1b52199d6a46b486fc4376.tgz"
         },
         {
-            "name": "6.4.0beta.2",
-            "sha256": "f9db46cd6c62a6f83960d802350f3e37675921af102969b293c02eb797558a53",
-            "url": "http://laws.lanl.gov/projects/data/eos/get_file.php?package=eospac&filename=eospac_v6.4.0beta.2_69196eadbc77506561eef711f19d2f03b4ab0ffa.tgz"
+            "name": "6.5.8",
+            "sha256": "4e2c5db150bf7f45b5615c034848b9256f8659bcde95f097e446c226c70c6d96",
+            "url": "https://laws.lanl.gov/projects/data/eos/get_file.php?package=eospac&filename=eospac_v6.5.8_052127ccd65148632bd1258764f455c692a4dfc1.tgz"
         },
         {
-            "name": "6.4.0beta.1",
-            "sha256": "14c5c804e5f628f41e8ed80bcee5a80adeb6c6f3d130715421ca99a30c7eb7e2",
-            "url": "http://laws.lanl.gov/projects/data/eos/get_file.php?package=eospac&filename=eospac_v6.4.0beta.1_r20171213193219.tgz"
-        },
-        {
-            "name": "6.3.1",
-            "sha256": "aa1112c4251c9c3c2883a7ab2c7f2abff2c339f29dbbf8421ef88b0c9df904f8",
-            "url": "http://laws.lanl.gov/projects/data/eos/get_file.php?package=eospac&filename=eospac_v6.3.1_r20161202150449.tgz"
-        }
-    ],
-    "latest_version": "6.5.9",
-    "build_system": "Package",
-    "conflicts": [
-        {
-            "name": "+offload",
-            "spec": "@:6.4.99",
-            "description": null
-        }
-    ],
-    "variants": [
-        {
-            "name": "build_system",
-            "default": "generic",
-            "description": "Build systems supported by the package"
-        },
-        {
-            "name": "offload",
-            "default": false,
-            "description": "Build GPU offload library instead of standard"
-        }
-    ],
-    "homepage": "https://laws.lanl.gov/projects/data/eos.html",
-    "maintainers": [
-        "KineticTheory"
-    ],
-    "patches": [
-        {
-            "owner": "builtin.eospac",
-            "sha256": "f6c8dc8f1752f25be362a7f112e280b5a50968bccbb3911a6d212237c82bd829",
-            "level": 1,
-            "working_dir": ".",
-            "reverse": false,
-            "relative_path": "flang.patch",
-            "version": "@:6.4.0beta.2%clang"
-        },
-        {
-            "owner": "builtin.eospac",
-            "sha256": "b7594f03301aa26876a9f98a918f63f2c93fbffa1c592b16aee9331ae1480546",
-            "level": 1,
-            "working_dir": ".",
-            "reverse": false,
-            "relative_path": "frt.patch",
-            "version": "%fj"
-        },
-        {
-            "owner": "builtin.eospac",
-            "sha256": "3c9f9b98b5ea591ec0adb9e53422fa49dc3e6bd6669ca5c11d1d01ccf8e4c697",
-            "level": 1,
-            "working_dir": ".",
-            "reverse": false,
-            "relative_path": "cpuinfo_comp_flags_key.patch",
-            "version": "@:6.4.1"
-        },
-        {
-            "owner": "builtin.eospac",
-            "sha256": "e5c396953c2f59a781cef2a33372c2157216ee1ec73d51752a8e13d49c712b61",
-            "level": 1,
-            "working_dir": ".",
-            "reverse": false,
-            "relative_path": "650-ic2021.patch",
-            "version": "@6.5.0%intel"
-        },
-        {
-            "owner": "builtin.eospac",
-            "sha256": "446f7a7fe5ece394a88f2936d5f8899c44a1e09b5327e914259f2adef9d67301",
-            "level": 1,
-            "working_dir": ".",
-            "reverse": false,
-            "relative_path": "642-ic2021.patch",
-            "version": "@6.4.2%intel"
-        },
-        {
-            "owner": "builtin.eospac",
-            "sha256": "3fa2980c82ad13794cd834541e8038c45058eb756a5ee40820ca7ecfc3671e69",
-            "level": 1,
-            "working_dir": ".",
-            "reverse": false,
-            "relative_path": "641-ic2021.patch",
-            "version": "@6.4.1%intel"
-        },
-        {
-            "owner": "builtin.eospac",
-            "sha256": "776635219364bcbeec11d696920809ba559823fdb22fd948d833cbe2e6d50142",
-            "level": 1,
-            "working_dir": ".",
-            "reverse": false,
-            "relative_path": "640-ic2021.patch",
-            "version": "@6.4.0%intel"
-        }
-    ],
-    "resources": [],
-    "description": "A collection of C routines that can be used to access the Sesame data\nlibrary.\n",
-    "dependencies": [],
-    "dependent_to": [
-        {
-            "name": "singularity-eos",
-            "description": "Singularity-EOS: A collection of closure models and tools useful for\nmultiphysics codes."
-        },
-        {
-            "name": "draco",
-            "description": "Draco is an object-oriented component library geared towards numerically\nintensive, radiation (particle) transport applications built for\nparallel computing hardware. It consists of semi-independent packages\nand a robust build system."
+            "name": "6.5.9",
+            "sha256": "54df29b1dc3b35c654ef2ebfbfa42d960a230cfb2d3c04a75ba93d3a789a312a",
+            "url": "https://laws.lanl.gov/projects/data/eos/get_file.php?package=eospac&filename=eospac_v6.5.9_4c633156bacc7b721bdd2735e40e09984a4d60a3.tgz"
         }
     ]
 }

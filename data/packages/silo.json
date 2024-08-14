@@ -1,16 +1,290 @@
 {
-    "name": "silo",
     "aliases": [],
-    "versions": [
+    "build_system": "AutotoolsPackage",
+    "conflicts": [
         {
-            "name": "4.11.1",
-            "sha256": "49eddc00304aa4a19074b099559edbdcaa3532c98df32f99aa62b9ec3ea7cee2",
-            "url": "https://github.com/LLNL/Silo/releases/download/4.11.1/silo-4.11.1.tar.xz"
+            "description": null,
+            "name": "+fpzip",
+            "spec": "@4.10.2-bsd,4.11-bsd"
         },
         {
-            "name": "4.11.1-bsd",
-            "sha256": "51ccfdf3c09dfc98c7858a0a6f08cc3b2a07ee3c4142ee6482ba7b24e314c2aa",
-            "url": "https://github.com/LLNL/Silo/releases/download/4.11.1/silo-4.11.1-bsd.tar.xz"
+            "description": null,
+            "name": "+hzip",
+            "spec": "@4.10.2-bsd,4.11-bsd"
+        },
+        {
+            "description": null,
+            "name": "^hdf5@1.13:",
+            "spec": "@:4.10.2-bsd"
+        },
+        {
+            "description": null,
+            "name": "arch=windows-None-None",
+            "spec": "build_system=autotools"
+        }
+    ],
+    "dependencies": [
+        {
+            "description": "Autoconf -- system configuration part of autotools",
+            "name": "autoconf"
+        },
+        {
+            "description": "The GNU Autoconf Archive is a collection of more than 500 macros for GNU\nAutoconf.",
+            "name": "autoconf-archive"
+        },
+        {
+            "description": "Automake -- make file builder part of autotools",
+            "name": "automake"
+        },
+        {
+            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files.",
+            "name": "gmake"
+        },
+        {
+            "description": "The GNU config.guess and config.sub scripts versioned by timestamp.\nThis package can be used as a build dependency for autotools packages\nthat ship a tarball with outdated config.guess and config.sub files.",
+            "name": "gnuconfig"
+        },
+        {
+            "description": "HDF5 is a data model, library, and file format for storing and managing\ndata. It supports an unlimited variety of datatypes, and is designed for\nflexible and efficient I/O and for high volume and complex data.",
+            "name": "hdf5"
+        },
+        {
+            "description": "libtool -- library building part of autotools.",
+            "name": "libtool"
+        },
+        {
+            "description": "libX11 - Core X11 protocol client library.",
+            "name": "libx11"
+        },
+        {
+            "description": "This library contains miscellaneous utilities and is not part of the\nXlib standard. It contains routines which only use public interfaces so\nthat it may be layered on top of any proprietary implementation of Xlib\nor Xt.",
+            "name": "libxmu"
+        },
+        {
+            "description": "GNU M4 is an implementation of the traditional Unix macro processor.",
+            "name": "m4"
+        },
+        {
+            "description": "IBM MPI implementation from Spectrum MPI.",
+            "name": "mpi"
+        },
+        {
+            "description": "Perl 5 is a highly capable, feature-rich programming language with over\n27 years of development.",
+            "name": "perl"
+        },
+        {
+            "description": "Qt is a comprehensive cross-platform C++ application framework.",
+            "name": "qt"
+        },
+        {
+            "description": "The GNU Readline library provides a set of functions for use by\napplications that allow users to edit command lines as they are typed\nin. Both Emacs and vi editing modes are available. The Readline library\nincludes additional functions to maintain a list of previously-entered\ncommand lines, to recall and perhaps reedit those lines, and perform\ncsh-like history expansion on previous commands.",
+            "name": "readline"
+        },
+        {
+            "description": "zlib replacement with optimizations for next generation systems.",
+            "name": "zlib-api"
+        }
+    ],
+    "dependent_to": [
+        {
+            "description": "The Advanced Multi-Physics (AMP) package. The Advanced Multi-Physics\n(AMP) package is an open source parallel object-oriented computational\nframework that is designed with single and multi-domain multi-physics\napplications in mind.",
+            "name": "amp"
+        },
+        {
+            "description": "Fluid interface model solver based on Pandya and Shkoller's Z-Model\nformulation.",
+            "name": "beatnik"
+        },
+        {
+            "description": "BookLeaf is a 2D unstructured hydrodynamics mini-app.",
+            "name": "bookleaf-cpp"
+        },
+        {
+            "description": "The Exascale Co-Design Center for Particle Applications Toolkit",
+            "name": "cabana"
+        },
+        {
+            "description": "CoEVP is a scale-bridging proxy application for embedded viscoplasticity\napplications. It is created and maintained by The Exascale Co-Design\nCenter for Materials in Extreme Environments (ExMatEx). The code is\nintended to serve as a vehicle for co-design by allowing others to\nextend and/or reimplement it as needed to test performance of new\narchitectures, programming models, etc. Due to the size and complexity\nof the studied models, as well as restrictions on distribution, the\ncurrently available LULESH proxy application provides the coarse-scale\nmodel implementation and the ASPA proxy application provides the\nadaptive sampling support.",
+            "name": "coevp"
+        },
+        {
+            "description": "Conduit is an open source project from Lawrence Livermore National\nLaboratory that provides an intuitive model for describing hierarchical\nscientific data in C++, C, Fortran, and Python. It is used for data\ncoupling between packages in-core, serialization, and I/O tasks.",
+            "name": "conduit"
+        },
+        {
+            "description": "Exascale Material Point Method (MPM) Mini-App",
+            "name": "exampm"
+        },
+        {
+            "description": "LULESH is a highly simplified application, hard-coded to only style\ntypical in scientific C or C++ based applications. Hard code to only\nsolve a Sedov blast problem with analytic answer",
+            "name": "lulesh"
+        },
+        {
+            "description": "A Multi-purpose, Application-Centric, Scalable I/O Proxy Application.",
+            "name": "macsio"
+        },
+        {
+            "description": "ParaView is an open-source, multi-platform data analysis and\nvisualization application. This package includes the Catalyst in-situ\nlibrary for versions 5.7 and greater, otherwise use the catalyst\npackage.",
+            "name": "paraview"
+        },
+        {
+            "description": "ParFlow is an open-source parallel watershed simulator which includes\noverland flow, complex topology, heterogeneity and coupled land-surface\nprocesses.",
+            "name": "parflow"
+        },
+        {
+            "description": "SAMRAI (Structured Adaptive Mesh Refinement Application Infrastructure)\nis an object-oriented C++ software library enables exploration of\nnumerical, algorithmic, parallel computing, and software issues\nassociated with applying structured adaptive mesh refinement (SAMR)\ntechnology in large-scale parallel application development.",
+            "name": "samrai"
+        },
+        {
+            "description": "SimulationIO: Efficient and convenient I/O for large PDE simulations",
+            "name": "simulationio"
+        },
+        {
+            "description": "VisIt is an Open Source, interactive, scalable, visualization, animation\nand analysis tool.",
+            "name": "visit"
+        },
+        {
+            "description": "This is the Silo Plug-In for VisIt. It can be installed after VisIt is\ninstalled along SILO library. It is made as an extension to VisIt that\ncan be activated or as an environment with a view: ~/.visit Complete\nexplanation at:\nhttps://github.com/spack/spack/pull/22907#issuecomment-824218296",
+            "name": "visit-silo"
+        }
+    ],
+    "description": "Silo is a library for reading and writing a wide variety of scientific\ndata to binary, disk files.\n",
+    "homepage": "https://wci.llnl.gov/simulation/computer-codes/silo",
+    "latest_version": "4.11.1-bsd",
+    "maintainers": [
+        "patrickb314"
+    ],
+    "name": "silo",
+    "patches": [
+        {
+            "level": 1,
+            "owner": "builtin.silo",
+            "relative_path": "remove-mpiposix.patch",
+            "reverse": false,
+            "sha256": "7b5a1dc2a0e358e667088d77e7caa780967fa8ea60be89c44986605df9990abe",
+            "version": "@4.8:4.10.2",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.silo",
+            "relative_path": "H5FD_class_t-terminate.patch",
+            "reverse": false,
+            "sha256": "3a1e831bada893bc810976be2a7fabb4073d1b3d1802c1f1bde9d2fac4912383",
+            "version": "@:4.10.2-bsd",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.silo",
+            "relative_path": "H5EPR_SEMI_COLON.patch",
+            "reverse": false,
+            "sha256": "eb2a3a025d35a5c8dcb1d3178ee67aa1e905e58b80910e3789995dd632256174",
+            "version": "@:4.11-bsd",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.silo",
+            "relative_path": "configure-AX_CHECK_COMPILE_FLAG.patch",
+            "reverse": false,
+            "sha256": "fa050e03cfd5c7f3752e97726d351c24b21ab1e7dbf53200566e2a22018c19f0",
+            "version": "@:4.11-bsd",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.silo",
+            "relative_path": "mkinc-usr-bin-env-perl.patch",
+            "reverse": false,
+            "sha256": "251244d51189cb845e4b6ab469f02f9c1b37931866f8abd42e81cd11f97da0fe",
+            "version": "@:4.11-bsd",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.silo",
+            "relative_path": "48-configure-f77.patch",
+            "reverse": false,
+            "sha256": "3092d6d1b5218d9667388e843d86255a2ec1dffa735af3edfebd32ddf3bd1c47",
+            "version": "@:4.8",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.silo",
+            "relative_path": "hdf5-113.patch",
+            "reverse": false,
+            "sha256": "a0812638367c4593ffb2fdc98f3c87ee8bb7b66af2803e79f3bb878f1092ff47",
+            "version": "@4.11:4.11-bsd+hdf5 ^hdf5@1.13:",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.silo",
+            "relative_path": "zfp_error.patch",
+            "reverse": false,
+            "sha256": "451c4c5b6c7418a59f18f5367e9de76cf3203f04dd8d81ca63369ead6e9b76f0",
+            "version": "@4.11:4.11-bsd+hdf5",
+            "working_dir": "."
+        }
+    ],
+    "resources": [],
+    "variants": [
+        {
+            "default": "autotools",
+            "description": "Build systems supported by the package",
+            "name": "build_system"
+        },
+        {
+            "default": true,
+            "description": "Enable Fortran support",
+            "name": "fortran"
+        },
+        {
+            "default": true,
+            "description": "Enable fpzip support",
+            "name": "fpzip"
+        },
+        {
+            "default": true,
+            "description": "Support HDF5 for database I/O",
+            "name": "hdf5"
+        },
+        {
+            "default": true,
+            "description": "Enable hzip support",
+            "name": "hzip"
+        },
+        {
+            "default": true,
+            "description": "Compile with MPI Compatibility",
+            "name": "mpi"
+        },
+        {
+            "default": true,
+            "description": "Produce position-independent code (for shared libs)",
+            "name": "pic"
+        },
+        {
+            "default": true,
+            "description": "Build shared libraries",
+            "name": "shared"
+        },
+        {
+            "default": false,
+            "description": "Builds Silex, a GUI for viewing Silo files",
+            "name": "silex"
+        }
+    ],
+    "versions": [
+        {
+            "name": "4.10.2",
+            "sha256": "3af87e5f0608a69849c00eb7c73b11f8422fa36903dd14610584506e7f68e638"
+        },
+        {
+            "name": "4.10.2-bsd",
+            "sha256": "4b901dfc1eb4656e83419a6fde15a2f6c6a31df84edfad7f1dc296e01b20140e",
+            "url": "https://wci.llnl.gov/sites/wci/files/2021-01/silo-4.10.2-bsd.tgz"
         },
         {
             "name": "4.11",
@@ -23,296 +297,22 @@
             "url": "https://github.com/LLNL/Silo/releases/download/v4.11/silo-4.11-bsd.tar.gz"
         },
         {
-            "name": "4.10.2",
-            "sha256": "3af87e5f0608a69849c00eb7c73b11f8422fa36903dd14610584506e7f68e638"
+            "name": "4.11.1",
+            "sha256": "49eddc00304aa4a19074b099559edbdcaa3532c98df32f99aa62b9ec3ea7cee2",
+            "url": "https://github.com/LLNL/Silo/releases/download/4.11.1/silo-4.11.1.tar.xz"
         },
         {
-            "name": "4.10.2-bsd",
-            "sha256": "4b901dfc1eb4656e83419a6fde15a2f6c6a31df84edfad7f1dc296e01b20140e",
-            "url": "https://wci.llnl.gov/sites/wci/files/2021-01/silo-4.10.2-bsd.tgz"
-        },
-        {
-            "name": "4.9",
-            "sha256": "90f3d069963d859c142809cfcb034bc83eb951f61ac02ccb967fc8e8d0409854"
+            "name": "4.11.1-bsd",
+            "sha256": "51ccfdf3c09dfc98c7858a0a6f08cc3b2a07ee3c4142ee6482ba7b24e314c2aa",
+            "url": "https://github.com/LLNL/Silo/releases/download/4.11.1/silo-4.11.1-bsd.tar.xz"
         },
         {
             "name": "4.8",
             "sha256": "c430c1d33fcb9bc136a99ad473d535d6763bd1357b704a915ba7b1081d58fb21"
-        }
-    ],
-    "latest_version": "4.11.1-bsd",
-    "build_system": "AutotoolsPackage",
-    "conflicts": [
-        {
-            "name": "arch=windows-None-None",
-            "spec": "build_system=autotools",
-            "description": null
         },
         {
-            "name": "^hdf5@1.13:",
-            "spec": "@:4.10.2-bsd",
-            "description": null
-        },
-        {
-            "name": "+hzip",
-            "spec": "@4.10.2-bsd,4.11-bsd",
-            "description": null
-        },
-        {
-            "name": "+fpzip",
-            "spec": "@4.10.2-bsd,4.11-bsd",
-            "description": null
-        }
-    ],
-    "variants": [
-        {
-            "name": "build_system",
-            "default": "autotools",
-            "description": "Build systems supported by the package"
-        },
-        {
-            "name": "fortran",
-            "default": true,
-            "description": "Enable Fortran support"
-        },
-        {
-            "name": "shared",
-            "default": true,
-            "description": "Build shared libraries"
-        },
-        {
-            "name": "silex",
-            "default": false,
-            "description": "Builds Silex, a GUI for viewing Silo files"
-        },
-        {
-            "name": "pic",
-            "default": true,
-            "description": "Produce position-independent code (for shared libs)"
-        },
-        {
-            "name": "mpi",
-            "default": true,
-            "description": "Compile with MPI Compatibility"
-        },
-        {
-            "name": "hdf5",
-            "default": true,
-            "description": "Support HDF5 for database I/O"
-        },
-        {
-            "name": "hzip",
-            "default": true,
-            "description": "Enable hzip support"
-        },
-        {
-            "name": "fpzip",
-            "default": true,
-            "description": "Enable fpzip support"
-        }
-    ],
-    "homepage": "https://wci.llnl.gov/simulation/computer-codes/silo",
-    "maintainers": [
-        "patrickb314"
-    ],
-    "patches": [
-        {
-            "owner": "builtin.silo",
-            "sha256": "7b5a1dc2a0e358e667088d77e7caa780967fa8ea60be89c44986605df9990abe",
-            "level": 1,
-            "working_dir": ".",
-            "reverse": false,
-            "relative_path": "remove-mpiposix.patch",
-            "version": "@4.8:4.10.2"
-        },
-        {
-            "owner": "builtin.silo",
-            "sha256": "3a1e831bada893bc810976be2a7fabb4073d1b3d1802c1f1bde9d2fac4912383",
-            "level": 1,
-            "working_dir": ".",
-            "reverse": false,
-            "relative_path": "H5FD_class_t-terminate.patch",
-            "version": "@:4.10.2-bsd"
-        },
-        {
-            "owner": "builtin.silo",
-            "sha256": "eb2a3a025d35a5c8dcb1d3178ee67aa1e905e58b80910e3789995dd632256174",
-            "level": 1,
-            "working_dir": ".",
-            "reverse": false,
-            "relative_path": "H5EPR_SEMI_COLON.patch",
-            "version": "@:4.11-bsd"
-        },
-        {
-            "owner": "builtin.silo",
-            "sha256": "fa050e03cfd5c7f3752e97726d351c24b21ab1e7dbf53200566e2a22018c19f0",
-            "level": 1,
-            "working_dir": ".",
-            "reverse": false,
-            "relative_path": "configure-AX_CHECK_COMPILE_FLAG.patch",
-            "version": "@:4.11-bsd"
-        },
-        {
-            "owner": "builtin.silo",
-            "sha256": "251244d51189cb845e4b6ab469f02f9c1b37931866f8abd42e81cd11f97da0fe",
-            "level": 1,
-            "working_dir": ".",
-            "reverse": false,
-            "relative_path": "mkinc-usr-bin-env-perl.patch",
-            "version": "@:4.11-bsd"
-        },
-        {
-            "owner": "builtin.silo",
-            "sha256": "3092d6d1b5218d9667388e843d86255a2ec1dffa735af3edfebd32ddf3bd1c47",
-            "level": 1,
-            "working_dir": ".",
-            "reverse": false,
-            "relative_path": "48-configure-f77.patch",
-            "version": "@:4.8"
-        },
-        {
-            "owner": "builtin.silo",
-            "sha256": "a0812638367c4593ffb2fdc98f3c87ee8bb7b66af2803e79f3bb878f1092ff47",
-            "level": 1,
-            "working_dir": ".",
-            "reverse": false,
-            "relative_path": "hdf5-113.patch",
-            "version": "@4.11:4.11-bsd+hdf5 ^hdf5@1.13:"
-        },
-        {
-            "owner": "builtin.silo",
-            "sha256": "451c4c5b6c7418a59f18f5367e9de76cf3203f04dd8d81ca63369ead6e9b76f0",
-            "level": 1,
-            "working_dir": ".",
-            "reverse": false,
-            "relative_path": "zfp_error.patch",
-            "version": "@4.11:4.11-bsd+hdf5"
-        }
-    ],
-    "resources": [],
-    "description": "Silo is a library for reading and writing a wide variety of scientific\ndata to binary, disk files.\n",
-    "dependencies": [
-        {
-            "name": "autoconf",
-            "description": "Autoconf -- system configuration part of autotools"
-        },
-        {
-            "name": "autoconf-archive",
-            "description": "The GNU Autoconf Archive is a collection of more than 500 macros for GNU\nAutoconf."
-        },
-        {
-            "name": "automake",
-            "description": "Automake -- make file builder part of autotools"
-        },
-        {
-            "name": "gmake",
-            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files."
-        },
-        {
-            "name": "gnuconfig",
-            "description": "The GNU config.guess and config.sub scripts versioned by timestamp.\nThis package can be used as a build dependency for autotools packages\nthat ship a tarball with outdated config.guess and config.sub files."
-        },
-        {
-            "name": "hdf5",
-            "description": "HDF5 is a data model, library, and file format for storing and managing\ndata. It supports an unlimited variety of datatypes, and is designed for\nflexible and efficient I/O and for high volume and complex data."
-        },
-        {
-            "name": "libtool",
-            "description": "libtool -- library building part of autotools."
-        },
-        {
-            "name": "libx11",
-            "description": "libX11 - Core X11 protocol client library."
-        },
-        {
-            "name": "libxmu",
-            "description": "This library contains miscellaneous utilities and is not part of the\nXlib standard. It contains routines which only use public interfaces so\nthat it may be layered on top of any proprietary implementation of Xlib\nor Xt."
-        },
-        {
-            "name": "m4",
-            "description": "GNU M4 is an implementation of the traditional Unix macro processor."
-        },
-        {
-            "name": "mpi",
-            "description": "A single processor implementation of the mpi library."
-        },
-        {
-            "name": "perl",
-            "description": "Perl 5 is a highly capable, feature-rich programming language with over\n27 years of development."
-        },
-        {
-            "name": "qt",
-            "description": "Qt is a comprehensive cross-platform C++ application framework."
-        },
-        {
-            "name": "readline",
-            "description": "The GNU Readline library provides a set of functions for use by\napplications that allow users to edit command lines as they are typed\nin. Both Emacs and vi editing modes are available. The Readline library\nincludes additional functions to maintain a list of previously-entered\ncommand lines, to recall and perhaps reedit those lines, and perform\ncsh-like history expansion on previous commands."
-        },
-        {
-            "name": "zlib-api",
-            "description": "zlib replacement with optimizations for next generation systems."
-        }
-    ],
-    "dependent_to": [
-        {
-            "name": "visit-silo",
-            "description": "This is the Silo Plug-In for VisIt. It can be installed after VisIt is\ninstalled along SILO library. It is made as an extension to VisIt that\ncan be activated or as an environment with a view: ~/.visit Complete\nexplanation at:\nhttps://github.com/spack/spack/pull/22907#issuecomment-824218296"
-        },
-        {
-            "name": "beatnik",
-            "description": "Fluid interface model solver based on Pandya and Shkoller's Z-Model\nformulation."
-        },
-        {
-            "name": "lulesh",
-            "description": "LULESH is a highly simplified application, hard-coded to only style\ntypical in scientific C or C++ based applications. Hard code to only\nsolve a Sedov blast problem with analytic answer"
-        },
-        {
-            "name": "paraview",
-            "description": "ParaView is an open-source, multi-platform data analysis and\nvisualization application. This package includes the Catalyst in-situ\nlibrary for versions 5.7 and greater, otherwise use the catalyst\npackage."
-        },
-        {
-            "name": "visit",
-            "description": "VisIt is an Open Source, interactive, scalable, visualization, animation\nand analysis tool."
-        },
-        {
-            "name": "simulationio",
-            "description": "SimulationIO: Efficient and convenient I/O for large PDE simulations"
-        },
-        {
-            "name": "cabana",
-            "description": "The Exascale Co-Design Center for Particle Applications Toolkit"
-        },
-        {
-            "name": "exampm",
-            "description": "Exascale Material Point Method (MPM) Mini-App"
-        },
-        {
-            "name": "macsio",
-            "description": "A Multi-purpose, Application-Centric, Scalable I/O Proxy Application."
-        },
-        {
-            "name": "bookleaf-cpp",
-            "description": "BookLeaf is a 2D unstructured hydrodynamics mini-app."
-        },
-        {
-            "name": "samrai",
-            "description": "SAMRAI (Structured Adaptive Mesh Refinement Application Infrastructure)\nis an object-oriented C++ software library enables exploration of\nnumerical, algorithmic, parallel computing, and software issues\nassociated with applying structured adaptive mesh refinement (SAMR)\ntechnology in large-scale parallel application development."
-        },
-        {
-            "name": "conduit",
-            "description": "Conduit is an open source project from Lawrence Livermore National\nLaboratory that provides an intuitive model for describing hierarchical\nscientific data in C++, C, Fortran, and Python. It is used for data\ncoupling between packages in-core, serialization, and I/O tasks."
-        },
-        {
-            "name": "amp",
-            "description": "The Advanced Multi-Physics (AMP) package. The Advanced Multi-Physics\n(AMP) package is an open source parallel object-oriented computational\nframework that is designed with single and multi-domain multi-physics\napplications in mind."
-        },
-        {
-            "name": "coevp",
-            "description": "CoEVP is a scale-bridging proxy application for embedded viscoplasticity\napplications. It is created and maintained by The Exascale Co-Design\nCenter for Materials in Extreme Environments (ExMatEx). The code is\nintended to serve as a vehicle for co-design by allowing others to\nextend and/or reimplement it as needed to test performance of new\narchitectures, programming models, etc. Due to the size and complexity\nof the studied models, as well as restrictions on distribution, the\ncurrently available LULESH proxy application provides the coarse-scale\nmodel implementation and the ASPA proxy application provides the\nadaptive sampling support."
-        },
-        {
-            "name": "parflow",
-            "description": "ParFlow is an open-source parallel watershed simulator which includes\noverland flow, complex topology, heterogeneity and coupled land-surface\nprocesses."
+            "name": "4.9",
+            "sha256": "90f3d069963d859c142809cfcb034bc83eb951f61ac02ccb967fc8e8d0409854"
         }
     ]
 }

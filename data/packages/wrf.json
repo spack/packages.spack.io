@@ -1,26 +1,612 @@
 {
-    "name": "wrf",
     "aliases": [],
+    "build_system": "Package",
+    "conflicts": [
+        {
+            "description": "wrf: Intel oneapi compiler patch only added for version 4.4",
+            "name": "%oneapi",
+            "spec": "@:4.3"
+        }
+    ],
+    "dependencies": [
+        {
+            "description": "The Adaptable Input Output System version 2, developed in the Exascale\nComputing Program",
+            "name": "adios2"
+        },
+        {
+            "description": "HDF5 is a data model, library, and file format for storing and managing\ndata. It supports an unlimited variety of datatypes, and is designed for\nflexible and efficient I/O and for high volume and complex data.",
+            "name": "hdf5"
+        },
+        {
+            "description": "Library for manipulating JPEG-2000 images",
+            "name": "jasper"
+        },
+        {
+            "description": "jemalloc is a general purpose malloc(3) implementation that emphasizes\nfragmentation avoidance and scalable concurrency support.",
+            "name": "jemalloc"
+        },
+        {
+            "description": "libpng is the official PNG reference library.",
+            "name": "libpng"
+        },
+        {
+            "description": "Libtirpc is a port of Suns Transport-Independent RPC library to Linux.",
+            "name": "libtirpc"
+        },
+        {
+            "description": "libtool -- library building part of autotools.",
+            "name": "libtool"
+        },
+        {
+            "description": "GNU M4 is an implementation of the traditional Unix macro processor.",
+            "name": "m4"
+        },
+        {
+            "description": "IBM MPI implementation from Spectrum MPI.",
+            "name": "mpi"
+        },
+        {
+            "description": "NetCDF (network Common Data Form) is a set of software libraries and\nmachine-independent data formats that support the creation, access, and\nsharing of array-oriented scientific data. This is the C distribution.",
+            "name": "netcdf-c"
+        },
+        {
+            "description": "NetCDF (network Common Data Form) is a set of software libraries and\nmachine-independent data formats that support the creation, access, and\nsharing of array-oriented scientific data. This is the Fortran\ndistribution.",
+            "name": "netcdf-fortran"
+        },
+        {
+            "description": "PnetCDF (Parallel netCDF) is a high-performance parallel I/O library for\naccessing files in format compatibility with Unidata's NetCDF,\nspecifically the formats of CDF-1, 2, and 5.",
+            "name": "parallel-netcdf"
+        },
+        {
+            "description": "Perl 5 is a highly capable, feature-rich programming language with over\n27 years of development.",
+            "name": "perl"
+        },
+        {
+            "description": "pkgconf is a program which helps to configure compiler and linker flags\nfor development frameworks. It is similar to pkg-config from\nfreedesktop.org, providing additional functionality while also\nmaintaining compatibility.",
+            "name": "pkgconfig"
+        },
+        {
+            "description": "Tcsh is an enhanced but completely compatible version of csh, the C\nshell. Tcsh is a command language interpreter which can be used both as\nan interactive login shell and as a shell script command processor. Tcsh\nincludes a command line editor, programmable word completion, spelling\ncorrection, a history mechanism, job control and a C language like\nsyntax.",
+            "name": "tcsh"
+        },
+        {
+            "description": "The time command runs another program, then displays information about\nthe resources used by that program.",
+            "name": "time"
+        },
+        {
+            "description": "zlib replacement with optimizations for next generation systems.",
+            "name": "zlib-api"
+        }
+    ],
+    "dependent_to": [
+        {
+            "description": "The Weather Research and Forecasting Pre-Processing System (WPS)",
+            "name": "wps"
+        }
+    ],
+    "description": "The Weather Research and Forecasting (WRF) Model is a next-generation\nmesoscale numerical weather prediction system designed for both\natmospheric research and operational forecasting applications.\n",
+    "homepage": "https://www.mmm.ucar.edu/weather-research-and-forecasting-model",
+    "latest_version": "4.5.2",
+    "maintainers": [
+        "MichaelLaufer",
+        "ptooley"
+    ],
+    "name": "wrf",
+    "patches": [
+        {
+            "level": 1,
+            "owner": "builtin.wrf",
+            "relative_path": "patches/3.9/netcdf_backport.patch",
+            "reverse": false,
+            "sha256": "3cb15234508447b226bdeba50795f914264cdfda5b9259c56577340f13706710",
+            "version": "@3.9.1.1",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.wrf",
+            "relative_path": "patches/3.9/tirpc_detect.patch",
+            "reverse": false,
+            "sha256": "527bbc04c2777da93af43a0d65c466e33801876221c786922331a8b965eae229",
+            "version": "@3.9.1.1",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.wrf",
+            "relative_path": "patches/3.9/add_aarch64.patch",
+            "reverse": false,
+            "sha256": "b5c36b39f0aeb5ceea989a516bf8d2fb765144defc2c9cf23f9db319e7a432fa",
+            "version": "@3.9.1.1",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.wrf",
+            "relative_path": "patches/3.9/configure_aocc_2.3.patch",
+            "reverse": false,
+            "sha256": "72603b9a2d7ab6529dac6d2c8b974bfc9d1288c7d9dc6811e46a7c5bcc2ee285",
+            "version": "@3.9.1.1%aocc@:2.4.0",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.wrf",
+            "relative_path": "patches/3.9/configure_aocc_3.0.patch",
+            "reverse": false,
+            "sha256": "982fd9bb4164595f450804d218b9b08a746eb0ac25c683974d2131a7467c1897",
+            "version": "@3.9.1.1%aocc@3.0.0",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.wrf",
+            "relative_path": "patches/3.9/configure_aocc_3.1.patch",
+            "reverse": false,
+            "sha256": "80782f95e89ee7bda909d7824f14151230038561ab98a36c64c2f7adf30436cd",
+            "version": "@3.9.1.1%aocc@3.1.0",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.wrf",
+            "relative_path": "patches/3.9/fujitsu.patch",
+            "reverse": false,
+            "sha256": "b1477eb7d9308d72edaf5d90de9d6dc9a93919c0edbb45d4f50e938b42bdb0ab",
+            "version": "@3.9.1.1%fj",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.wrf",
+            "relative_path": "patches/4.0/arch.Config.pl.patch",
+            "reverse": false,
+            "sha256": "ea74a807a10dce287d6552f1e25747a71c7b9ace5997b09d7b856596613037d6",
+            "version": "@4.0",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.wrf",
+            "relative_path": "patches/4.0/arch.configure.defaults.patch",
+            "reverse": false,
+            "sha256": "5e56ebd8f103f193768dcf4b0a7b46133ca1fd683a83b32643472ebf310bbf44",
+            "version": "@4.0",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.wrf",
+            "relative_path": "patches/4.0/arch.conf_tokens.patch",
+            "reverse": false,
+            "sha256": "0d8f29a4c7798dfcac17ea3805e9d9f7a5c90947f8f2ad338c6e96ab61d7837b",
+            "version": "@4.0",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.wrf",
+            "relative_path": "patches/4.0/arch.postamble.patch",
+            "reverse": false,
+            "sha256": "f43327c6faeb81f923e7839727c694f54bb5ecd7c916d7ddd096821f35c49fca",
+            "version": "@4.0",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.wrf",
+            "relative_path": "patches/4.0/configure.patch",
+            "reverse": false,
+            "sha256": "650f93459f7babd873133638612b5608e2c8e62386024ddf3f9893019f0430ef",
+            "version": "@4.0",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.wrf",
+            "relative_path": "patches/4.0/external.io_netcdf.makefile.patch",
+            "reverse": false,
+            "sha256": "00a2d9ca2bd06f6423fc95ca35430e06a2d00001edd031e7cf67f508b2c7ee0c",
+            "version": "@4.0",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.wrf",
+            "relative_path": "patches/4.0/Makefile.patch",
+            "reverse": false,
+            "sha256": "824096502832d4ece5c8899ccc611d238da8bdafb8f991994dc24004ca310593",
+            "version": "@4.0",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.wrf",
+            "relative_path": "patches/4.0/tirpc_detect.patch",
+            "reverse": false,
+            "sha256": "2d8642d29c848849eff71479bd8420b6720d829f9040048fa6b344803543d687",
+            "version": "@4.0",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.wrf",
+            "relative_path": "patches/4.0/add_aarch64.patch",
+            "reverse": false,
+            "sha256": "7fa04e39b6b20c25cfc3636c3ef808ff93240608bc58df1e9363121cb837a376",
+            "version": "@4.0",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.wrf",
+            "relative_path": "patches/4.2/arch.Config.pl.patch",
+            "reverse": false,
+            "sha256": "e6f3db399606f09a582999506d63dc6c52fcb08efe83a3c2931107c8d927858d",
+            "version": "@4.2:4.5.1",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.wrf",
+            "relative_path": "patches/4.2/external.io_netcdf.makefile.patch",
+            "reverse": false,
+            "sha256": "e07c39c644dab0cad373e4ff3809db22128b376c139416d9e774b96e1f86e7e7",
+            "version": "@4.2:4.5.1",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.wrf",
+            "relative_path": "patches/4.2/arch.configure.defaults.patch",
+            "reverse": false,
+            "sha256": "b3fc8bb1e6924f9441e746d0de7dc2b2421b064272a6cc33e8cf8ce8c1ad20a9",
+            "version": "@=4.2",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.wrf",
+            "relative_path": "patches/4.2/4.2.2_arch.configure.defaults.patch",
+            "reverse": false,
+            "sha256": "c8c820c6b765e26b76f54e3f3adf382e9755269f3196a7429736d41ad886977d",
+            "version": "@4.2.2",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.wrf",
+            "relative_path": "patches/4.2/arch.conf_tokens.patch",
+            "reverse": false,
+            "sha256": "f3dd50d3de8dc26d12ab5bceeaa80ec05a722834dde97107d7bb194c9f67045a",
+            "version": "@4.2:",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.wrf",
+            "relative_path": "patches/4.2/var.gen_be.Makefile.patch",
+            "reverse": false,
+            "sha256": "68548f61600d8503bf14a1ab8b90e0e20375fe9466fa1e205b8d835174fcdbef",
+            "version": "@4.2:",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.wrf",
+            "relative_path": "patches/4.2/arch.postamble.patch",
+            "reverse": false,
+            "sha256": "0b093750c1344ecb15061ad23634055a39cc79698a396bf6f6c015a6c856c823",
+            "version": "@4.2",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.wrf",
+            "relative_path": "patches/4.2/Makefile.patch",
+            "reverse": false,
+            "sha256": "d019b9605304d5728d6eceda24b1ef4398227fd978f3c1b32a91fbc4f5069e8d",
+            "version": "@4.2",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.wrf",
+            "relative_path": "patches/4.2/tirpc_detect.patch",
+            "reverse": false,
+            "sha256": "c47ec9cba9b7396186801f9eaae794fe6db53570486095d1bda4f58e327b4eec",
+            "version": "@4.2",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.wrf",
+            "relative_path": "patches/4.2/configure.patch",
+            "reverse": false,
+            "sha256": "b3f063c60c61ac6655f91cbb266e3a0dafc06449ebb701cb56541c5e9bff65e9",
+            "version": "@4.2:4.3.3",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.wrf",
+            "relative_path": "patches/4.2/add_aarch64.patch",
+            "reverse": false,
+            "sha256": "89e7d1d6553a1c18a799228337f61a7b19e5cded0913c75879cdf837b61f3b9b",
+            "version": "@4.2:4.3.1%gcc arch=None-None-aarch64:",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.wrf",
+            "relative_path": "patches/4.2/add_aarch64_acfl.patch",
+            "reverse": false,
+            "sha256": "2cc3f6c2658d1aef852bb34e2c61d7b51485bc2e4eeb91fc73348ac811b74057",
+            "version": "@4.2:4.3.1%arm arch=None-None-aarch64:",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.wrf",
+            "relative_path": "patches/4.2/configure_aocc_2.3.patch",
+            "reverse": false,
+            "sha256": "51af077b9686b242389185faad1abea4e0121dc5a530da93b2bb50bf014e8a6d",
+            "version": "@4.2%aocc@:2.4.0",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.wrf",
+            "relative_path": "patches/4.2/configure_aocc_3.0.patch",
+            "reverse": false,
+            "sha256": "a2d78cd953b4a43ef64f036f8b616dfd13c0069584f963da8d2bfc27d851e3bf",
+            "version": "@4.2%aocc@3.0.0:3.2.0",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.wrf",
+            "relative_path": "patches/4.2/hdf5_fix.patch",
+            "reverse": false,
+            "sha256": "1616a1fd366c8d2347187f520c3252079f35357ea20e206667b4b1b0d7550e44",
+            "version": "@4.2:4.5.1%aocc",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.wrf",
+            "relative_path": "patches/4.2/derf_fix.patch",
+            "reverse": false,
+            "sha256": "9b90134de026403abe98671dac717a2dd161003c9e0456be7a2f2d492a982031",
+            "version": "@=4.2%aocc",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.wrf",
+            "relative_path": "patches/4.2/add_tools_flags_acfl2304.patch",
+            "reverse": false,
+            "sha256": "95dbdd71c911211a333dfa8f7f68b50af3cff8f0b6bf1d205b38371b89563a0e",
+            "version": "@4.2:4.4.2%arm@23.04.1: arch=None-None-aarch64:",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.wrf",
+            "relative_path": "patches/4.3/add_aarch64.patch",
+            "reverse": false,
+            "sha256": "08834fae28764cd7fb5aaaf9f089a008f72cb394482fe8ac202ce7dacd0c306c",
+            "version": "@4.3.2:4.4.2%gcc arch=None-None-aarch64:",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.wrf",
+            "relative_path": "patches/4.3/add_aarch64_acfl.patch",
+            "reverse": false,
+            "sha256": "61c6f075bbc2730dae833826c68b560d10e85540c414486c50290cf788faabf1",
+            "version": "@4.3.2:4.4.2%arm arch=None-None-aarch64:",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.wrf",
+            "relative_path": "patches/4.4/arch.postamble.patch",
+            "reverse": false,
+            "sha256": "29af725c8c38b3afe1eb3547190876dc692a52fc293cbc13c067a389900ca242",
+            "version": "@4.4:4.5.1",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.wrf",
+            "relative_path": "patches/4.4/configure.patch",
+            "reverse": false,
+            "sha256": "65f0bd1b9e0584db12c2e335705c206f03b26b0a173eeeb62472651059911b66",
+            "version": "@4.4:4.4.2",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.wrf",
+            "relative_path": "patches/4.4/ifx.patch",
+            "reverse": false,
+            "sha256": "6e2d60a7e3f2b08dfed9afe852b7f50d7a1ff81d77af8e62c394472bb3f52175",
+            "version": "@4.4:%oneapi",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.wrf",
+            "relative_path": "patches/4.5/configure.patch",
+            "reverse": false,
+            "sha256": "908c718366ede5e8f8b9ae0738eda36bda7f091dd1ab68013ad7a26a52695c77",
+            "version": "@4.5:",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.wrf",
+            "relative_path": "patches/4.5/adios2-remove-deprecated-functions.patch",
+            "reverse": false,
+            "sha256": "fd0e24ccc5b6bbfeb1d9d50abb2b6262f6b896c2bb56bb17203b4c59799c624e",
+            "version": "@=4.5.0 ^adios2@2.9:",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.wrf",
+            "reverse": false,
+            "sha256": "c5162c23a132b377132924f8f1545313861c6cee5a627e9ebbdcf7b7b9d5726f",
+            "url": "https://github.com/wrf-model/WRF/commit/6502d5d9c15f5f9a652dec244cc12434af737c3c.patch?full_index=1",
+            "version": "@4.2%fj",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.wrf",
+            "relative_path": "patches/4.2/configure_fujitsu.patch",
+            "reverse": false,
+            "sha256": "b644dd52ddc573f80a39555dd5b16804f34a8737ee03fe161284af9df079c5ed",
+            "version": "@4%fj",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.wrf",
+            "relative_path": "patches/4.3/Makefile.patch",
+            "reverse": false,
+            "sha256": "e4971f64f4d7d8c19fa0313d43e575dd3554a2e714d9391bc095b3ad18b35e22",
+            "version": "@4.3:4.5.1",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.wrf",
+            "relative_path": "patches/4.3/arch.postamble.patch",
+            "reverse": false,
+            "sha256": "fa78635a0330f8116f2193c08db7809e5d31dc6b994bab6eec3ce9f2e3aef5b7",
+            "version": "@4.3:4.3.3",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.wrf",
+            "relative_path": "patches/4.3/fujitsu.patch",
+            "reverse": false,
+            "sha256": "2a16846dc9f560dde102f412753a0bff961b30d6c11cc1e74a9e2b2b8ab956d9",
+            "version": "@4.3:4.4%fj",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.wrf",
+            "reverse": false,
+            "sha256": "1ce97f4fd09e440bdf00f67711b1c50439ac27595ea6796efbfb32e0b9a1f3e4",
+            "url": "https://github.com/wrf-model/WRF/commit/7c6fd575b7a8fe5715b07b38db160e606c302956.patch?full_index=1",
+            "version": "@4.3.1",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.wrf",
+            "reverse": false,
+            "sha256": "27c7268f6c84b884d21e4afad0bab8554b06961cf4d6bfd7d0f5a457dcfdffb1",
+            "url": "https://github.com/wrf-model/WRF/commit/238a7d219b7c8e285db28fe4f0c96ebe5068d91c.patch?full_index=1",
+            "version": "@4.3.1",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.wrf",
+            "reverse": false,
+            "sha256": "2d06d709074ded9bd6842aa83c0dfdad5a4e4e2df99e2e5d4a82579f0486117e",
+            "url": "https://github.com/wrf-model/WRF/commit/4a084e03575da65f254917ef5d8eb39074abd3fc.patch?full_index=1",
+            "version": "@4.5:%arm",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.wrf",
+            "reverse": false,
+            "sha256": "7c6487aefaa6cda0fff3976e78da07b09d2ba6c005d649f35a0f8f1694a0b2bb",
+            "url": "https://github.com/wrf-model/WRF/commit/6087d9192f7f91967147e50f5bc8b9e49310cf98.patch?full_index=1",
+            "version": "@4.5:%arm",
+            "working_dir": "."
+        }
+    ],
+    "resources": [],
+    "variants": [
+        {
+            "default": false,
+            "description": "Enable IO support through ADIOS2 library",
+            "name": "adios2"
+        },
+        {
+            "default": "generic",
+            "description": "Build systems supported by the package",
+            "name": "build_system"
+        },
+        {
+            "default": "dmpar",
+            "description": "Build type",
+            "name": "build_type"
+        },
+        {
+            "default": false,
+            "description": "Enable WRF-Chem",
+            "name": "chem"
+        },
+        {
+            "default": "em_real",
+            "description": "Compile type",
+            "name": "compile_type"
+        },
+        {
+            "default": "basic",
+            "description": "Nesting",
+            "name": "nesting"
+        },
+        {
+            "default": false,
+            "description": "Use NetCDF without HDF5 compression",
+            "name": "netcdf_classic"
+        },
+        {
+            "default": true,
+            "description": "Parallel IO support through Pnetcdf library",
+            "name": "pnetcdf"
+        }
+    ],
     "versions": [
         {
-            "name": "4.5.2",
-            "sha256": "408ba6aa60d9cd51d6bad2fa075a3d37000eb581b5d124162885b049c892bbdc",
-            "url": "https://github.com/wrf-model/WRF/releases/download/v4.5.2/v4.5.2.tar.gz"
+            "name": "3.9.1.1",
+            "sha256": "a04f5c425bedd262413ec88192a0f0896572cc38549de85ca120863c43df047a",
+            "url": "https://github.com/wrf-model/WRF/archive/V3.9.1.1.tar.gz"
         },
         {
-            "name": "4.5.1",
-            "sha256": "9d557c34c105db4d41e727843ecb19199233c7cf82c5369b34a2ce8efe65e2d1",
-            "url": "https://github.com/wrf-model/WRF/releases/download/v4.5.1/v4.5.1.tar.gz"
+            "name": "4.0",
+            "sha256": "9718f26ee48e6c348d8e28b8bc5e8ff20eafee151334b3959a11b7320999cf65"
         },
         {
-            "name": "4.5.0",
-            "sha256": "14fd78abd4e32c1d99e2e97df0370030a5c58ec84c343591bdc5e74f163c5525",
-            "url": "https://github.com/wrf-model/WRF/releases/download/v4.5/v4.5.tar.gz"
+            "name": "4.2",
+            "sha256": "c39a1464fd5c439134bbd39be632f7ce1afd9a82ad726737e37228c6a3d74706"
         },
         {
-            "name": "4.4.2",
-            "sha256": "488b992e8e994637c58e3c69e869ad05acfe79419c01fbef6ade1f624e50dc3a",
-            "url": "https://github.com/wrf-model/WRF/releases/download/v4.4.2/v4.4.2.tar.gz"
+            "name": "4.2.2",
+            "sha256": "7be2968c67c2175cd40b57118d9732eda5fdb0828edaa25baf57cc289da1a9b8"
+        },
+        {
+            "name": "4.3.1",
+            "sha256": "6c9a69d05ee17d2c80b3699da173cfe6fdf65487db7587c8cc96bfa9ceafce87"
+        },
+        {
+            "name": "4.3.2",
+            "sha256": "2c682da0cd0fd13f57d5125eef331f9871ec6a43d860d13b0c94a07fa64348ec"
+        },
+        {
+            "name": "4.3.3",
+            "sha256": "1b98b8673513f95716c7fc54e950dfebdb582516e22758cd94bc442bccfc0b86"
         },
         {
             "name": "4.4",
@@ -28,610 +614,24 @@
             "url": "https://github.com/wrf-model/WRF/releases/download/v4.4/v4.4.tar.gz"
         },
         {
-            "name": "4.3.3",
-            "sha256": "1b98b8673513f95716c7fc54e950dfebdb582516e22758cd94bc442bccfc0b86"
+            "name": "4.4.2",
+            "sha256": "488b992e8e994637c58e3c69e869ad05acfe79419c01fbef6ade1f624e50dc3a",
+            "url": "https://github.com/wrf-model/WRF/releases/download/v4.4.2/v4.4.2.tar.gz"
         },
         {
-            "name": "4.3.2",
-            "sha256": "2c682da0cd0fd13f57d5125eef331f9871ec6a43d860d13b0c94a07fa64348ec"
+            "name": "4.5.0",
+            "sha256": "14fd78abd4e32c1d99e2e97df0370030a5c58ec84c343591bdc5e74f163c5525",
+            "url": "https://github.com/wrf-model/WRF/releases/download/v4.5/v4.5.tar.gz"
         },
         {
-            "name": "4.3.1",
-            "sha256": "6c9a69d05ee17d2c80b3699da173cfe6fdf65487db7587c8cc96bfa9ceafce87"
+            "name": "4.5.1",
+            "sha256": "9d557c34c105db4d41e727843ecb19199233c7cf82c5369b34a2ce8efe65e2d1",
+            "url": "https://github.com/wrf-model/WRF/releases/download/v4.5.1/v4.5.1.tar.gz"
         },
         {
-            "name": "4.2.2",
-            "sha256": "7be2968c67c2175cd40b57118d9732eda5fdb0828edaa25baf57cc289da1a9b8"
-        },
-        {
-            "name": "4.2",
-            "sha256": "c39a1464fd5c439134bbd39be632f7ce1afd9a82ad726737e37228c6a3d74706"
-        },
-        {
-            "name": "4.0",
-            "sha256": "9718f26ee48e6c348d8e28b8bc5e8ff20eafee151334b3959a11b7320999cf65"
-        },
-        {
-            "name": "3.9.1.1",
-            "sha256": "a04f5c425bedd262413ec88192a0f0896572cc38549de85ca120863c43df047a",
-            "url": "https://github.com/wrf-model/WRF/archive/V3.9.1.1.tar.gz"
-        }
-    ],
-    "latest_version": "4.5.2",
-    "build_system": "Package",
-    "conflicts": [
-        {
-            "name": "%oneapi",
-            "spec": "@:4.3",
-            "description": "wrf: Intel oneapi compiler patch only added for version 4.4"
-        }
-    ],
-    "variants": [
-        {
-            "name": "build_system",
-            "default": "generic",
-            "description": "Build systems supported by the package"
-        },
-        {
-            "name": "build_type",
-            "default": "dmpar",
-            "description": "Build type"
-        },
-        {
-            "name": "nesting",
-            "default": "basic",
-            "description": "Nesting"
-        },
-        {
-            "name": "compile_type",
-            "default": "em_real",
-            "description": "Compile type"
-        },
-        {
-            "name": "pnetcdf",
-            "default": true,
-            "description": "Parallel IO support through Pnetcdf library"
-        },
-        {
-            "name": "chem",
-            "default": false,
-            "description": "Enable WRF-Chem"
-        },
-        {
-            "name": "netcdf_classic",
-            "default": false,
-            "description": "Use NetCDF without HDF5 compression"
-        },
-        {
-            "name": "adios2",
-            "default": false,
-            "description": "Enable IO support through ADIOS2 library"
-        }
-    ],
-    "homepage": "https://www.mmm.ucar.edu/weather-research-and-forecasting-model",
-    "maintainers": [
-        "MichaelLaufer",
-        "ptooley"
-    ],
-    "patches": [
-        {
-            "owner": "builtin.wrf",
-            "sha256": "3cb15234508447b226bdeba50795f914264cdfda5b9259c56577340f13706710",
-            "level": 1,
-            "working_dir": ".",
-            "reverse": false,
-            "relative_path": "patches/3.9/netcdf_backport.patch",
-            "version": "@3.9.1.1"
-        },
-        {
-            "owner": "builtin.wrf",
-            "sha256": "527bbc04c2777da93af43a0d65c466e33801876221c786922331a8b965eae229",
-            "level": 1,
-            "working_dir": ".",
-            "reverse": false,
-            "relative_path": "patches/3.9/tirpc_detect.patch",
-            "version": "@3.9.1.1"
-        },
-        {
-            "owner": "builtin.wrf",
-            "sha256": "b5c36b39f0aeb5ceea989a516bf8d2fb765144defc2c9cf23f9db319e7a432fa",
-            "level": 1,
-            "working_dir": ".",
-            "reverse": false,
-            "relative_path": "patches/3.9/add_aarch64.patch",
-            "version": "@3.9.1.1"
-        },
-        {
-            "owner": "builtin.wrf",
-            "sha256": "72603b9a2d7ab6529dac6d2c8b974bfc9d1288c7d9dc6811e46a7c5bcc2ee285",
-            "level": 1,
-            "working_dir": ".",
-            "reverse": false,
-            "relative_path": "patches/3.9/configure_aocc_2.3.patch",
-            "version": "@3.9.1.1%aocc@:2.4.0"
-        },
-        {
-            "owner": "builtin.wrf",
-            "sha256": "982fd9bb4164595f450804d218b9b08a746eb0ac25c683974d2131a7467c1897",
-            "level": 1,
-            "working_dir": ".",
-            "reverse": false,
-            "relative_path": "patches/3.9/configure_aocc_3.0.patch",
-            "version": "@3.9.1.1%aocc@3.0.0"
-        },
-        {
-            "owner": "builtin.wrf",
-            "sha256": "80782f95e89ee7bda909d7824f14151230038561ab98a36c64c2f7adf30436cd",
-            "level": 1,
-            "working_dir": ".",
-            "reverse": false,
-            "relative_path": "patches/3.9/configure_aocc_3.1.patch",
-            "version": "@3.9.1.1%aocc@3.1.0"
-        },
-        {
-            "owner": "builtin.wrf",
-            "sha256": "b1477eb7d9308d72edaf5d90de9d6dc9a93919c0edbb45d4f50e938b42bdb0ab",
-            "level": 1,
-            "working_dir": ".",
-            "reverse": false,
-            "relative_path": "patches/3.9/fujitsu.patch",
-            "version": "@3.9.1.1%fj"
-        },
-        {
-            "owner": "builtin.wrf",
-            "sha256": "ea74a807a10dce287d6552f1e25747a71c7b9ace5997b09d7b856596613037d6",
-            "level": 1,
-            "working_dir": ".",
-            "reverse": false,
-            "relative_path": "patches/4.0/arch.Config.pl.patch",
-            "version": "@4.0"
-        },
-        {
-            "owner": "builtin.wrf",
-            "sha256": "5e56ebd8f103f193768dcf4b0a7b46133ca1fd683a83b32643472ebf310bbf44",
-            "level": 1,
-            "working_dir": ".",
-            "reverse": false,
-            "relative_path": "patches/4.0/arch.configure.defaults.patch",
-            "version": "@4.0"
-        },
-        {
-            "owner": "builtin.wrf",
-            "sha256": "0d8f29a4c7798dfcac17ea3805e9d9f7a5c90947f8f2ad338c6e96ab61d7837b",
-            "level": 1,
-            "working_dir": ".",
-            "reverse": false,
-            "relative_path": "patches/4.0/arch.conf_tokens.patch",
-            "version": "@4.0"
-        },
-        {
-            "owner": "builtin.wrf",
-            "sha256": "f43327c6faeb81f923e7839727c694f54bb5ecd7c916d7ddd096821f35c49fca",
-            "level": 1,
-            "working_dir": ".",
-            "reverse": false,
-            "relative_path": "patches/4.0/arch.postamble.patch",
-            "version": "@4.0"
-        },
-        {
-            "owner": "builtin.wrf",
-            "sha256": "650f93459f7babd873133638612b5608e2c8e62386024ddf3f9893019f0430ef",
-            "level": 1,
-            "working_dir": ".",
-            "reverse": false,
-            "relative_path": "patches/4.0/configure.patch",
-            "version": "@4.0"
-        },
-        {
-            "owner": "builtin.wrf",
-            "sha256": "00a2d9ca2bd06f6423fc95ca35430e06a2d00001edd031e7cf67f508b2c7ee0c",
-            "level": 1,
-            "working_dir": ".",
-            "reverse": false,
-            "relative_path": "patches/4.0/external.io_netcdf.makefile.patch",
-            "version": "@4.0"
-        },
-        {
-            "owner": "builtin.wrf",
-            "sha256": "824096502832d4ece5c8899ccc611d238da8bdafb8f991994dc24004ca310593",
-            "level": 1,
-            "working_dir": ".",
-            "reverse": false,
-            "relative_path": "patches/4.0/Makefile.patch",
-            "version": "@4.0"
-        },
-        {
-            "owner": "builtin.wrf",
-            "sha256": "2d8642d29c848849eff71479bd8420b6720d829f9040048fa6b344803543d687",
-            "level": 1,
-            "working_dir": ".",
-            "reverse": false,
-            "relative_path": "patches/4.0/tirpc_detect.patch",
-            "version": "@4.0"
-        },
-        {
-            "owner": "builtin.wrf",
-            "sha256": "7fa04e39b6b20c25cfc3636c3ef808ff93240608bc58df1e9363121cb837a376",
-            "level": 1,
-            "working_dir": ".",
-            "reverse": false,
-            "relative_path": "patches/4.0/add_aarch64.patch",
-            "version": "@4.0"
-        },
-        {
-            "owner": "builtin.wrf",
-            "sha256": "e6f3db399606f09a582999506d63dc6c52fcb08efe83a3c2931107c8d927858d",
-            "level": 1,
-            "working_dir": ".",
-            "reverse": false,
-            "relative_path": "patches/4.2/arch.Config.pl.patch",
-            "version": "@4.2:4.5.1"
-        },
-        {
-            "owner": "builtin.wrf",
-            "sha256": "e07c39c644dab0cad373e4ff3809db22128b376c139416d9e774b96e1f86e7e7",
-            "level": 1,
-            "working_dir": ".",
-            "reverse": false,
-            "relative_path": "patches/4.2/external.io_netcdf.makefile.patch",
-            "version": "@4.2:4.5.1"
-        },
-        {
-            "owner": "builtin.wrf",
-            "sha256": "b3fc8bb1e6924f9441e746d0de7dc2b2421b064272a6cc33e8cf8ce8c1ad20a9",
-            "level": 1,
-            "working_dir": ".",
-            "reverse": false,
-            "relative_path": "patches/4.2/arch.configure.defaults.patch",
-            "version": "@=4.2"
-        },
-        {
-            "owner": "builtin.wrf",
-            "sha256": "c8c820c6b765e26b76f54e3f3adf382e9755269f3196a7429736d41ad886977d",
-            "level": 1,
-            "working_dir": ".",
-            "reverse": false,
-            "relative_path": "patches/4.2/4.2.2_arch.configure.defaults.patch",
-            "version": "@4.2.2"
-        },
-        {
-            "owner": "builtin.wrf",
-            "sha256": "f3dd50d3de8dc26d12ab5bceeaa80ec05a722834dde97107d7bb194c9f67045a",
-            "level": 1,
-            "working_dir": ".",
-            "reverse": false,
-            "relative_path": "patches/4.2/arch.conf_tokens.patch",
-            "version": "@4.2:"
-        },
-        {
-            "owner": "builtin.wrf",
-            "sha256": "68548f61600d8503bf14a1ab8b90e0e20375fe9466fa1e205b8d835174fcdbef",
-            "level": 1,
-            "working_dir": ".",
-            "reverse": false,
-            "relative_path": "patches/4.2/var.gen_be.Makefile.patch",
-            "version": "@4.2:"
-        },
-        {
-            "owner": "builtin.wrf",
-            "sha256": "0b093750c1344ecb15061ad23634055a39cc79698a396bf6f6c015a6c856c823",
-            "level": 1,
-            "working_dir": ".",
-            "reverse": false,
-            "relative_path": "patches/4.2/arch.postamble.patch",
-            "version": "@4.2"
-        },
-        {
-            "owner": "builtin.wrf",
-            "sha256": "d019b9605304d5728d6eceda24b1ef4398227fd978f3c1b32a91fbc4f5069e8d",
-            "level": 1,
-            "working_dir": ".",
-            "reverse": false,
-            "relative_path": "patches/4.2/Makefile.patch",
-            "version": "@4.2"
-        },
-        {
-            "owner": "builtin.wrf",
-            "sha256": "c47ec9cba9b7396186801f9eaae794fe6db53570486095d1bda4f58e327b4eec",
-            "level": 1,
-            "working_dir": ".",
-            "reverse": false,
-            "relative_path": "patches/4.2/tirpc_detect.patch",
-            "version": "@4.2"
-        },
-        {
-            "owner": "builtin.wrf",
-            "sha256": "b3f063c60c61ac6655f91cbb266e3a0dafc06449ebb701cb56541c5e9bff65e9",
-            "level": 1,
-            "working_dir": ".",
-            "reverse": false,
-            "relative_path": "patches/4.2/configure.patch",
-            "version": "@4.2:4.3.3"
-        },
-        {
-            "owner": "builtin.wrf",
-            "sha256": "89e7d1d6553a1c18a799228337f61a7b19e5cded0913c75879cdf837b61f3b9b",
-            "level": 1,
-            "working_dir": ".",
-            "reverse": false,
-            "relative_path": "patches/4.2/add_aarch64.patch",
-            "version": "@4.2:4.3.1%gcc arch=None-None-aarch64:"
-        },
-        {
-            "owner": "builtin.wrf",
-            "sha256": "2cc3f6c2658d1aef852bb34e2c61d7b51485bc2e4eeb91fc73348ac811b74057",
-            "level": 1,
-            "working_dir": ".",
-            "reverse": false,
-            "relative_path": "patches/4.2/add_aarch64_acfl.patch",
-            "version": "@4.2:4.3.1%arm arch=None-None-aarch64:"
-        },
-        {
-            "owner": "builtin.wrf",
-            "sha256": "51af077b9686b242389185faad1abea4e0121dc5a530da93b2bb50bf014e8a6d",
-            "level": 1,
-            "working_dir": ".",
-            "reverse": false,
-            "relative_path": "patches/4.2/configure_aocc_2.3.patch",
-            "version": "@4.2%aocc@:2.4.0"
-        },
-        {
-            "owner": "builtin.wrf",
-            "sha256": "a2d78cd953b4a43ef64f036f8b616dfd13c0069584f963da8d2bfc27d851e3bf",
-            "level": 1,
-            "working_dir": ".",
-            "reverse": false,
-            "relative_path": "patches/4.2/configure_aocc_3.0.patch",
-            "version": "@4.2%aocc@3.0.0:3.2.0"
-        },
-        {
-            "owner": "builtin.wrf",
-            "sha256": "1616a1fd366c8d2347187f520c3252079f35357ea20e206667b4b1b0d7550e44",
-            "level": 1,
-            "working_dir": ".",
-            "reverse": false,
-            "relative_path": "patches/4.2/hdf5_fix.patch",
-            "version": "@4.2:4.5.1%aocc"
-        },
-        {
-            "owner": "builtin.wrf",
-            "sha256": "9b90134de026403abe98671dac717a2dd161003c9e0456be7a2f2d492a982031",
-            "level": 1,
-            "working_dir": ".",
-            "reverse": false,
-            "relative_path": "patches/4.2/derf_fix.patch",
-            "version": "@=4.2%aocc"
-        },
-        {
-            "owner": "builtin.wrf",
-            "sha256": "95dbdd71c911211a333dfa8f7f68b50af3cff8f0b6bf1d205b38371b89563a0e",
-            "level": 1,
-            "working_dir": ".",
-            "reverse": false,
-            "relative_path": "patches/4.2/add_tools_flags_acfl2304.patch",
-            "version": "@4.2:4.4.2%arm@23.04.1: arch=None-None-aarch64:"
-        },
-        {
-            "owner": "builtin.wrf",
-            "sha256": "08834fae28764cd7fb5aaaf9f089a008f72cb394482fe8ac202ce7dacd0c306c",
-            "level": 1,
-            "working_dir": ".",
-            "reverse": false,
-            "relative_path": "patches/4.3/add_aarch64.patch",
-            "version": "@4.3.2:4.4.2%gcc arch=None-None-aarch64:"
-        },
-        {
-            "owner": "builtin.wrf",
-            "sha256": "61c6f075bbc2730dae833826c68b560d10e85540c414486c50290cf788faabf1",
-            "level": 1,
-            "working_dir": ".",
-            "reverse": false,
-            "relative_path": "patches/4.3/add_aarch64_acfl.patch",
-            "version": "@4.3.2:4.4.2%arm arch=None-None-aarch64:"
-        },
-        {
-            "owner": "builtin.wrf",
-            "sha256": "29af725c8c38b3afe1eb3547190876dc692a52fc293cbc13c067a389900ca242",
-            "level": 1,
-            "working_dir": ".",
-            "reverse": false,
-            "relative_path": "patches/4.4/arch.postamble.patch",
-            "version": "@4.4:4.5.1"
-        },
-        {
-            "owner": "builtin.wrf",
-            "sha256": "65f0bd1b9e0584db12c2e335705c206f03b26b0a173eeeb62472651059911b66",
-            "level": 1,
-            "working_dir": ".",
-            "reverse": false,
-            "relative_path": "patches/4.4/configure.patch",
-            "version": "@4.4:4.4.2"
-        },
-        {
-            "owner": "builtin.wrf",
-            "sha256": "6e2d60a7e3f2b08dfed9afe852b7f50d7a1ff81d77af8e62c394472bb3f52175",
-            "level": 1,
-            "working_dir": ".",
-            "reverse": false,
-            "relative_path": "patches/4.4/ifx.patch",
-            "version": "@4.4:%oneapi"
-        },
-        {
-            "owner": "builtin.wrf",
-            "sha256": "908c718366ede5e8f8b9ae0738eda36bda7f091dd1ab68013ad7a26a52695c77",
-            "level": 1,
-            "working_dir": ".",
-            "reverse": false,
-            "relative_path": "patches/4.5/configure.patch",
-            "version": "@4.5:"
-        },
-        {
-            "owner": "builtin.wrf",
-            "sha256": "fd0e24ccc5b6bbfeb1d9d50abb2b6262f6b896c2bb56bb17203b4c59799c624e",
-            "level": 1,
-            "working_dir": ".",
-            "reverse": false,
-            "relative_path": "patches/4.5/adios2-remove-deprecated-functions.patch",
-            "version": "@=4.5.0 ^adios2@2.9:"
-        },
-        {
-            "owner": "builtin.wrf",
-            "sha256": "c5162c23a132b377132924f8f1545313861c6cee5a627e9ebbdcf7b7b9d5726f",
-            "level": 1,
-            "working_dir": ".",
-            "reverse": false,
-            "url": "https://github.com/wrf-model/WRF/commit/6502d5d9c15f5f9a652dec244cc12434af737c3c.patch?full_index=1",
-            "version": "@4.2%fj"
-        },
-        {
-            "owner": "builtin.wrf",
-            "sha256": "b644dd52ddc573f80a39555dd5b16804f34a8737ee03fe161284af9df079c5ed",
-            "level": 1,
-            "working_dir": ".",
-            "reverse": false,
-            "relative_path": "patches/4.2/configure_fujitsu.patch",
-            "version": "@4%fj"
-        },
-        {
-            "owner": "builtin.wrf",
-            "sha256": "e4971f64f4d7d8c19fa0313d43e575dd3554a2e714d9391bc095b3ad18b35e22",
-            "level": 1,
-            "working_dir": ".",
-            "reverse": false,
-            "relative_path": "patches/4.3/Makefile.patch",
-            "version": "@4.3:4.5.1"
-        },
-        {
-            "owner": "builtin.wrf",
-            "sha256": "fa78635a0330f8116f2193c08db7809e5d31dc6b994bab6eec3ce9f2e3aef5b7",
-            "level": 1,
-            "working_dir": ".",
-            "reverse": false,
-            "relative_path": "patches/4.3/arch.postamble.patch",
-            "version": "@4.3:4.3.3"
-        },
-        {
-            "owner": "builtin.wrf",
-            "sha256": "2a16846dc9f560dde102f412753a0bff961b30d6c11cc1e74a9e2b2b8ab956d9",
-            "level": 1,
-            "working_dir": ".",
-            "reverse": false,
-            "relative_path": "patches/4.3/fujitsu.patch",
-            "version": "@4.3:4.4%fj"
-        },
-        {
-            "owner": "builtin.wrf",
-            "sha256": "1ce97f4fd09e440bdf00f67711b1c50439ac27595ea6796efbfb32e0b9a1f3e4",
-            "level": 1,
-            "working_dir": ".",
-            "reverse": false,
-            "url": "https://github.com/wrf-model/WRF/commit/7c6fd575b7a8fe5715b07b38db160e606c302956.patch?full_index=1",
-            "version": "@4.3.1"
-        },
-        {
-            "owner": "builtin.wrf",
-            "sha256": "27c7268f6c84b884d21e4afad0bab8554b06961cf4d6bfd7d0f5a457dcfdffb1",
-            "level": 1,
-            "working_dir": ".",
-            "reverse": false,
-            "url": "https://github.com/wrf-model/WRF/commit/238a7d219b7c8e285db28fe4f0c96ebe5068d91c.patch?full_index=1",
-            "version": "@4.3.1"
-        },
-        {
-            "owner": "builtin.wrf",
-            "sha256": "2d06d709074ded9bd6842aa83c0dfdad5a4e4e2df99e2e5d4a82579f0486117e",
-            "level": 1,
-            "working_dir": ".",
-            "reverse": false,
-            "url": "https://github.com/wrf-model/WRF/commit/4a084e03575da65f254917ef5d8eb39074abd3fc.patch?full_index=1",
-            "version": "@4.5:%arm"
-        },
-        {
-            "owner": "builtin.wrf",
-            "sha256": "7c6487aefaa6cda0fff3976e78da07b09d2ba6c005d649f35a0f8f1694a0b2bb",
-            "level": 1,
-            "working_dir": ".",
-            "reverse": false,
-            "url": "https://github.com/wrf-model/WRF/commit/6087d9192f7f91967147e50f5bc8b9e49310cf98.patch?full_index=1",
-            "version": "@4.5:%arm"
-        }
-    ],
-    "resources": [],
-    "description": "The Weather Research and Forecasting (WRF) Model is a next-generation\nmesoscale numerical weather prediction system designed for both\natmospheric research and operational forecasting applications.\n",
-    "dependencies": [
-        {
-            "name": "adios2",
-            "description": "The Adaptable Input Output System version 2, developed in the Exascale\nComputing Program"
-        },
-        {
-            "name": "hdf5",
-            "description": "HDF5 is a data model, library, and file format for storing and managing\ndata. It supports an unlimited variety of datatypes, and is designed for\nflexible and efficient I/O and for high volume and complex data."
-        },
-        {
-            "name": "jasper",
-            "description": "Library for manipulating JPEG-2000 images"
-        },
-        {
-            "name": "jemalloc",
-            "description": "jemalloc is a general purpose malloc(3) implementation that emphasizes\nfragmentation avoidance and scalable concurrency support."
-        },
-        {
-            "name": "libpng",
-            "description": "libpng is the official PNG reference library."
-        },
-        {
-            "name": "libtirpc",
-            "description": "Libtirpc is a port of Suns Transport-Independent RPC library to Linux."
-        },
-        {
-            "name": "libtool",
-            "description": "libtool -- library building part of autotools."
-        },
-        {
-            "name": "m4",
-            "description": "GNU M4 is an implementation of the traditional Unix macro processor."
-        },
-        {
-            "name": "mpi",
-            "description": "A single processor implementation of the mpi library."
-        },
-        {
-            "name": "netcdf-c",
-            "description": "NetCDF (network Common Data Form) is a set of software libraries and\nmachine-independent data formats that support the creation, access, and\nsharing of array-oriented scientific data. This is the C distribution."
-        },
-        {
-            "name": "netcdf-fortran",
-            "description": "NetCDF (network Common Data Form) is a set of software libraries and\nmachine-independent data formats that support the creation, access, and\nsharing of array-oriented scientific data. This is the Fortran\ndistribution."
-        },
-        {
-            "name": "parallel-netcdf",
-            "description": "PnetCDF (Parallel netCDF) is a high-performance parallel I/O library for\naccessing files in format compatibility with Unidata's NetCDF,\nspecifically the formats of CDF-1, 2, and 5."
-        },
-        {
-            "name": "perl",
-            "description": "Perl 5 is a highly capable, feature-rich programming language with over\n27 years of development."
-        },
-        {
-            "name": "pkgconfig",
-            "description": "pkg-config is a helper tool used when compiling applications and\nlibraries"
-        },
-        {
-            "name": "tcsh",
-            "description": "Tcsh is an enhanced but completely compatible version of csh, the C\nshell. Tcsh is a command language interpreter which can be used both as\nan interactive login shell and as a shell script command processor. Tcsh\nincludes a command line editor, programmable word completion, spelling\ncorrection, a history mechanism, job control and a C language like\nsyntax."
-        },
-        {
-            "name": "time",
-            "description": "The time command runs another program, then displays information about\nthe resources used by that program."
-        },
-        {
-            "name": "zlib-api",
-            "description": "zlib replacement with optimizations for next generation systems."
-        }
-    ],
-    "dependent_to": [
-        {
-            "name": "wps",
-            "description": "The Weather Research and Forecasting Pre-Processing System (WPS)"
+            "name": "4.5.2",
+            "sha256": "408ba6aa60d9cd51d6bad2fa075a3d37000eb581b5d124162885b049c892bbdc",
+            "url": "https://github.com/wrf-model/WRF/releases/download/v4.5.2/v4.5.2.tar.gz"
         }
     ]
 }

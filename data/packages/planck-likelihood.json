@@ -1,125 +1,125 @@
 {
-    "name": "planck-likelihood",
     "aliases": [],
+    "build_system": "Package",
+    "conflicts": [],
+    "dependencies": [
+        {
+            "description": "Lightweight but flexible shim designed to rectify the incompatibilities\nbetween the Accelerate/vecLib BLAS and LAPACK libraries shipped with\nmacOS and FORTRAN code compiled with modern compilers such as GNU\nFortran.",
+            "name": "blas"
+        },
+        {
+            "description": "CFITSIO is a library of C and Fortran subroutines for reading and\nwriting data files in FITS (Flexible Image Transport System) data\nformat.",
+            "name": "cfitsio"
+        },
+        {
+            "description": "Lightweight but flexible shim designed to rectify the incompatibilities\nbetween the Accelerate/vecLib BLAS and LAPACK libraries shipped with\nmacOS and FORTRAN code compiled with modern compilers such as GNU\nFortran.",
+            "name": "lapack"
+        }
+    ],
+    "dependent_to": [
+        {
+            "description": "CosmoMC is a Fortran 2008 Markov-Chain Monte-Carlo (MCMC) engine for\nexploring cosmological parameter space, together with Fortran and python\ncode for analysing Monte-Carlo samples and importance sampling (plus a\nsuite of scripts for building grids of runs, plotting and presenting\nresults).",
+            "name": "cosmomc"
+        }
+    ],
+    "description": "2015 Cosmic Microwave Background (CMB) spectra and likelihood code\n",
+    "homepage": "https://wiki.cosmos.esa.int/planckpla2015/index.php/CMB_spectrum_%26_Likelihood_Code",
+    "latest_version": "2.00",
+    "maintainers": [],
+    "name": "planck-likelihood",
+    "patches": [
+        {
+            "level": 1,
+            "owner": "builtin.planck-likelihood",
+            "relative_path": "fortran.patch",
+            "reverse": false,
+            "sha256": "933b877a806ed7d0f2643d5864836731f129659de1af95a3bf156fa1163d5e8d",
+            "version": "",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.planck-likelihood",
+            "relative_path": "make.patch",
+            "reverse": false,
+            "sha256": "c4719d3cc8f913e143406fa255c16755e032eeb772e25e523c88d98f7334268c",
+            "version": "",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.planck-likelihood",
+            "relative_path": "arm.patch",
+            "reverse": false,
+            "sha256": "8e0291f0893f4222408606ec92d244107886bd8f627b689c438c0e86ce9fb26d",
+            "version": "arch=None-None-aarch64:",
+            "working_dir": "."
+        }
+    ],
+    "resources": [
+        {
+            "destination": ".",
+            "name": "baseline",
+            "placement": null,
+            "version": ""
+        },
+        {
+            "destination": ".",
+            "name": "lensing-ext",
+            "placement": null,
+            "version": "+lensing-ext"
+        },
+        {
+            "destination": ".",
+            "name": "plik-DS",
+            "placement": null,
+            "version": "+plik-DS"
+        },
+        {
+            "destination": ".",
+            "name": "plik-HM-ext",
+            "placement": null,
+            "version": "+plik-HM-ext"
+        },
+        {
+            "destination": ".",
+            "name": "plik-unbinned",
+            "placement": null,
+            "version": "+plik-unbinned"
+        }
+    ],
+    "variants": [
+        {
+            "default": "generic",
+            "description": "Build systems supported by the package",
+            "name": "build_system"
+        },
+        {
+            "default": false,
+            "description": "Provide lensing-ext data",
+            "name": "lensing-ext"
+        },
+        {
+            "default": false,
+            "description": "Provide plik-DS data",
+            "name": "plik-DS"
+        },
+        {
+            "default": false,
+            "description": "Provide plik-HM-ext data",
+            "name": "plik-HM-ext"
+        },
+        {
+            "default": false,
+            "description": "Provide plik-unbinned data",
+            "name": "plik-unbinned"
+        }
+    ],
     "versions": [
         {
             "name": "2.00",
             "sha256": "c1efa208175b2751e75b2ad1c026dae744a7dd279eb74baa5db3098bc9c971bb",
             "url": "https://irsa.ipac.caltech.edu/data/Planck/release_2/software/COM_Likelihood_Code-v2.0.R2.00.tar.bz2"
-        }
-    ],
-    "latest_version": "2.00",
-    "build_system": "Package",
-    "conflicts": [],
-    "variants": [
-        {
-            "name": "build_system",
-            "default": "generic",
-            "description": "Build systems supported by the package"
-        },
-        {
-            "name": "lensing-ext",
-            "default": false,
-            "description": "Provide lensing-ext data"
-        },
-        {
-            "name": "plik-DS",
-            "default": false,
-            "description": "Provide plik-DS data"
-        },
-        {
-            "name": "plik-HM-ext",
-            "default": false,
-            "description": "Provide plik-HM-ext data"
-        },
-        {
-            "name": "plik-unbinned",
-            "default": false,
-            "description": "Provide plik-unbinned data"
-        }
-    ],
-    "homepage": "https://wiki.cosmos.esa.int/planckpla2015/index.php/CMB_spectrum_%26_Likelihood_Code",
-    "maintainers": [],
-    "patches": [
-        {
-            "owner": "builtin.planck-likelihood",
-            "sha256": "933b877a806ed7d0f2643d5864836731f129659de1af95a3bf156fa1163d5e8d",
-            "level": 1,
-            "working_dir": ".",
-            "reverse": false,
-            "relative_path": "fortran.patch",
-            "version": ""
-        },
-        {
-            "owner": "builtin.planck-likelihood",
-            "sha256": "c4719d3cc8f913e143406fa255c16755e032eeb772e25e523c88d98f7334268c",
-            "level": 1,
-            "working_dir": ".",
-            "reverse": false,
-            "relative_path": "make.patch",
-            "version": ""
-        },
-        {
-            "owner": "builtin.planck-likelihood",
-            "sha256": "8e0291f0893f4222408606ec92d244107886bd8f627b689c438c0e86ce9fb26d",
-            "level": 1,
-            "working_dir": ".",
-            "reverse": false,
-            "relative_path": "arm.patch",
-            "version": "arch=None-None-aarch64:"
-        }
-    ],
-    "resources": [
-        {
-            "version": "",
-            "name": "baseline",
-            "destination": ".",
-            "placement": null
-        },
-        {
-            "version": "+lensing-ext",
-            "name": "lensing-ext",
-            "destination": ".",
-            "placement": null
-        },
-        {
-            "version": "+plik-DS",
-            "name": "plik-DS",
-            "destination": ".",
-            "placement": null
-        },
-        {
-            "version": "+plik-HM-ext",
-            "name": "plik-HM-ext",
-            "destination": ".",
-            "placement": null
-        },
-        {
-            "version": "+plik-unbinned",
-            "name": "plik-unbinned",
-            "destination": ".",
-            "placement": null
-        }
-    ],
-    "description": "2015 Cosmic Microwave Background (CMB) spectra and likelihood code\n",
-    "dependencies": [
-        {
-            "name": "blas",
-            "description": "BLIS is a portable software framework for instantiating high-performance\nBLAS-like dense linear algebra libraries. The framework was designed to\nisolate essential kernels of computation that, when optimized,\nimmediately enable optimized implementations of most of its commonly\nused and computationally intensive operations. BLIS is written in ISO\nC99 and available under a new/modified/3-clause BSD license. While BLIS\nexports a new BLAS-like API, it also includes a BLAS compatibility layer\nwhich gives application developers access to BLIS implementations via\ntraditional BLAS routine calls. An object-based API unique to BLIS is\nalso available."
-        },
-        {
-            "name": "cfitsio",
-            "description": "CFITSIO is a library of C and Fortran subroutines for reading and\nwriting data files in FITS (Flexible Image Transport System) data\nformat."
-        },
-        {
-            "name": "lapack",
-            "description": "Lightweight but flexible shim designed to rectify the incompatibilities\nbetween the Accelerate/vecLib BLAS and LAPACK libraries shipped with\nmacOS and FORTRAN code compiled with modern compilers such as GNU\nFortran."
-        }
-    ],
-    "dependent_to": [
-        {
-            "name": "cosmomc",
-            "description": "CosmoMC is a Fortran 2008 Markov-Chain Monte-Carlo (MCMC) engine for\nexploring cosmological parameter space, together with Fortran and python\ncode for analysing Monte-Carlo samples and importance sampling (plus a\nsuite of scripts for building grids of runs, plotting and presenting\nresults)."
         }
     ]
 }

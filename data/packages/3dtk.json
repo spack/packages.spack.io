@@ -1,159 +1,159 @@
 {
-    "name": "3dtk",
     "aliases": [],
-    "versions": [
-        {
-            "name": "trunk",
-            "svn": "https://svn.code.sf.net/p/slam6d/code/trunk"
-        },
-        {
-            "name": "1.2",
-            "svn": "https://svn.code.sf.net/p/slam6d/code/branches/3dtk-release-1.2"
-        }
-    ],
-    "latest_version": "1.2",
     "build_system": "CMakePackage",
     "conflicts": [
         {
+            "description": null,
             "name": "~opencv",
-            "spec": "arch=darwin-None-None",
-            "description": null
+            "spec": "arch=darwin-None-None"
         },
         {
-            "name": "+compact_octree",
-            "spec": "~opengl",
-            "description": null
-        },
-        {
+            "description": null,
             "name": "generator=make",
-            "spec": "",
-            "description": null
+            "spec": ""
+        },
+        {
+            "description": null,
+            "name": "+compact_octree",
+            "spec": "~opengl"
         }
     ],
-    "variants": [
+    "dependencies": [
         {
-            "name": "build_system",
-            "default": "cmake",
-            "description": "Build systems supported by the package"
+            "description": "Boost provides free peer-reviewed portable C++ source libraries,\nemphasizing libraries that work well with the C++ Standard Library.\nBoost libraries are intended to be widely useful, and usable across a\nbroad spectrum of applications. The Boost license encourages both\ncommercial and non-commercial use.",
+            "name": "boost"
         },
         {
-            "name": "build_type",
-            "default": "Release",
-            "description": "CMake build type"
+            "description": "The Computational Geometry Algorithms Library (CGAL) is a C++ library\nthat aims to provide easy access to efficient and reliable algorithms in\ncomputational geometry. CGAL is used in various areas needing geometric\ncomputation, such as geographic information systems, computer aided\ndesign, molecular biology, medical imaging, computer graphics, and\nrobotics.",
+            "name": "cgal"
         },
         {
-            "name": "ipo",
-            "default": false,
-            "description": "CMake interprocedural optimization"
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software.",
+            "name": "cmake"
         },
         {
-            "name": "generator",
-            "default": "ninja",
-            "description": "the build system generator to use"
+            "description": "CUDA is a parallel computing platform and programming model invented by\nNVIDIA. It enables dramatic increases in computing performance by\nharnessing the power of the graphics processing unit (GPU). Note: This\npackage does not currently install the drivers necessary to run CUDA.\nThese will need to be installed manually. See:\nhttps://docs.nvidia.com/cuda/ for details.",
+            "name": "cuda"
         },
         {
-            "name": "cgal",
-            "default": false,
-            "description": "Compile with CGAL support"
+            "description": "Eigen is a C++ template library for linear algebra matrices, vectors,\nnumerical solvers, and related algorithms.",
+            "name": "eigen"
         },
         {
-            "name": "opengl",
-            "default": true,
-            "description": "Compile with OpenGL support"
+            "description": "FreeGLUT is a free-software/open-source alternative to the OpenGL\nUtility Toolkit (GLUT) library",
+            "name": "freeglut"
         },
         {
-            "name": "opencv",
-            "default": true,
-            "description": "Compile with OpenCV support"
+            "description": "External WGl and Windows OpenGL emulation representation in Spack",
+            "name": "gl"
         },
         {
-            "name": "compact_octree",
-            "default": false,
-            "description": "Whether to use the compact octree display"
+            "description": "The OpenGL Extension Wrangler Library.",
+            "name": "glew"
         },
         {
-            "name": "cuda",
-            "default": false,
-            "description": "Whether to build CUDA accelerated collision detection tools"
+            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files.",
+            "name": "gmake"
         },
         {
-            "name": "openmp",
-            "default": false,
-            "description": "Whether to use parallel processing capabilities of OPENMP"
+            "description": "libpng is the official PNG reference library.",
+            "name": "libpng"
+        },
+        {
+            "description": "Ninja is a small build system with a focus on speed. It differs from\nother build systems in two major respects: it is designed to have its\ninput files generated by a higher-level build system, and it is designed\nto run builds as fast as possible.",
+            "name": "ninja"
+        },
+        {
+            "description": "OpenCV (Open Source Computer Vision Library) is an open source computer\nvision and machine learning software library.",
+            "name": "opencv"
+        },
+        {
+            "description": "SuiteSparse is a suite of sparse matrix algorithms",
+            "name": "suite-sparse"
+        },
+        {
+            "description": "zlib replacement with optimizations for next generation systems.",
+            "name": "zlib-api"
         }
     ],
+    "dependent_to": [],
+    "description": "The 3D Toolkit provides algorithms and methods to process 3D point\nclouds. It includes automatic high-accurate registration (6D\nsimultaneous localization and mapping, 6D SLAM) and other tools, e.g., a\nfast 3D viewer, plane extraction software, etc. Several file formats for\nthe point clouds are natively supported, new formats can be implemented\neasily.\n",
     "homepage": "https://slam6d.sourceforge.net/",
+    "latest_version": "1.2",
     "maintainers": [],
+    "name": "3dtk",
     "patches": [
         {
-            "owner": "builtin.3dtk",
-            "sha256": "8f719003e4340012fe0044e28138453bbd200da3a49af3822c857b6dc033bd21",
             "level": 1,
-            "working_dir": ".",
-            "reverse": false,
+            "owner": "builtin.3dtk",
             "relative_path": "homebrew.patch",
-            "version": "arch=darwin-None-None"
+            "reverse": false,
+            "sha256": "8f719003e4340012fe0044e28138453bbd200da3a49af3822c857b6dc033bd21",
+            "version": "arch=darwin-None-None",
+            "working_dir": "."
         }
     ],
     "resources": [],
-    "description": "The 3D Toolkit provides algorithms and methods to process 3D point\nclouds. It includes automatic high-accurate registration (6D\nsimultaneous localization and mapping, 6D SLAM) and other tools, e.g., a\nfast 3D viewer, plane extraction software, etc. Several file formats for\nthe point clouds are natively supported, new formats can be implemented\neasily.\n",
-    "dependencies": [
+    "variants": [
         {
-            "name": "boost",
-            "description": "Boost provides free peer-reviewed portable C++ source libraries,\nemphasizing libraries that work well with the C++ Standard Library.\nBoost libraries are intended to be widely useful, and usable across a\nbroad spectrum of applications. The Boost license encourages both\ncommercial and non-commercial use."
+            "default": "cmake",
+            "description": "Build systems supported by the package",
+            "name": "build_system"
         },
         {
-            "name": "cgal",
-            "description": "The Computational Geometry Algorithms Library (CGAL) is a C++ library\nthat aims to provide easy access to efficient and reliable algorithms in\ncomputational geometry. CGAL is used in various areas needing geometric\ncomputation, such as geographic information systems, computer aided\ndesign, molecular biology, medical imaging, computer graphics, and\nrobotics."
+            "default": "Release",
+            "description": "CMake build type",
+            "name": "build_type"
         },
         {
-            "name": "cmake",
-            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
+            "default": false,
+            "description": "Compile with CGAL support",
+            "name": "cgal"
         },
         {
-            "name": "cuda",
-            "description": "CUDA is a parallel computing platform and programming model invented by\nNVIDIA. It enables dramatic increases in computing performance by\nharnessing the power of the graphics processing unit (GPU). Note: This\npackage does not currently install the drivers necessary to run CUDA.\nThese will need to be installed manually. See:\nhttps://docs.nvidia.com/cuda/ for details."
+            "default": false,
+            "description": "Whether to use the compact octree display",
+            "name": "compact_octree"
         },
         {
-            "name": "eigen",
-            "description": "Eigen is a C++ template library for linear algebra matrices, vectors,\nnumerical solvers, and related algorithms."
+            "default": false,
+            "description": "Whether to build CUDA accelerated collision detection tools",
+            "name": "cuda"
         },
         {
-            "name": "freeglut",
-            "description": "FreeGLUT is a free-software/open-source alternative to the OpenGL\nUtility Toolkit (GLUT) library"
+            "default": "ninja",
+            "description": "the build system generator to use",
+            "name": "generator"
         },
         {
-            "name": "gl",
-            "description": "External WGl and Windows OpenGL emulation representation in Spack"
+            "default": false,
+            "description": "CMake interprocedural optimization",
+            "name": "ipo"
         },
         {
-            "name": "glew",
-            "description": "The OpenGL Extension Wrangler Library."
+            "default": true,
+            "description": "Compile with OpenCV support",
+            "name": "opencv"
         },
         {
-            "name": "gmake",
-            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files."
+            "default": true,
+            "description": "Compile with OpenGL support",
+            "name": "opengl"
         },
         {
-            "name": "libpng",
-            "description": "libpng is the official PNG reference library."
-        },
-        {
-            "name": "ninja",
-            "description": "Ninja is a small build system with a focus on speed. It differs from\nother build systems in two major respects: it is designed to have its\ninput files generated by a higher-level build system, and it is designed\nto run builds as fast as possible."
-        },
-        {
-            "name": "opencv",
-            "description": "OpenCV (Open Source Computer Vision Library) is an open source computer\nvision and machine learning software library."
-        },
-        {
-            "name": "suite-sparse",
-            "description": "SuiteSparse is a suite of sparse matrix algorithms"
-        },
-        {
-            "name": "zlib-api",
-            "description": "zlib replacement with optimizations for next generation systems."
+            "default": false,
+            "description": "Whether to use parallel processing capabilities of OPENMP",
+            "name": "openmp"
         }
     ],
-    "dependent_to": []
+    "versions": [
+        {
+            "name": "1.2",
+            "svn": "https://svn.code.sf.net/p/slam6d/code/branches/3dtk-release-1.2"
+        },
+        {
+            "name": "trunk",
+            "svn": "https://svn.code.sf.net/p/slam6d/code/trunk"
+        }
+    ]
 }

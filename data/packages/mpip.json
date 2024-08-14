@@ -1,120 +1,120 @@
 {
-    "name": "mpip",
     "aliases": [],
-    "versions": [
-        {
-            "name": "master",
-            "branch": "master"
-        },
-        {
-            "name": "3.5",
-            "sha256": "e366843d53fa016fb03903e51c8aac901aa5155edabe64698a8d6fa618a03bbd"
-        }
-    ],
-    "latest_version": "3.5",
     "build_system": "AutotoolsPackage",
     "conflicts": [
         {
-            "name": "arch=windows-None-None",
-            "spec": "build_system=autotools",
-            "description": null
-        },
-        {
+            "description": null,
             "name": "arch=darwin-None-None",
-            "spec": "",
-            "description": null
+            "spec": ""
+        },
+        {
+            "description": null,
+            "name": "arch=windows-None-None",
+            "spec": "build_system=autotools"
         }
     ],
-    "variants": [
+    "dependencies": [
         {
-            "name": "build_system",
-            "default": "autotools",
-            "description": "Build systems supported by the package"
+            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files.",
+            "name": "gmake"
         },
         {
-            "name": "demangling",
-            "default": true,
-            "description": "Build with demangling support"
+            "description": "The GNU config.guess and config.sub scripts versioned by timestamp.\nThis package can be used as a build dependency for autotools packages\nthat ship a tarball with outdated config.guess and config.sub files.",
+            "name": "gnuconfig"
         },
         {
-            "name": "setjmp",
-            "default": false,
-            "description": "Use setjmp to generate stack trace"
+            "description": "IBM MPI implementation from Spectrum MPI.",
+            "name": "mpi"
         },
         {
-            "name": "mpi_io",
-            "default": true,
-            "description": "Enable MPI-I/O reporting"
+            "description": "The Python programming language.",
+            "name": "python"
         },
         {
-            "name": "mpi_rma",
-            "default": true,
-            "description": "Enable MPI RMA reporting"
-        },
-        {
-            "name": "mpi_nbc",
-            "default": true,
-            "description": "Enable MPI non-blocking collective reporting"
-        },
-        {
-            "name": "bfd",
-            "default": true,
-            "description": "Enable GNU binutils libbfd for source lookup"
-        },
-        {
-            "name": "libunwind",
-            "default": true,
-            "description": "Use libunwind togenerate stack trace"
-        },
-        {
-            "name": "maxargs",
-            "default": 32,
-            "description": "Set number of command line arguments in report"
-        },
-        {
-            "name": "stackdepth",
-            "default": 8,
-            "description": "Specify maximum report stacktrace depth"
-        },
-        {
-            "name": "internal_stackdepth",
-            "default": 3,
-            "description": "Specify number of internal stack frames"
-        },
-        {
-            "name": "add_shared_target",
-            "default": false,
-            "description": "Add shared make target"
+            "description": "A portable and efficient C programming interface (API) to determine the\ncall-chain of a program.",
+            "name": "unwind"
         }
     ],
+    "dependent_to": [],
+    "description": "mpiP: Lightweight, Scalable MPI Profiling\n",
     "homepage": "https://software.llnl.gov/mpiP/",
+    "latest_version": "3.5",
     "maintainers": [
         "cchambreau"
     ],
+    "name": "mpip",
     "patches": [],
     "resources": [],
-    "description": "mpiP: Lightweight, Scalable MPI Profiling\n",
-    "dependencies": [
+    "variants": [
         {
-            "name": "gmake",
-            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files."
+            "default": false,
+            "description": "Add shared make target",
+            "name": "add_shared_target"
         },
         {
-            "name": "gnuconfig",
-            "description": "The GNU config.guess and config.sub scripts versioned by timestamp.\nThis package can be used as a build dependency for autotools packages\nthat ship a tarball with outdated config.guess and config.sub files."
+            "default": true,
+            "description": "Enable GNU binutils libbfd for source lookup",
+            "name": "bfd"
         },
         {
-            "name": "mpi",
-            "description": "A single processor implementation of the mpi library."
+            "default": "autotools",
+            "description": "Build systems supported by the package",
+            "name": "build_system"
         },
         {
-            "name": "python",
-            "description": "The Python programming language."
+            "default": true,
+            "description": "Build with demangling support",
+            "name": "demangling"
         },
         {
-            "name": "unwind",
-            "description": "A portable and efficient C programming interface (API) to determine the\ncall-chain of a program."
+            "default": 3,
+            "description": "Specify number of internal stack frames",
+            "name": "internal_stackdepth"
+        },
+        {
+            "default": true,
+            "description": "Use libunwind togenerate stack trace",
+            "name": "libunwind"
+        },
+        {
+            "default": 32,
+            "description": "Set number of command line arguments in report",
+            "name": "maxargs"
+        },
+        {
+            "default": true,
+            "description": "Enable MPI-I/O reporting",
+            "name": "mpi_io"
+        },
+        {
+            "default": true,
+            "description": "Enable MPI non-blocking collective reporting",
+            "name": "mpi_nbc"
+        },
+        {
+            "default": true,
+            "description": "Enable MPI RMA reporting",
+            "name": "mpi_rma"
+        },
+        {
+            "default": false,
+            "description": "Use setjmp to generate stack trace",
+            "name": "setjmp"
+        },
+        {
+            "default": 8,
+            "description": "Specify maximum report stacktrace depth",
+            "name": "stackdepth"
         }
     ],
-    "dependent_to": []
+    "versions": [
+        {
+            "name": "3.5",
+            "sha256": "e366843d53fa016fb03903e51c8aac901aa5155edabe64698a8d6fa618a03bbd"
+        },
+        {
+            "branch": "master",
+            "name": "master"
+        }
+    ]
 }

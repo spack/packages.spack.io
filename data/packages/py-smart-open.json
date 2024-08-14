@@ -1,11 +1,112 @@
 {
-    "name": "py-smart-open",
     "aliases": [],
-    "versions": [
+    "build_system": "PythonPackage",
+    "conflicts": [],
+    "dependencies": [
         {
-            "name": "5.2.1",
-            "sha256": "75abf758717a92a8f53aa96953f0c245c8cedf8e1e4184903db3659b419d4c17"
+            "description": "Microsoft Azure Client Library for Python (Common).",
+            "name": "py-azure-common"
         },
+        {
+            "description": "Microsoft Azure Core Library for Python.",
+            "name": "py-azure-core"
+        },
+        {
+            "description": "Microsoft Azure Blob Storage Client Library for Python",
+            "name": "py-azure-storage-blob"
+        },
+        {
+            "description": "Boto is a Python package that provides interfaces to Amazon Web\nServices.",
+            "name": "py-boto"
+        },
+        {
+            "description": "The AWS SDK for Python.",
+            "name": "py-boto3"
+        },
+        {
+            "description": "Google Cloud Storage API client library.",
+            "name": "py-google-cloud-storage"
+        },
+        {
+            "description": "The PyPA recommended tool for installing Python packages.",
+            "name": "py-pip"
+        },
+        {
+            "description": "Python HTTP for Humans.",
+            "name": "py-requests"
+        },
+        {
+            "description": "A Python utility that aids in the process of downloading, building,\nupgrading, installing, and uninstalling Python packages.",
+            "name": "py-setuptools"
+        },
+        {
+            "description": "A built-package format for Python.",
+            "name": "py-wheel"
+        },
+        {
+            "description": "The Python programming language.",
+            "name": "python"
+        },
+        {
+            "description": "A Spack managed Python virtual environment",
+            "name": "python-venv"
+        }
+    ],
+    "dependent_to": [
+        {
+            "description": "Gensim is a Python library for topic modelling, document indexing and\nsimilarity retrieval with large corpora. Target audience is the natural\nlanguage processing (NLP) and information retrieval (IR) community.",
+            "name": "py-gensim"
+        },
+        {
+            "description": "pathlib.Path subclasses for local and cloud bucket storage",
+            "name": "py-pathy"
+        },
+        {
+            "description": "Ray provides a simple, universal API for building distributed\napplications.",
+            "name": "py-ray"
+        },
+        {
+            "description": "Workflow management system to create reproducible and scalable data\nanalyses.",
+            "name": "snakemake"
+        }
+    ],
+    "description": "smart_open is a Python 2 & Python 3 library for efficient streaming of\nvery large files from/to S3, HDFS, WebHDFS, HTTP, or local storage. It\nsupports transparent, on-the-fly (de-)compression for a variety of\ndifferent formats.\n",
+    "homepage": "https://github.com/piskvorky/smart_open",
+    "latest_version": "5.2.1",
+    "maintainers": [
+        "marcusboden"
+    ],
+    "name": "py-smart-open",
+    "patches": [],
+    "resources": [],
+    "variants": [
+        {
+            "default": false,
+            "description": "Adds Microsoft Azure Support",
+            "name": "azure"
+        },
+        {
+            "default": "python_pip",
+            "description": "Build systems supported by the package",
+            "name": "build_system"
+        },
+        {
+            "default": false,
+            "description": "Adds Google Cloud support",
+            "name": "gcs"
+        },
+        {
+            "default": true,
+            "description": "Adds http and webhdfs support",
+            "name": "http"
+        },
+        {
+            "default": false,
+            "description": "Adds AWS S3 support",
+            "name": "s3"
+        }
+    ],
+    "versions": [
         {
             "name": "1.10.0",
             "sha256": "bea5624c0c2e49987c227bdf3596573157eccd96fd1d53198856c8d53948fa2c"
@@ -13,111 +114,10 @@
         {
             "name": "1.8.4",
             "sha256": "788e07f035defcbb62e3c1e313329a70b0976f4f65406ee767db73ad5d2d04f9"
-        }
-    ],
-    "latest_version": "5.2.1",
-    "build_system": "PythonPackage",
-    "conflicts": [],
-    "variants": [
-        {
-            "name": "build_system",
-            "default": "python_pip",
-            "description": "Build systems supported by the package"
         },
         {
-            "name": "gcs",
-            "default": false,
-            "description": "Adds Google Cloud support"
-        },
-        {
-            "name": "s3",
-            "default": false,
-            "description": "Adds AWS S3 support"
-        },
-        {
-            "name": "http",
-            "default": true,
-            "description": "Adds http and webhdfs support"
-        },
-        {
-            "name": "azure",
-            "default": false,
-            "description": "Adds Microsoft Azure Support"
-        }
-    ],
-    "homepage": "https://github.com/piskvorky/smart_open",
-    "maintainers": [
-        "marcusboden"
-    ],
-    "patches": [],
-    "resources": [],
-    "description": "smart_open is a Python 2 & Python 3 library for efficient streaming of\nvery large files from/to S3, HDFS, WebHDFS, HTTP, or local storage. It\nsupports transparent, on-the-fly (de-)compression for a variety of\ndifferent formats.\n",
-    "dependencies": [
-        {
-            "name": "py-azure-common",
-            "description": "Microsoft Azure Client Library for Python (Common)."
-        },
-        {
-            "name": "py-azure-core",
-            "description": "Microsoft Azure Core Library for Python."
-        },
-        {
-            "name": "py-azure-storage-blob",
-            "description": "Microsoft Azure Blob Storage Client Library for Python"
-        },
-        {
-            "name": "py-boto",
-            "description": "Boto is a Python package that provides interfaces to Amazon Web\nServices."
-        },
-        {
-            "name": "py-boto3",
-            "description": "The AWS SDK for Python."
-        },
-        {
-            "name": "py-google-cloud-storage",
-            "description": "Google Cloud Storage API client library."
-        },
-        {
-            "name": "py-pip",
-            "description": "The PyPA recommended tool for installing Python packages."
-        },
-        {
-            "name": "py-requests",
-            "description": "Python HTTP for Humans."
-        },
-        {
-            "name": "py-setuptools",
-            "description": "A Python utility that aids in the process of downloading, building,\nupgrading, installing, and uninstalling Python packages."
-        },
-        {
-            "name": "py-wheel",
-            "description": "A built-package format for Python."
-        },
-        {
-            "name": "python",
-            "description": "The Python programming language."
-        },
-        {
-            "name": "python-venv",
-            "description": "A Spack managed Python virtual environment"
-        }
-    ],
-    "dependent_to": [
-        {
-            "name": "py-gensim",
-            "description": "Gensim is a Python library for topic modelling, document indexing and\nsimilarity retrieval with large corpora. Target audience is the natural\nlanguage processing (NLP) and information retrieval (IR) community."
-        },
-        {
-            "name": "snakemake",
-            "description": "Workflow management system to create reproducible and scalable data\nanalyses."
-        },
-        {
-            "name": "py-ray",
-            "description": "Ray provides a simple, universal API for building distributed\napplications."
-        },
-        {
-            "name": "py-pathy",
-            "description": "pathlib.Path subclasses for local and cloud bucket storage"
+            "name": "5.2.1",
+            "sha256": "75abf758717a92a8f53aa96953f0c245c8cedf8e1e4184903db3659b419d4c17"
         }
     ]
 }

@@ -1,169 +1,169 @@
 {
-    "name": "samrai",
     "aliases": [],
+    "build_system": "AutotoolsPackage",
+    "conflicts": [
+        {
+            "description": null,
+            "name": "arch=windows-None-None",
+            "spec": "build_system=autotools"
+        }
+    ],
+    "dependencies": [
+        {
+            "description": "Boost provides free peer-reviewed portable C++ source libraries,\nemphasizing libraries that work well with the C++ Standard Library.\nBoost libraries are intended to be widely useful, and usable across a\nbroad spectrum of applications. The Boost license encourages both\ncommercial and non-commercial use.",
+            "name": "boost"
+        },
+        {
+            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files.",
+            "name": "gmake"
+        },
+        {
+            "description": "The GNU config.guess and config.sub scripts versioned by timestamp.\nThis package can be used as a build dependency for autotools packages\nthat ship a tarball with outdated config.guess and config.sub files.",
+            "name": "gnuconfig"
+        },
+        {
+            "description": "HDF5 is a data model, library, and file format for storing and managing\ndata. It supports an unlimited variety of datatypes, and is designed for\nflexible and efficient I/O and for high volume and complex data.",
+            "name": "hdf5"
+        },
+        {
+            "description": "GNU M4 is an implementation of the traditional Unix macro processor.",
+            "name": "m4"
+        },
+        {
+            "description": "IBM MPI implementation from Spectrum MPI.",
+            "name": "mpi"
+        },
+        {
+            "description": "Silo is a library for reading and writing a wide variety of scientific\ndata to binary, disk files.",
+            "name": "silo"
+        },
+        {
+            "description": "zlib replacement with optimizations for next generation systems.",
+            "name": "zlib-api"
+        }
+    ],
+    "dependent_to": [
+        {
+            "description": "CleverLeaf is a hydrodynamics mini-app that extends CloverLeaf with\nAdaptive Mesh Refinement using the SAMRAI toolkit from Lawrence\nLivermore National Laboratory. The primary goal of CleverLeaf is to\nevaluate the application of AMR to the Lagrangian-Eulerian hydrodynamics\nscheme used by CloverLeaf.",
+            "name": "cleverleaf"
+        }
+    ],
+    "description": "SAMRAI (Structured Adaptive Mesh Refinement Application Infrastructure)\nis an object-oriented C++ software library enables exploration of\nnumerical, algorithmic, parallel computing, and software issues\nassociated with applying structured adaptive mesh refinement (SAMR)\ntechnology in large-scale parallel application development.\n",
+    "homepage": "https://computing.llnl.gov/projects/samrai",
+    "latest_version": "3.12.0",
+    "maintainers": [],
+    "name": "samrai",
+    "patches": [
+        {
+            "level": 1,
+            "owner": "builtin.samrai",
+            "relative_path": "no-tool-build.patch",
+            "reverse": false,
+            "sha256": "7ebc13ab70fcaceec9ede761ceb6449140e0f6ba2111365e68ddb0e589239db4",
+            "version": "@3.0.0:%gcc",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.samrai",
+            "reverse": false,
+            "sha256": "1d088b6cca41377747fa0ae8970440c20cb68988bbc34f9032d5a4e6aceede47",
+            "url": "https://github.com/IBAMR/IBAMR/releases/download/v0.3.0/ibamr-samrai-fixes.patch?full_index=1",
+            "version": "@2.4.4",
+            "working_dir": "."
+        }
+    ],
+    "resources": [],
+    "variants": [
+        {
+            "default": "autotools",
+            "description": "Build systems supported by the package",
+            "name": "build_system"
+        },
+        {
+            "default": false,
+            "description": "Compile with reduced optimization and debugging on",
+            "name": "debug"
+        },
+        {
+            "default": false,
+            "description": "Build shared libraries",
+            "name": "shared"
+        },
+        {
+            "default": false,
+            "description": "Compile with support for silo",
+            "name": "silo"
+        }
+    ],
     "versions": [
         {
-            "name": "3.12.0",
-            "sha256": "b8334aa22330a7c858e09e000dfc62abbfa3c449212b4993ec3c4035bed6b832"
-        },
-        {
-            "name": "3.11.5",
-            "sha256": "6ec1f4cf2735284fe41f74073c4f1be87d92184d79401011411be3c0671bd84c"
-        },
-        {
-            "name": "3.11.4",
-            "sha256": "fa87f6cc1cb3b3c4856bc3f4d7162b1f9705a200b68a5dc173484f7a71c7ea0a"
-        },
-        {
-            "name": "3.11.2",
-            "sha256": "fd9518cc9fd8c8f6cdd681484c6eb42114aebf2a6ba4c8e1f12b34a148dfdefb"
-        },
-        {
-            "name": "3.11.1",
-            "sha256": "14317938e55cb7dc3eca21d9b7667a256a08661c6da988334f7af566a015b327"
+            "name": "2.4.4",
+            "sha256": "33242e38e6f4d35bd52f4194bd99a014485b0f3458b268902f69f6c02b35ee5c"
         },
         {
             "name": "3.10.0",
             "sha256": "8d6958867f7165396459f4556e439065bc2cd2464bcfe16195a2a68345d56ea7"
         },
         {
-            "name": "3.9.1",
-            "sha256": "ce0aa9bcb3accbd39c09dd32cbc9884dc00e7a8d53782ba46b8fe7d7d60fc03f"
+            "name": "3.11.1",
+            "sha256": "14317938e55cb7dc3eca21d9b7667a256a08661c6da988334f7af566a015b327"
         },
         {
-            "name": "3.8.0",
-            "sha256": "0fc811ca83bd72d238f0efb172d466e80e5091db0b78ad00ab6b93331a1fe489"
+            "name": "3.11.2",
+            "sha256": "fd9518cc9fd8c8f6cdd681484c6eb42114aebf2a6ba4c8e1f12b34a148dfdefb"
         },
         {
-            "name": "3.7.3",
-            "sha256": "19eada4f351a821abccac0779fde85e2ad18b931b6a8110510a4c21707c2f5ce"
+            "name": "3.11.4",
+            "sha256": "fa87f6cc1cb3b3c4856bc3f4d7162b1f9705a200b68a5dc173484f7a71c7ea0a"
         },
         {
-            "name": "3.7.2",
-            "sha256": "c20c5b12576b73a1a095d8ef54536c4424517adaf472d55d48e57455eda74f2d"
+            "name": "3.11.5",
+            "sha256": "6ec1f4cf2735284fe41f74073c4f1be87d92184d79401011411be3c0671bd84c"
         },
         {
-            "name": "3.6.3-beta",
-            "sha256": "7d9202355a66b8850333484862627f73ea3d7620ca84cde757dee629ebcb61bb"
-        },
-        {
-            "name": "3.5.2-beta",
-            "sha256": "9a591fc962edd56ea073abd13d03027bd530f1e61df595fae42dd9a7f8b9cc3a"
-        },
-        {
-            "name": "3.5.0-beta",
-            "sha256": "3e10c55d7b652b6feca902ce782751d4b16c8ad9d4dd8b9e2e9ec74dd64f30da"
-        },
-        {
-            "name": "3.4.1-beta",
-            "sha256": "5aadc813b75b65485f221372e174a2691e184e380f569129e7aa4484ca4047f8"
-        },
-        {
-            "name": "3.3.3-beta",
-            "sha256": "c07b5dc8d56a8f310239d1ec6be31182a6463fea787a0e10b54a3df479979cac"
+            "name": "3.12.0",
+            "sha256": "b8334aa22330a7c858e09e000dfc62abbfa3c449212b4993ec3c4035bed6b832"
         },
         {
             "name": "3.3.2-beta",
             "sha256": "430ea1a77083c8990a3c996572ed15663d9b31c0f8b614537bd7065abd6f375f"
         },
         {
-            "name": "2.4.4",
-            "sha256": "33242e38e6f4d35bd52f4194bd99a014485b0f3458b268902f69f6c02b35ee5c"
-        }
-    ],
-    "latest_version": "3.12.0",
-    "build_system": "AutotoolsPackage",
-    "conflicts": [
-        {
-            "name": "arch=windows-None-None",
-            "spec": "build_system=autotools",
-            "description": null
-        }
-    ],
-    "variants": [
-        {
-            "name": "build_system",
-            "default": "autotools",
-            "description": "Build systems supported by the package"
+            "name": "3.3.3-beta",
+            "sha256": "c07b5dc8d56a8f310239d1ec6be31182a6463fea787a0e10b54a3df479979cac"
         },
         {
-            "name": "debug",
-            "default": false,
-            "description": "Compile with reduced optimization and debugging on"
+            "name": "3.4.1-beta",
+            "sha256": "5aadc813b75b65485f221372e174a2691e184e380f569129e7aa4484ca4047f8"
         },
         {
-            "name": "silo",
-            "default": false,
-            "description": "Compile with support for silo"
+            "name": "3.5.0-beta",
+            "sha256": "3e10c55d7b652b6feca902ce782751d4b16c8ad9d4dd8b9e2e9ec74dd64f30da"
         },
         {
-            "name": "shared",
-            "default": false,
-            "description": "Build shared libraries"
-        }
-    ],
-    "homepage": "https://computing.llnl.gov/projects/samrai",
-    "maintainers": [],
-    "patches": [
-        {
-            "owner": "builtin.samrai",
-            "sha256": "7ebc13ab70fcaceec9ede761ceb6449140e0f6ba2111365e68ddb0e589239db4",
-            "level": 1,
-            "working_dir": ".",
-            "reverse": false,
-            "relative_path": "no-tool-build.patch",
-            "version": "@3.0.0:%gcc"
+            "name": "3.5.2-beta",
+            "sha256": "9a591fc962edd56ea073abd13d03027bd530f1e61df595fae42dd9a7f8b9cc3a"
         },
         {
-            "owner": "builtin.samrai",
-            "sha256": "1d088b6cca41377747fa0ae8970440c20cb68988bbc34f9032d5a4e6aceede47",
-            "level": 1,
-            "working_dir": ".",
-            "reverse": false,
-            "url": "https://github.com/IBAMR/IBAMR/releases/download/v0.3.0/ibamr-samrai-fixes.patch?full_index=1",
-            "version": "@2.4.4"
-        }
-    ],
-    "resources": [],
-    "description": "SAMRAI (Structured Adaptive Mesh Refinement Application Infrastructure)\nis an object-oriented C++ software library enables exploration of\nnumerical, algorithmic, parallel computing, and software issues\nassociated with applying structured adaptive mesh refinement (SAMR)\ntechnology in large-scale parallel application development.\n",
-    "dependencies": [
-        {
-            "name": "boost",
-            "description": "Boost provides free peer-reviewed portable C++ source libraries,\nemphasizing libraries that work well with the C++ Standard Library.\nBoost libraries are intended to be widely useful, and usable across a\nbroad spectrum of applications. The Boost license encourages both\ncommercial and non-commercial use."
+            "name": "3.6.3-beta",
+            "sha256": "7d9202355a66b8850333484862627f73ea3d7620ca84cde757dee629ebcb61bb"
         },
         {
-            "name": "gmake",
-            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files."
+            "name": "3.7.2",
+            "sha256": "c20c5b12576b73a1a095d8ef54536c4424517adaf472d55d48e57455eda74f2d"
         },
         {
-            "name": "gnuconfig",
-            "description": "The GNU config.guess and config.sub scripts versioned by timestamp.\nThis package can be used as a build dependency for autotools packages\nthat ship a tarball with outdated config.guess and config.sub files."
+            "name": "3.7.3",
+            "sha256": "19eada4f351a821abccac0779fde85e2ad18b931b6a8110510a4c21707c2f5ce"
         },
         {
-            "name": "hdf5",
-            "description": "HDF5 is a data model, library, and file format for storing and managing\ndata. It supports an unlimited variety of datatypes, and is designed for\nflexible and efficient I/O and for high volume and complex data."
+            "name": "3.8.0",
+            "sha256": "0fc811ca83bd72d238f0efb172d466e80e5091db0b78ad00ab6b93331a1fe489"
         },
         {
-            "name": "m4",
-            "description": "GNU M4 is an implementation of the traditional Unix macro processor."
-        },
-        {
-            "name": "mpi",
-            "description": "A single processor implementation of the mpi library."
-        },
-        {
-            "name": "silo",
-            "description": "Silo is a library for reading and writing a wide variety of scientific\ndata to binary, disk files."
-        },
-        {
-            "name": "zlib-api",
-            "description": "zlib replacement with optimizations for next generation systems."
-        }
-    ],
-    "dependent_to": [
-        {
-            "name": "cleverleaf",
-            "description": "CleverLeaf is a hydrodynamics mini-app that extends CloverLeaf with\nAdaptive Mesh Refinement using the SAMRAI toolkit from Lawrence\nLivermore National Laboratory. The primary goal of CleverLeaf is to\nevaluate the application of AMR to the Lagrangian-Eulerian hydrodynamics\nscheme used by CloverLeaf."
+            "name": "3.9.1",
+            "sha256": "ce0aa9bcb3accbd39c09dd32cbc9884dc00e7a8d53782ba46b8fe7d7d60fc03f"
         }
     ]
 }

@@ -1,314 +1,314 @@
 {
-    "name": "eccodes",
     "aliases": [],
-    "versions": [
-        {
-            "name": "develop",
-            "branch": "develop"
-        },
-        {
-            "name": "2.34.0",
-            "sha256": "3cd208c8ddad132789662cf8f67a9405514bfefcacac403c0d8c84507f303aba"
-        },
-        {
-            "name": "2.33.0",
-            "sha256": "bdcec8ce63654ec6803400c507f01220a9aa403a45fa6b5bdff7fdcc44fd7daf"
-        },
-        {
-            "name": "2.32.1",
-            "sha256": "ad2ac1bf36577b1d35c4a771b4d174a06f522a1e5ef6c1f5e53a795fb624863e"
-        },
-        {
-            "name": "2.32.0",
-            "sha256": "b57e8eeb0eba0c05d66fda5527c4ffa84b5ab35c46bcbc9a2227142973ccb8e6"
-        },
-        {
-            "name": "2.31.0",
-            "sha256": "808ecd2c11fbf2c3f9fc7a36f8c2965b343f3151011b58a1d6e7cc2e6b3cac5d"
-        },
-        {
-            "name": "2.25.0",
-            "sha256": "8975131aac54d406e5457706fd4e6ba46a8cc9c7dd817a41f2aa64ce1193c04e"
-        },
-        {
-            "name": "2.24.2",
-            "sha256": "c60ad0fd89e11918ace0d84c01489f21222b11d6cad3ff7495856a0add610403"
-        },
-        {
-            "name": "2.23.0",
-            "sha256": "cbdc8532537e9682f1a93ddb03440416b66906a4cc25dec3cbd73940d194bf0c"
-        },
-        {
-            "name": "2.22.1",
-            "sha256": "75c7ee96469bb30b0c8f7edbdc4429ece4415897969f75c36173545242bc9e85"
-        },
-        {
-            "name": "2.21.0",
-            "sha256": "da0a0bf184bb436052e3eae582defafecdb7c08cdaab7216780476e49b509755"
-        },
-        {
-            "name": "2.20.0",
-            "sha256": "207a3d7966e75d85920569b55a19824673e8cd0b50db4c4dac2d3d52eacd7985"
-        },
-        {
-            "name": "2.19.1",
-            "sha256": "9964bed5058e873d514bd4920951122a95963128b12f55aa199d9afbafdd5d4b"
-        },
-        {
-            "name": "2.18.0",
-            "sha256": "d88943df0f246843a1a062796edbf709ef911de7269648eef864be259e9704e3"
-        },
-        {
-            "name": "2.13.0",
-            "sha256": "c5ce1183b5257929fc1f1c8496239e52650707cfab24f4e0e1f1a471135b8272"
-        },
-        {
-            "name": "2.5.0",
-            "sha256": "18ab44bc444168fd324d07f7dea94f89e056f5c5cd973e818c8783f952702e4e"
-        },
-        {
-            "name": "2.2.0",
-            "sha256": "1a4112196497b8421480e2a0a1164071221e467853486577c4f07627a702f4c3"
-        }
-    ],
-    "latest_version": "2.34.0",
     "build_system": "CMakePackage",
     "conflicts": [
         {
+            "description": "eccodes: Cannot enable both POSIX threads and OMP",
             "name": "+openmp",
-            "spec": "+pthreads",
-            "description": "eccodes: Cannot enable both POSIX threads and OMP"
+            "spec": "+pthreads"
         },
         {
-            "name": "+netcdf",
-            "spec": "~tools",
-            "description": "eccodes: Cannot enable the NetCDF conversion tool when the command line tools are disabled"
-        },
-        {
+            "description": "eccodes: The command line tools can be disabled only starting version 2.19.0",
             "name": "~tools",
-            "spec": "@:2.18.0",
-            "description": "eccodes: The command line tools can be disabled only starting version 2.19.0"
+            "spec": "@:2.18.0"
         },
         {
+            "description": null,
             "name": "extra_definitions=edzw",
-            "spec": "@:2.19.1,2.22.0,2.24.0:",
-            "description": null
+            "spec": "@:2.19.1,2.22.0,2.24.0:"
+        },
+        {
+            "description": "eccodes: Cannot enable the NetCDF conversion tool when the command line tools are disabled",
+            "name": "+netcdf",
+            "spec": "~tools"
         }
     ],
-    "variants": [
+    "dependencies": [
         {
-            "name": "build_system",
-            "default": "cmake",
-            "description": "Build systems supported by the package"
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software.",
+            "name": "cmake"
         },
         {
-            "name": "build_type",
-            "default": "Release",
-            "description": "CMake build type"
+            "description": "ecBuild is the ECMWF build system. It is built on top of CMake and\nconsists of a set of macros as well as a wrapper around CMake",
+            "name": "ecbuild"
         },
         {
-            "name": "ipo",
-            "default": false,
-            "description": "CMake interprocedural optimization"
+            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files.",
+            "name": "gmake"
         },
         {
-            "name": "generator",
-            "default": "make",
-            "description": "the build system generator to use"
+            "description": "Library for manipulating JPEG-2000 images",
+            "name": "jasper"
         },
         {
-            "name": "tools",
-            "default": false,
-            "description": "Build the command line tools"
+            "description": "Libaec provides fast lossless compression of 1 up to 32 bit wide signed\nor unsigned integers (samples). It implements Golomb-Rice compression\nmethod under the BSD license and includes a free drop-in replacement for\nthe SZIP library.",
+            "name": "libaec"
         },
         {
-            "name": "netcdf",
-            "default": false,
-            "description": "Enable GRIB to NetCDF conversion tool"
+            "description": "libpng is the official PNG reference library.",
+            "name": "libpng"
         },
         {
-            "name": "jp2k",
-            "default": "openjpeg",
-            "description": "Specify JPEG2000 decoding/encoding backend"
+            "description": "NetCDF (network Common Data Form) is a set of software libraries and\nmachine-independent data formats that support the creation, access, and\nsharing of array-oriented scientific data. This is the C distribution.",
+            "name": "netcdf-c"
         },
         {
-            "name": "png",
-            "default": false,
-            "description": "Enable PNG support for decoding/encoding"
+            "description": "Ninja is a small build system with a focus on speed. It differs from\nother build systems in two major respects: it is designed to have its\ninput files generated by a higher-level build system, and it is designed\nto run builds as fast as possible.",
+            "name": "ninja"
         },
         {
-            "name": "aec",
-            "default": true,
-            "description": "Enable Adaptive Entropy Coding for decoding/encoding"
+            "description": "OpenJPEG is an open-source JPEG 2000 codec written in C language. It has\nbeen developed in order to promote the use of JPEG 2000, a still-image\ncompression standard from the Joint Photographic Experts Group (JPEG).\nSince April 2015, it is officially recognized by ISO/IEC and ITU-T as a\nJPEG 2000 Reference Software.",
+            "name": "openjpeg"
         },
         {
-            "name": "pthreads",
-            "default": false,
-            "description": "Enable POSIX threads"
-        },
-        {
-            "name": "openmp",
-            "default": false,
-            "description": "Enable OpenMP threads"
-        },
-        {
-            "name": "memfs",
-            "default": false,
-            "description": "Enable memory based access to definitions/samples"
-        },
-        {
-            "name": "fortran",
-            "default": false,
-            "description": "Enable the Fortran support"
-        },
-        {
-            "name": "shared",
-            "default": true,
-            "description": "Build shared versions of the libraries"
-        },
-        {
-            "name": "extra_definitions",
-            "default": "none",
-            "description": "List of extra definitions to install"
+            "description": "The Python programming language.",
+            "name": "python"
         }
     ],
+    "dependent_to": [
+        {
+            "description": "CDO is a collection of command line Operators to manipulate and analyse\nClimate and NWP model Data.",
+            "name": "cdo"
+        },
+        {
+            "description": "FDB (Fields DataBase) is a domain-specific object store developed at\nECMWF for storing, indexing and retrieving GRIB data.",
+            "name": "fdb"
+        },
+        {
+            "description": "ICON - is a modeling framework for weather, climate, and environmental\nprediction. It solves the full three-dimensional non-hydrostatic and\ncompressible Navier-Stokes equations on an icosahedral grid and allows\nseamless predictions from local to global scales.",
+            "name": "icon"
+        },
+        {
+            "description": "The Interpolation library (EMOSLIB) includes Interpolation software and\nBUFR & CREX encoding/decoding routines.",
+            "name": "libemos"
+        },
+        {
+            "description": "Magics is the latest generation of the ECMWF's Meteorological plotting\nsoftware MAGICS. Although completely redesigned in C++, it is intended\nto be as backwards-compatible as possible with the Fortran interface.",
+            "name": "magics"
+        },
+        {
+            "description": "Toolkit for manipulating and describing meteorological objects,\nimplementing the MARS language and associated processing and semantics.",
+            "name": "metkit"
+        },
+        {
+            "description": "Python interface to the ecCodes GRIB and BUFR decoder/encoder.",
+            "name": "py-eccodes"
+        },
+        {
+            "description": "A Python package that wraps some of ECMWF libraries to be used by Python\ninterfaces to ECMWF software.",
+            "name": "py-ecmwflibs"
+        }
+    ],
+    "description": "ecCodes is a package developed by ECMWF for processing meteorological\ndata in GRIB (1/2), BUFR (3/4) and GTS header formats.\n",
     "homepage": "https://software.ecmwf.int/wiki/display/ECC/ecCodes+Home",
+    "latest_version": "2.34.0",
     "maintainers": [
         "climbfuji",
         "dominichofer",
         "skosukhin",
         "victoria-cherkas"
     ],
+    "name": "eccodes",
     "patches": [
         {
-            "owner": "builtin.eccodes",
-            "sha256": "d49f040439ee859968b60f449253baff2bb4296d09256f442e60df7800b13905",
             "level": 1,
-            "working_dir": ".",
-            "reverse": false,
+            "owner": "builtin.eccodes",
             "relative_path": "openjpeg_jasper.patch",
-            "version": "@:2.16"
+            "reverse": false,
+            "sha256": "d49f040439ee859968b60f449253baff2bb4296d09256f442e60df7800b13905",
+            "version": "@:2.16",
+            "working_dir": "."
         },
         {
-            "owner": "builtin.eccodes",
-            "sha256": "caa4c2f2ac4a13a61c3372cd64f2f6f6570c78ed2ab91497a76b02c584abe1bc",
             "level": 1,
-            "working_dir": ".",
-            "reverse": false,
+            "owner": "builtin.eccodes",
             "relative_path": "cmake_install_rpath.patch",
-            "version": "@:2.10"
+            "reverse": false,
+            "sha256": "caa4c2f2ac4a13a61c3372cd64f2f6f6570c78ed2ab91497a76b02c584abe1bc",
+            "version": "@:2.10",
+            "working_dir": "."
         },
         {
-            "owner": "builtin.eccodes",
-            "sha256": "9dcc4affaaa850d4b7247baa939d0f9ffedea132369f1afc3f248dbf720386c9",
             "level": 1,
-            "working_dir": ".",
+            "owner": "builtin.eccodes",
             "reverse": false,
+            "sha256": "9dcc4affaaa850d4b7247baa939d0f9ffedea132369f1afc3f248dbf720386c9",
             "url": "https://github.com/ecmwf/ecbuild/commit/3916c7d22575c45166fcc89edcbe02a6e9b81aa2.patch?full_index=1",
-            "version": "@:2.4.0+netcdf"
+            "version": "@:2.4.0+netcdf",
+            "working_dir": "."
         }
     ],
     "resources": [
         {
-            "version": "@2.20.0",
-            "name": "edzw",
             "destination": "spack-definitions",
-            "placement": "definitions.edzw"
+            "name": "edzw",
+            "placement": "definitions.edzw",
+            "version": "@2.20.0"
         },
         {
-            "version": "@2.21.0",
-            "name": "edzw",
             "destination": "spack-definitions",
-            "placement": "definitions.edzw"
+            "name": "edzw",
+            "placement": "definitions.edzw",
+            "version": "@2.21.0"
         },
         {
-            "version": "@2.22.1",
-            "name": "edzw",
             "destination": "spack-definitions",
-            "placement": "definitions.edzw"
+            "name": "edzw",
+            "placement": "definitions.edzw",
+            "version": "@2.22.1"
         },
         {
-            "version": "@2.23.0",
-            "name": "edzw",
             "destination": "spack-definitions",
-            "placement": "definitions.edzw"
+            "name": "edzw",
+            "placement": "definitions.edzw",
+            "version": "@2.23.0"
         }
     ],
-    "description": "ecCodes is a package developed by ECMWF for processing meteorological\ndata in GRIB (1/2), BUFR (3/4) and GTS header formats.\n",
-    "dependencies": [
+    "variants": [
         {
-            "name": "cmake",
-            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
+            "default": true,
+            "description": "Enable Adaptive Entropy Coding for decoding/encoding",
+            "name": "aec"
         },
         {
-            "name": "ecbuild",
-            "description": "ecBuild is the ECMWF build system. It is built on top of CMake and\nconsists of a set of macros as well as a wrapper around CMake"
+            "default": "cmake",
+            "description": "Build systems supported by the package",
+            "name": "build_system"
         },
         {
-            "name": "gmake",
-            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files."
+            "default": "Release",
+            "description": "CMake build type",
+            "name": "build_type"
         },
         {
-            "name": "jasper",
-            "description": "Library for manipulating JPEG-2000 images"
+            "default": "none",
+            "description": "List of extra definitions to install",
+            "name": "extra_definitions"
         },
         {
-            "name": "libaec",
-            "description": "Libaec provides fast lossless compression of 1 up to 32 bit wide signed\nor unsigned integers (samples). It implements Golomb-Rice compression\nmethod under the BSD license and includes a free drop-in replacement for\nthe SZIP library."
+            "default": false,
+            "description": "Enable the Fortran support",
+            "name": "fortran"
         },
         {
-            "name": "libpng",
-            "description": "libpng is the official PNG reference library."
+            "default": "make",
+            "description": "the build system generator to use",
+            "name": "generator"
         },
         {
-            "name": "netcdf-c",
-            "description": "NetCDF (network Common Data Form) is a set of software libraries and\nmachine-independent data formats that support the creation, access, and\nsharing of array-oriented scientific data. This is the C distribution."
+            "default": false,
+            "description": "CMake interprocedural optimization",
+            "name": "ipo"
         },
         {
-            "name": "ninja",
-            "description": "Ninja is a small build system with a focus on speed. It differs from\nother build systems in two major respects: it is designed to have its\ninput files generated by a higher-level build system, and it is designed\nto run builds as fast as possible."
+            "default": "openjpeg",
+            "description": "Specify JPEG2000 decoding/encoding backend",
+            "name": "jp2k"
         },
         {
-            "name": "openjpeg",
-            "description": "OpenJPEG is an open-source JPEG 2000 codec written in C language. It has\nbeen developed in order to promote the use of JPEG 2000, a still-image\ncompression standard from the Joint Photographic Experts Group (JPEG).\nSince April 2015, it is officially recognized by ISO/IEC and ITU-T as a\nJPEG 2000 Reference Software."
+            "default": false,
+            "description": "Enable memory based access to definitions/samples",
+            "name": "memfs"
         },
         {
-            "name": "python",
-            "description": "The Python programming language."
+            "default": false,
+            "description": "Enable GRIB to NetCDF conversion tool",
+            "name": "netcdf"
+        },
+        {
+            "default": false,
+            "description": "Enable OpenMP threads",
+            "name": "openmp"
+        },
+        {
+            "default": false,
+            "description": "Enable PNG support for decoding/encoding",
+            "name": "png"
+        },
+        {
+            "default": false,
+            "description": "Enable POSIX threads",
+            "name": "pthreads"
+        },
+        {
+            "default": true,
+            "description": "Build shared versions of the libraries",
+            "name": "shared"
+        },
+        {
+            "default": false,
+            "description": "Build the command line tools",
+            "name": "tools"
         }
     ],
-    "dependent_to": [
+    "versions": [
         {
-            "name": "fdb",
-            "description": "FDB (Fields DataBase) is a domain-specific object store developed at\nECMWF for storing, indexing and retrieving GRIB data."
+            "name": "2.13.0",
+            "sha256": "c5ce1183b5257929fc1f1c8496239e52650707cfab24f4e0e1f1a471135b8272"
         },
         {
-            "name": "py-eccodes",
-            "description": "Python interface to the ecCodes GRIB and BUFR decoder/encoder."
+            "name": "2.18.0",
+            "sha256": "d88943df0f246843a1a062796edbf709ef911de7269648eef864be259e9704e3"
         },
         {
-            "name": "py-ecmwflibs",
-            "description": "A Python package that wraps some of ECMWF libraries to be used by Python\ninterfaces to ECMWF software."
+            "name": "2.19.1",
+            "sha256": "9964bed5058e873d514bd4920951122a95963128b12f55aa199d9afbafdd5d4b"
         },
         {
-            "name": "metkit",
-            "description": "Toolkit for manipulating and describing meteorological objects,\nimplementing the MARS language and associated processing and semantics."
+            "name": "2.2.0",
+            "sha256": "1a4112196497b8421480e2a0a1164071221e467853486577c4f07627a702f4c3"
         },
         {
-            "name": "magics",
-            "description": "Magics is the latest generation of the ECMWF's Meteorological plotting\nsoftware MAGICS. Although completely redesigned in C++, it is intended\nto be as backwards-compatible as possible with the Fortran interface."
+            "name": "2.20.0",
+            "sha256": "207a3d7966e75d85920569b55a19824673e8cd0b50db4c4dac2d3d52eacd7985"
         },
         {
-            "name": "icon",
-            "description": "ICON - is a modeling framework for weather, climate, and environmental\nprediction. It solves the full three-dimensional non-hydrostatic and\ncompressible Navier-Stokes equations on an icosahedral grid and allows\nseamless predictions from local to global scales."
+            "name": "2.21.0",
+            "sha256": "da0a0bf184bb436052e3eae582defafecdb7c08cdaab7216780476e49b509755"
         },
         {
-            "name": "libemos",
-            "description": "The Interpolation library (EMOSLIB) includes Interpolation software and\nBUFR & CREX encoding/decoding routines."
+            "name": "2.22.1",
+            "sha256": "75c7ee96469bb30b0c8f7edbdc4429ece4415897969f75c36173545242bc9e85"
         },
         {
-            "name": "cdo",
-            "description": "CDO is a collection of command line Operators to manipulate and analyse\nClimate and NWP model Data."
+            "name": "2.23.0",
+            "sha256": "cbdc8532537e9682f1a93ddb03440416b66906a4cc25dec3cbd73940d194bf0c"
+        },
+        {
+            "name": "2.24.2",
+            "sha256": "c60ad0fd89e11918ace0d84c01489f21222b11d6cad3ff7495856a0add610403"
+        },
+        {
+            "name": "2.25.0",
+            "sha256": "8975131aac54d406e5457706fd4e6ba46a8cc9c7dd817a41f2aa64ce1193c04e"
+        },
+        {
+            "name": "2.31.0",
+            "sha256": "808ecd2c11fbf2c3f9fc7a36f8c2965b343f3151011b58a1d6e7cc2e6b3cac5d"
+        },
+        {
+            "name": "2.32.0",
+            "sha256": "b57e8eeb0eba0c05d66fda5527c4ffa84b5ab35c46bcbc9a2227142973ccb8e6"
+        },
+        {
+            "name": "2.32.1",
+            "sha256": "ad2ac1bf36577b1d35c4a771b4d174a06f522a1e5ef6c1f5e53a795fb624863e"
+        },
+        {
+            "name": "2.33.0",
+            "sha256": "bdcec8ce63654ec6803400c507f01220a9aa403a45fa6b5bdff7fdcc44fd7daf"
+        },
+        {
+            "name": "2.34.0",
+            "sha256": "3cd208c8ddad132789662cf8f67a9405514bfefcacac403c0d8c84507f303aba"
+        },
+        {
+            "name": "2.5.0",
+            "sha256": "18ab44bc444168fd324d07f7dea94f89e056f5c5cd973e818c8783f952702e4e"
+        },
+        {
+            "branch": "develop",
+            "name": "develop"
         }
     ]
 }

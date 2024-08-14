@@ -1,48 +1,48 @@
 {
-    "name": "r-popgenome",
     "aliases": [],
+    "build_system": "RPackage",
+    "conflicts": [],
+    "dependencies": [
+        {
+            "description": "R is 'GNU S', a freely available language and environment for\nstatistical computing and graphics which provides a wide variety of\nstatistical and graphical techniques: linear and nonlinear modelling,\nstatistical tests, time series analysis, classification, clustering,\netc. Please consult the R project homepage for further information.",
+            "name": "r"
+        },
+        {
+            "description": "Memory-Efficient Storage of Large Data on Disk and Fast Access\nFunctions. The ff package provides data structures that are stored on\ndisk but behave (almost) as if they were in RAM by transparently mapping\nonly a section (pagesize) in main memory - the effective virtual memory\nconsumption per ff object. ff supports R's standard atomic data types\n'double', 'logical', 'raw' and 'integer' and non-standard atomic types\nboolean (1 bit), quad (2 bit unsigned), nibble (4 bit unsigned), byte (1\nbyte signed with NAs), ubyte (1 byte unsigned), short (2 byte signed\nwith NAs), ushort (2 byte unsigned), single (4 byte float with NAs). For\nexample 'quad' allows efficient storage of genomic data as an\n'A','T','G','C' factor. The unsigned types support 'circular'\narithmetic. There is also support for close-to-atomic types 'factor',\n'ordered', 'POSIXct', 'Date' and custom close-to-atomic types. ff not\nonly has native C-support for vectors, matrices and arrays with flexible\ndimorder (major column-order, major row-order and generalizations for\narrays). There is also a ffdf class not unlike data.frames and\nimport/export filters for csv files. ff objects store raw data in binary\nflat files in native encoding, and complement this with metadata stored\nin R as physical and virtual attributes. ff objects have well-defined\nhybrid copying semantics, which gives rise to certain performance\nimprovements through virtualization. ff objects can be stored and\nreopened across R sessions. ff files can be shared by multiple ff R\nobjects (using different data en/de-coding schemes) in the same process\nor from multiple R processes to exploit parallelism. A wide choice of\nfinalizer options allows to work with 'permanent' files as well as\ncreating/removing 'temporary' ff files completely transparent to the\nuser. On certain OS/Filesystem combinations, creating the ff files works\nwithout notable delay thanks to using sparse file allocation. Several\naccess optimization techniques such as Hybrid Index Preprocessing and\nVirtualization are implemented to achieve good performance even with\nlarge datasets, for example virtual matrix transpose without touching a\nsingle byte on disk. Further, to reduce disk I/O, 'logicals' and non-\nstandard data types get stored native and compact on binary flat files\ni.e. logicals take up exactly 2 bits to represent TRUE, FALSE and NA.\nBeyond basic access functions, the ff package also provides\ncompatibility functions that facilitate writing code for ff and ram\nobjects and support for batch processing on ff objects (e.g. as.ram,\nas.ff, ffapply). ff interfaces closely with functionality from package\n'bit': chunked looping, fast bit operations and coercions between\ndifferent objects that can store subscript information ('bit',\n'bitwhich', ff 'boolean', ri range index, hi hybrid index). This allows\nto work interactively with selections of large datasets and quickly\nmodify selection criteria. Further high-performance enhancements can be\nmade available upon request.x",
+            "name": "r-ff"
+        },
+        {
+            "description": "zlib replacement with optimizations for next generation systems.",
+            "name": "zlib-api"
+        }
+    ],
+    "dependent_to": [],
+    "description": "An Efficient Swiss Army Knife for Population Genomic Analyses. Provides\nefficient tools for population genomics data analysis, able to process\nindividual loci, large sets of loci, or whole genomes. PopGenome\n<DOI:10.1093/molbev/msu136> not only implements a wide range of\npopulation genetics statistics, but also facilitates the easy\nimplementation of new algorithms by other researchers. PopGenome is\noptimized for speed via the seamless integration of C code.\n",
+    "homepage": "https://cloud.r-project.org/package=PopGenome",
+    "latest_version": "2.7.5",
+    "maintainers": [],
+    "name": "r-popgenome",
+    "patches": [],
+    "resources": [],
+    "variants": [
+        {
+            "default": "generic",
+            "description": "Build systems supported by the package",
+            "name": "build_system"
+        }
+    ],
     "versions": [
         {
-            "name": "2.7.5",
-            "sha256": "d627b8ac87b4db6038d7349b2df20648d2fcfd48e2dafcd7f4731d1b607cbc75"
+            "name": "2.6.1",
+            "sha256": "7a2922ed505fa801117a153e479d246bcf4854b91c6ab0241acc620a9d779b1c"
         },
         {
             "name": "2.7.1",
             "sha256": "a84903b151528fa026ccaba42ada22cd89babbc1824afd40269b7204e488a5fa"
         },
         {
-            "name": "2.6.1",
-            "sha256": "7a2922ed505fa801117a153e479d246bcf4854b91c6ab0241acc620a9d779b1c"
+            "name": "2.7.5",
+            "sha256": "d627b8ac87b4db6038d7349b2df20648d2fcfd48e2dafcd7f4731d1b607cbc75"
         }
-    ],
-    "latest_version": "2.7.5",
-    "build_system": "RPackage",
-    "conflicts": [],
-    "variants": [
-        {
-            "name": "build_system",
-            "default": "generic",
-            "description": "Build systems supported by the package"
-        }
-    ],
-    "homepage": "https://cloud.r-project.org/package=PopGenome",
-    "maintainers": [],
-    "patches": [],
-    "resources": [],
-    "description": "An Efficient Swiss Army Knife for Population Genomic Analyses. Provides\nefficient tools for population genomics data analysis, able to process\nindividual loci, large sets of loci, or whole genomes. PopGenome\n<DOI:10.1093/molbev/msu136> not only implements a wide range of\npopulation genetics statistics, but also facilitates the easy\nimplementation of new algorithms by other researchers. PopGenome is\noptimized for speed via the seamless integration of C code.\n",
-    "dependencies": [
-        {
-            "name": "r",
-            "description": "R is 'GNU S', a freely available language and environment for\nstatistical computing and graphics which provides a wide variety of\nstatistical and graphical techniques: linear and nonlinear modelling,\nstatistical tests, time series analysis, classification, clustering,\netc. Please consult the R project homepage for further information."
-        },
-        {
-            "name": "r-ff",
-            "description": "Memory-Efficient Storage of Large Data on Disk and Fast Access\nFunctions. The ff package provides data structures that are stored on\ndisk but behave (almost) as if they were in RAM by transparently mapping\nonly a section (pagesize) in main memory - the effective virtual memory\nconsumption per ff object. ff supports R's standard atomic data types\n'double', 'logical', 'raw' and 'integer' and non-standard atomic types\nboolean (1 bit), quad (2 bit unsigned), nibble (4 bit unsigned), byte (1\nbyte signed with NAs), ubyte (1 byte unsigned), short (2 byte signed\nwith NAs), ushort (2 byte unsigned), single (4 byte float with NAs). For\nexample 'quad' allows efficient storage of genomic data as an\n'A','T','G','C' factor. The unsigned types support 'circular'\narithmetic. There is also support for close-to-atomic types 'factor',\n'ordered', 'POSIXct', 'Date' and custom close-to-atomic types. ff not\nonly has native C-support for vectors, matrices and arrays with flexible\ndimorder (major column-order, major row-order and generalizations for\narrays). There is also a ffdf class not unlike data.frames and\nimport/export filters for csv files. ff objects store raw data in binary\nflat files in native encoding, and complement this with metadata stored\nin R as physical and virtual attributes. ff objects have well-defined\nhybrid copying semantics, which gives rise to certain performance\nimprovements through virtualization. ff objects can be stored and\nreopened across R sessions. ff files can be shared by multiple ff R\nobjects (using different data en/de-coding schemes) in the same process\nor from multiple R processes to exploit parallelism. A wide choice of\nfinalizer options allows to work with 'permanent' files as well as\ncreating/removing 'temporary' ff files completely transparent to the\nuser. On certain OS/Filesystem combinations, creating the ff files works\nwithout notable delay thanks to using sparse file allocation. Several\naccess optimization techniques such as Hybrid Index Preprocessing and\nVirtualization are implemented to achieve good performance even with\nlarge datasets, for example virtual matrix transpose without touching a\nsingle byte on disk. Further, to reduce disk I/O, 'logicals' and non-\nstandard data types get stored native and compact on binary flat files\ni.e. logicals take up exactly 2 bits to represent TRUE, FALSE and NA.\nBeyond basic access functions, the ff package also provides\ncompatibility functions that facilitate writing code for ff and ram\nobjects and support for batch processing on ff objects (e.g. as.ram,\nas.ff, ffapply). ff interfaces closely with functionality from package\n'bit': chunked looping, fast bit operations and coercions between\ndifferent objects that can store subscript information ('bit',\n'bitwhich', ff 'boolean', ri range index, hi hybrid index). This allows\nto work interactively with selections of large datasets and quickly\nmodify selection criteria. Further high-performance enhancements can be\nmade available upon request.x"
-        },
-        {
-            "name": "zlib-api",
-            "description": "zlib replacement with optimizations for next generation systems."
-        }
-    ],
-    "dependent_to": []
+    ]
 }

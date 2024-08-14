@@ -1,226 +1,226 @@
 {
-    "name": "rocksdb",
     "aliases": [],
+    "build_system": "MakefilePackage",
+    "conflicts": [
+        {
+            "description": null,
+            "name": "arch=windows-None-None",
+            "spec": "build_system=makefile"
+        },
+        {
+            "description": "rocksdb: have to build one type of library",
+            "name": "~shared~static",
+            "spec": ""
+        }
+    ],
+    "dependencies": [
+        {
+            "description": "The GNU Project's Bourne Again SHell.",
+            "name": "bash"
+        },
+        {
+            "description": "bzip2 is a freely available, patent free high-quality data compressor.\nIt typically compresses files to within 10% to 15% of the best available\ntechniques (the PPM family of statistical compressors), whilst being\naround twice as fast at compression and six times faster at\ndecompression.",
+            "name": "bzip2"
+        },
+        {
+            "description": "The GNU Core Utilities are the basic file, shell and text manipulation\nutilities of the GNU operating system. These are the core utilities\nwhich are expected to exist on every operating system.",
+            "name": "coreutils"
+        },
+        {
+            "description": "The gflags package contains a C++ library that implements commandline\nflags processing. It includes built-in support for standard types such\nas string and the ability to define flags in the source file in which\nthey are used. Online documentation available at:\nhttps://gflags.github.io/gflags/",
+            "name": "gflags"
+        },
+        {
+            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files.",
+            "name": "gmake"
+        },
+        {
+            "description": "LZ4 is lossless compression algorithm, providing compression speed at\n400 MB/s per core, scalable with multi-cores CPU. It also features an\nextremely fast decoder, with speed in multiple GB/s per core, typically\nreaching RAM speed limits on multi-core systems.",
+            "name": "lz4"
+        },
+        {
+            "description": "Perl 5 is a highly capable, feature-rich programming language with over\n27 years of development.",
+            "name": "perl"
+        },
+        {
+            "description": "A fast compressor/decompressor: https://code.google.com/p/snappy",
+            "name": "snappy"
+        },
+        {
+            "description": "Widely used C++ template library for task parallelism. Intel Threading\nBuilding Blocks (Intel TBB) lets you easily write parallel C++ programs\nthat take full advantage of multicore performance, that are portable and\ncomposable, and that have future-proof scalability.",
+            "name": "tbb"
+        },
+        {
+            "description": "GNU which - is a utility that is used to find which executable (or alias\nor shell function) is executed when entered on the shell prompt.",
+            "name": "which"
+        },
+        {
+            "description": "zlib replacement with optimizations for next generation systems.",
+            "name": "zlib-api"
+        },
+        {
+            "description": "Zstandard, or zstd as short version, is a fast lossless compression\nalgorithm, targeting real-time compression scenarios at zlib-level and\nbetter compression ratios.",
+            "name": "zstd"
+        }
+    ],
+    "dependent_to": [
+        {
+            "description": "GoShimmer is a prototype node for exploring the implementation of IOTA\n2.0",
+            "name": "goshimmer"
+        },
+        {
+            "description": "JULEA is a flexible storage framework that allows offering arbitrary I/O\ninterfaces to applications. To be able to rapidly prototype new\napproaches, it offers object, key-value and database backends. Support\nfor popular storage technologies such as POSIX, LevelDB and MongoDB is\nalready included.",
+            "name": "julea"
+        }
+    ],
+    "description": "RocksDB: A Persistent Key-Value Store for Flash and RAM Storage\n",
+    "homepage": "https://github.com/facebook/rocksdb",
+    "latest_version": "9.4.0",
+    "maintainers": [],
+    "name": "rocksdb",
+    "patches": [
+        {
+            "level": 1,
+            "owner": "builtin.rocksdb",
+            "relative_path": "pkg-config.patch",
+            "reverse": false,
+            "sha256": "9a8833a09a0d6fb7b3fcf77e445b78ca86fb0a3638c1b9ef3716ff476eb6a82c",
+            "version": "@6.13.2:6.27.3",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.rocksdb",
+            "relative_path": "pkg-config-6.28.patch",
+            "reverse": false,
+            "sha256": "5a8ff49b70817270583d1950590c40e128ebf41a662c9d66dd8e9b8e428d35c9",
+            "version": "@6.28.2:",
+            "working_dir": "."
+        }
+    ],
+    "resources": [],
+    "variants": [
+        {
+            "default": "makefile",
+            "description": "Build systems supported by the package",
+            "name": "build_system"
+        },
+        {
+            "default": false,
+            "description": "Enable bz2 compression support",
+            "name": "bz2"
+        },
+        {
+            "default": true,
+            "description": "Enable lz4 compression support",
+            "name": "lz4"
+        },
+        {
+            "default": false,
+            "description": "Build with RTTI",
+            "name": "rtti"
+        },
+        {
+            "default": true,
+            "description": "Build shared library",
+            "name": "shared"
+        },
+        {
+            "default": false,
+            "description": "Enable snappy compression support",
+            "name": "snappy"
+        },
+        {
+            "default": true,
+            "description": "Build static library",
+            "name": "static"
+        },
+        {
+            "default": false,
+            "description": "Enable Intel TBB support",
+            "name": "tbb"
+        },
+        {
+            "default": false,
+            "description": "Build with -Werror",
+            "name": "werror"
+        },
+        {
+            "default": true,
+            "description": "Enable zlib compression support",
+            "name": "zlib"
+        },
+        {
+            "default": false,
+            "description": "Enable zstandard compression support",
+            "name": "zstd"
+        }
+    ],
     "versions": [
         {
-            "name": "master",
-            "git": "https://github.com/facebook/rocksdb.git",
-            "branch": "master"
-        },
-        {
-            "name": "9.4.0",
-            "sha256": "1f829976aa24b8ba432e156f52c9e0f0bd89c46dc0cc5a9a628ea70571c1551c"
-        },
-        {
-            "name": "9.2.1",
-            "sha256": "bb20fd9a07624e0dc1849a8e65833e5421960184f9c469d508b58ed8f40a780f"
-        },
-        {
-            "name": "8.6.7",
-            "sha256": "cdb2fc3c6a556f20591f564cb8e023e56828469aa3f76e1d9535c443ba1f0c1a"
-        },
-        {
-            "name": "8.1.1",
-            "sha256": "9102704e169cfb53e7724a30750eeeb3e71307663852f01fa08d5a320e6155a8"
-        },
-        {
-            "name": "7.7.3",
-            "sha256": "b8ac9784a342b2e314c821f6d701148912215666ac5e9bdbccd93cf3767cb611"
-        },
-        {
-            "name": "7.2.2",
-            "sha256": "c4ea6bd2e3ffe3f0f8921c699234d59108c9122d61b0ba2aa78358642a7b614e"
-        },
-        {
-            "name": "6.20.3",
-            "sha256": "c6502c7aae641b7e20fafa6c2b92273d935d2b7b2707135ebd9a67b092169dca"
-        },
-        {
-            "name": "6.19.3",
-            "sha256": "5c19ffefea2bbe4c275d0c60194220865f508f371c64f42e802b4a85f065af5b"
-        },
-        {
-            "name": "6.11.4",
-            "sha256": "6793ef000a933af4a834b59b0cd45d3a03a3aac452a68ae669fb916ddd270532"
-        },
-        {
-            "name": "6.7.3",
-            "sha256": "c4d1397b58e4801b5fd7c3dd9175e6ae84541119cbebb739fe17d998f1829e81"
-        },
-        {
-            "name": "6.5.3",
-            "sha256": "6dc023a11d61d00c8391bd44f26ba7db06c44be228c10b552edc84e02d7fbde2"
-        },
-        {
-            "name": "5.18.3",
-            "sha256": "7fb6738263d3f2b360d7468cf2ebe333f3109f3ba1ff80115abd145d75287254"
-        },
-        {
-            "name": "5.17.2",
-            "sha256": "101f05858650a810c90e4872338222a1a3bf3b24de7b7d74466814e6a95c2d28"
+            "name": "5.15.10",
+            "sha256": "26d5d4259fa352ae1604b5b4d275f947cacc006f4f7d2ef0b815056601b807c0"
         },
         {
             "name": "5.16.6",
             "sha256": "f0739edce1707568bdfb36a77638fd5bae287ca21763ce3e56cf0bfae8fff033"
         },
         {
-            "name": "5.15.10",
-            "sha256": "26d5d4259fa352ae1604b5b4d275f947cacc006f4f7d2ef0b815056601b807c0"
-        }
-    ],
-    "latest_version": "9.4.0",
-    "build_system": "MakefilePackage",
-    "conflicts": [
-        {
-            "name": "arch=windows-None-None",
-            "spec": "build_system=makefile",
-            "description": null
+            "name": "5.17.2",
+            "sha256": "101f05858650a810c90e4872338222a1a3bf3b24de7b7d74466814e6a95c2d28"
         },
         {
-            "name": "~shared~static",
-            "spec": "",
-            "description": "rocksdb: have to build one type of library"
-        }
-    ],
-    "variants": [
-        {
-            "name": "build_system",
-            "default": "makefile",
-            "description": "Build systems supported by the package"
+            "name": "5.18.3",
+            "sha256": "7fb6738263d3f2b360d7468cf2ebe333f3109f3ba1ff80115abd145d75287254"
         },
         {
-            "name": "bz2",
-            "default": false,
-            "description": "Enable bz2 compression support"
+            "name": "6.11.4",
+            "sha256": "6793ef000a933af4a834b59b0cd45d3a03a3aac452a68ae669fb916ddd270532"
         },
         {
-            "name": "lz4",
-            "default": true,
-            "description": "Enable lz4 compression support"
+            "name": "6.19.3",
+            "sha256": "5c19ffefea2bbe4c275d0c60194220865f508f371c64f42e802b4a85f065af5b"
         },
         {
-            "name": "shared",
-            "default": true,
-            "description": "Build shared library"
+            "name": "6.20.3",
+            "sha256": "c6502c7aae641b7e20fafa6c2b92273d935d2b7b2707135ebd9a67b092169dca"
         },
         {
-            "name": "snappy",
-            "default": false,
-            "description": "Enable snappy compression support"
+            "name": "6.5.3",
+            "sha256": "6dc023a11d61d00c8391bd44f26ba7db06c44be228c10b552edc84e02d7fbde2"
         },
         {
-            "name": "static",
-            "default": true,
-            "description": "Build static library"
+            "name": "6.7.3",
+            "sha256": "c4d1397b58e4801b5fd7c3dd9175e6ae84541119cbebb739fe17d998f1829e81"
         },
         {
-            "name": "zlib",
-            "default": true,
-            "description": "Enable zlib compression support"
+            "name": "7.2.2",
+            "sha256": "c4ea6bd2e3ffe3f0f8921c699234d59108c9122d61b0ba2aa78358642a7b614e"
         },
         {
-            "name": "zstd",
-            "default": false,
-            "description": "Enable zstandard compression support"
+            "name": "7.7.3",
+            "sha256": "b8ac9784a342b2e314c821f6d701148912215666ac5e9bdbccd93cf3767cb611"
         },
         {
-            "name": "tbb",
-            "default": false,
-            "description": "Enable Intel TBB support"
+            "name": "8.1.1",
+            "sha256": "9102704e169cfb53e7724a30750eeeb3e71307663852f01fa08d5a320e6155a8"
         },
         {
-            "name": "werror",
-            "default": false,
-            "description": "Build with -Werror"
+            "name": "8.6.7",
+            "sha256": "cdb2fc3c6a556f20591f564cb8e023e56828469aa3f76e1d9535c443ba1f0c1a"
         },
         {
-            "name": "rtti",
-            "default": false,
-            "description": "Build with RTTI"
-        }
-    ],
-    "homepage": "https://github.com/facebook/rocksdb",
-    "maintainers": [],
-    "patches": [
-        {
-            "owner": "builtin.rocksdb",
-            "sha256": "9a8833a09a0d6fb7b3fcf77e445b78ca86fb0a3638c1b9ef3716ff476eb6a82c",
-            "level": 1,
-            "working_dir": ".",
-            "reverse": false,
-            "relative_path": "pkg-config.patch",
-            "version": "@6.13.2:6.27.3"
+            "name": "9.2.1",
+            "sha256": "bb20fd9a07624e0dc1849a8e65833e5421960184f9c469d508b58ed8f40a780f"
         },
         {
-            "owner": "builtin.rocksdb",
-            "sha256": "5a8ff49b70817270583d1950590c40e128ebf41a662c9d66dd8e9b8e428d35c9",
-            "level": 1,
-            "working_dir": ".",
-            "reverse": false,
-            "relative_path": "pkg-config-6.28.patch",
-            "version": "@6.28.2:"
-        }
-    ],
-    "resources": [],
-    "description": "RocksDB: A Persistent Key-Value Store for Flash and RAM Storage\n",
-    "dependencies": [
-        {
-            "name": "bash",
-            "description": "The GNU Project's Bourne Again SHell."
+            "name": "9.4.0",
+            "sha256": "1f829976aa24b8ba432e156f52c9e0f0bd89c46dc0cc5a9a628ea70571c1551c"
         },
         {
-            "name": "bzip2",
-            "description": "bzip2 is a freely available, patent free high-quality data compressor.\nIt typically compresses files to within 10% to 15% of the best available\ntechniques (the PPM family of statistical compressors), whilst being\naround twice as fast at compression and six times faster at\ndecompression."
-        },
-        {
-            "name": "coreutils",
-            "description": "The GNU Core Utilities are the basic file, shell and text manipulation\nutilities of the GNU operating system. These are the core utilities\nwhich are expected to exist on every operating system."
-        },
-        {
-            "name": "gflags",
-            "description": "The gflags package contains a C++ library that implements commandline\nflags processing. It includes built-in support for standard types such\nas string and the ability to define flags in the source file in which\nthey are used. Online documentation available at:\nhttps://gflags.github.io/gflags/"
-        },
-        {
-            "name": "gmake",
-            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files."
-        },
-        {
-            "name": "lz4",
-            "description": "LZ4 is lossless compression algorithm, providing compression speed at\n400 MB/s per core, scalable with multi-cores CPU. It also features an\nextremely fast decoder, with speed in multiple GB/s per core, typically\nreaching RAM speed limits on multi-core systems."
-        },
-        {
-            "name": "perl",
-            "description": "Perl 5 is a highly capable, feature-rich programming language with over\n27 years of development."
-        },
-        {
-            "name": "snappy",
-            "description": "A fast compressor/decompressor: https://code.google.com/p/snappy"
-        },
-        {
-            "name": "tbb",
-            "description": "Intel oneAPI Threading Building Blocks (oneTBB) is a flexible\nperformance library that simplifies the work of adding parallelism to\ncomplex applications across accelerated architectures, even if you are\nnot a threading expert. LICENSE INFORMATION: By downloading and using\nthis software, you agree to the terms and conditions of the software\nlicense agreements at https://intel.ly/393CijO."
-        },
-        {
-            "name": "which",
-            "description": "GNU which - is a utility that is used to find which executable (or alias\nor shell function) is executed when entered on the shell prompt."
-        },
-        {
-            "name": "zlib-api",
-            "description": "zlib replacement with optimizations for next generation systems."
-        },
-        {
-            "name": "zstd",
-            "description": "Zstandard, or zstd as short version, is a fast lossless compression\nalgorithm, targeting real-time compression scenarios at zlib-level and\nbetter compression ratios."
-        }
-    ],
-    "dependent_to": [
-        {
-            "name": "goshimmer",
-            "description": "GoShimmer is a prototype node for exploring the implementation of IOTA\n2.0"
-        },
-        {
-            "name": "julea",
-            "description": "JULEA is a flexible storage framework that allows offering arbitrary I/O\ninterfaces to applications. To be able to rapidly prototype new\napproaches, it offers object, key-value and database backends. Support\nfor popular storage technologies such as POSIX, LevelDB and MongoDB is\nalready included."
+            "branch": "master",
+            "git": "https://github.com/facebook/rocksdb.git",
+            "name": "master"
         }
     ]
 }

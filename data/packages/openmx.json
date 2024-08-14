@@ -1,81 +1,81 @@
 {
-    "name": "openmx",
     "aliases": [],
-    "versions": [
-        {
-            "name": "3.9",
-            "sha256": "27bb56bd4d1582d33ad32108fb239b546bdd1bdffd6f5b739b4423da1ab93ae2"
-        },
-        {
-            "name": "3.8",
-            "sha256": "36ee10d8b1587b25a2ca1d57f110111be65c4fb4dc820e6d93e1ed2b562634a1"
-        }
-    ],
-    "latest_version": "3.9",
     "build_system": "MakefilePackage",
     "conflicts": [
         {
+            "description": null,
             "name": "arch=windows-None-None",
-            "spec": "build_system=makefile",
-            "description": null
+            "spec": "build_system=makefile"
         }
     ],
-    "variants": [
+    "dependencies": [
         {
-            "name": "build_system",
-            "default": "makefile",
-            "description": "Build systems supported by the package"
+            "description": "This is an earlier version of Intel parallel software development tools\nand has now been replaced by the Intel oneAPI Toolkits. LICENSE\nINFORMATION: By downloading and using this software, you agree to the\nterms and conditions of the software license agreements at\nhttps://intel.ly/393CijO.",
+            "name": "fftw-api"
+        },
+        {
+            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files.",
+            "name": "gmake"
+        },
+        {
+            "description": "IBM MPI implementation from Spectrum MPI.",
+            "name": "mpi"
+        },
+        {
+            "description": "ScaLAPACK is a library of high-performance linear algebra routines for\nparallel distributed memory machines",
+            "name": "scalapack"
+        },
+        {
+            "description": "A C/C++ header file that converts Intel SSE intrinsics to Arm/Aarch64\nNEON intrinsics.",
+            "name": "sse2neon"
         }
     ],
+    "dependent_to": [],
+    "description": "OpenMX (Open source package for Material eXplorer) is a software package\nfor nano-scale material simulations based on density functional theories\n(DFT), norm-conserving pseudopotentials, and pseudo-atomic localized\nbasis functions.\n",
     "homepage": "http://www.openmx-square.org/index.html",
+    "latest_version": "3.9",
     "maintainers": [],
+    "name": "openmx",
     "patches": [
         {
-            "owner": "builtin.openmx",
-            "sha256": "ab78ff757c28b184e61d337262921d3f8d7dffc952923196d0186c5c32454bde",
             "level": 1,
-            "working_dir": ".",
-            "reverse": false,
+            "owner": "builtin.openmx",
             "relative_path": "for_aarch64.patch",
-            "version": "@3.8 arch=None-None-aarch64:"
+            "reverse": false,
+            "sha256": "ab78ff757c28b184e61d337262921d3f8d7dffc952923196d0186c5c32454bde",
+            "version": "@3.8 arch=None-None-aarch64:",
+            "working_dir": "."
         }
     ],
     "resources": [
         {
-            "version": "@3.8",
-            "name": "patch",
             "destination": "",
-            "placement": "patch"
+            "name": "patch",
+            "placement": "patch",
+            "version": "@3.8"
         },
         {
-            "version": "@3.9",
-            "name": "patch",
             "destination": "",
-            "placement": "patch"
+            "name": "patch",
+            "placement": "patch",
+            "version": "@3.9"
         }
     ],
-    "description": "OpenMX (Open source package for Material eXplorer) is a software package\nfor nano-scale material simulations based on density functional theories\n(DFT), norm-conserving pseudopotentials, and pseudo-atomic localized\nbasis functions.\n",
-    "dependencies": [
+    "variants": [
         {
-            "name": "fftw-api",
-            "description": "Arm Performance Libraries provides optimized standard core math\nlibraries for high-performance computing applications on Arm processors."
-        },
-        {
-            "name": "gmake",
-            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files."
-        },
-        {
-            "name": "mpi",
-            "description": "A single processor implementation of the mpi library."
-        },
-        {
-            "name": "scalapack",
-            "description": "Intel Math Kernel Library. This package has been replaced by intel-\noneapi-mkl. LICENSE INFORMATION: By downloading and using this software,\nyou agree to the terms and conditions of the software license agreements\nat https://intel.ly/393CijO."
-        },
-        {
-            "name": "sse2neon",
-            "description": "A C/C++ header file that converts Intel SSE intrinsics to Arm/Aarch64\nNEON intrinsics."
+            "default": "makefile",
+            "description": "Build systems supported by the package",
+            "name": "build_system"
         }
     ],
-    "dependent_to": []
+    "versions": [
+        {
+            "name": "3.8",
+            "sha256": "36ee10d8b1587b25a2ca1d57f110111be65c4fb4dc820e6d93e1ed2b562634a1"
+        },
+        {
+            "name": "3.9",
+            "sha256": "27bb56bd4d1582d33ad32108fb239b546bdd1bdffd6f5b739b4423da1ab93ae2"
+        }
+    ]
 }

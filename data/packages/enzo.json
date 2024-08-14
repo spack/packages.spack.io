@@ -1,82 +1,82 @@
 {
-    "name": "enzo",
     "aliases": [],
-    "versions": [
-        {
-            "name": "main",
-            "branch": "main"
-        },
-        {
-            "name": "master",
-            "branch": "main"
-        },
-        {
-            "name": "2.6.1",
-            "sha256": "280270accfc1ddb60e92cc98ca538a3e5787e8cc93ed58fb5c3ab75db8c4b048"
-        }
-    ],
-    "latest_version": "2.6.1",
     "build_system": "MakefilePackage",
     "conflicts": [
         {
+            "description": null,
             "name": "arch=windows-None-None",
-            "spec": "build_system=makefile",
-            "description": null
+            "spec": "build_system=makefile"
         }
     ],
-    "variants": [
+    "dependencies": [
         {
-            "name": "build_system",
-            "default": "makefile",
-            "description": "Build systems supported by the package"
+            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files.",
+            "name": "gmake"
         },
         {
-            "name": "opt",
-            "default": "high",
-            "description": "Optimization, some compilers do not produce stable code with high+ optimizations"
+            "description": "HDF5 is a data model, library, and file format for storing and managing\ndata. It supports an unlimited variety of datatypes, and is designed for\nflexible and efficient I/O and for high volume and complex data.",
+            "name": "hdf5"
+        },
+        {
+            "description": "IBM MPI implementation from Spectrum MPI.",
+            "name": "mpi"
+        },
+        {
+            "description": "A C/C++ header file that converts Intel SSE intrinsics to Arm/Aarch64\nNEON intrinsics.",
+            "name": "sse2neon"
         }
     ],
+    "dependent_to": [],
+    "description": "The Enzo adaptive mesh-refinement simulation code.\n",
     "homepage": "https://enzo-project.org/",
+    "latest_version": "2.6.1",
     "maintainers": [],
+    "name": "enzo",
     "patches": [
         {
-            "owner": "builtin.enzo",
-            "sha256": "9da4af140e2befc770d3f5ff550593287bb3c52237175d75c7505f11e94eb477",
             "level": 1,
-            "working_dir": ".",
-            "reverse": false,
+            "owner": "builtin.enzo",
             "relative_path": "for_aarch64.patch",
-            "version": "arch=None-None-aarch64:"
+            "reverse": false,
+            "sha256": "9da4af140e2befc770d3f5ff550593287bb3c52237175d75c7505f11e94eb477",
+            "version": "arch=None-None-aarch64:",
+            "working_dir": "."
         },
         {
-            "owner": "builtin.enzo",
-            "sha256": "f6db2fef04d3ffe4f05ef589d0593b2ab7ab6d63088abf9b76c7bacf835625c0",
             "level": 1,
-            "working_dir": ".",
+            "owner": "builtin.enzo",
             "reverse": false,
+            "sha256": "f6db2fef04d3ffe4f05ef589d0593b2ab7ab6d63088abf9b76c7bacf835625c0",
             "url": "https://github.com/enzo-project/enzo-dev/commit/0191ff5ad9ad2c7639d44823e84cd0115e7a2970.patch?full_index=1",
-            "version": "@2.6.1 ^hdf5@1.12.0:"
+            "version": "@2.6.1 ^hdf5@1.12.0:",
+            "working_dir": "."
         }
     ],
     "resources": [],
-    "description": "The Enzo adaptive mesh-refinement simulation code.\n",
-    "dependencies": [
+    "variants": [
         {
-            "name": "gmake",
-            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files."
+            "default": "makefile",
+            "description": "Build systems supported by the package",
+            "name": "build_system"
         },
         {
-            "name": "hdf5",
-            "description": "HDF5 is a data model, library, and file format for storing and managing\ndata. It supports an unlimited variety of datatypes, and is designed for\nflexible and efficient I/O and for high volume and complex data."
-        },
-        {
-            "name": "mpi",
-            "description": "A single processor implementation of the mpi library."
-        },
-        {
-            "name": "sse2neon",
-            "description": "A C/C++ header file that converts Intel SSE intrinsics to Arm/Aarch64\nNEON intrinsics."
+            "default": "high",
+            "description": "Optimization, some compilers do not produce stable code with high+ optimizations",
+            "name": "opt"
         }
     ],
-    "dependent_to": []
+    "versions": [
+        {
+            "name": "2.6.1",
+            "sha256": "280270accfc1ddb60e92cc98ca538a3e5787e8cc93ed58fb5c3ab75db8c4b048"
+        },
+        {
+            "branch": "main",
+            "name": "main"
+        },
+        {
+            "branch": "main",
+            "name": "master"
+        }
+    ]
 }

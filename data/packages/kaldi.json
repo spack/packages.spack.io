@@ -1,123 +1,123 @@
 {
-    "name": "kaldi",
     "aliases": [],
-    "versions": [
-        {
-            "name": "master"
-        },
-        {
-            "name": "2021-11-16",
-            "commit": "6e03a3f5f99d6d8c22494d90b7e7f9ceb0117ac8"
-        },
-        {
-            "name": "2019-09-29",
-            "commit": "6ffde4b41c58de778245149690927d592cd5956a"
-        },
-        {
-            "name": "2019-07-29",
-            "commit": "7637de77e0a77bf280bef9bf484e4f37c4eb9475"
-        },
-        {
-            "name": "2018-07-11",
-            "commit": "6f2140b032b0108bc313eefdca65151289642773"
-        },
-        {
-            "name": "2015-10-07",
-            "commit": "c024e8aa0a727bf76c91a318f76a1f8b0b59249e"
-        }
-    ],
-    "latest_version": "2021-11-16",
     "build_system": "Package",
     "conflicts": [],
-    "variants": [
-        {
-            "name": "build_system",
-            "default": "generic",
-            "description": "Build systems supported by the package"
-        },
-        {
-            "name": "shared",
-            "default": true,
-            "description": "build shared libraries"
-        },
-        {
-            "name": "double",
-            "default": false,
-            "description": "build with double precision floats"
-        },
-        {
-            "name": "cuda",
-            "default": false,
-            "description": "build with CUDA"
-        }
-    ],
-    "homepage": "https://github.com/kaldi-asr/kaldi",
-    "maintainers": [],
-    "patches": [
-        {
-            "owner": "builtin.kaldi",
-            "sha256": "ad42de2a9d36ed692c9b984678ce2d640b44f786b938ba698a3ec921cb8b80fd",
-            "level": 1,
-            "working_dir": ".",
-            "reverse": false,
-            "relative_path": "openfst-1.4.1.patch",
-            "version": "@2015-10-07"
-        },
-        {
-            "owner": "builtin.kaldi",
-            "sha256": "457e30f730bf49fb62683ca4ce71e11e4218b44f04e5538103285c2b42e909a8",
-            "level": 1,
-            "working_dir": ".",
-            "reverse": false,
-            "relative_path": "0001_CMakeLists_txt.patch",
-            "version": "@11:+cuda"
-        },
-        {
-            "owner": "builtin.kaldi",
-            "sha256": "135e90c24dbc72a0479d5edde24e6600d021d300334e47f271794c0843c6b053",
-            "level": 1,
-            "working_dir": ".",
-            "reverse": false,
-            "relative_path": "fujitsu_fix_version_analysis.patch",
-            "version": "@2018-07-11:%fj"
-        }
-    ],
-    "resources": [],
-    "description": "Kaldi is a toolkit for speech recognition written in C++ and licensed\nunder the Apache License v2.0. Kaldi is intended for use by speech\nrecognition researchers.\n",
     "dependencies": [
         {
-            "name": "blas",
-            "description": "BLIS is a portable software framework for instantiating high-performance\nBLAS-like dense linear algebra libraries. The framework was designed to\nisolate essential kernels of computation that, when optimized,\nimmediately enable optimized implementations of most of its commonly\nused and computationally intensive operations. BLIS is written in ISO\nC99 and available under a new/modified/3-clause BSD license. While BLIS\nexports a new BLAS-like API, it also includes a BLAS compatibility layer\nwhich gives application developers access to BLIS implementations via\ntraditional BLAS routine calls. An object-based API unique to BLIS is\nalso available."
+            "description": "Lightweight but flexible shim designed to rectify the incompatibilities\nbetween the Accelerate/vecLib BLAS and LAPACK libraries shipped with\nmacOS and FORTRAN code compiled with modern compilers such as GNU\nFortran.",
+            "name": "blas"
         },
         {
-            "name": "cub",
-            "description": "CUB is a C++ header library of cooperative threadblock primitives and\nother utilities for CUDA kernel programming."
+            "description": "CUB is a C++ header library of cooperative threadblock primitives and\nother utilities for CUDA kernel programming.",
+            "name": "cub"
         },
         {
-            "name": "cuda",
-            "description": "CUDA is a parallel computing platform and programming model invented by\nNVIDIA. It enables dramatic increases in computing performance by\nharnessing the power of the graphics processing unit (GPU). Note: This\npackage does not currently install the drivers necessary to run CUDA.\nThese will need to be installed manually. See:\nhttps://docs.nvidia.com/cuda/ for details."
+            "description": "CUDA is a parallel computing platform and programming model invented by\nNVIDIA. It enables dramatic increases in computing performance by\nharnessing the power of the graphics processing unit (GPU). Note: This\npackage does not currently install the drivers necessary to run CUDA.\nThese will need to be installed manually. See:\nhttps://docs.nvidia.com/cuda/ for details.",
+            "name": "cuda"
         },
         {
-            "name": "openfst",
-            "description": "OpenFst is a library for constructing, combining, optimizing, and\nsearching weighted finite-state transducers (FSTs). Weighted finite-\nstate transducers are automata where each transition has an input label,\nan output label, and a weight."
+            "description": "OpenFst is a library for constructing, combining, optimizing, and\nsearching weighted finite-state transducers (FSTs). Weighted finite-\nstate transducers are automata where each transition has an input label,\nan output label, and a weight.",
+            "name": "openfst"
         },
         {
-            "name": "sctk",
-            "description": "The NIST Scoring Toolkit (SCTK) is a collection of software tools\ndesigned to score benchmark test evaluations of Automatic Speech\nRecognition (ASR) Systems. The toolkit is currently used by NIST,\nbenchmark test participants, and reserchers worldwide to as a common\nscoring engine."
+            "description": "The NIST Scoring Toolkit (SCTK) is a collection of software tools\ndesigned to score benchmark test evaluations of Automatic Speech\nRecognition (ASR) Systems. The toolkit is currently used by NIST,\nbenchmark test participants, and reserchers worldwide to as a common\nscoring engine.",
+            "name": "sctk"
         },
         {
-            "name": "speex",
-            "description": "Speex is an Open Source/Free Software patent-free audio compression\nformat designed for speech."
+            "description": "Speex is an Open Source/Free Software patent-free audio compression\nformat designed for speech.",
+            "name": "speex"
         },
         {
-            "name": "sph2pipe",
-            "description": "Sph2pipe is a portable tool for converting SPHERE files to other\nformats."
+            "description": "Sph2pipe is a portable tool for converting SPHERE files to other\nformats.",
+            "name": "sph2pipe"
         }
     ],
     "dependent_to": [
         {
-            "name": "cntk",
-            "description": "The Microsoft Cognitive Toolkit is a unified deep-learning toolkit that\ndescribes neural networks as a series of computational steps via a\ndirected graph."
+            "description": "The Microsoft Cognitive Toolkit is a unified deep-learning toolkit that\ndescribes neural networks as a series of computational steps via a\ndirected graph.",
+            "name": "cntk"
+        }
+    ],
+    "description": "Kaldi is a toolkit for speech recognition written in C++ and licensed\nunder the Apache License v2.0. Kaldi is intended for use by speech\nrecognition researchers.\n",
+    "homepage": "https://github.com/kaldi-asr/kaldi",
+    "latest_version": "2021-11-16",
+    "maintainers": [],
+    "name": "kaldi",
+    "patches": [
+        {
+            "level": 1,
+            "owner": "builtin.kaldi",
+            "relative_path": "openfst-1.4.1.patch",
+            "reverse": false,
+            "sha256": "ad42de2a9d36ed692c9b984678ce2d640b44f786b938ba698a3ec921cb8b80fd",
+            "version": "@2015-10-07",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.kaldi",
+            "relative_path": "0001_CMakeLists_txt.patch",
+            "reverse": false,
+            "sha256": "457e30f730bf49fb62683ca4ce71e11e4218b44f04e5538103285c2b42e909a8",
+            "version": "@11:+cuda",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.kaldi",
+            "relative_path": "fujitsu_fix_version_analysis.patch",
+            "reverse": false,
+            "sha256": "135e90c24dbc72a0479d5edde24e6600d021d300334e47f271794c0843c6b053",
+            "version": "@2018-07-11:%fj",
+            "working_dir": "."
+        }
+    ],
+    "resources": [],
+    "variants": [
+        {
+            "default": "generic",
+            "description": "Build systems supported by the package",
+            "name": "build_system"
+        },
+        {
+            "default": false,
+            "description": "build with CUDA",
+            "name": "cuda"
+        },
+        {
+            "default": false,
+            "description": "build with double precision floats",
+            "name": "double"
+        },
+        {
+            "default": true,
+            "description": "build shared libraries",
+            "name": "shared"
+        }
+    ],
+    "versions": [
+        {
+            "commit": "c024e8aa0a727bf76c91a318f76a1f8b0b59249e",
+            "name": "2015-10-07"
+        },
+        {
+            "commit": "6f2140b032b0108bc313eefdca65151289642773",
+            "name": "2018-07-11"
+        },
+        {
+            "commit": "7637de77e0a77bf280bef9bf484e4f37c4eb9475",
+            "name": "2019-07-29"
+        },
+        {
+            "commit": "6ffde4b41c58de778245149690927d592cd5956a",
+            "name": "2019-09-29"
+        },
+        {
+            "commit": "6e03a3f5f99d6d8c22494d90b7e7f9ceb0117ac8",
+            "name": "2021-11-16"
+        },
+        {
+            "name": "master"
         }
     ]
 }

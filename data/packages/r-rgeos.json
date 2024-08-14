@@ -1,77 +1,77 @@
 {
-    "name": "r-rgeos",
     "aliases": [],
+    "build_system": "RPackage",
+    "conflicts": [],
+    "dependencies": [
+        {
+            "description": "GEOS (Geometry Engine, Open Source). GEOS is a C/C++ library for\ncomputational geometry with a focus on algorithms used in geographic\ninformation systems (GIS) software. It implements the OGC Simple\nFeatures geometry model and provides all the spatial functions in that\nstandard as well as many others. GEOS is a core dependency of PostGIS,\nQGIS, GDAL, and Shapely.",
+            "name": "geos"
+        },
+        {
+            "description": "R is 'GNU S', a freely available language and environment for\nstatistical computing and graphics which provides a wide variety of\nstatistical and graphical techniques: linear and nonlinear modelling,\nstatistical tests, time series analysis, classification, clustering,\netc. Please consult the R project homepage for further information.",
+            "name": "r"
+        },
+        {
+            "description": "Classes and Methods for Spatial Data. Classes and methods for spatial\ndata; the classes document where the spatial location information\nresides, for 2D or 3D data. Utility functions are provided, e.g. for\nplotting data as maps, spatial selection, as well as methods for\nretrieving coordinates, for subsetting, print, summary, etc.",
+            "name": "r-sp"
+        }
+    ],
+    "dependent_to": [
+        {
+            "description": "A System of Plotting Optimized for Speed and Modularity. A high-level\nplotting system, built using 'grid' graphics, that is optimized for\nspeed and modularity. This has great utility for quick visualizations\nwhen testing code, with the key benefit that visualizations are updated\nindependently of one another.",
+            "name": "r-quickplot"
+        },
+        {
+            "description": "Data Structures for Single Cell Data. Defines S4 classes for single-cell\ngenomic data and associated information, such as dimensionality\nreduction embeddings, nearest-neighbor graphs, and spatially-resolved\ncoordinates. Provides data access methods and R-native hooks to ensure\nthe Seurat object is familiar to other R users. See Satija R, Farrell J,\nGennert D, et al (2015) <doi:10.1038/nbt.3192>, Macosko E, Basu A,\nSatija R, et al (2015) <doi:10.1016/j.cell.2015.05.002>, and Stuart T,\nButler A, et al (2019) <doi:10.1016/j.cell.2019.05.031> for more\ndetails.",
+            "name": "r-seuratobject"
+        },
+        {
+            "description": "Tools for Spatially Explicit Discrete Event Simulation (SpaDES) Models.\nProvides GIS and map utilities, plus additional modeling tools for\ndeveloping cellular automata, dynamic raster models, and agent based\nmodels in 'SpaDES'. Included are various methods for spatial spreading,\nspatial agents, GIS operations, random map generation, and others. See\n'?SpaDES.tools' for an categorized overview of these additional tools.",
+            "name": "r-spades-tools"
+        },
+        {
+            "description": "Spatial Analysis and Modelling Utilities. Utilities to support spatial\ndata manipulation, query, sampling and modelling. Functions include\nmodels for species population density, download utilities for climate\nand global deforestation spatial products, spatial smoothing,\nmultivariate separability, point process model for creating pseudo-\nabsences and sub-sampling, polygon and point-distance landscape metrics,\nauto-logistic model, sampling models, cluster optimization, statistical\nexploratory tools and raster-based metrics.",
+            "name": "r-spatialeco"
+        },
+        {
+            "description": "Load Census TIGER/Line Shapefiles. Download TIGER/Line shapefiles from\nthe United States Census Bureau and load into R as 'SpatialDataFrame' or\n'sf' objects.",
+            "name": "r-tigris"
+        }
+    ],
+    "description": "Interface to Geometry Engine - Open Source ('GEOS'). Interface to\nGeometry Engine - Open Source ('GEOS') using the C 'API' for topology\noperations on geometries. The 'GEOS' library is external to the package,\nand, when installing the package from source, must be correctly\ninstalled first. Windows and Mac Intel OS X binaries are provided on\n'CRAN'. ('rgeos' >= 0.5-1): Up to and including 'GEOS' 3.7.1,\ntopological operations succeeded with some invalid geometries for which\nthe same operations fail from and including 'GEOS' 3.7.2. The\n'checkValidity=' argument defaults and structure have been changed, from\ndefault FALSE to integer default '0L' for 'GEOS' < 3.7.2 (no check),\n'1L' 'GEOS' >= 3.7.2 (check and warn). A value of '2L' is also provided\nthat may be used, assigned globally using 'set_RGEOS_CheckValidity(2L)',\nor locally using the 'checkValidity=2L' argument, to attempt zero-width\nbuffer repair if invalid geometries are found. The previous default\n(FALSE, now '0L') is fastest and used for 'GEOS' < 3.7.2, but will not\nwarn users of possible problems before the failure of topological\noperations that previously succeeded. From 'GEOS' 3.8.0, repair of\ngeometries may also be attempted using 'gMakeValid()', which may,\nhowever, return a collection of geometries of different types.\n",
+    "homepage": "https://cloud.r-project.org/package=rgeos",
+    "latest_version": "0.6-2",
+    "maintainers": [],
+    "name": "r-rgeos",
+    "patches": [],
+    "resources": [],
+    "variants": [
+        {
+            "default": "generic",
+            "description": "Build systems supported by the package",
+            "name": "build_system"
+        }
+    ],
     "versions": [
         {
-            "name": "0.6-2",
-            "sha256": "2ee2bb8b0c20d7908ac55d4d1cf8292c624ab836e02599ce1871a249a59fe0af"
-        },
-        {
-            "name": "0.5-9",
-            "sha256": "ab90cbfe6a3680a9d2eed5e655064a075adc66788e304468969ab7cc2df0e3d4"
-        },
-        {
-            "name": "0.5-5",
-            "sha256": "4baa0dfe6ff76e87ddb67a030fc14fe963d28b518485a4d71058923b2606d420"
+            "name": "0.3-26",
+            "sha256": "98524a0b8113abe6c3d0ecc1f2f66e7ab6d40c783a76158cfc017e1ab1e3f433"
         },
         {
             "name": "0.5-1",
             "sha256": "8408973e7fe5648e39aa53f3d4bfe800638021a146a4e06f86496c0132e05488"
         },
         {
-            "name": "0.3-26",
-            "sha256": "98524a0b8113abe6c3d0ecc1f2f66e7ab6d40c783a76158cfc017e1ab1e3f433"
-        }
-    ],
-    "latest_version": "0.6-2",
-    "build_system": "RPackage",
-    "conflicts": [],
-    "variants": [
-        {
-            "name": "build_system",
-            "default": "generic",
-            "description": "Build systems supported by the package"
-        }
-    ],
-    "homepage": "https://cloud.r-project.org/package=rgeos",
-    "maintainers": [],
-    "patches": [],
-    "resources": [],
-    "description": "Interface to Geometry Engine - Open Source ('GEOS'). Interface to\nGeometry Engine - Open Source ('GEOS') using the C 'API' for topology\noperations on geometries. The 'GEOS' library is external to the package,\nand, when installing the package from source, must be correctly\ninstalled first. Windows and Mac Intel OS X binaries are provided on\n'CRAN'. ('rgeos' >= 0.5-1): Up to and including 'GEOS' 3.7.1,\ntopological operations succeeded with some invalid geometries for which\nthe same operations fail from and including 'GEOS' 3.7.2. The\n'checkValidity=' argument defaults and structure have been changed, from\ndefault FALSE to integer default '0L' for 'GEOS' < 3.7.2 (no check),\n'1L' 'GEOS' >= 3.7.2 (check and warn). A value of '2L' is also provided\nthat may be used, assigned globally using 'set_RGEOS_CheckValidity(2L)',\nor locally using the 'checkValidity=2L' argument, to attempt zero-width\nbuffer repair if invalid geometries are found. The previous default\n(FALSE, now '0L') is fastest and used for 'GEOS' < 3.7.2, but will not\nwarn users of possible problems before the failure of topological\noperations that previously succeeded. From 'GEOS' 3.8.0, repair of\ngeometries may also be attempted using 'gMakeValid()', which may,\nhowever, return a collection of geometries of different types.\n",
-    "dependencies": [
-        {
-            "name": "geos",
-            "description": "GEOS (Geometry Engine, Open Source). GEOS is a C/C++ library for\ncomputational geometry with a focus on algorithms used in geographic\ninformation systems (GIS) software. It implements the OGC Simple\nFeatures geometry model and provides all the spatial functions in that\nstandard as well as many others. GEOS is a core dependency of PostGIS,\nQGIS, GDAL, and Shapely."
+            "name": "0.5-5",
+            "sha256": "4baa0dfe6ff76e87ddb67a030fc14fe963d28b518485a4d71058923b2606d420"
         },
         {
-            "name": "r",
-            "description": "R is 'GNU S', a freely available language and environment for\nstatistical computing and graphics which provides a wide variety of\nstatistical and graphical techniques: linear and nonlinear modelling,\nstatistical tests, time series analysis, classification, clustering,\netc. Please consult the R project homepage for further information."
+            "name": "0.5-9",
+            "sha256": "ab90cbfe6a3680a9d2eed5e655064a075adc66788e304468969ab7cc2df0e3d4"
         },
         {
-            "name": "r-sp",
-            "description": "Classes and Methods for Spatial Data. Classes and methods for spatial\ndata; the classes document where the spatial location information\nresides, for 2D or 3D data. Utility functions are provided, e.g. for\nplotting data as maps, spatial selection, as well as methods for\nretrieving coordinates, for subsetting, print, summary, etc."
-        }
-    ],
-    "dependent_to": [
-        {
-            "name": "r-quickplot",
-            "description": "A System of Plotting Optimized for Speed and Modularity. A high-level\nplotting system, built using 'grid' graphics, that is optimized for\nspeed and modularity. This has great utility for quick visualizations\nwhen testing code, with the key benefit that visualizations are updated\nindependently of one another."
-        },
-        {
-            "name": "r-spatialeco",
-            "description": "Spatial Analysis and Modelling Utilities. Utilities to support spatial\ndata manipulation, query, sampling and modelling. Functions include\nmodels for species population density, download utilities for climate\nand global deforestation spatial products, spatial smoothing,\nmultivariate separability, point process model for creating pseudo-\nabsences and sub-sampling, polygon and point-distance landscape metrics,\nauto-logistic model, sampling models, cluster optimization, statistical\nexploratory tools and raster-based metrics."
-        },
-        {
-            "name": "r-spades-tools",
-            "description": "Tools for Spatially Explicit Discrete Event Simulation (SpaDES) Models.\nProvides GIS and map utilities, plus additional modeling tools for\ndeveloping cellular automata, dynamic raster models, and agent based\nmodels in 'SpaDES'. Included are various methods for spatial spreading,\nspatial agents, GIS operations, random map generation, and others. See\n'?SpaDES.tools' for an categorized overview of these additional tools."
-        },
-        {
-            "name": "r-tigris",
-            "description": "Load Census TIGER/Line Shapefiles. Download TIGER/Line shapefiles from\nthe United States Census Bureau and load into R as 'SpatialDataFrame' or\n'sf' objects."
-        },
-        {
-            "name": "r-seuratobject",
-            "description": "Data Structures for Single Cell Data. Defines S4 classes for single-cell\ngenomic data and associated information, such as dimensionality\nreduction embeddings, nearest-neighbor graphs, and spatially-resolved\ncoordinates. Provides data access methods and R-native hooks to ensure\nthe Seurat object is familiar to other R users. See Satija R, Farrell J,\nGennert D, et al (2015) <doi:10.1038/nbt.3192>, Macosko E, Basu A,\nSatija R, et al (2015) <doi:10.1016/j.cell.2015.05.002>, and Stuart T,\nButler A, et al (2019) <doi:10.1016/j.cell.2019.05.031> for more\ndetails."
+            "name": "0.6-2",
+            "sha256": "2ee2bb8b0c20d7908ac55d4d1cf8292c624ab836e02599ce1871a249a59fe0af"
         }
     ]
 }

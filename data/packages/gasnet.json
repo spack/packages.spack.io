@@ -1,50 +1,506 @@
 {
-    "name": "gasnet",
     "aliases": [],
+    "build_system": "Package",
+    "conflicts": [
+        {
+            "description": null,
+            "name": "%clang@7:",
+            "spec": "+cuda ^cuda@10.0.130~allow-unsupported-compilers arch=None-None-ppc64le:"
+        },
+        {
+            "description": null,
+            "name": "%clang@:3.7,6.1:",
+            "spec": "+cuda ^cuda@10.0.130~allow-unsupported-compilers arch=None-None-x86_64:"
+        },
+        {
+            "description": null,
+            "name": "%clang@:3.7,8.1:",
+            "spec": "+cuda ^cuda@10.1.105:10.1.243~allow-unsupported-compilers arch=None-None-x86_64:"
+        },
+        {
+            "description": null,
+            "name": "%pgi@:17,20:",
+            "spec": "+cuda ^cuda@10.1.105:10.2.89~allow-unsupported-compilers arch=None-None-x86_64:"
+        },
+        {
+            "description": null,
+            "name": "%clang@:3.7,7.1:",
+            "spec": "+cuda ^cuda@10.1.105~allow-unsupported-compilers arch=None-None-x86_64:"
+        },
+        {
+            "description": null,
+            "name": "%clang@:3.2,9:",
+            "spec": "+cuda ^cuda@10.2.89~allow-unsupported-compilers arch=None-None-x86_64:"
+        },
+        {
+            "description": null,
+            "name": "%pgi@:17,21:",
+            "spec": "+cuda ^cuda@11.0.2:11.1.0~allow-unsupported-compilers arch=None-None-x86_64:"
+        },
+        {
+            "description": null,
+            "name": "%clang@:5",
+            "spec": "+cuda ^cuda@11.0.2:~allow-unsupported-compilers arch=None-None-ppc64le:"
+        },
+        {
+            "description": null,
+            "name": "%clang@:5",
+            "spec": "+cuda ^cuda@11.0.2:~allow-unsupported-compilers arch=None-None-x86_64:"
+        },
+        {
+            "description": null,
+            "name": "arch=darwin-None-None",
+            "spec": "+cuda ^cuda@11.0.2:~allow-unsupported-compilers"
+        },
+        {
+            "description": null,
+            "name": "%gcc@:4",
+            "spec": "+cuda ^cuda@11.0:~allow-unsupported-compilers"
+        },
+        {
+            "description": null,
+            "name": "%gcc@:5",
+            "spec": "+cuda ^cuda@11.4:~allow-unsupported-compilers"
+        },
+        {
+            "description": null,
+            "name": "%clang@:6",
+            "spec": "+cuda ^cuda@12.2:~allow-unsupported-compilers"
+        },
+        {
+            "description": null,
+            "name": "%gcc@:7.2",
+            "spec": "+cuda ^cuda@12.4:~allow-unsupported-compilers"
+        },
+        {
+            "description": null,
+            "name": "arch=None-None-ppc64le",
+            "spec": "+cuda ^cuda@12.5:~allow-unsupported-compilers"
+        },
+        {
+            "description": null,
+            "name": "%intel@:12.0",
+            "spec": "+cuda ^cuda@5.5:~allow-unsupported-compilers"
+        },
+        {
+            "description": null,
+            "name": "%intel@:13.0",
+            "spec": "+cuda ^cuda@6.0:~allow-unsupported-compilers"
+        },
+        {
+            "description": null,
+            "name": "%intel@:13.2",
+            "spec": "+cuda ^cuda@6.5:~allow-unsupported-compilers"
+        },
+        {
+            "description": null,
+            "name": "%pgi@:15.3,15.5:",
+            "spec": "+cuda ^cuda@7.5~allow-unsupported-compilers arch=None-None-x86_64:"
+        },
+        {
+            "description": null,
+            "name": "%intel@:14.9",
+            "spec": "+cuda ^cuda@7:~allow-unsupported-compilers"
+        },
+        {
+            "description": null,
+            "name": "%clang@:3.7,4:",
+            "spec": "+cuda ^cuda@8.0:9.0~allow-unsupported-compilers arch=None-None-x86_64:"
+        },
+        {
+            "description": null,
+            "name": "%pgi@:16.3",
+            "spec": "+cuda ^cuda@8~allow-unsupported-compilers arch=None-None-x86_64:"
+        },
+        {
+            "description": null,
+            "name": "%pgi@:15,18:",
+            "spec": "+cuda ^cuda@9.0:9.1~allow-unsupported-compilers arch=None-None-x86_64:"
+        },
+        {
+            "description": null,
+            "name": "%clang@:3.7,4.1:",
+            "spec": "+cuda ^cuda@9.1~allow-unsupported-compilers arch=None-None-x86_64:"
+        },
+        {
+            "description": null,
+            "name": "%pgi@:16,19:",
+            "spec": "+cuda ^cuda@9.2.88:10.0~allow-unsupported-compilers arch=None-None-x86_64:"
+        },
+        {
+            "description": null,
+            "name": "%clang@:3.7,5.1:",
+            "spec": "+cuda ^cuda@9.2~allow-unsupported-compilers arch=None-None-x86_64:"
+        },
+        {
+            "description": null,
+            "name": "%xl@:12,14:15,17:",
+            "spec": "+cuda ^cuda@9.2~allow-unsupported-compilers"
+        },
+        {
+            "description": null,
+            "name": "%gcc@8:",
+            "spec": "+cuda ^cuda@:10.0.130~allow-unsupported-compilers arch=None-None-ppc64le:"
+        },
+        {
+            "description": null,
+            "name": "%gcc@8:",
+            "spec": "+cuda ^cuda@:10.0.130~allow-unsupported-compilers arch=None-None-x86_64:"
+        },
+        {
+            "description": null,
+            "name": "%intel@19.0:",
+            "spec": "+cuda ^cuda@:10.0~allow-unsupported-compilers"
+        },
+        {
+            "description": null,
+            "name": "%clang@7.1:",
+            "spec": "+cuda ^cuda@:10.1.105~allow-unsupported-compilers arch=None-None-ppc64le:"
+        },
+        {
+            "description": null,
+            "name": "%gcc@9:",
+            "spec": "+cuda ^cuda@:10.1.243~allow-unsupported-compilers arch=None-None-ppc64le:"
+        },
+        {
+            "description": null,
+            "name": "%intel@19.1:",
+            "spec": "+cuda ^cuda@:10.1~allow-unsupported-compilers"
+        },
+        {
+            "description": null,
+            "name": "%clang@8.1:",
+            "spec": "+cuda ^cuda@:10.2.89~allow-unsupported-compilers arch=None-None-ppc64le:"
+        },
+        {
+            "description": null,
+            "name": "%gcc@9:",
+            "spec": "+cuda ^cuda@:10.2.89~allow-unsupported-compilers arch=None-None-x86_64:"
+        },
+        {
+            "description": null,
+            "name": "%pgi@:17",
+            "spec": "+cuda ^cuda@:10~allow-unsupported-compilers arch=None-None-ppc64le:"
+        },
+        {
+            "description": null,
+            "name": "%clang@10:",
+            "spec": "+cuda ^cuda@:11.0.2~allow-unsupported-compilers arch=None-None-ppc64le:"
+        },
+        {
+            "description": null,
+            "name": "%clang@10:",
+            "spec": "+cuda ^cuda@:11.0.3~allow-unsupported-compilers arch=None-None-x86_64:"
+        },
+        {
+            "description": null,
+            "name": "%gcc@10:",
+            "spec": "+cuda ^cuda@:11.0~allow-unsupported-compilers"
+        },
+        {
+            "description": null,
+            "name": "%clang@11:",
+            "spec": "+cuda ^cuda@:11.1.0~allow-unsupported-compilers arch=None-None-ppc64le:"
+        },
+        {
+            "description": null,
+            "name": "%clang@11:",
+            "spec": "+cuda ^cuda@:11.1.0~allow-unsupported-compilers arch=None-None-x86_64:"
+        },
+        {
+            "description": null,
+            "name": "%intel@19.2:",
+            "spec": "+cuda ^cuda@:11.1.0~allow-unsupported-compilers"
+        },
+        {
+            "description": null,
+            "name": "%xl@:12,17:",
+            "spec": "+cuda ^cuda@:11.1.0~allow-unsupported-compilers"
+        },
+        {
+            "description": null,
+            "name": "%clang@12:",
+            "spec": "+cuda ^cuda@:11.4.0~allow-unsupported-compilers"
+        },
+        {
+            "description": null,
+            "name": "%gcc@10",
+            "spec": "+cuda ^cuda@:11.4.0~allow-unsupported-compilers"
+        },
+        {
+            "description": null,
+            "name": "%gcc@11:",
+            "spec": "+cuda ^cuda@:11.4.0~allow-unsupported-compilers"
+        },
+        {
+            "description": null,
+            "name": "%intel@2021:",
+            "spec": "+cuda ^cuda@:11.4.0~allow-unsupported-compilers"
+        },
+        {
+            "description": null,
+            "name": "%clang@13:",
+            "spec": "+cuda ^cuda@:11.5~allow-unsupported-compilers"
+        },
+        {
+            "description": null,
+            "name": "%gcc@11.2:",
+            "spec": "+cuda ^cuda@:11.5~allow-unsupported-compilers"
+        },
+        {
+            "description": null,
+            "name": "%clang@14:",
+            "spec": "+cuda ^cuda@:11.7~allow-unsupported-compilers"
+        },
+        {
+            "description": null,
+            "name": "%gcc@12:",
+            "spec": "+cuda ^cuda@:11.8~allow-unsupported-compilers"
+        },
+        {
+            "description": null,
+            "name": "%clang@15:",
+            "spec": "+cuda ^cuda@:12.0~allow-unsupported-compilers"
+        },
+        {
+            "description": null,
+            "name": "%clang@16:",
+            "spec": "+cuda ^cuda@:12.1~allow-unsupported-compilers"
+        },
+        {
+            "description": null,
+            "name": "%clang@17:",
+            "spec": "+cuda ^cuda@:12.3~allow-unsupported-compilers"
+        },
+        {
+            "description": null,
+            "name": "%gcc@13:",
+            "spec": "+cuda ^cuda@:12.3~allow-unsupported-compilers"
+        },
+        {
+            "description": null,
+            "name": "%clang@18:",
+            "spec": "+cuda ^cuda@:12.5~allow-unsupported-compilers"
+        },
+        {
+            "description": null,
+            "name": "%gcc@14:",
+            "spec": "+cuda ^cuda@:12.5~allow-unsupported-compilers"
+        },
+        {
+            "description": null,
+            "name": "%intel@:11.0",
+            "spec": "+cuda ^cuda@:3.1~allow-unsupported-compilers"
+        },
+        {
+            "description": null,
+            "name": "%pgi@:14.8",
+            "spec": "+cuda ^cuda@:7.0.27~allow-unsupported-compilers arch=None-None-x86_64:"
+        },
+        {
+            "description": null,
+            "name": "%clang@:3.4",
+            "spec": "+cuda ^cuda@:7.5~allow-unsupported-compilers arch=None-None-x86_64:"
+        },
+        {
+            "description": null,
+            "name": "%gcc@5:",
+            "spec": "+cuda ^cuda@:7.5~allow-unsupported-compilers arch=None-None-x86_64:"
+        },
+        {
+            "description": null,
+            "name": "%intel@16.0:",
+            "spec": "+cuda ^cuda@:8.0.43~allow-unsupported-compilers"
+        },
+        {
+            "description": null,
+            "name": "%intel@17.0:",
+            "spec": "+cuda ^cuda@:8.0.60~allow-unsupported-compilers"
+        },
+        {
+            "description": null,
+            "name": "%pgi",
+            "spec": "+cuda ^cuda@:8~allow-unsupported-compilers arch=None-None-ppc64le:"
+        },
+        {
+            "description": null,
+            "name": "%gcc@6:",
+            "spec": "+cuda ^cuda@:8~allow-unsupported-compilers arch=None-None-x86_64:"
+        },
+        {
+            "description": null,
+            "name": "%clang@4:",
+            "spec": "+cuda ^cuda@:9.0.176~allow-unsupported-compilers arch=None-None-ppc64le:"
+        },
+        {
+            "description": null,
+            "name": "%pgi@:16",
+            "spec": "+cuda ^cuda@:9.1.185~allow-unsupported-compilers arch=None-None-ppc64le:"
+        },
+        {
+            "description": null,
+            "name": "%clang@5:",
+            "spec": "+cuda ^cuda@:9.1~allow-unsupported-compilers arch=None-None-ppc64le:"
+        },
+        {
+            "description": null,
+            "name": "%gcc@7:",
+            "spec": "+cuda ^cuda@:9.1~allow-unsupported-compilers arch=None-None-x86_64:"
+        },
+        {
+            "description": null,
+            "name": "%xl@:12,14:",
+            "spec": "+cuda ^cuda@:9.1~allow-unsupported-compilers"
+        },
+        {
+            "description": null,
+            "name": "%clang@6:",
+            "spec": "+cuda ^cuda@:9.2~allow-unsupported-compilers arch=None-None-ppc64le:"
+        },
+        {
+            "description": null,
+            "name": "%intel@18.0:",
+            "spec": "+cuda ^cuda@:9.9~allow-unsupported-compilers"
+        },
+        {
+            "description": null,
+            "name": "%gcc@6:",
+            "spec": "+cuda ^cuda@:9~allow-unsupported-compilers arch=None-None-ppc64le:"
+        },
+        {
+            "description": null,
+            "name": "^hip@:4.4.0",
+            "spec": "+rocm"
+        },
+        {
+            "description": null,
+            "name": "amdgpu_target=none",
+            "spec": "+rocm"
+        },
+        {
+            "description": "gasnet: GASNet version 2020.11.0 or newer required for CUDA support",
+            "name": "+cuda",
+            "spec": "@:2020.10"
+        },
+        {
+            "description": "gasnet: GASNet version 2021.9.0 or newer required for ROCm support",
+            "name": "+rocm",
+            "spec": "@:2021.8"
+        },
+        {
+            "description": null,
+            "name": "^hip@6:",
+            "spec": "@:2024.4+rocm"
+        }
+    ],
+    "dependencies": [
+        {
+            "description": "Autoconf -- system configuration part of autotools",
+            "name": "autoconf"
+        },
+        {
+            "description": "Automake -- make file builder part of autotools",
+            "name": "automake"
+        },
+        {
+            "description": "CUDA is a parallel computing platform and programming model invented by\nNVIDIA. It enables dramatic increases in computing performance by\nharnessing the power of the graphics processing unit (GPU). Note: This\npackage does not currently install the drivers necessary to run CUDA.\nThese will need to be installed manually. See:\nhttps://docs.nvidia.com/cuda/ for details.",
+            "name": "cuda"
+        },
+        {
+            "description": "HIP is a C++ Runtime API and Kernel Language that allows developers to\ncreate portable applications for AMD and NVIDIA GPUs from single source\ncode.",
+            "name": "hip"
+        },
+        {
+            "description": "This repository includes the user mode API nterfaces and libraries\nnecessary for host applications to launch computer kernels to available\nHSA ROCm kernel agents.AMD Heterogeneous System Architecture HSA - Linux\nHSA Runtime for Boltzmann (ROCm) platforms.",
+            "name": "hsa-rocr-dev"
+        },
+        {
+            "description": "The Open Fabrics Interfaces (OFI) is a framework focused on exporting\nfabric communication services to applications.",
+            "name": "libfabric"
+        },
+        {
+            "description": "Toolkit for the construction of highly optimized compilers, optimizers,\nand run-time environments.",
+            "name": "llvm-amdgpu"
+        },
+        {
+            "description": "IBM MPI implementation from Spectrum MPI.",
+            "name": "mpi"
+        },
+        {
+            "description": "oneAPI Level Zero Loader. Applications that need low-level control of a\noneAPI level zero device link against the loader. The loader depends on\na separately installed level zero driver. See https://dgpu-\ndocs.intel.com/technologies/level-zero.html for information on how to\ninstall the driver.",
+            "name": "oneapi-level-zero"
+        }
+    ],
+    "dependent_to": [
+        {
+            "description": "Chapel is a modern programming language that is parallel, productive,\nportable, scalable and open-source. The Chapel package comes with many\noptions in the form of variants, most of which can be left unset to\nallow Chapel's built-in scripts to determine the proper values based on\nthe environment.",
+            "name": "chapel"
+        },
+        {
+            "description": "A portable profiling and tracing toolkit for performance analysis of\nparallel programs written in Fortran, C, C++, UPC, Java, Python.",
+            "name": "tau"
+        },
+        {
+            "description": "UPC++ is a C++ library that supports Partitioned Global Address Space\n(PGAS) programming, and is designed to interoperate smoothly and\nefficiently with MPI, OpenMP, CUDA, ROCm/HIP and AMTs. It leverages\nGASNet-EX to deliver low-overhead, fine-grained communication, including\nRemote Memory Access (RMA) and Remote Procedure Call (RPC).",
+            "name": "upcxx"
+        }
+    ],
+    "description": "GASNet is a language-independent, networking middleware layer that\nprovides network-independent, high-performance communication primitives\nincluding Remote Memory Access (RMA) and Active Messages (AM). It has\nbeen used to implement parallel programming models and libraries such as\nUPC, UPC++, Co-Array Fortran, Legion, Chapel, and many others. The\ninterface is primarily intended as a compilation target and for use by\nruntime library writers (as opposed to end users), and the primary goals\nare high performance, interface portability, and expressiveness.\n***NOTICE***: The GASNet library built by this Spack package is ONLY\nintended for unit-testing purposes, and is generally UNSUITABLE FOR\nPRODUCTION USE. The RECOMMENDED way to build GASNet is as an embedded\nlibrary as configured by the higher-level client runtime package (UPC++,\nLegion, etc), including system-specific configuration.\n",
+    "homepage": "https://gasnet.lbl.gov",
+    "latest_version": "2024.5.0",
+    "maintainers": [
+        "PHHargrove",
+        "bonachea"
+    ],
+    "name": "gasnet",
+    "patches": [],
+    "resources": [],
+    "variants": [
+        {
+            "default": "none",
+            "description": "AMD GPU architecture",
+            "name": "amdgpu_target"
+        },
+        {
+            "default": "generic",
+            "description": "Build systems supported by the package",
+            "name": "build_system"
+        },
+        {
+            "default": "smp",
+            "description": "The hardware-dependent network backends to enable.\n(smp) = SMP conduit for single-node operation\n(ibv) = Native InfiniBand verbs conduit\n(ofi) = OFI conduit over libfabric, for HPE Cray Slingshot and Intel Omni-Path\n(udp) = Portable UDP conduit, for Ethernet networks\n(mpi) = Low-performance/portable MPI conduit\n(ucx) = EXPERIMENTAL UCX conduit for Mellanox IB/RoCE ConnectX-5+\nFor detailed recommendations, consult https://gasnet.lbl.gov",
+            "name": "conduits"
+        },
+        {
+            "default": false,
+            "description": "Enables support for the CUDA memory kind in some conduits.\nNOTE: Requires CUDA Driver library be present on the build system",
+            "name": "cuda"
+        },
+        {
+            "default": "none",
+            "description": "CUDA architecture",
+            "name": "cuda_arch"
+        },
+        {
+            "default": false,
+            "description": "Enable library debugging mode",
+            "name": "debug"
+        },
+        {
+            "default": false,
+            "description": "Enables *experimental* support for the Level Zero memory kind on Intel GPUs in some conduits",
+            "name": "level_zero"
+        },
+        {
+            "default": false,
+            "description": "Enables support for the ROCm/HIP memory kind in some conduits",
+            "name": "rocm"
+        }
+    ],
     "versions": [
         {
-            "name": "develop",
-            "branch": "develop"
-        },
-        {
-            "name": "main",
-            "branch": "stable"
-        },
-        {
-            "name": "master",
-            "branch": "master"
-        },
-        {
-            "name": "2024.5.0",
-            "sha256": "f945e80f71d340664766b66290496d230e021df5e5cd88f404d101258446daa9"
-        },
-        {
-            "name": "2023.9.0",
-            "sha256": "2d9f15a794e10683579ce494cd458b0dd97e2d3327c4d17e1fea79bd95576ce6"
-        },
-        {
-            "name": "2023.3.0",
-            "sha256": "e1fa783d38a503cf2efa7662be591ca5c2bb98d19ac72a9bc6da457329a9a14f"
-        },
-        {
-            "name": "2022.9.2",
-            "sha256": "2352d52f395a9aa14cc57d82957d9f1ebd928d0a0021fd26c5f1382a06cd6f1d"
-        },
-        {
-            "name": "2022.9.0",
-            "sha256": "6873ff4ad8ebee49da4378f2d78095a6ccc31333d6ae4cd739b9f772af11f936"
-        },
-        {
-            "name": "2022.3.0",
-            "sha256": "91b59aa84c0680c807e00d3d1d8fa7c33c1aed50b86d1616f93e499620a9ba09"
-        },
-        {
-            "name": "2021.9.0",
-            "sha256": "1b6ff6cdad5ecf76b92032ef9507e8a0876c9fc3ee0ab008de847c1fad0359ee"
-        },
-        {
-            "name": "2021.3.0",
-            "sha256": "8a40fb3fa8bacc3922cd4d45217816fcb60100357ab97fb622a245567ea31747"
+            "name": "2019.9.0",
+            "sha256": "117f5fdb16e53d0fa8a47a1e28cccab1d8020ed4f6e50163d985dc90226aaa2c"
         },
         {
             "name": "2020.10.0",
@@ -55,504 +511,48 @@
             "sha256": "019eb2d2284856e6fabe6c8c0061c874f10e95fa0265245f227fd3497f1bb274"
         },
         {
-            "name": "2019.9.0",
-            "sha256": "117f5fdb16e53d0fa8a47a1e28cccab1d8020ed4f6e50163d985dc90226aaa2c"
-        }
-    ],
-    "latest_version": "2024.5.0",
-    "build_system": "Package",
-    "conflicts": [
-        {
-            "name": "amdgpu_target=none",
-            "spec": "+rocm",
-            "description": null
-        },
-        {
-            "name": "^hip@:4.4.0",
-            "spec": "+rocm",
-            "description": null
-        },
-        {
-            "name": "%gcc@:4",
-            "spec": "+cuda ^cuda@11.0:~allow-unsupported-compilers",
-            "description": null
-        },
-        {
-            "name": "%gcc@:5",
-            "spec": "+cuda ^cuda@11.4:~allow-unsupported-compilers",
-            "description": null
-        },
-        {
-            "name": "%gcc@:7.2",
-            "spec": "+cuda ^cuda@12.4:~allow-unsupported-compilers",
-            "description": null
-        },
-        {
-            "name": "%clang@:6",
-            "spec": "+cuda ^cuda@12.2:~allow-unsupported-compilers",
-            "description": null
-        },
-        {
-            "name": "%gcc@10:",
-            "spec": "+cuda ^cuda@:11.0~allow-unsupported-compilers",
-            "description": null
-        },
-        {
-            "name": "%gcc@11:",
-            "spec": "+cuda ^cuda@:11.4.0~allow-unsupported-compilers",
-            "description": null
-        },
-        {
-            "name": "%clang@12:",
-            "spec": "+cuda ^cuda@:11.4.0~allow-unsupported-compilers",
-            "description": null
-        },
-        {
-            "name": "%gcc@10",
-            "spec": "+cuda ^cuda@:11.4.0~allow-unsupported-compilers",
-            "description": null
-        },
-        {
-            "name": "%intel@2021:",
-            "spec": "+cuda ^cuda@:11.4.0~allow-unsupported-compilers",
-            "description": null
-        },
-        {
-            "name": "%gcc@11.2:",
-            "spec": "+cuda ^cuda@:11.5~allow-unsupported-compilers",
-            "description": null
-        },
-        {
-            "name": "%clang@13:",
-            "spec": "+cuda ^cuda@:11.5~allow-unsupported-compilers",
-            "description": null
-        },
-        {
-            "name": "%gcc@12:",
-            "spec": "+cuda ^cuda@:11.8~allow-unsupported-compilers",
-            "description": null
-        },
-        {
-            "name": "%gcc@13:",
-            "spec": "+cuda ^cuda@:12.3~allow-unsupported-compilers",
-            "description": null
-        },
-        {
-            "name": "%clang@17:",
-            "spec": "+cuda ^cuda@:12.3~allow-unsupported-compilers",
-            "description": null
-        },
-        {
-            "name": "%gcc@14:",
-            "spec": "+cuda ^cuda@:12.5~allow-unsupported-compilers",
-            "description": null
-        },
-        {
-            "name": "%clang@18:",
-            "spec": "+cuda ^cuda@:12.5~allow-unsupported-compilers",
-            "description": null
-        },
-        {
-            "name": "%clang@14:",
-            "spec": "+cuda ^cuda@:11.7~allow-unsupported-compilers",
-            "description": null
-        },
-        {
-            "name": "%clang@15:",
-            "spec": "+cuda ^cuda@:12.0~allow-unsupported-compilers",
-            "description": null
-        },
-        {
-            "name": "%clang@16:",
-            "spec": "+cuda ^cuda@:12.1~allow-unsupported-compilers",
-            "description": null
-        },
-        {
-            "name": "%gcc@5:",
-            "spec": "+cuda ^cuda@:7.5~allow-unsupported-compilers arch=None-None-x86_64:",
-            "description": null
-        },
-        {
-            "name": "%clang@:3.4",
-            "spec": "+cuda ^cuda@:7.5~allow-unsupported-compilers arch=None-None-x86_64:",
-            "description": null
-        },
-        {
-            "name": "%gcc@6:",
-            "spec": "+cuda ^cuda@:8~allow-unsupported-compilers arch=None-None-x86_64:",
-            "description": null
-        },
-        {
-            "name": "%gcc@7:",
-            "spec": "+cuda ^cuda@:9.1~allow-unsupported-compilers arch=None-None-x86_64:",
-            "description": null
-        },
-        {
-            "name": "%gcc@8:",
-            "spec": "+cuda ^cuda@:10.0.130~allow-unsupported-compilers arch=None-None-x86_64:",
-            "description": null
-        },
-        {
-            "name": "%gcc@9:",
-            "spec": "+cuda ^cuda@:10.2.89~allow-unsupported-compilers arch=None-None-x86_64:",
-            "description": null
-        },
-        {
-            "name": "%pgi@:14.8",
-            "spec": "+cuda ^cuda@:7.0.27~allow-unsupported-compilers arch=None-None-x86_64:",
-            "description": null
-        },
-        {
-            "name": "%pgi@:15.3,15.5:",
-            "spec": "+cuda ^cuda@7.5~allow-unsupported-compilers arch=None-None-x86_64:",
-            "description": null
-        },
-        {
-            "name": "%pgi@:16.3",
-            "spec": "+cuda ^cuda@8~allow-unsupported-compilers arch=None-None-x86_64:",
-            "description": null
-        },
-        {
-            "name": "%pgi@:15,18:",
-            "spec": "+cuda ^cuda@9.0:9.1~allow-unsupported-compilers arch=None-None-x86_64:",
-            "description": null
-        },
-        {
-            "name": "%pgi@:16,19:",
-            "spec": "+cuda ^cuda@9.2.88:10.0~allow-unsupported-compilers arch=None-None-x86_64:",
-            "description": null
-        },
-        {
-            "name": "%pgi@:17,20:",
-            "spec": "+cuda ^cuda@10.1.105:10.2.89~allow-unsupported-compilers arch=None-None-x86_64:",
-            "description": null
-        },
-        {
-            "name": "%pgi@:17,21:",
-            "spec": "+cuda ^cuda@11.0.2:11.1.0~allow-unsupported-compilers arch=None-None-x86_64:",
-            "description": null
-        },
-        {
-            "name": "%clang@:3.7,4:",
-            "spec": "+cuda ^cuda@8.0:9.0~allow-unsupported-compilers arch=None-None-x86_64:",
-            "description": null
-        },
-        {
-            "name": "%clang@:3.7,4.1:",
-            "spec": "+cuda ^cuda@9.1~allow-unsupported-compilers arch=None-None-x86_64:",
-            "description": null
-        },
-        {
-            "name": "%clang@:3.7,5.1:",
-            "spec": "+cuda ^cuda@9.2~allow-unsupported-compilers arch=None-None-x86_64:",
-            "description": null
-        },
-        {
-            "name": "%clang@:3.7,6.1:",
-            "spec": "+cuda ^cuda@10.0.130~allow-unsupported-compilers arch=None-None-x86_64:",
-            "description": null
-        },
-        {
-            "name": "%clang@:3.7,7.1:",
-            "spec": "+cuda ^cuda@10.1.105~allow-unsupported-compilers arch=None-None-x86_64:",
-            "description": null
-        },
-        {
-            "name": "%clang@:3.7,8.1:",
-            "spec": "+cuda ^cuda@10.1.105:10.1.243~allow-unsupported-compilers arch=None-None-x86_64:",
-            "description": null
-        },
-        {
-            "name": "%clang@:3.2,9:",
-            "spec": "+cuda ^cuda@10.2.89~allow-unsupported-compilers arch=None-None-x86_64:",
-            "description": null
-        },
-        {
-            "name": "%clang@:5",
-            "spec": "+cuda ^cuda@11.0.2:~allow-unsupported-compilers arch=None-None-x86_64:",
-            "description": null
-        },
-        {
-            "name": "%clang@10:",
-            "spec": "+cuda ^cuda@:11.0.3~allow-unsupported-compilers arch=None-None-x86_64:",
-            "description": null
-        },
-        {
-            "name": "%clang@11:",
-            "spec": "+cuda ^cuda@:11.1.0~allow-unsupported-compilers arch=None-None-x86_64:",
-            "description": null
-        },
-        {
-            "name": "%gcc@6:",
-            "spec": "+cuda ^cuda@:9~allow-unsupported-compilers arch=None-None-ppc64le:",
-            "description": null
-        },
-        {
-            "name": "%gcc@8:",
-            "spec": "+cuda ^cuda@:10.0.130~allow-unsupported-compilers arch=None-None-ppc64le:",
-            "description": null
-        },
-        {
-            "name": "%gcc@9:",
-            "spec": "+cuda ^cuda@:10.1.243~allow-unsupported-compilers arch=None-None-ppc64le:",
-            "description": null
-        },
-        {
-            "name": "%pgi",
-            "spec": "+cuda ^cuda@:8~allow-unsupported-compilers arch=None-None-ppc64le:",
-            "description": null
-        },
-        {
-            "name": "%pgi@:16",
-            "spec": "+cuda ^cuda@:9.1.185~allow-unsupported-compilers arch=None-None-ppc64le:",
-            "description": null
-        },
-        {
-            "name": "%pgi@:17",
-            "spec": "+cuda ^cuda@:10~allow-unsupported-compilers arch=None-None-ppc64le:",
-            "description": null
-        },
-        {
-            "name": "%clang@4:",
-            "spec": "+cuda ^cuda@:9.0.176~allow-unsupported-compilers arch=None-None-ppc64le:",
-            "description": null
-        },
-        {
-            "name": "%clang@5:",
-            "spec": "+cuda ^cuda@:9.1~allow-unsupported-compilers arch=None-None-ppc64le:",
-            "description": null
-        },
-        {
-            "name": "%clang@6:",
-            "spec": "+cuda ^cuda@:9.2~allow-unsupported-compilers arch=None-None-ppc64le:",
-            "description": null
-        },
-        {
-            "name": "%clang@7:",
-            "spec": "+cuda ^cuda@10.0.130~allow-unsupported-compilers arch=None-None-ppc64le:",
-            "description": null
-        },
-        {
-            "name": "%clang@7.1:",
-            "spec": "+cuda ^cuda@:10.1.105~allow-unsupported-compilers arch=None-None-ppc64le:",
-            "description": null
-        },
-        {
-            "name": "%clang@8.1:",
-            "spec": "+cuda ^cuda@:10.2.89~allow-unsupported-compilers arch=None-None-ppc64le:",
-            "description": null
-        },
-        {
-            "name": "%clang@:5",
-            "spec": "+cuda ^cuda@11.0.2:~allow-unsupported-compilers arch=None-None-ppc64le:",
-            "description": null
-        },
-        {
-            "name": "%clang@10:",
-            "spec": "+cuda ^cuda@:11.0.2~allow-unsupported-compilers arch=None-None-ppc64le:",
-            "description": null
-        },
-        {
-            "name": "%clang@11:",
-            "spec": "+cuda ^cuda@:11.1.0~allow-unsupported-compilers arch=None-None-ppc64le:",
-            "description": null
-        },
-        {
-            "name": "%intel@:11.0",
-            "spec": "+cuda ^cuda@:3.1~allow-unsupported-compilers",
-            "description": null
-        },
-        {
-            "name": "%intel@:12.0",
-            "spec": "+cuda ^cuda@5.5:~allow-unsupported-compilers",
-            "description": null
-        },
-        {
-            "name": "%intel@:13.0",
-            "spec": "+cuda ^cuda@6.0:~allow-unsupported-compilers",
-            "description": null
-        },
-        {
-            "name": "%intel@:13.2",
-            "spec": "+cuda ^cuda@6.5:~allow-unsupported-compilers",
-            "description": null
-        },
-        {
-            "name": "%intel@:14.9",
-            "spec": "+cuda ^cuda@7:~allow-unsupported-compilers",
-            "description": null
-        },
-        {
-            "name": "%intel@16.0:",
-            "spec": "+cuda ^cuda@:8.0.43~allow-unsupported-compilers",
-            "description": null
+            "name": "2021.3.0",
+            "sha256": "8a40fb3fa8bacc3922cd4d45217816fcb60100357ab97fb622a245567ea31747"
         },
         {
-            "name": "%intel@17.0:",
-            "spec": "+cuda ^cuda@:8.0.60~allow-unsupported-compilers",
-            "description": null
+            "name": "2021.9.0",
+            "sha256": "1b6ff6cdad5ecf76b92032ef9507e8a0876c9fc3ee0ab008de847c1fad0359ee"
         },
         {
-            "name": "%intel@18.0:",
-            "spec": "+cuda ^cuda@:9.9~allow-unsupported-compilers",
-            "description": null
+            "name": "2022.3.0",
+            "sha256": "91b59aa84c0680c807e00d3d1d8fa7c33c1aed50b86d1616f93e499620a9ba09"
         },
         {
-            "name": "%intel@19.0:",
-            "spec": "+cuda ^cuda@:10.0~allow-unsupported-compilers",
-            "description": null
+            "name": "2022.9.0",
+            "sha256": "6873ff4ad8ebee49da4378f2d78095a6ccc31333d6ae4cd739b9f772af11f936"
         },
         {
-            "name": "%intel@19.1:",
-            "spec": "+cuda ^cuda@:10.1~allow-unsupported-compilers",
-            "description": null
+            "name": "2022.9.2",
+            "sha256": "2352d52f395a9aa14cc57d82957d9f1ebd928d0a0021fd26c5f1382a06cd6f1d"
         },
         {
-            "name": "%intel@19.2:",
-            "spec": "+cuda ^cuda@:11.1.0~allow-unsupported-compilers",
-            "description": null
+            "name": "2023.3.0",
+            "sha256": "e1fa783d38a503cf2efa7662be591ca5c2bb98d19ac72a9bc6da457329a9a14f"
         },
         {
-            "name": "%xl@:12,17:",
-            "spec": "+cuda ^cuda@:11.1.0~allow-unsupported-compilers",
-            "description": null
+            "name": "2023.9.0",
+            "sha256": "2d9f15a794e10683579ce494cd458b0dd97e2d3327c4d17e1fea79bd95576ce6"
         },
         {
-            "name": "%xl@:12,14:",
-            "spec": "+cuda ^cuda@:9.1~allow-unsupported-compilers",
-            "description": null
+            "name": "2024.5.0",
+            "sha256": "f945e80f71d340664766b66290496d230e021df5e5cd88f404d101258446daa9"
         },
-        {
-            "name": "%xl@:12,14:15,17:",
-            "spec": "+cuda ^cuda@9.2~allow-unsupported-compilers",
-            "description": null
-        },
-        {
-            "name": "arch=None-None-ppc64le",
-            "spec": "+cuda ^cuda@12.5:~allow-unsupported-compilers",
-            "description": null
-        },
-        {
-            "name": "arch=darwin-None-None",
-            "spec": "+cuda ^cuda@11.0.2:~allow-unsupported-compilers",
-            "description": null
-        },
-        {
-            "name": "+cuda",
-            "spec": "@:2020.10",
-            "description": "gasnet: GASNet version 2020.11.0 or newer required for CUDA support"
-        },
-        {
-            "name": "+rocm",
-            "spec": "@:2021.8",
-            "description": "gasnet: GASNet version 2021.9.0 or newer required for ROCm support"
-        },
-        {
-            "name": "^hip@6:",
-            "spec": "@:2024.4+rocm",
-            "description": null
-        }
-    ],
-    "variants": [
-        {
-            "name": "rocm",
-            "default": false,
-            "description": "Enables support for the ROCm/HIP memory kind in some conduits"
-        },
-        {
-            "name": "amdgpu_target",
-            "default": "none",
-            "description": "AMD GPU architecture"
-        },
-        {
-            "name": "cuda",
-            "default": false,
-            "description": "Enables support for the CUDA memory kind in some conduits.\nNOTE: Requires CUDA Driver library be present on the build system"
-        },
-        {
-            "name": "cuda_arch",
-            "default": "none",
-            "description": "CUDA architecture"
-        },
-        {
-            "name": "build_system",
-            "default": "generic",
-            "description": "Build systems supported by the package"
-        },
-        {
-            "name": "conduits",
-            "default": "smp",
-            "description": "The hardware-dependent network backends to enable.\n(smp) = SMP conduit for single-node operation\n(ibv) = Native InfiniBand verbs conduit\n(ofi) = OFI conduit over libfabric, for HPE Cray Slingshot and Intel Omni-Path\n(udp) = Portable UDP conduit, for Ethernet networks\n(mpi) = Low-performance/portable MPI conduit\n(ucx) = EXPERIMENTAL UCX conduit for Mellanox IB/RoCE ConnectX-5+\nFor detailed recommendations, consult https://gasnet.lbl.gov"
-        },
-        {
-            "name": "debug",
-            "default": false,
-            "description": "Enable library debugging mode"
-        },
-        {
-            "name": "level_zero",
-            "default": false,
-            "description": "Enables *experimental* support for the Level Zero memory kind on Intel GPUs in some conduits"
-        }
-    ],
-    "homepage": "https://gasnet.lbl.gov",
-    "maintainers": [
-        "PHHargrove",
-        "bonachea"
-    ],
-    "patches": [],
-    "resources": [],
-    "description": "GASNet is a language-independent, networking middleware layer that\nprovides network-independent, high-performance communication primitives\nincluding Remote Memory Access (RMA) and Active Messages (AM). It has\nbeen used to implement parallel programming models and libraries such as\nUPC, UPC++, Co-Array Fortran, Legion, Chapel, and many others. The\ninterface is primarily intended as a compilation target and for use by\nruntime library writers (as opposed to end users), and the primary goals\nare high performance, interface portability, and expressiveness.\n***NOTICE***: The GASNet library built by this Spack package is ONLY\nintended for unit-testing purposes, and is generally UNSUITABLE FOR\nPRODUCTION USE. The RECOMMENDED way to build GASNet is as an embedded\nlibrary as configured by the higher-level client runtime package (UPC++,\nLegion, etc), including system-specific configuration.\n",
-    "dependencies": [
-        {
-            "name": "autoconf",
-            "description": "Autoconf -- system configuration part of autotools"
-        },
-        {
-            "name": "automake",
-            "description": "Automake -- make file builder part of autotools"
-        },
-        {
-            "name": "cuda",
-            "description": "CUDA is a parallel computing platform and programming model invented by\nNVIDIA. It enables dramatic increases in computing performance by\nharnessing the power of the graphics processing unit (GPU). Note: This\npackage does not currently install the drivers necessary to run CUDA.\nThese will need to be installed manually. See:\nhttps://docs.nvidia.com/cuda/ for details."
-        },
-        {
-            "name": "hip",
-            "description": "HIP is a C++ Runtime API and Kernel Language that allows developers to\ncreate portable applications for AMD and NVIDIA GPUs from single source\ncode."
-        },
-        {
-            "name": "hsa-rocr-dev",
-            "description": "This repository includes the user mode API nterfaces and libraries\nnecessary for host applications to launch computer kernels to available\nHSA ROCm kernel agents.AMD Heterogeneous System Architecture HSA - Linux\nHSA Runtime for Boltzmann (ROCm) platforms."
-        },
-        {
-            "name": "libfabric",
-            "description": "The Open Fabrics Interfaces (OFI) is a framework focused on exporting\nfabric communication services to applications."
-        },
-        {
-            "name": "llvm-amdgpu",
-            "description": "Toolkit for the construction of highly optimized compilers, optimizers,\nand run-time environments."
-        },
-        {
-            "name": "mpi",
-            "description": "A single processor implementation of the mpi library."
-        },
-        {
-            "name": "oneapi-level-zero",
-            "description": "oneAPI Level Zero Loader. Applications that need low-level control of a\noneAPI level zero device link against the loader. The loader depends on\na separately installed level zero driver. See https://dgpu-\ndocs.intel.com/technologies/level-zero.html for information on how to\ninstall the driver."
-        }
-    ],
-    "dependent_to": [
         {
-            "name": "tau",
-            "description": "A portable profiling and tracing toolkit for performance analysis of\nparallel programs written in Fortran, C, C++, UPC, Java, Python."
+            "branch": "develop",
+            "name": "develop"
         },
         {
-            "name": "upcxx",
-            "description": "UPC++ is a C++ library that supports Partitioned Global Address Space\n(PGAS) programming, and is designed to interoperate smoothly and\nefficiently with MPI, OpenMP, CUDA, ROCm/HIP and AMTs. It leverages\nGASNet-EX to deliver low-overhead, fine-grained communication, including\nRemote Memory Access (RMA) and Remote Procedure Call (RPC)."
+            "branch": "stable",
+            "name": "main"
         },
         {
-            "name": "chapel",
-            "description": "Chapel is a modern programming language that is parallel, productive,\nportable, scalable and open-source. The Chapel package comes with many\noptions in the form of variants, most of which can be left unset to\nallow Chapel's built-in scripts to determine the proper values based on\nthe environment."
+            "branch": "master",
+            "name": "master"
         }
     ]
 }

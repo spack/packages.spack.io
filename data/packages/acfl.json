@@ -1,39 +1,87 @@
 {
-    "name": "acfl",
     "aliases": [
         {
-            "name": "lapack",
-            "alias_for": "acfl"
+            "alias_for": "acfl",
+            "name": "blas"
         },
         {
-            "name": "blas",
-            "alias_for": "acfl"
+            "alias_for": "acfl",
+            "name": "fftw-api"
         },
         {
-            "name": "fftw-api",
-            "alias_for": "acfl"
+            "alias_for": "acfl",
+            "name": "lapack"
+        }
+    ],
+    "build_system": "Package",
+    "conflicts": [
+        {
+            "description": "acfl: Only available on Aarch64",
+            "name": "arch=None-None-ppc64:",
+            "spec": ""
+        },
+        {
+            "description": "acfl: Only available on Aarch64",
+            "name": "arch=None-None-ppc64le:",
+            "spec": ""
+        },
+        {
+            "description": "acfl: Only available on Aarch64",
+            "name": "arch=None-None-x86_64:",
+            "spec": ""
+        }
+    ],
+    "dependencies": [],
+    "dependent_to": [
+        {
+            "description": "BerkeleyGW is a many-body perturbation theory code for excited states,\nusing the GW method and the GW plus Bethe-Salpeter equation (GW-BSE)\nmethod to solve respectively for quasiparticle excitations and optical\nproperties of materials.",
+            "name": "berkeleygw"
+        },
+        {
+            "description": "ngspice is the open source spice simulator for electric and electronic\ncircuits.",
+            "name": "ngspice"
+        },
+        {
+            "description": "Quantum ESPRESSO is an integrated suite of Open-Source computer codes\nfor electronic-structure calculations and materials modeling at the\nnanoscale. It is based on density-functional theory, plane waves, and\npseudopotentials.",
+            "name": "quantum-espresso"
+        }
+    ],
+    "description": "Arm Compiler combines the optimized tools and libraries from Arm with a\nmodern LLVM-based compiler framework.\n",
+    "homepage": "https://developer.arm.com/Tools%20and%20Software/Arm%20Compiler%20for%20Linux",
+    "latest_version": "24.04",
+    "maintainers": [
+        "paolotricerri"
+    ],
+    "name": "acfl",
+    "patches": [],
+    "resources": [],
+    "variants": [
+        {
+            "default": "generic",
+            "description": "Build systems supported by the package",
+            "name": "build_system"
+        },
+        {
+            "default": false,
+            "description": "use ilp64 specific Armpl library",
+            "name": "ilp64"
+        },
+        {
+            "default": true,
+            "description": "enable shared libs",
+            "name": "shared"
+        },
+        {
+            "default": "none",
+            "description": "Multithreading support",
+            "name": "threads"
         }
     ],
     "versions": [
         {
-            "name": "24.04",
-            "sha256": "0bab2e89f0a2359746f89a01251dca763305c5b0dee95cf47b0968dd1cb5f6f6",
-            "url": "https://developer.arm.com/-/media/Files/downloads/hpc/arm-compiler-for-linux/24-04/arm-compiler-for-linux_24.04_Ubuntu-22.04_aarch64.tar"
-        },
-        {
-            "name": "23.10",
-            "sha256": "3354f0ab73856a8a5cd99364cbec7a6b22621701790cb36c3e5f756b363e6d43",
-            "url": "https://developer.arm.com/-/media/Files/downloads/hpc/arm-compiler-for-linux/23-10/arm-compiler-for-linux_23.10_Ubuntu-22.04_aarch64.tar"
-        },
-        {
-            "name": "23.04.1",
-            "sha256": "19213db67aa11de44b617255e9e32efd294f930c6b6145192acf9ee331452ea6",
-            "url": "https://developer.arm.com/-/media/Files/downloads/hpc/arm-compiler-for-linux/23-04-1/arm-compiler-for-linux_23.04.1_Ubuntu-22.04_aarch64.tar"
-        },
-        {
-            "name": "22.1",
-            "sha256": "20d950d16e6bb0b3a4c4f3c8ad393aae2356d4c998303b319da9e9833d4a6d12",
-            "url": "https://developer.arm.com/-/media/Files/downloads/hpc/arm-compiler-for-linux/22-1/arm-compiler-for-linux_22.1_Ubuntu-20.04_aarch64.tar"
+            "name": "22.0.1",
+            "sha256": "dea136238fc2855c41b8a8154bf279b7df5df8dba48d8f29121fa26f343e7cdb",
+            "url": "https://developer.arm.com/-/media/Files/downloads/hpc/arm-allinea-studio/22-0-1/arm-compiler-for-linux_22.0.1_Ubuntu-20.04_aarch64.tar"
         },
         {
             "name": "22.0.2",
@@ -41,72 +89,24 @@
             "url": "https://developer.arm.com/-/media/Files/downloads/hpc/arm-allinea-studio/22-0-2/arm-compiler-for-linux_22.0.2_Ubuntu-20.04_aarch64.tar"
         },
         {
-            "name": "22.0.1",
-            "sha256": "dea136238fc2855c41b8a8154bf279b7df5df8dba48d8f29121fa26f343e7cdb",
-            "url": "https://developer.arm.com/-/media/Files/downloads/hpc/arm-allinea-studio/22-0-1/arm-compiler-for-linux_22.0.1_Ubuntu-20.04_aarch64.tar"
-        }
-    ],
-    "latest_version": "24.04",
-    "build_system": "Package",
-    "conflicts": [
-        {
-            "name": "arch=None-None-x86_64:",
-            "spec": "",
-            "description": "acfl: Only available on Aarch64"
+            "name": "22.1",
+            "sha256": "20d950d16e6bb0b3a4c4f3c8ad393aae2356d4c998303b319da9e9833d4a6d12",
+            "url": "https://developer.arm.com/-/media/Files/downloads/hpc/arm-compiler-for-linux/22-1/arm-compiler-for-linux_22.1_Ubuntu-20.04_aarch64.tar"
         },
         {
-            "name": "arch=None-None-ppc64:",
-            "spec": "",
-            "description": "acfl: Only available on Aarch64"
+            "name": "23.04.1",
+            "sha256": "19213db67aa11de44b617255e9e32efd294f930c6b6145192acf9ee331452ea6",
+            "url": "https://developer.arm.com/-/media/Files/downloads/hpc/arm-compiler-for-linux/23-04-1/arm-compiler-for-linux_23.04.1_Ubuntu-22.04_aarch64.tar"
         },
         {
-            "name": "arch=None-None-ppc64le:",
-            "spec": "",
-            "description": "acfl: Only available on Aarch64"
-        }
-    ],
-    "variants": [
-        {
-            "name": "build_system",
-            "default": "generic",
-            "description": "Build systems supported by the package"
+            "name": "23.10",
+            "sha256": "3354f0ab73856a8a5cd99364cbec7a6b22621701790cb36c3e5f756b363e6d43",
+            "url": "https://developer.arm.com/-/media/Files/downloads/hpc/arm-compiler-for-linux/23-10/arm-compiler-for-linux_23.10_Ubuntu-22.04_aarch64.tar"
         },
         {
-            "name": "ilp64",
-            "default": false,
-            "description": "use ilp64 specific Armpl library"
-        },
-        {
-            "name": "shared",
-            "default": true,
-            "description": "enable shared libs"
-        },
-        {
-            "name": "threads",
-            "default": "none",
-            "description": "Multithreading support"
-        }
-    ],
-    "homepage": "https://developer.arm.com/Tools%20and%20Software/Arm%20Compiler%20for%20Linux",
-    "maintainers": [
-        "paolotricerri"
-    ],
-    "patches": [],
-    "resources": [],
-    "description": "Arm Compiler combines the optimized tools and libraries from Arm with a\nmodern LLVM-based compiler framework.\n",
-    "dependencies": [],
-    "dependent_to": [
-        {
-            "name": "berkeleygw",
-            "description": "BerkeleyGW is a many-body perturbation theory code for excited states,\nusing the GW method and the GW plus Bethe-Salpeter equation (GW-BSE)\nmethod to solve respectively for quasiparticle excitations and optical\nproperties of materials."
-        },
-        {
-            "name": "quantum-espresso",
-            "description": "Quantum ESPRESSO is an integrated suite of Open-Source computer codes\nfor electronic-structure calculations and materials modeling at the\nnanoscale. It is based on density-functional theory, plane waves, and\npseudopotentials."
-        },
-        {
-            "name": "ngspice",
-            "description": "ngspice is the open source spice simulator for electric and electronic\ncircuits."
+            "name": "24.04",
+            "sha256": "0bab2e89f0a2359746f89a01251dca763305c5b0dee95cf47b0968dd1cb5f6f6",
+            "url": "https://developer.arm.com/-/media/Files/downloads/hpc/arm-compiler-for-linux/24-04/arm-compiler-for-linux_24.04_Ubuntu-22.04_aarch64.tar"
         }
     ]
 }

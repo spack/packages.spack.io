@@ -1,98 +1,98 @@
 {
-    "name": "py-fenics-basix",
     "aliases": [],
-    "versions": [
-        {
-            "name": "main",
-            "branch": "main"
-        },
-        {
-            "name": "0.8.0",
-            "sha256": "b299af82daf8fa3e4845e17f202491fe71b313bf6ab64c767a5287190b3dd7fe"
-        },
-        {
-            "name": "0.7.0",
-            "sha256": "9bee81b396ee452eec8d9735f278cb44cb6994c6bc30aec8ed9bb4b12d83fa7f"
-        },
-        {
-            "name": "0.6.0",
-            "sha256": "687ae53153c98facac4080dcdc7081701db1dcea8c5e7ae3feb72aec17f83304"
-        }
-    ],
-    "latest_version": "0.8.0",
     "build_system": "PythonPackage",
     "conflicts": [],
-    "variants": [
+    "dependencies": [
         {
-            "name": "build_system",
-            "default": "python_pip",
-            "description": "Build systems supported by the package"
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software.",
+            "name": "cmake"
+        },
+        {
+            "description": "Basix is a finite element definition and tabulation runtime library",
+            "name": "fenics-basix"
+        },
+        {
+            "description": "nanobind is a small binding library that exposes C++ types in Python and\nvice versa. It is reminiscent of Boost.Python and pybind11 and uses\nnear-identical syntax. In contrast to these existing tools, nanobind is\nmore efficient: bindings compile in a shorter amount of time, produce\nsmaller binaries, and have better runtime performance.",
+            "name": "py-nanobind"
+        },
+        {
+            "description": "Fundamental package for array computing in Python.",
+            "name": "py-numpy"
+        },
+        {
+            "description": "The PyPA recommended tool for installing Python packages.",
+            "name": "py-pip"
+        },
+        {
+            "description": "pybind11 -- Seamless operability between C++11 and Python. pybind11 is a\nlightweight header-only library that exposes C++ types in Python and\nvice versa, mainly to create Python bindings of existing C++ code. Its\ngoals and syntax are similar to the excellent Boost.Python library by\nDavid Abrahams: to minimize boilerplate code in traditional extension\nmodules by inferring type information using compile-time introspection.",
+            "name": "py-pybind11"
+        },
+        {
+            "description": "scikit-build-core is a doubly improved build system generator for\nCPython C/C++/Fortran/Cython extensions. It features several\nimprovements over the classic scikit-build build system generator.",
+            "name": "py-scikit-build-core"
+        },
+        {
+            "description": "A Python utility that aids in the process of downloading, building,\nupgrading, installing, and uninstalling Python packages.",
+            "name": "py-setuptools"
+        },
+        {
+            "description": "A built-package format for Python.",
+            "name": "py-wheel"
+        },
+        {
+            "description": "The Python programming language.",
+            "name": "python"
+        },
+        {
+            "description": "A Spack managed Python virtual environment",
+            "name": "python-venv"
         }
     ],
+    "dependent_to": [
+        {
+            "description": "Python interface to the next generation FEniCS problem solving\nenvironment",
+            "name": "py-fenics-dolfinx"
+        },
+        {
+            "description": "Next generation FEniCS Form Compiler",
+            "name": "py-fenics-ffcx"
+        }
+    ],
+    "description": "Python interface to Basix, a finite element definition and tabulation\nruntime library\n",
     "homepage": "https://github.com/FEniCS/basix",
+    "latest_version": "0.8.0",
     "maintainers": [
         "chrisrichardson",
         "garth-wells",
         "jhale",
         "mscroggs"
     ],
+    "name": "py-fenics-basix",
     "patches": [],
     "resources": [],
-    "description": "Python interface to Basix, a finite element definition and tabulation\nruntime library\n",
-    "dependencies": [
+    "variants": [
         {
-            "name": "cmake",
-            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
-        },
-        {
-            "name": "fenics-basix",
-            "description": "Basix is a finite element definition and tabulation runtime library"
-        },
-        {
-            "name": "py-nanobind",
-            "description": "nanobind is a small binding library that exposes C++ types in Python and\nvice versa. It is reminiscent of Boost.Python and pybind11 and uses\nnear-identical syntax. In contrast to these existing tools, nanobind is\nmore efficient: bindings compile in a shorter amount of time, produce\nsmaller binaries, and have better runtime performance."
-        },
-        {
-            "name": "py-numpy",
-            "description": "Fundamental package for array computing in Python."
-        },
-        {
-            "name": "py-pip",
-            "description": "The PyPA recommended tool for installing Python packages."
-        },
-        {
-            "name": "py-pybind11",
-            "description": "pybind11 -- Seamless operability between C++11 and Python. pybind11 is a\nlightweight header-only library that exposes C++ types in Python and\nvice versa, mainly to create Python bindings of existing C++ code. Its\ngoals and syntax are similar to the excellent Boost.Python library by\nDavid Abrahams: to minimize boilerplate code in traditional extension\nmodules by inferring type information using compile-time introspection."
-        },
-        {
-            "name": "py-scikit-build-core",
-            "description": "scikit-build-core is a doubly improved build system generator for\nCPython C/C++/Fortran/Cython extensions. It features several\nimprovements over the classic scikit-build build system generator."
-        },
-        {
-            "name": "py-setuptools",
-            "description": "A Python utility that aids in the process of downloading, building,\nupgrading, installing, and uninstalling Python packages."
-        },
-        {
-            "name": "py-wheel",
-            "description": "A built-package format for Python."
-        },
-        {
-            "name": "python",
-            "description": "The Python programming language."
-        },
-        {
-            "name": "python-venv",
-            "description": "A Spack managed Python virtual environment"
+            "default": "python_pip",
+            "description": "Build systems supported by the package",
+            "name": "build_system"
         }
     ],
-    "dependent_to": [
+    "versions": [
         {
-            "name": "py-fenics-dolfinx",
-            "description": "Python interface to the next generation FEniCS problem solving\nenvironment"
+            "name": "0.6.0",
+            "sha256": "687ae53153c98facac4080dcdc7081701db1dcea8c5e7ae3feb72aec17f83304"
         },
         {
-            "name": "py-fenics-ffcx",
-            "description": "Next generation FEniCS Form Compiler"
+            "name": "0.7.0",
+            "sha256": "9bee81b396ee452eec8d9735f278cb44cb6994c6bc30aec8ed9bb4b12d83fa7f"
+        },
+        {
+            "name": "0.8.0",
+            "sha256": "b299af82daf8fa3e4845e17f202491fe71b313bf6ab64c767a5287190b3dd7fe"
+        },
+        {
+            "branch": "main",
+            "name": "main"
         }
     ]
 }

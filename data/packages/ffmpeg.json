@@ -1,66 +1,435 @@
 {
-    "name": "ffmpeg",
     "aliases": [],
+    "build_system": "AutotoolsPackage",
+    "conflicts": [
+        {
+            "description": null,
+            "name": "%nvhpc",
+            "spec": ""
+        },
+        {
+            "description": "ffmpeg: requires gas-preprocessor",
+            "name": "@1",
+            "spec": "arch=darwin-None-aarch64:"
+        },
+        {
+            "description": null,
+            "name": "arch=windows-None-None",
+            "spec": "build_system=autotools"
+        }
+    ],
+    "dependencies": [
+        {
+            "description": "The Advanced Linux Sound Architecture (ALSA) provides audio and MIDI\nfunctionality to the Linux operating system. alsa-lib contains the user\nspace library that developers compile ALSA applications against.",
+            "name": "alsa-lib"
+        },
+        {
+            "description": "Alliance for Open Media AOM AV1 Codec Library",
+            "name": "aom"
+        },
+        {
+            "description": "bzip2 is a freely available, patent free high-quality data compressor.\nIt typically compresses files to within 10% to 15% of the best available\ntechniques (the PPM family of statistical compressors), whilst being\naround twice as fast at compression and six times faster at\ndecompression.",
+            "name": "bzip2"
+        },
+        {
+            "description": "Fontconfig is a library for configuring/customizing font access",
+            "name": "fontconfig"
+        },
+        {
+            "description": "FreeType is a freely available software library to render fonts. It is\nwritten in C, designed to be small, efficient, highly customizable, and\nportable while capable of producing high-quality output (glyph images)\nof most vector and bitmap font formats.",
+            "name": "freetype"
+        },
+        {
+            "description": "GNU FriBidi: The Free Implementation of the Unicode Bidirectional\nAlgorithm.",
+            "name": "fribidi"
+        },
+        {
+            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files.",
+            "name": "gmake"
+        },
+        {
+            "description": "The GNU config.guess and config.sub scripts versioned by timestamp.\nThis package can be used as a build dependency for autotools packages\nthat ship a tarball with outdated config.guess and config.sub files.",
+            "name": "gnuconfig"
+        },
+        {
+            "description": "Musl is a libc, an implementation of the standard library functionality\ndescribed in the ISO C and POSIX standards, plus common extensions,\nintended for use on Linux-based systems. Whereas the kernel (Linux)\ngoverns access to hardware, memory, filesystems, and the privileges for\naccessing these resources, the C library is responsible for providing\nthe actual C function interfaces userspace applications see, and for\nconstructing higher-level buffered stdio, memory allocation management,\nthread creation and synchronization operations, and so on using the\nlower-level interfaces the kernel provides, as well as for implementing\npure library routines of the C language like strstr, snprintf, strtol,\nexp, sqrt, etc. Musl is a new general-purpose implementation of the C\nlibrary. It is lightweight, fast, simple, free, and aims to be correct\nin the sense of standards-conformance and safety.",
+            "name": "iconv"
+        },
+        {
+            "description": "LAME is a high quality MPEG Audio Layer III (MP3) encoder licensed under\nthe LGPL.",
+            "name": "lame"
+        },
+        {
+            "description": "libssh: the SSH library",
+            "name": "libssh"
+        },
+        {
+            "description": "Ogg Vorbis is a fully open, non-proprietary, patent-and-royalty-free,\ngeneral-purpose compressed audio format for mid to high quality (8kHz-\n48.0kHz, 16+ bit, polyphonic) audio and music at fixed and variable\nbitrates from 16 to 128 kbps/channel.",
+            "name": "libvorbis"
+        },
+        {
+            "description": "libvpx is a free software video codec library from Google and the\nAlliance for Open Media. It serves as the reference software\nimplementation for the VP8 and VP9 video coding formats, and for AV1 a\nspecial fork named libaom that was stripped of backwards compatibility.",
+            "name": "libvpx"
+        },
+        {
+            "description": "WebP is a modern image format that provides superior lossless and lossy\ncompression for images on the web. Using WebP, webmasters and web\ndevelopers can create smaller, richer images that make the web faster.",
+            "name": "libwebp"
+        },
+        {
+            "description": "Libxml2 is the XML C parser and toolkit developed for the Gnome project\n(but usable outside of the Gnome platform), it is free software\navailable under the MIT License.",
+            "name": "libxml2"
+        },
+        {
+            "description": "libXv - library for the X Video (Xv) extension to the X Window System.",
+            "name": "libxv"
+        },
+        {
+            "description": "The ZMQ networking/concurrency library and core API",
+            "name": "libzmq"
+        },
+        {
+            "description": "OpenJPEG is an open-source JPEG 2000 codec written in C language. It has\nbeen developed in order to promote the use of JPEG 2000, a still-image\ncompression standard from the Joint Photographic Experts Group (JPEG).\nSince April 2015, it is officially recognized by ISO/IEC and ITU-T as a\nJPEG 2000 Reference Software.",
+            "name": "openjpeg"
+        },
+        {
+            "description": "OpenSSL is an open source project that provides a robust, commercial-\ngrade, and full-featured toolkit for the Transport Layer Security (TLS)\nand Secure Sockets Layer (SSL) protocols. It is also a general-purpose\ncryptography library.",
+            "name": "openssl"
+        },
+        {
+            "description": "Opus is a totally open, royalty-free, highly versatile audio codec.",
+            "name": "opus"
+        },
+        {
+            "description": "pkgconf is a program which helps to configure compiler and linker flags\nfor development frameworks. It is similar to pkg-config from\nfreedesktop.org, providing additional functionality while also\nmaintaining compatibility.",
+            "name": "pkgconfig"
+        },
+        {
+            "description": "Simple DirectMedia Layer is a cross-platform development library\ndesigned to provide low level access to audio, keyboard, mouse,\njoystick, and graphics hardware via OpenGL and Direct3D.",
+            "name": "sdl2"
+        },
+        {
+            "description": "A fast compressor/decompressor: https://code.google.com/p/snappy",
+            "name": "snappy"
+        },
+        {
+            "description": "Speex is an Open Source/Free Software patent-free audio compression\nformat designed for speech.",
+            "name": "speex"
+        },
+        {
+            "description": "Texinfo is the official documentation format of the GNU project. It was\ninvented by Richard Stallman and Bob Chassell many years ago, loosely\nbased on Brian Reid's Scribe and other formatting languages of the time.\nIt is used by many non-GNU projects as well.",
+            "name": "texinfo"
+        },
+        {
+            "description": "Software library and application for encoding video streams",
+            "name": "x264"
+        },
+        {
+            "description": "XZ Utils is free general-purpose data compression software with high\ncompression ratio. XZ Utils were written for POSIX-like systems, but\nalso work on some not-so-POSIX systems. XZ Utils are the successor to\nLZMA Utils.",
+            "name": "xz"
+        },
+        {
+            "description": "Yasm is a complete rewrite of the NASM-2.11.06 assembler. It supports\nthe x86 and AMD64 instruction sets, accepts NASM and GAS assembler\nsyntaxes and outputs binary, ELF32 and ELF64 object formats.",
+            "name": "yasm"
+        },
+        {
+            "description": "zlib replacement with optimizations for next generation systems.",
+            "name": "zlib-api"
+        }
+    ],
+    "dependent_to": [
+        {
+            "description": "toolkit containing machine learning algorithms and tools for creating\ncomplex software in C++ to solve real world problems",
+            "name": "dlib"
+        },
+        {
+            "description": "GMT (Generic Mapping Tools) is an open source collection of about 80\ncommand-line tools for manipulating geographic and Cartesian data sets\n(including filtering, trend fitting, gridding, projecting, etc.) and\nproducing PostScript illustrations ranging from simple x-y plots via\ncontour maps to artificially illuminated surfaces and 3D perspective\nviews.",
+            "name": "gmt"
+        },
+        {
+            "description": "LAMMPS stands for Large-scale Atomic/Molecular Massively Parallel\nSimulator.",
+            "name": "lammps"
+        },
+        {
+            "description": "MIVisionX toolkit is a set of comprehensive computer vision and machine\nintelligence libraries, utilities, and applications bundled into a\nsingle toolkit.",
+            "name": "mivisionx"
+        },
+        {
+            "description": "Movie Thumbnailer is CLI thumbnail generator using FFmpeg.",
+            "name": "mtn"
+        },
+        {
+            "description": "Open CASCADE Technology is a software development kit (SDK) intended for\ndevelopment of applications dealing with 3D CAD data, freely available\nin open source. It includes a set of C++ class libraries providing\nservices for 3D surface and solid modeling, visualization, data exchange\nand rapid application development.",
+            "name": "opencascade"
+        },
+        {
+            "description": "OpenCV (Open Source Computer Vision Library) is an open source computer\nvision and machine learning software library.",
+            "name": "opencv"
+        },
+        {
+            "description": "OpenImageIO is a library for reading and writing images, and a bunch of\nrelated classes, utilities, and applications.",
+            "name": "openimageio"
+        },
+        {
+            "description": "OpenSceneGraph is an open source, high performance 3D graphics toolkit\nthat's used in a variety of visual simulation applications.",
+            "name": "openscenegraph"
+        },
+        {
+            "description": "A simple Python wrapper for ffmpeg",
+            "name": "py-ffmpy"
+        },
+        {
+            "description": "Python library for reading and writing image data. Imageio is a Python\nlibrary that provides an easy interface to read and write a wide range\nof image data, including animated images, video, volumetric data, and\nscientific formats. It is cross-platform, runs on Python 2.7 and 3.4+,\nand is easy to install.",
+            "name": "py-imageio"
+        },
+        {
+            "description": "The purpose of this project is to provide a simple and reliable ffmpeg\nwrapper for working with video files. It implements two simple generator\nfunctions for reading and writing data from/to ffmpeg, which reliably\nterminate the ffmpeg process when done. It also takes care of publishing\nplatform-specific wheels that include the binary ffmpeg executables.",
+            "name": "py-imageio-ffmpeg"
+        },
+        {
+            "description": "Matplotlib is a comprehensive library for creating static, animated, and\ninteractive visualizations in Python.",
+            "name": "py-matplotlib"
+        },
+        {
+            "description": "Manipulate audio with an simple and easy high level interface",
+            "name": "py-pydub"
+        },
+        {
+            "description": "Image and video datasets and models for torch deep learning.",
+            "name": "py-torchvision"
+        },
+        {
+            "description": "Command-line program to download videos from YouTube.com and other video\nsites.",
+            "name": "py-youtube-dl"
+        },
+        {
+            "description": "A Gallery of Animations in Statistics and Utilities to Create\nAnimations. Provides functions for animations in statistics, covering\ntopics in probability theory, mathematical statistics, multivariate\nstatistics, non-parametric statistics, sampling survey, linear models,\ntime series, computational statistics, data mining and machine learning.\nThese functions maybe helpful in teaching statistics and data analysis.",
+            "name": "r-animation"
+        },
+        {
+            "description": "Eclipse SUMO is an open source, highly portable, microscopic and\ncontinuous road traffic simulation package designed to handle large road\nnetworks. It allows for intermodal simulation including pedestrians and\ncomes with a large set of tools for scenario creation.",
+            "name": "sumo"
+        },
+        {
+            "description": "Tumbler is a D-Bus service for applications to request thumbnails for\nXFCE4",
+            "name": "tumbler"
+        },
+        {
+            "description": "The Visualization Toolkit (VTK) is an open-source, freely available\nsoftware system for 3D computer graphics, image processing and\nvisualization.",
+            "name": "vtk"
+        }
+    ],
+    "description": "FFmpeg is a complete, cross-platform solution to record, convert and\nstream audio and video.\n",
+    "homepage": "https://ffmpeg.org",
+    "latest_version": "7.0",
+    "maintainers": [
+        "xjrc"
+    ],
+    "name": "ffmpeg",
+    "patches": [
+        {
+            "level": 1,
+            "owner": "builtin.ffmpeg",
+            "reverse": false,
+            "sha256": "5726e8e999e3fc7a5ae4c4c846c9151246e5846c54dc3b8ff8326ee31c59631a",
+            "url": "https://git.ffmpeg.org/gitweb/ffmpeg.git/commitdiff_plain/fef22c87ada4",
+            "version": "@6.1.1",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.ffmpeg",
+            "reverse": false,
+            "sha256": "967d25a67297c53dde7151f7bc5eb37ae674525ee468880f973b9ebc3e12ed2c",
+            "url": "https://git.ffmpeg.org/gitweb/ffmpeg.git/commitdiff_plain/eb0455d64690",
+            "version": "@5.1.2",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.ffmpeg",
+            "reverse": false,
+            "sha256": "f070ac16be68b4d32b1b5b885d146eb36eb508daa928b6f0f78256c3482f9f0e",
+            "url": "https://git.ffmpeg.org/gitweb/ffmpeg.git/commitdiff_plain/effadce6c756247ea8bae32dc13bb3e6f464f0eb",
+            "version": "@6:6.0",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.ffmpeg",
+            "reverse": false,
+            "sha256": "f070ac16be68b4d32b1b5b885d146eb36eb508daa928b6f0f78256c3482f9f0e",
+            "url": "https://git.ffmpeg.org/gitweb/ffmpeg.git/commitdiff_plain/effadce6c756247ea8bae32dc13bb3e6f464f0eb",
+            "version": "@:5.1.3",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.ffmpeg",
+            "reverse": false,
+            "sha256": "673813d13f5c37b75ff5bcb56790ccd6b16962fdb9bddcbbeeead979d47d31b3",
+            "url": "https://git.ffmpeg.org/gitweb/ffmpeg.git/commitdiff_plain/f01fdedb69e4accb1d1555106d8f682ff1f1ddc7",
+            "version": "@6.0",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.ffmpeg",
+            "reverse": false,
+            "sha256": "673813d13f5c37b75ff5bcb56790ccd6b16962fdb9bddcbbeeead979d47d31b3",
+            "url": "https://git.ffmpeg.org/gitweb/ffmpeg.git/commitdiff_plain/f01fdedb69e4accb1d1555106d8f682ff1f1ddc7",
+            "version": "@5:5.1.3",
+            "working_dir": "."
+        }
+    ],
+    "resources": [],
+    "variants": [
+        {
+            "default": false,
+            "description": "X11 support",
+            "name": "X"
+        },
+        {
+            "default": false,
+            "description": "AV reasmpling component",
+            "name": "avresample"
+        },
+        {
+            "default": "autotools",
+            "description": "Build systems supported by the package",
+            "name": "build_system"
+        },
+        {
+            "default": true,
+            "description": "bzip2 support",
+            "name": "bzlib"
+        },
+        {
+            "default": false,
+            "description": "build documentation",
+            "name": "doc"
+        },
+        {
+            "default": false,
+            "description": "drawtext filter",
+            "name": "drawtext"
+        },
+        {
+            "default": true,
+            "description": "allow use of GPL code, the resulting libs and binaries will be under GPL",
+            "name": "gpl"
+        },
+        {
+            "default": false,
+            "description": "AV1 video encoding/decoding",
+            "name": "libaom"
+        },
+        {
+            "default": false,
+            "description": "MP3 encoding",
+            "name": "libmp3lame"
+        },
+        {
+            "default": false,
+            "description": "JPEG 2000 de/encoding",
+            "name": "libopenjpeg"
+        },
+        {
+            "default": false,
+            "description": "Opus de/encoding",
+            "name": "libopus"
+        },
+        {
+            "default": false,
+            "description": "Snappy compression, needed for hap encoding",
+            "name": "libsnappy"
+        },
+        {
+            "default": false,
+            "description": "Speex de/encoding",
+            "name": "libspeex"
+        },
+        {
+            "default": false,
+            "description": "SFTP protocol",
+            "name": "libssh"
+        },
+        {
+            "default": false,
+            "description": "Vorbis en/decoding",
+            "name": "libvorbis"
+        },
+        {
+            "default": false,
+            "description": "VP9 en/decoding",
+            "name": "libvpx"
+        },
+        {
+            "default": false,
+            "description": "WebP encoding via libwebp",
+            "name": "libwebp"
+        },
+        {
+            "default": false,
+            "description": "H.264 encoding",
+            "name": "libx264"
+        },
+        {
+            "default": false,
+            "description": "XML parsing, needed for dash demuxing support",
+            "name": "libxml2"
+        },
+        {
+            "default": false,
+            "description": "message passing via libzmq",
+            "name": "libzmq"
+        },
+        {
+            "default": false,
+            "description": "lzma support",
+            "name": "lzma"
+        },
+        {
+            "default": false,
+            "description": "allow use of nonfree code, the resulting libs and binaries will be unredistributable",
+            "name": "nonfree"
+        },
+        {
+            "default": false,
+            "description": "needed for https support",
+            "name": "openssl"
+        },
+        {
+            "default": false,
+            "description": "sdl2 support",
+            "name": "sdl2"
+        },
+        {
+            "default": true,
+            "description": "build shared libraries",
+            "name": "shared"
+        },
+        {
+            "default": true,
+            "description": "upgrade (L)GPL to version 3",
+            "name": "version3"
+        }
+    ],
     "versions": [
         {
-            "name": "master",
-            "branch": "master"
+            "name": "1.0.10",
+            "sha256": "1dbde434c3b5c573d3b2ffc1babe3814f781c10c4bc66193a4132a44c9715176"
         },
         {
-            "name": "7.0",
-            "sha256": "a24d9074bf5523a65aaa9e7bd02afe4109ce79d69bd77d104fed3dab4b934d7a"
+            "name": "2.8.15",
+            "sha256": "35647f6c1f6d4a1719bc20b76bf4c26e4ccd665f46b5676c0e91c5a04622ee21"
         },
         {
-            "name": "6.1.1",
-            "sha256": "5e3133939a61ef64ac9b47ffd29a5ea6e337a4023ef0ad972094b4da844e3a20"
+            "name": "2.8.21",
+            "sha256": "782c3af1a1ee8945be0800edc39b1d1199ee6a8f31c74b65230795f11911b0d8"
         },
         {
-            "name": "6.0",
-            "sha256": "47d062731c9f66a78380e35a19aac77cebceccd1c7cc309b9c82343ffc430c3d"
-        },
-        {
-            "name": "5.1.4",
-            "sha256": "c3c1e316bf91468738dd0aff6eb1faab409f1edcd34fd1a4213626439bc5d743"
-        },
-        {
-            "name": "5.1.3",
-            "sha256": "5d5bef6a11f0c500588f9870ec965a30acc0d54d8b1e535da6554a32902d236d"
-        },
-        {
-            "name": "5.1.2",
-            "sha256": "39a0bcc8d98549f16c570624678246a6ac736c066cebdb409f9502e915b22f2b"
-        },
-        {
-            "name": "4.4.4",
-            "sha256": "47b1fbf70a2c090d9c0fae5910da11c6406ca92408bb69d8c935cd46c622c7ce"
-        },
-        {
-            "name": "4.4.1",
-            "sha256": "8fc9f20ac5ed95115a9e285647add0eedd5cc1a98a039ada14c132452f98ac42"
-        },
-        {
-            "name": "4.3.2",
-            "sha256": "ab3a6d6a70358ba0a5f67f37f91f6656b7302b02e98e5b8c846c16763c99913a"
-        },
-        {
-            "name": "4.2.2",
-            "sha256": "b620d187c26f76ca19e74210a0336c3b8380b97730df5cdf45f3e69e89000e5c"
-        },
-        {
-            "name": "4.1.1",
-            "sha256": "0cb40e3b8acaccd0ecb38aa863f66f0c6e02406246556c2992f67bf650fab058"
-        },
-        {
-            "name": "4.1",
-            "sha256": "b684fb43244a5c4caae652af9022ed5d85ce15210835bce054a33fb26033a1a5"
-        },
-        {
-            "name": "3.4.13",
-            "sha256": "f640aa6f92323558ee31314b773cf2e935def620474754b929e815f8f1ec933f"
-        },
-        {
-            "name": "3.4.12",
-            "sha256": "08e400330c70b567116addebd1a70279e0d41b0f8742085e32527f2a4eef9ca3"
+            "name": "2.8.22",
+            "sha256": "c56534d2862d2690b28875e142e0364ab86d784a22775449f04bf995efbc7064"
         },
         {
             "name": "3.2.19",
@@ -71,433 +440,64 @@
             "sha256": "c0fa3593a2e9e96ace3c1757900094437ad96d1d6ca19f057c378b5f394496a4"
         },
         {
-            "name": "2.8.22",
-            "sha256": "c56534d2862d2690b28875e142e0364ab86d784a22775449f04bf995efbc7064"
+            "name": "3.4.12",
+            "sha256": "08e400330c70b567116addebd1a70279e0d41b0f8742085e32527f2a4eef9ca3"
         },
         {
-            "name": "2.8.21",
-            "sha256": "782c3af1a1ee8945be0800edc39b1d1199ee6a8f31c74b65230795f11911b0d8"
+            "name": "3.4.13",
+            "sha256": "f640aa6f92323558ee31314b773cf2e935def620474754b929e815f8f1ec933f"
         },
         {
-            "name": "2.8.15",
-            "sha256": "35647f6c1f6d4a1719bc20b76bf4c26e4ccd665f46b5676c0e91c5a04622ee21"
+            "name": "4.1",
+            "sha256": "b684fb43244a5c4caae652af9022ed5d85ce15210835bce054a33fb26033a1a5"
         },
         {
-            "name": "1.0.10",
-            "sha256": "1dbde434c3b5c573d3b2ffc1babe3814f781c10c4bc66193a4132a44c9715176"
-        }
-    ],
-    "latest_version": "7.0",
-    "build_system": "AutotoolsPackage",
-    "conflicts": [
-        {
-            "name": "arch=windows-None-None",
-            "spec": "build_system=autotools",
-            "description": null
-        },
-        {
-            "name": "@1",
-            "spec": "arch=darwin-None-aarch64:",
-            "description": "ffmpeg: requires gas-preprocessor"
-        },
-        {
-            "name": "%nvhpc",
-            "spec": "",
-            "description": null
-        }
-    ],
-    "variants": [
-        {
-            "name": "build_system",
-            "default": "autotools",
-            "description": "Build systems supported by the package"
-        },
-        {
-            "name": "gpl",
-            "default": true,
-            "description": "allow use of GPL code, the resulting libs and binaries will be under GPL"
-        },
-        {
-            "name": "version3",
-            "default": true,
-            "description": "upgrade (L)GPL to version 3"
-        },
-        {
-            "name": "nonfree",
-            "default": false,
-            "description": "allow use of nonfree code, the resulting libs and binaries will be unredistributable"
-        },
-        {
-            "name": "X",
-            "default": false,
-            "description": "X11 support"
-        },
-        {
-            "name": "drawtext",
-            "default": false,
-            "description": "drawtext filter"
-        },
-        {
-            "name": "bzlib",
-            "default": true,
-            "description": "bzip2 support"
-        },
-        {
-            "name": "doc",
-            "default": false,
-            "description": "build documentation"
-        },
-        {
-            "name": "libaom",
-            "default": false,
-            "description": "AV1 video encoding/decoding"
-        },
-        {
-            "name": "libmp3lame",
-            "default": false,
-            "description": "MP3 encoding"
-        },
-        {
-            "name": "libopenjpeg",
-            "default": false,
-            "description": "JPEG 2000 de/encoding"
-        },
-        {
-            "name": "libopus",
-            "default": false,
-            "description": "Opus de/encoding"
-        },
-        {
-            "name": "libsnappy",
-            "default": false,
-            "description": "Snappy compression, needed for hap encoding"
-        },
-        {
-            "name": "libspeex",
-            "default": false,
-            "description": "Speex de/encoding"
-        },
-        {
-            "name": "libssh",
-            "default": false,
-            "description": "SFTP protocol"
-        },
-        {
-            "name": "libvorbis",
-            "default": false,
-            "description": "Vorbis en/decoding"
-        },
-        {
-            "name": "libvpx",
-            "default": false,
-            "description": "VP9 en/decoding"
-        },
-        {
-            "name": "libwebp",
-            "default": false,
-            "description": "WebP encoding via libwebp"
-        },
-        {
-            "name": "libxml2",
-            "default": false,
-            "description": "XML parsing, needed for dash demuxing support"
-        },
-        {
-            "name": "libzmq",
-            "default": false,
-            "description": "message passing via libzmq"
-        },
-        {
-            "name": "lzma",
-            "default": false,
-            "description": "lzma support"
-        },
-        {
-            "name": "avresample",
-            "default": false,
-            "description": "AV reasmpling component"
-        },
-        {
-            "name": "openssl",
-            "default": false,
-            "description": "needed for https support"
-        },
-        {
-            "name": "sdl2",
-            "default": false,
-            "description": "sdl2 support"
-        },
-        {
-            "name": "shared",
-            "default": true,
-            "description": "build shared libraries"
-        },
-        {
-            "name": "libx264",
-            "default": false,
-            "description": "H.264 encoding"
-        }
-    ],
-    "homepage": "https://ffmpeg.org",
-    "maintainers": [
-        "xjrc"
-    ],
-    "patches": [
-        {
-            "owner": "builtin.ffmpeg",
-            "sha256": "5726e8e999e3fc7a5ae4c4c846c9151246e5846c54dc3b8ff8326ee31c59631a",
-            "level": 1,
-            "working_dir": ".",
-            "reverse": false,
-            "url": "https://git.ffmpeg.org/gitweb/ffmpeg.git/commitdiff_plain/fef22c87ada4",
-            "version": "@6.1.1"
-        },
-        {
-            "owner": "builtin.ffmpeg",
-            "sha256": "967d25a67297c53dde7151f7bc5eb37ae674525ee468880f973b9ebc3e12ed2c",
-            "level": 1,
-            "working_dir": ".",
-            "reverse": false,
-            "url": "https://git.ffmpeg.org/gitweb/ffmpeg.git/commitdiff_plain/eb0455d64690",
-            "version": "@5.1.2"
-        },
-        {
-            "owner": "builtin.ffmpeg",
-            "sha256": "f070ac16be68b4d32b1b5b885d146eb36eb508daa928b6f0f78256c3482f9f0e",
-            "level": 1,
-            "working_dir": ".",
-            "reverse": false,
-            "url": "https://git.ffmpeg.org/gitweb/ffmpeg.git/commitdiff_plain/effadce6c756247ea8bae32dc13bb3e6f464f0eb",
-            "version": "@6:6.0"
-        },
-        {
-            "owner": "builtin.ffmpeg",
-            "sha256": "f070ac16be68b4d32b1b5b885d146eb36eb508daa928b6f0f78256c3482f9f0e",
-            "level": 1,
-            "working_dir": ".",
-            "reverse": false,
-            "url": "https://git.ffmpeg.org/gitweb/ffmpeg.git/commitdiff_plain/effadce6c756247ea8bae32dc13bb3e6f464f0eb",
-            "version": "@:5.1.3"
-        },
-        {
-            "owner": "builtin.ffmpeg",
-            "sha256": "673813d13f5c37b75ff5bcb56790ccd6b16962fdb9bddcbbeeead979d47d31b3",
-            "level": 1,
-            "working_dir": ".",
-            "reverse": false,
-            "url": "https://git.ffmpeg.org/gitweb/ffmpeg.git/commitdiff_plain/f01fdedb69e4accb1d1555106d8f682ff1f1ddc7",
-            "version": "@6.0"
-        },
-        {
-            "owner": "builtin.ffmpeg",
-            "sha256": "673813d13f5c37b75ff5bcb56790ccd6b16962fdb9bddcbbeeead979d47d31b3",
-            "level": 1,
-            "working_dir": ".",
-            "reverse": false,
-            "url": "https://git.ffmpeg.org/gitweb/ffmpeg.git/commitdiff_plain/f01fdedb69e4accb1d1555106d8f682ff1f1ddc7",
-            "version": "@5:5.1.3"
-        }
-    ],
-    "resources": [],
-    "description": "FFmpeg is a complete, cross-platform solution to record, convert and\nstream audio and video.\n",
-    "dependencies": [
-        {
-            "name": "alsa-lib",
-            "description": "The Advanced Linux Sound Architecture (ALSA) provides audio and MIDI\nfunctionality to the Linux operating system. alsa-lib contains the user\nspace library that developers compile ALSA applications against."
-        },
-        {
-            "name": "aom",
-            "description": "Alliance for Open Media AOM AV1 Codec Library"
-        },
-        {
-            "name": "bzip2",
-            "description": "bzip2 is a freely available, patent free high-quality data compressor.\nIt typically compresses files to within 10% to 15% of the best available\ntechniques (the PPM family of statistical compressors), whilst being\naround twice as fast at compression and six times faster at\ndecompression."
-        },
-        {
-            "name": "fontconfig",
-            "description": "Fontconfig is a library for configuring/customizing font access"
-        },
-        {
-            "name": "freetype",
-            "description": "FreeType is a freely available software library to render fonts. It is\nwritten in C, designed to be small, efficient, highly customizable, and\nportable while capable of producing high-quality output (glyph images)\nof most vector and bitmap font formats."
-        },
-        {
-            "name": "fribidi",
-            "description": "GNU FriBidi: The Free Implementation of the Unicode Bidirectional\nAlgorithm."
-        },
-        {
-            "name": "gmake",
-            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files."
-        },
-        {
-            "name": "gnuconfig",
-            "description": "The GNU config.guess and config.sub scripts versioned by timestamp.\nThis package can be used as a build dependency for autotools packages\nthat ship a tarball with outdated config.guess and config.sub files."
-        },
-        {
-            "name": "iconv",
-            "description": "Musl is a libc, an implementation of the standard library functionality\ndescribed in the ISO C and POSIX standards, plus common extensions,\nintended for use on Linux-based systems. Whereas the kernel (Linux)\ngoverns access to hardware, memory, filesystems, and the privileges for\naccessing these resources, the C library is responsible for providing\nthe actual C function interfaces userspace applications see, and for\nconstructing higher-level buffered stdio, memory allocation management,\nthread creation and synchronization operations, and so on using the\nlower-level interfaces the kernel provides, as well as for implementing\npure library routines of the C language like strstr, snprintf, strtol,\nexp, sqrt, etc. Musl is a new general-purpose implementation of the C\nlibrary. It is lightweight, fast, simple, free, and aims to be correct\nin the sense of standards-conformance and safety."
-        },
-        {
-            "name": "lame",
-            "description": "LAME is a high quality MPEG Audio Layer III (MP3) encoder licensed under\nthe LGPL."
-        },
-        {
-            "name": "libssh",
-            "description": "libssh: the SSH library"
-        },
-        {
-            "name": "libvorbis",
-            "description": "Ogg Vorbis is a fully open, non-proprietary, patent-and-royalty-free,\ngeneral-purpose compressed audio format for mid to high quality (8kHz-\n48.0kHz, 16+ bit, polyphonic) audio and music at fixed and variable\nbitrates from 16 to 128 kbps/channel."
-        },
-        {
-            "name": "libvpx",
-            "description": "libvpx is a free software video codec library from Google and the\nAlliance for Open Media. It serves as the reference software\nimplementation for the VP8 and VP9 video coding formats, and for AV1 a\nspecial fork named libaom that was stripped of backwards compatibility."
-        },
-        {
-            "name": "libwebp",
-            "description": "WebP is a modern image format that provides superior lossless and lossy\ncompression for images on the web. Using WebP, webmasters and web\ndevelopers can create smaller, richer images that make the web faster."
-        },
-        {
-            "name": "libxml2",
-            "description": "Libxml2 is the XML C parser and toolkit developed for the Gnome project\n(but usable outside of the Gnome platform), it is free software\navailable under the MIT License."
-        },
-        {
-            "name": "libxv",
-            "description": "libXv - library for the X Video (Xv) extension to the X Window System."
-        },
-        {
-            "name": "libzmq",
-            "description": "The ZMQ networking/concurrency library and core API"
-        },
-        {
-            "name": "openjpeg",
-            "description": "OpenJPEG is an open-source JPEG 2000 codec written in C language. It has\nbeen developed in order to promote the use of JPEG 2000, a still-image\ncompression standard from the Joint Photographic Experts Group (JPEG).\nSince April 2015, it is officially recognized by ISO/IEC and ITU-T as a\nJPEG 2000 Reference Software."
-        },
-        {
-            "name": "openssl",
-            "description": "OpenSSL is an open source project that provides a robust, commercial-\ngrade, and full-featured toolkit for the Transport Layer Security (TLS)\nand Secure Sockets Layer (SSL) protocols. It is also a general-purpose\ncryptography library."
-        },
-        {
-            "name": "opus",
-            "description": "Opus is a totally open, royalty-free, highly versatile audio codec."
-        },
-        {
-            "name": "pkgconfig",
-            "description": "pkg-config is a helper tool used when compiling applications and\nlibraries"
-        },
-        {
-            "name": "sdl2",
-            "description": "Simple DirectMedia Layer is a cross-platform development library\ndesigned to provide low level access to audio, keyboard, mouse,\njoystick, and graphics hardware via OpenGL and Direct3D."
-        },
-        {
-            "name": "snappy",
-            "description": "A fast compressor/decompressor: https://code.google.com/p/snappy"
-        },
-        {
-            "name": "speex",
-            "description": "Speex is an Open Source/Free Software patent-free audio compression\nformat designed for speech."
-        },
-        {
-            "name": "texinfo",
-            "description": "Texinfo is the official documentation format of the GNU project. It was\ninvented by Richard Stallman and Bob Chassell many years ago, loosely\nbased on Brian Reid's Scribe and other formatting languages of the time.\nIt is used by many non-GNU projects as well."
-        },
-        {
-            "name": "x264",
-            "description": "Software library and application for encoding video streams"
-        },
-        {
-            "name": "xz",
-            "description": "XZ Utils is free general-purpose data compression software with high\ncompression ratio. XZ Utils were written for POSIX-like systems, but\nalso work on some not-so-POSIX systems. XZ Utils are the successor to\nLZMA Utils."
-        },
-        {
-            "name": "yasm",
-            "description": "Yasm is a complete rewrite of the NASM-2.11.06 assembler. It supports\nthe x86 and AMD64 instruction sets, accepts NASM and GAS assembler\nsyntaxes and outputs binary, ELF32 and ELF64 object formats."
-        },
-        {
-            "name": "zlib-api",
-            "description": "zlib replacement with optimizations for next generation systems."
-        }
-    ],
-    "dependent_to": [
-        {
-            "name": "py-ffmpy",
-            "description": "A simple Python wrapper for ffmpeg"
-        },
-        {
-            "name": "openimageio",
-            "description": "OpenImageIO is a library for reading and writing images, and a bunch of\nrelated classes, utilities, and applications."
-        },
-        {
-            "name": "py-pydub",
-            "description": "Manipulate audio with an simple and easy high level interface"
-        },
-        {
-            "name": "dlib",
-            "description": "toolkit containing machine learning algorithms and tools for creating\ncomplex software in C++ to solve real world problems"
-        },
-        {
-            "name": "gmt",
-            "description": "GMT (Generic Mapping Tools) is an open source collection of about 80\ncommand-line tools for manipulating geographic and Cartesian data sets\n(including filtering, trend fitting, gridding, projecting, etc.) and\nproducing PostScript illustrations ranging from simple x-y plots via\ncontour maps to artificially illuminated surfaces and 3D perspective\nviews."
-        },
-        {
-            "name": "sumo",
-            "description": "Eclipse SUMO is an open source, highly portable, microscopic and\ncontinuous road traffic simulation package designed to handle large road\nnetworks. It allows for intermodal simulation including pedestrians and\ncomes with a large set of tools for scenario creation."
-        },
-        {
-            "name": "opencv",
-            "description": "OpenCV (Open Source Computer Vision Library) is an open source computer\nvision and machine learning software library."
-        },
-        {
-            "name": "mtn",
-            "description": "Movie Thumbnailer is CLI thumbnail generator using FFmpeg."
-        },
-        {
-            "name": "py-imageio-ffmpeg",
-            "description": "The purpose of this project is to provide a simple and reliable ffmpeg\nwrapper for working with video files. It implements two simple generator\nfunctions for reading and writing data from/to ffmpeg, which reliably\nterminate the ffmpeg process when done. It also takes care of publishing\nplatform-specific wheels that include the binary ffmpeg executables."
+            "name": "4.1.1",
+            "sha256": "0cb40e3b8acaccd0ecb38aa863f66f0c6e02406246556c2992f67bf650fab058"
         },
         {
-            "name": "py-matplotlib",
-            "description": "Matplotlib is a comprehensive library for creating static, animated, and\ninteractive visualizations in Python."
+            "name": "4.2.2",
+            "sha256": "b620d187c26f76ca19e74210a0336c3b8380b97730df5cdf45f3e69e89000e5c"
         },
         {
-            "name": "tumbler",
-            "description": "Tumbler is a D-Bus service for applications to request thumbnails for\nXFCE4"
+            "name": "4.3.2",
+            "sha256": "ab3a6d6a70358ba0a5f67f37f91f6656b7302b02e98e5b8c846c16763c99913a"
         },
         {
-            "name": "lammps",
-            "description": "LAMMPS stands for Large-scale Atomic/Molecular Massively Parallel\nSimulator."
+            "name": "4.4.1",
+            "sha256": "8fc9f20ac5ed95115a9e285647add0eedd5cc1a98a039ada14c132452f98ac42"
         },
         {
-            "name": "mivisionx",
-            "description": "MIVisionX toolkit is a set of comprehensive computer vision and machine\nintelligence libraries, utilities, and applications bundled into a\nsingle toolkit."
+            "name": "4.4.4",
+            "sha256": "47b1fbf70a2c090d9c0fae5910da11c6406ca92408bb69d8c935cd46c622c7ce"
         },
         {
-            "name": "py-youtube-dl",
-            "description": "Command-line program to download videos from YouTube.com and other video\nsites."
+            "name": "5.1.2",
+            "sha256": "39a0bcc8d98549f16c570624678246a6ac736c066cebdb409f9502e915b22f2b"
         },
         {
-            "name": "openscenegraph",
-            "description": "OpenSceneGraph is an open source, high performance 3D graphics toolkit\nthat's used in a variety of visual simulation applications."
+            "name": "5.1.3",
+            "sha256": "5d5bef6a11f0c500588f9870ec965a30acc0d54d8b1e535da6554a32902d236d"
         },
         {
-            "name": "opencascade",
-            "description": "Open CASCADE Technology is a software development kit (SDK) intended for\ndevelopment of applications dealing with 3D CAD data, freely available\nin open source. It includes a set of C++ class libraries providing\nservices for 3D surface and solid modeling, visualization, data exchange\nand rapid application development."
+            "name": "5.1.4",
+            "sha256": "c3c1e316bf91468738dd0aff6eb1faab409f1edcd34fd1a4213626439bc5d743"
         },
         {
-            "name": "py-imageio",
-            "description": "Python library for reading and writing image data. Imageio is a Python\nlibrary that provides an easy interface to read and write a wide range\nof image data, including animated images, video, volumetric data, and\nscientific formats. It is cross-platform, runs on Python 2.7 and 3.4+,\nand is easy to install."
+            "name": "6.0",
+            "sha256": "47d062731c9f66a78380e35a19aac77cebceccd1c7cc309b9c82343ffc430c3d"
         },
         {
-            "name": "vtk",
-            "description": "The Visualization Toolkit (VTK) is an open-source, freely available\nsoftware system for 3D computer graphics, image processing and\nvisualization."
+            "name": "6.1.1",
+            "sha256": "5e3133939a61ef64ac9b47ffd29a5ea6e337a4023ef0ad972094b4da844e3a20"
         },
         {
-            "name": "r-animation",
-            "description": "A Gallery of Animations in Statistics and Utilities to Create\nAnimations. Provides functions for animations in statistics, covering\ntopics in probability theory, mathematical statistics, multivariate\nstatistics, non-parametric statistics, sampling survey, linear models,\ntime series, computational statistics, data mining and machine learning.\nThese functions maybe helpful in teaching statistics and data analysis."
+            "name": "7.0",
+            "sha256": "a24d9074bf5523a65aaa9e7bd02afe4109ce79d69bd77d104fed3dab4b934d7a"
         },
         {
-            "name": "py-torchvision",
-            "description": "Image and video datasets and models for torch deep learning."
+            "branch": "master",
+            "name": "master"
         }
     ]
 }

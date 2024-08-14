@@ -1,61 +1,61 @@
 {
-    "name": "rccl-tests",
     "aliases": [],
-    "versions": [
-        {
-            "name": "develop",
-            "branch": "develop"
-        },
-        {
-            "name": "master",
-            "branch": "master"
-        }
-    ],
-    "latest_version": "develop",
     "build_system": "MakefilePackage",
     "conflicts": [
         {
+            "description": null,
             "name": "arch=windows-None-None",
-            "spec": "build_system=makefile",
-            "description": null
+            "spec": "build_system=makefile"
         }
     ],
-    "variants": [
+    "dependencies": [
         {
-            "name": "build_system",
-            "default": "makefile",
-            "description": "Build systems supported by the package"
+            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files.",
+            "name": "gmake"
         },
         {
-            "name": "mpi",
-            "default": true,
-            "description": "with MPI support"
+            "description": "HIP is a C++ Runtime API and Kernel Language that allows developers to\ncreate portable applications for AMD and NVIDIA GPUs from single source\ncode.",
+            "name": "hip"
+        },
+        {
+            "description": "IBM MPI implementation from Spectrum MPI.",
+            "name": "mpi"
+        },
+        {
+            "description": "RCCL (pronounced \"Rickle\") is a stand-alone library of standard\ncollective communication routines for GPUs, implementing all-reduce,\nall-gather, reduce, broadcast, and reduce-scatter.",
+            "name": "rccl"
         }
     ],
+    "dependent_to": [],
+    "description": "These tests check both the performance and the correctness of RCCL\noperations. They can be compiled against RCCL.\n",
     "homepage": "https://github.com/ROCm/rccl-tests",
+    "latest_version": "develop",
     "maintainers": [
         "bvanessen"
     ],
+    "name": "rccl-tests",
     "patches": [],
     "resources": [],
-    "description": "These tests check both the performance and the correctness of RCCL\noperations. They can be compiled against RCCL.\n",
-    "dependencies": [
+    "variants": [
         {
-            "name": "gmake",
-            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files."
+            "default": "makefile",
+            "description": "Build systems supported by the package",
+            "name": "build_system"
         },
         {
-            "name": "hip",
-            "description": "HIP is a C++ Runtime API and Kernel Language that allows developers to\ncreate portable applications for AMD and NVIDIA GPUs from single source\ncode."
-        },
-        {
-            "name": "mpi",
-            "description": "A single processor implementation of the mpi library."
-        },
-        {
-            "name": "rccl",
-            "description": "RCCL (pronounced \"Rickle\") is a stand-alone library of standard\ncollective communication routines for GPUs, implementing all-reduce,\nall-gather, reduce, broadcast, and reduce-scatter."
+            "default": true,
+            "description": "with MPI support",
+            "name": "mpi"
         }
     ],
-    "dependent_to": []
+    "versions": [
+        {
+            "branch": "develop",
+            "name": "develop"
+        },
+        {
+            "branch": "master",
+            "name": "master"
+        }
+    ]
 }

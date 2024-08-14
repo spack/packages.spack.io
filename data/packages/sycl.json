@@ -1,190 +1,190 @@
 {
-    "name": "hipsycl",
     "aliases": [
         {
-            "name": "sycl",
-            "alias_for": "hipsycl"
+            "alias_for": "hipsycl",
+            "name": "sycl"
         }
     ],
-    "versions": [
-        {
-            "name": "stable",
-            "branch": "stable"
-        },
-        {
-            "name": "24.02.0",
-            "commit": "974adc33ea5a35dd8b5be68c7a744b37482b8b64"
-        },
-        {
-            "name": "23.10.0",
-            "commit": "3952b468c9da89edad9dff953cdcab0a3c3bf78c"
-        },
-        {
-            "name": "0.9.4",
-            "commit": "99d9e24d462b35e815e0e59c1b611936c70464ae"
-        },
-        {
-            "name": "0.9.3",
-            "commit": "51507bad524c33afe8b124804091b10fa25618dc"
-        },
-        {
-            "name": "0.9.2",
-            "commit": "49fd02499841ae884c61c738610e58c27ab51fdb"
-        },
-        {
-            "name": "0.9.1",
-            "commit": "fe8465cd5399a932f7221343c07c9942b0fe644c"
-        },
-        {
-            "name": "0.8.0",
-            "commit": "2daf8407e49dd32ebd1c266e8e944e390d28b22a"
-        },
-        {
-            "name": "develop",
-            "branch": "develop"
-        }
-    ],
-    "latest_version": "24.02.0",
     "build_system": "CMakePackage",
     "conflicts": [
         {
-            "name": "amdgpu_target=none",
-            "spec": "+rocm",
-            "description": null
-        },
-        {
-            "name": "^llvm@16:",
-            "spec": "@:0.9.4",
-            "description": null
-        },
-        {
-            "name": "%gcc@:4",
-            "spec": "@:0.9.0",
-            "description": "hipsycl: hipSYCL needs proper C++14 support to be built, %gcc is too old"
-        },
-        {
-            "name": "%gcc@:8",
-            "spec": "@0.9.1:",
-            "description": "hipsycl: hipSYCL needs proper C++17 support to be built, %gcc is too old"
-        },
-        {
+            "description": "hipsycl: LLVM debug builds don't work with hipSYCL CUDA backend; for further info please refer to: https://github.com/illuhad/hipSYCL/blob/master/doc/install-cuda.md",
             "name": "^llvm build_type=Debug",
-            "spec": "+cuda",
-            "description": "hipsycl: LLVM debug builds don't work with hipSYCL CUDA backend; for further info please refer to: https://github.com/illuhad/hipSYCL/blob/master/doc/install-cuda.md"
+            "spec": "+cuda"
+        },
+        {
+            "description": null,
+            "name": "amdgpu_target=none",
+            "spec": "+rocm"
+        },
+        {
+            "description": "hipsycl: hipSYCL needs proper C++17 support to be built, %gcc is too old",
+            "name": "%gcc@:8",
+            "spec": "@0.9.1:"
+        },
+        {
+            "description": "hipsycl: hipSYCL needs proper C++14 support to be built, %gcc is too old",
+            "name": "%gcc@:4",
+            "spec": "@:0.9.0"
+        },
+        {
+            "description": null,
+            "name": "^llvm@16:",
+            "spec": "@:0.9.4"
         }
     ],
-    "variants": [
-        {
-            "name": "rocm",
-            "default": false,
-            "description": "Enable ROCM backend for SYCL kernels"
-        },
-        {
-            "name": "amdgpu_target",
-            "default": "none",
-            "description": "AMD GPU architecture"
-        },
-        {
-            "name": "build_system",
-            "default": "cmake",
-            "description": "Build systems supported by the package"
-        },
-        {
-            "name": "build_type",
-            "default": "Release",
-            "description": "CMake build type"
-        },
-        {
-            "name": "ipo",
-            "default": false,
-            "description": "CMake interprocedural optimization"
-        },
-        {
-            "name": "generator",
-            "default": "make",
-            "description": "the build system generator to use"
-        },
-        {
-            "name": "cuda",
-            "default": false,
-            "description": "Enable CUDA backend for SYCL kernels"
-        }
-    ],
-    "homepage": "https://github.com/illuhad/hipSYCL",
-    "maintainers": [],
-    "patches": [],
-    "resources": [],
-    "description": "hipSYCL is an implementation of the SYCL standard programming model over\nNVIDIA CUDA/AMD HIP\n",
     "dependencies": [
         {
-            "name": "boost",
-            "description": "Boost provides free peer-reviewed portable C++ source libraries,\nemphasizing libraries that work well with the C++ Standard Library.\nBoost libraries are intended to be widely useful, and usable across a\nbroad spectrum of applications. The Boost license encourages both\ncommercial and non-commercial use."
+            "description": "Boost provides free peer-reviewed portable C++ source libraries,\nemphasizing libraries that work well with the C++ Standard Library.\nBoost libraries are intended to be widely useful, and usable across a\nbroad spectrum of applications. The Boost license encourages both\ncommercial and non-commercial use.",
+            "name": "boost"
         },
         {
-            "name": "cmake",
-            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software."
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software.",
+            "name": "cmake"
         },
         {
-            "name": "cuda",
-            "description": "CUDA is a parallel computing platform and programming model invented by\nNVIDIA. It enables dramatic increases in computing performance by\nharnessing the power of the graphics processing unit (GPU). Note: This\npackage does not currently install the drivers necessary to run CUDA.\nThese will need to be installed manually. See:\nhttps://docs.nvidia.com/cuda/ for details."
+            "description": "CUDA is a parallel computing platform and programming model invented by\nNVIDIA. It enables dramatic increases in computing performance by\nharnessing the power of the graphics processing unit (GPU). Note: This\npackage does not currently install the drivers necessary to run CUDA.\nThese will need to be installed manually. See:\nhttps://docs.nvidia.com/cuda/ for details.",
+            "name": "cuda"
         },
         {
-            "name": "gmake",
-            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files."
+            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files.",
+            "name": "gmake"
         },
         {
-            "name": "hip",
-            "description": "HIP is a C++ Runtime API and Kernel Language that allows developers to\ncreate portable applications for AMD and NVIDIA GPUs from single source\ncode."
+            "description": "HIP is a C++ Runtime API and Kernel Language that allows developers to\ncreate portable applications for AMD and NVIDIA GPUs from single source\ncode.",
+            "name": "hip"
         },
         {
-            "name": "hsa-rocr-dev",
-            "description": "This repository includes the user mode API nterfaces and libraries\nnecessary for host applications to launch computer kernels to available\nHSA ROCm kernel agents.AMD Heterogeneous System Architecture HSA - Linux\nHSA Runtime for Boltzmann (ROCm) platforms."
+            "description": "This repository includes the user mode API nterfaces and libraries\nnecessary for host applications to launch computer kernels to available\nHSA ROCm kernel agents.AMD Heterogeneous System Architecture HSA - Linux\nHSA Runtime for Boltzmann (ROCm) platforms.",
+            "name": "hsa-rocr-dev"
         },
         {
-            "name": "llvm",
-            "description": "The LLVM Project is a collection of modular and reusable compiler and\ntoolchain technologies. Despite its name, LLVM has little to do with\ntraditional virtual machines, though it does provide helpful libraries\nthat can be used to build them. The name \"LLVM\" itself is not an\nacronym; it is the full name of the project."
+            "description": "The LLVM Project is a collection of modular and reusable compiler and\ntoolchain technologies. Despite its name, LLVM has little to do with\ntraditional virtual machines, though it does provide helpful libraries\nthat can be used to build them. The name \"LLVM\" itself is not an\nacronym; it is the full name of the project.",
+            "name": "llvm"
         },
         {
-            "name": "llvm-amdgpu",
-            "description": "Toolkit for the construction of highly optimized compilers, optimizers,\nand run-time environments."
+            "description": "Toolkit for the construction of highly optimized compilers, optimizers,\nand run-time environments.",
+            "name": "llvm-amdgpu"
         },
         {
-            "name": "ninja",
-            "description": "Ninja is a small build system with a focus on speed. It differs from\nother build systems in two major respects: it is designed to have its\ninput files generated by a higher-level build system, and it is designed\nto run builds as fast as possible."
+            "description": "Ninja is a small build system with a focus on speed. It differs from\nother build systems in two major respects: it is designed to have its\ninput files generated by a higher-level build system, and it is designed\nto run builds as fast as possible.",
+            "name": "ninja"
         },
         {
-            "name": "python",
-            "description": "The Python programming language."
+            "description": "The Python programming language.",
+            "name": "python"
         }
     ],
     "dependent_to": [
         {
-            "name": "gromacs-chain-coordinate",
-            "description": "A modification of GROMACS that implements the \"chain coordinate\", a\nreaction coordinate for pore formation in membranes and stalk formation\nbetween membranes."
+            "description": "A Common Tracking Software (Acts) This project contains an experiment-\nindependent set of track reconstruction tools. The main philosophy is to\nprovide high-level track reconstruction modules that can be used for any\ntracking detector. The description of the tracking detector's geometry\nis optimized for efficient navigation and quick extrapolation of tracks.\nConverters for several common geometry description languages exist.\nHaving a highly performant, yet largely customizable implementation of\ntrack reconstruction algorithms was a primary objective for the design\nof this toolset. Additionally, the applicability to real-life HEP\nexperiments plays major role in the development process. Apart from\nalgorithmic code, this project also provides an event data model for the\ndescription of track parameters and measurements. Key features of this\nproject include: tracking geometry description which can be constructed\nfrom TGeo, DD4Hep, or GDML input, simple and efficient event data model,\nperformant and highly flexible algorithms for track propagation and\nfitting, basic seed finding algorithms.",
+            "name": "acts"
         },
         {
-            "name": "gromacs",
-            "description": "GROMACS is a molecular dynamics package primarily designed for\nsimulations of proteins, lipids and nucleic acids. It was originally\ndeveloped in the Biophysical Chemistry department of University of\nGroningen, and is now maintained by contributors in universities and\nresearch centers across the world. GROMACS is one of the fastest and\nmost popular software packages available and can run on CPUs as well as\nGPUs. It is free, open source released under the GNU Lesser General\nPublic License. Before the version 4.6, GROMACS was released under the\nGNU General Public License."
+            "description": "Autonomic Performance Environment for eXascale (APEX).",
+            "name": "apex"
         },
         {
-            "name": "gromacs-swaxs",
-            "description": "Modified Gromacs for small-angle scattering calculations\n(SAXS/WAXS/SANS)"
+            "description": "GROMACS is a molecular dynamics package primarily designed for\nsimulations of proteins, lipids and nucleic acids. It was originally\ndeveloped in the Biophysical Chemistry department of University of\nGroningen, and is now maintained by contributors in universities and\nresearch centers across the world. GROMACS is one of the fastest and\nmost popular software packages available and can run on CPUs as well as\nGPUs. It is free, open source released under the GNU Lesser General\nPublic License. Before the version 4.6, GROMACS was released under the\nGNU General Public License.",
+            "name": "gromacs"
         },
         {
-            "name": "acts",
-            "description": "A Common Tracking Software (Acts) This project contains an experiment-\nindependent set of track reconstruction tools. The main philosophy is to\nprovide high-level track reconstruction modules that can be used for any\ntracking detector. The description of the tracking detector's geometry\nis optimized for efficient navigation and quick extrapolation of tracks.\nConverters for several common geometry description languages exist.\nHaving a highly performant, yet largely customizable implementation of\ntrack reconstruction algorithms was a primary objective for the design\nof this toolset. Additionally, the applicability to real-life HEP\nexperiments plays major role in the development process. Apart from\nalgorithmic code, this project also provides an event data model for the\ndescription of track parameters and measurements. Key features of this\nproject include: tracking geometry description which can be constructed\nfrom TGeo, DD4Hep, or GDML input, simple and efficient event data model,\nperformant and highly flexible algorithms for track propagation and\nfitting, basic seed finding algorithms."
+            "description": "A modification of GROMACS that implements the \"chain coordinate\", a\nreaction coordinate for pore formation in membranes and stalk formation\nbetween membranes.",
+            "name": "gromacs-chain-coordinate"
         },
         {
-            "name": "apex",
-            "description": "Autonomic Performance Environment for eXascale (APEX)."
+            "description": "Modified Gromacs for small-angle scattering calculations\n(SAXS/WAXS/SANS)",
+            "name": "gromacs-swaxs"
         },
         {
-            "name": "zerosum",
-            "description": "Utility for monitoring process, thread, OS and HW resources, including\nGPU utilization."
+            "description": "VecMem is a vectorised data model base and helper classes.",
+            "name": "vecmem"
         },
         {
-            "name": "vecmem",
-            "description": "VecMem is a vectorised data model base and helper classes."
+            "description": "Utility for monitoring process, thread, OS and HW resources, including\nGPU utilization.",
+            "name": "zerosum"
+        }
+    ],
+    "description": "hipSYCL is an implementation of the SYCL standard programming model over\nNVIDIA CUDA/AMD HIP\n",
+    "homepage": "https://github.com/illuhad/hipSYCL",
+    "latest_version": "24.02.0",
+    "maintainers": [],
+    "name": "hipsycl",
+    "patches": [],
+    "resources": [],
+    "variants": [
+        {
+            "default": "none",
+            "description": "AMD GPU architecture",
+            "name": "amdgpu_target"
+        },
+        {
+            "default": "cmake",
+            "description": "Build systems supported by the package",
+            "name": "build_system"
+        },
+        {
+            "default": "Release",
+            "description": "CMake build type",
+            "name": "build_type"
+        },
+        {
+            "default": false,
+            "description": "Enable CUDA backend for SYCL kernels",
+            "name": "cuda"
+        },
+        {
+            "default": "make",
+            "description": "the build system generator to use",
+            "name": "generator"
+        },
+        {
+            "default": false,
+            "description": "CMake interprocedural optimization",
+            "name": "ipo"
+        },
+        {
+            "default": false,
+            "description": "Enable ROCM backend for SYCL kernels",
+            "name": "rocm"
+        }
+    ],
+    "versions": [
+        {
+            "commit": "2daf8407e49dd32ebd1c266e8e944e390d28b22a",
+            "name": "0.8.0"
+        },
+        {
+            "commit": "fe8465cd5399a932f7221343c07c9942b0fe644c",
+            "name": "0.9.1"
+        },
+        {
+            "commit": "49fd02499841ae884c61c738610e58c27ab51fdb",
+            "name": "0.9.2"
+        },
+        {
+            "commit": "51507bad524c33afe8b124804091b10fa25618dc",
+            "name": "0.9.3"
+        },
+        {
+            "commit": "99d9e24d462b35e815e0e59c1b611936c70464ae",
+            "name": "0.9.4"
+        },
+        {
+            "commit": "3952b468c9da89edad9dff953cdcab0a3c3bf78c",
+            "name": "23.10.0"
+        },
+        {
+            "commit": "974adc33ea5a35dd8b5be68c7a744b37482b8b64",
+            "name": "24.02.0"
+        },
+        {
+            "branch": "develop",
+            "name": "develop"
+        },
+        {
+            "branch": "stable",
+            "name": "stable"
         }
     ]
 }

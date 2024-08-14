@@ -1,52 +1,23 @@
 {
-    "name": "crtm-fix",
     "aliases": [],
-    "versions": [
-        {
-            "name": "2.4.0.1_emc",
-            "sha256": "6e4005b780435c8e280d6bfa23808d8f12609dfd72f77717d046d4795cac0457"
-        },
-        {
-            "name": "2.4.0_emc",
-            "sha256": "d0f1b2ae2905457f4c3731746892aaa8f6b84ee0691f6228dfbe48917df1e85e"
-        },
-        {
-            "name": "2.3.0_emc",
-            "sha256": "1452af2d1d11d57ef3c57b6b861646541e7042a9b0f3c230f9a82854d7e90924"
-        }
-    ],
-    "latest_version": "2.4.0.1_emc",
     "build_system": "Package",
     "conflicts": [
         {
+            "description": "crtm-fix: big_endian and little_endian conflict",
             "name": "+big_endian",
-            "spec": "+little_endian",
-            "description": "crtm-fix: big_endian and little_endian conflict"
+            "spec": "+little_endian"
         }
     ],
-    "variants": [
+    "dependencies": [],
+    "dependent_to": [
         {
-            "name": "build_system",
-            "default": "generic",
-            "description": "Build systems supported by the package"
-        },
-        {
-            "name": "big_endian",
-            "default": true,
-            "description": "Install big_endian fix files"
-        },
-        {
-            "name": "little_endian",
-            "default": false,
-            "description": "Install little endian fix files"
-        },
-        {
-            "name": "netcdf",
-            "default": true,
-            "description": "Install netcdf fix files"
+            "description": "The Community Radiative Transfer Model (CRTM) package. The CRTM is\ncomposed of four important modules for gaseous transmittance, surface\nemission and reflection, cloud and aerosol absorption and scattering,\nand a solver for a radiative transfer.",
+            "name": "crtm"
         }
     ],
+    "description": "CRTM coefficient files\n",
     "homepage": "https://github.com/NOAA-EMC/crtm",
+    "latest_version": "2.4.0.1_emc",
     "maintainers": [
         "AlexanderRichert-NOAA",
         "BenjaminTJohnson",
@@ -54,14 +25,43 @@
         "climbfuji",
         "edwardhartnett"
     ],
+    "name": "crtm-fix",
     "patches": [],
     "resources": [],
-    "description": "CRTM coefficient files\n",
-    "dependencies": [],
-    "dependent_to": [
+    "variants": [
         {
-            "name": "crtm",
-            "description": "The Community Radiative Transfer Model (CRTM) package. The CRTM is\ncomposed of four important modules for gaseous transmittance, surface\nemission and reflection, cloud and aerosol absorption and scattering,\nand a solver for a radiative transfer."
+            "default": true,
+            "description": "Install big_endian fix files",
+            "name": "big_endian"
+        },
+        {
+            "default": "generic",
+            "description": "Build systems supported by the package",
+            "name": "build_system"
+        },
+        {
+            "default": false,
+            "description": "Install little endian fix files",
+            "name": "little_endian"
+        },
+        {
+            "default": true,
+            "description": "Install netcdf fix files",
+            "name": "netcdf"
+        }
+    ],
+    "versions": [
+        {
+            "name": "2.3.0_emc",
+            "sha256": "1452af2d1d11d57ef3c57b6b861646541e7042a9b0f3c230f9a82854d7e90924"
+        },
+        {
+            "name": "2.4.0.1_emc",
+            "sha256": "6e4005b780435c8e280d6bfa23808d8f12609dfd72f77717d046d4795cac0457"
+        },
+        {
+            "name": "2.4.0_emc",
+            "sha256": "d0f1b2ae2905457f4c3731746892aaa8f6b84ee0691f6228dfbe48917df1e85e"
         }
     ]
 }

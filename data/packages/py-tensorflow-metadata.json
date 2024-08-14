@@ -1,6 +1,75 @@
 {
-    "name": "py-tensorflow-metadata",
     "aliases": [],
+    "build_system": "PythonPackage",
+    "conflicts": [],
+    "dependencies": [
+        {
+            "description": "Bazel is an open-source build and test tool similar to Make, Maven, and\nGradle. It uses a human-readable, high-level build language. Bazel\nsupports projects in multiple languages and builds outputs for multiple\nplatforms. Bazel supports large codebases across multiple repositories,\nand large numbers of users.",
+            "name": "bazel"
+        },
+        {
+            "description": "This repository is a collection of Python library code for building\nPython applications. The code is collected from Google's own Python code\nbase, and has been extensively tested and used in production.",
+            "name": "py-absl-py"
+        },
+        {
+            "description": "Common protobufs used in Google APIs.",
+            "name": "py-googleapis-common-protos"
+        },
+        {
+            "description": "The PyPA recommended tool for installing Python packages.",
+            "name": "py-pip"
+        },
+        {
+            "description": "Protocol buffers are Google's language-neutral, platform-neutral,\nextensible mechanism for serializing structured data - think XML, but\nsmaller, faster, and simpler. You define how you want your data to be\nstructured once, then you can use special generated source code to\neasily write and read your structured data to and from a variety of data\nstreams and using a variety of languages.",
+            "name": "py-protobuf"
+        },
+        {
+            "description": "A Python utility that aids in the process of downloading, building,\nupgrading, installing, and uninstalling Python packages.",
+            "name": "py-setuptools"
+        },
+        {
+            "description": "A built-package format for Python.",
+            "name": "py-wheel"
+        },
+        {
+            "description": "The Python programming language.",
+            "name": "python"
+        },
+        {
+            "description": "A Spack managed Python virtual environment",
+            "name": "python-venv"
+        }
+    ],
+    "dependent_to": [
+        {
+            "description": "tensorflow/datasets is a library of datasets ready to use with\nTensorFlow.",
+            "name": "py-tensorflow-datasets"
+        }
+    ],
+    "description": "Library and standards for schema and statistics. TensorFlow Metadata\nprovides standard representations for metadata that are useful when\ntraining machine learning models with TensorFlow.\n",
+    "homepage": "https://pypi.org/project/tensorflow-metadata/",
+    "latest_version": "1.10.0",
+    "maintainers": [],
+    "name": "py-tensorflow-metadata",
+    "patches": [
+        {
+            "level": 1,
+            "owner": "builtin.py-tensorflow-metadata",
+            "reverse": false,
+            "sha256": "a6b294d5e6099979192fcdb4d5b7b0388dc30b48671944d22e51a9e6bd5e1490",
+            "url": "https://github.com/tensorflow/metadata/commit/8df679e782f5bf2d163d63e550d8752c3812d566.patch?full_index=1",
+            "version": "@1.10.0",
+            "working_dir": "."
+        }
+    ],
+    "resources": [],
+    "variants": [
+        {
+            "default": "python_pip",
+            "description": "Build systems supported by the package",
+            "name": "build_system"
+        }
+    ],
     "versions": [
         {
             "name": "1.10.0",
@@ -9,75 +78,6 @@
         {
             "name": "1.5.0",
             "sha256": "f0ec8aaf62fd772ef908efe4ee5ea3bc0d67dcbf10ae118415b7b206a1d61745"
-        }
-    ],
-    "latest_version": "1.10.0",
-    "build_system": "PythonPackage",
-    "conflicts": [],
-    "variants": [
-        {
-            "name": "build_system",
-            "default": "python_pip",
-            "description": "Build systems supported by the package"
-        }
-    ],
-    "homepage": "https://pypi.org/project/tensorflow-metadata/",
-    "maintainers": [],
-    "patches": [
-        {
-            "owner": "builtin.py-tensorflow-metadata",
-            "sha256": "a6b294d5e6099979192fcdb4d5b7b0388dc30b48671944d22e51a9e6bd5e1490",
-            "level": 1,
-            "working_dir": ".",
-            "reverse": false,
-            "url": "https://github.com/tensorflow/metadata/commit/8df679e782f5bf2d163d63e550d8752c3812d566.patch?full_index=1",
-            "version": "@1.10.0"
-        }
-    ],
-    "resources": [],
-    "description": "Library and standards for schema and statistics. TensorFlow Metadata\nprovides standard representations for metadata that are useful when\ntraining machine learning models with TensorFlow.\n",
-    "dependencies": [
-        {
-            "name": "bazel",
-            "description": "Bazel is an open-source build and test tool similar to Make, Maven, and\nGradle. It uses a human-readable, high-level build language. Bazel\nsupports projects in multiple languages and builds outputs for multiple\nplatforms. Bazel supports large codebases across multiple repositories,\nand large numbers of users."
-        },
-        {
-            "name": "py-absl-py",
-            "description": "This repository is a collection of Python library code for building\nPython applications. The code is collected from Google's own Python code\nbase, and has been extensively tested and used in production."
-        },
-        {
-            "name": "py-googleapis-common-protos",
-            "description": "Common protobufs used in Google APIs."
-        },
-        {
-            "name": "py-pip",
-            "description": "The PyPA recommended tool for installing Python packages."
-        },
-        {
-            "name": "py-protobuf",
-            "description": "Protocol buffers are Google's language-neutral, platform-neutral,\nextensible mechanism for serializing structured data - think XML, but\nsmaller, faster, and simpler. You define how you want your data to be\nstructured once, then you can use special generated source code to\neasily write and read your structured data to and from a variety of data\nstreams and using a variety of languages."
-        },
-        {
-            "name": "py-setuptools",
-            "description": "A Python utility that aids in the process of downloading, building,\nupgrading, installing, and uninstalling Python packages."
-        },
-        {
-            "name": "py-wheel",
-            "description": "A built-package format for Python."
-        },
-        {
-            "name": "python",
-            "description": "The Python programming language."
-        },
-        {
-            "name": "python-venv",
-            "description": "A Spack managed Python virtual environment"
-        }
-    ],
-    "dependent_to": [
-        {
-            "name": "py-tensorflow-datasets",
-            "description": "tensorflow/datasets is a library of datasets ready to use with\nTensorFlow."
         }
     ]
 }

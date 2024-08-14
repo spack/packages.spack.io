@@ -1,112 +1,112 @@
 {
-    "name": "qwt",
     "aliases": [],
-    "versions": [
+    "build_system": "QMakePackage",
+    "conflicts": [
         {
-            "name": "6.1.6",
-            "sha256": "99460d31c115ee4117b0175d885f47c2c590d784206f09815dc058fbe5ede1f6"
+            "description": "qwt: Qwt requires Qt5",
+            "name": "^qt-base",
+            "spec": ""
+        }
+    ],
+    "dependencies": [
+        {
+            "description": "Qt Base (Core, Gui, Widgets, Network, ...)",
+            "name": "qmake"
         },
         {
-            "name": "6.1.4",
-            "sha256": "1529215329e51fc562e0009505a838f427919a18b362afff441f035b2d9b5bd9"
+            "description": "Qt is a comprehensive cross-platform C++ application framework.",
+            "name": "qt"
+        }
+    ],
+    "dependent_to": [
+        {
+            "description": "Elmer is an open source multiphysical simulation software. It includes\nphysical models of fluid dynamics, structural mechanics,\nelectromagnetics, heat transfer and acoustics.",
+            "name": "elmerfem"
+        },
+        {
+            "description": "A QT/C++ application to convert GATE geometries to STIR format.",
+            "name": "gatepet2stir"
+        },
+        {
+            "description": "GNU Radio is a free & open-source software development toolkit that\nprovides signal processing blocks to implement software radios. It can\nbe used with readily-available, low-cost external RF hardware to create\nsoftware-defined radios, or without hardware in a simulation-like\nenvironment. It is widely used in hobbyist, academic, and commercial\nenvironments to support both wireless communications research and real-\nworld radio systems.",
+            "name": "gnuradio"
+        },
+        {
+            "description": "GPlates is desktop software for the interactive visualisation of plate\ntectonics. GPlates offers a novel combination of interactive plate\ntectonic reconstructions, geographic information system (GIS)\nfunctionality and raster data visualisation. GPlates enables both the\nvisualisation and the manipulation of plate tectonic reconstructions and\nassociated data through geological time.",
+            "name": "gplates"
+        },
+        {
+            "description": "QGIS is a free and open-source cross-platform desktop geographic\ninformation system application that supports viewing, editing, and\nanalysis of geospatial data.",
+            "name": "qgis"
+        },
+        {
+            "description": "The QwtPolar library contains classes for displaying values on a polar\ncoordinate system.",
+            "name": "qwtpolar"
+        },
+        {
+            "description": "VisIt is an Open Source, interactive, scalable, visualization, animation\nand analysis tool.",
+            "name": "visit"
+        }
+    ],
+    "description": "The Qwt library contains GUI Components and utility classes which are\nprimarily useful for programs with a technical background. Beside a\nframework for 2D plots it provides scales, sliders, dials, compasses,\nthermometers, wheels and knobs to control or display values, arrays, or\nranges of type double.\n",
+    "homepage": "https://qwt.sourceforge.net/",
+    "latest_version": "6.1.6",
+    "maintainers": [],
+    "name": "qwt",
+    "patches": [
+        {
+            "level": 1,
+            "owner": "builtin.qwt",
+            "relative_path": "no-designer.patch",
+            "reverse": false,
+            "sha256": "73df7272a11effc11546ab63aec4fc5ee25983d631c3fe5df024db3be8e83a1e",
+            "version": "~designer",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.qwt",
+            "relative_path": "no-opengl_6_1.patch",
+            "reverse": false,
+            "sha256": "0d3c6a8faa35789c922354cca18c97fcfa258a2f1b2ed6bcda13155ac8d6b3d7",
+            "version": "@6.1~opengl",
+            "working_dir": "."
+        }
+    ],
+    "resources": [],
+    "variants": [
+        {
+            "default": "qmake",
+            "description": "Build systems supported by the package",
+            "name": "build_system"
+        },
+        {
+            "default": false,
+            "description": "Build extensions to QT designer",
+            "name": "designer"
+        },
+        {
+            "default": false,
+            "description": "Build OpenGL plot canvas",
+            "name": "opengl"
+        }
+    ],
+    "versions": [
+        {
+            "name": "5.2.2",
+            "sha256": "36bf2ee51ca9c74fde1322510ffd39baac0db60d5d410bb157968a78d9c1464b"
         },
         {
             "name": "6.1.3",
             "sha256": "f3ecd34e72a9a2b08422fb6c8e909ca76f4ce5fa77acad7a2883b701f4309733"
         },
         {
-            "name": "5.2.2",
-            "sha256": "36bf2ee51ca9c74fde1322510ffd39baac0db60d5d410bb157968a78d9c1464b"
-        }
-    ],
-    "latest_version": "6.1.6",
-    "build_system": "QMakePackage",
-    "conflicts": [
-        {
-            "name": "^qt-base",
-            "spec": "",
-            "description": "qwt: Qwt requires Qt5"
-        }
-    ],
-    "variants": [
-        {
-            "name": "build_system",
-            "default": "qmake",
-            "description": "Build systems supported by the package"
+            "name": "6.1.4",
+            "sha256": "1529215329e51fc562e0009505a838f427919a18b362afff441f035b2d9b5bd9"
         },
         {
-            "name": "designer",
-            "default": false,
-            "description": "Build extensions to QT designer"
-        },
-        {
-            "name": "opengl",
-            "default": false,
-            "description": "Build OpenGL plot canvas"
-        }
-    ],
-    "homepage": "https://qwt.sourceforge.net/",
-    "maintainers": [],
-    "patches": [
-        {
-            "owner": "builtin.qwt",
-            "sha256": "73df7272a11effc11546ab63aec4fc5ee25983d631c3fe5df024db3be8e83a1e",
-            "level": 1,
-            "working_dir": ".",
-            "reverse": false,
-            "relative_path": "no-designer.patch",
-            "version": "~designer"
-        },
-        {
-            "owner": "builtin.qwt",
-            "sha256": "0d3c6a8faa35789c922354cca18c97fcfa258a2f1b2ed6bcda13155ac8d6b3d7",
-            "level": 1,
-            "working_dir": ".",
-            "reverse": false,
-            "relative_path": "no-opengl_6_1.patch",
-            "version": "@6.1~opengl"
-        }
-    ],
-    "resources": [],
-    "description": "The Qwt library contains GUI Components and utility classes which are\nprimarily useful for programs with a technical background. Beside a\nframework for 2D plots it provides scales, sliders, dials, compasses,\nthermometers, wheels and knobs to control or display values, arrays, or\nranges of type double.\n",
-    "dependencies": [
-        {
-            "name": "qmake",
-            "description": "Qt Base (Core, Gui, Widgets, Network, ...)"
-        },
-        {
-            "name": "qt",
-            "description": "Qt is a comprehensive cross-platform C++ application framework."
-        }
-    ],
-    "dependent_to": [
-        {
-            "name": "qwtpolar",
-            "description": "The QwtPolar library contains classes for displaying values on a polar\ncoordinate system."
-        },
-        {
-            "name": "qgis",
-            "description": "QGIS is a free and open-source cross-platform desktop geographic\ninformation system application that supports viewing, editing, and\nanalysis of geospatial data."
-        },
-        {
-            "name": "visit",
-            "description": "VisIt is an Open Source, interactive, scalable, visualization, animation\nand analysis tool."
-        },
-        {
-            "name": "gnuradio",
-            "description": "GNU Radio is a free & open-source software development toolkit that\nprovides signal processing blocks to implement software radios. It can\nbe used with readily-available, low-cost external RF hardware to create\nsoftware-defined radios, or without hardware in a simulation-like\nenvironment. It is widely used in hobbyist, academic, and commercial\nenvironments to support both wireless communications research and real-\nworld radio systems."
-        },
-        {
-            "name": "elmerfem",
-            "description": "Elmer is an open source multiphysical simulation software. It includes\nphysical models of fluid dynamics, structural mechanics,\nelectromagnetics, heat transfer and acoustics."
-        },
-        {
-            "name": "gatepet2stir",
-            "description": "A QT/C++ application to convert GATE geometries to STIR format."
-        },
-        {
-            "name": "gplates",
-            "description": "GPlates is desktop software for the interactive visualisation of plate\ntectonics. GPlates offers a novel combination of interactive plate\ntectonic reconstructions, geographic information system (GIS)\nfunctionality and raster data visualisation. GPlates enables both the\nvisualisation and the manipulation of plate tectonic reconstructions and\nassociated data through geological time."
+            "name": "6.1.6",
+            "sha256": "99460d31c115ee4117b0175d885f47c2c590d784206f09815dc058fbe5ede1f6"
         }
     ]
 }
