@@ -13,6 +13,7 @@ import subprocess
 import shutil
 import sys
 import os
+from collections import OrderedDict
 from datetime import datetime
 
 import spack.repo
@@ -31,16 +32,16 @@ if not os.path.exists(__file__):
 
 def write_json(content, filename):
     with open(filename, "w") as outfile:
-        outfile.write(json.dumps(content, indent=4))
+        outfile.write(json.dumps(content, indent=4, sort_keys=True))
 
 
 def main():
 
     pkgs = spack.repo.all_package_names(include_virtuals=True)
-    deps_of = {}
-    descriptions = {}
-    metas = {}
-    package_variants = {}
+    deps_of = OrderedDict()
+    descriptions = OrderedDict()
+    metas = OrderedDict()
+    package_variants = OrderedDict()
 
     # Iterate through consistent order
     pkgs = set(sorted(pkgs))
@@ -50,7 +51,7 @@ def main():
         "repository_name": "spack",
         "num_packages": len(pkgs),
         "last_update": str(datetime.now()),
-        "packages": {},
+        "packages": OrderedDict(),
     }
 
     for i, package in enumerate(pkgs):
@@ -113,6 +114,7 @@ def main():
                 if isinstance(key, str) and isinstance(h, str):
                     meta[key] = h
             versions.append(meta)
+        versions.sort(key=lambda x: x["name"])
 
         # Repology wants a completely different format for versions
         repology_versions = []
@@ -141,6 +143,7 @@ def main():
             #    deps = []
             # meta['dependencies'] = deps
             repology_versions.append(meta)
+        repology_versions.sort(key=lambda x: x["version"])
 
         variants = []
         if pkg.variants:
@@ -157,6 +160,7 @@ def main():
                         "description": variant[0].description,
                     }
                 )
+        variants.sort(key=lambda x: x["name"])
 
         conflicts = []
         if pkg.conflicts:
@@ -169,6 +173,7 @@ def main():
                             "description": msg,
                         }
                     )
+        conflicts.sort(key=lambda x: x["spec"] + x["name"])
 
         aliases = []
         raw_aliases = set()
@@ -178,6 +183,7 @@ def main():
                     descriptions[provided.name] = pkg.format_doc().strip()
                     aliases.append({"name": str(provided.name), "alias_for": str(when)})
                     raw_aliases.add(provided.name)
+        aliases.sort(key=lambda x: x["alias_for"] + x["name"])
 
         # Get latest version!
         latest_version = spack.version.VersionList(pkg.versions).preferred()
@@ -274,6 +280,8 @@ def main():
             meta["dependent_to"].append(
                 {"name": dep, "description": descriptions.get(dep, "")}
             )
+        meta["dependencies"].sort(key=lambda x: x["name"])
+        meta["dependent_to"].sort(key=lambda x: x["name"])
         outfile = os.path.join(here, "data", "packages", "%s.json" % pkg)
         try:
             write_json(meta, outfile)
