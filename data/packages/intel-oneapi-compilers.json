@@ -135,6 +135,11 @@
             "name": "arch=windows-None-None",
             "spec": "",
             "description": "intel-oneapi-compilers: This package in only available for x86_64 and Linux"
+        },
+        {
+            "name": "@:2022.2.1",
+            "spec": "+nvidia",
+            "description": "intel-oneapi-compilers: Codeplay NVIDIA plugin requires newer release"
         }
     ],
     "variants": [
@@ -147,6 +152,11 @@
             "name": "envmods",
             "default": true,
             "description": "Toggles environment modifications"
+        },
+        {
+            "name": "nvidia",
+            "default": false,
+            "description": "Install NVIDIA plugin for OneAPI"
         }
     ],
     "homepage": "https://software.intel.com/content/www/us/en/develop/tools/oneapi.html",
@@ -162,10 +172,22 @@
             "placement": "fortran-installer"
         },
         {
+            "version": "@2024.2.1",
+            "name": "nvidia-plugin-installer",
+            "destination": "",
+            "placement": "nvidia-plugin-installer"
+        },
+        {
             "version": "@2024.2.0",
             "name": "fortran-installer",
             "destination": "",
             "placement": "fortran-installer"
+        },
+        {
+            "version": "@2024.2.0",
+            "name": "nvidia-plugin-installer",
+            "destination": "",
+            "placement": "nvidia-plugin-installer"
         },
         {
             "version": "@2024.1.0",
@@ -291,12 +313,12 @@
     ],
     "dependent_to": [
         {
-            "name": "babelstream",
-            "description": "Measure memory transfer rates to/from global device memory on GPUs. This\nbenchmark is similar in spirit, and based on, the STREAM benchmark for\nCPUs."
-        },
-        {
             "name": "intel-oneapi-compilers-classic",
             "description": "Relies on intel-oneapi-compilers to install the compilers, and\nconfigures modules for icc/icpc/ifort. LICENSE INFORMATION: By\ndownloading and using this software, you agree to the terms and\nconditions of the software license agreements at\nhttps://intel.ly/393CijO."
+        },
+        {
+            "name": "babelstream",
+            "description": "Measure memory transfer rates to/from global device memory on GPUs. This\nbenchmark is similar in spirit, and based on, the STREAM benchmark for\nCPUs."
         },
         {
             "name": "py-devito",
