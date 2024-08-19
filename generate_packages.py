@@ -102,7 +102,7 @@ def main():
 
         versions = []
         seen_versions = set()
-        for version, hashes in pkg.versions.items():
+        for version, hashes in sorted(pkg.versions.items(), reverse=True):
 
             # Skip a version we have already seen
             if str(version) in seen_versions:
@@ -113,7 +113,6 @@ def main():
                 if isinstance(key, str) and isinstance(h, str):
                     meta[key] = h
             versions.append(meta)
-        versions.sort(key=lambda x: x["name"])
 
         # Repology wants a completely different format for versions
         repology_versions = []
