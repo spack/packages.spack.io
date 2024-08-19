@@ -366,6 +366,11 @@
             "description": null,
             "name": "%gcc@6:",
             "spec": "+cuda ^cuda@:9~allow-unsupported-compilers arch=None-None-ppc64le:"
+        },
+        {
+            "description": "py-torch-nvidia-apex: Must specify CUDA compute capabilities of your GPU, see https://developer.nvidia.com/cuda-gpus",
+            "name": "cuda_arch=none",
+            "spec": "+cuda"
         }
     ],
     "dependencies": [
@@ -426,6 +431,11 @@
     "resources": [],
     "variants": [
         {
+            "default": false,
+            "description": "Build batch norm module",
+            "name": "bnp"
+        },
+        {
             "default": "python_pip",
             "description": "Build systems supported by the package",
             "name": "build_system"
@@ -439,6 +449,71 @@
             "default": "none",
             "description": "CUDA architecture",
             "name": "cuda_arch"
+        },
+        {
+            "default": false,
+            "description": "Build cudnn gbn module",
+            "name": "cudnn_gbn_lib"
+        },
+        {
+            "default": false,
+            "description": "Build fast_bottleneck module",
+            "name": "fast_bottleneck"
+        },
+        {
+            "default": false,
+            "description": "Build fast layer norm module",
+            "name": "fast_layer_norm"
+        },
+        {
+            "default": false,
+            "description": "Build fast multihead attention module",
+            "name": "fast_multihead_attn"
+        },
+        {
+            "default": false,
+            "description": "Build fmha module",
+            "name": "fmhalib"
+        },
+        {
+            "default": false,
+            "description": "Build focal loss module",
+            "name": "focal_loss_cuda"
+        },
+        {
+            "default": false,
+            "description": "Build fused_conv_bias_relu moduel",
+            "name": "fused_conv_bias_relu"
+        },
+        {
+            "default": false,
+            "description": "Build fused_index_mul_2d module",
+            "name": "fused_index_mul_2d"
+        },
+        {
+            "default": false,
+            "description": "Build with nccl p2p",
+            "name": "nccl_p2p_cuda"
+        },
+        {
+            "default": false,
+            "description": "Build peer memory module",
+            "name": "peer_memory_cuda"
+        },
+        {
+            "default": false,
+            "description": "Build permutation search module",
+            "name": "permutation_search_cuda"
+        },
+        {
+            "default": false,
+            "description": "Build transducer module",
+            "name": "transducer"
+        },
+        {
+            "default": false,
+            "description": "Build cross entropy module",
+            "name": "xentropy"
         }
     ],
     "versions": [
@@ -468,7 +543,7 @@
         },
         {
             "name": "24.04.01",
-            "tag": "24.04.01"
+            "sha256": "065bc5c0146ee579d5db2b38ca3949da4dc799b871961a2c9eb19e18892166ce"
         },
         {
             "branch": "master",
