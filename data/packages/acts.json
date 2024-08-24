@@ -371,9 +371,18 @@
             "description": null,
             "name": "%gcc@:7",
             "spec": "@0.23:"
+        },
+        {
+            "description": null,
+            "name": "%gcc@:9",
+            "spec": "cxxstd=20"
         }
     ],
     "dependencies": [
+        {
+            "description": "A portable linear algebra library with multiple backends that is part of\nthe Acts ecosystem.",
+            "name": "acts-algebra-plugins"
+        },
         {
             "description": "Glue library to connect Acts to DD4hep",
             "name": "acts-dd4hep"
@@ -395,12 +404,20 @@
             "name": "cmake"
         },
         {
+            "description": "Covfie is a library for compositional descriptions of storage methods\nfor vector fields and other structured multi-dimensional data.",
+            "name": "covfie"
+        },
+        {
             "description": "CUDA is a parallel computing platform and programming model invented by\nNVIDIA. It enables dramatic increases in computing performance by\nharnessing the power of the graphics processing unit (GPU). Note: This\npackage does not currently install the drivers necessary to run CUDA.\nThese will need to be installed manually. See:\nhttps://docs.nvidia.com/cuda/ for details.",
             "name": "cuda"
         },
         {
             "description": "DD4hep is a software framework for providing a complete solution for\nfull detector description (geometry, materials, visualization, readout,\nalignment, calibration, etc.) for the full experiment life cycle\n(detector concept development, detector optimization, construction,\noperation). It offers a consistent description through a single source\nof detector information for simulation, reconstruction, analysis, etc.\nIt distributed under the LGPLv3 License.",
             "name": "dd4hep"
+        },
+        {
+            "description": "Detray is a description library for high energy physics experiments that\nworks entirely without polymorphism, making it exceptionally suitable\nfor use on GPU platforms.",
+            "name": "detray"
         },
         {
             "description": "Event data model of Key4hep.",
@@ -494,8 +511,9 @@
     "dependent_to": [],
     "description": " A Common Tracking Software (Acts) This project contains an experiment-\nindependent set of track reconstruction tools. The main philosophy is to\nprovide high-level track reconstruction modules that can be used for any\ntracking detector. The description of the tracking detector's geometry\nis optimized for efficient navigation and quick extrapolation of tracks.\nConverters for several common geometry description languages exist.\nHaving a highly performant, yet largely customizable implementation of\ntrack reconstruction algorithms was a primary objective for the design\nof this toolset. Additionally, the applicability to real-life HEP\nexperiments plays major role in the development process. Apart from\nalgorithmic code, this project also provides an event data model for the\ndescription of track parameters and measurements. Key features of this\nproject include: tracking geometry description which can be constructed\nfrom TGeo, DD4Hep, or GDML input, simple and efficient event data model,\nperformant and highly flexible algorithms for track propagation and\nfitting, basic seed finding algorithms.\n",
     "homepage": "https://acts.web.cern.ch/ACTS/",
-    "latest_version": "35.2.0",
+    "latest_version": "36.1.0",
     "maintainers": [
+        "stephenswat",
         "wdconinc"
     ],
     "name": "acts",
@@ -548,7 +566,7 @@
             "name": "cuda_arch"
         },
         {
-            "default": "17",
+            "default": "20",
             "description": "Use the specified C++ standard when building.",
             "name": "cxxstd"
         },
@@ -673,6 +691,11 @@
             "name": "python"
         },
         {
+            "default": "double",
+            "description": "Scalar type to use throughout Acts.",
+            "name": "scalar"
+        },
+        {
             "default": false,
             "description": "Build ActSVG display plugin",
             "name": "svg"
@@ -694,6 +717,11 @@
         },
         {
             "default": false,
+            "description": "Build the Traccc plugin",
+            "name": "traccc"
+        },
+        {
+            "default": false,
             "description": "Build the unit tests",
             "name": "unit_tests"
         }
@@ -706,6 +734,14 @@
         {
             "branch": "main",
             "name": "master"
+        },
+        {
+            "commit": "3f19d1a0eec1d11937d66d0ef603f0b25b9b4e96",
+            "name": "36.1.0"
+        },
+        {
+            "commit": "6eca77c45b136861272694edbb61bb77200948a5",
+            "name": "36.0.0"
         },
         {
             "commit": "b3b09f46d064c43050dd3d21cdf51d7a412134fc",
