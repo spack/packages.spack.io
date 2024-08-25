@@ -32,6 +32,7 @@
              patches: [],
              conflicts: [],
              versions: [],
+             versions_deprecated: [],
 
              initialized: false,
              notFound: false,
@@ -87,6 +88,7 @@
                 this.patches = data.patches;
                 this.conflicts = data.conflicts;
                 this.versions = data.versions;
+                this.versions_deprecated = data.versions_deprecated;
             }
          };
 
@@ -306,6 +308,25 @@
                                             <div x-show="(index + 1) % columns === 0" class="w-full"></div>
                                           </template>
                                         </ul>
+                                      </div>
+                                </div>
+                            </div>
+
+                            <div class="card-body border-b border-base-200 p-6">
+                                <div>
+                                    <h2 class="card-title text-base">Deprecated versions</h2>
+                                    <div>
+                                        <ul class="flex flex-wrap">
+                                          <template x-for="(version, index) in versions_deprecated">
+                                            <li class="w-1/2">
+                                              <span x-text="version.name" x-bind:title="version.sha256"></span>
+                                            </li>
+                                            <div x-show="(index + 1) % columns === 0" class="w-full"></div>
+                                          </template>
+                                        </ul>
+                                        <div class="text-gray-400 font-light" x-show="versions_deprecated.length == 0">
+                                            There are no deprecated versions
+                                        </div>
                                       </div>
                                 </div>
                             </div>

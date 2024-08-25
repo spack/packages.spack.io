@@ -101,22 +101,35 @@ def main():
             continue
 
         versions = []
+        versions_deprecated = []
         seen_versions = set()
         for version, hashes in sorted(pkg.versions.items(), reverse=True):
 
             # Skip a version we have already seen
             if str(version) in seen_versions:
                 continue
+
             seen_versions.add(str(version))
             meta = {"name": str(version)}
             for key, h in hashes.items():
                 if isinstance(key, str) and isinstance(h, str):
                     meta[key] = h
-            versions.append(meta)
+
+            if pkg.versions[version].get("deprecated", False):
+                versions_deprecated.append(meta)
+            else:
+                versions.append(meta)
 
         # Repology wants a completely different format for versions
         repology_versions = []
         for version, version_meta in pkg.versions.items():
+
+            # Skip deprecated versions entirely since repology picks the
+            # most recent version, even if deprecated due to switch from
+            # calver to semver or so (e.g. ants)
+            if pkg.versions[version].get("deprecated", False):
+                continue
+
             meta = {"version": str(version)}
 
             try:
@@ -189,6 +202,7 @@ def main():
             "name": pkg.name,
             "aliases": aliases,
             "versions": versions,
+            "versions_deprecated": versions_deprecated,
             "latest_version": str(latest_version),
             "build_system": pkg.build_system_class,
             "conflicts": conflicts,
