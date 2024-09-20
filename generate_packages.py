@@ -142,6 +142,12 @@ def main():
                 meta["branch"] = str(version)
                 if hasattr(pkg, "git"):
                     meta["repositories"] = [{"url": pkg.git, "type": "git", "branch": str(version)}]
+            elif "commit" in version_meta and hasattr(pkg, "git"):
+                meta["repositories"] = [{"url": pkg.git, "type": "git", "commit": version_meta["commit"]}]
+            elif "tag" in version_meta and hasattr(pkg, "git"):
+                meta["repositories"] = [{"url": pkg.git, "type": "git", "tag": version_meta["tag"]}]
+            elif "branch" in version_meta and hasattr(pkg, "git"):
+                meta["repositories"] = [{"url": pkg.git, "type": "git", "branch": version_meta["branch"]}]
             else:
                 meta["downloads"] = [url]
 
