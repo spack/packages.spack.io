@@ -267,18 +267,22 @@ def main():
     for name in package_variants.keys():
         package_variants[name].sort(key=lambda x: x["package"])
 
+    # create output directory
+    data_dir =os.path.join(here, "data")
+    os.makedirs(data_dir, exist_ok=True)
+
     # Save package variants
-    outfile = os.path.join(here, "data", "variants.json")
+    outfile = os.path.join(data_dir, "variants.json")
     write_json(package_variants, outfile)
 
     # Save repology
-    outfile = os.path.join(here, "data", "repology.json")
+    outfile = os.path.join(data_dir, "repology.json")
     write_json(repology, outfile)
 
     # We need one file with all names available
     names = [{'name': p, 'description': metas[p]['description']} for p in metas.keys()]
     names.sort(key=lambda x: x['name'])
-    outfile = os.path.join(here, "data", "packages.json")
+    outfile = os.path.join(data_dir, "packages.json")
     write_json(names, outfile)
 
     # Once we get here, add dependents and save to file
@@ -305,7 +309,12 @@ def main():
             )
         meta["dependencies"].sort(key=lambda x: x["name"])
         meta["dependent_to"].sort(key=lambda x: x["name"])
-        outfile = os.path.join(here, "data", "packages", "%s.json" % pkg)
+
+        # create packages subdirectory
+        packages_dir = os.path.join(data_dir, "packages")
+        os.makedirs(packages_dir, exist_ok=True)
+
+        outfile = os.path.join(packages_dir, f"{pkg}.json")
         try:
             write_json(meta, outfile)
         except Exception as e:
