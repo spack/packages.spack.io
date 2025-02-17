@@ -49,8 +49,9 @@
            return [];
          }
 
+	  const regex = RegExp(this.query)
           const results = this.packages.filter(pkg => {
-            return pkg.name.toLowerCase().includes(this.query.toLowerCase());
+            return regex.test(pkg.name);
           })
 
             this.more_results = results.length > 20;
