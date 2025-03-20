@@ -6,81 +6,83 @@
   <meta name="viewport" conteSpt="width=device-width, initial-scale=1">
   <title>Spack Packages</title>
   <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
-  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
 
-<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-<link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
 
-<style>
-@import url(https://fonts.googleapis.com/css?family=Raleway:400,700,900);
-.title {
-  padding-top:20px;
-  padding-left:10px;
-  font-family: 'Raleway', sans-serif;
-  font-weight: 700;
-}
+  <style>
+    @import url(https://fonts.googleapis.com/css?family=Raleway:400,700,900);
 
-.linkything {
-  font-size:12px;
-  color:#F7F7F7;
-  padding-left:5px;
-}
+    .title {
+      padding-top: 20px;
+      padding-left: 10px;
+      font-family: 'Raleway', sans-serif;
+      font-weight: 700;
+    }
 
-.linkythink:hover {
-  color:#CCC;
-}
-</style>
+    .linkything {
+      font-size: 12px;
+      color: #F7F7F7;
+      padding-left: 5px;
+    }
+
+    .linkythink:hover {
+      color: #CCC;
+    }
+  </style>
 </head>
+
 <body>
 
-<div class="container" style="padding:30px;">
-   <h1 class='title'><img src="img/spack-logo.svg" style="width:60px; padding-right:15px; padding-bottom:20px">Variants</h1>
-   <div id="variants_div"></div>
-</div>
+  <div class="container" style="padding:30px;">
+    <h1 class='title'><img src="img/spack-logo.svg" style="width:60px; padding-right:15px; padding-bottom:20px">Variants
+    </h1>
+    <div id="variants_div"></div>
+  </div>
 
-<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-<script>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
 
-function loadJSON(path, success, error)
-{
-    var xhr = new XMLHttpRequest();
-    xhr.onreadystatechange = function()
-    {
+    function loadJSON(path, success, error) {
+      var xhr = new XMLHttpRequest();
+      xhr.onreadystatechange = function () {
         if (xhr.readyState === XMLHttpRequest.DONE) {
-            if (xhr.status === 200) {
-                if (success)
-                    success(JSON.parse(xhr.responseText));
-            } else {
-                if (error)
-                    error(xhr);
-            }
+          if (xhr.status === 200) {
+            if (success)
+              success(JSON.parse(xhr.responseText));
+          } else {
+            if (error)
+              error(xhr);
+          }
         }
-    };
-    xhr.open("GET", path, true);
-    xhr.send();
-}
+      };
+      xhr.open("GET", path, true);
+      xhr.send();
+    }
 
 
-loadJSON('data/variants.json',
-    function(data) {
-      $.each(data, function(key, item) {
-         var falses = ""
-         var trues = ""
-         $.each(item, function(i, subitem) { 
+    loadJSON('data/variants.json',
+      function (data) {
+        $.each(data, function (key, item) {
+          var falses = ""
+          var trues = ""
+          $.each(item, function (i, subitem) {
             if (subitem['default'] == false) {
-                falses += "<span class='badge badge-warning'><a style='color:black' href='package.html?name=" + subitem['package'] + "'>" + subitem['package'] + "</a></span> ";        
+              falses += "<span class='badge badge-warning'><a style='color:black' href='package.html?name=" + subitem['package'] + "'>" + subitem['package'] + "</a></span> ";
             } else {
-               trues += "<span class='badge badge-success'><a style='color:white' href='package.html?name=" + subitem['package'] + "'>" + subitem['package'] + "</a></span> ";        
+              trues += "<span class='badge badge-success'><a style='color:white' href='package.html?name=" + subitem['package'] + "'>" + subitem['package'] + "</a></span> ";
             }
-         });
-         if (trues.length > 0) {
-             $("#variants_div").append("<div style='padding-bottom:10px' class='row'><div class='col-md-12'><h4 id='" + key + "_true'>"+ key + " (true) <a class='linkything' href='#" + key + "_true'>¶</a></h4>" + trues + "</div></div>");
-         }
-         if (falses.length > 0) {
-             $("#variants_div").append("<div style='padding-bottom:10px' class='row'><div class='col-md-12'><h4 id='" + key + "_false'>"+ key + " (false)<a class='linkything' href='#" + key + "_false'>¶</a></h4>" + falses + "</div></div>");
-         }
-    });
-})
-</script>
+          });
+          if (trues.length > 0) {
+            $("#variants_div").append("<div style='padding-bottom:10px' class='row'><div class='col-md-12'><h4 id='" + key + "_true'>" + key + " (true) <a class='linkything' href='#" + key + "_true'>¶</a></h4>" + trues + "</div></div>");
+          }
+          if (falses.length > 0) {
+            $("#variants_div").append("<div style='padding-bottom:10px' class='row'><div class='col-md-12'><h4 id='" + key + "_false'>" + key + " (false)<a class='linkything' href='#" + key + "_false'>¶</a></h4>" + falses + "</div></div>");
+          }
+        });
+      })
+  </script>
 </body>
+
 </html>

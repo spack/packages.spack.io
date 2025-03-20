@@ -1,376 +1,372 @@
 <!DOCTYPE html>
 <html lang="en-us">
-    <head>
-        <!-- Google tag (gtag.js) -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-LT9ZYVM869"></script>
-        <script>
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          gtag('config', 'G-LT9ZYVM869');
-        </script>
 
-        <meta charset="UTF-8">
-        <title>Spack Packages</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LT9ZYVM869"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-LT9ZYVM869');
+  </script>
 
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:300,400"
-            rel="stylesheet">
-        <link rel="stylesheet"
-            href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,600">
+  <meta charset="UTF-8">
+  <title>Spack Packages</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css"
-            rel="stylesheet">
-        <link rel="stylesheet" href="css/style.css">
-        <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.12.1/dist/cdn.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:300,400" rel="stylesheet">
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,600">
 
-        <script type="text/javascript">
-         const package = {
-             name: '',
-             aliases: [],
-             description: '',
-             homepage: '',
-             build_system: '',
-             maintainers: [],
-             dependencies: [],
-             dependent_to: [],
-             resources: [],
-             variants: [],
-             patches: [],
-             conflicts: [],
-             versions: [],
-             versions_deprecated: [],
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.12.1/dist/cdn.min.js"></script>
 
-             initialized: false,
-             notFound: false,
+  <script type="text/javascript">
+    const package = {
+      name: '',
+      aliases: [],
+      description: '',
+      homepage: '',
+      build_system: '',
+      maintainers: [],
+      dependencies: [],
+      dependent_to: [],
+      resources: [],
+      variants: [],
+      patches: [],
+      conflicts: [],
+      versions: [],
+      versions_deprecated: [],
 
-             init() {
-                 this.loadData();
-                 this.initialized = true;
-             },
+      initialized: false,
+      notFound: false,
 
-             buildSystemUrl() {
-                 if (this.build_system === 'Package') {
-                     return  "https://spack.readthedocs.io/en/latest/spack.build_systems.html";
-                 } else {
-                     return "https://spack.readthedocs.io/en/latest/build_systems/" + this.build_system.toLowerCase() + ".html";
-                 }
-             },
+      init() {
+        this.loadData();
+        this.initialized = true;
+      },
 
-             packageUrl(name) {
-                 return `package.html?name=${name}`
-             },
+      buildSystemUrl() {
+        if (this.build_system === 'Package') {
+          return "https://spack.readthedocs.io/en/latest/spack.build_systems.html";
+        } else {
+          return "https://spack.readthedocs.io/en/latest/build_systems/" + this.build_system.toLowerCase() + ".html";
+        }
+      },
 
-             packagePyUrl() {
-                 return `https://github.com/spack/spack/tree/develop/var/spack/repos/builtin/packages/${this.name}/package.py`;
-             },
+      packageUrl(name) {
+        return `package.html?name=${name}`
+      },
 
-             maintainerUrl(maintainer) {
-                 return `https://github.com/${maintainer}`;
-             },
+      packagePyUrl() {
+        return `https://github.com/spack/spack/tree/develop/var/spack/repos/builtin/packages/${this.name}/package.py`;
+      },
 
-             async loadData() {
-                const urlParams = new URLSearchParams(window.location.search);
-                const name = urlParams.get('name');
-                if (name === null) {
-                    this.notFound = true;
-                    return;
-                }
-                const response = await fetch(`data/packages/${name}.json`);
-                if (!response.ok) {
-                    this.notFound = true;
-                    return;
-                }
-                const data = await response.json();
-                this.name = data.name;
-                this.aliases = data.aliases;
-                this.description = data.description;
-                this.homepage = data.homepage;
-                this.build_system = data.build_system;
-                this.maintainers = data.maintainers;
-                this.dependencies = data.dependencies;
-                this.dependent_to = data.dependent_to;
-                this.resources = data.resources;
-                this.variants = data.variants;
-                this.patches = data.patches;
-                this.conflicts = data.conflicts;
-                this.versions = data.versions;
-                this.versions_deprecated = data.versions_deprecated;
-            }
-         };
+      maintainerUrl(maintainer) {
+        return `https://github.com/${maintainer}`;
+      },
 
-        </script>
-    </head>
+      async loadData() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const name = urlParams.get('name');
+        if (name === null) {
+          this.notFound = true;
+          return;
+        }
+        const response = await fetch(`data/packages/${name}.json`);
+        if (!response.ok) {
+          this.notFound = true;
+          return;
+        }
+        const data = await response.json();
+        this.name = data.name;
+        this.aliases = data.aliases;
+        this.description = data.description;
+        this.homepage = data.homepage;
+        this.build_system = data.build_system;
+        this.maintainers = data.maintainers;
+        this.dependencies = data.dependencies;
+        this.dependent_to = data.dependent_to;
+        this.resources = data.resources;
+        this.variants = data.variants;
+        this.patches = data.patches;
+        this.conflicts = data.conflicts;
+        this.versions = data.versions;
+        this.versions_deprecated = data.versions_deprecated;
+      }
+    };
 
-    <body class="bg-gray-100" x-data="package">
+  </script>
+</head>
 
-        <div class="container mx-auto p-4 md:px-0 md:py-8">
-            <header class="drop-shadow-xl relative z-[100]">
-                <div class="navbar bg-base-100 rounded">
-                    <div class="flex-1 gap-3">
-                        <a href="/" class="btn btn-ghost !px-2 !py-1 !flex gap-2">
-                            <img src="img/spack-logo.svg" class="max-h-full w-auto">
-                            <!-- Show text only on main packages list -->
-                            <!-- Spack Packages -->
-                        </a>
-                        <h1 class="border-l pl-4" x-text="name"></h1>
-                    </div>
+<body class="bg-gray-100" x-data="package">
 
-                    <div class="flex justify-end flex-1 px-2">
-                        <div class="flex items-stretch pl-3">
-                            <div class="tooltip tooltip-bottom" data-tip="Spack Cache">
-                                <a href="https://cache.spack.io/" class="btn btn-ghost btn-square
+  <div class="container mx-auto p-4 md:px-0 md:py-8">
+    <header class="drop-shadow-xl relative z-[100]">
+      <div class="navbar bg-base-100 rounded">
+        <div class="flex-1 gap-3">
+          <a href="/" class="btn btn-ghost !px-2 !py-1 !flex gap-2">
+            <img src="img/spack-logo.svg" class="max-h-full w-auto">
+            <!-- Show text only on main packages list -->
+            <!-- Spack Packages -->
+          </a>
+          <h1 class="border-l pl-4" x-text="name"></h1>
+        </div>
+
+        <div class="flex justify-end flex-1 px-2">
+          <div class="flex items-stretch pl-3">
+            <div class="tooltip tooltip-bottom" data-tip="Spack Cache">
+              <a href="https://cache.spack.io/" class="btn btn-ghost btn-square
                                     rounded-btn" target="_blank" alt="Spack Cache">
-                                    <i class="ri-database-2-line text-xl"></i>
-                                </a>
-                            </div>
-                            <div class="dropdown dropdown-end">
-                                <label tabindex="0" class="btn btn-ghost btn-square rounded-btn">
-                                    <i class="ri-github-fill text-xl"></i>
-                                </label>
-                                <ul tabindex="0" class="menu dropdown-content p-2 shadow bg-base-100
+                <i class="ri-database-2-line text-xl"></i>
+              </a>
+            </div>
+            <div class="dropdown dropdown-end">
+              <label tabindex="0" class="btn btn-ghost btn-square rounded-btn">
+                <i class="ri-github-fill text-xl"></i>
+              </label>
+              <ul tabindex="0" class="menu dropdown-content p-2 shadow bg-base-100
                                     rounded-box mt-4">
-                                    <li>
-                                        <a href="https://github.com/spack/packages.spack.io"
-                                            class="nolink" target="_blank">
-                                            <i class="ri-git-repository-fill text-xl"></i>
-                                            packages.spack.io
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="https://github.com/spack/cache.spack.io"
-                                            class="nolink" target="_blank">
-                                            <i class="ri-git-repository-fill text-xl"></i>
-                                            cache.spack.io
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </header>
+                <li>
+                  <a href="https://github.com/spack/packages.spack.io" class="nolink" target="_blank">
+                    <i class="ri-git-repository-fill text-xl"></i>
+                    packages.spack.io
+                  </a>
+                </li>
+                <li>
+                  <a href="https://github.com/spack/cache.spack.io" class="nolink" target="_blank">
+                    <i class="ri-git-repository-fill text-xl"></i>
+                    cache.spack.io
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
 
-            <div class="py-8 pb-24">
-                <div class="grid gap-12 lg:grid-cols-12">
-                    <div class="space-y-6 lg:col-span-9">
-                        <div class="package-info grid gap-6">
-                            <div class="border-l-4 bg-base-100 border-base-300 card drop-shadow-xl rounded-l-[2px]">
-                                <div class="card-body">
-                                    <h2 class="card-title">Description</h2>
-                                    <div class="leading-7" x-text="description"></div>
-                                </div>
-                            </div>
-
-                            <div class="grid gap-6 lg:grid-cols-2">
-                                <div class="border-l-4 bg-base-100 border-base-300 card drop-shadow-xl rounded-l-[2px]">
-                                    <div class="card-body">
-                                        <h2 class="card-title">Dependencies</h2>
-                                        <div class="leading-7">
-                                            <template x-for="dependency in dependencies" :key="dependency.name">
-                                                <a :href="packageUrl(dependency.name)" class="btn btn-xs btn-primary mx-[2px] normal-case" x-text="dependency.name"></a>
-                                            </template>
-                                        </div>
-
-                                        <div class="text-gray-400 font-light" x-show="dependencies.length == 0">
-                                            This package has no dependencies
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="border-l-4 bg-base-100 border-base-300 card drop-shadow-xl rounded-l-[2px]">
-                                    <div class="card-body">
-                                        <h2 class="card-title">Required by</h2>
-                                        <div class="leading-7">
-                                            <template x-for="dependent in dependent_to" :key="dependent.name">
-                                                <a :href="packageUrl(dependent.name)" class="btn btn-xs btn-primary mx-[2px] normal-case" x-text="dependent.name"></a>
-                                            </template>
-
-                                            <div class="text-gray-400 font-light" x-show="dependent_to.length == 0">
-                                                This package is not required by any other packages
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="border-l-4 bg-base-100 border-base-300 card drop-shadow-xl rounded-l-[2px]">
-                                <div class="card-body">
-                                    <h2 class="card-title">Variants</h2>
-                                    <div class="leading-7">
-                                        <template x-for="variant in variants" :key="variant.name">
-                                            <div>
-                                                <a href="#" class="btn btn-xs btn-secondary normal-case" x-text="variant.name"></a>
-                                                (<span x-text="variant.default"></span>) <span x-text="variant.description"></span>
-                                            </div>
-                                        </template>
-
-                                        <div class="text-gray-400 font-light" x-show="variants.length == 0">
-                                            There are no variants to show
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="border-l-4 bg-base-100 border-base-300 card drop-shadow-xl rounded-l-[2px]" x-show="aliases.length > 0">
-                                <div class="card-body">
-                                    <h2 class="card-title">Aliases</h2>
-                                    <div class="flex flex-wrap gap-2 leading-7">
-                                        <template x-for="alias in aliases" :key="alias.name">
-                                            <span href="#" class="badge badge-ghost bg-gray-100 border-0 py-3 !text-xs rounded" x-text="alias.name"></span>
-                                        </template>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="border-l-4 bg-base-100 border-base-300 card drop-shadow-xl rounded-l-[2px]" x-show="resources.length">
-                                <div class="card-body">
-                                    <h2 class="card-title">Resources</h2>
-                                    <div class="grid lg:grid-cols-2 gap-x-8">
-                                        <template x-for="resource in resources">
-                                            <div class="border-b border-base-200 py-2 text-gray-500 text-sm">
-                                                <span class="font-bold text-neutral" x-text="resource.name"></span>
-                                                placed at
-                                                <span class="text-neutral" x-text="resource.placement"></span>
-                                                when
-                                                <span class="text-neutral" x-text="resource.version"></span>
-                                            </div>
-                                        </template>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="border-l-4 bg-base-100 border-base-300 card drop-shadow-xl rounded-l-[2px]" x-show="patches.length > 0">
-                                <div class="card-body">
-                                    <h2 class="card-title">Patches</h2>
-                                    <div class="leading-7">
-                                        <template x-for="patch in patches" :key="patch.sha256">
-                                            <div>
-                                                <a href="#" x-show="patch.relative_path" x-text="patch.relative_path"></a>
-                                                <a href="#" x-show="!patch.relative_path && patch.url">link</a>
-                                                when <span x-text="patch.version"></span>
-                                            </div>
-                                        </template>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="lg:col-span-3">
-                        <div class="card bg-base-100 drop-shadow-xl">
-                            <div class="card-body border-b border-base-200 p-6">
-                                <div class="space-y-4">
-                                    <div x-show="description == true">
-                                        <h2 class="card-title text-base">Description</h2>
-                                        <template x-text="description"></template>
-                                    </div>
-                                    <div class="card-actions !m-0">
-                                        <div class="tooltip tooltip-right lg:tooltip-left" x-bind:data-tip="homepage">
-                                            <a x-bind:href="homepage" class="btn btn-primary btn-sm gap-2">
-                                                <i class="ri-home-4-fill text-lg"></i>
-                                                Homepage
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="card-body border-b border-base-200 p-6">
-                                <div>
-                                    <h2 class="card-title text-base">Build System</h2>
-                                    <a x-bind:href="buildSystemUrl()" x-text="build_system"></a> (view <a x-bind:href="packagePyUrl">package.py</a>)
-                                </div>
-                            </div>
-
-                            <div class="card-body border-b border-base-200 p-6">
-                                <div>
-                                    <h2 class="card-title text-base">Maintainers</h2>
-
-                                    <ul x-show="maintainers.length > 0">
-                                        <template x-for="maintainer in maintainers">
-                                            <li>
-                                                <a x-bind:href="maintainerUrl(maintainer)" x-text="maintainer" target="_blank"></a>
-                                            </li>
-                                        </template>
-                                    </ul>
-
-                                    <!-- TODO  -->
-                                    <div x-show="initialized && maintainers.length === 0" class="alert bg-blue-50 border-l-[5px] border-primary flex-col items-start mt-2 pl-6 pb-6 gap-2 relative text-primary text-sm">
-                                        <div>
-                                            <strong class="inline" x-text="name"></strong>is looking for a maintainer!
-                                        </div>
-                                        <a href='https://github.com/spack/spack/issues' target='_blank' class="btn btn-xs btn-primary absolute -bottom-3 right-3">I'm Interested</a>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="card-body border-b border-base-200 p-6">
-                                <div>
-                                    <h2 class="card-title text-base">Versions</h2>
-                                    <div>
-                                        <ul class="flex flex-wrap">
-                                          <template x-for="(version, index) in versions">
-                                            <li class="w-1/2">
-                                              <span x-text="version.name" x-bind:title="version.sha256"></span>
-                                            </li>
-                                            <div x-show="(index + 1) % columns === 0" class="w-full"></div>
-                                          </template>
-                                        </ul>
-                                      </div>
-                                </div>
-                            </div>
-
-                            <div class="card-body border-b border-base-200 p-6">
-                                <div>
-                                    <h2 class="card-title text-base">Deprecated versions</h2>
-                                    <div>
-                                        <ul class="flex flex-wrap">
-                                          <template x-for="(version, index) in versions_deprecated">
-                                            <li class="w-1/2">
-                                              <span x-text="version.name" x-bind:title="version.sha256"></span>
-                                            </li>
-                                            <div x-show="(index + 1) % columns === 0" class="w-full"></div>
-                                          </template>
-                                        </ul>
-                                        <div class="text-gray-400 font-light" x-show="versions_deprecated.length == 0">
-                                            There are no deprecated versions
-                                        </div>
-                                      </div>
-                                </div>
-                            </div>
-
-                            <div class="card-body border-b border-base-200 p-6">
-                                <div>
-                                    <h2 class="card-title text-base">Conflicts</h2>
-                                    <div>
-                                        <template x-for="conflict in conflicts">
-                                            <p class="text-xs">
-                                                <span class="font-mono" x-text="conflict.name"></span> when <span class="font-mono" x-text="conflict.spec"></span>
-                                            </p>
-                                        </template>
-                                        <div class="text-gray-400 font-light" x-show="conflicts.length == 0">
-                                            There are no conflicts
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+    <div class="py-8 pb-24">
+      <div class="grid gap-12 lg:grid-cols-12">
+        <div class="space-y-6 lg:col-span-9">
+          <div class="package-info grid gap-6">
+            <div class="border-l-4 bg-base-100 border-base-300 card drop-shadow-xl rounded-l-[2px]">
+              <div class="card-body">
+                <h2 class="card-title">Description</h2>
+                <div class="leading-7" x-text="description"></div>
+              </div>
             </div>
 
-            <footer class="border-t border-base-300 footer footer-center p-4 text-base-content">
-                <div>
-                    <p>
-                        <span class="site-footer-credits">
-                            Contribute to Spack Packages Repository on <a target="_blank"
-                                href="https://github.com/spack/packages.spack.io">GitHub</a>.
-                        </span>
-                    </p>
-                </div>
-            </footer>
+            <div class="grid gap-6 lg:grid-cols-2">
+              <div class="border-l-4 bg-base-100 border-base-300 card drop-shadow-xl rounded-l-[2px]">
+                <div class="card-body">
+                  <h2 class="card-title">Dependencies</h2>
+                  <div class="leading-7">
+                    <template x-for="dependency in dependencies" :key="dependency.name">
+                      <a :href="packageUrl(dependency.name)" class="btn btn-xs btn-primary mx-[2px] normal-case" x-text="dependency.name"></a>
+                    </template>
+                  </div>
 
+                  <div class="text-gray-400 font-light" x-show="dependencies.length == 0">
+                    This package has no dependencies
+                  </div>
+                </div>
+              </div>
+              <div class="border-l-4 bg-base-100 border-base-300 card drop-shadow-xl rounded-l-[2px]">
+                <div class="card-body">
+                  <h2 class="card-title">Required by</h2>
+                  <div class="leading-7">
+                    <template x-for="dependent in dependent_to" :key="dependent.name">
+                      <a :href="packageUrl(dependent.name)" class="btn btn-xs btn-primary mx-[2px] normal-case" x-text="dependent.name"></a>
+                    </template>
+
+                    <div class="text-gray-400 font-light" x-show="dependent_to.length == 0">
+                      This package is not required by any other packages
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="border-l-4 bg-base-100 border-base-300 card drop-shadow-xl rounded-l-[2px]">
+              <div class="card-body">
+                <h2 class="card-title">Variants</h2>
+                <div class="leading-7">
+                  <template x-for="variant in variants" :key="variant.name">
+                    <div>
+                      <a href="#" class="btn btn-xs btn-secondary normal-case" x-text="variant.name"></a>
+                      (<span x-text="variant.default"></span>) <span x-text="variant.description"></span>
+                    </div>
+                  </template>
+
+                  <div class="text-gray-400 font-light" x-show="variants.length == 0">
+                    There are no variants to show
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="border-l-4 bg-base-100 border-base-300 card drop-shadow-xl rounded-l-[2px]" x-show="aliases.length > 0">
+              <div class="card-body">
+                <h2 class="card-title">Aliases</h2>
+                <div class="flex flex-wrap gap-2 leading-7">
+                  <template x-for="alias in aliases" :key="alias.name">
+                    <span href="#" class="badge badge-ghost bg-gray-100 border-0 py-3 !text-xs rounded" x-text="alias.name"></span>
+                  </template>
+                </div>
+              </div>
+            </div>
+
+            <div class="border-l-4 bg-base-100 border-base-300 card drop-shadow-xl rounded-l-[2px]" x-show="resources.length">
+              <div class="card-body">
+                <h2 class="card-title">Resources</h2>
+                <div class="grid lg:grid-cols-2 gap-x-8">
+                  <template x-for="resource in resources">
+                    <div class="border-b border-base-200 py-2 text-gray-500 text-sm">
+                      <span class="font-bold text-neutral" x-text="resource.name"></span>
+                      placed at
+                      <span class="text-neutral" x-text="resource.placement"></span>
+                      when
+                      <span class="text-neutral" x-text="resource.version"></span>
+                    </div>
+                  </template>
+                </div>
+              </div>
+            </div>
+
+            <div class="border-l-4 bg-base-100 border-base-300 card drop-shadow-xl rounded-l-[2px]" x-show="patches.length > 0">
+              <div class="card-body">
+                <h2 class="card-title">Patches</h2>
+                <div class="leading-7">
+                  <template x-for="patch in patches" :key="patch.sha256">
+                    <div>
+                      <a href="#" x-show="patch.relative_path" x-text="patch.relative_path"></a>
+                      <a href="#" x-show="!patch.relative_path && patch.url">link</a>
+                      when <span x-text="patch.version"></span>
+                    </div>
+                  </template>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-    </body>
+        <div class="lg:col-span-3">
+          <div class="card bg-base-100 drop-shadow-xl">
+            <div class="card-body border-b border-base-200 p-6">
+              <div class="space-y-4">
+                <div x-show="description == true">
+                  <h2 class="card-title text-base">Description</h2>
+                  <template x-text="description"></template>
+                </div>
+                <div class="card-actions !m-0">
+                  <div class="tooltip tooltip-right lg:tooltip-left" x-bind:data-tip="homepage">
+                    <a x-bind:href="homepage" class="btn btn-primary btn-sm gap-2">
+                      <i class="ri-home-4-fill text-lg"></i>
+                      Homepage
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card-body border-b border-base-200 p-6">
+              <div>
+                <h2 class="card-title text-base">Build System</h2>
+                <a x-bind:href="buildSystemUrl()" x-text="build_system"></a> (view <a x-bind:href="packagePyUrl">package.py</a>)
+              </div>
+            </div>
+
+            <div class="card-body border-b border-base-200 p-6">
+              <div>
+                <h2 class="card-title text-base">Maintainers</h2>
+
+                <ul x-show="maintainers.length > 0">
+                  <template x-for="maintainer in maintainers">
+                    <li>
+                      <a x-bind:href="maintainerUrl(maintainer)" x-text="maintainer" target="_blank"></a>
+                    </li>
+                  </template>
+                </ul>
+
+                <!-- TODO  -->
+                <div x-show="initialized && maintainers.length === 0" class="alert bg-blue-50 border-l-[5px] border-primary flex-col items-start mt-2 pl-6 pb-6 gap-2 relative text-primary text-sm">
+                  <div>
+                    <strong class="inline" x-text="name"></strong>is looking for a maintainer!
+                  </div>
+                  <a href='https://github.com/spack/spack/issues' target='_blank' class="btn btn-xs btn-primary absolute -bottom-3 right-3">I'm Interested</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="card-body border-b border-base-200 p-6">
+              <div>
+                <h2 class="card-title text-base">Versions</h2>
+                <div>
+                  <ul class="flex flex-wrap">
+                    <template x-for="(version, index) in versions">
+                      <li class="w-1/2">
+                        <span x-text="version.name" x-bind:title="version.sha256"></span>
+                      </li>
+                      <div x-show="(index + 1) % columns === 0" class="w-full"></div>
+                    </template>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="card-body border-b border-base-200 p-6">
+              <div>
+                <h2 class="card-title text-base">Deprecated versions</h2>
+                <div>
+                  <ul class="flex flex-wrap">
+                    <template x-for="(version, index) in versions_deprecated">
+                      <li class="w-1/2">
+                        <span x-text="version.name" x-bind:title="version.sha256"></span>
+                      </li>
+                      <div x-show="(index + 1) % columns === 0" class="w-full"></div>
+                    </template>
+                  </ul>
+                  <div class="text-gray-400 font-light" x-show="versions_deprecated.length == 0">
+                    There are no deprecated versions
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card-body border-b border-base-200 p-6">
+              <div>
+                <h2 class="card-title text-base">Conflicts</h2>
+                <div>
+                  <template x-for="conflict in conflicts">
+                    <p class="text-xs">
+                      <span class="font-mono" x-text="conflict.name"></span> when <span class="font-mono" x-text="conflict.spec"></span>
+                    </p>
+                  </template>
+                  <div class="text-gray-400 font-light" x-show="conflicts.length == 0">
+                    There are no conflicts
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="border-t border-base-300 footer footer-center p-4 text-base-content">
+      <div>
+        <p>
+          <span class="site-footer-credits">
+            Contribute to Spack Packages Repository on <a target="_blank" href="https://github.com/spack/packages.spack.io">GitHub</a>.
+          </span>
+        </p>
+      </div>
+    </footer>
+
+  </div>
+</body>
+
 </html>

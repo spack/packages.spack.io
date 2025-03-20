@@ -1,152 +1,148 @@
 <!doctype html>
 <html lang="en">
 
-  <head>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LT9ZYVM869"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-LT9ZYVM869');
-    </script>
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LT9ZYVM869"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-LT9ZYVM869');
+  </script>
 
-    <meta charset="utf-8">
-    <meta name="viewport" conteSpt="width=device-width, initial-scale=1">
-    <title>Spack Packages</title>
-    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" conteSpt="width=device-width, initial-scale=1">
+  <title>Spack Packages</title>
+  <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:300,400"
-      rel="stylesheet">
-    <link rel="stylesheet"
-      href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,600">
-    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css"
-      rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
-    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.12.1/dist/cdn.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:300,400" rel="stylesheet">
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,600">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.12.1/dist/cdn.min.js"></script>
 
-    <script type="text/javascript">
-     const search = {
-       loaded: false,
-       query: '',
-       packages: [],
-       more_results: false,
+  <script type="text/javascript">
+    const search = {
+      loaded: false,
+      query: '',
+      packages: [],
+      more_results: false,
 
-       init() {
-         this.loadPackages();
-         this.loaded = true;
-       },
+      init() {
+        this.loadPackages();
+        this.loaded = true;
+      },
 
-       async loadPackages() {
-         const response = await fetch('data/packages.json');
-         this.packages = await response.json();
-         search_box = document.getElementById("search-box")
-         if (search_box) search_box.placeholder = "Search " + this.packages.length + " packages";
-       },
+      async loadPackages() {
+        const response = await fetch('data/packages.json');
+        this.packages = await response.json();
+        search_box = document.getElementById("search-box")
+        if (search_box) search_box.placeholder = "Search " + this.packages.length + " packages";
+      },
 
-       get results() {
-         if (this.query.length == 0) {
-           return [];
-         }
+      get results() {
+        if (this.query.length == 0) {
+          return [];
+        }
 
-         try {
-	   const regex = RegExp(this.query);
-           const results = this.packages.filter(pkg => {
-             return regex.test(pkg.name);
-           })
+        try {
+          const regex = RegExp(this.query);
+          const results = this.packages.filter(pkg => {
+            return regex.test(pkg.name);
+          })
 
-           this.more_results = results.length > 20;
-           return results.sort((a, b) => a.name.length - b.name.length).slice(0, 20);
-	 } catch(e) {
-	   return [];
-	 }
-       },
+          this.more_results = results.length > 20;
+          return results.sort((a, b) => a.name.length - b.name.length).slice(0, 20);
+        } catch (e) {
+          return [];
+        }
+      },
 
-       packagePageUrl(pkg) {
-         return `package.html?name=${pkg.name}`;
-       }
-     };
+      packagePageUrl(pkg) {
+        return `package.html?name=${pkg.name}`;
+      }
+    };
 
-    </script>
-  </head>
+  </script>
+</head>
 
-  <body class="bg-gray-100" x-data="search">
-    <div class="container mx-auto">
-      <section id="main" class="flex flex-col gap-12 h-screen max-w-[960px] mx-auto pt-4 md:pt-28 px-4 lg:px-0">
+<body class="bg-gray-100" x-data="search">
+  <div class="container mx-auto">
+    <section id="main" class="flex flex-col gap-12 h-screen max-w-[960px] mx-auto pt-4 md:pt-28 px-4 lg:px-0">
 
-        <!-- Header Section -->
-        <header class="flex items-center justify-between">
-          <div class="flex font-light gap-4 items-center justify-center text-2xl md:text-4xl">
-            <img src="img/spack-logo.svg" alt="Spack" class="w-[48px] md:w-[72px]">
-            Spack Packages
-          </div>
-          <div class="flex items-stretch">
-            <div class="tooltip tooltip-bottom" data-tip="Spack Cache">
-              <a href="https://cache.spack.io/" class="btn btn-ghost btn-square
-                rounded-btn" target="_blank" alt="Spack Cache">
-                <i class="ri-database-2-line text-xl"></i>
-              </a>
-            </div>
-            <div class="dropdown dropdown-end">
-              <label tabindex="0" class="btn btn-ghost btn-square rounded-btn">
-                <i class="ri-github-fill text-xl"></i>
-              </label>
-              <ul tabindex="0" class="menu dropdown-content p-2 shadow bg-base-100
-                rounded-box mt-4">
-                <li>
-                  <a href="https://github.com/spack/packages.spack.io"
-                    class="nolink" target="_blank">
-                    <i class="ri-git-repository-fill text-xl"></i>
-                    packages.spack.io
-                  </a>
-                </li>
-                <li>
-                  <a href="https://github.com/spack/cache.spack.io"
-                    class="nolink" target="_blank">
-                    <i class="ri-git-repository-fill text-xl"></i>
-                    cache.spack.io
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </header>
-
-        <!-- Search Box -->
-        <div class="bg-primary border-l-4 border-secondary flex flex-col gap-8 p-8 rounded">
-          <div class="form-control">
-            <input type="text" id="search-box" placeholder="Search" autofocus class="input input-bordered input-lg w-full" x-model="query">
-          </div>
+      <!-- Header Section -->
+      <header class="flex items-center justify-between">
+        <div class="flex font-light gap-4 items-center justify-center text-2xl md:text-4xl">
+          <img src="img/spack-logo.svg" alt="Spack" class="w-[48px] md:w-[72px]">
+          Spack Packages
         </div>
-
-        <!-- Results Box -->
-        <div id="results" class="bg-base-100 border border-b-0 border-base-200 flex flex-col flex-grow overflow-y-auto rounded-t-xl shadow-xl" x-show="results.length" x-cloak>
-          <ul class="menu px-0 w-full">
-            <li class="menu-title !opacity-[0.6] py-2">
-              <span class="flex items-center justify-between">
-                Search Results
-                <small class="font-normal"><span x-text="results.length"></span><span x-show="more_results">+</span> packages found</small>
-              </span>
-            </li>
-
-            <template x-for="result in results">
-              <li class="hover-bordered border-t border-base-200">
-                <a :href="packagePageUrl(result)" class="!rounded-none hover:bg-gray-100">
-                  <i class="ri-box-2-fill mr-2 text-3xl text-gray-300"></i>
-                  <span class="flex-grow font-semibold text-primary">
-                    <span x-text="result.name"></span>
-                    <small class="block font-light text-neutral" x-text="result.description"></small>
-                  </span>
-                  <i class="ri-arrow-right-s-line text-xl text-gray-300"></i>
+        <div class="flex items-stretch">
+          <div class="tooltip tooltip-bottom" data-tip="Spack Cache">
+            <a href="https://cache.spack.io/" class="btn btn-ghost btn-square
+                rounded-btn" target="_blank" alt="Spack Cache">
+              <i class="ri-database-2-line text-xl"></i>
+            </a>
+          </div>
+          <div class="dropdown dropdown-end">
+            <label tabindex="0" class="btn btn-ghost btn-square rounded-btn">
+              <i class="ri-github-fill text-xl"></i>
+            </label>
+            <ul tabindex="0" class="menu dropdown-content p-2 shadow bg-base-100
+                rounded-box mt-4">
+              <li>
+                <a href="https://github.com/spack/packages.spack.io" class="nolink" target="_blank">
+                  <i class="ri-git-repository-fill text-xl"></i>
+                  packages.spack.io
                 </a>
               </li>
-            </template>
-          </ul>
+              <li>
+                <a href="https://github.com/spack/cache.spack.io" class="nolink" target="_blank">
+                  <i class="ri-git-repository-fill text-xl"></i>
+                  cache.spack.io
+                </a>
+              </li>
+            </ul>
+          </div>
         </div>
-      </section>
-    </div>
-  </body>
+      </header>
+
+      <!-- Search Box -->
+      <div class="bg-primary border-l-4 border-secondary flex flex-col gap-8 p-8 rounded">
+        <div class="form-control">
+          <input type="text" id="search-box" placeholder="Search" autofocus class="input input-bordered input-lg w-full" x-model="query">
+        </div>
+      </div>
+
+      <!-- Results Box -->
+      <div id="results" class="bg-base-100 border border-b-0 border-base-200 flex flex-col flex-grow overflow-y-auto rounded-t-xl shadow-xl" x-show="results.length" x-cloak>
+        <ul class="menu px-0 w-full">
+          <li class="menu-title !opacity-[0.6] py-2">
+            <span class="flex items-center justify-between">
+              Search Results
+              <small class="font-normal"><span x-text="results.length"></span><span x-show="more_results">+</span>
+                packages found</small>
+            </span>
+          </li>
+
+          <template x-for="result in results">
+            <li class="hover-bordered border-t border-base-200">
+              <a :href="packagePageUrl(result)" class="!rounded-none hover:bg-gray-100">
+                <i class="ri-box-2-fill mr-2 text-3xl text-gray-300"></i>
+                <span class="flex-grow font-semibold text-primary">
+                  <span x-text="result.name"></span>
+                  <small class="block font-light text-neutral" x-text="result.description"></small>
+                </span>
+                <i class="ri-arrow-right-s-line text-xl text-gray-300"></i>
+              </a>
+            </li>
+          </template>
+        </ul>
+      </div>
+    </section>
+  </div>
+</body>
 
 </html>
