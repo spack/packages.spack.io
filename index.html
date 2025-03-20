@@ -42,6 +42,8 @@
        async loadPackages() {
          const response = await fetch('data/packages.json');
          this.packages = await response.json();
+         search_box = document.querySelector("#search-box")
+         if (search_box) search_box.placeholder = "Search " + this.packages.length + " packages";
        },
 
        get results() {
@@ -115,7 +117,7 @@
         <!-- Search Box -->
         <div class="bg-primary border-l-4 border-secondary flex flex-col gap-8 p-8 rounded">
           <div class="form-control">
-	<input type="text" placeholder="Search Packages" autofocus class="input input-bordered input-lg w-full" x-model="query">
+            <input type="text" id="search-box" placeholder="Search" autofocus class="input input-bordered input-lg w-full" x-model="query">
           </div>
         </div>
 
