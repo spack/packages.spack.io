@@ -25,6 +25,12 @@
   <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.12.1/dist/cdn.min.js"></script>
 
   <script type="text/javascript">
+    const _reserved_names = new Set([
+      "and", "as", "assert", "async", "await", "break", "class", "continue", "def", "del", "elif",
+      "else", "except", "finally", "for", "from", "global", "if", "import", "in", "is", "lambda",
+      "nonlocal", "not", "or", "pass", "raise", "return", "try", "while", "with", "yield"
+    ]);
+
     const package = {
       name: '',
       aliases: [],
@@ -62,7 +68,11 @@
       },
 
       packagePyUrl() {
-        return `https://github.com/spack/spack/tree/develop/var/spack/repos/builtin/packages/${this.name}/package.py`;
+        var name = this.name.replace("-", "_");
+        if (/^[0-9]/.test(name) || _reserved_names.has(name)) {
+          name = `_${name}`;
+        }
+        return `https://github.com/spack/spack/tree/develop/var/spack/repos/builtin/packages/${name}/package.py`;
       },
 
       maintainerUrl(maintainer) {
