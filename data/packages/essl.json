@@ -1,0 +1,72 @@
+{
+    "aliases": [
+        {
+            "alias_for": "essl+lapackforessl",
+            "name": "lapack"
+        },
+        {
+            "alias_for": "essl",
+            "name": "blas"
+        }
+    ],
+    "build_system": "BundlePackage",
+    "conflicts": [
+        {
+            "description": "essl: ESSL+cuda+ilp64 cannot combine CUDA acceleration 64 bit integers",
+            "name": "+cuda",
+            "spec": "+ilp64"
+        },
+        {
+            "description": "essl: ESSL+cuda threads=none cannot combine CUDA acceleration without multithreading support",
+            "name": "+cuda",
+            "spec": "threads=none"
+        }
+    ],
+    "dependencies": [],
+    "dependent_to": [
+        {
+            "description": "P3DFFT++ (a.k.a. P3DFFT v. 3) is a new generation of P3DFFT library that\naims to provide a comprehensive framework for simulating multiscale\nphenomena. It takes the essence of P3DFFT further by creating an\nextensible, modular structure uniquely adaptable to a greater range of\nuse cases.",
+            "name": "p3dfft3"
+        }
+    ],
+    "description": "IBM's Engineering and Scientific Subroutine Library (ESSL).\n",
+    "homepage": "https://www.ibm.com/systems/power/software/essl/",
+    "latest_version": "6.2.1.1",
+    "maintainers": [],
+    "name": "essl",
+    "patches": [],
+    "resources": [],
+    "variants": [
+        {
+            "default": "bundle",
+            "description": "Build systems supported by the package",
+            "name": "build_system"
+        },
+        {
+            "default": false,
+            "description": "CUDA acceleration",
+            "name": "cuda"
+        },
+        {
+            "default": false,
+            "description": "64 bit integers",
+            "name": "ilp64"
+        },
+        {
+            "default": false,
+            "description": "Provides lapackforessl lapack library",
+            "name": "lapackforessl"
+        },
+        {
+            "default": "openmp",
+            "description": "Multithreading support",
+            "name": "threads"
+        }
+    ],
+    "versions": [
+        {
+            "name": "6.2.1.1"
+        }
+    ],
+    "versions_deprecated": []
+}
