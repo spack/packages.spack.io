@@ -1,0 +1,115 @@
+{
+    "aliases": [
+        {
+            "alias_for": "atlas",
+            "name": "blas"
+        },
+        {
+            "alias_for": "atlas",
+            "name": "lapack"
+        },
+        {
+            "alias_for": "atlas",
+            "name": "lapack"
+        }
+    ],
+    "build_system": "Package",
+    "conflicts": [
+        {
+            "description": "atlas: Atlas requires cygwin to build on Windows, which is unsupported by Spack. See https://math-atlas.sourceforge.net/atlas_install/node55.html",
+            "name": "arch=windows-None-None",
+            "spec": ""
+        }
+    ],
+    "dependencies": [
+        {
+            "description": "The NVIDIA HPC SDK is a comprehensive suite of compilers, libraries and\ntools essential to maximizing developer productivity and the performance\nand portability of HPC applications. The NVIDIA HPC SDK C, C++, and\nFortran compilers support GPU acceleration of HPC modeling and\nsimulation applications with standard C++ and Fortran, OpenACC\ndirectives, and CUDA. GPU-accelerated math libraries maximize\nperformance on common HPC algorithms, and optimized communications\nlibraries enable standards-based multi-GPU and scalable systems\nprogramming. Performance profiling and debugging tools simplify porting\nand optimization of HPC applications.",
+            "name": "c"
+        },
+        {
+            "description": "The NVIDIA HPC SDK is a comprehensive suite of compilers, libraries and\ntools essential to maximizing developer productivity and the performance\nand portability of HPC applications. The NVIDIA HPC SDK C, C++, and\nFortran compilers support GPU acceleration of HPC modeling and\nsimulation applications with standard C++ and Fortran, OpenACC\ndirectives, and CUDA. GPU-accelerated math libraries maximize\nperformance on common HPC algorithms, and optimized communications\nlibraries enable standards-based multi-GPU and scalable systems\nprogramming. Performance profiling and debugging tools simplify porting\nand optimization of HPC applications.",
+            "name": "fortran"
+        },
+        {
+            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files.",
+            "name": "gmake"
+        }
+    ],
+    "dependent_to": [
+        {
+            "description": "CLAPACK is a f2c'ed version of LAPACK. The CLAPACK library was built\nusing a Fortran to C conversion utility called f2c. The entire Fortran\n77 LAPACK library is run through f2c to obtain C code, and then modified\nto improve readability. CLAPACK's goal is to provide LAPACK for someone\nwho does not have access to a Fortran compiler.",
+            "name": "clapack"
+        },
+        {
+            "description": "CSDP is a library of routines that implements a predictor corrector\nvariant of the semidefinite programming algorithm of Helmberg, Rendl,\nVanderbei, and Wolkowicz",
+            "name": "csdp"
+        },
+        {
+            "description": "PLINK is a free, open-source whole genome association analysis toolset,\ndesigned to perform a range of basic, large-scale analyses in a\ncomputationally efficient manner.",
+            "name": "plink"
+        },
+        {
+            "description": "Xyce (rhymes with 'spice') is an open source, SPICE-compatible, high-\nperformance analog circuit simulator, Xyce supports the standard\nanalysis capabilities found in other SPICE-like codes, such as DC,\ntransient, AC, and small-signal noise analyses; it also has less common\ncapabilities, such as harmonic balance, sensitivity analysis, and\nuncertainty propagation techniques. Xyce supplies industry-standard\ncompact models and can support custom models via its Verilog-A model\ncompiler. Foundry process-development kits (PDKs) in other SPICE syntax\ncan be used via the XDM netlist translator, which is included as part of\nthe Xyce package. In addition to supporting use on all common desktop\nplatforms (Mac, Windows, Linux), Xyce can also be compiled to run in a\nlarge-scale parallel mode to provide scalable, numerically accurate\nanalog simulation of circuits containing millions of devices, or more.",
+            "name": "xyce"
+        }
+    ],
+    "description": "Automatically Tuned Linear Algebra Software, generic shared ATLAS is an\napproach for the automatic generation and optimization of numerical\nsoftware. Currently ATLAS supplies optimized versions for the complete\nset of linear algebra kernels known as the Basic Linear Algebra\nSubroutines (BLAS), and a subset of the linear algebra routines in the\nLAPACK library.\n",
+    "homepage": "https://math-atlas.sourceforge.net/",
+    "latest_version": "3.11.41",
+    "maintainers": [],
+    "name": "atlas",
+    "patches": [],
+    "resources": [
+        {
+            "destination": "spack-resource-lapack",
+            "name": "lapack",
+            "placement": null,
+            "version": "@3:"
+        }
+    ],
+    "variants": [
+        {
+            "default": "generic",
+            "description": "Build systems supported by the package",
+            "name": "build_system"
+        },
+        {
+            "default": true,
+            "description": "Builds shared library",
+            "name": "shared"
+        },
+        {
+            "default": "none",
+            "description": "Multithreading support",
+            "name": "threads"
+        },
+        {
+            "default": "-1",
+            "description": "Number of threads to tune to, -1 for autodetect, 0 for no threading",
+            "name": "tune_cpu"
+        }
+    ],
+    "versions": [
+        {
+            "name": "3.11.41",
+            "sha256": "477d567a8d683e891d786e9e8bb6ad6659daa9ba18e8dd0e2f70b7a54095f8de"
+        },
+        {
+            "name": "3.11.39",
+            "sha256": "584bd44572746142bf19348139530c18f4538ce41d94330ff86ede38c36eddc9"
+        },
+        {
+            "name": "3.11.34",
+            "sha256": "b6d42af3afd4fe54ef3a04a070fc7e75f6d8ac9f7d4886b636fe27ebfcbdf91f"
+        },
+        {
+            "name": "3.10.3",
+            "sha256": "2688eb733a6c5f78a18ef32144039adcd62fabce66f2eb51dd59dde806a6d2b7"
+        },
+        {
+            "name": "3.10.2",
+            "sha256": "3aab139b118bf3fcdb4956fbd71676158d713ab0d3bccb2ae1dc3769db22102f"
+        }
+    ],
+    "versions_deprecated": []
+}
