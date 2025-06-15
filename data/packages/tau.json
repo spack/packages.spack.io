@@ -1,0 +1,600 @@
+{
+    "aliases": [],
+    "build_system": "Package",
+    "conflicts": [
+        {
+            "description": "tau: Use either rocprofiler or rocprofiler-sdk",
+            "name": "+rocprofiler",
+            "spec": "+rocprofiler-sdk"
+        },
+        {
+            "description": "tau: Use either rocprofv2 or rocprofiler-sdk",
+            "name": "+rocprofv2",
+            "spec": "+rocprofiler-sdk"
+        },
+        {
+            "description": "tau: Use either roctracer or rocprofiler-sdk",
+            "name": "+roctracer",
+            "spec": "+rocprofiler-sdk"
+        },
+        {
+            "description": "tau: Use either rocprofiler or rocprofv2",
+            "name": "+rocprofiler",
+            "spec": "+rocprofv2"
+        },
+        {
+            "description": "tau: Use either roctracer or rocprofv2",
+            "name": "+roctracer",
+            "spec": "+rocprofv2"
+        },
+        {
+            "description": null,
+            "name": "+elf",
+            "spec": "@:2.28.0"
+        },
+        {
+            "description": null,
+            "name": "+libdwarf",
+            "spec": "@:2.28.0"
+        },
+        {
+            "description": null,
+            "name": "+adios2",
+            "spec": "@:2.29.1"
+        },
+        {
+            "description": null,
+            "name": "+sqlite",
+            "spec": "@:2.29.1"
+        },
+        {
+            "description": null,
+            "name": "+dyninst",
+            "spec": "@:2.32.1"
+        },
+        {
+            "description": null,
+            "name": "+disable-no-pie",
+            "spec": "@:2.33.2"
+        },
+        {
+            "description": "tau: Bug in +comm with +python up to @2.34",
+            "name": "+comm",
+            "spec": "@:2.34+python"
+        }
+    ],
+    "dependencies": [
+        {
+            "description": "The Adaptable Input Output System version 2, developed in the Exascale\nComputing Program",
+            "name": "adios2"
+        },
+        {
+            "description": "GNU binutils, which contain the linker, assembler, objdump and others",
+            "name": "binutils"
+        },
+        {
+            "description": "The NVIDIA HPC SDK is a comprehensive suite of compilers, libraries and\ntools essential to maximizing developer productivity and the performance\nand portability of HPC applications. The NVIDIA HPC SDK C, C++, and\nFortran compilers support GPU acceleration of HPC modeling and\nsimulation applications with standard C++ and Fortran, OpenACC\ndirectives, and CUDA. GPU-accelerated math libraries maximize\nperformance on common HPC algorithms, and optimized communications\nlibraries enable standards-based multi-GPU and scalable systems\nprogramming. Performance profiling and debugging tools simplify porting\nand optimization of HPC applications.",
+            "name": "c"
+        },
+        {
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software.",
+            "name": "cmake"
+        },
+        {
+            "description": "This provides various Lightning Compiler related services. It currently\ncontains one library, the Code Object Manager (Comgr)",
+            "name": "comgr"
+        },
+        {
+            "description": "CUDA is a parallel computing platform and programming model invented by\nNVIDIA. It enables dramatic increases in computing performance by\nharnessing the power of the graphics processing unit (GPU). Note: This\npackage does not currently install the drivers necessary to run CUDA.\nThese will need to be installed manually. See:\nhttps://docs.nvidia.com/cuda/ for details.",
+            "name": "cuda"
+        },
+        {
+            "description": "The NVIDIA HPC SDK is a comprehensive suite of compilers, libraries and\ntools essential to maximizing developer productivity and the performance\nand portability of HPC applications. The NVIDIA HPC SDK C, C++, and\nFortran compilers support GPU acceleration of HPC modeling and\nsimulation applications with standard C++ and Fortran, OpenACC\ndirectives, and CUDA. GPU-accelerated math libraries maximize\nperformance on common HPC algorithms, and optimized communications\nlibraries enable standards-based multi-GPU and scalable systems\nprogramming. Performance profiling and debugging tools simplify porting\nand optimization of HPC applications.",
+            "name": "cxx"
+        },
+        {
+            "description": "API for dynamic binary instrumentation. Modify programs while they are\nexecuting without recompiling, re-linking, or re-executing.",
+            "name": "dyninst"
+        },
+        {
+            "description": "libelf lets you read, modify or create ELF object files in an\narchitecture-independent way. The library takes care of size and endian\nissues, e.g. you can process a file for SPARC processors on an Intel-\nbased system. Note: libelf is no longer maintained and packages that\ndepend on libelf should migrate to elfutils.",
+            "name": "elf"
+        },
+        {
+            "description": "elfutils is a collection of various binary tools such as eu-objdump, eu-\nreadelf, and other utilities that allow you to inspect and manipulate\nELF files. Refer to Table 5.Tools Included in elfutils for Red Hat\nDeveloper for a complete list of binary tools that are distributed with\nthe Red Hat Developer Toolset version of elfutils.",
+            "name": "elfutils"
+        },
+        {
+            "description": "The NVIDIA HPC SDK is a comprehensive suite of compilers, libraries and\ntools essential to maximizing developer productivity and the performance\nand portability of HPC applications. The NVIDIA HPC SDK C, C++, and\nFortran compilers support GPU acceleration of HPC modeling and\nsimulation applications with standard C++ and Fortran, OpenACC\ndirectives, and CUDA. GPU-accelerated math libraries maximize\nperformance on common HPC algorithms, and optimized communications\nlibraries enable standards-based multi-GPU and scalable systems\nprogramming. Performance profiling and debugging tools simplify porting\nand optimization of HPC applications.",
+            "name": "fortran"
+        },
+        {
+            "description": "GASNet is a language-independent, networking middleware layer that\nprovides network-independent, high-performance communication primitives\nincluding Remote Memory Access (RMA) and Active Messages (AM). It has\nbeen used to implement parallel programming models and libraries\nincluding UPC, UPC++, multi-image Fortran, Legion, Chapel, and many\nothers. The interface is primarily intended as a compilation target and\nfor use by runtime library writers (as opposed to end users), and the\nprimary goals are high performance, interface portability, and\nexpressiveness. ***NOTICE***: The GASNet library built by this Spack\npackage is ONLY intended for unit-testing purposes, and is generally\nUNSUITABLE FOR PRODUCTION USE. The RECOMMENDED way to build GASNet is as\nan embedded library as configured by the higher-level client runtime\npackage (UPC++, Legion, Chapel, etc), including system-specific\nconfiguration.",
+            "name": "gasnet"
+        },
+        {
+            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files.",
+            "name": "gmake"
+        },
+        {
+            "description": "HIP is a C++ Runtime API and Kernel Language that allows developers to\ncreate portable applications for AMD and NVIDIA GPUs from single source\ncode.",
+            "name": "hip"
+        },
+        {
+            "description": "This repository includes the user mode API nterfaces and libraries\nnecessary for host applications to launch computer kernels to available\nHSA ROCm kernel agents.AMD Heterogeneous System Architecture HSA - Linux\nHSA Runtime for Boltzmann (ROCm) platforms.",
+            "name": "hsa-rocr-dev"
+        },
+        {
+            "description": "The Hardware Locality (hwloc) software project. The Portable Hardware\nLocality (hwloc) software package provides a portable abstraction\n(across OS, versions, architectures, ...) of the hierarchical topology\nof modern architectures, including NUMA memory nodes, sockets, shared\ncaches, cores and simultaneous multithreading. It also gathers various\nsystem attributes such as cache and memory information as well as the\nlocality of I/O devices such as network interfaces, InfiniBand HCAs or\nGPUs. It primarily aims at helping applications with gathering\ninformation about modern computing hardware so as to exploit it\naccordingly and efficiently.",
+            "name": "hwloc"
+        },
+        {
+            "description": "The free and opensource java implementation",
+            "name": "java"
+        },
+        {
+            "description": "The DWARF Debugging Information Format is of interest to programmers\nworking on compilers and debuggers (and any one interested in reading or\nwriting DWARF information). It was developed by a committee (known as\nthe PLSIG at the time) starting around 1991. Starting around 1991 SGI\ndeveloped the libdwarf and dwarfdump tools for internal use and as part\nof SGI IRIX developer tools. Since that time dwarfdump and libdwarf have\nbeen shipped (as an executable and archive respectively, not source)\nwith every release of the SGI MIPS/IRIX C compiler.",
+            "name": "libdwarf"
+        },
+        {
+            "description": "A portable and efficient C programming interface (API) to determine the\ncall-chain of a program.",
+            "name": "libunwind"
+        },
+        {
+            "description": "Likwid is a simple to install and use toolsuite of command line\napplications for performance oriented programmers. It works for Intel\nand AMD processors on the Linux operating system. This version uses the\nperf_event backend which reduces the feature set but allows user\ninstalls. See https://github.com/RRZE-\nHPC/likwid/wiki/TutorialLikwidPerf#feature-limitations for information.",
+            "name": "likwid"
+        },
+        {
+            "description": "IBM MPI implementation from Spectrum MPI.",
+            "name": "mpi"
+        },
+        {
+            "description": "oneAPI Level Zero Loader. Applications that need low-level control of a\noneAPI level zero device link against the loader. The loader depends on\na separately installed level zero driver. See https://dgpu-\ndocs.intel.com/technologies/level-zero.html for information on how to\ninstall the driver.",
+            "name": "oneapi-level-zero"
+        },
+        {
+            "description": "The Open Trace Format 2 is a highly scalable, memory efficient event\ntrace data format plus support library.",
+            "name": "otf2"
+        },
+        {
+            "description": "PAPI provides the tool designer and application engineer with a\nconsistent interface and methodology for use of the performance counter\nhardware found in most major microprocessors. PAPI enables software\nengineers to see, in near real time, the relation between software\nperformance and processor events. In addition Component PAPI provides\naccess to a collection of components that expose performance measurement\nopportunities across the hardware and software stack.",
+            "name": "papi"
+        },
+        {
+            "description": "Program Database Toolkit (PDT) is a framework for analyzing source code\nwritten in several programming languages and for making rich program\nknowledge accessible to developers of static and dynamic analysis tools.\nPDT implements a standard program representation, the program database\n(PDB), that can be accessed in a uniform way through a class library\nsupporting common PDB operations.",
+            "name": "pdt"
+        },
+        {
+            "description": "The Python programming language.",
+            "name": "python"
+        },
+        {
+            "description": "rocm-core is a utility which can be used to get ROCm release version. It\nalso provides the Lmod modules files for the ROCm release.\ngetROCmVersion function provides the ROCm version.",
+            "name": "rocm-core"
+        },
+        {
+            "description": "It is a C library for Linux that provides a user space interface for\napplications to monitor and control GPU applications.",
+            "name": "rocm-smi-lib"
+        },
+        {
+            "description": "ROCPROFILER library for AMD HSA runtime API extension support",
+            "name": "rocprofiler-dev"
+        },
+        {
+            "description": "ROCProfiler-SDK is AMD\u2019s new and improved tooling infrastructure,\nproviding a hardware-specific low-level performance analysis interface\nfor profiling and tracing GPU compute applications.",
+            "name": "rocprofiler-sdk"
+        },
+        {
+            "description": "ROC-tracer library: Runtimes Generic Callback/Activity APIs. The goal of\nthe implementation is to provide a generic independent from specific\nruntime profiler to trace API and asyncronous activity.",
+            "name": "roctracer-dev"
+        },
+        {
+            "description": "SALT: A next generation LLVM-based Source Analysis Toolkit for\nperformance instrumentation of HPC applications",
+            "name": "salt"
+        },
+        {
+            "description": "The Score-P measurement infrastructure is a highly scalable and easy-to-\nuse tool suite for profiling, event tracing, and online analysis of HPC\napplications.",
+            "name": "scorep"
+        },
+        {
+            "description": "SQLite is a C-language library that implements a small, fast, self-\ncontained, high-reliability, full-featured, SQL database engine.",
+            "name": "sqlite"
+        },
+        {
+            "description": "zlib replacement with optimizations for next generation systems.",
+            "name": "zlib-api"
+        }
+    ],
+    "dependent_to": [
+        {
+            "description": "Application Profiling, Tracing, and Analysis",
+            "name": "omnitrace"
+        },
+        {
+            "description": "Application Profiling, Tracing, and Analysis",
+            "name": "rocprofiler-systems"
+        },
+        {
+            "description": "CODARcode Savanna runtime framework for high performance, workflow\nmanagement using Swift/T and ADIOS.",
+            "name": "savanna"
+        },
+        {
+            "description": "Modular profiling toolkit and suite of libraries and tools for\nC/C++/Fortran/CUDA/Python",
+            "name": "timemory"
+        },
+        {
+            "description": "ViTE is a trace explorer. It is a tool to visualize execution traces in\nPaje or OTF2 format for debugging and profiling parallel or distributed\napplications.",
+            "name": "vite"
+        }
+    ],
+    "description": "A portable profiling and tracing toolkit for performance analysis of\nparallel programs written in Fortran, C, C++, UPC, Java, Python.\n",
+    "homepage": "https://www.cs.uoregon.edu/research/tau",
+    "latest_version": "2.34.1",
+    "maintainers": [
+        "eugeneswalker",
+        "khuck",
+        "sameershende",
+        "wspear"
+    ],
+    "name": "tau",
+    "patches": [
+        {
+            "level": 1,
+            "owner": "builtin.tau",
+            "relative_path": "unwind.patch",
+            "reverse": false,
+            "sha256": "b97d599bd8c8b8f764127b0576c31ddf77f1852eb7b7a4053b2a20180b57bcb1",
+            "version": "@2.29.0",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.tau",
+            "relative_path": "tau-rocm-disable-llvm-plugin.patch",
+            "reverse": false,
+            "sha256": "fa49bc9aa36ad0ef2939dea0f361289449d9e688c9ac2afca59f6b9fcb6be681",
+            "version": "@2.33.2+rocm",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.tau",
+            "relative_path": "tau-rocm-disable-rocprofiler-default.patch",
+            "reverse": false,
+            "sha256": "f12841ea1c167a8f6858f7ab522acc6ab1f6cb0abe8ee6eca3b4c96a1c61e576",
+            "version": "@2.34.0+rocm",
+            "working_dir": "."
+        }
+    ],
+    "resources": [],
+    "variants": [
+        {
+            "default": false,
+            "description": "Activates ADIOS2 output support",
+            "name": "adios2"
+        },
+        {
+            "default": true,
+            "description": "Activates support of BFD GNU Binutils",
+            "name": "binutils"
+        },
+        {
+            "default": "generic",
+            "description": "Build systems supported by the package",
+            "name": "build_system"
+        },
+        {
+            "default": false,
+            "description": "Generate profiles with MPI communicator info",
+            "name": "comm"
+        },
+        {
+            "default": false,
+            "description": "Build for Cray compute nodes",
+            "name": "craycnl"
+        },
+        {
+            "default": false,
+            "description": "Activates CUDA support",
+            "name": "cuda"
+        },
+        {
+            "default": false,
+            "description": "Do not add -no-pie while linking with Ubuntu.",
+            "name": "disable-no-pie"
+        },
+        {
+            "default": false,
+            "description": "Activates dyninst support",
+            "name": "dyninst"
+        },
+        {
+            "default": true,
+            "description": "Activates support of elf",
+            "name": "elf"
+        },
+        {
+            "default": true,
+            "description": "Activates Fortran support",
+            "name": "fortran"
+        },
+        {
+            "default": false,
+            "description": "Activates GASNET support",
+            "name": "gasnet"
+        },
+        {
+            "default": true,
+            "description": "Activates POSIX I/O support",
+            "name": "io"
+        },
+        {
+            "default": false,
+            "description": "Activates Intel OneAPI Level Zero support",
+            "name": "level_zero"
+        },
+        {
+            "default": true,
+            "description": "Activates support of libdwarf",
+            "name": "libdwarf"
+        },
+        {
+            "default": true,
+            "description": "Activates support of libunwind",
+            "name": "libunwind"
+        },
+        {
+            "default": false,
+            "description": "Activates LIKWID support",
+            "name": "likwid"
+        },
+        {
+            "default": false,
+            "description": "Specify use of TAU MPI wrapper library",
+            "name": "mpi"
+        },
+        {
+            "default": false,
+            "description": "Activates OMPT instrumentation",
+            "name": "ompt"
+        },
+        {
+            "default": false,
+            "description": "Activates Opari2 instrumentation",
+            "name": "opari"
+        },
+        {
+            "default": false,
+            "description": "Activates OpenACC support",
+            "name": "openacc"
+        },
+        {
+            "default": false,
+            "description": "Activates OpenCL support",
+            "name": "opencl"
+        },
+        {
+            "default": false,
+            "description": "Use OpenMP threads",
+            "name": "openmp"
+        },
+        {
+            "default": true,
+            "description": "Activates support of Open Trace Format (OTF)",
+            "name": "otf2"
+        },
+        {
+            "default": true,
+            "description": "Activates Performance API",
+            "name": "papi"
+        },
+        {
+            "default": true,
+            "description": "Use PDT for source code instrumentation",
+            "name": "pdt"
+        },
+        {
+            "default": false,
+            "description": "Generate phase based profiles",
+            "name": "phase"
+        },
+        {
+            "default": false,
+            "description": "Build for IBM Power LE nodes",
+            "name": "ppc64le"
+        },
+        {
+            "default": false,
+            "description": "Generate profiles with parameter mapped event data",
+            "name": "profileparam"
+        },
+        {
+            "default": true,
+            "description": "Use POSIX threads",
+            "name": "pthreads"
+        },
+        {
+            "default": false,
+            "description": "Activates Python support",
+            "name": "python"
+        },
+        {
+            "default": false,
+            "description": "Activates ROCm support",
+            "name": "rocm"
+        },
+        {
+            "default": false,
+            "description": "Activates ROCm rocprofiler support",
+            "name": "rocprofiler"
+        },
+        {
+            "default": false,
+            "description": "Activates ROCm rocprofiler-sdk support",
+            "name": "rocprofiler-sdk"
+        },
+        {
+            "default": false,
+            "description": "Activates ROCm rocprofiler support",
+            "name": "rocprofv2"
+        },
+        {
+            "default": false,
+            "description": "Activates ROCm roctracer support",
+            "name": "roctracer"
+        },
+        {
+            "default": false,
+            "description": "Activates SALT source instrumentation",
+            "name": "salt"
+        },
+        {
+            "default": false,
+            "description": "Activates SCOREP support",
+            "name": "scorep"
+        },
+        {
+            "default": false,
+            "description": "Activates SHMEM support",
+            "name": "shmem"
+        },
+        {
+            "default": false,
+            "description": "Activates SQLite3 output support",
+            "name": "sqlite"
+        },
+        {
+            "default": false,
+            "description": "Activates syscall wrapper",
+            "name": "syscall"
+        },
+        {
+            "default": false,
+            "description": "Force build for x86 Linux instead of auto-detect",
+            "name": "x86_64"
+        }
+    ],
+    "versions": [
+        {
+            "branch": "master",
+            "name": "master"
+        },
+        {
+            "name": "2.34.1",
+            "sha256": "0e90726372fa1b6f726eb62b0840350070a00215144853ee07a852a99458c619"
+        },
+        {
+            "name": "2.34",
+            "sha256": "229ab425e0532e635a0be76d60b8aa613adf7596d15a9ced0b87e7f243bb2132"
+        },
+        {
+            "name": "2.33.2",
+            "sha256": "8ee81fe75507612379f70033183bed2a90e1245554b2a78196b6c5145da44f27"
+        },
+        {
+            "name": "2.33.1",
+            "sha256": "13cc5138e110932f34f02ddf548db91d8219ccb7ff9a84187f0790e40a502403"
+        },
+        {
+            "name": "2.33",
+            "sha256": "04d9d67adb495bc1ea56561f33c5ce5ba44f51cc7f64996f65bd446fac5483d9"
+        },
+        {
+            "name": "2.32.1",
+            "sha256": "0eec3de46b0873846dfc639270c5e30a226b463dd6cb41aa12e975b7563f0eeb"
+        },
+        {
+            "name": "2.32",
+            "sha256": "ee774a06e30ce0ef0f053635a52229152c39aba4f4933bed92da55e5e13466f3"
+        },
+        {
+            "name": "2.31.1",
+            "sha256": "bf445b9d4fe40a5672a7b175044d2133791c4dfb36a214c1a55a931aebc06b9d"
+        },
+        {
+            "name": "2.31",
+            "sha256": "27e73c395dd2a42b91591ce4a76b88b1f67663ef13aa19ef4297c68f45d946c2"
+        },
+        {
+            "name": "2.30.2",
+            "sha256": "43f84a15b71a226f8a64d966f0cb46022bcfbaefb341295ecc6fa80bb82bbfb4"
+        },
+        {
+            "name": "2.30.1",
+            "sha256": "9c20ca1b4f4e80d885f24491cee598068871f0e9dd67906a5e47e4b4147d08fc"
+        },
+        {
+            "name": "2.30",
+            "sha256": "e581c33e21488d69839a00d97fd4451ea579f47249b2750d5c36bea773041eaf"
+        },
+        {
+            "name": "2.29.1",
+            "sha256": "4195a0a236bba510ab50a93e13c7f00d9472e8bc46c91de3f0696112a34e34e2"
+        },
+        {
+            "name": "2.29",
+            "sha256": "146be769a23c869a7935e8fa5ba79f40ba36b9057a96dda3be6730fc9ca86086"
+        },
+        {
+            "name": "2.28.2",
+            "sha256": "64e129a482056755012b91dae2fb4f728dbf3adbab53d49187eca952891c5457"
+        },
+        {
+            "name": "2.28.1",
+            "sha256": "b262e5c9977471e9f5a8d729b3db743012df9b0ab8244da2842039f8a3b98b34"
+        },
+        {
+            "name": "2.28",
+            "sha256": "68c6f13ae748d12c921456e494006796ca2b0efebdeef76ee7c898c81592883e"
+        },
+        {
+            "name": "2.27.2p1",
+            "sha256": "3256771fb71c2b05932b44d0650e6eadc712f1bdedf4c0fb2781db3b266225dd"
+        },
+        {
+            "name": "2.27.2",
+            "sha256": "d319a4588ad303b71082254f4f40aa76f6183a01b5bc4bd987f76e1a6026efa1"
+        },
+        {
+            "name": "2.27.1",
+            "sha256": "315babab4da25dd08633ad8dbf33d93db77f57d240bcbd3527ed5b8710cb9d8f"
+        },
+        {
+            "name": "2.27",
+            "sha256": "d48fdca49cda2d9f25a0cf5dbd961201c8a2b1f025bcbb121d96ad43f211f1a7"
+        },
+        {
+            "name": "2.26.3",
+            "sha256": "bd785ed47f20e6b8b2a1d99ce383d292f70b1fb9e2eaab21f5eaf8e64b28e990"
+        },
+        {
+            "name": "2.26.2",
+            "sha256": "92ca68db51fd5bd026187e70b397bcd1db9bfb07008d7e8bc935411a97978834"
+        },
+        {
+            "name": "2.26.1",
+            "sha256": "d084ff87e5f9fe640a3fc48aa5c8c52f586e7b739787f2bb9a4249005e459896"
+        },
+        {
+            "name": "2.26",
+            "sha256": "458228646a13a228841d4133f24af14cc182f4978eb15ef6244d71735abe8d16"
+        },
+        {
+            "name": "2.25",
+            "sha256": "ab8a8c15a075af69aa23b4790b4e2d9dffc3b880fc1ff806c21535ab69b6a088"
+        },
+        {
+            "name": "2.24.1",
+            "sha256": "bc27052c36377e4b8fc0bbb4afaa57eaa8bcb3f5e5066e576b0f40d341c28a0e"
+        },
+        {
+            "name": "2.24",
+            "sha256": "5d28e8b26561c7cd7d0029b56ec0f95fc26803ac0b100c98e00af0b02e7f55e2"
+        },
+        {
+            "name": "2.23.1",
+            "sha256": "31a4d0019cec6ef57459a9cd18a220f0130838a5f1a0b5ea7879853f5a38cf88"
+        }
+    ],
+    "versions_deprecated": []
+}

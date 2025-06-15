@@ -1,0 +1,160 @@
+{
+    "aliases": [],
+    "build_system": "SConsPackage",
+    "conflicts": [
+        {
+            "description": "amdlibm: dependency on python@3.6.2",
+            "name": "%aocc@3.2.0",
+            "spec": ""
+        },
+        {
+            "description": "amdlibm: Maximum supported Clang version is 17.0.0",
+            "name": "%clang@17.0.0:",
+            "spec": ""
+        },
+        {
+            "description": "amdlibm: Minimum supported Clang version is 9",
+            "name": "%clang@:9.0",
+            "spec": ""
+        },
+        {
+            "description": "amdlibm: Maximum supported GCC version is 14.2.0",
+            "name": "%gcc@14.3.0:",
+            "spec": ""
+        },
+        {
+            "description": "amdlibm: Minimum supported GCC version is 9.2.0",
+            "name": "%gcc@:9.1.0",
+            "spec": ""
+        }
+    ],
+    "dependencies": [
+        {
+            "description": "The library AOCL-Utils is intended to provide a uniform interface to all\nAOCL libraries to access CPU features, especially for AMD CPUs. The\nlibrary provides the following features: * Core details * Flags\navailable/usable * ISA available/usable * Topology about L1/L2/L3 AOCL-\nUtils is designed to be integrated into other AMD AOCL libraries. Each\nproject has their own mechanism to identify CPU and provide necessary\nfeatures such as \"dynamic dispatch\".The main purpose of this library is\nto provide a centralized mechanism to update/validate and provide\ninformation to the users of this library. LICENSING INFORMATION: By\ndownloading, installing and using this software, you agree to the terms\nand conditions of the AMD AOCL-Utils license agreement. You may obtain a\ncopy of this license agreement from https://www.amd.com/content/dam/amd/\nen/documents/developer/version-4-2-eulas/utils-elua-4-2.pdf",
+            "name": "aocl-utils"
+        },
+        {
+            "description": "The NVIDIA HPC SDK is a comprehensive suite of compilers, libraries and\ntools essential to maximizing developer productivity and the performance\nand portability of HPC applications. The NVIDIA HPC SDK C, C++, and\nFortran compilers support GPU acceleration of HPC modeling and\nsimulation applications with standard C++ and Fortran, OpenACC\ndirectives, and CUDA. GPU-accelerated math libraries maximize\nperformance on common HPC algorithms, and optimized communications\nlibraries enable standards-based multi-GPU and scalable systems\nprogramming. Performance profiling and debugging tools simplify porting\nand optimization of HPC applications.",
+            "name": "c"
+        },
+        {
+            "description": "The NVIDIA HPC SDK is a comprehensive suite of compilers, libraries and\ntools essential to maximizing developer productivity and the performance\nand portability of HPC applications. The NVIDIA HPC SDK C, C++, and\nFortran compilers support GPU acceleration of HPC modeling and\nsimulation applications with standard C++ and Fortran, OpenACC\ndirectives, and CUDA. GPU-accelerated math libraries maximize\nperformance on common HPC algorithms, and optimized communications\nlibraries enable standards-based multi-GPU and scalable systems\nprogramming. Performance profiling and debugging tools simplify porting\nand optimization of HPC applications.",
+            "name": "cxx"
+        },
+        {
+            "description": "The MPFR library is a C library for multiple-precision floating-point\ncomputations with correct rounding.",
+            "name": "mpfr"
+        },
+        {
+            "description": "The Python programming language.",
+            "name": "python"
+        },
+        {
+            "description": "SCons is a software construction tool",
+            "name": "scons"
+        }
+    ],
+    "dependent_to": [
+        {
+            "description": "AMD Optimizing CPU Libraries (AOCL) - AOCL is a set of numerical\nlibraries tuned specifically for AMD EPYC processor family. They have a\nsimple interface to take advantage of the latest hardware innovations.\nThe tuned implementations of industry standard math libraries enable\nfast development of scientific and high performance computing projects\nLICENSING INFORMATION: By downloading, installing and using this\nsoftware, you agree to the terms and conditions of the AMD AOCL license\nagreement. You may obtain a copy of this license agreement from\nhttps://www.amd.com/en/developer/aocl/aocl-eula.html\nhttps://www.amd.com/en/developer/aocl/eula/aocl-4-1-eula.html",
+            "name": "amd-aocl"
+        },
+        {
+            "description": "ROMS is a free-surface, terrain-following, primitive equations ocean\nmodel widely used by the scientific community for a diverse range of\napplications",
+            "name": "roms"
+        }
+    ],
+    "description": "AMD LibM is a software library containing a collection of basic math\nfunctions optimized for x86-64 processor-based machines. It provides\nmany routines from the list of standard C99 math functions. Applications\ncan link into AMD LibM library and invoke math functions instead of\ncompiler's math functions for better accuracy and performance. LICENSING\nINFORMATION: By downloading, installing and using this software, you\nagree to the terms and conditions of the AMD AOCL-FFTW license\nagreement. You may obtain a copy of this license agreement from\nhttps://www.amd.com/en/developer/aocl/libm/eula/libm-4-2-eula.html\nhttps://www.amd.com/en/developer/aocl/libm/libm-eula.html\n",
+    "homepage": "https://www.amd.com/en/developer/aocl/libm.html",
+    "latest_version": "5.0",
+    "maintainers": [
+        "amd-toolchain-support"
+    ],
+    "name": "amdlibm",
+    "patches": [
+        {
+            "level": 1,
+            "owner": "builtin.amdlibm",
+            "relative_path": "0001-libm-ose-Scripts-cleanup-pyc-files.patch",
+            "reverse": false,
+            "sha256": "4fbce5063ab2b448f9a0aa6e20989742e6319af35ae4bc575ee7c751140f91c7",
+            "version": "@2.2",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.amdlibm",
+            "relative_path": "0002-libm-ose-prevent-log-v3.c-from-building.patch",
+            "reverse": false,
+            "sha256": "da496991b4ed52940d471a3bd6e8d99bf25f547f1ab303a6aa3255ae704bec63",
+            "version": "@2.2",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.amdlibm",
+            "relative_path": "libm-ose-SconsSpack.patch",
+            "reverse": false,
+            "sha256": "59aa922f4e30656efc2c0c98cb7cd47ab14a4085528c3f49d14a87dca7533dbd",
+            "version": "@3.1:4.2",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.amdlibm",
+            "relative_path": "libm-ose-SconsSpack-5.patch",
+            "reverse": false,
+            "sha256": "09c8b013ed0377abe59a3f8bb4a729961b827333c129df89cd7e7982cca70f85",
+            "version": "@5.0",
+            "working_dir": "."
+        }
+    ],
+    "resources": [],
+    "variants": [
+        {
+            "default": "scons",
+            "description": "Build systems supported by the package",
+            "name": "build_system"
+        },
+        {
+            "default": false,
+            "description": "Building with verbosity",
+            "name": "verbose"
+        }
+    ],
+    "versions": [
+        {
+            "name": "5.0",
+            "sha256": "ba1d50c068938c9a927e37e5630f683b6149d7d5a95efffeb76e7c9a8bcb2b5e"
+        },
+        {
+            "name": "4.2",
+            "sha256": "58847b942e998b3f52eb41ae26403c7392d244fcafa707cbf23165aac24edd9e"
+        },
+        {
+            "name": "4.1",
+            "sha256": "5bbbbc6bc721d9a775822eab60fbc11eb245e77d9f105b4fcb26a54d01456122"
+        },
+        {
+            "name": "4.0",
+            "sha256": "038c1eab544be77598eccda791b26553d3b9e2ee4ab3f5ad85fdd2a77d015a7d"
+        },
+        {
+            "name": "3.2",
+            "sha256": "c75b287c38a3ce997066af1f5c8d2b19fc460d5e56678ea81f3ac33eb79ec890"
+        },
+        {
+            "name": "3.1",
+            "sha256": "dee487cc2d89c2dc93508be2c67592670ffc1d02776c017e8907317003f48845"
+        },
+        {
+            "name": "3.0",
+            "sha256": "eb26b5e174f43ce083928d0d8748a6d6d74853333bba37d50057aac2bef7c7aa"
+        },
+        {
+            "commit": "4033e022da428125747e118ccd6fdd9cee21c470",
+            "name": "2.2"
+        }
+    ],
+    "versions_deprecated": []
+}

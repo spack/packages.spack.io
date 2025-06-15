@@ -1,0 +1,347 @@
+{
+    "aliases": [],
+    "build_system": "AutotoolsPackage",
+    "conflicts": [
+        {
+            "description": "pythia8: Building pythia with evtgen bindings and evtgen with pythia bindings results in a circular dependency that cannot be resolved at the moment! Use pythia8+evtgen^evtgen~pythia8",
+            "name": "^evtgen+pythia8",
+            "spec": "+evtgen"
+        },
+        {
+            "description": "pythia8: +rivet requires +yoda",
+            "name": "~yoda",
+            "spec": "@8.313:+rivet"
+        },
+        {
+            "description": "pythia8: HDF5 support was added in 8.304",
+            "name": "+hdf5",
+            "spec": "@:8.304"
+        },
+        {
+            "description": "pythia8: MPICH support was added in 8.304",
+            "name": "+mpich",
+            "spec": "@:8.304"
+        },
+        {
+            "description": null,
+            "name": "arch=windows-None-None",
+            "spec": "build_system=autotools"
+        },
+        {
+            "description": "pythia8: +evtgen requires +hepmc",
+            "name": "+evtgen",
+            "spec": "~hepmc"
+        },
+        {
+            "description": "pythia8: MPICH is required for reading HDF5 files",
+            "name": "+hdf5",
+            "spec": "~mpich"
+        }
+    ],
+    "dependencies": [
+        {
+            "description": "Boost provides free peer-reviewed portable C++ source libraries,\nemphasizing libraries that work well with the C++ Standard Library.\nBoost libraries are intended to be widely useful, and usable across a\nbroad spectrum of applications. The Boost license encourages both\ncommercial and non-commercial use.",
+            "name": "boost"
+        },
+        {
+            "description": "The NVIDIA HPC SDK is a comprehensive suite of compilers, libraries and\ntools essential to maximizing developer productivity and the performance\nand portability of HPC applications. The NVIDIA HPC SDK C, C++, and\nFortran compilers support GPU acceleration of HPC modeling and\nsimulation applications with standard C++ and Fortran, OpenACC\ndirectives, and CUDA. GPU-accelerated math libraries maximize\nperformance on common HPC algorithms, and optimized communications\nlibraries enable standards-based multi-GPU and scalable systems\nprogramming. Performance profiling and debugging tools simplify porting\nand optimization of HPC applications.",
+            "name": "cxx"
+        },
+        {
+            "description": "EvtGen is a Monte Carlo event generator that simulates the decays of\nheavy flavour particles, primarily B and D mesons.",
+            "name": "evtgen"
+        },
+        {
+            "description": "A high energy physics software package for jet finding in pp and e+e-\ncollisions.",
+            "name": "fastjet"
+        },
+        {
+            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files.",
+            "name": "gmake"
+        },
+        {
+            "description": "The GNU config.guess and config.sub scripts versioned by timestamp.\nThis package can be used as a build dependency for autotools packages\nthat ship a tarball with outdated config.guess and config.sub files.",
+            "name": "gnuconfig"
+        },
+        {
+            "description": "HDF5 is a data model, library, and file format for storing and managing\ndata. It supports an unlimited variety of datatypes, and is designed for\nflexible and efficient I/O and for high volume and complex data.",
+            "name": "hdf5"
+        },
+        {
+            "description": "The HepMC package is an object oriented, C++ event record for High\nEnergy Physics Monte Carlo generators and simulation.",
+            "name": "hepmc"
+        },
+        {
+            "description": "The HepMC package is an object oriented, C++ event record for High\nEnergy Physics Monte Carlo generators and simulation.",
+            "name": "hepmc3"
+        },
+        {
+            "description": "HighFive - Header only C++ HDF5 interface",
+            "name": "highfive"
+        },
+        {
+            "description": "LHAPDF is a general purpose C++ interpolator, used for evaluating PDFs\nfrom discretised data files.",
+            "name": "lhapdf"
+        },
+        {
+            "description": "MadGraph5_aMC@NLO is a framework that aims at providing all the elements\nnecessary for SM and BSM phenomenology, such as the computations of\ncross sections, the generation of hard events and their matching with\nevent generators, and the use of a variety of tools relevant to event\nmanipulation and analysis.",
+            "name": "madgraph5amc"
+        },
+        {
+            "description": "MPICH is a high performance and widely portable implementation of the\nMessage Passing Interface (MPI) standard.",
+            "name": "mpich"
+        },
+        {
+            "description": "An open source Message Passing Interface implementation. The Open MPI\nProject is an open source Message Passing Interface implementation that\nis developed and maintained by a consortium of academic, research, and\nindustry partners. Open MPI is therefore able to combine the expertise,\ntechnologies, and resources from all across the High Performance\nComputing community in order to build the best MPI library available.\nOpen MPI offers advantages for system and software vendors, application\ndevelopers and computer science researchers.",
+            "name": "openmpi"
+        },
+        {
+            "description": "The Python programming language.",
+            "name": "python"
+        },
+        {
+            "description": "A Spack managed Python virtual environment",
+            "name": "python-venv"
+        },
+        {
+            "description": "Rivet - the particle-physics MC analysis toolkit",
+            "name": "rivet"
+        },
+        {
+            "description": "ROOT is a data analysis framework.",
+            "name": "root"
+        },
+        {
+            "description": "An open source utility that provides fast incremental file transfer.",
+            "name": "rsync"
+        },
+        {
+            "description": "YODA - Yet more Objects for Data Analysis",
+            "name": "yoda"
+        },
+        {
+            "description": "zlib replacement with optimizations for next generation systems.",
+            "name": "zlib-api"
+        }
+    ],
+    "dependent_to": [
+        {
+            "description": "A Common Tracking Software (Acts) This project contains an experiment-\nindependent set of track reconstruction tools. The main philosophy is to\nprovide high-level track reconstruction modules that can be used for any\ntracking detector. The description of the tracking detector's geometry\nis optimized for efficient navigation and quick extrapolation of tracks.\nConverters for several common geometry description languages exist.\nHaving a highly performant, yet largely customizable implementation of\ntrack reconstruction algorithms was a primary objective for the design\nof this toolset. Additionally, the applicability to real-life HEP\nexperiments plays major role in the development process. Apart from\nalgorithmic code, this project also provides an event data model for the\ndescription of track parameters and measurements. Key features of this\nproject include: tracking geometry description which can be constructed\nfrom TGeo, DD4Hep, or GDML input, simple and efficient event data model,\nperformant and highly flexible algorithms for track propagation and\nfitting, basic seed finding algorithms.",
+            "name": "acts"
+        },
+        {
+            "description": "A high energy physics framework for fast simulation of a generic\ncollider experiment.",
+            "name": "delphes"
+        },
+        {
+            "description": "DIRE (short for dipole resummation) a C++ program for all-order\nradiative corrections to scattering processes in high-energy particle\ncollisions.",
+            "name": "dire"
+        },
+        {
+            "description": "Monte Carlo event generator for coherent vector meson photo- and\nelectro- production in electron-ion collisions.",
+            "name": "estarlight"
+        },
+        {
+            "description": "EvtGen is a Monte Carlo event generator that simulates the decays of\nheavy flavour particles, primarily B and D mesons.",
+            "name": "evtgen"
+        },
+        {
+            "description": "GeoModel is a user-friendly C++ Toolkit and Suite for HEP Detector\nDescription with minimal dependencies.",
+            "name": "geomodel"
+        },
+        {
+            "description": "MadGraph5_aMC@NLO is a framework that aims at providing all the elements\nnecessary for SM and BSM phenomenology, such as the computations of\ncross sections, the generation of hard events and their matching with\nevent generators, and the use of a variety of tools relevant to event\nmanipulation and analysis.",
+            "name": "madgraph5amc"
+        },
+        {
+            "description": "ROOT is a data analysis framework.",
+            "name": "root"
+        },
+        {
+            "description": "Sherpa is a Monte Carlo event generator for the Simulation of High-\nEnergy Reactions of PArticles in lepton-lepton, lepton-photon, photon-\nphoton, lepton-hadron and hadron-hadron collisions.",
+            "name": "sherpa"
+        },
+        {
+            "description": "WHIZARD is a program system designed for the efficient calculation of\nmulti-particle scattering cross sections and simulated event samples.",
+            "name": "whizard"
+        }
+    ],
+    "description": "The Pythia program is a standard tool for the generation of events in\nhigh-energy collisions, comprising a coherent set of physics models for\nthe evolution from a few-body hard process to a complex multiparticle\nfinal state.\n",
+    "homepage": "https://pythia.org/",
+    "latest_version": "8.313",
+    "maintainers": [
+        "ChristianTackeGSI"
+    ],
+    "name": "pythia8",
+    "patches": [
+        {
+            "level": 1,
+            "owner": "builtin.pythia8",
+            "relative_path": "pythia8-cpp20-fjcore-forward-decl.patch",
+            "reverse": false,
+            "sha256": "5e1a15260941c0171c80e608b8221f1019697708004a528ea90681f21f3f2a28",
+            "version": "@8.307:8.312 cxxstd=20",
+            "working_dir": "."
+        }
+    ],
+    "resources": [],
+    "variants": [
+        {
+            "default": "autotools",
+            "description": "Build systems supported by the package",
+            "name": "build_system"
+        },
+        {
+            "default": "11",
+            "description": "Use the specified C++ standard when building",
+            "name": "cxxstd"
+        },
+        {
+            "default": false,
+            "description": "Particle decays with the EvtGen decay package",
+            "name": "evtgen"
+        },
+        {
+            "default": false,
+            "description": "Building of jets using the FastJet package, version 3",
+            "name": "fastjet"
+        },
+        {
+            "default": false,
+            "description": "Build with gzip support, for reading lhe.gz files",
+            "name": "gzip"
+        },
+        {
+            "default": false,
+            "description": "Support the use of HDF5 format",
+            "name": "hdf5"
+        },
+        {
+            "default": true,
+            "description": "Export PYTHIA events to the HEPMC format, version 2",
+            "name": "hepmc"
+        },
+        {
+            "default": true,
+            "description": "Export PYTHIA events to the HEPMC format, version 3",
+            "name": "hepmc3"
+        },
+        {
+            "default": false,
+            "description": "Support the use of external PDF sets via LHAPDF",
+            "name": "lhapdf"
+        },
+        {
+            "default": false,
+            "description": "MadGraph matrix element plugins for parton showers",
+            "name": "madgraph5amc"
+        },
+        {
+            "default": false,
+            "description": "Multi-threading support via MPICH",
+            "name": "mpich"
+        },
+        {
+            "default": false,
+            "description": "Multi-threading support via OpenMP",
+            "name": "openmpi"
+        },
+        {
+            "default": false,
+            "description": "Interface to use PYTHIA in Python",
+            "name": "python"
+        },
+        {
+            "default": false,
+            "description": "Support use of RIVET through direct interface",
+            "name": "rivet"
+        },
+        {
+            "default": false,
+            "description": "Use ROOT trees and histograms with PYTHIA",
+            "name": "root"
+        },
+        {
+            "default": true,
+            "description": "Build shared library",
+            "name": "shared"
+        },
+        {
+            "default": false,
+            "description": "Support linking direct booking of YODA2 histograms",
+            "name": "yoda"
+        }
+    ],
+    "versions": [
+        {
+            "name": "8.313",
+            "sha256": "d07e801501c4dcb76d948dc63285375f597453c1d6ec65e71287603dc776718c"
+        },
+        {
+            "name": "8.312",
+            "sha256": "bad98e2967b687046c4568c9091d630a0c31b628745c021a994aba4d1d50f8ea"
+        },
+        {
+            "name": "8.311",
+            "sha256": "2782d5e429c1543c67375afe547fd4c4ca0720309deb008f7db78626dc7d1464"
+        },
+        {
+            "name": "8.310",
+            "sha256": "90c811abe7a3d2ffdbf9b4aeab51cf6e0a5a8befb4e3efa806f3d5b9c311e227"
+        },
+        {
+            "name": "8.309",
+            "sha256": "5bdafd9f2c4a1c47fd8a4e82fb9f0d8fcfba4de1003b8e14be4e0347436d6c33"
+        },
+        {
+            "name": "8.308",
+            "sha256": "c2e8c8d38136d85fc0bc9c9fad4c2db679b0819b7d2b6fc9a47f80f99538b4e3"
+        },
+        {
+            "name": "8.307",
+            "sha256": "e5b14d44aa5943332e32dd5dda9a18fdd1a0085c7198e28d840e04167fa6013d"
+        },
+        {
+            "name": "8.306",
+            "sha256": "734803b722b1c1b53c8cf2f0d3c30747c80fc2dde5e0ba141bc9397dad37a8f6"
+        },
+        {
+            "name": "8.304",
+            "sha256": "d3897018fb6d545eaf93bf43f32580c984a9bff49259d9dd29dff6edfbe9d9a1"
+        },
+        {
+            "name": "8.303",
+            "sha256": "cd7c2b102670dae74aa37053657b4f068396988ef7da58fd3c318c84dc37913e"
+        },
+        {
+            "name": "8.302",
+            "sha256": "7372e4cc6f48a074e6b7bc426b040f218ec4a64b0a55e89da6af56933b5f5085"
+        },
+        {
+            "name": "8.301",
+            "sha256": "51382768eb9aafb97870dca1909516422297b64ef6a6b94659259b3e4afa7f06"
+        }
+    ],
+    "versions_deprecated": [
+        {
+            "name": "8.244",
+            "sha256": "e34880f999daf19cdd893a187123927ba77d1bf851e30f6ea9ec89591f4c92ca"
+        },
+        {
+            "name": "8.240",
+            "sha256": "d27495d8ca7707d846f8c026ab695123c7c78c7860f04e2c002e483080418d8d"
+        },
+        {
+            "name": "8.235",
+            "sha256": "e82f0d6165a8250a92e6aa62fb53201044d8d853add2fdad6d3719b28f7e8e9d"
+        },
+        {
+            "name": "8.230",
+            "sha256": "332fad0ed4f12e6e0cb5755df0ae175329bc16bfaa2ae472d00994ecc99cd78d"
+        },
+        {
+            "name": "8.212",
+            "sha256": "f8fb4341c7e8a8be3347eb26b00329a388ccf925313cfbdba655a08d7fd5a70e"
+        }
+    ]
+}
