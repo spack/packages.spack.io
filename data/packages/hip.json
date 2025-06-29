@@ -1,0 +1,1702 @@
+{
+    "aliases": [],
+    "build_system": "CMakePackage",
+    "conflicts": [
+        {
+            "description": "hip: ROCm must be enabled for asan",
+            "name": "+asan~rocm",
+            "spec": ""
+        },
+        {
+            "description": "hip: CUDA and ROCm support are mutually exclusive",
+            "name": "+cuda+rocm",
+            "spec": ""
+        },
+        {
+            "description": null,
+            "name": "+asan",
+            "spec": "arch=None-centos7-None"
+        },
+        {
+            "description": null,
+            "name": "+asan",
+            "spec": "arch=None-centos8-None"
+        },
+        {
+            "description": null,
+            "name": "+asan",
+            "spec": "arch=None-rhel9-None"
+        },
+        {
+            "description": "hip: CUDA or ROCm support is required",
+            "name": "~cuda~rocm",
+            "spec": ""
+        }
+    ],
+    "dependencies": [
+        {
+            "description": "The NVIDIA HPC SDK is a comprehensive suite of compilers, libraries and\ntools essential to maximizing developer productivity and the performance\nand portability of HPC applications. The NVIDIA HPC SDK C, C++, and\nFortran compilers support GPU acceleration of HPC modeling and\nsimulation applications with standard C++ and Fortran, OpenACC\ndirectives, and CUDA. GPU-accelerated math libraries maximize\nperformance on common HPC algorithms, and optimized communications\nlibraries enable standards-based multi-GPU and scalable systems\nprogramming. Performance profiling and debugging tools simplify porting\nand optimization of HPC applications.",
+            "name": "c"
+        },
+        {
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software.",
+            "name": "cmake"
+        },
+        {
+            "description": "This provides various Lightning Compiler related services. It currently\ncontains one library, the Code Object Manager (Comgr)",
+            "name": "comgr"
+        },
+        {
+            "description": "CUDA is a parallel computing platform and programming model invented by\nNVIDIA. It enables dramatic increases in computing performance by\nharnessing the power of the graphics processing unit (GPU). Note: This\npackage does not currently install the drivers necessary to run CUDA.\nThese will need to be installed manually. See:\nhttps://docs.nvidia.com/cuda/ for details.",
+            "name": "cuda"
+        },
+        {
+            "description": "The NVIDIA HPC SDK is a comprehensive suite of compilers, libraries and\ntools essential to maximizing developer productivity and the performance\nand portability of HPC applications. The NVIDIA HPC SDK C, C++, and\nFortran compilers support GPU acceleration of HPC modeling and\nsimulation applications with standard C++ and Fortran, OpenACC\ndirectives, and CUDA. GPU-accelerated math libraries maximize\nperformance on common HPC algorithms, and optimized communications\nlibraries enable standards-based multi-GPU and scalable systems\nprogramming. Performance profiling and debugging tools simplify porting\nand optimization of HPC applications.",
+            "name": "cxx"
+        },
+        {
+            "description": "External WGl and Windows OpenGL emulation representation in Spack",
+            "name": "gl"
+        },
+        {
+            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files.",
+            "name": "gmake"
+        },
+        {
+            "description": "HIPCC: HIP compiler driver",
+            "name": "hipcc"
+        },
+        {
+            "description": "hipify-clang is a clang-based tool for translation CUDA sources into HIP\nsources",
+            "name": "hipify-clang"
+        },
+        {
+            "description": "This repository includes the user mode API nterfaces and libraries\nnecessary for host applications to launch computer kernels to available\nHSA ROCm kernel agents.AMD Heterogeneous System Architecture HSA - Linux\nHSA Runtime for Boltzmann (ROCm) platforms.",
+            "name": "hsa-rocr-dev"
+        },
+        {
+            "description": "This is a thunk python recipe to build and install Thunk Interface.\nThunk Interface is a user-mode API interfaces used to interact with the\nROCk driver.",
+            "name": "hsakmt-roct"
+        },
+        {
+            "description": "An autotools compatible port of the NetBSD editline library",
+            "name": "libedit"
+        },
+        {
+            "description": "libX11 - Core X11 protocol client library.",
+            "name": "libx11"
+        },
+        {
+            "description": "Toolkit for the construction of highly optimized compilers, optimizers,\nand run-time environments.",
+            "name": "llvm-amdgpu"
+        },
+        {
+            "description": "Ninja is a small build system with a focus on speed. It differs from\nother build systems in two major respects: it is designed to have its\ninput files generated by a higher-level build system, and it is designed\nto run builds as fast as possible.",
+            "name": "ninja"
+        },
+        {
+            "description": "NUMA support for Linux",
+            "name": "numactl"
+        },
+        {
+            "description": "Perl 5 is a highly capable, feature-rich programming language with over\n27 years of development.",
+            "name": "perl"
+        },
+        {
+            "description": "Perl implementation of the which utility as an API",
+            "name": "perl-file-which"
+        },
+        {
+            "description": "This modules provides simple URI (Percent) encoding/decoding",
+            "name": "perl-uri-encode"
+        },
+        {
+            "description": "Parse C++ header files and generate a data structure representing the\nclass",
+            "name": "py-cppheaderparser"
+        },
+        {
+            "description": "rocm-core is a utility which can be used to get ROCm release version. It\nalso provides the Lmod modules files for the ROCm release.\ngetROCmVersion function provides the ROCm version.",
+            "name": "rocm-core"
+        },
+        {
+            "description": "Radeon Open Compute (ROCm) Runtime rocminfo tool",
+            "name": "rocminfo"
+        },
+        {
+            "description": "The rocprofiler-register library is a helper library that coordinates\nthe modification of the intercept API table(s) of the HSA/HIP/ROCTx\nruntime libraries by the ROCprofiler (v2) library",
+            "name": "rocprofiler-register"
+        },
+        {
+            "description": "ROC-tracer API. Installs the API header files of the roctracer-dev\npackage, mainly to avoid circular dependencies in the ROCm ecosystem.\nFor the ROC-tracer library, please check out roctracer-dev.",
+            "name": "roctracer-dev-api"
+        },
+        {
+            "description": "X Window System Core Protocol. This package provides the headers and\nspecification documents defining the X Window System Core Protocol,\nVersion 11. It also includes a number of headers that aren't purely\nprotocol related, but are depended upon by many other X Window System\npackages to provide common definitions and porting layer.",
+            "name": "xproto"
+        }
+    ],
+    "dependent_to": [
+        {
+            "description": "The Adaptable Input Output System version 2, developed in the Exascale\nComputing Program",
+            "name": "adios2"
+        },
+        {
+            "description": "Simple applications for determining Linux thread and gpu affinity.",
+            "name": "affinity"
+        },
+        {
+            "description": "Aluminum provides a generic interface to high-performance communication\nlibraries, with a focus on allreduce algorithms. Blocking and non-\nblocking algorithms and GPU-aware algorithms are supported. Aluminum\nalso contains custom implementations of select algorithms to optimize\nfor certain situations.",
+            "name": "aluminum"
+        },
+        {
+            "description": "AMG2023 is a parallel algebraic multigrid solver for linear systems\narising from problems on unstructured grids. The driver provided here\nbuilds linear systems for various 3-dimensional problems. It requires an\ninstallation of hypre-2.27.0 or higher.",
+            "name": "amg2023"
+        },
+        {
+            "description": "AML is a memory management library designed to ease the use of complex\nmemory topologies and complex data layout optimizations for high-\nperformance computing applications.",
+            "name": "aml"
+        },
+        {
+            "description": "AMR-Wind is a massively parallel, block-structured adaptive-mesh,\nincompressible flow sover for wind turbine and wind farm simulations.",
+            "name": "amr-wind"
+        },
+        {
+            "description": "AMReX is a publicly available software framework designed for building\nmassively parallel block- structured adaptive mesh refinement (AMR)\napplications.",
+            "name": "amrex"
+        },
+        {
+            "description": "Ahead of Time (AOT) Triton Math Library.",
+            "name": "aotriton"
+        },
+        {
+            "description": "Autonomic Performance Environment for eXascale (APEX).",
+            "name": "apex"
+        },
+        {
+            "description": "ArborX is a performance-portable library for geometric search",
+            "name": "arborx"
+        },
+        {
+            "description": "Ascent is an open source many-core capable lightweight in situ\nvisualization and analysis infrastructure for multi-physics HPC\nsimulations.",
+            "name": "ascent"
+        },
+        {
+            "description": "AWS OFI RCCL is a plug-in which enables EC2 developers to use libfabric\nas a network provider while running AMD's RCCL based applications.",
+            "name": "aws-ofi-rccl"
+        },
+        {
+            "description": "Axom provides a robust, flexible software infrastructure for the\ndevelopment of multi-physics applications and computational tools.",
+            "name": "axom"
+        },
+        {
+            "description": "Measure memory transfer rates to/from global device memory on GPUs. This\nbenchmark is similar in spirit, and based on, the STREAM benchmark for\nCPUs.",
+            "name": "babelstream"
+        },
+        {
+            "description": "Fluid interface model solver based on Pandya and Shkoller's Z-Model\nformulation.",
+            "name": "beatnik"
+        },
+        {
+            "description": "C++ API for the Basic Linear Algebra Subroutines. Developed by the\nInnovative Computing Laboratory at the University of Tennessee,\nKnoxville.",
+            "name": "blaspp"
+        },
+        {
+            "description": "The Exascale Co-Design Center for Particle Applications Toolkit",
+            "name": "cabana"
+        },
+        {
+            "description": "Caliper is a program instrumentation and performance measurement\nframework. It is designed as a performance analysis toolbox in a\nlibrary, allowing one to bake performance analysis capabilities directly\ninto applications and activate them at runtime.",
+            "name": "caliper"
+        },
+        {
+            "description": "Compiler agnostic metaprogramming library providing concepts, type\noperations and tuples for C++ and cuda",
+            "name": "camp"
+        },
+        {
+            "description": "CHAI and RAJA extensions (includes data structures and algorithms).",
+            "name": "care"
+        },
+        {
+            "description": "Ceed is a collection of benchmarks, miniapps, software libraries and\nAPIs for efficient high-order finite element and spectral element\ndiscretizations for exascale applications developed in the Department of\nEnergy (DOE) and partially supported by the Exascale Computing Project\n(ECP). This is a Spack bundle package that installs the CEED software\ncomponents.",
+            "name": "ceed"
+        },
+        {
+            "description": "Celeritas is a new Monte Carlo transport code designed for high-\nperformance (GPU-targeted) simulation of high-energy physics detectors.",
+            "name": "celeritas"
+        },
+        {
+            "description": "Copy-hiding array interface for data migration between memory spaces",
+            "name": "chai"
+        },
+        {
+            "description": "Chapel is a modern programming language that is parallel, productive,\nportable, scalable and open-source. The Chapel package comes with many\noptions in the form of variants, most of which can be left unset to\nallow Chapel's built-in scripts to determine the proper values based on\nthe environment.",
+            "name": "chapel"
+        },
+        {
+            "description": "Composable Kernel: Performance Portable Programming Model for Machine\nLearning Tensor Operators.",
+            "name": "composable-kernel"
+        },
+        {
+            "description": "Covfie is a library for compositional descriptions of storage methods\nfor vector fields and other structured multi-dimensional data.",
+            "name": "covfie"
+        },
+        {
+            "description": "CP2K is a quantum chemistry and solid state physics software package\nthat can perform atomistic simulations of solid state, liquid,\nmolecular, periodic, material, crystal, and biological systems",
+            "name": "cp2k"
+        },
+        {
+            "description": "Cray's MPICH is a high performance and widely portable implementation of\nthe Message Passing Interface (MPI) standard.",
+            "name": "cray-mpich"
+        },
+        {
+            "description": "Data & Vis SDK ** This package is a post-ECP port from the ECP Data &\nVis SDK **",
+            "name": "dav-sdk"
+        },
+        {
+            "description": "Distributed Block Compressed Sparse Row matrix library.",
+            "name": "dbcsr"
+        },
+        {
+            "description": "DiHydrogen is the second version of the Hydrogen fork of the well-known\ndistributed linear algebra library, Elemental. DiHydrogen aims to be a\nbasic distributed multilinear algebra interface with a particular\nemphasis on the needs of the distributed machine learning effort, LBANN.",
+            "name": "dihydrogen"
+        },
+        {
+            "description": "DLA-Future library: Distributed Linear Algebra with Future",
+            "name": "dla-future"
+        },
+        {
+            "description": "Draco is an object-oriented component library geared towards numerically\nintensive, radiation (particle) transport applications built for\nparallel computing hardware. It consists of semi-independent packages\nand a robust build system.",
+            "name": "draco"
+        },
+        {
+            "description": "ECP Data & Vis SDK",
+            "name": "ecp-data-vis-sdk"
+        },
+        {
+            "description": "Eigen is a C++ template library for linear algebra matrices, vectors,\nnumerical solvers, and related algorithms.",
+            "name": "eigen"
+        },
+        {
+            "description": "Eigenvalue solvers for Petaflop-Applications (ELPA)",
+            "name": "elpa"
+        },
+        {
+            "description": "ExaCA: an exascale cellular automata application for alloy\nsolidification modeling",
+            "name": "exaca"
+        },
+        {
+            "description": "ExaGO is a package for solving large-scale power grid optimization\nproblems on parallel and distributed architectures, particularly\ntargeted for exascale machines.",
+            "name": "exago"
+        },
+        {
+            "description": "Multi-application driver for Exawind project.",
+            "name": "exawind"
+        },
+        {
+            "description": "FFTX is the exascale follow-on to the FFTW open source discrete FFT\npackage for executing the Fast Fourier Transform as well as higher-level\noperations composed of linear operations combined with DFT transforms.",
+            "name": "fftx"
+        },
+        {
+            "description": "FleCSI is a compile-time configurable framework designed to support\nmulti-physics application development. As such, FleCSI attempts to\nprovide a very general set of infrastructure design patterns that can be\nspecialized and extended to suit the needs of a broad variety of solver\nand data requirements. Current support includes multi-dimensional mesh\ntopology, mesh geometry, and mesh adjacency information.",
+            "name": "flecsi"
+        },
+        {
+            "description": "GASNet is a language-independent, networking middleware layer that\nprovides network-independent, high-performance communication primitives\nincluding Remote Memory Access (RMA) and Active Messages (AM). It has\nbeen used to implement parallel programming models and libraries\nincluding UPC, UPC++, multi-image Fortran, Legion, Chapel, and many\nothers. The interface is primarily intended as a compilation target and\nfor use by runtime library writers (as opposed to end users), and the\nprimary goals are high performance, interface portability, and\nexpressiveness. ***NOTICE***: The GASNet library built by this Spack\npackage is ONLY intended for unit-testing purposes, and is generally\nUNSUITABLE FOR PRODUCTION USE. The RECOMMENDED way to build GASNet is as\nan embedded library as configured by the higher-level client runtime\npackage (UPC++, Legion, Chapel, etc), including system-specific\nconfiguration.",
+            "name": "gasnet"
+        },
+        {
+            "description": "High-performance linear algebra library for manycore systems, with a\nfocus on sparse solution of linear systems.",
+            "name": "ginkgo"
+        },
+        {
+            "description": "Data parallel C++ mathematical object library.",
+            "name": "grid"
+        },
+        {
+            "description": "Highly Efficient FFT for Exascale",
+            "name": "heffte"
+        },
+        {
+            "description": "HiOp is an optimization solver for solving certain mathematical\noptimization problems expressed as nonlinear programming problems. HiOp\nis a lightweight HPC solver that leverages application\"s existing data\nparallelism to parallelize the optimization iterations by using\nspecialized linear algebra kernels.",
+            "name": "hiop"
+        },
+        {
+            "description": "Examples for HIP",
+            "name": "hip-examples"
+        },
+        {
+            "description": "AMD\u2019s C++ library for accelerating tensor primitives",
+            "name": "hip-tensor"
+        },
+        {
+            "description": "This repository provides unit tests for HIP implementation.",
+            "name": "hip-tests"
+        },
+        {
+            "description": "hipBLAS is a BLAS marshalling library, with multiple supported backends",
+            "name": "hipblas"
+        },
+        {
+            "description": "hipBLASLt is a library that provides general matrix-matrix operations\nwith a flexible API and extends functionalities beyond a traditional\nBLAS library",
+            "name": "hipblaslt"
+        },
+        {
+            "description": "Radeon Open Compute Parallel Primitives Library",
+            "name": "hipcub"
+        },
+        {
+            "description": "hipFFT is an FFT marshalling library. Currently, hipFFT supports either\nrocFFT or cuFFT as backends.hipFFT exports an interface that does not\nrequire the client to change, regardless of the chosen backend. It sits\nbetween the application and the backend FFT library, marshalling inputs\ninto the backend and results back to the application.",
+            "name": "hipfft"
+        },
+        {
+            "description": "Radeon Open Compute Parallel Primitives Library",
+            "name": "hipfort"
+        },
+        {
+            "description": "The hipRAND project provides an interface for generating pseudo-random\nand quasi-random numbers with either cuRAND or rocRAND backends.",
+            "name": "hiprand"
+        },
+        {
+            "description": "hipSOLVER is a LAPACK marshalling library, with multiple supported\nbackends. It sits between the application and a 'worker' LAPACK library,\nmarshalling inputs into the backend library and marshalling results back\nto the application. hipSOLVER exports an interface that does not require\nthe client to change, regardless of the chosen backend. Currently,\nhipSOLVER supports rocSOLVER and cuSOLVER as backends.",
+            "name": "hipsolver"
+        },
+        {
+            "description": "hipSPARSE is a SPARSE marshalling library, with multiple supported\nbackends",
+            "name": "hipsparse"
+        },
+        {
+            "description": "hipSPARSELt is a SPARSE marshalling library, with multiple supported\nbackends. It sits between the application and a 'worker' SPARSE library,\nmarshalling inputs into the backend library and marshalling results back\nto the application. hipSPARSELt exports an interface that does not\nrequire the client to change, regardless of the chosen backend.\nCurrently, hipSPARSELt supports rocSPARSELt and cuSPARSELt v0.4 as\nbackends.",
+            "name": "hipsparselt"
+        },
+        {
+            "description": "hipSYCL is an implementation of the SYCL standard programming model over\nNVIDIA CUDA/AMD HIP",
+            "name": "hipsycl"
+        },
+        {
+            "description": "hipTT - Fast GPU Tensor Transpose for NVIDIA and AMD GPU.",
+            "name": "hiptt"
+        },
+        {
+            "description": "HPCToolkit is an integrated suite of tools for measurement and analysis\nof program performance on computers ranging from multicore desktop\nsystems to the nation's largest supercomputers. By using statistical\nsampling of timers and hardware performance counters, HPCToolkit\ncollects accurate measurements of a program's work, resource\nconsumption, and inefficiency and attributes them to the full calling\ncontext in which they occur.",
+            "name": "hpctoolkit"
+        },
+        {
+            "description": "C++ runtime system for parallel and distributed applications.",
+            "name": "hpx"
+        },
+        {
+            "description": "HPXKokkos is an interoperability library for HPX and Kokkos",
+            "name": "hpx-kokkos"
+        },
+        {
+            "description": "The Hardware Locality (hwloc) software project. The Portable Hardware\nLocality (hwloc) software package provides a portable abstraction\n(across OS, versions, architectures, ...) of the hierarchical topology\nof modern architectures, including NUMA memory nodes, sockets, shared\ncaches, cores and simultaneous multithreading. It also gathers various\nsystem attributes such as cache and memory information as well as the\nlocality of I/O devices such as network interfaces, InfiniBand HCAs or\nGPUs. It primarily aims at helping applications with gathering\ninformation about modern computing hardware so as to exploit it\naccordingly and efficiently.",
+            "name": "hwloc"
+        },
+        {
+            "description": "Hydrogen: Distributed-memory dense and sparse-direct linear algebra and\noptimization library. Based on the Elemental library.",
+            "name": "hydrogen"
+        },
+        {
+            "description": "Hypre is a library of high performance preconditioners that features\nparallel multigrid methods for both structured and unstructured grid\nproblems.",
+            "name": "hypre"
+        },
+        {
+            "description": "Kokkos implements a programming model in C++ for writing performance\nportable applications targeting all major HPC platforms.",
+            "name": "kokkos"
+        },
+        {
+            "description": "Kripke is a simple, scalable, 3D Sn deterministic particle transport\nproxy/mini app.",
+            "name": "kripke"
+        },
+        {
+            "description": "LAMMPS stands for Large-scale Atomic/Molecular Massively Parallel\nSimulator.",
+            "name": "lammps"
+        },
+        {
+            "description": "LAPACK++: C++ API for the LAPACK Linear Algebra Package. Developed by\nthe Innovative Computing Laboratory at the University of Tennessee,\nKnoxville.",
+            "name": "lapackpp"
+        },
+        {
+            "description": "LBANN: Livermore Big Artificial Neural Network Toolkit. A distributed\nmemory, HPC-optimized, model and data parallel training toolkit for deep\nneural networks.",
+            "name": "lbann"
+        },
+        {
+            "description": "Legion is a data-centric parallel programming system for writing\nportable high performance programs targeted at distributed heterogeneous\narchitectures. Legion presents abstractions which allow programmers to\ndescribe properties of program data (e.g. independence, locality). By\nmaking the Legion programming system aware of the structure of program\ndata, it can automate many of the tedious tasks programmers currently\nface, including correctly extracting task- and data-level parallelism\nand moving data around complex memory hierarchies. A novel mapping\ninterface provides explicit programmer controlled placement of data in\nthe memory hierarchy and assignment of tasks to processors in a way that\nis orthogonal to correctness, thereby enabling easy porting and tuning\nof Legion applications to new architectures.",
+            "name": "legion"
+        },
+        {
+            "description": "The CEED API Library: Code for Efficient Extensible Discretizations.",
+            "name": "libceed"
+        },
+        {
+            "description": "The CXI library provides interfaces which interact directly with CXI\ndrivers.",
+            "name": "libcxi"
+        },
+        {
+            "description": "The MAGMA project aims to develop a dense linear algebra library similar\nto LAPACK but for heterogeneous/hybrid architectures, starting with\ncurrent \"Multicore+GPU\" systems.",
+            "name": "magma"
+        },
+        {
+            "description": "Free, lightweight, scalable C++ library for finite element methods.",
+            "name": "mfem"
+        },
+        {
+            "description": "MGARD error bounded lossy compressor For versions up to 2023-12-09, uses\na fork from https://github.com/robertu94/MGARD with patches to support\nSpack. For versions after 2023-12-09, uses the upstream repository at\nhttps://github.com/CODARcode/MGARD directly from the master branch.",
+            "name": "mgard"
+        },
+        {
+            "description": "AMD's graph optimization engine.",
+            "name": "migraphx"
+        },
+        {
+            "description": "AMD's library for high performance machine learning primitives.",
+            "name": "miopen-hip"
+        },
+        {
+            "description": "MIVisionX toolkit is a set of comprehensive computer vision and machine\nintelligence libraries, utilities, and applications bundled into a\nsingle toolkit.",
+            "name": "mivisionx"
+        },
+        {
+            "description": "Multi-Level Intermediate Representation for rocm miopen project.",
+            "name": "mlirmiopen"
+        },
+        {
+            "description": "MPICH is a high performance and widely portable implementation of the\nMessage Passing Interface (MPI) standard.",
+            "name": "mpich"
+        },
+        {
+            "description": "Mvapich is a High-Performance MPI Library for clusters with diverse\nnetworks (InfiniBand, Omni-Path, Ethernet/iWARP, and RoCE) and computing\nplatforms (x86 (Intel and AMD), ARM and OpenPOWER)",
+            "name": "mvapich-plus"
+        },
+        {
+            "description": "MVAPICH2-GDR is an optimized version of the MVAPICH2 MPI library for\nGPU-enabled HPC and Deep Learning Applications. MVAPICH2-GDR is not\ninstallable from source and is only available through a binary mirror.\nIf you do not find the binary you're looking for, send us an email at\nmvapich@cse.ohio-state.edu. The binary mirror url is:\nhttp://mvapich.cse.ohio-state.edu/download/mvapich/spack-\nmirror/mvapich2-gdr/",
+            "name": "mvapich2-gdr"
+        },
+        {
+            "description": "Nalu-Wind: Wind energy focused variant of Nalu.",
+            "name": "nalu-wind"
+        },
+        {
+            "description": "NAMD is a parallel molecular dynamics code designed for high-performance\nsimulation of large biomolecular systems.",
+            "name": "namd"
+        },
+        {
+            "description": "Neko: A modern, portable, and scalable framework for high-fidelity\ncomputational fluid dynamics",
+            "name": "neko"
+        },
+        {
+            "description": "nekRS is an open-source Navier Stokes solver based on the spectral\nelement method targeting classical processors and hardware accelerators\nlike GPUs",
+            "name": "nekrs"
+        },
+        {
+            "description": "NeoN is a PDE solver for CFD frameworks.",
+            "name": "neon"
+        },
+        {
+            "description": "Nonlinear CG methods for wave-function optimization in DFT.",
+            "name": "nlcglib"
+        },
+        {
+            "description": "Application Profiling, Tracing, and Analysis",
+            "name": "omnitrace"
+        },
+        {
+            "description": "An open-source wind turbine structural dynamics simulation code.",
+            "name": "openturbine"
+        },
+        {
+            "description": "The Ohio MicroBenchmark suite is a collection of independent MPI message\npassing performance microbenchmarks developed and written at The Ohio\nState University. It includes traditional benchmarks and performance\nmeasures such as latency, bandwidth and host overhead and can be used\nfor both traditional and GPU-enhanced nodes.",
+            "name": "osu-micro-benchmarks"
+        },
+        {
+            "description": "PAPI provides the tool designer and application engineer with a\nconsistent interface and methodology for use of the performance counter\nhardware found in most major microprocessors. PAPI enables software\nengineers to see, in near real time, the relation between software\nperformance and processor events. In addition Component PAPI provides\naccess to a collection of components that expose performance measurement\nopportunities across the hardware and software stack.",
+            "name": "papi"
+        },
+        {
+            "description": "ParaView is an open-source, multi-platform data analysis and\nvisualization application. This package includes the Catalyst in-situ\nlibrary for versions 5.7 and greater, otherwise use the catalyst\npackage.",
+            "name": "paraview"
+        },
+        {
+            "description": "PETSc is a suite of data structures and routines for the scalable\n(parallel) solution of scientific applications modeled by partial\ndifferential equations.",
+            "name": "petsc"
+        },
+        {
+            "description": "C++ runtime system for parallellism and concurrency.",
+            "name": "pika"
+        },
+        {
+            "description": "AMReX Python Bindings with pybind11",
+            "name": "py-amrex"
+        },
+        {
+            "description": "CuPy is an open-source array library accelerated with NVIDIA CUDA. CuPy\nprovides GPU accelerated computing with Python. CuPy uses CUDA-related\nlibraries including cuBLAS, cuDNN, cuRand, cuSolver, cuSPARSE, cuFFT and\nNCCL to make full use of the GPU architecture.",
+            "name": "py-cupy"
+        },
+        {
+            "description": "XLA library for Jax. jaxlib is the support library for JAX. While JAX\nitself is a pure Python package, jaxlib contains the binary (C/C++)\nparts of the library, including Python bindings, the XLA compiler, the\nPJRT runtime, and a handful of handwritten kernels.",
+            "name": "py-jaxlib"
+        },
+        {
+            "description": "ONNX Runtime is a performance-focused complete scoring engine for Open\nNeural Network Exchange (ONNX) models, with an open extensible\narchitecture to continually address the latest developments in AI and\nDeep Learning. ONNX Runtime stays up to date with the ONNX standard with\ncomplete implementation of all ONNX operators, and supports all ONNX\nreleases (1.2+) with both future and backwards compatibility.",
+            "name": "py-onnxruntime"
+        },
+        {
+            "description": "The PennyLane-Lightning-Kokkos plugin provides a fast state-vector\nsimulator with Kokkos kernels.",
+            "name": "py-pennylane-lightning-kokkos"
+        },
+        {
+            "description": "PyFR is an open-source Python based framework for solving advection-\ndiffusion type problems on streaming architectures using the Flux\nReconstruction approach of Huynh.",
+            "name": "py-pyfr"
+        },
+        {
+            "description": "TensorFlow is an open source machine learning framework for everyone.",
+            "name": "py-tensorflow"
+        },
+        {
+            "description": "Tensors and Dynamic neural networks in Python with strong GPU\nacceleration.",
+            "name": "py-torch"
+        },
+        {
+            "description": "Optimal control for open quantum systems",
+            "name": "quandary"
+        },
+        {
+            "description": "QUDA is a library for performing calculations in lattice QCD on GPUs.",
+            "name": "quda"
+        },
+        {
+            "description": "RAJA Parallel Framework.",
+            "name": "raja"
+        },
+        {
+            "description": "RAJA Performance Suite.",
+            "name": "raja-perf"
+        },
+        {
+            "description": "Extensible, performance-portable solid mechanics with libCEED and PETSc",
+            "name": "ratel"
+        },
+        {
+            "description": "RCCL (pronounced \"Rickle\") is a stand-alone library of standard\ncollective communication routines for GPUs, implementing all-reduce,\nall-gather, reduce, broadcast, and reduce-scatter.",
+            "name": "rccl"
+        },
+        {
+            "description": "These tests check both the performance and the correctness of RCCL\noperations. They can be compiled against RCCL.",
+            "name": "rccl-tests"
+        },
+        {
+            "description": "A Redis module for serving tensors and executing deep learning graphs",
+            "name": "redis-ai"
+        },
+        {
+            "description": "ReSolve is a library of GPU-resident sparse linear solvers. It contains\niterative and direct solvers designed to run on NVIDIA and AMD GPUs, as\nwell as CPU devices.",
+            "name": "resolve"
+        },
+        {
+            "description": "rocALUTION is a sparse linear algebra library with focus on exploring\nfine-grained parallelism on top of AMD's Radeon Open eCosystem Platform\nROCm runtime and toolchains, targeting modern CPU and GPU platforms.\nBased on C++ and HIP, it provides a portable, generic and flexible\ndesign that allows seamless integration with other scientific software\npackages.",
+            "name": "rocalution"
+        },
+        {
+            "description": "Radeon Open Compute BLAS library",
+            "name": "rocblas"
+        },
+        {
+            "description": "rocDecode is a high performance video decode SDK for AMD hardware",
+            "name": "rocdecode"
+        },
+        {
+            "description": "Radeon Open Compute FFT library",
+            "name": "rocfft"
+        },
+        {
+            "description": "rocJPEG is a high-performance jpeg decode SDK for decoding jpeg images\nusing a hardware-accelerated jpeg decoder on AMD's GPUs.",
+            "name": "rocjpeg"
+        },
+        {
+            "description": "Radeon Open Compute (ROCm) debug agent",
+            "name": "rocm-debug-agent"
+        },
+        {
+            "description": "A collection of examples for the ROCm software stack",
+            "name": "rocm-examples"
+        },
+        {
+            "description": "Radeon Open Compute Tensile library",
+            "name": "rocm-tensile"
+        },
+        {
+            "description": "The ROCm Validation Suite (RVS) is a system administrators and cluster\nmanager's tool for detecting and troubleshooting common problems\naffecting AMD GPU(s) running in a high-performance computing\nenvironment, enabled using the ROCm software stack on a compatible\nplatform.",
+            "name": "rocm-validation-suite"
+        },
+        {
+            "description": "This is the repository for a MLIR-based convolution and GEMM kernel\ngenerator targetting AMD hardware. This generator is mainly used from\nMIOpen and MIGraphX, but it can be used on a standalone basis.",
+            "name": "rocmlir"
+        },
+        {
+            "description": "Radeon Open Compute Parallel Primitives Library",
+            "name": "rocprim"
+        },
+        {
+            "description": "ROCPROFILER library for AMD HSA runtime API extension support",
+            "name": "rocprofiler-dev"
+        },
+        {
+            "description": "ROCProfiler-SDK is AMD\u2019s new and improved tooling infrastructure,\nproviding a hardware-specific low-level performance analysis interface\nfor profiling and tracing GPU compute applications.",
+            "name": "rocprofiler-sdk"
+        },
+        {
+            "description": "Application Profiling, Tracing, and Analysis",
+            "name": "rocprofiler-systems"
+        },
+        {
+            "description": "The rocRAND project provides functions that generate pseudo-random and\nquasi-random numbers.",
+            "name": "rocrand"
+        },
+        {
+            "description": "rocSHMEM intra-kernel networking runtime for AMD dGPUs on the ROCm\nplatform.",
+            "name": "rocshmem"
+        },
+        {
+            "description": "rocSOLVER is a work-in-progress implementation of a subset of LAPACK\nfunctionality on the ROCm platform.",
+            "name": "rocsolver"
+        },
+        {
+            "description": "rocSPARSE exposes a common interface that provides Basic Linear Algebra\nSubroutines for sparse computation implemented on top of AMD's Radeon\nOpen eCosystem Platform ROCm runtime and toolchains. rocSPARSE is\ncreated using the HIP programming language and optimized for AMD's\nlatest discrete GPUs.",
+            "name": "rocsparse"
+        },
+        {
+            "description": "Thrust is a parallel algorithm library. This library has been ported to\nHIP/ROCm platform, which uses the rocPRIM library. The HIP ported\nlibrary works on HIP/ROCm platforms",
+            "name": "rocthrust"
+        },
+        {
+            "description": "ROC-tracer library: Runtimes Generic Callback/Activity APIs. The goal of\nthe implementation is to provide a generic independent from specific\nruntime profiler to trace API and asyncronous activity.",
+            "name": "roctracer-dev"
+        },
+        {
+            "description": "AMD's C++ library for accelerating mixed precision matrix multiplication\nand accumulation (MFMA) operations leveraging specialized GPU matrix\ncores. rocWMMA provides a C++ API to facilitate breaking down matrix\nmultiply-accumulate problems into fragments and using them in block-wise\noperations that are distributed in parallel across GPU wavefronts. The\nAPI is a header library of GPU device code meaning that matrix core\nacceleration may be compiled directly into your kernel device code. This\ncan benefit from compiler optimization in the generation of kernel\nassembly, and does not incur additional overhead costs of linking to\nexternal runtime libraries or having to launch separate kernels.",
+            "name": "rocwmma"
+        },
+        {
+            "description": "Radeon Performance Primitives (RPP) library is a comprehensive high-\nperformance computer vision library for AMD (CPU and GPU) with HIP and\nOPENCL back-ends",
+            "name": "rpp"
+        },
+        {
+            "description": "The Score-P measurement infrastructure is a highly scalable and easy-to-\nuse tool suite for profiling, event tracing, and online analysis of HPC\napplications.",
+            "name": "scorep"
+        },
+        {
+            "description": "Seissol - A scientific software for the numerical simulation of seismic\nwave phenomena and earthquake dynamics.",
+            "name": "seissol"
+        },
+        {
+            "description": "Domain specific library for electronic structure calculations",
+            "name": "sirius"
+        },
+        {
+            "description": "The Software for Linear Algebra Targeting Exascale (SLATE) project\nprovides fundamental dense linear algebra capabilities to the US\nDepartment of Energy and to the high-performance computing (HPC)\ncommunity at large. To this end, SLATE provides basic dense matrix\noperations (e.g., matrix multiplication, rank-k update, triangular\nsolve), linear systems solvers, least square solvers, singular value and\neigenvalue solvers.",
+            "name": "slate"
+        },
+        {
+            "description": "Scalable Library for Eigenvalue Problem Computations.",
+            "name": "slepc"
+        },
+        {
+            "description": "Sparse 3D FFT library with MPI, OpenMP, CUDA and ROCm support.",
+            "name": "spfft"
+        },
+        {
+            "description": "SPH and N-body simulation framework",
+            "name": "sphexa"
+        },
+        {
+            "description": "Specialized Parallel Linear Algebra, providing distributed GEMM\nfunctionality for specific matrix distributions with optional GPU\nacceleration.",
+            "name": "spla"
+        },
+        {
+            "description": "STRUMPACK -- STRUctured Matrix PACKage - provides linear solvers for\nsparse matrices and for dense rank-structured matrices, i.e., matrices\nthat exhibit some kind of low-rank property. It provides a distributed\nmemory fully algebraic sparse solver and preconditioner. The\npreconditioner is mostly aimed at large sparse linear systems which\nresult from the discretization of a partial differential equation, but\nis not limited to any particular type of problem. STRUMPACK also\nprovides preconditioned GMRES and BiCGStab iterative solvers.",
+            "name": "strumpack"
+        },
+        {
+            "description": "SUNDIALS (SUite of Nonlinear and DIfferential/ALgebraic equation\nSolvers)",
+            "name": "sundials"
+        },
+        {
+            "description": "A general purpose library for the direct solution of large, sparse,\nnonsymmetric systems of linear equations on high performance machines.",
+            "name": "superlu-dist"
+        },
+        {
+            "description": "Tandem is a scientific software for SEAS modelling and for solving\nPoisson and linear elasticity problems. It implements the Symmetric\nInterior Penalty Galerkin (SIPG) method using unstructured simplicial\nmeshes (triangle meshes in 2D, tetrahedral meshes in 3D).",
+            "name": "tandem"
+        },
+        {
+            "description": "The Toolkit for Adaptive Stochastic Modeling and Non-Intrusive\nApproximatioN is a robust library for high dimensional integration and\ninterpolation as well as parameter calibration.",
+            "name": "tasmanian"
+        },
+        {
+            "description": "A portable profiling and tracing toolkit for performance analysis of\nparallel programs written in Fortran, C, C++, UPC, Java, Python.",
+            "name": "tau"
+        },
+        {
+            "description": "Matrix multiplication on GPUs for matrices stored on a CPU. Similar to\ncublasXt, but ported to both NVIDIA and AMD GPUs.",
+            "name": "tiled-mm"
+        },
+        {
+            "description": "TransferBench is a utility capable of benchmarking simultaneous copies\nbetween user-specified devices (CPUs/GPUs)",
+            "name": "transferbench"
+        },
+        {
+            "description": "The Trilinos Project is an effort to develop algorithms and enabling\ntechnologies within an object-oriented software framework for the\nsolution of large-scale, complex multi-physics engineering and\nscientific problems. A unique design feature of Trilinos is its focus on\npackages.",
+            "name": "trilinos"
+        },
+        {
+            "description": "UCC is a collective communication operations API and library that is\nflexible, complete, and feature-rich for current and emerging\nprogramming models and runtimes.",
+            "name": "ucc"
+        },
+        {
+            "description": "a communication library implementing high-performance messaging for\nMPI/PGAS frameworks",
+            "name": "ucx"
+        },
+        {
+            "description": "An application-focused API for memory management on NUMA & GPU\narchitectures",
+            "name": "umpire"
+        },
+        {
+            "description": "UPC++ is a C++ library that supports Partitioned Global Address Space\n(PGAS) programming, and is designed to interoperate smoothly and\nefficiently with MPI, OpenMP, CUDA, ROCm/HIP and AMTs. It leverages\nGASNet-EX to deliver low-overhead, fine-grained communication, including\nRemote Memory Access (RMA) and Remote Procedure Call (RPC).",
+            "name": "upcxx"
+        },
+        {
+            "description": "VecMem is a vectorised data model base and helper classes.",
+            "name": "vecmem"
+        },
+        {
+            "description": "Viskores is a toolkit of scientific visualization algorithms for\nemerging processor architectures. Viskores supports the fine-grained\nconcurrency for data analysis and visualization algorithms required to\ndrive extreme scale computing by providing abstract models for data and\nexecution that can be applied to a variety of algorithms across many\ndifferent processor architectures.",
+            "name": "viskores"
+        },
+        {
+            "description": "VTK-m is a toolkit of scientific visualization algorithms for emerging\nprocessor architectures. VTK-m supports the fine-grained concurrency for\ndata analysis and visualization algorithms required to drive extreme\nscale computing by providing abstract models for data and execution that\ncan be applied to a variety of algorithms across many different\nprocessor architectures.",
+            "name": "vtk-m"
+        },
+        {
+            "description": "whip is a small C++ abstraction layer for CUDA and HIP.",
+            "name": "whip"
+        },
+        {
+            "description": "Xsdk is a suite of Department of Energy (DOE) packages for numerical\nsimulation. This is a Spack bundle package that installs the xSDK\npackages",
+            "name": "xsdk"
+        },
+        {
+            "description": "xSDK Examples show usage of libraries in the xSDK package.",
+            "name": "xsdk-examples"
+        },
+        {
+            "description": "Yaksa is a high-performance datatype engine for expressing, managing and\nmanipulating data present in noncontiguous memory regions. It provides\nportable abstractions for structured noncontiguous data layouts that are\nmuch more comprehensive compared with traditional I/O vectors. Yaksa\nimitates parts of the MPI Datatype system, but adds additional\nfunctionality that would allow it to be used independent of MPI. It\nprovides routines for packing/unpacking, creating I/O vectors (array of\ncontiguous segments) and flattening/unflattening datatypes into process-\nportable formats. Yaksa's backend includes support for CPUs as well as\ndifferent GPUs.",
+            "name": "yaksa"
+        },
+        {
+            "description": "Utility for monitoring process, thread, OS and HW resources, including\nGPU utilization.",
+            "name": "zerosum"
+        }
+    ],
+    "description": "HIP is a C++ Runtime API and Kernel Language that allows developers to\ncreate portable applications for AMD and NVIDIA GPUs from single source\ncode.\n",
+    "homepage": "https://github.com/ROCm/HIP",
+    "latest_version": "6.4.1",
+    "maintainers": [
+        "afzpatel",
+        "haampie",
+        "renjithravindrankannath",
+        "srekolam"
+    ],
+    "name": "hip",
+    "patches": [
+        {
+            "level": 1,
+            "owner": "builtin.hip",
+            "reverse": false,
+            "sha256": "5bb9b0e08888830ccf3a0a658529fe25f4ee62b5b8890f349bf2cc914236eb2f",
+            "url": "https://github.com/ROCm/clr/commit/c4f773db0b4ccbbeed4e3d6c0f6bff299c2aa3f0.patch?full_index=1",
+            "version": "@5.7:6.0",
+            "working_dir": "clr"
+        },
+        {
+            "level": 1,
+            "owner": "builtin.hip",
+            "reverse": false,
+            "sha256": "7668b2a710baf4cb063e6b00280fb75c4c3e0511575e8298a9c7ae5143f60b33",
+            "url": "https://github.com/ROCm/clr/commit/7868876db742fb4d44483892856a66d2993add03.patch?full_index=1",
+            "version": "@5.7:6.0",
+            "working_dir": "clr"
+        },
+        {
+            "level": 1,
+            "owner": "builtin.hip",
+            "reverse": false,
+            "sha256": "5bb9b0e08888830ccf3a0a658529fe25f4ee62b5b8890f349bf2cc914236eb2f",
+            "url": "https://github.com/ROCm/clr/commit/c4f773db0b4ccbbeed4e3d6c0f6bff299c2aa3f0.patch?full_index=1",
+            "version": "@5.7:6.0",
+            "working_dir": "clr"
+        },
+        {
+            "level": 1,
+            "owner": "builtin.hip",
+            "reverse": false,
+            "sha256": "7668b2a710baf4cb063e6b00280fb75c4c3e0511575e8298a9c7ae5143f60b33",
+            "url": "https://github.com/ROCm/clr/commit/7868876db742fb4d44483892856a66d2993add03.patch?full_index=1",
+            "version": "@5.7:6.0",
+            "working_dir": "clr"
+        },
+        {
+            "level": 1,
+            "owner": "builtin.hip",
+            "reverse": false,
+            "sha256": "5bb9b0e08888830ccf3a0a658529fe25f4ee62b5b8890f349bf2cc914236eb2f",
+            "url": "https://github.com/ROCm/clr/commit/c4f773db0b4ccbbeed4e3d6c0f6bff299c2aa3f0.patch?full_index=1",
+            "version": "@5.7:6.0",
+            "working_dir": "clr"
+        },
+        {
+            "level": 1,
+            "owner": "builtin.hip",
+            "reverse": false,
+            "sha256": "7668b2a710baf4cb063e6b00280fb75c4c3e0511575e8298a9c7ae5143f60b33",
+            "url": "https://github.com/ROCm/clr/commit/7868876db742fb4d44483892856a66d2993add03.patch?full_index=1",
+            "version": "@5.7:6.0",
+            "working_dir": "clr"
+        },
+        {
+            "level": 1,
+            "owner": "builtin.hip",
+            "reverse": false,
+            "sha256": "5bb9b0e08888830ccf3a0a658529fe25f4ee62b5b8890f349bf2cc914236eb2f",
+            "url": "https://github.com/ROCm/clr/commit/c4f773db0b4ccbbeed4e3d6c0f6bff299c2aa3f0.patch?full_index=1",
+            "version": "@5.7:6.0",
+            "working_dir": "clr"
+        },
+        {
+            "level": 1,
+            "owner": "builtin.hip",
+            "reverse": false,
+            "sha256": "7668b2a710baf4cb063e6b00280fb75c4c3e0511575e8298a9c7ae5143f60b33",
+            "url": "https://github.com/ROCm/clr/commit/7868876db742fb4d44483892856a66d2993add03.patch?full_index=1",
+            "version": "@5.7:6.0",
+            "working_dir": "clr"
+        },
+        {
+            "level": 1,
+            "owner": "builtin.hip",
+            "reverse": false,
+            "sha256": "5bb9b0e08888830ccf3a0a658529fe25f4ee62b5b8890f349bf2cc914236eb2f",
+            "url": "https://github.com/ROCm/clr/commit/c4f773db0b4ccbbeed4e3d6c0f6bff299c2aa3f0.patch?full_index=1",
+            "version": "@5.7:6.0",
+            "working_dir": "clr"
+        },
+        {
+            "level": 1,
+            "owner": "builtin.hip",
+            "reverse": false,
+            "sha256": "7668b2a710baf4cb063e6b00280fb75c4c3e0511575e8298a9c7ae5143f60b33",
+            "url": "https://github.com/ROCm/clr/commit/7868876db742fb4d44483892856a66d2993add03.patch?full_index=1",
+            "version": "@5.7:6.0",
+            "working_dir": "clr"
+        },
+        {
+            "level": 1,
+            "owner": "builtin.hip",
+            "reverse": false,
+            "sha256": "5bb9b0e08888830ccf3a0a658529fe25f4ee62b5b8890f349bf2cc914236eb2f",
+            "url": "https://github.com/ROCm/clr/commit/c4f773db0b4ccbbeed4e3d6c0f6bff299c2aa3f0.patch?full_index=1",
+            "version": "@5.7:6.0",
+            "working_dir": "clr"
+        },
+        {
+            "level": 1,
+            "owner": "builtin.hip",
+            "reverse": false,
+            "sha256": "7668b2a710baf4cb063e6b00280fb75c4c3e0511575e8298a9c7ae5143f60b33",
+            "url": "https://github.com/ROCm/clr/commit/7868876db742fb4d44483892856a66d2993add03.patch?full_index=1",
+            "version": "@5.7:6.0",
+            "working_dir": "clr"
+        },
+        {
+            "level": 1,
+            "owner": "builtin.hip",
+            "reverse": false,
+            "sha256": "5bb9b0e08888830ccf3a0a658529fe25f4ee62b5b8890f349bf2cc914236eb2f",
+            "url": "https://github.com/ROCm/clr/commit/c4f773db0b4ccbbeed4e3d6c0f6bff299c2aa3f0.patch?full_index=1",
+            "version": "@5.7:6.0",
+            "working_dir": "clr"
+        },
+        {
+            "level": 1,
+            "owner": "builtin.hip",
+            "reverse": false,
+            "sha256": "7668b2a710baf4cb063e6b00280fb75c4c3e0511575e8298a9c7ae5143f60b33",
+            "url": "https://github.com/ROCm/clr/commit/7868876db742fb4d44483892856a66d2993add03.patch?full_index=1",
+            "version": "@5.7:6.0",
+            "working_dir": "clr"
+        },
+        {
+            "level": 1,
+            "owner": "builtin.hip",
+            "reverse": false,
+            "sha256": "5bb9b0e08888830ccf3a0a658529fe25f4ee62b5b8890f349bf2cc914236eb2f",
+            "url": "https://github.com/ROCm/clr/commit/c4f773db0b4ccbbeed4e3d6c0f6bff299c2aa3f0.patch?full_index=1",
+            "version": "@5.7:6.0",
+            "working_dir": "clr"
+        },
+        {
+            "level": 1,
+            "owner": "builtin.hip",
+            "reverse": false,
+            "sha256": "7668b2a710baf4cb063e6b00280fb75c4c3e0511575e8298a9c7ae5143f60b33",
+            "url": "https://github.com/ROCm/clr/commit/7868876db742fb4d44483892856a66d2993add03.patch?full_index=1",
+            "version": "@5.7:6.0",
+            "working_dir": "clr"
+        },
+        {
+            "level": 1,
+            "owner": "builtin.hip",
+            "reverse": false,
+            "sha256": "5bb9b0e08888830ccf3a0a658529fe25f4ee62b5b8890f349bf2cc914236eb2f",
+            "url": "https://github.com/ROCm/clr/commit/c4f773db0b4ccbbeed4e3d6c0f6bff299c2aa3f0.patch?full_index=1",
+            "version": "@5.7:6.0",
+            "working_dir": "clr"
+        },
+        {
+            "level": 1,
+            "owner": "builtin.hip",
+            "reverse": false,
+            "sha256": "7668b2a710baf4cb063e6b00280fb75c4c3e0511575e8298a9c7ae5143f60b33",
+            "url": "https://github.com/ROCm/clr/commit/7868876db742fb4d44483892856a66d2993add03.patch?full_index=1",
+            "version": "@5.7:6.0",
+            "working_dir": "clr"
+        },
+        {
+            "level": 1,
+            "owner": "builtin.hip",
+            "reverse": false,
+            "sha256": "5bb9b0e08888830ccf3a0a658529fe25f4ee62b5b8890f349bf2cc914236eb2f",
+            "url": "https://github.com/ROCm/clr/commit/c4f773db0b4ccbbeed4e3d6c0f6bff299c2aa3f0.patch?full_index=1",
+            "version": "@5.7:6.0",
+            "working_dir": "clr"
+        },
+        {
+            "level": 1,
+            "owner": "builtin.hip",
+            "reverse": false,
+            "sha256": "7668b2a710baf4cb063e6b00280fb75c4c3e0511575e8298a9c7ae5143f60b33",
+            "url": "https://github.com/ROCm/clr/commit/7868876db742fb4d44483892856a66d2993add03.patch?full_index=1",
+            "version": "@5.7:6.0",
+            "working_dir": "clr"
+        },
+        {
+            "level": 1,
+            "owner": "builtin.hip",
+            "reverse": false,
+            "sha256": "5bb9b0e08888830ccf3a0a658529fe25f4ee62b5b8890f349bf2cc914236eb2f",
+            "url": "https://github.com/ROCm/clr/commit/c4f773db0b4ccbbeed4e3d6c0f6bff299c2aa3f0.patch?full_index=1",
+            "version": "@5.7:6.0",
+            "working_dir": "clr"
+        },
+        {
+            "level": 1,
+            "owner": "builtin.hip",
+            "reverse": false,
+            "sha256": "7668b2a710baf4cb063e6b00280fb75c4c3e0511575e8298a9c7ae5143f60b33",
+            "url": "https://github.com/ROCm/clr/commit/7868876db742fb4d44483892856a66d2993add03.patch?full_index=1",
+            "version": "@5.7:6.0",
+            "working_dir": "clr"
+        },
+        {
+            "level": 1,
+            "owner": "builtin.hip",
+            "reverse": false,
+            "sha256": "5bb9b0e08888830ccf3a0a658529fe25f4ee62b5b8890f349bf2cc914236eb2f",
+            "url": "https://github.com/ROCm/clr/commit/c4f773db0b4ccbbeed4e3d6c0f6bff299c2aa3f0.patch?full_index=1",
+            "version": "@5.7:6.0",
+            "working_dir": "clr"
+        },
+        {
+            "level": 1,
+            "owner": "builtin.hip",
+            "reverse": false,
+            "sha256": "7668b2a710baf4cb063e6b00280fb75c4c3e0511575e8298a9c7ae5143f60b33",
+            "url": "https://github.com/ROCm/clr/commit/7868876db742fb4d44483892856a66d2993add03.patch?full_index=1",
+            "version": "@5.7:6.0",
+            "working_dir": "clr"
+        },
+        {
+            "level": 1,
+            "owner": "builtin.hip",
+            "reverse": false,
+            "sha256": "5bb9b0e08888830ccf3a0a658529fe25f4ee62b5b8890f349bf2cc914236eb2f",
+            "url": "https://github.com/ROCm/clr/commit/c4f773db0b4ccbbeed4e3d6c0f6bff299c2aa3f0.patch?full_index=1",
+            "version": "@5.7:6.0",
+            "working_dir": "clr"
+        },
+        {
+            "level": 1,
+            "owner": "builtin.hip",
+            "reverse": false,
+            "sha256": "7668b2a710baf4cb063e6b00280fb75c4c3e0511575e8298a9c7ae5143f60b33",
+            "url": "https://github.com/ROCm/clr/commit/7868876db742fb4d44483892856a66d2993add03.patch?full_index=1",
+            "version": "@5.7:6.0",
+            "working_dir": "clr"
+        },
+        {
+            "level": 1,
+            "owner": "builtin.hip",
+            "reverse": false,
+            "sha256": "5bb9b0e08888830ccf3a0a658529fe25f4ee62b5b8890f349bf2cc914236eb2f",
+            "url": "https://github.com/ROCm/clr/commit/c4f773db0b4ccbbeed4e3d6c0f6bff299c2aa3f0.patch?full_index=1",
+            "version": "@5.7:6.0",
+            "working_dir": "clr"
+        },
+        {
+            "level": 1,
+            "owner": "builtin.hip",
+            "reverse": false,
+            "sha256": "7668b2a710baf4cb063e6b00280fb75c4c3e0511575e8298a9c7ae5143f60b33",
+            "url": "https://github.com/ROCm/clr/commit/7868876db742fb4d44483892856a66d2993add03.patch?full_index=1",
+            "version": "@5.7:6.0",
+            "working_dir": "clr"
+        },
+        {
+            "level": 1,
+            "owner": "builtin.hip",
+            "reverse": false,
+            "sha256": "5bb9b0e08888830ccf3a0a658529fe25f4ee62b5b8890f349bf2cc914236eb2f",
+            "url": "https://github.com/ROCm/clr/commit/c4f773db0b4ccbbeed4e3d6c0f6bff299c2aa3f0.patch?full_index=1",
+            "version": "@5.7:6.0",
+            "working_dir": "clr"
+        },
+        {
+            "level": 1,
+            "owner": "builtin.hip",
+            "reverse": false,
+            "sha256": "7668b2a710baf4cb063e6b00280fb75c4c3e0511575e8298a9c7ae5143f60b33",
+            "url": "https://github.com/ROCm/clr/commit/7868876db742fb4d44483892856a66d2993add03.patch?full_index=1",
+            "version": "@5.7:6.0",
+            "working_dir": "clr"
+        },
+        {
+            "level": 1,
+            "owner": "builtin.hip",
+            "reverse": false,
+            "sha256": "5bb9b0e08888830ccf3a0a658529fe25f4ee62b5b8890f349bf2cc914236eb2f",
+            "url": "https://github.com/ROCm/clr/commit/c4f773db0b4ccbbeed4e3d6c0f6bff299c2aa3f0.patch?full_index=1",
+            "version": "@5.7:6.0",
+            "working_dir": "clr"
+        },
+        {
+            "level": 1,
+            "owner": "builtin.hip",
+            "reverse": false,
+            "sha256": "7668b2a710baf4cb063e6b00280fb75c4c3e0511575e8298a9c7ae5143f60b33",
+            "url": "https://github.com/ROCm/clr/commit/7868876db742fb4d44483892856a66d2993add03.patch?full_index=1",
+            "version": "@5.7:6.0",
+            "working_dir": "clr"
+        },
+        {
+            "level": 1,
+            "owner": "builtin.hip",
+            "reverse": false,
+            "sha256": "5bb9b0e08888830ccf3a0a658529fe25f4ee62b5b8890f349bf2cc914236eb2f",
+            "url": "https://github.com/ROCm/clr/commit/c4f773db0b4ccbbeed4e3d6c0f6bff299c2aa3f0.patch?full_index=1",
+            "version": "@5.7:6.0",
+            "working_dir": "clr"
+        },
+        {
+            "level": 1,
+            "owner": "builtin.hip",
+            "reverse": false,
+            "sha256": "7668b2a710baf4cb063e6b00280fb75c4c3e0511575e8298a9c7ae5143f60b33",
+            "url": "https://github.com/ROCm/clr/commit/7868876db742fb4d44483892856a66d2993add03.patch?full_index=1",
+            "version": "@5.7:6.0",
+            "working_dir": "clr"
+        },
+        {
+            "level": 1,
+            "owner": "builtin.hip",
+            "reverse": false,
+            "sha256": "5bb9b0e08888830ccf3a0a658529fe25f4ee62b5b8890f349bf2cc914236eb2f",
+            "url": "https://github.com/ROCm/clr/commit/c4f773db0b4ccbbeed4e3d6c0f6bff299c2aa3f0.patch?full_index=1",
+            "version": "@5.7:6.0",
+            "working_dir": "clr"
+        },
+        {
+            "level": 1,
+            "owner": "builtin.hip",
+            "reverse": false,
+            "sha256": "7668b2a710baf4cb063e6b00280fb75c4c3e0511575e8298a9c7ae5143f60b33",
+            "url": "https://github.com/ROCm/clr/commit/7868876db742fb4d44483892856a66d2993add03.patch?full_index=1",
+            "version": "@5.7:6.0",
+            "working_dir": "clr"
+        },
+        {
+            "level": 1,
+            "owner": "builtin.hip",
+            "relative_path": "0013-remove-compiler-rt-linkage-for-host.5.3.0.patch",
+            "reverse": false,
+            "sha256": "ca523f177897a7509257ab15561efa11092383cfb9bc91b737db3496df388530",
+            "version": "@5.3.0:5.4",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.hip",
+            "relative_path": "0014-hip-test-file-reorg-5.4.0.patch",
+            "reverse": false,
+            "sha256": "5068750edb2fafba9bb24d9cdf79f06ca599fc37f00476d126cc999f03afbb2a",
+            "version": "@5.4.0:5.5",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.hip",
+            "relative_path": "0016-hip-sample-fix-hipMalloc-call.patch",
+            "reverse": false,
+            "sha256": "ddd86f0bdf39db61e98e91433ca73bb33ae455786cccd2d1e60213c4cb99825f",
+            "version": "@5.4.3:5.5",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.hip",
+            "relative_path": "0014-remove-compiler-rt-linkage-for-host.5.5.0.patch",
+            "reverse": false,
+            "sha256": "2d186d47b4b3d851f3aa0bb7c7d662b535fc5448338bf66e67b4f9861167d742",
+            "version": "@5.5",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.hip",
+            "relative_path": "0014-remove-compiler-rt-linkage-for-host.5.6.0.patch",
+            "reverse": false,
+            "sha256": "e73e91b445d0996f45ed149a30ab11fa31d5416b7df323274d5a50d847b0a584",
+            "version": "@5.6.0:5.6",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.hip",
+            "relative_path": "0014-Remove-compiler-rt-linkage-for-host-for-5.7.0.patch",
+            "reverse": false,
+            "sha256": "b589a02de6a7f3a34e1752c866c5be66210c711e909a39bdb2b67846b3a7b5ce",
+            "version": "@5.7.0:5.7",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.hip",
+            "relative_path": "0014-remove-compiler-rt-linkage-for-host.6.0.patch",
+            "reverse": false,
+            "sha256": "916515427547c73f200454ee75e32d1cdddb281818946e2922db066469d27712",
+            "version": "@6.0",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.hip",
+            "relative_path": "0014-remove-compiler-rt-linkage-for-host.6.1.patch",
+            "reverse": false,
+            "sha256": "6bbe83b031bcf007bc426441f54cc9173b735c9fac8a72e4304d65f2d9793574",
+            "version": "@6.1",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.hip",
+            "relative_path": "0015-reverting-operator-mixup-fix-for-slate.patch",
+            "reverse": false,
+            "sha256": "aee72496881975e362148f272352b3f46d00f69be33af4d1b00458b4df1bd493",
+            "version": "@5.6:6.0",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.hip",
+            "relative_path": "0018-reverting-hipMemoryType-with-memoryType.patch",
+            "reverse": false,
+            "sha256": "1f65dfec6bf03c7a509243bc4d804291565c199d696f2b8bce33b3023772fbf6",
+            "version": "@6.0:6.2",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.hip",
+            "reverse": false,
+            "sha256": "c469ddecbae6d4ee30132af7c37d5e7958420af2d083f2c50d93fc3a7d162c49",
+            "url": "https://github.com/ROCm/HIP/commit/50ee82f6bc4aad10908ce09198c9f7ebfb2a3561.patch?full_index=1",
+            "version": "@5.2:5.7",
+            "working_dir": "."
+        }
+    ],
+    "resources": [
+        {
+            "destination": "",
+            "name": "hipamd",
+            "placement": "hipamd",
+            "version": "@5.5.1"
+        },
+        {
+            "destination": "",
+            "name": "opencl",
+            "placement": "opencl",
+            "version": "@5.5.1"
+        },
+        {
+            "destination": "",
+            "name": "rocclr",
+            "placement": "rocclr",
+            "version": "@5.5.1"
+        },
+        {
+            "destination": "",
+            "name": "hipamd",
+            "placement": "hipamd",
+            "version": "@5.5.0"
+        },
+        {
+            "destination": "",
+            "name": "opencl",
+            "placement": "opencl",
+            "version": "@5.5.0"
+        },
+        {
+            "destination": "",
+            "name": "rocclr",
+            "placement": "rocclr",
+            "version": "@5.5.0"
+        },
+        {
+            "destination": "",
+            "name": "hipamd",
+            "placement": "hipamd",
+            "version": "@5.4.3"
+        },
+        {
+            "destination": "",
+            "name": "opencl",
+            "placement": "opencl",
+            "version": "@5.4.3"
+        },
+        {
+            "destination": "",
+            "name": "rocclr",
+            "placement": "rocclr",
+            "version": "@5.4.3"
+        },
+        {
+            "destination": "",
+            "name": "hipamd",
+            "placement": "hipamd",
+            "version": "@5.4.0"
+        },
+        {
+            "destination": "",
+            "name": "opencl",
+            "placement": "opencl",
+            "version": "@5.4.0"
+        },
+        {
+            "destination": "",
+            "name": "rocclr",
+            "placement": "rocclr",
+            "version": "@5.4.0"
+        },
+        {
+            "destination": "",
+            "name": "hipamd",
+            "placement": "hipamd",
+            "version": "@5.3.3"
+        },
+        {
+            "destination": "",
+            "name": "opencl",
+            "placement": "opencl",
+            "version": "@5.3.3"
+        },
+        {
+            "destination": "",
+            "name": "rocclr",
+            "placement": "rocclr",
+            "version": "@5.3.3"
+        },
+        {
+            "destination": "",
+            "name": "hipamd",
+            "placement": "hipamd",
+            "version": "@5.3.0"
+        },
+        {
+            "destination": "",
+            "name": "opencl",
+            "placement": "opencl",
+            "version": "@5.3.0"
+        },
+        {
+            "destination": "",
+            "name": "rocclr",
+            "placement": "rocclr",
+            "version": "@5.3.0"
+        },
+        {
+            "destination": "",
+            "name": "clr",
+            "placement": "clr",
+            "version": "@6.4.1"
+        },
+        {
+            "destination": "",
+            "name": "clr",
+            "placement": "clr",
+            "version": "@6.4.0"
+        },
+        {
+            "destination": "",
+            "name": "clr",
+            "placement": "clr",
+            "version": "@6.3.3"
+        },
+        {
+            "destination": "",
+            "name": "clr",
+            "placement": "clr",
+            "version": "@6.3.2"
+        },
+        {
+            "destination": "",
+            "name": "clr",
+            "placement": "clr",
+            "version": "@6.3.1"
+        },
+        {
+            "destination": "",
+            "name": "clr",
+            "placement": "clr",
+            "version": "@6.3.0"
+        },
+        {
+            "destination": "",
+            "name": "clr",
+            "placement": "clr",
+            "version": "@6.2.4"
+        },
+        {
+            "destination": "",
+            "name": "clr",
+            "placement": "clr",
+            "version": "@6.2.1"
+        },
+        {
+            "destination": "",
+            "name": "clr",
+            "placement": "clr",
+            "version": "@6.2.0"
+        },
+        {
+            "destination": "",
+            "name": "clr",
+            "placement": "clr",
+            "version": "@6.1.2"
+        },
+        {
+            "destination": "",
+            "name": "clr",
+            "placement": "clr",
+            "version": "@6.1.1"
+        },
+        {
+            "destination": "",
+            "name": "clr",
+            "placement": "clr",
+            "version": "@6.1.0"
+        },
+        {
+            "destination": "",
+            "name": "clr",
+            "placement": "clr",
+            "version": "@6.0.2"
+        },
+        {
+            "destination": "",
+            "name": "clr",
+            "placement": "clr",
+            "version": "@6.0.0"
+        },
+        {
+            "destination": "",
+            "name": "clr",
+            "placement": "clr",
+            "version": "@5.7.1"
+        },
+        {
+            "destination": "",
+            "name": "hipcc",
+            "placement": "hipcc",
+            "version": "@5.7.1"
+        },
+        {
+            "destination": "",
+            "name": "clr",
+            "placement": "clr",
+            "version": "@5.7.0"
+        },
+        {
+            "destination": "",
+            "name": "hipcc",
+            "placement": "hipcc",
+            "version": "@5.7.0"
+        },
+        {
+            "destination": "",
+            "name": "clr",
+            "placement": "clr",
+            "version": "@5.6.1"
+        },
+        {
+            "destination": "",
+            "name": "hipcc",
+            "placement": "hipcc",
+            "version": "@5.6.1"
+        },
+        {
+            "destination": "",
+            "name": "clr",
+            "placement": "clr",
+            "version": "@5.6.0"
+        },
+        {
+            "destination": "",
+            "name": "hipcc",
+            "placement": "hipcc",
+            "version": "@5.6.0"
+        },
+        {
+            "destination": "",
+            "name": "hipother",
+            "placement": "hipother",
+            "version": "@6.4.1+cuda"
+        },
+        {
+            "destination": "",
+            "name": "hipother",
+            "placement": "hipother",
+            "version": "@6.4.0+cuda"
+        },
+        {
+            "destination": "",
+            "name": "hipother",
+            "placement": "hipother",
+            "version": "@6.3.3+cuda"
+        },
+        {
+            "destination": "",
+            "name": "hipother",
+            "placement": "hipother",
+            "version": "@6.3.2+cuda"
+        },
+        {
+            "destination": "",
+            "name": "hipother",
+            "placement": "hipother",
+            "version": "@6.3.1+cuda"
+        },
+        {
+            "destination": "",
+            "name": "hipother",
+            "placement": "hipother",
+            "version": "@6.3.0+cuda"
+        },
+        {
+            "destination": "",
+            "name": "hipother",
+            "placement": "hipother",
+            "version": "@6.2.4+cuda"
+        },
+        {
+            "destination": "",
+            "name": "hipother",
+            "placement": "hipother",
+            "version": "@6.2.1+cuda"
+        },
+        {
+            "destination": "",
+            "name": "hipother",
+            "placement": "hipother",
+            "version": "@6.2.0+cuda"
+        },
+        {
+            "destination": "",
+            "name": "hipother",
+            "placement": "hipother",
+            "version": "@6.1.2+cuda"
+        },
+        {
+            "destination": "",
+            "name": "hipother",
+            "placement": "hipother",
+            "version": "@6.1.1+cuda"
+        },
+        {
+            "destination": "",
+            "name": "hipother",
+            "placement": "hipother",
+            "version": "@6.1.0+cuda"
+        },
+        {
+            "destination": "",
+            "name": "hipother",
+            "placement": "hipother",
+            "version": "@6.0.2+cuda"
+        },
+        {
+            "destination": "",
+            "name": "hipother",
+            "placement": "hipother",
+            "version": "@6.0.0+cuda"
+        }
+    ],
+    "variants": [
+        {
+            "default": false,
+            "description": "Build with address-sanitizer enabled or disabled",
+            "name": "asan"
+        },
+        {
+            "default": "cmake",
+            "description": "Build systems supported by the package",
+            "name": "build_system"
+        },
+        {
+            "default": "Release",
+            "description": "CMake build type",
+            "name": "build_type"
+        },
+        {
+            "default": false,
+            "description": "Build with CUDA",
+            "name": "cuda"
+        },
+        {
+            "default": "make",
+            "description": "the build system generator to use",
+            "name": "generator"
+        },
+        {
+            "default": false,
+            "description": "CMake interprocedural optimization",
+            "name": "ipo"
+        },
+        {
+            "default": true,
+            "description": "Enable ROCm support",
+            "name": "rocm"
+        }
+    ],
+    "versions": [
+        {
+            "name": "6.4.1",
+            "sha256": "f26f098b08504636c6f4e1da45b162f1df2ce6608eba85606fa7932d8fea960f"
+        },
+        {
+            "name": "6.4.0",
+            "sha256": "bec899ba67df9aa7056297e5ad104b8e36938b1bab22f1f418f69a8e0043d07f"
+        },
+        {
+            "name": "6.3.3",
+            "sha256": "aa3a5466304d1dbee0d976b50fccb710dd12e2e1d5534793396447c0ff845e2c"
+        },
+        {
+            "name": "6.3.2",
+            "sha256": "66a4eba98bd74fc7126ce7cb4d59653b22075fe95a70412fe283dc806ae366e0"
+        },
+        {
+            "name": "6.3.1",
+            "sha256": "76f862493c4912a06e0e0b8da3917c2ba7481f1e05f2c23ffd5e05f8c44e3037"
+        },
+        {
+            "name": "6.3.0",
+            "sha256": "950bfaf108a0af44eb169646f81f564f75f49e974acd06139b77245cfd327267"
+        },
+        {
+            "name": "6.2.4",
+            "sha256": "7a88edd689230b422250852a391b3b377b4371bbaef1e4f36d7fb699fcb0562b"
+        },
+        {
+            "name": "6.2.1",
+            "sha256": "1f130fa8d0a60cfb3560892c50ed7c57902b1398b21d3168f4be2d7ee512da96"
+        },
+        {
+            "name": "6.2.0",
+            "sha256": "95de10ef1815e8076a94a53bae3752dfd0e9f0abe513ca3fb79969773cff12d4"
+        },
+        {
+            "name": "6.1.2",
+            "sha256": "34b168f34d8e4365ef160863c1c9deaa193bdbe8cc98726fe7481c85534a4f64"
+        },
+        {
+            "name": "6.1.1",
+            "sha256": "30cba362ee2487fe50159b12a777edfe76346cd81510963e25b655f37c865049"
+        },
+        {
+            "name": "6.1.0",
+            "sha256": "b5e209eff044b629c65d735ce7d92b4861bb321caa7d97e7be4054f1b943982a"
+        },
+        {
+            "name": "6.0.2",
+            "sha256": "84163ffb5d81f192f4a879f3f9722db2402d72c2a90f104c5b2b8a4212f4f9b0"
+        },
+        {
+            "name": "6.0.0",
+            "sha256": "ba8ce0d0960b260ff44ab47da58f98b8df9b659835aa62e32e018a63379bbc79"
+        },
+        {
+            "name": "5.7.1",
+            "sha256": "ea34c75d2cff366fcdd45109c5be460a48d4fcf72b8a534368b54eae5d05db0e"
+        },
+        {
+            "name": "5.7.0",
+            "sha256": "8974a436e7f1daf232a77e27a215bcb24a8cc132aa11b5b885a7417ad4246074"
+        },
+        {
+            "name": "5.6.1",
+            "sha256": "1b0178da8e997eb0cbf2af63e1940f56aeddc8b9715d822d2c87fd60dbc01173"
+        },
+        {
+            "name": "5.6.0",
+            "sha256": "befbfb4691d4331b1fdfe1f17a862e82e962eb9fb90457b2c61a5130b3e6b85b"
+        },
+        {
+            "name": "5.5.1",
+            "sha256": "674caca5d55cc96451d790729f6dab0a16682d2ae9e13359e8648afda0ff97b3"
+        },
+        {
+            "name": "5.5.0",
+            "sha256": "0f5bf69ea8ea8200e352efd83725f1976d36c2eb9661057000bcf6118d61e6f3"
+        }
+    ],
+    "versions_deprecated": [
+        {
+            "branch": "master",
+            "name": "master"
+        },
+        {
+            "name": "5.4.3",
+            "sha256": "f74b6d6b85830e60d26503fa35b599537a9f4c5bcfc05b49632d9998abf094f4"
+        },
+        {
+            "name": "5.4.0",
+            "sha256": "2e422a06c312b88929cc3303e793ac8f037cf39dbcfe7b4640a7fbb4fc7905c2"
+        },
+        {
+            "name": "5.3.3",
+            "sha256": "0e6988f531ed83f8b2271e9b3d42b73da7ff536d34cdd89f74648335b3bc18c8"
+        },
+        {
+            "name": "5.3.0",
+            "sha256": "7bed30f6bc3e4e08bd29a5001c17de0ad3a92a6a948864d884b9341f4c90965b"
+        }
+    ]
+}

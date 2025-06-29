@@ -1,0 +1,100 @@
+{
+    "aliases": [],
+    "build_system": "MakefilePackage",
+    "conflicts": [
+        {
+            "description": null,
+            "name": "arch=windows-None-None",
+            "spec": "build_system=makefile"
+        }
+    ],
+    "dependencies": [
+        {
+            "description": "The NVIDIA HPC SDK is a comprehensive suite of compilers, libraries and\ntools essential to maximizing developer productivity and the performance\nand portability of HPC applications. The NVIDIA HPC SDK C, C++, and\nFortran compilers support GPU acceleration of HPC modeling and\nsimulation applications with standard C++ and Fortran, OpenACC\ndirectives, and CUDA. GPU-accelerated math libraries maximize\nperformance on common HPC algorithms, and optimized communications\nlibraries enable standards-based multi-GPU and scalable systems\nprogramming. Performance profiling and debugging tools simplify porting\nand optimization of HPC applications.",
+            "name": "cxx"
+        },
+        {
+            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files.",
+            "name": "gmake"
+        },
+        {
+            "description": "Free, lightweight, scalable C++ library for finite element methods.",
+            "name": "mfem"
+        }
+    ],
+    "dependent_to": [
+        {
+            "description": "Ceed is a collection of benchmarks, miniapps, software libraries and\nAPIs for efficient high-order finite element and spectral element\ndiscretizations for exascale applications developed in the Department of\nEnergy (DOE) and partially supported by the Exascale Computing Project\n(ECP). This is a Spack bundle package that installs the CEED software\ncomponents.",
+            "name": "ceed"
+        },
+        {
+            "description": "This is a collection of packages that represents the official suite of\nDOE/ECP proxy applications. This is a Spack bundle package that installs\nthe ECP proxy application suite.",
+            "name": "ecp-proxy-apps"
+        }
+    ],
+    "description": "Laghos (LAGrangian High-Order Solver) is a CEED miniapp that solves the\ntime-dependent Euler equations of compressible gas dynamics in a moving\nLagrangian frame using unstructured high-order finite element spatial\ndiscretization and explicit high-order time-stepping.\n",
+    "homepage": "https://computing.llnl.gov/projects/co-design/laghos",
+    "latest_version": "3.1",
+    "maintainers": [
+        "tzanio",
+        "v-dobrev",
+        "vladotomov"
+    ],
+    "name": "laghos",
+    "patches": [
+        {
+            "level": 1,
+            "owner": "builtin.laghos",
+            "reverse": false,
+            "sha256": "e783a71c3cb36886eb539c0f7ac622883ed5caf7ccae597d545d48eaf051d15d",
+            "url": "https://github.com/CEED/Laghos/commit/c800883ab2741c8c3b99486e7d8ddd8e53a7cb95.patch?full_index=1",
+            "version": "@3.1 ^mfem@4.4:",
+            "working_dir": "."
+        }
+    ],
+    "resources": [],
+    "variants": [
+        {
+            "default": "makefile",
+            "description": "Build systems supported by the package",
+            "name": "build_system"
+        },
+        {
+            "default": true,
+            "description": "Enable/disable METIS support",
+            "name": "metis"
+        },
+        {
+            "default": false,
+            "description": "Enable gcc optimization flags",
+            "name": "ofast"
+        }
+    ],
+    "versions": [
+        {
+            "branch": "master",
+            "name": "develop"
+        },
+        {
+            "name": "3.1",
+            "sha256": "49b65edcbf9732c7f6c228958620e18980c43ad8381315a8ba9957ecb7534cd5"
+        },
+        {
+            "name": "3.0",
+            "sha256": "4db56286e15b42ecdc8d540c4888a7dec698b019df9c7ccb8319b7ea1f92d8b4"
+        },
+        {
+            "name": "2.0",
+            "sha256": "dd3632d5558889beec2cd3c49eb60f633f99e6d886ac868731610dd006c44c14"
+        },
+        {
+            "name": "1.1",
+            "sha256": "53b9bfe2af263c63eb4544ca1731dd26f40b73a0d2775a9883db51821bf23b7f"
+        },
+        {
+            "name": "1.0",
+            "sha256": "af50a126355a41c758fcda335a43fdb0a3cd97e608ba51c485afda3dd84a5b34"
+        }
+    ],
+    "versions_deprecated": []
+}
