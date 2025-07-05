@@ -1,0 +1,136 @@
+{
+    "aliases": [
+        {
+            "alias_for": "fujitsu-fftw",
+            "name": "fftw-api"
+        }
+    ],
+    "build_system": "AutotoolsPackage",
+    "conflicts": [
+        {
+            "description": "fujitsu-fftw: ARM-SVE vector instructions only works in single or double precision",
+            "name": "precision=long_double",
+            "spec": "%fj"
+        },
+        {
+            "description": "fujitsu-fftw: Fujitsu Compiler doesn't support quad precision",
+            "name": "precision=quad",
+            "spec": "%fj"
+        },
+        {
+            "description": "fujitsu-fftw: Quad precision is not supported in MPI",
+            "name": "precision=quad",
+            "spec": "+mpi"
+        },
+        {
+            "description": "fujitsu-fftw: Long double precision is not supported in FFTW 2",
+            "name": "precision=long_double",
+            "spec": "@2.1.5"
+        },
+        {
+            "description": "fujitsu-fftw: Quad precision is not supported in FFTW 2",
+            "name": "precision=quad",
+            "spec": "@2.1.5"
+        },
+        {
+            "description": null,
+            "name": "%gcc@8.0:8",
+            "spec": "@3.3.7"
+        },
+        {
+            "description": null,
+            "name": "arch=windows-None-None",
+            "spec": "build_system=autotools"
+        }
+    ],
+    "dependencies": [
+        {
+            "description": "The NVIDIA HPC SDK is a comprehensive suite of compilers, libraries and\ntools essential to maximizing developer productivity and the performance\nand portability of HPC applications. The NVIDIA HPC SDK C, C++, and\nFortran compilers support GPU acceleration of HPC modeling and\nsimulation applications with standard C++ and Fortran, OpenACC\ndirectives, and CUDA. GPU-accelerated math libraries maximize\nperformance on common HPC algorithms, and optimized communications\nlibraries enable standards-based multi-GPU and scalable systems\nprogramming. Performance profiling and debugging tools simplify porting\nand optimization of HPC applications.",
+            "name": "c"
+        },
+        {
+            "description": "The NVIDIA HPC SDK is a comprehensive suite of compilers, libraries and\ntools essential to maximizing developer productivity and the performance\nand portability of HPC applications. The NVIDIA HPC SDK C, C++, and\nFortran compilers support GPU acceleration of HPC modeling and\nsimulation applications with standard C++ and Fortran, OpenACC\ndirectives, and CUDA. GPU-accelerated math libraries maximize\nperformance on common HPC algorithms, and optimized communications\nlibraries enable standards-based multi-GPU and scalable systems\nprogramming. Performance profiling and debugging tools simplify porting\nand optimization of HPC applications.",
+            "name": "fortran"
+        },
+        {
+            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files.",
+            "name": "gmake"
+        },
+        {
+            "description": "The GNU config.guess and config.sub scripts versioned by timestamp.\nThis package can be used as a build dependency for autotools packages\nthat ship a tarball with outdated config.guess and config.sub files.",
+            "name": "gnuconfig"
+        },
+        {
+            "description": "The OpenMP subproject of LLVM contains the components required to build\nan executable OpenMP program that are outside the compiler itself.",
+            "name": "llvm-openmp"
+        },
+        {
+            "description": "IBM MPI implementation from Spectrum MPI.",
+            "name": "mpi"
+        },
+        {
+            "description": "Texinfo is the official documentation format of the GNU project. It was\ninvented by Richard Stallman and Bob Chassell many years ago, loosely\nbased on Brian Reid's Scribe and other formatting languages of the time.\nIt is used by many non-GNU projects as well.",
+            "name": "texinfo"
+        }
+    ],
+    "dependent_to": [
+        {
+            "description": "BerkeleyGW is a many-body perturbation theory code for excited states,\nusing the GW method and the GW plus Bethe-Salpeter equation (GW-BSE)\nmethod to solve respectively for quasiparticle excitations and optical\nproperties of materials.",
+            "name": "berkeleygw"
+        },
+        {
+            "description": "ngspice is the open source spice simulator for electric and electronic\ncircuits.",
+            "name": "ngspice"
+        }
+    ],
+    "description": "FFTW (Fujitsu Optimized version) is a comprehensive collection of fast C\nroutines for computing the Discrete Fourier Transform (DFT) and various\nspecial cases thereof. It is an open-source implementation of the Fast\nFourier transform algorithm. It can compute transforms of real and\ncomplex-values arrays of arbitrary size and dimension. Fujitsu Optimized\nFFTW is the optimized FFTW implementation targeted for A64FX CPUs. For\nsingle precision build, please use precision value as float. Example :\nspack install fujitsufftw precision=float\n",
+    "homepage": "https://github.com/fujitsu/fftw3",
+    "latest_version": "1.1.0",
+    "maintainers": [],
+    "name": "fujitsu-fftw",
+    "patches": [],
+    "resources": [],
+    "variants": [
+        {
+            "default": "autotools",
+            "description": "Build systems supported by the package",
+            "name": "build_system"
+        },
+        {
+            "default": false,
+            "description": "Builds a debug version of the library",
+            "name": "debug"
+        },
+        {
+            "default": true,
+            "description": "Activate MPI support",
+            "name": "mpi"
+        },
+        {
+            "default": true,
+            "description": "Enable OpenMP support",
+            "name": "openmp"
+        },
+        {
+            "default": "float,double",
+            "description": "Build the selected floating-point precision libraries",
+            "name": "precision"
+        },
+        {
+            "default": true,
+            "description": "Builds a shared version of the library",
+            "name": "shared"
+        }
+    ],
+    "versions": [
+        {
+            "name": "1.1.0",
+            "sha256": "47b01a20846802041a9533a115f816b973cc9b15b3e827a2f0caffaae34a6c9d"
+        },
+        {
+            "name": "1.0.0",
+            "sha256": "b5931e352355d8d1ffeb215922f4b96de11b8585c423fceeaffbf3d5436f6f2f"
+        }
+    ],
+    "versions_deprecated": []
+}

@@ -1,0 +1,665 @@
+{
+    "aliases": [],
+    "build_system": "CMakePackage",
+    "conflicts": [
+        {
+            "description": "quantum-espresso: ifx added f_c_string in the ISO_C_BINDING module since version 2024.1 which conflictswith the libmbd provided one.",
+            "name": "@7.3.1",
+            "spec": "%oneapi@2024.1:"
+        },
+        {
+            "description": null,
+            "name": "@:6.5",
+            "spec": "+cuda ^nvhpc"
+        },
+        {
+            "description": "quantum-espresso: Only CMake supported for GPU-enabled version",
+            "name": "build_system=generic",
+            "spec": "+cuda ^nvhpc"
+        },
+        {
+            "description": "quantum-espresso: bugs with NVHPCSDK from v21.11 to v22.3, OpenMP and GPU",
+            "name": "%nvhpc@21.11:22.3",
+            "spec": "+cuda+openmp ^nvhpc"
+        },
+        {
+            "description": "quantum-espresso: +elpa requires QE >= 6.0",
+            "name": "@:5.4.0",
+            "spec": "+elpa"
+        },
+        {
+            "description": "quantum-espresso: 6.4.x is the latest QE series supported by Environ",
+            "name": "@6.5:",
+            "spec": "+environ"
+        },
+        {
+            "description": "quantum-espresso: EPW needs MPI when build_system=generic",
+            "name": "~mpi",
+            "spec": "+epw build_system=generic"
+        },
+        {
+            "description": "quantum-espresso: EPW only available from version 6.0.0 and on",
+            "name": "@:5",
+            "spec": "+epw"
+        },
+        {
+            "description": "quantum-espresso: OpenMPI version incompatible with EPW",
+            "name": "^openmpi@2.0.0:2",
+            "spec": "+epw"
+        },
+        {
+            "description": "quantum-espresso: +fox variant requires QE >= 7.2",
+            "name": "@:7.1",
+            "spec": "+fox"
+        },
+        {
+            "description": "quantum-espresso: gipaw standard support available for QE 6.3 or greater version only",
+            "name": "@:6.2",
+            "spec": "+gipaw"
+        },
+        {
+            "description": "quantum-espresso: QE-to-QMCPACK wave function converter only supported with parallel HDF5",
+            "name": "@6.3:6.4.0 hdf5=serial",
+            "spec": "+qmcpack"
+        },
+        {
+            "description": "quantum-espresso: QE-to-QMCPACK wave function converter requires deactivatation of upstream patches",
+            "name": "@6.4+patch",
+            "spec": "+qmcpack"
+        },
+        {
+            "description": "quantum-espresso: QMCPACK converter NOT available for this version of QE",
+            "name": "@:6.2,6.5:6.6",
+            "spec": "+qmcpack"
+        },
+        {
+            "description": "quantum-espresso: QE-to-QMCPACK wave function converter requires HDF5",
+            "name": "@:7.0 hdf5=none",
+            "spec": "+qmcpack"
+        },
+        {
+            "description": "quantum-espresso: Please use CMake to build with AOCC",
+            "name": "build_system=generic",
+            "spec": "@6.8: %aocc"
+        },
+        {
+            "description": "quantum-espresso: QE-to-QMCPACK wave function converter requires cmake",
+            "name": "build_system=generic",
+            "spec": "@7.0.1:+qmcpack"
+        },
+        {
+            "description": "quantum-espresso: gipaw plugin requires FoX",
+            "name": "~fox",
+            "spec": "@7.2:+gipaw"
+        },
+        {
+            "description": "quantum-espresso: parallel HDF5 support only in QE 6.1.0 and later",
+            "name": "hdf5=parallel",
+            "spec": "@:6.0"
+        },
+        {
+            "description": "quantum-espresso: serial HDF5 support only in QE 6.4.1 and later",
+            "name": "hdf5=serial",
+            "spec": "@:6.4.0"
+        },
+        {
+            "description": null,
+            "name": "+gipaw build_system=cmake",
+            "spec": "@:7.1"
+        },
+        {
+            "description": "quantum-espresso: amdlibflame requires OpenMP",
+            "name": "~openmp",
+            "spec": "^amdlibflame"
+        },
+        {
+            "description": "quantum-espresso: Internal compiler error with gcc8 and a64fx",
+            "name": "@5.3:",
+            "spec": "arch=None-None-a64fx %gcc@8"
+        },
+        {
+            "description": "quantum-espresso: epw cannot be turned off when using CMake",
+            "name": "~epw",
+            "spec": "build_system=cmake"
+        },
+        {
+            "description": "quantum-espresso: Support for ifx has been added to configure in release 7.3.1",
+            "name": "@:7.3.0",
+            "spec": "build_system=generic %oneapi"
+        },
+        {
+            "description": "quantum-espresso: parallel HDF5 requires MPI support",
+            "name": "hdf5=parallel",
+            "spec": "~mpi"
+        }
+    ],
+    "dependencies": [
+        {
+            "description": "Lightweight but flexible shim designed to rectify the incompatibilities\nbetween the Accelerate/vecLib BLAS and LAPACK libraries shipped with\nmacOS and FORTRAN code compiled with modern compilers such as GNU\nFortran.",
+            "name": "blas"
+        },
+        {
+            "description": "The NVIDIA HPC SDK is a comprehensive suite of compilers, libraries and\ntools essential to maximizing developer productivity and the performance\nand portability of HPC applications. The NVIDIA HPC SDK C, C++, and\nFortran compilers support GPU acceleration of HPC modeling and\nsimulation applications with standard C++ and Fortran, OpenACC\ndirectives, and CUDA. GPU-accelerated math libraries maximize\nperformance on common HPC algorithms, and optimized communications\nlibraries enable standards-based multi-GPU and scalable systems\nprogramming. Performance profiling and debugging tools simplify porting\nand optimization of HPC applications.",
+            "name": "c"
+        },
+        {
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software.",
+            "name": "cmake"
+        },
+        {
+            "description": "CUDA is a parallel computing platform and programming model invented by\nNVIDIA. It enables dramatic increases in computing performance by\nharnessing the power of the graphics processing unit (GPU). Note: This\npackage does not currently install the drivers necessary to run CUDA.\nThese will need to be installed manually. See:\nhttps://docs.nvidia.com/cuda/ for details.",
+            "name": "cuda"
+        },
+        {
+            "description": "The NVIDIA HPC SDK is a comprehensive suite of compilers, libraries and\ntools essential to maximizing developer productivity and the performance\nand portability of HPC applications. The NVIDIA HPC SDK C, C++, and\nFortran compilers support GPU acceleration of HPC modeling and\nsimulation applications with standard C++ and Fortran, OpenACC\ndirectives, and CUDA. GPU-accelerated math libraries maximize\nperformance on common HPC algorithms, and optimized communications\nlibraries enable standards-based multi-GPU and scalable systems\nprogramming. Performance profiling and debugging tools simplify porting\nand optimization of HPC applications.",
+            "name": "cxx"
+        },
+        {
+            "description": "Eigenvalue solvers for Petaflop-Applications (ELPA)",
+            "name": "elpa"
+        },
+        {
+            "description": "NVPL FFT (NVIDIA Performance Libraries FFT) is part of NVIDIA\nPerformance Libraries and provides Fast Fourier Transform (FFT)\ncalculations on ARM CPUs.",
+            "name": "fftw-api"
+        },
+        {
+            "description": "The NVIDIA HPC SDK is a comprehensive suite of compilers, libraries and\ntools essential to maximizing developer productivity and the performance\nand portability of HPC applications. The NVIDIA HPC SDK C, C++, and\nFortran compilers support GPU acceleration of HPC modeling and\nsimulation applications with standard C++ and Fortran, OpenACC\ndirectives, and CUDA. GPU-accelerated math libraries maximize\nperformance on common HPC algorithms, and optimized communications\nlibraries enable standards-based multi-GPU and scalable systems\nprogramming. Performance profiling and debugging tools simplify porting\nand optimization of HPC applications.",
+            "name": "fortran"
+        },
+        {
+            "description": "Git is a free and open source distributed version control system\ndesigned to handle everything from small to very large projects with\nspeed and efficiency.",
+            "name": "git"
+        },
+        {
+            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files.",
+            "name": "gmake"
+        },
+        {
+            "description": "HDF5 is a data model, library, and file format for storing and managing\ndata. It supports an unlimited variety of datatypes, and is designed for\nflexible and efficient I/O and for high volume and complex data.",
+            "name": "hdf5"
+        },
+        {
+            "description": "Lightweight but flexible shim designed to rectify the incompatibilities\nbetween the Accelerate/vecLib BLAS and LAPACK libraries shipped with\nmacOS and FORTRAN code compiled with modern compilers such as GNU\nFortran.",
+            "name": "lapack"
+        },
+        {
+            "description": "Libxc is a library of exchange-correlation functionals for density-\nfunctional theory.",
+            "name": "libxc"
+        },
+        {
+            "description": "GNU M4 is an implementation of the traditional Unix macro processor.",
+            "name": "m4"
+        },
+        {
+            "description": "IBM MPI implementation from Spectrum MPI.",
+            "name": "mpi"
+        },
+        {
+            "description": "Ninja is a small build system with a focus on speed. It differs from\nother build systems in two major respects: it is designed to have its\ninput files generated by a higher-level build system, and it is designed\nto run builds as fast as possible.",
+            "name": "ninja"
+        },
+        {
+            "description": "NVPL ScaLAPACK (NVIDIA Performance Libraries ScaLAPACK).",
+            "name": "scalapack"
+        }
+    ],
+    "dependent_to": [],
+    "description": "Quantum ESPRESSO is an integrated suite of Open-Source computer codes\nfor electronic-structure calculations and materials modeling at the\nnanoscale. It is based on density-functional theory, plane waves, and\npseudopotentials.\n",
+    "homepage": "https://quantum-espresso.org",
+    "latest_version": "7.4.1",
+    "maintainers": [
+        "bellenlau",
+        "tgorni",
+        "ye-luo"
+    ],
+    "name": "quantum-espresso",
+    "patches": [
+        {
+            "level": 1,
+            "owner": "builtin.quantum-espresso",
+            "reverse": false,
+            "sha256": "04c125d249d1f076abe04bc4de39bd3b44a41a78d6233b638a17bd96f91443d5",
+            "url": "https://gitlab.com/QEF/q-e/-/commit/b98ff7539e5731728d2d49ac01021a57f2594027.diff",
+            "version": "@=7.3+elpa build_system=cmake",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.quantum-espresso",
+            "reverse": false,
+            "sha256": "e54d33e36a2667bd1d7e358db9fa9d4d83085264cdd47e39ce88754452ae7700",
+            "url": "https://gitlab.com/QEF/q-e/-/commit/4ca3afd4c6f27afcf3f42415a85a353a7be1bd37.diff",
+            "version": "@7.1 build_system=cmake",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.quantum-espresso",
+            "reverse": false,
+            "sha256": "5075f2df61ef5ff70f2ec3b52a113f5636fb07f5d3d4c0115931f9b95ed61c3e",
+            "url": "https://gitlab.com/QEF/q-e/-/commit/481a001293de2f9eec8481e02d64f679ffd83ede.diff",
+            "version": "@7.1 build_system=cmake",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.quantum-espresso",
+            "reverse": false,
+            "sha256": "ef60641d8b953b4ba21d9c662b172611305bb63786996ad6e81e7609891677ff",
+            "url": "https://raw.githubusercontent.com/QMCPACK/qmcpack/v3.13.0/external_codes/quantum_espresso/add_pw2qmcpack_to_qe-7.0.diff",
+            "version": "@7.0+qmcpack",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.quantum-espresso",
+            "reverse": false,
+            "sha256": "69f7fbd72aba810c35a0b034188e45bea8f9f11d3150c0715e1b3518d5c09248",
+            "url": "https://raw.githubusercontent.com/QMCPACK/qmcpack/v3.13.0/external_codes/quantum_espresso/add_pw2qmcpack_to_qe-6.8.diff",
+            "version": "@6.8+qmcpack",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.quantum-espresso",
+            "reverse": false,
+            "sha256": "72564c168231dd4a1279a74e76919af701d47cee9a851db6e205753004fe9bb5",
+            "url": "https://raw.githubusercontent.com/QMCPACK/qmcpack/v3.13.0/external_codes/quantum_espresso/add_pw2qmcpack_to_qe-6.7.0.diff",
+            "version": "@6.7+qmcpack",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.quantum-espresso",
+            "reverse": false,
+            "sha256": "f43b7411e535629d9ef564a2e1695359df2651ecbdbca563f7265412afc2228a",
+            "url": "https://gitlab.com/QEF/q-e/-/commit/081409ea90cba0ddc07bea5ac29e3cd422c67d3d.diff",
+            "version": "@6.6:7.3.1",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.quantum-espresso",
+            "reverse": false,
+            "sha256": "57cb1b06ee2653a87c3acc0dd4f09032fcf6ce6b8cbb9677ae9ceeb6a78f85e2",
+            "url": "https://raw.githubusercontent.com/QMCPACK/qmcpack/v3.13.0/external_codes/quantum_espresso/add_pw2qmcpack_to_qe-6.4.1.diff",
+            "version": "@6.4.1+qmcpack",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.quantum-espresso",
+            "reverse": false,
+            "sha256": "ef08f5089951be902f0854a4dbddaa7b01f08924cdb27decfade6bef0e2b8994",
+            "url": "https://raw.githubusercontent.com/QMCPACK/qmcpack/v3.13.0/external_codes/quantum_espresso/add_pw2qmcpack_to_qe-6.4.diff",
+            "version": "@=6.4+qmcpack",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.quantum-espresso",
+            "reverse": false,
+            "sha256": "2ee346e24926479f5e96f8dc47812173a8847a58354bbc32cf2114af7a521c13",
+            "url": "https://raw.githubusercontent.com/QMCPACK/qmcpack/v3.13.0/external_codes/quantum_espresso/add_pw2qmcpack_to_qe-6.3.diff",
+            "version": "@6.3+qmcpack",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.quantum-espresso",
+            "relative_path": "dspev_drv_elpa.patch",
+            "reverse": false,
+            "sha256": "8a2d10014db85f87700428a774716885325bf3d9496f4def30fd6b5804d576cb",
+            "version": "@6.1.0:+elpa ^elpa@2016.05.004",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.quantum-espresso",
+            "relative_path": "dspev_drv_elpa.patch",
+            "reverse": false,
+            "sha256": "8a2d10014db85f87700428a774716885325bf3d9496f4def30fd6b5804d576cb",
+            "version": "@6.1.0:+elpa ^elpa@2016.05.003",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.quantum-espresso",
+            "reverse": false,
+            "sha256": "8f179663a8d031aff9b1820a32449942281195b6e7b1ceaab1f729651b43fa58",
+            "url": "https://gitlab.com/QEF/q-e/-/commit/cf1fedefc20d39f5cd7551ded700ea4c77ad6e8f.diff",
+            "version": "@6.6+patch",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.quantum-espresso",
+            "reverse": false,
+            "sha256": "f4f1cce4182b57ac797c8f6ec8460fe375ee96385fcd8f6a61e1460bc957eb67",
+            "url": "https://gitlab.com/QEF/q-e/-/commit/8f096b53e75026701c681c508e2c24a9378c0950.diff",
+            "version": "@6.5+patch",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.quantum-espresso",
+            "reverse": false,
+            "sha256": "b2dadc0bc008a3ad4b74ae85cc380dd2b63f2ae43a634e6f9d8db8077efcea6c",
+            "url": "https://gitlab.com/QEF/q-e/-/commit/c2a86201ed72693ffa50cc99b22f5d3365ae2c2b.diff",
+            "version": "@6.5+patch",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.quantum-espresso",
+            "reverse": false,
+            "sha256": "bc8c5b8523156cee002d97dab42a5976dffae20605da485a427b902a236d7e6b",
+            "url": "https://gitlab.com/QEF/q-e/commit/0796e1b7c55c9361ecb6515a0979280e78865e36.diff",
+            "version": "@=6.3+patch",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.quantum-espresso",
+            "reverse": false,
+            "sha256": "b776890d008e16cca28c31299c62f47de0ba606b900b17cbc27c041f45e564ca",
+            "url": "https://gitlab.com/QEF/q-e/commit/88e6558646dbbcfcafa5f3fa758217f6062ab91c.diff",
+            "version": "@=6.3+patch",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.quantum-espresso",
+            "reverse": false,
+            "sha256": "b1aa3179ee1c069964fb9c21f3b832aebeae54947ce8d3cc1a74e7b154c3c10f",
+            "url": "https://gitlab.com/QEF/q-e/commit/5fb1195b0844e1052b7601f18ab5c700f9cbe648.diff",
+            "version": "@6.4.1:6.5.0+patch",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.quantum-espresso",
+            "reverse": false,
+            "sha256": "bbceba1fb08d01d548d4393bbcaeae966def13f75884268a0f84448457b8eaa3",
+            "url": "https://gitlab.com/QEF/q-e/-/commit/cf088926d68792cbaea48960c222e336a3965df6.diff",
+            "version": "@6.4.1:6.5.0+patch",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.quantum-espresso",
+            "relative_path": "fj-intent.6.4.1.patch",
+            "reverse": false,
+            "sha256": "e6892e0862e2a46d7b46e2829d9179e587a48cbca83598f2bd8d20e7ad4f0fb7",
+            "version": "@6.4.1+patch",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.quantum-espresso",
+            "reverse": false,
+            "sha256": "b2dadc0bc008a3ad4b74ae85cc380dd2b63f2ae43a634e6f9d8db8077efcea6c",
+            "url": "https://gitlab.com/QEF/q-e/-/commit/c2a86201ed72693ffa50cc99b22f5d3365ae2c2b.diff",
+            "version": "@6.4.1+patch",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.quantum-espresso",
+            "relative_path": "configure_aocc.patch",
+            "reverse": false,
+            "sha256": "ff9efa90bf603774b90b4e9f856f606f7cccf845b4182388224ea3b915d20fe5",
+            "version": "@6.7 %aocc",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.quantum-espresso",
+            "relative_path": "nvhpc.patch",
+            "reverse": false,
+            "sha256": "e08a272e69d34ef613800f6efcd4b10d8d2fcad4346c79b3e1087f1cd1abce0b",
+            "version": "@6.5 %nvhpc",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.quantum-espresso",
+            "relative_path": "fj.6.5.patch",
+            "reverse": false,
+            "sha256": "a4725f8d602357054df50ccc536f2f49f145c49cc85c9e6f31172b59f53edc52",
+            "version": "@6.5+patch %fj",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.quantum-espresso",
+            "relative_path": "fj.6.6.patch",
+            "reverse": false,
+            "sha256": "d9e11ec6ac4af0e67efe017eab5df40103857a1f7f683f2e5c6f144564848ab4",
+            "version": "@6.6:6.7+patch %fj",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.quantum-espresso",
+            "relative_path": "fj-fox.patch",
+            "reverse": false,
+            "sha256": "7635607d7c56aaf630958084ec74afddca1d02f0f34535f916ce72f784099a60",
+            "version": "+patch %fj",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.quantum-espresso",
+            "relative_path": "gipaw-eccee44.patch",
+            "reverse": false,
+            "sha256": "a9f792c3394aac14377fd42b79e46bcbb8be0abc7cc21ccdf9a0edabd55138c4",
+            "version": "@7.2+gipaw build_system=cmake",
+            "working_dir": "."
+        }
+    ],
+    "resources": [
+        {
+            "destination": ".",
+            "name": "environ",
+            "placement": null,
+            "version": "@6.3:6.4+environ"
+        },
+        {
+            "destination": ".",
+            "name": "environ",
+            "placement": null,
+            "version": "@6.2.1:6.2+environ"
+        }
+    ],
+    "variants": [
+        {
+            "default": "cmake",
+            "description": "Build systems supported by the package",
+            "name": "build_system"
+        },
+        {
+            "default": "Release",
+            "description": "CMake build type",
+            "name": "build_type"
+        },
+        {
+            "default": false,
+            "description": "Display program time in seconds",
+            "name": "clock"
+        },
+        {
+            "default": false,
+            "description": "Build with CUDA Fortran",
+            "name": "cuda"
+        },
+        {
+            "default": false,
+            "description": "Uses elpa as an eigenvalue solver",
+            "name": "elpa"
+        },
+        {
+            "default": false,
+            "description": "Enables support for introducing environment effects into atomistic first-principles simulations.See http://quantum-environ.org/about.html",
+            "name": "environ"
+        },
+        {
+            "default": true,
+            "description": "Builds Electron-phonon Wannier executable",
+            "name": "epw"
+        },
+        {
+            "default": false,
+            "description": "Enables FoX library",
+            "name": "fox"
+        },
+        {
+            "default": "make",
+            "description": "the build system generator to use",
+            "name": "generator"
+        },
+        {
+            "default": false,
+            "description": "Builds Gauge-Including Projector Augmented-Waves executable",
+            "name": "gipaw"
+        },
+        {
+            "default": "none",
+            "description": "Orbital and density data I/O with HDF5",
+            "name": "hdf5"
+        },
+        {
+            "default": false,
+            "description": "CMake interprocedural optimization",
+            "name": "ipo"
+        },
+        {
+            "default": false,
+            "description": "Uses libxc",
+            "name": "libxc"
+        },
+        {
+            "default": true,
+            "description": "Builds with mpi support",
+            "name": "mpi"
+        },
+        {
+            "default": false,
+            "description": "Enables GPU-aware MPI operations",
+            "name": "mpigpu"
+        },
+        {
+            "default": false,
+            "description": "Enables NVTX markers for profiling",
+            "name": "nvtx"
+        },
+        {
+            "default": true,
+            "description": "Enables OpenMP support",
+            "name": "openmp"
+        },
+        {
+            "default": true,
+            "description": "Apply recommended upstream patches. May need to be set to False for third party patches or plugins",
+            "name": "patch"
+        },
+        {
+            "default": false,
+            "description": "Build QE-to-QMCPACK wave function converter",
+            "name": "qmcpack"
+        },
+        {
+            "default": true,
+            "description": "Enables scalapack support",
+            "name": "scalapack"
+        }
+    ],
+    "versions": [
+        {
+            "branch": "develop",
+            "name": "develop"
+        },
+        {
+            "name": "7.4.1",
+            "sha256": "6ef9c53dbf0add2a5bf5ad2a372c0bff935ad56c4472baa001003e4f932cab97"
+        },
+        {
+            "name": "7.4",
+            "sha256": "b15dcfe25f4fbf15ccd34c1194021e90996393478226e601d876f7dea481d104"
+        },
+        {
+            "name": "7.3.1",
+            "sha256": "2c58b8fadfe4177de5a8b69eba447db5e623420b070dea6fd26c1533b081d844"
+        },
+        {
+            "name": "7.3",
+            "sha256": "edc2a0f3315c69966df4f82ec86ab9f682187bc9430ef6d2bacad5f27f08972c"
+        },
+        {
+            "name": "7.2",
+            "sha256": "b348a4a7348b66a73545d9ca317a2645755c98d343c1cfe8def475ad030808c0"
+        },
+        {
+            "name": "7.1",
+            "sha256": "d56dea096635808843bd5a9be2dee3d1f60407c01dbeeda03f8256a3bcfc4eb6"
+        },
+        {
+            "name": "7.0",
+            "sha256": "85beceb1aaa1678a49e774c085866d4612d9d64108e0ac49b23152c8622880ee"
+        },
+        {
+            "name": "6.8",
+            "sha256": "654855c69864de7ece5ef2f2c0dea2d32698fe51192a8646b1555b0c57e033b2"
+        },
+        {
+            "name": "6.7",
+            "sha256": "fe0ce74ff736b10d2a20c9d59025c01f88f86b00d229c123b1791f1edd7b4315",
+            "url": "https://gitlab.com/QEF/q-e/-/archive/qe-6.7MaX-Release/q-e-qe-6.7MaX-Release.tar.gz"
+        },
+        {
+            "name": "6.6",
+            "sha256": "924656cb083f52e5d2fe71ade05881389dac64b45316f1bdd6dee1c6170a672c"
+        },
+        {
+            "name": "6.5",
+            "sha256": "258b2a8a6280e86dad779e5c56356d8b35dc96d12ff33dabeee914bc03d6d602"
+        },
+        {
+            "name": "6.4.1",
+            "sha256": "b0d7e9f617b848753ad923d8c6ca5490d5d82495f82b032b71a0ff2f2e9cfa08"
+        },
+        {
+            "name": "6.4",
+            "sha256": "781366d03da75516fdcf9100a1caadb26ccdd1dedd942a6f8595ff0edca74bfe"
+        },
+        {
+            "name": "6.3",
+            "sha256": "4067c8fffa957aabbd5cf2439e2fcb6cf3752325393c67a17d99fd09edf8689c"
+        },
+        {
+            "name": "6.2.1",
+            "sha256": "11fe24b4a9d85834f8b6d429baebed8b360a685ecfae222887ed451e118a9156"
+        },
+        {
+            "name": "6.2.0",
+            "sha256": "e204df367c8ea1a50c7534b44481841d835a542a23ae71c3e33ad712fc636c8b"
+        },
+        {
+            "name": "6.1.0",
+            "sha256": "fd2c2eb346b3ca8f08138df5ef3f69b466c256d2119db40eea1b578b0a42c66e"
+        },
+        {
+            "name": "6.0.0",
+            "sha256": "bc77d9553bf5a9253ae74058dffb1d6e5fb61093188e78d3b8d8564755136f19"
+        },
+        {
+            "name": "5.4",
+            "sha256": "e3993fccae9cea04a5c6492e8b961a053a63727051cb5c4eb6008f62cda8f335"
+        },
+        {
+            "name": "5.3",
+            "sha256": "3b26038efb9e3f8ac7a2b950c31d8c29169a3556c0b68c299eb88a4be8dc9048"
+        }
+    ],
+    "versions_deprecated": []
+}

@@ -1,0 +1,536 @@
+{
+    "aliases": [],
+    "build_system": "MakefilePackage",
+    "conflicts": [
+        {
+            "description": "vasp: nvhpc mpi requires nvhpc compiler",
+            "name": "^mpi=nvhpc",
+            "spec": "%aocc"
+        },
+        {
+            "description": "vasp: GFortran before 9.x does not support all features needed to build VASP",
+            "name": "%gcc@:8",
+            "spec": ""
+        },
+        {
+            "description": "vasp: nvhpc mpi requires nvhpc compiler",
+            "name": "^mpi=nvhpc",
+            "spec": "%gcc"
+        },
+        {
+            "description": null,
+            "name": "%clang@7:",
+            "spec": "+cuda ^cuda@10.0.130~allow-unsupported-compilers arch=None-None-ppc64le:"
+        },
+        {
+            "description": null,
+            "name": "%clang@:3.7,6.1:",
+            "spec": "+cuda ^cuda@10.0.130~allow-unsupported-compilers arch=None-None-x86_64:"
+        },
+        {
+            "description": null,
+            "name": "%clang@:3.7,8.1:",
+            "spec": "+cuda ^cuda@10.1.105:10.1.243~allow-unsupported-compilers arch=None-None-x86_64:"
+        },
+        {
+            "description": null,
+            "name": "%clang@:3.7,7.1:",
+            "spec": "+cuda ^cuda@10.1.105~allow-unsupported-compilers arch=None-None-x86_64:"
+        },
+        {
+            "description": null,
+            "name": "%clang@:3.2,9:",
+            "spec": "+cuda ^cuda@10.2.89~allow-unsupported-compilers arch=None-None-x86_64:"
+        },
+        {
+            "description": null,
+            "name": "%clang@:5",
+            "spec": "+cuda ^cuda@11.0.2:~allow-unsupported-compilers arch=None-None-ppc64le:"
+        },
+        {
+            "description": null,
+            "name": "%clang@:5",
+            "spec": "+cuda ^cuda@11.0.2:~allow-unsupported-compilers arch=None-None-x86_64:"
+        },
+        {
+            "description": null,
+            "name": "arch=darwin-None-None",
+            "spec": "+cuda ^cuda@11.0.2:~allow-unsupported-compilers"
+        },
+        {
+            "description": null,
+            "name": "%gcc@:4",
+            "spec": "+cuda ^cuda@11.0:~allow-unsupported-compilers"
+        },
+        {
+            "description": null,
+            "name": "%gcc@:5",
+            "spec": "+cuda ^cuda@11.4:~allow-unsupported-compilers"
+        },
+        {
+            "description": null,
+            "name": "%clang@:6",
+            "spec": "+cuda ^cuda@12.2:~allow-unsupported-compilers"
+        },
+        {
+            "description": null,
+            "name": "arch=None-None-ppc64le",
+            "spec": "+cuda ^cuda@12.5:~allow-unsupported-compilers"
+        },
+        {
+            "description": null,
+            "name": "%intel@:12.0",
+            "spec": "+cuda ^cuda@5.5:~allow-unsupported-compilers"
+        },
+        {
+            "description": null,
+            "name": "%intel@:13.0",
+            "spec": "+cuda ^cuda@6.0:~allow-unsupported-compilers"
+        },
+        {
+            "description": null,
+            "name": "%intel@:13.2",
+            "spec": "+cuda ^cuda@6.5:~allow-unsupported-compilers"
+        },
+        {
+            "description": null,
+            "name": "%intel@:14.9",
+            "spec": "+cuda ^cuda@7:~allow-unsupported-compilers"
+        },
+        {
+            "description": null,
+            "name": "%clang@:3.7,4:",
+            "spec": "+cuda ^cuda@8.0:9.0~allow-unsupported-compilers arch=None-None-x86_64:"
+        },
+        {
+            "description": null,
+            "name": "%clang@:3.7,4.1:",
+            "spec": "+cuda ^cuda@9.1~allow-unsupported-compilers arch=None-None-x86_64:"
+        },
+        {
+            "description": null,
+            "name": "%clang@:3.7,5.1:",
+            "spec": "+cuda ^cuda@9.2~allow-unsupported-compilers arch=None-None-x86_64:"
+        },
+        {
+            "description": null,
+            "name": "%xl@:12,14:15,17:",
+            "spec": "+cuda ^cuda@9.2~allow-unsupported-compilers"
+        },
+        {
+            "description": null,
+            "name": "%gcc@8:",
+            "spec": "+cuda ^cuda@:10.0.130~allow-unsupported-compilers arch=None-None-ppc64le:"
+        },
+        {
+            "description": null,
+            "name": "%gcc@8:",
+            "spec": "+cuda ^cuda@:10.0.130~allow-unsupported-compilers arch=None-None-x86_64:"
+        },
+        {
+            "description": null,
+            "name": "%intel@19.0:",
+            "spec": "+cuda ^cuda@:10.0~allow-unsupported-compilers"
+        },
+        {
+            "description": null,
+            "name": "%clang@7.1:",
+            "spec": "+cuda ^cuda@:10.1.105~allow-unsupported-compilers arch=None-None-ppc64le:"
+        },
+        {
+            "description": null,
+            "name": "%gcc@9:",
+            "spec": "+cuda ^cuda@:10.1.243~allow-unsupported-compilers arch=None-None-ppc64le:"
+        },
+        {
+            "description": null,
+            "name": "%intel@19.1:",
+            "spec": "+cuda ^cuda@:10.1~allow-unsupported-compilers"
+        },
+        {
+            "description": null,
+            "name": "%clang@8.1:",
+            "spec": "+cuda ^cuda@:10.2.89~allow-unsupported-compilers arch=None-None-ppc64le:"
+        },
+        {
+            "description": null,
+            "name": "%gcc@9:",
+            "spec": "+cuda ^cuda@:10.2.89~allow-unsupported-compilers arch=None-None-x86_64:"
+        },
+        {
+            "description": null,
+            "name": "%clang@10:",
+            "spec": "+cuda ^cuda@:11.0.2~allow-unsupported-compilers arch=None-None-ppc64le:"
+        },
+        {
+            "description": null,
+            "name": "%clang@10:",
+            "spec": "+cuda ^cuda@:11.0.3~allow-unsupported-compilers arch=None-None-x86_64:"
+        },
+        {
+            "description": null,
+            "name": "%gcc@10:",
+            "spec": "+cuda ^cuda@:11.0~allow-unsupported-compilers"
+        },
+        {
+            "description": null,
+            "name": "%clang@11:",
+            "spec": "+cuda ^cuda@:11.1.0~allow-unsupported-compilers arch=None-None-ppc64le:"
+        },
+        {
+            "description": null,
+            "name": "%clang@11:",
+            "spec": "+cuda ^cuda@:11.1.0~allow-unsupported-compilers arch=None-None-x86_64:"
+        },
+        {
+            "description": null,
+            "name": "%intel@19.2:",
+            "spec": "+cuda ^cuda@:11.1.0~allow-unsupported-compilers"
+        },
+        {
+            "description": null,
+            "name": "%xl@:12,17:",
+            "spec": "+cuda ^cuda@:11.1.0~allow-unsupported-compilers"
+        },
+        {
+            "description": null,
+            "name": "%clang@12:",
+            "spec": "+cuda ^cuda@:11.4.0~allow-unsupported-compilers"
+        },
+        {
+            "description": null,
+            "name": "%gcc@10",
+            "spec": "+cuda ^cuda@:11.4.0~allow-unsupported-compilers"
+        },
+        {
+            "description": null,
+            "name": "%gcc@11:",
+            "spec": "+cuda ^cuda@:11.4.0~allow-unsupported-compilers"
+        },
+        {
+            "description": null,
+            "name": "%intel@2021:",
+            "spec": "+cuda ^cuda@:11.4.0~allow-unsupported-compilers"
+        },
+        {
+            "description": null,
+            "name": "%clang@13:",
+            "spec": "+cuda ^cuda@:11.5~allow-unsupported-compilers"
+        },
+        {
+            "description": null,
+            "name": "%gcc@11.2:",
+            "spec": "+cuda ^cuda@:11.5~allow-unsupported-compilers"
+        },
+        {
+            "description": null,
+            "name": "%clang@14:",
+            "spec": "+cuda ^cuda@:11.7~allow-unsupported-compilers"
+        },
+        {
+            "description": null,
+            "name": "%gcc@12:",
+            "spec": "+cuda ^cuda@:11.8~allow-unsupported-compilers"
+        },
+        {
+            "description": null,
+            "name": "%clang@15:",
+            "spec": "+cuda ^cuda@:12.0~allow-unsupported-compilers"
+        },
+        {
+            "description": null,
+            "name": "%clang@16:",
+            "spec": "+cuda ^cuda@:12.1~allow-unsupported-compilers"
+        },
+        {
+            "description": null,
+            "name": "%clang@17:",
+            "spec": "+cuda ^cuda@:12.3~allow-unsupported-compilers"
+        },
+        {
+            "description": null,
+            "name": "%gcc@13:",
+            "spec": "+cuda ^cuda@:12.3~allow-unsupported-compilers"
+        },
+        {
+            "description": null,
+            "name": "%gcc@13.2.0",
+            "spec": "+cuda ^cuda@:12.4~allow-unsupported-compilers arch=None-None-aarch64:"
+        },
+        {
+            "description": null,
+            "name": "%clang@18:",
+            "spec": "+cuda ^cuda@:12.5~allow-unsupported-compilers"
+        },
+        {
+            "description": null,
+            "name": "%clang@19:",
+            "spec": "+cuda ^cuda@:12.6~allow-unsupported-compilers"
+        },
+        {
+            "description": null,
+            "name": "%gcc@14:",
+            "spec": "+cuda ^cuda@:12.6~allow-unsupported-compilers"
+        },
+        {
+            "description": null,
+            "name": "%clang@20:",
+            "spec": "+cuda ^cuda@:12.9~allow-unsupported-compilers"
+        },
+        {
+            "description": null,
+            "name": "%gcc@15:",
+            "spec": "+cuda ^cuda@:12.9~allow-unsupported-compilers"
+        },
+        {
+            "description": null,
+            "name": "%intel@:11.0",
+            "spec": "+cuda ^cuda@:3.1~allow-unsupported-compilers"
+        },
+        {
+            "description": null,
+            "name": "%clang@:3.4",
+            "spec": "+cuda ^cuda@:7.5~allow-unsupported-compilers arch=None-None-x86_64:"
+        },
+        {
+            "description": null,
+            "name": "%gcc@5:",
+            "spec": "+cuda ^cuda@:7.5~allow-unsupported-compilers arch=None-None-x86_64:"
+        },
+        {
+            "description": null,
+            "name": "%intel@16.0:",
+            "spec": "+cuda ^cuda@:8.0.43~allow-unsupported-compilers"
+        },
+        {
+            "description": null,
+            "name": "%intel@17.0:",
+            "spec": "+cuda ^cuda@:8.0.60~allow-unsupported-compilers"
+        },
+        {
+            "description": null,
+            "name": "%gcc@6:",
+            "spec": "+cuda ^cuda@:8~allow-unsupported-compilers arch=None-None-x86_64:"
+        },
+        {
+            "description": null,
+            "name": "%clang@4:",
+            "spec": "+cuda ^cuda@:9.0.176~allow-unsupported-compilers arch=None-None-ppc64le:"
+        },
+        {
+            "description": null,
+            "name": "%clang@5:",
+            "spec": "+cuda ^cuda@:9.1~allow-unsupported-compilers arch=None-None-ppc64le:"
+        },
+        {
+            "description": null,
+            "name": "%gcc@7:",
+            "spec": "+cuda ^cuda@:9.1~allow-unsupported-compilers arch=None-None-x86_64:"
+        },
+        {
+            "description": null,
+            "name": "%xl@:12,14:",
+            "spec": "+cuda ^cuda@:9.1~allow-unsupported-compilers"
+        },
+        {
+            "description": null,
+            "name": "%clang@6:",
+            "spec": "+cuda ^cuda@:9.2~allow-unsupported-compilers arch=None-None-ppc64le:"
+        },
+        {
+            "description": null,
+            "name": "%intel@18.0:",
+            "spec": "+cuda ^cuda@:9.9~allow-unsupported-compilers"
+        },
+        {
+            "description": null,
+            "name": "%gcc@6:",
+            "spec": "+cuda ^cuda@:9~allow-unsupported-compilers arch=None-None-ppc64le:"
+        },
+        {
+            "description": "vasp: +vaspsol only available for CPU",
+            "name": "+vaspsol",
+            "spec": "+cuda"
+        },
+        {
+            "description": "vasp: CUDA arch required when building openacc port",
+            "name": "cuda_arch=none",
+            "spec": "@6.3:+cuda"
+        },
+        {
+            "description": null,
+            "name": "arch=windows-None-None",
+            "spec": "build_system=makefile"
+        }
+    ],
+    "dependencies": [
+        {
+            "description": "AMD Optimized BLIS. BLIS is a portable software framework for\ninstantiating high-performance BLAS-like dense linear algebra libraries.\nThe framework was designed to isolate essential kernels of computation\nthat, when optimized, immediately enable optimized implementations of\nmost of its commonly used and computationally intensive operations.\nLICENSING INFORMATION: By downloading, installing and using this\nsoftware, you agree to the terms and conditions of the AMD AOCL-BLIS\nlicense agreement. You may obtain a copy of this license agreement from\nhttps://www.amd.com/en/developer/aocl/dense/eula/blas-4-2-eula.html\nhttps://www.amd.com/en/developer/aocl/dense/eula/blas-eula.html",
+            "name": "amdblis"
+        },
+        {
+            "description": "FFTW (AMD Optimized version) is a comprehensive collection of fast C\nroutines for computing the Discrete Fourier Transform (DFT) and various\nspecial cases thereof. It is an open-source implementation of the Fast\nFourier transform algorithm. It can compute transforms of real and\ncomplex-values arrays of arbitrary size and dimension. AMD Optimized\nFFTW is the optimized FFTW implementation targeted for AMD CPUs. For\nsingle precision build, please use precision value as float. Example :\nspack install amdfftw precision=float LICENSING INFORMATION: By\ndownloading, installing and using this software, you agree to the terms\nand conditions of the AMD AOCL-FFTW license agreement. You may obtain a\ncopy of this license agreement from\nhttps://www.amd.com/en/developer/aocl/fftw/eula/fftw-\nlibraries-4-2-eula.html\nhttps://www.amd.com/en/developer/aocl/fftw/eula/fftw-libraries-eula.html",
+            "name": "amdfftw"
+        },
+        {
+            "description": "Lightweight but flexible shim designed to rectify the incompatibilities\nbetween the Accelerate/vecLib BLAS and LAPACK libraries shipped with\nmacOS and FORTRAN code compiled with modern compilers such as GNU\nFortran.",
+            "name": "blas"
+        },
+        {
+            "description": "The NVIDIA HPC SDK is a comprehensive suite of compilers, libraries and\ntools essential to maximizing developer productivity and the performance\nand portability of HPC applications. The NVIDIA HPC SDK C, C++, and\nFortran compilers support GPU acceleration of HPC modeling and\nsimulation applications with standard C++ and Fortran, OpenACC\ndirectives, and CUDA. GPU-accelerated math libraries maximize\nperformance on common HPC algorithms, and optimized communications\nlibraries enable standards-based multi-GPU and scalable systems\nprogramming. Performance profiling and debugging tools simplify porting\nand optimization of HPC applications.",
+            "name": "c"
+        },
+        {
+            "description": "CUDA is a parallel computing platform and programming model invented by\nNVIDIA. It enables dramatic increases in computing performance by\nharnessing the power of the graphics processing unit (GPU). Note: This\npackage does not currently install the drivers necessary to run CUDA.\nThese will need to be installed manually. See:\nhttps://docs.nvidia.com/cuda/ for details.",
+            "name": "cuda"
+        },
+        {
+            "description": "The NVIDIA HPC SDK is a comprehensive suite of compilers, libraries and\ntools essential to maximizing developer productivity and the performance\nand portability of HPC applications. The NVIDIA HPC SDK C, C++, and\nFortran compilers support GPU acceleration of HPC modeling and\nsimulation applications with standard C++ and Fortran, OpenACC\ndirectives, and CUDA. GPU-accelerated math libraries maximize\nperformance on common HPC algorithms, and optimized communications\nlibraries enable standards-based multi-GPU and scalable systems\nprogramming. Performance profiling and debugging tools simplify porting\nand optimization of HPC applications.",
+            "name": "cxx"
+        },
+        {
+            "description": "FFTW is a C subroutine library for computing the discrete Fourier\ntransform (DFT) in one or more dimensions, of arbitrary input size, and\nof both real and complex data (as well as of even/odd data, i.e. the\ndiscrete cosine/sine transforms or DCT/DST). We believe that FFTW, which\nis free software, should become the FFT library of choice for most\napplications.",
+            "name": "fftw"
+        },
+        {
+            "description": "NVPL FFT (NVIDIA Performance Libraries FFT) is part of NVIDIA\nPerformance Libraries and provides Fast Fourier Transform (FFT)\ncalculations on ARM CPUs.",
+            "name": "fftw-api"
+        },
+        {
+            "description": "The NVIDIA HPC SDK is a comprehensive suite of compilers, libraries and\ntools essential to maximizing developer productivity and the performance\nand portability of HPC applications. The NVIDIA HPC SDK C, C++, and\nFortran compilers support GPU acceleration of HPC modeling and\nsimulation applications with standard C++ and Fortran, OpenACC\ndirectives, and CUDA. GPU-accelerated math libraries maximize\nperformance on common HPC algorithms, and optimized communications\nlibraries enable standards-based multi-GPU and scalable systems\nprogramming. Performance profiling and debugging tools simplify porting\nand optimization of HPC applications.",
+            "name": "fortran"
+        },
+        {
+            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files.",
+            "name": "gmake"
+        },
+        {
+            "description": "HDF5 is a data model, library, and file format for storing and managing\ndata. It supports an unlimited variety of datatypes, and is designed for\nflexible and efficient I/O and for high volume and complex data.",
+            "name": "hdf5"
+        },
+        {
+            "description": "Lightweight but flexible shim designed to rectify the incompatibilities\nbetween the Accelerate/vecLib BLAS and LAPACK libraries shipped with\nmacOS and FORTRAN code compiled with modern compilers such as GNU\nFortran.",
+            "name": "lapack"
+        },
+        {
+            "description": "IBM MPI implementation from Spectrum MPI.",
+            "name": "mpi"
+        },
+        {
+            "description": "Optimized primitives for collective multi-GPU communication.",
+            "name": "nccl"
+        },
+        {
+            "description": "OpenBLAS: An optimized BLAS library",
+            "name": "openblas"
+        },
+        {
+            "description": "An open source Message Passing Interface implementation. The Open MPI\nProject is an open source Message Passing Interface implementation that\nis developed and maintained by a consortium of academic, research, and\nindustry partners. Open MPI is therefore able to combine the expertise,\ntechnologies, and resources from all across the High Performance\nComputing community in order to build the best MPI library available.\nOpen MPI offers advantages for system and software vendors, application\ndevelopers and computer science researchers.",
+            "name": "openmpi"
+        },
+        {
+            "description": "An open source utility that provides fast incremental file transfer.",
+            "name": "rsync"
+        },
+        {
+            "description": "NVPL ScaLAPACK (NVIDIA Performance Libraries ScaLAPACK).",
+            "name": "scalapack"
+        }
+    ],
+    "dependent_to": [],
+    "description": " The Vienna Ab initio Simulation Package (VASP) is a computer program\nfor atomic scale materials modelling, e.g. electronic structure\ncalculations and quantum-mechanical molecular dynamics, from first\nprinciples.\n",
+    "homepage": "https://vasp.at",
+    "latest_version": "6.4.3",
+    "maintainers": [
+        "snehring"
+    ],
+    "name": "vasp",
+    "patches": [],
+    "resources": [
+        {
+            "destination": "",
+            "name": "vaspsol",
+            "placement": null,
+            "version": "+vaspsol"
+        }
+    ],
+    "variants": [
+        {
+            "default": "makefile",
+            "description": "Build systems supported by the package",
+            "name": "build_system"
+        },
+        {
+            "default": false,
+            "description": "Enables running on Nvidia GPUs",
+            "name": "cuda"
+        },
+        {
+            "default": "none",
+            "description": "CUDA architecture",
+            "name": "cuda_arch"
+        },
+        {
+            "default": true,
+            "description": "Enables fftlib build",
+            "name": "fftlib"
+        },
+        {
+            "default": false,
+            "description": "Enabled HDF5 support",
+            "name": "hdf5"
+        },
+        {
+            "default": false,
+            "description": "Enable openmp build",
+            "name": "openmp"
+        },
+        {
+            "default": false,
+            "description": "Enables build with SCALAPACK",
+            "name": "scalapack"
+        },
+        {
+            "default": true,
+            "description": "Enable use_shmem build flag",
+            "name": "shmem"
+        },
+        {
+            "default": false,
+            "description": "Enable VASPsol implicit solvation model\nhttps://github.com/henniggroup/VASPsol",
+            "name": "vaspsol"
+        }
+    ],
+    "versions": [
+        {
+            "name": "6.4.3",
+            "sha256": "fe30e773f2a3e909b5e0baa9654032dfbdeff7ec157bc348cee7681a7b6c24f4"
+        },
+        {
+            "name": "6.3.2",
+            "sha256": "f7595221b0f9236a324ea8afe170637a578cdd5a837cc7679e7f7812f6edf25a"
+        },
+        {
+            "name": "6.3.0",
+            "sha256": "adcf83bdfd98061016baae31616b54329563aa2739573f069dd9df19c2071ad3"
+        }
+    ],
+    "versions_deprecated": [
+        {
+            "name": "6.2.0",
+            "sha256": "49e7ba351bd634bc5f5f67a8ef1e38e64e772857a1c02f602828898a84197e25"
+        },
+        {
+            "name": "6.1.1",
+            "sha256": "e37a4dfad09d3ad0410833bcd55af6b599179a085299026992c2d8e319bf6927"
+        },
+        {
+            "name": "5.4.4.pl2",
+            "sha256": "98f75fd75399a23d76d060a6155f4416b340a1704f256a00146f89024035bc8e"
+        },
+        {
+            "name": "5.4.4",
+            "sha256": "5bd2449462386f01e575f9adf629c08cb03a13142806ffb6a71309ca4431cfb3"
+        }
+    ]
+}

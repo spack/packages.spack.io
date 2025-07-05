@@ -1,0 +1,779 @@
+{
+    "aliases": [],
+    "build_system": "CMakePackage",
+    "conflicts": [
+        {
+            "description": "gromacs-swaxs: OpenMP not available for the Apple clang compiler",
+            "name": "+openmp",
+            "spec": "%apple-clang"
+        },
+        {
+            "description": "gromacs-swaxs: Enabling CP2K requires static build",
+            "name": "+shared",
+            "spec": "+cp2k"
+        },
+        {
+            "description": null,
+            "name": "%clang@7:",
+            "spec": "+cuda ^cuda@10.0.130~allow-unsupported-compilers arch=None-None-ppc64le:"
+        },
+        {
+            "description": null,
+            "name": "%clang@:3.7,6.1:",
+            "spec": "+cuda ^cuda@10.0.130~allow-unsupported-compilers arch=None-None-x86_64:"
+        },
+        {
+            "description": null,
+            "name": "%clang@:3.7,8.1:",
+            "spec": "+cuda ^cuda@10.1.105:10.1.243~allow-unsupported-compilers arch=None-None-x86_64:"
+        },
+        {
+            "description": null,
+            "name": "%clang@:3.7,7.1:",
+            "spec": "+cuda ^cuda@10.1.105~allow-unsupported-compilers arch=None-None-x86_64:"
+        },
+        {
+            "description": null,
+            "name": "%clang@:3.2,9:",
+            "spec": "+cuda ^cuda@10.2.89~allow-unsupported-compilers arch=None-None-x86_64:"
+        },
+        {
+            "description": null,
+            "name": "%clang@:5",
+            "spec": "+cuda ^cuda@11.0.2:~allow-unsupported-compilers arch=None-None-ppc64le:"
+        },
+        {
+            "description": null,
+            "name": "%clang@:5",
+            "spec": "+cuda ^cuda@11.0.2:~allow-unsupported-compilers arch=None-None-x86_64:"
+        },
+        {
+            "description": null,
+            "name": "arch=darwin-None-None",
+            "spec": "+cuda ^cuda@11.0.2:~allow-unsupported-compilers"
+        },
+        {
+            "description": null,
+            "name": "%gcc@:4",
+            "spec": "+cuda ^cuda@11.0:~allow-unsupported-compilers"
+        },
+        {
+            "description": null,
+            "name": "%gcc@:5",
+            "spec": "+cuda ^cuda@11.4:~allow-unsupported-compilers"
+        },
+        {
+            "description": null,
+            "name": "%clang@:6",
+            "spec": "+cuda ^cuda@12.2:~allow-unsupported-compilers"
+        },
+        {
+            "description": null,
+            "name": "arch=None-None-ppc64le",
+            "spec": "+cuda ^cuda@12.5:~allow-unsupported-compilers"
+        },
+        {
+            "description": null,
+            "name": "%intel@:12.0",
+            "spec": "+cuda ^cuda@5.5:~allow-unsupported-compilers"
+        },
+        {
+            "description": null,
+            "name": "%intel@:13.0",
+            "spec": "+cuda ^cuda@6.0:~allow-unsupported-compilers"
+        },
+        {
+            "description": null,
+            "name": "%intel@:13.2",
+            "spec": "+cuda ^cuda@6.5:~allow-unsupported-compilers"
+        },
+        {
+            "description": null,
+            "name": "%intel@:14.9",
+            "spec": "+cuda ^cuda@7:~allow-unsupported-compilers"
+        },
+        {
+            "description": null,
+            "name": "%clang@:3.7,4:",
+            "spec": "+cuda ^cuda@8.0:9.0~allow-unsupported-compilers arch=None-None-x86_64:"
+        },
+        {
+            "description": null,
+            "name": "%clang@:3.7,4.1:",
+            "spec": "+cuda ^cuda@9.1~allow-unsupported-compilers arch=None-None-x86_64:"
+        },
+        {
+            "description": null,
+            "name": "%clang@:3.7,5.1:",
+            "spec": "+cuda ^cuda@9.2~allow-unsupported-compilers arch=None-None-x86_64:"
+        },
+        {
+            "description": null,
+            "name": "%xl@:12,14:15,17:",
+            "spec": "+cuda ^cuda@9.2~allow-unsupported-compilers"
+        },
+        {
+            "description": null,
+            "name": "%gcc@8:",
+            "spec": "+cuda ^cuda@:10.0.130~allow-unsupported-compilers arch=None-None-ppc64le:"
+        },
+        {
+            "description": null,
+            "name": "%gcc@8:",
+            "spec": "+cuda ^cuda@:10.0.130~allow-unsupported-compilers arch=None-None-x86_64:"
+        },
+        {
+            "description": null,
+            "name": "%intel@19.0:",
+            "spec": "+cuda ^cuda@:10.0~allow-unsupported-compilers"
+        },
+        {
+            "description": null,
+            "name": "%clang@7.1:",
+            "spec": "+cuda ^cuda@:10.1.105~allow-unsupported-compilers arch=None-None-ppc64le:"
+        },
+        {
+            "description": null,
+            "name": "%gcc@9:",
+            "spec": "+cuda ^cuda@:10.1.243~allow-unsupported-compilers arch=None-None-ppc64le:"
+        },
+        {
+            "description": null,
+            "name": "%intel@19.1:",
+            "spec": "+cuda ^cuda@:10.1~allow-unsupported-compilers"
+        },
+        {
+            "description": null,
+            "name": "%clang@8.1:",
+            "spec": "+cuda ^cuda@:10.2.89~allow-unsupported-compilers arch=None-None-ppc64le:"
+        },
+        {
+            "description": null,
+            "name": "%gcc@9:",
+            "spec": "+cuda ^cuda@:10.2.89~allow-unsupported-compilers arch=None-None-x86_64:"
+        },
+        {
+            "description": null,
+            "name": "%clang@10:",
+            "spec": "+cuda ^cuda@:11.0.2~allow-unsupported-compilers arch=None-None-ppc64le:"
+        },
+        {
+            "description": null,
+            "name": "%clang@10:",
+            "spec": "+cuda ^cuda@:11.0.3~allow-unsupported-compilers arch=None-None-x86_64:"
+        },
+        {
+            "description": null,
+            "name": "%gcc@10:",
+            "spec": "+cuda ^cuda@:11.0~allow-unsupported-compilers"
+        },
+        {
+            "description": null,
+            "name": "%clang@11:",
+            "spec": "+cuda ^cuda@:11.1.0~allow-unsupported-compilers arch=None-None-ppc64le:"
+        },
+        {
+            "description": null,
+            "name": "%clang@11:",
+            "spec": "+cuda ^cuda@:11.1.0~allow-unsupported-compilers arch=None-None-x86_64:"
+        },
+        {
+            "description": null,
+            "name": "%intel@19.2:",
+            "spec": "+cuda ^cuda@:11.1.0~allow-unsupported-compilers"
+        },
+        {
+            "description": null,
+            "name": "%xl@:12,17:",
+            "spec": "+cuda ^cuda@:11.1.0~allow-unsupported-compilers"
+        },
+        {
+            "description": null,
+            "name": "%clang@12:",
+            "spec": "+cuda ^cuda@:11.4.0~allow-unsupported-compilers"
+        },
+        {
+            "description": null,
+            "name": "%gcc@10",
+            "spec": "+cuda ^cuda@:11.4.0~allow-unsupported-compilers"
+        },
+        {
+            "description": null,
+            "name": "%gcc@11:",
+            "spec": "+cuda ^cuda@:11.4.0~allow-unsupported-compilers"
+        },
+        {
+            "description": null,
+            "name": "%intel@2021:",
+            "spec": "+cuda ^cuda@:11.4.0~allow-unsupported-compilers"
+        },
+        {
+            "description": null,
+            "name": "%clang@13:",
+            "spec": "+cuda ^cuda@:11.5~allow-unsupported-compilers"
+        },
+        {
+            "description": null,
+            "name": "%gcc@11.2:",
+            "spec": "+cuda ^cuda@:11.5~allow-unsupported-compilers"
+        },
+        {
+            "description": null,
+            "name": "%clang@14:",
+            "spec": "+cuda ^cuda@:11.7~allow-unsupported-compilers"
+        },
+        {
+            "description": null,
+            "name": "%gcc@12:",
+            "spec": "+cuda ^cuda@:11.8~allow-unsupported-compilers"
+        },
+        {
+            "description": null,
+            "name": "%clang@15:",
+            "spec": "+cuda ^cuda@:12.0~allow-unsupported-compilers"
+        },
+        {
+            "description": null,
+            "name": "%clang@16:",
+            "spec": "+cuda ^cuda@:12.1~allow-unsupported-compilers"
+        },
+        {
+            "description": null,
+            "name": "%clang@17:",
+            "spec": "+cuda ^cuda@:12.3~allow-unsupported-compilers"
+        },
+        {
+            "description": null,
+            "name": "%gcc@13:",
+            "spec": "+cuda ^cuda@:12.3~allow-unsupported-compilers"
+        },
+        {
+            "description": null,
+            "name": "%gcc@13.2.0",
+            "spec": "+cuda ^cuda@:12.4~allow-unsupported-compilers arch=None-None-aarch64:"
+        },
+        {
+            "description": null,
+            "name": "%clang@18:",
+            "spec": "+cuda ^cuda@:12.5~allow-unsupported-compilers"
+        },
+        {
+            "description": null,
+            "name": "%clang@19:",
+            "spec": "+cuda ^cuda@:12.6~allow-unsupported-compilers"
+        },
+        {
+            "description": null,
+            "name": "%gcc@14:",
+            "spec": "+cuda ^cuda@:12.6~allow-unsupported-compilers"
+        },
+        {
+            "description": null,
+            "name": "%clang@20:",
+            "spec": "+cuda ^cuda@:12.9~allow-unsupported-compilers"
+        },
+        {
+            "description": null,
+            "name": "%gcc@15:",
+            "spec": "+cuda ^cuda@:12.9~allow-unsupported-compilers"
+        },
+        {
+            "description": null,
+            "name": "%intel@:11.0",
+            "spec": "+cuda ^cuda@:3.1~allow-unsupported-compilers"
+        },
+        {
+            "description": null,
+            "name": "%clang@:3.4",
+            "spec": "+cuda ^cuda@:7.5~allow-unsupported-compilers arch=None-None-x86_64:"
+        },
+        {
+            "description": null,
+            "name": "%gcc@5:",
+            "spec": "+cuda ^cuda@:7.5~allow-unsupported-compilers arch=None-None-x86_64:"
+        },
+        {
+            "description": null,
+            "name": "%intel@16.0:",
+            "spec": "+cuda ^cuda@:8.0.43~allow-unsupported-compilers"
+        },
+        {
+            "description": null,
+            "name": "%intel@17.0:",
+            "spec": "+cuda ^cuda@:8.0.60~allow-unsupported-compilers"
+        },
+        {
+            "description": null,
+            "name": "%gcc@6:",
+            "spec": "+cuda ^cuda@:8~allow-unsupported-compilers arch=None-None-x86_64:"
+        },
+        {
+            "description": null,
+            "name": "%clang@4:",
+            "spec": "+cuda ^cuda@:9.0.176~allow-unsupported-compilers arch=None-None-ppc64le:"
+        },
+        {
+            "description": null,
+            "name": "%clang@5:",
+            "spec": "+cuda ^cuda@:9.1~allow-unsupported-compilers arch=None-None-ppc64le:"
+        },
+        {
+            "description": null,
+            "name": "%gcc@7:",
+            "spec": "+cuda ^cuda@:9.1~allow-unsupported-compilers arch=None-None-x86_64:"
+        },
+        {
+            "description": null,
+            "name": "%xl@:12,14:",
+            "spec": "+cuda ^cuda@:9.1~allow-unsupported-compilers"
+        },
+        {
+            "description": null,
+            "name": "%clang@6:",
+            "spec": "+cuda ^cuda@:9.2~allow-unsupported-compilers arch=None-None-ppc64le:"
+        },
+        {
+            "description": null,
+            "name": "%intel@18.0:",
+            "spec": "+cuda ^cuda@:9.9~allow-unsupported-compilers"
+        },
+        {
+            "description": null,
+            "name": "%gcc@6:",
+            "spec": "+cuda ^cuda@:9~allow-unsupported-compilers arch=None-None-ppc64le:"
+        },
+        {
+            "description": "gromacs-swaxs: The GROMACS support for NVSHMEM does not work with the GROMACS support for cuFFTMp (even though cuFFTMp uses NVSHMEM in its implementation)",
+            "name": "+nvshmem",
+            "spec": "+cufftmp"
+        },
+        {
+            "description": null,
+            "name": "+opencl",
+            "spec": ""
+        },
+        {
+            "description": null,
+            "name": "+plumed",
+            "spec": ""
+        },
+        {
+            "description": null,
+            "name": "+sycl",
+            "spec": ""
+        },
+        {
+            "description": "gromacs-swaxs: mdrun-only build option was removed for GROMACS 2021.",
+            "name": "+mdrun_only",
+            "spec": "@2021:"
+        },
+        {
+            "description": "gromacs-swaxs: GMX_RELAXED_DOUBLE_PRECISION option removed for GROMACS 2021.",
+            "name": "+relaxed_double_precision",
+            "spec": "@2021:"
+        },
+        {
+            "description": "gromacs-swaxs: GROMACS %intel support was removed in version 2022",
+            "name": "%intel",
+            "spec": "@2022:"
+        },
+        {
+            "description": "gromacs-swaxs: GROMACS requires GCC 9 or later since version 2023",
+            "name": "%gcc@:8",
+            "spec": "@2023:"
+        },
+        {
+            "description": "gromacs-swaxs: GROMACS requires oneMKL 2021.3 or later since version 2023",
+            "name": "^intel-oneapi-mkl@:2021.2",
+            "spec": "@2023:"
+        },
+        {
+            "description": "gromacs-swaxs: CP2K QM/MM support have been introduced in GROMACS 2022",
+            "name": "+cp2k",
+            "spec": "@:2021"
+        },
+        {
+            "description": "gromacs-swaxs: OpenMP is off but OpenMP Max threads is set",
+            "name": "+openmp_max_threads",
+            "spec": "~openmp"
+        }
+    ],
+    "dependencies": [
+        {
+            "description": "Lightweight but flexible shim designed to rectify the incompatibilities\nbetween the Accelerate/vecLib BLAS and LAPACK libraries shipped with\nmacOS and FORTRAN code compiled with modern compilers such as GNU\nFortran.",
+            "name": "blas"
+        },
+        {
+            "description": "The NVIDIA HPC SDK is a comprehensive suite of compilers, libraries and\ntools essential to maximizing developer productivity and the performance\nand portability of HPC applications. The NVIDIA HPC SDK C, C++, and\nFortran compilers support GPU acceleration of HPC modeling and\nsimulation applications with standard C++ and Fortran, OpenACC\ndirectives, and CUDA. GPU-accelerated math libraries maximize\nperformance on common HPC algorithms, and optimized communications\nlibraries enable standards-based multi-GPU and scalable systems\nprogramming. Performance profiling and debugging tools simplify porting\nand optimization of HPC applications.",
+            "name": "c"
+        },
+        {
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software.",
+            "name": "cmake"
+        },
+        {
+            "description": "CP2K is a quantum chemistry and solid state physics software package\nthat can perform atomistic simulations of solid state, liquid,\nmolecular, periodic, material, crystal, and biological systems",
+            "name": "cp2k"
+        },
+        {
+            "description": "CUDA is a parallel computing platform and programming model invented by\nNVIDIA. It enables dramatic increases in computing performance by\nharnessing the power of the graphics processing unit (GPU). Note: This\npackage does not currently install the drivers necessary to run CUDA.\nThese will need to be installed manually. See:\nhttps://docs.nvidia.com/cuda/ for details.",
+            "name": "cuda"
+        },
+        {
+            "description": "The NVIDIA HPC SDK is a comprehensive suite of compilers, libraries and\ntools essential to maximizing developer productivity and the performance\nand portability of HPC applications. The NVIDIA HPC SDK C, C++, and\nFortran compilers support GPU acceleration of HPC modeling and\nsimulation applications with standard C++ and Fortran, OpenACC\ndirectives, and CUDA. GPU-accelerated math libraries maximize\nperformance on common HPC algorithms, and optimized communications\nlibraries enable standards-based multi-GPU and scalable systems\nprogramming. Performance profiling and debugging tools simplify porting\nand optimization of HPC applications.",
+            "name": "cxx"
+        },
+        {
+            "description": "NVPL FFT (NVIDIA Performance Libraries FFT) is part of NVIDIA\nPerformance Libraries and provides Fast Fourier Transform (FFT)\ncalculations on ARM CPUs.",
+            "name": "fftw-api"
+        },
+        {
+            "description": "The NVIDIA HPC SDK is a comprehensive suite of compilers, libraries and\ntools essential to maximizing developer productivity and the performance\nand portability of HPC applications. The NVIDIA HPC SDK C, C++, and\nFortran compilers support GPU acceleration of HPC modeling and\nsimulation applications with standard C++ and Fortran, OpenACC\ndirectives, and CUDA. GPU-accelerated math libraries maximize\nperformance on common HPC algorithms, and optimized communications\nlibraries enable standards-based multi-GPU and scalable systems\nprogramming. Performance profiling and debugging tools simplify porting\nand optimization of HPC applications.",
+            "name": "fortran"
+        },
+        {
+            "description": "The GNU Compiler Collection includes front ends for C, C++, Objective-C,\nFortran, Ada, and Go, as well as libraries for these languages.",
+            "name": "gcc"
+        },
+        {
+            "description": "Package for GCC compiler runtime libraries",
+            "name": "gcc-runtime"
+        },
+        {
+            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files.",
+            "name": "gmake"
+        },
+        {
+            "description": "Highly Efficient FFT for Exascale",
+            "name": "heffte"
+        },
+        {
+            "description": "The Hardware Locality (hwloc) software project. The Portable Hardware\nLocality (hwloc) software package provides a portable abstraction\n(across OS, versions, architectures, ...) of the hierarchical topology\nof modern architectures, including NUMA memory nodes, sockets, shared\ncaches, cores and simultaneous multithreading. It also gathers various\nsystem attributes such as cache and memory information as well as the\nlocality of I/O devices such as network interfaces, InfiniBand HCAs or\nGPUs. It primarily aims at helping applications with gathering\ninformation about modern computing hardware so as to exploit it\naccordingly and efficiently.",
+            "name": "hwloc"
+        },
+        {
+            "description": "Intel VTune Profiler is a profiler to optimize application performance,\nsystem performance, and system configuration for HPC, cloud, IoT, media,\nstorage, and more. CPU, GPU, and FPGA: Tune the entire application's\nperformance--not just the accelerated portion. Multilingual: Profile\nSYCL, C, C++, C#, Fortran, OpenCL code, Python, Google Go programming\nlanguage, Java, .NET, Assembly, or any combination of languages. System\nor Application: Get coarse-grained system data for an extended period or\ndetailed results mapped to source code. Power: Optimize performance\nwhile avoiding power and thermal-related throttling. LICENSE\nINFORMATION: By downloading and using this software, you agree to the\nterms and conditions of the software license agreements at\nhttps://intel.ly/393CijO.",
+            "name": "intel-oneapi-vtune"
+        },
+        {
+            "description": "Lightweight but flexible shim designed to rectify the incompatibilities\nbetween the Accelerate/vecLib BLAS and LAPACK libraries shipped with\nmacOS and FORTRAN code compiled with modern compilers such as GNU\nFortran.",
+            "name": "lapack"
+        },
+        {
+            "description": "IBM MPI implementation from Spectrum MPI.",
+            "name": "mpi"
+        },
+        {
+            "description": "Ninja is a small build system with a focus on speed. It differs from\nother build systems in two major respects: it is designed to have its\ninput files generated by a higher-level build system, and it is designed\nto run builds as fast as possible.",
+            "name": "ninja"
+        },
+        {
+            "description": "The NVIDIA HPC SDK is a comprehensive suite of compilers, libraries and\ntools essential to maximizing developer productivity and the performance\nand portability of HPC applications. The NVIDIA HPC SDK C, C++, and\nFortran compilers support GPU acceleration of HPC modeling and\nsimulation applications with standard C++ and Fortran, OpenACC\ndirectives, and CUDA. GPU-accelerated math libraries maximize\nperformance on common HPC algorithms, and optimized communications\nlibraries enable standards-based multi-GPU and scalable systems\nprogramming. Performance profiling and debugging tools simplify porting\nand optimization of HPC applications.",
+            "name": "nvhpc"
+        },
+        {
+            "description": "pkgconf is a program which helps to configure compiler and linker flags\nfor development frameworks. It is similar to pkg-config from\nfreedesktop.org, providing additional functionality while also\nmaintaining compatibility.",
+            "name": "pkgconfig"
+        },
+        {
+            "description": "PLUMED is an open source library for free energy calculations in\nmolecular systems which works together with some of the most popular\nmolecular dynamics engines. Free energy calculations can be performed as\na function of many order parameters with a particular focus on\nbiological problems, using state of the art methods such as\nmetadynamics, umbrella sampling and Jarzynski-equation based steered MD.\nThe software, written in C++, can be easily interfaced with both fortran\nand C/C++ codes.",
+            "name": "plumed"
+        },
+        {
+            "description": "hipSYCL is an implementation of the SYCL standard programming model over\nNVIDIA CUDA/AMD HIP",
+            "name": "sycl"
+        }
+    ],
+    "dependent_to": [],
+    "description": "Modified Gromacs for small-angle scattering calculations\n(SAXS/WAXS/SANS)\n",
+    "homepage": "https://biophys.uni-saarland.de/swaxs.html",
+    "latest_version": "2021.5-0.5",
+    "maintainers": [
+        "eirrgang",
+        "junghans",
+        "mabraham",
+        "w8jcik"
+    ],
+    "name": "gromacs-swaxs",
+    "patches": [
+        {
+            "level": 1,
+            "owner": "builtin.gromacs-swaxs",
+            "relative_path": "gmxDetectCpu-cmake-3.14.patch",
+            "reverse": false,
+            "sha256": "08593fed7046a25593a8ca37dd1aee798e90ad054f4e7a5edc39024f7a690f60",
+            "version": "@2018:2019.3 ^cmake@3.14.0:",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.gromacs-swaxs",
+            "relative_path": "gmxDetectSimd-cmake-3.14.patch",
+            "reverse": false,
+            "sha256": "e7f2965f7b94d7e4a71f15767a17af567240040ea7b8e05083ccd812f9fcd026",
+            "version": "@5.0:2017 ^cmake@3.14.0:",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.gromacs-swaxs",
+            "reverse": false,
+            "sha256": "2c30d00404b76421c13866cc42afa5e63276f7926c862838751b158df8727b1b",
+            "url": "https://gitlab.com/gromacs/gromacs/-/commit/10262892e11a87fda0f59e633c89ed5ab1100509.diff",
+            "version": "@2021.1:2021.2",
+            "working_dir": "."
+        }
+    ],
+    "resources": [],
+    "variants": [
+        {
+            "default": "cmake",
+            "description": "Build systems supported by the package",
+            "name": "build_system"
+        },
+        {
+            "default": "Release",
+            "description": "The build type to build",
+            "name": "build_type"
+        },
+        {
+            "default": false,
+            "description": "CP2K QM/MM interface integration",
+            "name": "cp2k"
+        },
+        {
+            "default": false,
+            "description": "Build with CUDA",
+            "name": "cuda"
+        },
+        {
+            "default": "none",
+            "description": "CUDA architecture",
+            "name": "cuda_arch"
+        },
+        {
+            "default": false,
+            "description": "Enable multi-GPU FFT support with cuFFTMp",
+            "name": "cufftmp"
+        },
+        {
+            "default": false,
+            "description": "Enables cycle subcounters",
+            "name": "cycle_subcounters"
+        },
+        {
+            "default": false,
+            "description": "Produces a double precision version of the executables",
+            "name": "double"
+        },
+        {
+            "default": "make",
+            "description": "the build system generator to use",
+            "name": "generator"
+        },
+        {
+            "default": true,
+            "description": "Build and install the gmxlib python API for GROMACS",
+            "name": "gmxapi"
+        },
+        {
+            "default": false,
+            "description": "Enable multi-GPU FFT support with HeFFTe",
+            "name": "heffte"
+        },
+        {
+            "default": true,
+            "description": "Use the hwloc portable hardware locality library",
+            "name": "hwloc"
+        },
+        {
+            "default": false,
+            "description": "Enable support for Intel Data Center GPU Max",
+            "name": "intel-data-center-gpu-max"
+        },
+        {
+            "default": false,
+            "description": "Use this if Intel compiler is installed through spack. The g++ location is written to icp{c,x}.cfg",
+            "name": "intel_provided_gcc"
+        },
+        {
+            "default": false,
+            "description": "CMake interprocedural optimization",
+            "name": "ipo"
+        },
+        {
+            "default": false,
+            "description": "Enable Instrumentation and Tracing Technology (ITT) profiling API (from Intel)",
+            "name": "itt"
+        },
+        {
+            "default": false,
+            "description": "Enables the build of a cut-down version of libgromacs and/or the mdrun program",
+            "name": "mdrun_only"
+        },
+        {
+            "default": true,
+            "description": "Activate MPI support (disable for Thread-MPI support)",
+            "name": "mpi"
+        },
+        {
+            "default": true,
+            "description": "Build and install the NB-LIB C++ API for GROMACS",
+            "name": "nblib"
+        },
+        {
+            "default": false,
+            "description": "Disable default suffixes",
+            "name": "nosuffix"
+        },
+        {
+            "default": false,
+            "description": "Enable NVSHMEM support for Nvidia GPUs",
+            "name": "nvshmem"
+        },
+        {
+            "default": false,
+            "description": "Enable OpenCL support",
+            "name": "opencl"
+        },
+        {
+            "default": true,
+            "description": "Enables OpenMP at configure time",
+            "name": "openmp"
+        },
+        {
+            "default": "none",
+            "description": "Max number of OpenMP threads",
+            "name": "openmp_max_threads"
+        },
+        {
+            "default": false,
+            "description": "Enable PLUMED support",
+            "name": "plumed"
+        },
+        {
+            "default": false,
+            "description": "GMX_RELAXED_DOUBLE_PRECISION, use only for Fujitsu PRIMEHPC",
+            "name": "relaxed_double_precision"
+        },
+        {
+            "default": true,
+            "description": "Enables the build of shared libraries",
+            "name": "shared"
+        },
+        {
+            "default": true,
+            "description": "Enable SVE on aarch64 if available",
+            "name": "sve"
+        },
+        {
+            "default": false,
+            "description": "Enable SYCL support",
+            "name": "sycl"
+        }
+    ],
+    "versions": [
+        {
+            "name": "2021.5-0.5",
+            "sha256": "7207f107dc6c4009a04a533e18545666d4f58c172b2b24d04442bb1a0f43ff44",
+            "url": "https://gitlab.com/cbjh/gromacs-swaxs/-/archive/release-2021.swaxs-0.5/gromacs-swaxs-release-2021.swaxs-0.5.tar.bz2"
+        },
+        {
+            "name": "2021.5-0.4",
+            "sha256": "9f8ed6d448a04789d45e847cbbc706a07130377f578388220a9d5357fae9d1c3",
+            "url": "https://gitlab.com/cbjh/gromacs-swaxs/-/archive/release-2021.swaxs-0.4/gromacs-swaxs-release-2021.swaxs-0.4.tar.bz2"
+        },
+        {
+            "name": "2021.5-0.3",
+            "sha256": "e05ea76610657e52e8293abff53ee9f16f4cffa508074e1e10132ed5fba97881",
+            "url": "https://gitlab.com/cbjh/gromacs-swaxs/-/archive/release-2021.swaxs-0.3/gromacs-swaxs-release-2021.swaxs-0.3.tar.bz2"
+        },
+        {
+            "name": "2021.4-0.2",
+            "sha256": "ea0dbe868d20e05c8fca337e0dddc16116a83fa7a6ac3a924942e9d00952ed62",
+            "url": "https://gitlab.com/cbjh/gromacs-swaxs/-/archive/release-2021.swaxs-0.2/gromacs-swaxs-release-2021.swaxs-0.2.tar.bz2"
+        },
+        {
+            "name": "2020.7-0.4",
+            "sha256": "3eb0975ec92a89f6a3be548896307376974805ac685a9f776b0131a449a6b8a4",
+            "url": "https://gitlab.com/cbjh/gromacs-swaxs/-/archive/release-2020.swaxs-0.4/gromacs-swaxs-release-2020.swaxs-0.4.tar.bz2"
+        },
+        {
+            "name": "2020.7-0.3",
+            "sha256": "eb5902df079b8f86c56b62be695c0d17307c195b2cdd7cefb7e117466be83211",
+            "url": "https://gitlab.com/cbjh/gromacs-swaxs/-/archive/release-2020.swaxs-0.3/gromacs-swaxs-release-2020.swaxs-0.3.tar.bz2"
+        },
+        {
+            "name": "2020.6-0.2",
+            "sha256": "c22a7c6a0ee54eee1b3e224530f65e6f976a7aca5dc0f5ea22b2935a5a4357e9",
+            "url": "https://gitlab.com/cbjh/gromacs-swaxs/-/archive/release-2020.swaxs-0.2/gromacs-swaxs-release-2020.swaxs-0.2.tar.bz2"
+        },
+        {
+            "name": "2019.6-0.3",
+            "sha256": "1cf81592813333954bb1051321543f211d81f120a821a0c9386081e4cd367e84",
+            "url": "https://gitlab.com/cbjh/gromacs-swaxs/-/archive/release-2019.swaxs-0.3/gromacs-swaxs-release-2019.swaxs-0.3.tar.bz2"
+        },
+        {
+            "name": "2019.6-0.1",
+            "sha256": "91da09eed80646d6a1c500be78891bef22623a19795a9bc89adf9f2ec4f85635",
+            "url": "https://gitlab.com/cbjh/gromacs-swaxs/-/archive/release-2019.swaxs-0.1/gromacs-swaxs-release-2019.swaxs-0.1.tar.bz2"
+        },
+        {
+            "name": "2018.8-0.4",
+            "sha256": "465bbd234b6805209cf39c6bfa4f482c367b947742bb2b9a3d535d362f254dcb",
+            "url": "https://gitlab.com/cbjh/gromacs-swaxs/-/archive/release-2018.swaxs-0.4/gromacs-swaxs-release-2018.swaxs-0.4.tar.bz2"
+        },
+        {
+            "name": "2018.8-0.2",
+            "sha256": "f8bf0d363334a9117a2a8deb690dadaa826b73b57a761949c7846a13b84b5af5",
+            "url": "https://gitlab.com/cbjh/gromacs-swaxs/-/archive/release-2018.swaxs-0.2/gromacs-swaxs-release-2018.swaxs-0.2.tar.bz2"
+        },
+        {
+            "name": "2018.8-0.1",
+            "sha256": "478f45286dfedb8f01c2d5bf0773a391c2de2baf85283ef683e911bc43e24675",
+            "url": "https://gitlab.com/cbjh/gromacs-swaxs/-/archive/release-2018.swaxs-0.1/gromacs-swaxs-release-2018.swaxs-0.1.tar.bz2"
+        },
+        {
+            "name": "2016.6-0.1",
+            "sha256": "11e8ae6b3141f356bae72b595737a1f253b878d313169703ba33a69ded01a04e",
+            "url": "https://gitlab.com/cbjh/gromacs-swaxs/-/archive/release-2016.swaxs-0.1/gromacs-swaxs-release-2016.swaxs-0.1.tar.bz2"
+        },
+        {
+            "name": "5.1.5-0.3",
+            "sha256": "a9e8382eec3cc0d943e1869f13945ea4a971a95a70eb314c1f26a17fa7d03792",
+            "url": "https://gitlab.com/cbjh/gromacs-swaxs/-/archive/release-5-1.swaxs-0.3/gromacs-swaxs-release-5-1.swaxs-0.3.tar.bz2"
+        },
+        {
+            "name": "5.0.7-0.5",
+            "sha256": "7f7f69726472a641a5443f1993a6e1fb8cfa9c74aeaf46e8c5d1db37005ece79",
+            "url": "https://gitlab.com/cbjh/gromacs-swaxs/-/archive/release-5-0.swaxs-0.5/gromacs-swaxs-release-5-0.swaxs-0.5.tar.bz2"
+        },
+        {
+            "name": "4.6.7-0.8",
+            "sha256": "1cfa34fe9ff543b665cd556f3395a9aa67f916110ba70255c97389eafe8315a2",
+            "url": "https://gitlab.com/cbjh/gromacs-swaxs/-/archive/release-4-6.swaxs-0.8/gromacs-swaxs-release-4-6.swaxs-0.8.tar.bz2"
+        }
+    ],
+    "versions_deprecated": [
+        {
+            "name": "2021.4-0.1",
+            "sha256": "eda1c8a7aae6001ef40480addf9fff9cdccc7e2b80480e36d069f50d6f2be26e",
+            "url": "https://gitlab.com/cbjh/gromacs-swaxs/-/archive/release-2021.swaxs-0.1/gromacs-swaxs-release-2021.swaxs-0.1.tar.bz2"
+        },
+        {
+            "name": "2020.6-0.1",
+            "sha256": "3d8360a3cc9144772786bddaa11e3dbc37d6a466b99f3314bf3928261c2fddcf",
+            "url": "https://gitlab.com/cbjh/gromacs-swaxs/-/archive/release-2020.swaxs-0.1/gromacs-swaxs-release-2020.swaxs-0.1.tar.bz2"
+        },
+        {
+            "name": "2019.6-0.2",
+            "sha256": "a45eeee3983a4443d3a40ea417770f3abd93f43eb80e021fd9d6830e414565cb",
+            "url": "https://gitlab.com/cbjh/gromacs-swaxs/-/archive/release-2019.swaxs-0.2/gromacs-swaxs-release-2019.swaxs-0.2.tar.bz2"
+        },
+        {
+            "name": "2018.8-0.3",
+            "sha256": "5e94d636fda28e81ff1f3cff2c9f6e7f458bf496f4d1ed7bc10e911bd98b303c",
+            "url": "https://gitlab.com/cbjh/gromacs-swaxs/-/archive/release-2018.swaxs-0.3/gromacs-swaxs-release-2018.swaxs-0.3.tar.bz2"
+        }
+    ]
+}

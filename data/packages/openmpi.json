@@ -1,0 +1,1498 @@
+{
+    "aliases": [
+        {
+            "alias_for": "openmpi@1.3:1.7.2",
+            "name": "mpi"
+        },
+        {
+            "alias_for": "openmpi@1.7.3:1.7.4",
+            "name": "mpi"
+        },
+        {
+            "alias_for": "openmpi@1.7.5:1.10.7",
+            "name": "mpi"
+        },
+        {
+            "alias_for": "openmpi@2.0.0:",
+            "name": "mpi"
+        },
+        {
+            "alias_for": "openmpi@:1.2",
+            "name": "mpi"
+        }
+    ],
+    "build_system": "AutotoolsPackage",
+    "conflicts": [
+        {
+            "description": "openmpi: nvc does not ignore -fexceptions, but errors",
+            "name": "+cxx_exceptions",
+            "spec": "%nvhpc"
+        },
+        {
+            "description": null,
+            "name": "%clang@7:",
+            "spec": "+cuda ^cuda@10.0.130~allow-unsupported-compilers arch=None-None-ppc64le:"
+        },
+        {
+            "description": null,
+            "name": "%clang@:3.7,6.1:",
+            "spec": "+cuda ^cuda@10.0.130~allow-unsupported-compilers arch=None-None-x86_64:"
+        },
+        {
+            "description": null,
+            "name": "%clang@:3.7,8.1:",
+            "spec": "+cuda ^cuda@10.1.105:10.1.243~allow-unsupported-compilers arch=None-None-x86_64:"
+        },
+        {
+            "description": null,
+            "name": "%clang@:3.7,7.1:",
+            "spec": "+cuda ^cuda@10.1.105~allow-unsupported-compilers arch=None-None-x86_64:"
+        },
+        {
+            "description": null,
+            "name": "%clang@:3.2,9:",
+            "spec": "+cuda ^cuda@10.2.89~allow-unsupported-compilers arch=None-None-x86_64:"
+        },
+        {
+            "description": null,
+            "name": "%clang@:5",
+            "spec": "+cuda ^cuda@11.0.2:~allow-unsupported-compilers arch=None-None-ppc64le:"
+        },
+        {
+            "description": null,
+            "name": "%clang@:5",
+            "spec": "+cuda ^cuda@11.0.2:~allow-unsupported-compilers arch=None-None-x86_64:"
+        },
+        {
+            "description": null,
+            "name": "arch=darwin-None-None",
+            "spec": "+cuda ^cuda@11.0.2:~allow-unsupported-compilers"
+        },
+        {
+            "description": null,
+            "name": "%gcc@:4",
+            "spec": "+cuda ^cuda@11.0:~allow-unsupported-compilers"
+        },
+        {
+            "description": null,
+            "name": "%gcc@:5",
+            "spec": "+cuda ^cuda@11.4:~allow-unsupported-compilers"
+        },
+        {
+            "description": null,
+            "name": "%clang@:6",
+            "spec": "+cuda ^cuda@12.2:~allow-unsupported-compilers"
+        },
+        {
+            "description": null,
+            "name": "arch=None-None-ppc64le",
+            "spec": "+cuda ^cuda@12.5:~allow-unsupported-compilers"
+        },
+        {
+            "description": null,
+            "name": "%intel@:12.0",
+            "spec": "+cuda ^cuda@5.5:~allow-unsupported-compilers"
+        },
+        {
+            "description": null,
+            "name": "%intel@:13.0",
+            "spec": "+cuda ^cuda@6.0:~allow-unsupported-compilers"
+        },
+        {
+            "description": null,
+            "name": "%intel@:13.2",
+            "spec": "+cuda ^cuda@6.5:~allow-unsupported-compilers"
+        },
+        {
+            "description": null,
+            "name": "%intel@:14.9",
+            "spec": "+cuda ^cuda@7:~allow-unsupported-compilers"
+        },
+        {
+            "description": null,
+            "name": "%clang@:3.7,4:",
+            "spec": "+cuda ^cuda@8.0:9.0~allow-unsupported-compilers arch=None-None-x86_64:"
+        },
+        {
+            "description": null,
+            "name": "%clang@:3.7,4.1:",
+            "spec": "+cuda ^cuda@9.1~allow-unsupported-compilers arch=None-None-x86_64:"
+        },
+        {
+            "description": null,
+            "name": "%clang@:3.7,5.1:",
+            "spec": "+cuda ^cuda@9.2~allow-unsupported-compilers arch=None-None-x86_64:"
+        },
+        {
+            "description": null,
+            "name": "%xl@:12,14:15,17:",
+            "spec": "+cuda ^cuda@9.2~allow-unsupported-compilers"
+        },
+        {
+            "description": null,
+            "name": "%gcc@8:",
+            "spec": "+cuda ^cuda@:10.0.130~allow-unsupported-compilers arch=None-None-ppc64le:"
+        },
+        {
+            "description": null,
+            "name": "%gcc@8:",
+            "spec": "+cuda ^cuda@:10.0.130~allow-unsupported-compilers arch=None-None-x86_64:"
+        },
+        {
+            "description": null,
+            "name": "%intel@19.0:",
+            "spec": "+cuda ^cuda@:10.0~allow-unsupported-compilers"
+        },
+        {
+            "description": null,
+            "name": "%clang@7.1:",
+            "spec": "+cuda ^cuda@:10.1.105~allow-unsupported-compilers arch=None-None-ppc64le:"
+        },
+        {
+            "description": null,
+            "name": "%gcc@9:",
+            "spec": "+cuda ^cuda@:10.1.243~allow-unsupported-compilers arch=None-None-ppc64le:"
+        },
+        {
+            "description": null,
+            "name": "%intel@19.1:",
+            "spec": "+cuda ^cuda@:10.1~allow-unsupported-compilers"
+        },
+        {
+            "description": null,
+            "name": "%clang@8.1:",
+            "spec": "+cuda ^cuda@:10.2.89~allow-unsupported-compilers arch=None-None-ppc64le:"
+        },
+        {
+            "description": null,
+            "name": "%gcc@9:",
+            "spec": "+cuda ^cuda@:10.2.89~allow-unsupported-compilers arch=None-None-x86_64:"
+        },
+        {
+            "description": null,
+            "name": "%clang@10:",
+            "spec": "+cuda ^cuda@:11.0.2~allow-unsupported-compilers arch=None-None-ppc64le:"
+        },
+        {
+            "description": null,
+            "name": "%clang@10:",
+            "spec": "+cuda ^cuda@:11.0.3~allow-unsupported-compilers arch=None-None-x86_64:"
+        },
+        {
+            "description": null,
+            "name": "%gcc@10:",
+            "spec": "+cuda ^cuda@:11.0~allow-unsupported-compilers"
+        },
+        {
+            "description": null,
+            "name": "%clang@11:",
+            "spec": "+cuda ^cuda@:11.1.0~allow-unsupported-compilers arch=None-None-ppc64le:"
+        },
+        {
+            "description": null,
+            "name": "%clang@11:",
+            "spec": "+cuda ^cuda@:11.1.0~allow-unsupported-compilers arch=None-None-x86_64:"
+        },
+        {
+            "description": null,
+            "name": "%intel@19.2:",
+            "spec": "+cuda ^cuda@:11.1.0~allow-unsupported-compilers"
+        },
+        {
+            "description": null,
+            "name": "%xl@:12,17:",
+            "spec": "+cuda ^cuda@:11.1.0~allow-unsupported-compilers"
+        },
+        {
+            "description": null,
+            "name": "%clang@12:",
+            "spec": "+cuda ^cuda@:11.4.0~allow-unsupported-compilers"
+        },
+        {
+            "description": null,
+            "name": "%gcc@10",
+            "spec": "+cuda ^cuda@:11.4.0~allow-unsupported-compilers"
+        },
+        {
+            "description": null,
+            "name": "%gcc@11:",
+            "spec": "+cuda ^cuda@:11.4.0~allow-unsupported-compilers"
+        },
+        {
+            "description": null,
+            "name": "%intel@2021:",
+            "spec": "+cuda ^cuda@:11.4.0~allow-unsupported-compilers"
+        },
+        {
+            "description": null,
+            "name": "%clang@13:",
+            "spec": "+cuda ^cuda@:11.5~allow-unsupported-compilers"
+        },
+        {
+            "description": null,
+            "name": "%gcc@11.2:",
+            "spec": "+cuda ^cuda@:11.5~allow-unsupported-compilers"
+        },
+        {
+            "description": null,
+            "name": "%clang@14:",
+            "spec": "+cuda ^cuda@:11.7~allow-unsupported-compilers"
+        },
+        {
+            "description": null,
+            "name": "%gcc@12:",
+            "spec": "+cuda ^cuda@:11.8~allow-unsupported-compilers"
+        },
+        {
+            "description": null,
+            "name": "%clang@15:",
+            "spec": "+cuda ^cuda@:12.0~allow-unsupported-compilers"
+        },
+        {
+            "description": null,
+            "name": "%clang@16:",
+            "spec": "+cuda ^cuda@:12.1~allow-unsupported-compilers"
+        },
+        {
+            "description": null,
+            "name": "%clang@17:",
+            "spec": "+cuda ^cuda@:12.3~allow-unsupported-compilers"
+        },
+        {
+            "description": null,
+            "name": "%gcc@13:",
+            "spec": "+cuda ^cuda@:12.3~allow-unsupported-compilers"
+        },
+        {
+            "description": null,
+            "name": "%gcc@13.2.0",
+            "spec": "+cuda ^cuda@:12.4~allow-unsupported-compilers arch=None-None-aarch64:"
+        },
+        {
+            "description": null,
+            "name": "%clang@18:",
+            "spec": "+cuda ^cuda@:12.5~allow-unsupported-compilers"
+        },
+        {
+            "description": null,
+            "name": "%clang@19:",
+            "spec": "+cuda ^cuda@:12.6~allow-unsupported-compilers"
+        },
+        {
+            "description": null,
+            "name": "%gcc@14:",
+            "spec": "+cuda ^cuda@:12.6~allow-unsupported-compilers"
+        },
+        {
+            "description": null,
+            "name": "%clang@20:",
+            "spec": "+cuda ^cuda@:12.9~allow-unsupported-compilers"
+        },
+        {
+            "description": null,
+            "name": "%gcc@15:",
+            "spec": "+cuda ^cuda@:12.9~allow-unsupported-compilers"
+        },
+        {
+            "description": null,
+            "name": "%intel@:11.0",
+            "spec": "+cuda ^cuda@:3.1~allow-unsupported-compilers"
+        },
+        {
+            "description": null,
+            "name": "%clang@:3.4",
+            "spec": "+cuda ^cuda@:7.5~allow-unsupported-compilers arch=None-None-x86_64:"
+        },
+        {
+            "description": null,
+            "name": "%gcc@5:",
+            "spec": "+cuda ^cuda@:7.5~allow-unsupported-compilers arch=None-None-x86_64:"
+        },
+        {
+            "description": null,
+            "name": "%intel@16.0:",
+            "spec": "+cuda ^cuda@:8.0.43~allow-unsupported-compilers"
+        },
+        {
+            "description": null,
+            "name": "%intel@17.0:",
+            "spec": "+cuda ^cuda@:8.0.60~allow-unsupported-compilers"
+        },
+        {
+            "description": null,
+            "name": "%gcc@6:",
+            "spec": "+cuda ^cuda@:8~allow-unsupported-compilers arch=None-None-x86_64:"
+        },
+        {
+            "description": null,
+            "name": "%clang@4:",
+            "spec": "+cuda ^cuda@:9.0.176~allow-unsupported-compilers arch=None-None-ppc64le:"
+        },
+        {
+            "description": null,
+            "name": "%clang@5:",
+            "spec": "+cuda ^cuda@:9.1~allow-unsupported-compilers arch=None-None-ppc64le:"
+        },
+        {
+            "description": null,
+            "name": "%gcc@7:",
+            "spec": "+cuda ^cuda@:9.1~allow-unsupported-compilers arch=None-None-x86_64:"
+        },
+        {
+            "description": null,
+            "name": "%xl@:12,14:",
+            "spec": "+cuda ^cuda@:9.1~allow-unsupported-compilers"
+        },
+        {
+            "description": null,
+            "name": "%clang@6:",
+            "spec": "+cuda ^cuda@:9.2~allow-unsupported-compilers arch=None-None-ppc64le:"
+        },
+        {
+            "description": null,
+            "name": "%intel@18.0:",
+            "spec": "+cuda ^cuda@:9.9~allow-unsupported-compilers"
+        },
+        {
+            "description": null,
+            "name": "%gcc@6:",
+            "spec": "+cuda ^cuda@:9~allow-unsupported-compilers arch=None-None-ppc64le:"
+        },
+        {
+            "description": "openmpi: The loadleveler scheduler is not supported with openmpi(>=3).",
+            "name": "schedulers=loadleveler",
+            "spec": "@3:"
+        },
+        {
+            "description": null,
+            "name": "fabrics=fca",
+            "spec": "@:1.4,5:"
+        },
+        {
+            "description": null,
+            "name": "fabrics=knem",
+            "spec": "@:1.4"
+        },
+        {
+            "description": null,
+            "name": "fabrics=mxm",
+            "spec": "@:1.5.3"
+        },
+        {
+            "description": null,
+            "name": "+cuda",
+            "spec": "@:1.6"
+        },
+        {
+            "description": null,
+            "name": "fabrics=cma",
+            "spec": "@:1.6"
+        },
+        {
+            "description": null,
+            "name": "fabrics=xpmem",
+            "spec": "@:1.6"
+        },
+        {
+            "description": null,
+            "name": "fabrics=hcoll",
+            "spec": "@:1.7.2"
+        },
+        {
+            "description": null,
+            "name": "fabrics=ofi",
+            "spec": "@:1.8"
+        },
+        {
+            "description": null,
+            "name": "fabrics=psm2",
+            "spec": "@:1.8"
+        },
+        {
+            "description": null,
+            "name": "+static",
+            "spec": "@:3.0.2,3.1:3.1.2,4.0.0 schedulers=slurm"
+        },
+        {
+            "description": null,
+            "name": "fabrics=ucc",
+            "spec": "@:4.1.3"
+        },
+        {
+            "description": null,
+            "name": "arch=windows-None-None",
+            "spec": "build_system=autotools"
+        }
+    ],
+    "dependencies": [
+        {
+            "description": "Autoconf -- system configuration part of autotools",
+            "name": "autoconf"
+        },
+        {
+            "description": "Automake -- make file builder part of autotools",
+            "name": "automake"
+        },
+        {
+            "description": "GNU binutils, which contain the linker, assembler, objdump and others",
+            "name": "binutils"
+        },
+        {
+            "description": "The NVIDIA HPC SDK is a comprehensive suite of compilers, libraries and\ntools essential to maximizing developer productivity and the performance\nand portability of HPC applications. The NVIDIA HPC SDK C, C++, and\nFortran compilers support GPU acceleration of HPC modeling and\nsimulation applications with standard C++ and Fortran, OpenACC\ndirectives, and CUDA. GPU-accelerated math libraries maximize\nperformance on common HPC algorithms, and optimized communications\nlibraries enable standards-based multi-GPU and scalable systems\nprogramming. Performance profiling and debugging tools simplify porting\nand optimization of HPC applications.",
+            "name": "c"
+        },
+        {
+            "description": "CUDA is a parallel computing platform and programming model invented by\nNVIDIA. It enables dramatic increases in computing performance by\nharnessing the power of the graphics processing unit (GPU). Note: This\npackage does not currently install the drivers necessary to run CUDA.\nThese will need to be installed manually. See:\nhttps://docs.nvidia.com/cuda/ for details.",
+            "name": "cuda"
+        },
+        {
+            "description": "The NVIDIA HPC SDK is a comprehensive suite of compilers, libraries and\ntools essential to maximizing developer productivity and the performance\nand portability of HPC applications. The NVIDIA HPC SDK C, C++, and\nFortran compilers support GPU acceleration of HPC modeling and\nsimulation applications with standard C++ and Fortran, OpenACC\ndirectives, and CUDA. GPU-accelerated math libraries maximize\nperformance on common HPC algorithms, and optimized communications\nlibraries enable standards-based multi-GPU and scalable systems\nprogramming. Performance profiling and debugging tools simplify porting\nand optimization of HPC applications.",
+            "name": "cxx"
+        },
+        {
+            "description": "Legacy interface for Mellanox Fabric Collective Accelerator (FCA). FCA\nis a MPI-integrated software package that utilizes CORE-Direct\ntechnology for implementing the MPI collective communications.",
+            "name": "fca"
+        },
+        {
+            "description": "The NVIDIA HPC SDK is a comprehensive suite of compilers, libraries and\ntools essential to maximizing developer productivity and the performance\nand portability of HPC applications. The NVIDIA HPC SDK C, C++, and\nFortran compilers support GPU acceleration of HPC modeling and\nsimulation applications with standard C++ and Fortran, OpenACC\ndirectives, and CUDA. GPU-accelerated math libraries maximize\nperformance on common HPC algorithms, and optimized communications\nlibraries enable standards-based multi-GPU and scalable systems\nprogramming. Performance profiling and debugging tools simplify porting\nand optimization of HPC applications.",
+            "name": "fortran"
+        },
+        {
+            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files.",
+            "name": "gmake"
+        },
+        {
+            "description": "The GNU config.guess and config.sub scripts versioned by timestamp.\nThis package can be used as a build dependency for autotools packages\nthat ship a tarball with outdated config.guess and config.sub files.",
+            "name": "gnuconfig"
+        },
+        {
+            "description": "Modern interface for Mellanox Fabric Collective Accelerator (FCA). FCA\nis a MPI-integrated software package that utilizes CORE-Direct\ntechnology for implementing the MPI collective communications.",
+            "name": "hcoll"
+        },
+        {
+            "description": "The Hardware Locality (hwloc) software project. The Portable Hardware\nLocality (hwloc) software package provides a portable abstraction\n(across OS, versions, architectures, ...) of the hierarchical topology\nof modern architectures, including NUMA memory nodes, sockets, shared\ncaches, cores and simultaneous multithreading. It also gathers various\nsystem attributes such as cache and memory information as well as the\nlocality of I/O devices such as network interfaces, InfiniBand HCAs or\nGPUs. It primarily aims at helping applications with gathering\ninformation about modern computing hardware so as to exploit it\naccordingly and efficiently.",
+            "name": "hwloc"
+        },
+        {
+            "description": "The free and opensource java implementation",
+            "name": "java"
+        },
+        {
+            "description": "KNEM is a Linux kernel module enabling high-performance intra-node MPI\ncommunication for large messages.",
+            "name": "knem"
+        },
+        {
+            "description": "The libevent API provides a mechanism to execute a callback function\nwhen a specific event occurs on a file descriptor or after a timeout has\nbeen reached. Furthermore, libevent also support callbacks due to\nsignals or regular timeouts.",
+            "name": "libevent"
+        },
+        {
+            "description": "The Open Fabrics Interfaces (OFI) is a framework focused on exporting\nfabric communication services to applications.",
+            "name": "libfabric"
+        },
+        {
+            "description": "libtool -- library building part of autotools.",
+            "name": "libtool"
+        },
+        {
+            "description": "IBM Platform LSF is a batch scheduler for HPC environments",
+            "name": "lsf"
+        },
+        {
+            "description": "Lustre is a type of parallel distributed file system, generally used for\nlarge-scale cluster computing.",
+            "name": "lustre"
+        },
+        {
+            "description": "Mellanox Messaging Accelerator (MXM) provides enhancements to parallel\ncommunication libraries by fully utilizing the underlying networking\ninfrastructure provided by Mellanox HCA/switch hardware.",
+            "name": "mxm"
+        },
+        {
+            "description": "NUMA support for Linux",
+            "name": "numactl"
+        },
+        {
+            "description": "Omni-Path Performance Scaled Messaging 2 (PSM2) library",
+            "name": "opa-psm2"
+        },
+        {
+            "description": "OpenSSH is the premier connectivity tool for remote login with the SSH\nprotocol. It encrypts all traffic to eliminate eavesdropping, connection\nhijacking, and other attacks. In addition, OpenSSH provides a large\nsuite of secure tunneling capabilities, several authentication methods,\nand sophisticated configuration options.",
+            "name": "openssh"
+        },
+        {
+            "description": "TORQUE (Terascale Open-source Resource and QUEue Manager) is an open\nsource project based on the original PBS resource manager developed by\nNASA, LLNL, and MRJ.",
+            "name": "pbs"
+        },
+        {
+            "description": "Perl 5 is a highly capable, feature-rich programming language with over\n27 years of development.",
+            "name": "perl"
+        },
+        {
+            "description": "pkgconf is a program which helps to configure compiler and linker flags\nfor development frameworks. It is similar to pkg-config from\nfreedesktop.org, providing additional functionality while also\nmaintaining compatibility.",
+            "name": "pkgconfig"
+        },
+        {
+            "description": "The Process Management Interface (PMI) has been used for quite some time\nas a means of exchanging wireup information needed for interprocess\ncommunication. However, meeting the significant orchestration challenges\npresented by exascale systems requires that the process-to-system\ninterface evolve to permit a tighter integration between the different\ncomponents of the parallel application and existing and future SMS\nsolutions. PMI Exascale (PMIx) addresses these needs by providing an\nextended version of the PMI definitions specifically designed to support\nexascale and beyond environments by: (a) adding flexibility to the\nfunctionality expressed in the existing APIs, (b) augmenting the\ninterfaces with new APIs that provide extended capabilities, (c) forging\na collaboration between subsystem providers including resource manager,\nfabric, file system, and programming library developers, (d)\nestablishing a standards-like body for maintaining the definitions, and\n(e) providing a reference implementation of the PMIx standard that\ndemonstrates the desired level of scalability while maintaining strict\nseparation between it and the standard itself.",
+            "name": "pmix"
+        },
+        {
+            "description": "RDMA core userspace libraries and daemons",
+            "name": "rdma-core"
+        },
+        {
+            "description": "Singularity is a container technology focused on building portable\nencapsulated environments to support \"Mobility of Compute\" For older\nversions of Singularity (pre 3.0) you should use singularity-legacy,\nwhich has a different install base (Autotools). Needs post-install\nchmod/chown steps to enable full functionality. See package definition\nor `spack-build-out.txt` build log for details, e.g. tail -15 $(spack\nlocation -i singularity)/.spack/spack-build-out.txt",
+            "name": "singularity"
+        },
+        {
+            "description": "Slurm is an open source, fault-tolerant, and highly scalable cluster\nmanagement and job scheduling system for large and small Linux clusters.\nSlurm requires no kernel modifications for its operation and is\nrelatively self-contained. As a cluster workload manager, Slurm has\nthree key functions. First, it allocates exclusive and/or non-exclusive\naccess to resources (compute nodes) to users for some duration of time\nso they can perform work. Second, it provides a framework for starting,\nexecuting, and monitoring work (normally a parallel job) on the set of\nallocated nodes. Finally, it arbitrates contention for resources by\nmanaging a queue of pending work.",
+            "name": "slurm"
+        },
+        {
+            "description": "SQLite is a C-language library that implements a small, fast, self-\ncontained, high-reliability, full-featured, SQL database engine.",
+            "name": "sqlite"
+        },
+        {
+            "description": "UCC is a collective communication operations API and library that is\nflexible, complete, and feature-rich for current and emerging\nprogramming models and runtimes.",
+            "name": "ucc"
+        },
+        {
+            "description": "a communication library implementing high-performance messaging for\nMPI/PGAS frameworks",
+            "name": "ucx"
+        },
+        {
+            "description": "An instrumentation framework for building dynamic analysis. There are\nValgrind tools that can automatically detect many memory management and\nthreading bugs, and profile your programs in detail. You can also use\nValgrind to build new tools. Valgrind is Open Source / Free Software,\nand is freely available under the GNU General Public License, version 2.",
+            "name": "valgrind"
+        },
+        {
+            "description": "XPMEM is a Linux kernel module that enables a process to map the memory\nof another process into its virtual address space.",
+            "name": "xpmem"
+        },
+        {
+            "description": "zlib replacement with optimizations for next generation systems.",
+            "name": "zlib-api"
+        }
+    ],
+    "dependent_to": [
+        {
+            "description": "Fluid interface model solver based on Pandya and Shkoller's Z-Model\nformulation.",
+            "name": "beatnik"
+        },
+        {
+            "description": "CBTF Krell project contains collector and runtime contributions to the\nCBTF project. These contributions include many performance data\ncollectors and support libraries as well as some example tools that\ndrive the data collection at HPC levels of scale.",
+            "name": "cbtf-krell"
+        },
+        {
+            "description": "Charm++ is a parallel programming framework in C++ supported by an\nadaptive runtime system, which enhances user productivity and allows\nprograms to run portably from small multicore computers (your laptop) to\nthe largest supercomputers.",
+            "name": "charmpp"
+        },
+        {
+            "description": "The Extended Randomized Numerical alignEr using BWT",
+            "name": "erne"
+        },
+        {
+            "description": "Get stack trace EVERY time a program exits.",
+            "name": "everytrace-example"
+        },
+        {
+            "description": "FleCSI is a compile-time configurable framework designed to support\nmulti-physics application development. As such, FleCSI attempts to\nprovide a very general set of infrastructure design patterns that can be\nspecialized and extended to suit the needs of a broad variety of solver\nand data requirements. Current support includes multi-dimensional mesh\ntopology, mesh geometry, and mesh adjacency information.",
+            "name": "flecsi"
+        },
+        {
+            "description": "A flux shell plugin to bootstrap openmpi v5+",
+            "name": "flux-pmix"
+        },
+        {
+            "description": "Foldseek enables fast and sensitive comparisons of large protein\nstructure sets",
+            "name": "foldseek"
+        },
+        {
+            "description": "GenGeo is a library of tools for creating complex particle geometries\nfor use in ESyS-Particle simulations. GenGeo is a standalone application\nwith a Python API that creates geometry files suitable for importing\ninto ESyS-Particle simulations. The functionality of GenGeo far exceeds\nthe in-simulation geometry creation utilities provided by ESyS-Particle\nitself.",
+            "name": "gengeo"
+        },
+        {
+            "description": "GPTune is an autotuning framework that relies on multitask and transfer\nlearnings to help solve the underlying black-box optimization problem\nusing Bayesian optimization methodologies.",
+            "name": "gptune"
+        },
+        {
+            "description": "This package enables asynchronous IO in HDF5. Usage: Set the\nHDF5_VOL_CONNECTOR environment variable to enable this adaptor, i.e.\n$export HDF5_VOL_CONNECTOR=\"async under_vol=0;under_info={}\" ref.\nhttps://hdf5-vol-async.readthedocs.io/en/latest/gettingstarted.html#set-\nenvironmental-variables",
+            "name": "hdf5-vol-async"
+        },
+        {
+            "description": "HyPhy: Hypothesis testing using Phylogenies",
+            "name": "hyphy"
+        },
+        {
+            "description": "khmer is a software library and toolkit for k-mer based analysis and\ntransformation of nucleotide sequence data",
+            "name": "khmer"
+        },
+        {
+            "description": "Migrate estimates effective population sizes and past migration rates\nbetween n population assuming a migration matrix model with asymmetric\nmigration rates and different subpopulation sizes",
+            "name": "migrate"
+        },
+        {
+            "description": "Best-fit model selection",
+            "name": "modeltest-ng"
+        },
+        {
+            "description": "Molcas is an ab initio quantum chemistry software package developed by\nscientists to be used by scientists. Please set the path to licence file\nwith the following command export\nMOLCAS_LICENSE=/path/to/molcas/license/",
+            "name": "molcas"
+        },
+        {
+            "description": "OpenRadioss is the publicly available open-source code base that a\nworldwide community of researchers, software developers, and industry\nleaders are enhancing every day. OpenRadioss is changing the game by\nempowering users to make rapid contributions that tackle the latest\nchallenges brought on by rapidly evolving technologies like battery\ndevelopment, lightweight materials and composites, human body models and\nbiomaterials, autonomous driving and flight, as well as the desire to\ngive passengers the safest environment possible via virtual testing.\nOpenRadioss Engine is a component of the OpenRadioss that runs the\nsimulation in parallel.",
+            "name": "openradioss-engine"
+        },
+        {
+            "description": "An ab initio, DFT and semiempirical SCF-MO package Note: Orca is\nlicensed software. You will need to create an account on the Orca\nhomepage and download Orca yourself. Spack will search your current\ndirectory for the download file. Alternatively, add this file to a\nmirror so that Spack can find it. For instructions on how to set up a\nmirror, see https://spack.readthedocs.io/en/latest/mirrors.html",
+            "name": "orca"
+        },
+        {
+            "description": "An ab initio, DFT and semiempirical SCF-MO package Note: Orca is\nlicensed software. You will need to create an account on the Orca\nhomepage and download Orca yourself. Spack will search your current\ndirectory for the download file. Alternatively, add this file to a\nmirror so that Spack can find it. For instructions on how to set up a\nmirror, see https://spack.readthedocs.io/en/latest/mirrors.html",
+            "name": "orca-faccts"
+        },
+        {
+            "description": "PUMGen - A mesh converter to the PUML format, as used in SeisSol.",
+            "name": "pumgen"
+        },
+        {
+            "description": "Python framework for doing ancestral sequence reconstruction.",
+            "name": "py-topiary-asr"
+        },
+        {
+            "description": "The Pythia program is a standard tool for the generation of events in\nhigh-energy collisions, comprising a coherent set of physics models for\nthe evolution from a few-body hard process to a complex multiparticle\nfinal state.",
+            "name": "pythia8"
+        },
+        {
+            "description": "rocSHMEM intra-kernel networking runtime for AMD dGPUs on the ROCm\nplatform.",
+            "name": "rocshmem"
+        },
+        {
+            "description": "Seissol - A scientific software for the numerical simulation of seismic\nwave phenomena and earthquake dynamics.",
+            "name": "seissol"
+        },
+        {
+            "description": "SPH and N-body simulation framework",
+            "name": "sphexa"
+        },
+        {
+            "description": "Tandem is a scientific software for SEAS modelling and for solving\nPoisson and linear elasticity problems. It implements the Symmetric\nInterior Penalty Galerkin (SIPG) method using unstructured simplicial\nmeshes (triangle meshes in 2D, tetrahedral meshes in 3D).",
+            "name": "tandem"
+        },
+        {
+            "description": "The Vienna Ab initio Simulation Package (VASP) is a computer program\nfor atomic scale materials modelling, e.g. electronic structure\ncalculations and quantum-mechanical molecular dynamics, from first\nprinciples.",
+            "name": "vasp"
+        }
+    ],
+    "description": "An open source Message Passing Interface implementation. The Open MPI\nProject is an open source Message Passing Interface implementation that\nis developed and maintained by a consortium of academic, research, and\nindustry partners. Open MPI is therefore able to combine the expertise,\ntechnologies, and resources from all across the High Performance\nComputing community in order to build the best MPI library available.\nOpen MPI offers advantages for system and software vendors, application\ndevelopers and computer science researchers.\n",
+    "homepage": "https://www.open-mpi.org",
+    "latest_version": "5.0.8",
+    "maintainers": [
+        "hppritcha",
+        "naughtont3"
+    ],
+    "name": "openmpi",
+    "patches": [
+        {
+            "level": 1,
+            "owner": "builtin.openmpi",
+            "relative_path": "ad_lustre_rwcontig_open_source.patch",
+            "reverse": false,
+            "sha256": "ee90fdef47941f4ca87047badc469c2ae34c22ddcd991728198f8422aa1c093c",
+            "version": "@1.6.5",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.openmpi",
+            "relative_path": "llnl-platforms.patch",
+            "reverse": false,
+            "sha256": "ed7a50e1d246acc62288a8c27e4978fe212728bd26dab5cfd149a25ede97fbe1",
+            "version": "@1.6.5",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.openmpi",
+            "relative_path": "configure.patch",
+            "reverse": false,
+            "sha256": "6c825b161b01c00d4069d002db9c43a1d8a658672e40b87d2415b228e040981d",
+            "version": "@1.10.1",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.openmpi",
+            "relative_path": "fix_multidef_pmi_class.patch",
+            "reverse": false,
+            "sha256": "d26978ea058131ced4e51668a524f556d3d90d178d54634e6f2077f4c8ba7762",
+            "version": "@2.0.0:2.0.1",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.openmpi",
+            "relative_path": "fix-ucx-1.7.0-api-instability.patch",
+            "reverse": false,
+            "sha256": "073477a76bba780c67c36e959cd3ee6910743e2735c7e76850ffba6791d498e4",
+            "version": "@4.0.0:4.0.2",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.openmpi",
+            "relative_path": "btl_vader.patch",
+            "reverse": false,
+            "sha256": "32effdf1deab19ca87850161d3ad8ff34540c9e26f6bf40cd64839ea47a3a0e0",
+            "version": "@2.1.3:2.1.5",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.openmpi",
+            "relative_path": "btl_vader.patch",
+            "reverse": false,
+            "sha256": "32effdf1deab19ca87850161d3ad8ff34540c9e26f6bf40cd64839ea47a3a0e0",
+            "version": "@3.0.1:3.0.2",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.openmpi",
+            "relative_path": "btl_vader.patch",
+            "reverse": false,
+            "sha256": "32effdf1deab19ca87850161d3ad8ff34540c9e26f6bf40cd64839ea47a3a0e0",
+            "version": "@3.1.0:3.1.2",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.openmpi",
+            "relative_path": "use_mpi_tkr_sizeof/step_1.patch",
+            "reverse": false,
+            "sha256": "d7f08ae74788a15662aeeeaf722e30045b212afe17e19e976d42b3411cc7bc26",
+            "version": "@1.8.4:1.10.6,2.0:2",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.openmpi",
+            "relative_path": "use_mpi_tkr_sizeof/step_2.patch",
+            "reverse": false,
+            "sha256": "51e39ef20662d45a772f61db21cfac60f5339125b8cd8b7cd83dcdf4e8371366",
+            "version": "@1.8.4:2.1.3,3:3.0.1",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.openmpi",
+            "relative_path": "opal_assembly_arch.patch",
+            "reverse": false,
+            "sha256": "60ce20bc14d98c572ef7883b9fcd254c3f232c2f3a13377480f96466169ac4c8",
+            "version": "@4.0.0:4.0.5,4.1.0",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.openmpi",
+            "reverse": false,
+            "sha256": "12f3aabbcdb02f28138e250273c2f62591db4b1f9f8aa3dcc3ef9ed551f4f587",
+            "url": "https://github.com/open-mpi/ompi/commit/8e6d9ba8058a0c128438dbc0cd6476f1abb1d4f1.patch?full_index=1",
+            "version": "@4.0.7,4.1.2:4.1.4",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.openmpi",
+            "relative_path": "fix-for-dlopen-missing-symbol-problem.patch",
+            "reverse": false,
+            "sha256": "1fa184763c223d77f9880696eaf8e0379d4655168de03ff4fc8d330f6bc23b68",
+            "version": "@5.0.0",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.openmpi",
+            "relative_path": "accelerator-cuda-fix-bug-in-makefile.patch",
+            "reverse": false,
+            "sha256": "ec7723d28c59c4b459dde6a29808748a320d0092133c00dd6913c49cdb5d7c5f",
+            "version": "@5.0.0",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.openmpi",
+            "relative_path": "btlsmcuda-fix-problem-with-makefile.patch",
+            "reverse": false,
+            "sha256": "c22c05c4ffe1b54428288e7a8c8f82c2646e67e2996aae37a5263fbcd03d103d",
+            "version": "@5.0.0",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.openmpi",
+            "relative_path": "accelerator-build-components-as-dso-s-by-default.patch",
+            "reverse": false,
+            "sha256": "0a26bbab2cf81496747f1d40c82f4884e40c92808724b4e8e8e04565cdf11c3c",
+            "version": "@5.0.0:5.0.1",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.openmpi",
+            "relative_path": "pmix_getline_pmix_version.patch",
+            "reverse": false,
+            "sha256": "1a8ff33f8db0a65607bd6a1e1aa6926e19ae6394d974ce9a61cd2177f162bb6a",
+            "version": "@5.0.0:5.0.3",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.openmpi",
+            "relative_path": "pmix_getline_pmix_version-prte.patch",
+            "reverse": false,
+            "sha256": "a0572843b15e755b49d352bdf1ea7dfbd1cb8018dc1db783bb36e24f9d2becf6",
+            "version": "@5.0.3",
+            "working_dir": "."
+        },
+        {
+            "level": 1,
+            "owner": "builtin.openmpi",
+            "reverse": false,
+            "sha256": "38529b557df029d6a987fa7e337db40b0ac1c1bb921776b95aacaa40e945cd21",
+            "url": "https://github.com/open-mpi/ompi/commit/d10e9765bdd28e62621395aef6bbb7710bae2e82.patch?full_index=1",
+            "version": "@4.1.8,5.0.7",
+            "working_dir": "."
+        }
+    ],
+    "resources": [],
+    "variants": [
+        {
+            "default": true,
+            "description": "Enable built-in atomics",
+            "name": "atomics"
+        },
+        {
+            "default": "autotools",
+            "description": "Build systems supported by the package",
+            "name": "build_system"
+        },
+        {
+            "default": false,
+            "description": "Build with CUDA",
+            "name": "cuda"
+        },
+        {
+            "default": "none",
+            "description": "CUDA architecture",
+            "name": "cuda_arch"
+        },
+        {
+            "default": false,
+            "description": "Enable deprecated C++ MPI bindings",
+            "name": "cxx"
+        },
+        {
+            "default": false,
+            "description": "Enable deprecated C++ exception support",
+            "name": "cxx_exceptions"
+        },
+        {
+            "default": false,
+            "description": "Make debug build",
+            "name": "debug"
+        },
+        {
+            "default": "none",
+            "description": "List of fabrics that are enabled; 'auto' lets openmpi determine",
+            "name": "fabrics"
+        },
+        {
+            "default": true,
+            "description": "Enable Fortran support",
+            "name": "fortran"
+        },
+        {
+            "default": false,
+            "description": "Enable GPFS support",
+            "name": "gpfs"
+        },
+        {
+            "default": false,
+            "description": "Use internal hwloc",
+            "name": "internal-hwloc"
+        },
+        {
+            "default": false,
+            "description": "Use internal libevent",
+            "name": "internal-libevent"
+        },
+        {
+            "default": false,
+            "description": "Use internal pmix",
+            "name": "internal-pmix"
+        },
+        {
+            "default": false,
+            "description": "Enable IPv6 support",
+            "name": "ipv6"
+        },
+        {
+            "default": false,
+            "description": "Build Java support",
+            "name": "java"
+        },
+        {
+            "default": false,
+            "description": "Do not remove mpirun/mpiexec when building with slurm",
+            "name": "legacylaunchers"
+        },
+        {
+            "default": false,
+            "description": "Lustre filesystem library support",
+            "name": "lustre"
+        },
+        {
+            "default": false,
+            "description": "Memchecker support for debugging [degrades performance]",
+            "name": "memchecker"
+        },
+        {
+            "default": false,
+            "description": "Enable building OpenSHMEM",
+            "name": "openshmem"
+        },
+        {
+            "default": false,
+            "description": "Prefix Open MPI to PATH and LD_LIBRARY_PATH on local and remote hosts",
+            "name": "orterunprefix"
+        },
+        {
+            "default": false,
+            "description": "Enable PMI support",
+            "name": "pmi"
+        },
+        {
+            "default": true,
+            "description": "Enable ROMIO support",
+            "name": "romio"
+        },
+        {
+            "default": "none",
+            "description": "Add the filesystem to romio",
+            "name": "romio-filesystem"
+        },
+        {
+            "default": true,
+            "description": "Enable rsh (openssh) process lifecycle management",
+            "name": "rsh"
+        },
+        {
+            "default": "none",
+            "description": "List of schedulers for which support is enabled; 'auto' lets openmpi determine",
+            "name": "schedulers"
+        },
+        {
+            "default": false,
+            "description": "Build deprecated support for the Singularity container",
+            "name": "singularity"
+        },
+        {
+            "default": false,
+            "description": "Build SQLite3 support",
+            "name": "sqlite3"
+        },
+        {
+            "default": false,
+            "description": "Build static libraries",
+            "name": "static"
+        },
+        {
+            "default": false,
+            "description": "Enable MPI_THREAD_MULTIPLE support",
+            "name": "thread_multiple"
+        },
+        {
+            "default": false,
+            "description": "Build shared libraries and programs\nbuilt with the mpicc/mpifort/etc. compiler wrappers\nwith '-Wl,-commons,use_dylibs' and without\n'-Wl,-flat_namespace'.",
+            "name": "two_level_namespace"
+        },
+        {
+            "default": true,
+            "description": "Build VampirTrace support",
+            "name": "vt"
+        },
+        {
+            "default": true,
+            "description": "Enable rpath support in the wrappers",
+            "name": "wrapper-rpath"
+        }
+    ],
+    "versions": [
+        {
+            "branch": "main",
+            "name": "main"
+        },
+        {
+            "name": "5.0.8",
+            "sha256": "53131e1a57e7270f645707f8b0b65ba56048f5b5ac3f68faabed3eb0d710e449"
+        },
+        {
+            "name": "5.0.7",
+            "sha256": "119f2009936a403334d0df3c0d74d5595a32d99497f9b1d41e90019fee2fc2dd"
+        },
+        {
+            "name": "5.0.6",
+            "sha256": "bd4183fcbc43477c254799b429df1a6e576c042e74a2d2f8b37d537b2ff98157"
+        },
+        {
+            "name": "5.0.5",
+            "sha256": "6588d57c0a4bd299a24103f4e196051b29e8b55fbda49e11d5b3d32030a32776"
+        },
+        {
+            "name": "5.0.4",
+            "sha256": "64526852cdd88b2d30e022087c16ab3e03806c451b10cd691d5c1ac887d8ef9d"
+        },
+        {
+            "name": "5.0.3",
+            "sha256": "990582f206b3ab32e938aa31bbf07c639368e4405dca196fabe7f0f76eeda90b"
+        },
+        {
+            "name": "5.0.2",
+            "sha256": "ee46ad8eeee2c3ff70772160bff877cbf38c330a0bc3b3ddc811648b3396698f"
+        },
+        {
+            "name": "5.0.1",
+            "sha256": "e357043e65fd1b956a47d0dae6156a90cf0e378df759364936c1781f1a25ef80"
+        },
+        {
+            "name": "5.0.0",
+            "sha256": "9d845ca94bc1aeb445f83d98d238cd08f6ec7ad0f73b0f79ec1668dbfdacd613"
+        },
+        {
+            "name": "4.1.8",
+            "sha256": "466f68e3132a1dc02710cc2011fafced8336d98359fa2dae4dddcfd5719f12a9"
+        },
+        {
+            "name": "4.1.7",
+            "sha256": "54a33cb7ad81ff0976f15a6cc8003c3922f0f3d8ceed14e1813ef3603f22cd34"
+        },
+        {
+            "name": "4.1.6",
+            "sha256": "f740994485516deb63b5311af122c265179f5328a0d857a567b85db00b11e415"
+        },
+        {
+            "name": "4.1.5",
+            "sha256": "a640986bc257389dd379886fdae6264c8cfa56bc98b71ce3ae3dfbd8ce61dbe3"
+        },
+        {
+            "name": "4.1.4",
+            "sha256": "92912e175fd1234368c8730c03f4996fe5942e7479bb1d10059405e7f2b3930d"
+        },
+        {
+            "name": "4.1.3",
+            "sha256": "3d81d04c54efb55d3871a465ffb098d8d72c1f48ff1cbaf2580eb058567c0a3b"
+        },
+        {
+            "name": "4.1.2",
+            "sha256": "9b78c7cf7fc32131c5cf43dd2ab9740149d9d87cadb2e2189f02685749a6b527"
+        },
+        {
+            "name": "4.1.1",
+            "sha256": "e24f7a778bd11a71ad0c14587a7f5b00e68a71aa5623e2157bafee3d44c07cda"
+        },
+        {
+            "name": "4.1.0",
+            "sha256": "73866fb77090819b6a8c85cb8539638d37d6877455825b74e289d647a39fd5b5"
+        },
+        {
+            "name": "4.0.7",
+            "sha256": "7d3ecc8389161eb721982c855f89c25dca289001577a01a439ae97ce872be997"
+        },
+        {
+            "name": "4.0.6",
+            "sha256": "94b7b59ae9860f3bd7b5f378a698713e7b957070fdff2c43453b6cbf8edb410c"
+        },
+        {
+            "name": "4.0.5",
+            "sha256": "c58f3863b61d944231077f344fe6b4b8fbb83f3d1bc93ab74640bf3e5acac009"
+        },
+        {
+            "name": "4.0.4",
+            "sha256": "47e24eb2223fe5d24438658958a313b6b7a55bb281563542e1afc9dec4a31ac4"
+        },
+        {
+            "name": "4.0.3",
+            "sha256": "1402feced8c3847b3ab8252165b90f7d1fa28c23b6b2ca4632b6e4971267fd03"
+        },
+        {
+            "name": "4.0.2",
+            "sha256": "900bf751be72eccf06de9d186f7b1c4b5c2fa9fa66458e53b77778dffdfe4057"
+        },
+        {
+            "name": "4.0.1",
+            "sha256": "cce7b6d20522849301727f81282201d609553103ac0b09162cf28d102efb9709"
+        },
+        {
+            "name": "4.0.0",
+            "sha256": "2f0b8a36cfeb7354b45dda3c5425ef8393c9b04115570b615213faaa3f97366b"
+        },
+        {
+            "name": "3.1.6",
+            "sha256": "50131d982ec2a516564d74d5616383178361c2f08fdd7d1202b80bdf66a0d279"
+        },
+        {
+            "name": "3.1.5",
+            "sha256": "fbf0075b4579685eec8d56d34d4d9c963e6667825548554f5bf308610af72133"
+        },
+        {
+            "name": "3.1.4",
+            "sha256": "17a69e0054db530c7dc119f75bd07d079efa147cf94bf27e590905864fe379d6"
+        },
+        {
+            "name": "3.1.3",
+            "sha256": "8be04307c00f51401d3fb9d837321781ea7c79f2a5a4a2e5d4eaedc874087ab6"
+        },
+        {
+            "name": "3.1.2",
+            "sha256": "c654ed847f34a278c52a15c98add40402b4a90f0c540779f1ae6c489af8a76c5"
+        },
+        {
+            "name": "3.1.1",
+            "sha256": "3f11b648dd18a8b878d057e9777f2c43bf78297751ad77ae2cef6db0fe80c77c"
+        },
+        {
+            "name": "3.1.0",
+            "sha256": "b25c044124cc859c0b4e6e825574f9439a51683af1950f6acda1951f5ccdf06c"
+        },
+        {
+            "name": "3.0.5",
+            "sha256": "f8976b95f305efc435aa70f906b82d50e335e34cffdbf5d78118a507b1c6efe8"
+        },
+        {
+            "name": "3.0.4",
+            "sha256": "2ff4db1d3e1860785295ab95b03a2c0f23420cda7c1ae845c419401508a3c7b5"
+        },
+        {
+            "name": "3.0.3",
+            "sha256": "fb228e42893fe6a912841a94cd8a0c06c517701ae505b73072409218a12cf066"
+        },
+        {
+            "name": "3.0.2",
+            "sha256": "d2eea2af48c1076c53cabac0a1f12272d7470729c4e1cb8b9c2ccd1985b2fb06"
+        },
+        {
+            "name": "3.0.1",
+            "sha256": "663450d1ee7838b03644507e8a76edfb1fba23e601e9e0b5b2a738e54acd785d"
+        },
+        {
+            "name": "3.0.0",
+            "sha256": "f699bff21db0125d8cccfe79518b77641cd83628725a1e1ed3e45633496a82d7"
+        },
+        {
+            "name": "2.1.6",
+            "sha256": "98b8e1b8597bbec586a0da79fcd54a405388190247aa04d48e8c40944d4ca86e"
+        },
+        {
+            "name": "2.1.5",
+            "sha256": "b807ccab801f27c3159a5edf29051cd3331d3792648919f9c4cee48e987e7794"
+        },
+        {
+            "name": "2.1.4",
+            "sha256": "3e03695ca8bd663bc2d89eda343c92bb3d4fc79126b178f5ddcb68a8796b24e2"
+        },
+        {
+            "name": "2.1.3",
+            "sha256": "285b3e2a69ed670415524474496043ecc61498f2c63feb48575f8469354d79e8"
+        },
+        {
+            "name": "2.1.2",
+            "sha256": "3cc5804984c5329bdf88effc44f2971ed244a29b256e0011b8deda02178dd635"
+        },
+        {
+            "name": "2.1.1",
+            "sha256": "bd7badd4ff3afa448c0d7f3ca0ee6ce003b957e9954aa87d8e4435759b5e4d16"
+        },
+        {
+            "name": "2.1.0",
+            "sha256": "b169e15f5af81bf3572db764417670f508c0df37ce86ff50deb56bd3acb43957"
+        },
+        {
+            "name": "2.0.4",
+            "sha256": "4f82d5f7f294becbd737319f74801206b08378188a95b70abe706fdc77a0c20b"
+        },
+        {
+            "name": "2.0.3",
+            "sha256": "b52c0204c0e5954c9c57d383bb22b4181c09934f97783292927394d29f2a808a"
+        },
+        {
+            "name": "2.0.2",
+            "sha256": "cae396e643f9f91f0a795f8d8694adf7bacfb16f967c22fb39e9e28d477730d3"
+        },
+        {
+            "name": "2.0.1",
+            "sha256": "fed74f4ae619b7ebcc18150bb5bdb65e273e14a8c094e78a3fea0df59b9ff8ff"
+        },
+        {
+            "name": "2.0.0",
+            "sha256": "08b64cf8e3e5f50a50b4e5655f2b83b54653787bd549b72607d9312be44c18e0"
+        },
+        {
+            "name": "1.10.7",
+            "sha256": "a089ece151fec974905caa35b0a59039b227bdea4e7933069e94bee4ed0e5a90"
+        },
+        {
+            "name": "1.10.6",
+            "sha256": "65606184a084a0eda6102b01e5a36a8f02d3195d15e91eabbb63e898bd110354"
+        },
+        {
+            "name": "1.10.5",
+            "sha256": "a95fa355ed3a905c7c187bc452529a9578e2d6bae2559d8197544ab4227b759e"
+        },
+        {
+            "name": "1.10.4",
+            "sha256": "fb3c0c4c77896185013b6091b306d29ba592eb40d8395533da5c8bc300d922db"
+        },
+        {
+            "name": "1.10.3",
+            "sha256": "7484bb664312082fd12edc2445b42362089b53b17fb5fce12efd4fe452cc254d"
+        },
+        {
+            "name": "1.10.2",
+            "sha256": "8846e7e69a203db8f50af90fa037f0ba47e3f32e4c9ccdae2db22898fd4d1f59"
+        },
+        {
+            "name": "1.10.1",
+            "sha256": "7919ecde15962bab2e26d01d5f5f4ead6696bbcacb504b8560f2e3a152bfe492"
+        },
+        {
+            "name": "1.10.0",
+            "sha256": "26b432ce8dcbad250a9787402f2c999ecb6c25695b00c9c6ee05a306c78b6490"
+        },
+        {
+            "name": "1.8.8",
+            "sha256": "a28382d1e6a36f4073412dc00836ff2524e42b674da9caf6ca7377baad790b94"
+        },
+        {
+            "name": "1.8.7",
+            "sha256": "da629e9bd820a379cfafe15f842ee9b628d7451856085ccc23ee75ab3e1b48c7"
+        },
+        {
+            "name": "1.8.6",
+            "sha256": "b9fe3bdfb86bd42cc53448e17f11278531b989b05ff9513bc88ba1a523f14e87"
+        },
+        {
+            "name": "1.8.5",
+            "sha256": "4cea06a9eddfa718b09b8240d934b14ca71670c2dc6e6251a585ce948a93fbc4"
+        },
+        {
+            "name": "1.8.4",
+            "sha256": "23158d916e92c80e2924016b746a93913ba7fae9fff51bf68d5c2a0ae39a2f8a"
+        },
+        {
+            "name": "1.8.3",
+            "sha256": "2ef02dab61febeb74714ff80d508c00b05defc635b391ed2c8dcc1791fbc88b3"
+        },
+        {
+            "name": "1.8.2",
+            "sha256": "ab70770faf1bac15ef44301fe2186b02f857646545492dd7331404e364a7d131"
+        },
+        {
+            "name": "1.8.1",
+            "sha256": "171427ebc007943265f33265ec32e15e786763952e2bfa2eac95e3e192c1e18f"
+        },
+        {
+            "name": "1.8",
+            "sha256": "35d5db86f49c0c64573b2eaf6d51c94ed8a06a9bb23dda475e602288f05e4ecf"
+        },
+        {
+            "name": "1.7.5",
+            "sha256": "cb3eef6880537d341d5d098511d390ec853716a6ec94007c03a0d1491b2ac8f2"
+        },
+        {
+            "name": "1.7.4",
+            "sha256": "ff8e31046c5bacfc6202d67f2479731ccd8542cdd628583ae75874000975f45c"
+        },
+        {
+            "name": "1.7.3",
+            "sha256": "438d96c178dbf5a1bc92fa1d238a8225d87b64af26ce2a07789faaf312117e45"
+        },
+        {
+            "name": "1.7.2",
+            "sha256": "82a1c477dcadad2032ab24d9be9e39c1042865965841911f072c49aa3544fd85"
+        },
+        {
+            "name": "1.7.1",
+            "sha256": "554583008fa34ecdfaca22e46917cc3457a69cba08c29ebbf53eef4f4b8be171"
+        },
+        {
+            "name": "1.7",
+            "sha256": "542e44aaef6546798c0d39c0fd849e9fbcd04a762f0ab100638499643253a513"
+        },
+        {
+            "name": "1.6.5",
+            "sha256": "fe37bab89b5ef234e0ac82dc798282c2ab08900bf564a1ec27239d3f1ad1fc85"
+        },
+        {
+            "name": "1.6.4",
+            "sha256": "40cb113a27d76e1e915897661579f413564c032dc6e703073e6a03faba8093fa"
+        },
+        {
+            "name": "1.6.3",
+            "sha256": "0c30cfec0e420870630fdc101ffd82f7eccc90276bc4e182f8282a2448668798"
+        },
+        {
+            "name": "1.6.2",
+            "sha256": "5cc7744c6cc4ec2c04bc76c8b12717c4011822a2bd7236f2ea511f09579a714a"
+        },
+        {
+            "name": "1.6.1",
+            "sha256": "077240dd1ab10f0caf26931e585db73848e9815c7119b993f91d269da5901e3a"
+        },
+        {
+            "name": "1.6",
+            "sha256": "6e0d8b336543fb9ab78c97d364484923167857d30b266dfde1ccf60f356b9e0e"
+        },
+        {
+            "name": "1.5.5",
+            "sha256": "660e6e49315185f88a87b6eae3d292b81774eab7b29a9b058b10eb35d892ff23"
+        },
+        {
+            "name": "1.5.4",
+            "sha256": "81126a95a51b8af4bb0ad28790f852c30d22d989713ec30ad22e9e0a79587ef6"
+        },
+        {
+            "name": "1.5.3",
+            "sha256": "70745806cdbe9b945d47d9fa058f99e072328e41e40c0ced6dd75220885c5263"
+        },
+        {
+            "name": "1.5.2",
+            "sha256": "7123b781a9fd21cc79870e7fe01e9c0d3f36935c444922661e24af523b116ab1"
+        },
+        {
+            "name": "1.5.1",
+            "sha256": "c28bb0bd367ceeec08f739d815988fca54fc4818762e6abcaa6cfedd6fd52274"
+        },
+        {
+            "name": "1.5",
+            "sha256": "1882b1414a94917ec26b3733bf59da6b6db82bf65b5affd7f0fcbd96efaca506"
+        },
+        {
+            "name": "1.4.5",
+            "sha256": "a3857bc69b7d5258cf7fc1ed1581d9ac69110f5c17976b949cb7ec789aae462d"
+        },
+        {
+            "name": "1.4.4",
+            "sha256": "9ad125304a89232d5b04da251f463fdbd8dcd997450084ba4227e7f7a095c3ed"
+        },
+        {
+            "name": "1.4.3",
+            "sha256": "220b72b1c7ee35469ff74b4cfdbec457158ac6894635143a33e9178aa3981015"
+        },
+        {
+            "name": "1.4.2",
+            "sha256": "19129e3d51860ad0a7497ede11563908ba99c76b3a51a4d0b8801f7e2db6cd80"
+        },
+        {
+            "name": "1.4.1",
+            "sha256": "d4d71d7c670d710d2d283ea60af50d6c315318a4c35ec576bedfd0f3b7b8c218"
+        },
+        {
+            "name": "1.4",
+            "sha256": "fa55edef1bd8af256e459d4d9782516c6998b9d4698eda097d5df33ae499858e"
+        },
+        {
+            "name": "1.3.4",
+            "sha256": "fbfe4b99b0c98f81a4d871d02f874f84ea66efcbb098f6ad84ebd19353b681fc"
+        },
+        {
+            "name": "1.3.3",
+            "sha256": "e1425853282da9237f5b41330207e54da1dc803a2e19a93dacc3eca1d083e422"
+        },
+        {
+            "name": "1.3.2",
+            "sha256": "c93ed90962d879a2923bed17171ed9217036ee1279ffab0925ea7eead26105d8"
+        },
+        {
+            "name": "1.3.1",
+            "sha256": "22d18919ddc5f49d55d7d63e2abfcdac34aa0234427e861e296a630c6c11632c"
+        },
+        {
+            "name": "1.3",
+            "sha256": "864706d88d28b586a045461a828962c108f5912671071bc3ef0ca187f115e47b"
+        },
+        {
+            "name": "1.2.9",
+            "sha256": "0eb36abe09ba7bf6f7a70255974e5d0a273f7f32d0e23419862c6dcc986f1dff"
+        },
+        {
+            "name": "1.2.8",
+            "sha256": "75b286cb3b1bf6528a7e64ee019369e0601b8acb5c3c167a987f755d1e41c95c"
+        },
+        {
+            "name": "1.2.7",
+            "sha256": "d66c7f0bb11494023451651d0e61afaef9d2199ed9a91ed08f0dedeb51541c36"
+        },
+        {
+            "name": "1.2.6",
+            "sha256": "e5b27af5a153a257b1562a97bbf7164629161033934558cefd8e1e644a9f73d3"
+        },
+        {
+            "name": "1.2.5",
+            "sha256": "3c3aed872c17165131c77bd7a12fe8aec776cb23da946b7d12840db93ab79322"
+        },
+        {
+            "name": "1.2.4",
+            "sha256": "594a3a0af69cc7895e0d8f9add776a44bf9ed389794323d0b1b45e181a97e538"
+        },
+        {
+            "name": "1.2.3",
+            "sha256": "f936ca3a197e5b2d1a233b7d546adf07898127683b03c4b37cf31ae22a6f69bb"
+        },
+        {
+            "name": "1.2.2",
+            "sha256": "aa763e0e6a6f5fdff8f9d3fc988a4ba0ed902132d292c85aef392cc65bb524e6"
+        },
+        {
+            "name": "1.2.1",
+            "sha256": "a94731d84fb998df33960e0b57ea5661d35e7c7cd9d03d900f0b6a5a72e4546c"
+        },
+        {
+            "name": "1.2",
+            "sha256": "ba0bfa3dec2ead38a3ed682ca36a0448617b8e29191ab3f48c9d0d24d87d14c0"
+        },
+        {
+            "name": "1.1.5",
+            "sha256": "913deaedf3498bd5d06299238ec4d048eb7af9c3afd8e32c12f4257c8b698a91"
+        },
+        {
+            "name": "1.1.4",
+            "sha256": "21c37f85df7e959f17cc7cb5571d8db2a94ed2763e3e96e5d052aff2725c1d18"
+        },
+        {
+            "name": "1.1.3",
+            "sha256": "c33f8f5e65cfe872173616cca27ae8dc6d93ea66e0708118b9229128aecc174f"
+        },
+        {
+            "name": "1.1.2",
+            "sha256": "3bd8d9fe40b356be7f9c3d336013d3865f8ca6a79b3c6e7ef28784f6c3a2b8e6"
+        },
+        {
+            "name": "1.1.1",
+            "sha256": "dc31aaec986c4ce436dbf31e73275ed1a9391432dcad7609de8d0d3a78d2c700"
+        },
+        {
+            "name": "1.1",
+            "sha256": "ebe14801d2caeeaf47b0e437b43f73668b711f4d3fcff50a0d665d4bd4ea9531"
+        },
+        {
+            "name": "1.0.2",
+            "sha256": "ccd1074d7dd9566b73812d9882c84e446a8f4c77b6f471d386d3e3b9467767b8"
+        },
+        {
+            "name": "1.0.1",
+            "sha256": "f801b7c8ea6c485ac0709a628a479aeafa718a205ed6bc0cf2c684bc0cc73253"
+        },
+        {
+            "name": "1.0",
+            "sha256": "cf75e56852caebe90231d295806ac3441f37dc6d9ad17b1381791ebb78e21564"
+        }
+    ],
+    "versions_deprecated": []
+}

@@ -1,0 +1,87 @@
+{
+    "aliases": [],
+    "build_system": "MakefilePackage",
+    "conflicts": [
+        {
+            "description": null,
+            "name": "amdgpu_target=none",
+            "spec": "+rocm"
+        },
+        {
+            "description": null,
+            "name": "arch=windows-None-None",
+            "spec": "build_system=makefile"
+        }
+    ],
+    "dependencies": [
+        {
+            "description": "The NVIDIA HPC SDK is a comprehensive suite of compilers, libraries and\ntools essential to maximizing developer productivity and the performance\nand portability of HPC applications. The NVIDIA HPC SDK C, C++, and\nFortran compilers support GPU acceleration of HPC modeling and\nsimulation applications with standard C++ and Fortran, OpenACC\ndirectives, and CUDA. GPU-accelerated math libraries maximize\nperformance on common HPC algorithms, and optimized communications\nlibraries enable standards-based multi-GPU and scalable systems\nprogramming. Performance profiling and debugging tools simplify porting\nand optimization of HPC applications.",
+            "name": "cxx"
+        },
+        {
+            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files.",
+            "name": "gmake"
+        },
+        {
+            "description": "HIP is a C++ Runtime API and Kernel Language that allows developers to\ncreate portable applications for AMD and NVIDIA GPUs from single source\ncode.",
+            "name": "hip"
+        },
+        {
+            "description": "This repository includes the user mode API nterfaces and libraries\nnecessary for host applications to launch computer kernels to available\nHSA ROCm kernel agents.AMD Heterogeneous System Architecture HSA - Linux\nHSA Runtime for Boltzmann (ROCm) platforms.",
+            "name": "hsa-rocr-dev"
+        },
+        {
+            "description": "Toolkit for the construction of highly optimized compilers, optimizers,\nand run-time environments.",
+            "name": "llvm-amdgpu"
+        }
+    ],
+    "dependent_to": [
+        {
+            "description": "LBANN: Livermore Big Artificial Neural Network Toolkit. A distributed\nmemory, HPC-optimized, model and data parallel training toolkit for deep\nneural networks.",
+            "name": "lbann"
+        }
+    ],
+    "description": "hipTT - Fast GPU Tensor Transpose for NVIDIA and AMD GPU.\n",
+    "homepage": "https://github.com/DmitryLyakh/hipTT",
+    "latest_version": "master",
+    "maintainers": [
+        "bvanessen"
+    ],
+    "name": "hiptt",
+    "patches": [
+        {
+            "level": 1,
+            "owner": "builtin.hiptt",
+            "relative_path": "bugfix_make.patch",
+            "reverse": false,
+            "sha256": "91e571b8ac73c2cb90d5a06add769ebd838bc9221fd583e89e159b0569b8e1fa",
+            "version": "",
+            "working_dir": "."
+        }
+    ],
+    "resources": [],
+    "variants": [
+        {
+            "default": "none",
+            "description": "AMD GPU architecture",
+            "name": "amdgpu_target"
+        },
+        {
+            "default": "makefile",
+            "description": "Build systems supported by the package",
+            "name": "build_system"
+        },
+        {
+            "default": false,
+            "description": "Enable ROCm support",
+            "name": "rocm"
+        }
+    ],
+    "versions": [
+        {
+            "branch": "master",
+            "name": "master"
+        }
+    ],
+    "versions_deprecated": []
+}
