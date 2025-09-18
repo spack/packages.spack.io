@@ -30,7 +30,6 @@
       query: '',
       packages: [],
       more_results: false,
-      case_sensitive: true,
 
       init() {
         this.loadPackages();
@@ -50,8 +49,7 @@
         }
 
         try {
-          if (this.case_sensitive) flags = ""; else flags = "i";
-          const regex = RegExp(this.query, flags);
+          const regex = RegExp(this.query, "i");
           const results = this.packages.filter(pkg => {
             return regex.test(pkg.name);
           })
@@ -115,10 +113,6 @@
       <div class="bg-primary border-l-4 border-secondary flex flex-col gap-8 p-8 rounded">
         <div class="form-control">
           <input type="text" id="search-box" placeholder="Search" autofocus autocapitalize="off" class="input input-bordered input-lg w-full" x-model="query">
-      </div>
-        <div id="search-options" class="text-gray-300">
-          <input type="checkbox" id="case_sensitive" x-model="case_sensitive">
-          <label for="case_sensitive">Case Sensitive</label>
         </div>
       </div>
 
