@@ -49,7 +49,7 @@
         }
 
         try {
-          const regex = RegExp(this.query);
+          const regex = RegExp(this.query, "i");
           const results = this.packages.filter(pkg => {
             return regex.test(pkg.name);
           })
@@ -112,7 +112,7 @@
       <!-- Search Box -->
       <div class="bg-primary border-l-4 border-secondary flex flex-col gap-8 p-8 rounded">
         <div class="form-control">
-          <input type="text" id="search-box" placeholder="Search" autofocus class="input input-bordered input-lg w-full" x-model="query">
+          <input type="text" id="search-box" placeholder="Search" autofocus autocapitalize="off" class="input input-bordered input-lg w-full" x-model="query">
         </div>
       </div>
 
