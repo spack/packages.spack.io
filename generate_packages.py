@@ -36,7 +36,7 @@ def write_json(content, filename):
 
 def main():
 
-    pkgs = spack.repo.all_package_names(include_virtuals=True)
+    pkgs = spack.repo.PATH.all_package_names(include_virtuals=True)
     deps_of = {}
     descriptions = {}
     metas = {}
