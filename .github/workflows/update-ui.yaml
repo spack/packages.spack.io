@@ -13,7 +13,9 @@ jobs:
     - name: Checkout Repository
       uses: actions/checkout@v4
     - name: Clone development branch of spack
-      run: git clone https://github.com/spack/spack /opt/spack
+      run: |
+        git clone https://github.com/spack/spack /opt/spack
+        git -C /opt/spack reset --hard e2c5745352ebc0465ebc8d548e60759f05173c83  # Jul 28, 2026
     - name: Run update script
       run: |
          export PATH=/opt/spack/bin:$PATH
