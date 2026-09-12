@@ -1,0 +1,513 @@
+{
+    "aliases": [],
+    "build_system": "CMakePackage",
+    "conflicts": [
+        {
+            "description": "timemory: +python require tls_model=global-dynamic",
+            "name": "tls_model=initial-exec",
+            "spec": "+python"
+        },
+        {
+            "description": "timemory: +python require tls_model=global-dynamic",
+            "name": "tls_model=local-dynamic",
+            "spec": "+python"
+        },
+        {
+            "description": "timemory: +python require tls_model=global-dynamic",
+            "name": "tls_model=local-exec",
+            "spec": "+python"
+        },
+        {
+            "description": "timemory: Python bindings cannot be be linked to static libs w/o +pic",
+            "name": "~pic",
+            "spec": "+python~shared+static"
+        },
+        {
+            "description": "timemory: CUPTI requires CUDA",
+            "name": "+cupti",
+            "spec": "~cuda"
+        },
+        {
+            "description": "timemory: +mpip_library requires +gotcha",
+            "name": "+mpip_library",
+            "spec": "~gotcha"
+        },
+        {
+            "description": "timemory: +nccl requires +gotcha",
+            "name": "+nccl",
+            "spec": "~gotcha"
+        },
+        {
+            "description": "timemory: +kokkos_build_config requires +tools+kokkos_tools",
+            "name": "+kokkos_build_config",
+            "spec": "~kokkos_tools~tools"
+        },
+        {
+            "description": "timemory: +likwid_nvmon requires +likwid",
+            "name": "+likwid_nvmon",
+            "spec": "~likwid"
+        },
+        {
+            "description": "timemory: +mpip_library requires +mpi",
+            "name": "+mpip_library",
+            "spec": "~mpi"
+        },
+        {
+            "description": "timemory: +ompt_library requires +ompt",
+            "name": "+ompt_library",
+            "spec": "~ompt"
+        },
+        {
+            "description": null,
+            "name": "+python_deps",
+            "spec": "~python"
+        },
+        {
+            "description": "timemory: +mpip_library requires building shared or static libraries",
+            "name": "+mpip_library",
+            "spec": "~shared~static"
+        },
+        {
+            "description": "timemory: +nccl requires building shared or static libraries",
+            "name": "+nccl",
+            "spec": "~shared~static"
+        },
+        {
+            "description": "timemory: +ompt_library requires building shared or static libraries",
+            "name": "+ompt_library",
+            "spec": "~shared~static"
+        },
+        {
+            "description": "timemory: +python requires building shared or static libraries",
+            "name": "+python",
+            "spec": "~shared~static"
+        },
+        {
+            "description": "timemory: +kokkos_tools requires +tools",
+            "name": "+kokkos_tools",
+            "spec": "~tools"
+        }
+    ],
+    "dependencies": [
+        {
+            "description": "Arm Forge is the complete toolsuite for software development - with\neverything needed to debug, profile, optimize, edit and build C, C++ and\nFortran applications on Linux for high performance - from single threads\nthrough to complex parallel HPC codes with MPI, OpenMP, threads or CUDA.",
+            "name": "arm-forge"
+        },
+        {
+            "description": "The NVIDIA HPC SDK is a comprehensive suite of compilers, libraries and\ntools essential to maximizing developer productivity and the performance\nand portability of HPC applications. The NVIDIA HPC SDK C, C++, and\nFortran compilers support GPU acceleration of HPC modeling and\nsimulation applications with standard C++ and Fortran, OpenACC\ndirectives, and CUDA. GPU-accelerated math libraries maximize\nperformance on common HPC algorithms, and optimized communications\nlibraries enable standards-based multi-GPU and scalable systems\nprogramming. Performance profiling and debugging tools simplify porting\nand optimization of HPC applications.",
+            "name": "c"
+        },
+        {
+            "description": "Caliper is a program instrumentation and performance measurement\nframework. It is designed as a performance analysis toolbox in a\nlibrary, allowing one to bake performance analysis capabilities directly\ninto applications and activate them at runtime.",
+            "name": "caliper"
+        },
+        {
+            "description": "A cross-platform, open-source build system. CMake is a family of tools\ndesigned to build, test and package software.",
+            "name": "cmake"
+        },
+        {
+            "description": "CUDA is a parallel computing platform and programming model invented by\nNVIDIA. It enables dramatic increases in computing performance by\nharnessing the power of the graphics processing unit (GPU). Note: This\npackage does not currently install the drivers necessary to run CUDA.\nThese will need to be installed manually. See:\nhttps://docs.nvidia.com/cuda/ for details.",
+            "name": "cuda"
+        },
+        {
+            "description": "The NVIDIA HPC SDK is a comprehensive suite of compilers, libraries and\ntools essential to maximizing developer productivity and the performance\nand portability of HPC applications. The NVIDIA HPC SDK C, C++, and\nFortran compilers support GPU acceleration of HPC modeling and\nsimulation applications with standard C++ and Fortran, OpenACC\ndirectives, and CUDA. GPU-accelerated math libraries maximize\nperformance on common HPC algorithms, and optimized communications\nlibraries enable standards-based multi-GPU and scalable systems\nprogramming. Performance profiling and debugging tools simplify porting\nand optimization of HPC applications.",
+            "name": "cxx"
+        },
+        {
+            "description": "API for dynamic binary instrumentation. Modify programs while they are\nexecuting without recompiling, re-linking, or re-executing.",
+            "name": "dyninst"
+        },
+        {
+            "description": "The NVIDIA HPC SDK is a comprehensive suite of compilers, libraries and\ntools essential to maximizing developer productivity and the performance\nand portability of HPC applications. The NVIDIA HPC SDK C, C++, and\nFortran compilers support GPU acceleration of HPC modeling and\nsimulation applications with standard C++ and Fortran, OpenACC\ndirectives, and CUDA. GPU-accelerated math libraries maximize\nperformance on common HPC algorithms, and optimized communications\nlibraries enable standards-based multi-GPU and scalable systems\nprogramming. Performance profiling and debugging tools simplify porting\nand optimization of HPC applications.",
+            "name": "fortran"
+        },
+        {
+            "description": "GNU Make is a tool which controls the generation of executables and\nother non-source files of a program from the program's source files.",
+            "name": "gmake"
+        },
+        {
+            "description": "C software library for shared library function wrapping, enables tools\nto intercept calls into shared libraries",
+            "name": "gotcha"
+        },
+        {
+            "description": "Google's fast malloc/free implementation, especially for multi-threaded\napplications. Contains tcmalloc, heap-checker, heap-profiler, and cpu-\nprofiler.",
+            "name": "gperftools"
+        },
+        {
+            "description": "Intel VTune Profiler is a profiler to optimize application performance,\nsystem performance, and system configuration for HPC, cloud, IoT, media,\nstorage, and more. CPU, GPU, and FPGA: Tune the entire application's\nperformance--not just the accelerated portion. Multilingual: Profile\nSYCL, C, C++, C#, Fortran, OpenCL code, Python, Google Go programming\nlanguage, Java, .NET, Assembly, or any combination of languages. System\nor Application: Get coarse-grained system data for an extended period or\ndetailed results mapped to source code. Power: Optimize performance\nwhile avoiding power and thermal-related throttling. LICENSE\nINFORMATION: By downloading and using this software, you agree to the\nterms and conditions of the software license agreements at\nhttps://intel.ly/393CijO.",
+            "name": "intel-oneapi-vtune"
+        },
+        {
+            "description": "Likwid is a simple to install and use toolsuite of command line\napplications for performance oriented programmers. It works for Intel\nand AMD processors on the Linux operating system. This version uses the\nperf_event backend which reduces the feature set but allows user\ninstalls. See https://github.com/RRZE-\nHPC/likwid/wiki/TutorialLikwidPerf#feature-limitations for information.",
+            "name": "likwid"
+        },
+        {
+            "description": "IBM MPI implementation from Spectrum MPI.",
+            "name": "mpi"
+        },
+        {
+            "description": "Optimized primitives for collective multi-GPU communication.",
+            "name": "nccl"
+        },
+        {
+            "description": "Ninja is a small build system with a focus on speed. It differs from\nother build systems in two major respects: it is designed to have its\ninput files generated by a higher-level build system, and it is designed\nto run builds as fast as possible.",
+            "name": "ninja"
+        },
+        {
+            "description": "PAPI provides the tool designer and application engineer with a\nconsistent interface and methodology for use of the performance counter\nhardware found in most major microprocessors. PAPI enables software\nengineers to see, in near real time, the relation between software\nperformance and processor events. In addition Component PAPI provides\naccess to a collection of components that expose performance measurement\nopportunities across the hardware and software stack.",
+            "name": "papi"
+        },
+        {
+            "description": "Pillow-SIMD is a SIMD-enabled fork of Pillow. It is usually 4-6x faster\nthan the original Pillow in image processing benchmarks.",
+            "name": "pil"
+        },
+        {
+            "description": "The Cython compiler for writing C extensions for the Python language.",
+            "name": "py-cython"
+        },
+        {
+            "description": "Hatchet is a performance tool for analyzing hierarchical performance\ndata using a graph-indexed Pandas dataframe.",
+            "name": "py-hatchet"
+        },
+        {
+            "description": "Matplotlib is a comprehensive library for creating static, animated, and\ninteractive visualizations in Python.",
+            "name": "py-matplotlib"
+        },
+        {
+            "description": "This package provides Python bindings for the Message Passing Interface\n(MPI) standard. It is implemented on top of the MPI-1/MPI-2\nspecification and exposes an API which grounds on the standard MPI-2 C++\nbindings.",
+            "name": "py-mpi4py"
+        },
+        {
+            "description": "Better multiprocessing and multithreading in Python",
+            "name": "py-multiprocess"
+        },
+        {
+            "description": "Fundamental package for array computing in Python.",
+            "name": "py-numpy"
+        },
+        {
+            "description": "pandas is a fast, powerful, flexible and easy to use open source data\nanalysis and manipulation tool, built on top of the Python programming\nlanguage.",
+            "name": "py-pandas"
+        },
+        {
+            "description": "Python interface to Graphviz's Dot language",
+            "name": "py-pydot"
+        },
+        {
+            "description": "PyYAML is a YAML parser and emitter for Python.",
+            "name": "py-pyyaml"
+        },
+        {
+            "description": "The Python programming language.",
+            "name": "python"
+        },
+        {
+            "description": "A Spack managed Python virtual environment",
+            "name": "python-venv"
+        },
+        {
+            "description": "A portable profiling and tracing toolkit for performance analysis of\nparallel programs written in Fortran, C, C++, UPC, Java, Python.",
+            "name": "tau"
+        },
+        {
+            "description": "UPC++ is a C++ library that supports Partitioned Global Address Space\n(PGAS) programming, and is designed to interoperate smoothly and\nefficiently with MPI, OpenMP, CUDA, ROCm/HIP and AMTs. It leverages\nGASNet-EX to deliver low-overhead, fine-grained communication, including\nRemote Memory Access (RMA) and Remote Procedure Call (RPC).",
+            "name": "upcxx"
+        }
+    ],
+    "dependent_to": [
+        {
+            "description": "Geant4 is a toolkit for the simulation of the passage of particles\nthrough matter. Its areas of application include high energy, nuclear\nand accelerator physics, as well as studies in medical and space\nscience.",
+            "name": "geant4"
+        }
+    ],
+    "description": "Modular profiling toolkit and suite of libraries and tools for\nC/C++/Fortran/CUDA/Python\n",
+    "homepage": "https://timemory.readthedocs.io/en/latest/",
+    "latest_version": "3.2.3",
+    "maintainers": [
+        "jrmadsen"
+    ],
+    "name": "timemory",
+    "patches": [],
+    "resources": [],
+    "variants": [
+        {
+            "default": false,
+            "description": "Enable Allinea ARM-MAP support",
+            "name": "allinea_map"
+        },
+        {
+            "default": "cmake",
+            "description": "Build systems supported by the package",
+            "name": "build_system"
+        },
+        {
+            "default": "Release",
+            "description": "CMake build type",
+            "name": "build_type"
+        },
+        {
+            "default": false,
+            "description": "Enable Caliper support",
+            "name": "caliper"
+        },
+        {
+            "default": true,
+            "description": "Enable compiler instrumentation support",
+            "name": "compiler"
+        },
+        {
+            "default": "auto",
+            "description": "Build for specific cpu architecture (specify cpu-model)",
+            "name": "cpu_target"
+        },
+        {
+            "default": false,
+            "description": "Enable CUDA support",
+            "name": "cuda"
+        },
+        {
+            "default": "auto",
+            "description": "CUDA architecture name",
+            "name": "cuda_arch"
+        },
+        {
+            "default": "14",
+            "description": "CUDA language standard",
+            "name": "cudastd"
+        },
+        {
+            "default": false,
+            "description": "Enable CUPTI support",
+            "name": "cupti"
+        },
+        {
+            "default": "14",
+            "description": "C++ language standard",
+            "name": "cxxstd"
+        },
+        {
+            "default": false,
+            "description": "Build dynamic instrumentation tools",
+            "name": "dyninst"
+        },
+        {
+            "default": true,
+            "description": "Enable extern templates for empirical roofline toolkit (ERT)",
+            "name": "ert"
+        },
+        {
+            "default": false,
+            "description": "Build/install examples",
+            "name": "examples"
+        },
+        {
+            "default": true,
+            "description": "Build timemory with extra optimization flags",
+            "name": "extra_optimizations"
+        },
+        {
+            "default": "make",
+            "description": "the build system generator to use",
+            "name": "generator"
+        },
+        {
+            "default": false,
+            "description": "Enable GOTCHA support",
+            "name": "gotcha"
+        },
+        {
+            "default": false,
+            "description": "Enable gperftools support",
+            "name": "gperftools"
+        },
+        {
+            "default": true,
+            "description": "Install cmake configuration files",
+            "name": "install_config"
+        },
+        {
+            "default": true,
+            "description": "Install headers",
+            "name": "install_headers"
+        },
+        {
+            "default": false,
+            "description": "CMake interprocedural optimization",
+            "name": "ipo"
+        },
+        {
+            "default": false,
+            "description": "Build pre-configured (i.e. dedicated) kokkos-tools libraries, e.g. kp_timemory_cpu_flops",
+            "name": "kokkos_build_config"
+        },
+        {
+            "default": false,
+            "description": "Build generic kokkos-tools libraries, e.g. kp_timemory, kp_timemory_filter",
+            "name": "kokkos_tools"
+        },
+        {
+            "default": false,
+            "description": "Enable LIKWID CPU marker API support (perfmon)",
+            "name": "likwid"
+        },
+        {
+            "default": false,
+            "description": "Enable LIKWID GPU marker API support (nvmon)",
+            "name": "likwid_nvmon"
+        },
+        {
+            "default": false,
+            "description": "Build with link-time optimization",
+            "name": "lto"
+        },
+        {
+            "default": false,
+            "description": "Enable support for MPI aggregation",
+            "name": "mpi"
+        },
+        {
+            "default": false,
+            "description": "Build stand-alone timemory-mpip GOTCHA library",
+            "name": "mpip_library"
+        },
+        {
+            "default": false,
+            "description": "Enable support for wrapping NCCL functions",
+            "name": "nccl"
+        },
+        {
+            "default": false,
+            "description": "Enable OpenMP tools support",
+            "name": "ompt"
+        },
+        {
+            "default": false,
+            "description": "Build stand-alone timemory-ompt library",
+            "name": "ompt_library"
+        },
+        {
+            "default": false,
+            "description": "Enable PAPI support",
+            "name": "papi"
+        },
+        {
+            "default": true,
+            "description": "Build position independent code",
+            "name": "pic"
+        },
+        {
+            "default": false,
+            "description": "Enable Python support",
+            "name": "python"
+        },
+        {
+            "default": false,
+            "description": "Install non-critical python dependencies (may significantly increase spack install time)",
+            "name": "python_deps"
+        },
+        {
+            "default": false,
+            "description": "Build Python hatchet submodule (does not conflict with py-hatchet)",
+            "name": "python_hatchet"
+        },
+        {
+            "default": false,
+            "description": "Build timemorys extended version of py-line-profiler (does not conflict with py-line-profiler)",
+            "name": "python_line_profiler"
+        },
+        {
+            "default": true,
+            "description": "find_package(...) resulting in NOTFOUND generates error",
+            "name": "require_packages"
+        },
+        {
+            "default": true,
+            "description": "Build shared libraries",
+            "name": "shared"
+        },
+        {
+            "default": false,
+            "description": "Build static libraries",
+            "name": "static"
+        },
+        {
+            "default": true,
+            "description": "Build components w/ support for statistics (min/max/stddev)",
+            "name": "statistics"
+        },
+        {
+            "default": false,
+            "description": "Enable TAU support",
+            "name": "tau"
+        },
+        {
+            "default": "global-dynamic",
+            "description": "Thread-local static model",
+            "name": "tls_model"
+        },
+        {
+            "default": true,
+            "description": "Build/install extra tools",
+            "name": "tools"
+        },
+        {
+            "default": true,
+            "description": "Build with CMAKE_UNITY_BUILD=ON for faster builds but larger memory consumption",
+            "name": "unity_build"
+        },
+        {
+            "default": false,
+            "description": "Enable UPC++ support",
+            "name": "upcxx"
+        },
+        {
+            "default": false,
+            "description": "Build all of timemory w/ cpu_target architecture flags (default: roofline toolkit only)",
+            "name": "use_arch"
+        },
+        {
+            "default": false,
+            "description": "Enable VTune support",
+            "name": "vtune"
+        }
+    ],
+    "versions": [
+        {
+            "branch": "develop",
+            "name": "develop"
+        },
+        {
+            "branch": "master",
+            "name": "master"
+        },
+        {
+            "commit": "d535e478646e331a4c65cfd8c8f759c9a363ccc9",
+            "name": "3.2.3"
+        },
+        {
+            "commit": "4725f4e4a3eea3b80b50a01ea088b5d5a1cf40ab",
+            "name": "3.2.2"
+        },
+        {
+            "commit": "76ff978d9b1568b7f88a3de82bb84a2042003630",
+            "name": "3.2.1"
+        },
+        {
+            "commit": "2bdd28e87224558060e27da90f9b6fcfb20dd324",
+            "name": "3.2.0"
+        },
+        {
+            "commit": "b12de7eeed699d820693fecd6136daff744f21b6",
+            "name": "3.1.0"
+        },
+        {
+            "commit": "ef638e1cde90275ce7c0e12fc4902c27bcbdeefd",
+            "name": "3.0.1"
+        },
+        {
+            "commit": "b36b1673b2c6b7ff3126d8261bef0f8f176c7beb",
+            "name": "3.0.0"
+        }
+    ],
+    "versions_deprecated": []
+}
